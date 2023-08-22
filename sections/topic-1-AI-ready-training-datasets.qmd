@@ -1,0 +1,3 @@
+# Design principles for an AI-ready training dataset
+
+Example of citation: @knuth84.
