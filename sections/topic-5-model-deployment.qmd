@@ -1,1 +1,12 @@
 # Arctic-AI model deployment for on-demand or batch prediction
+
+## Synopsis 
+Review workflows explored by active efforts, such as the PDG, to automate data staging, model training, model inference executions, result post-processing for AI models using both HPC and cloud computing resources (e.g., NSF XSEDE, Amazon Web Services, Google Container Platform, Microsoft AI for Earth), and derived data product sharing and usage. Details will include deployment platforms, user facing scientific gateways, parallelization techniques, approaches to big data processing, and model maintenance.
+
+## Learning outcome 
+Trainees will gain knowledge and skills to transform an AI model into a service using public or private cloud for on-demand prediction service or batch prediction processing.
+
+## NSF-funded and other open-source CI tools
+For example, PDG, XSEDE, Clowder, Parsl
+
+![](/images/topic-5/pdg_logo.jpg){fig-align="center"}

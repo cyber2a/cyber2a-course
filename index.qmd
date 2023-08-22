@@ -1,5 +1,9 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+Based on the team’s intensive research and training efforts in AI for Arctic Science, we will develop our training curriculum to address three questions: 
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+(1) What are the “must-know” topics in AI to help trainees that have little computer science and computing knowledge to quickly grasp the essence of AI and “AI thinking”? 
+(2) What is the best way to offer training so AI beginners can get hands-on AI experience and prepare for using and developing AI models to solve real-world research problems? and 
+(3) How does one best address Arctic science-specific issues (e.g., identification of spatiotemporal autocorrelation and location-awareness) for the effective AI modeling of geophysical phenomena?
+
+![](/images/index/arcticlogo.png){fig-align="center"}

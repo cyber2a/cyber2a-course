@@ -1,2 +1,12 @@
 # AI workflow validation, verification, and troubleshooting
 
+## Synopsis
+Introduce AI model configuration for training (e.g., hyperparameters) and review strategies to conduct real-time monitoring of model performance to (1) detect abnormal model behaviors (e.g., overfitting, model failing to converge), (2) validate model effectiveness (e.g., through cross-validation), and (3) check model robustness (e.g., ability to cope with anomalies and inevitable data noise).
+
+## Learning outcome
+Trainees will be able to assemble an AI model, fit the data to the model input and configure the model output to meet research problem needs. They will also be able to verify the model and conduct troubleshooting to make sure the model works correctly.
+
+## AI tools 
+Tensorboard (an open-source model performance monitoring tool)
+
+![Source: https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html](/images/topic-3/tensorboard_dev.png)

@@ -1,1 +1,12 @@
 # Model explainability and scientific soundness
+
+## Synopsis
+Introduce the black box nature of AI models, the importance of interpretability and transparency of AI models (e.g., safety, security, and bias in models and datasets) and methods proposed to explain or reveal the ways that AI models make decisions. 
+
+## Learning outcome 
+Trainees will be able to use different methods of interpretation to jointly analyze and reveal what AI has learned, and whether it is consistent with existing scientific theories and knowledge.
+
+## AI tools
+Zetane viewer (an open-source AI model explanation tool)
+
+![Source: https://zetane.com/gallery](/images/topic-4/zetane.png)
