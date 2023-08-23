@@ -1,10 +1,13 @@
 project:
   type: book
+  output-dir: _book
 
 book:
   title: "Cyber2A training curriculum for Arctic-AI research"
   author: "to include"
   date: "8/22/2023"
+  search: true
+  favicon: images/index/arcticlogo.png
   chapters:
     - index.qmd
     - sections/topic-1-AI-ready-training-datasets.qmd
@@ -13,6 +16,14 @@ book:
     - sections/topic-4-model-explainability.qmd
     - sections/topic-5-model-deployment.qmd  
     - references.qmd
+  sidebar:
+    tools:
+      - icon: house-door-fill
+        href: https://cyber2a.github.io
+      - icon: twitter
+        href: https://twitter.com/cyber2a_nsf
+      - icon: github
+        href: https://github.com/cyber2a/cyber2a-course
 
 bibliography: references.bib
 
