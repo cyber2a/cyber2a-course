@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Cyber2A training curriculum for Arctic-AI research",
+    "section": "",
+    "text": "Preface\nBased on the team’s intensive research and training efforts in AI for Arctic Science, we will develop our training curriculum to address three questions:\n\nWhat are the “must-know” topics in AI to help trainees that have little computer science and computing knowledge to quickly grasp the essence of AI and “AI thinking”?\nWhat is the best way to offer training so AI beginners can get hands-on AI experience and prepare for using and developing AI models to solve real-world research problems? and\nHow does one best address Arctic science-specific issues (e.g., identification of spatiotemporal autocorrelation and location-awareness) for the effective AI modeling of geophysical phenomena?"
+  },
+  {
+    "objectID": "sections/topic-1-AI-ready-training-datasets.html#synopsis",
+    "href": "sections/topic-1-AI-ready-training-datasets.html#synopsis",
+    "title": "1  Design principles for an AI-ready training dataset",
+    "section": "1.1 Synopsis",
+    "text": "1.1 Synopsis\nIntroduce principles, approaches, tools, and strategies to create a high- quality AI-ready training dataset that is diverse, sizable, representative, and minimizes data bias for thoughtful AI research."
+  },
+  {
+    "objectID": "sections/topic-1-AI-ready-training-datasets.html#learning-outcome",
+    "href": "sections/topic-1-AI-ready-training-datasets.html#learning-outcome",
+    "title": "1  Design principles for an AI-ready training dataset",
+    "section": "1.2 Learning outcome",
+    "text": "1.2 Learning outcome\nTrainees will become familiar with tools for training data creation and gain skills to correctly annotate and document training data and share the data with the broader research community."
+  },
+  {
+    "objectID": "sections/topic-1-AI-ready-training-datasets.html#ai-tools",
+    "href": "sections/topic-1-AI-ready-training-datasets.html#ai-tools",
+    "title": "1  Design principles for an AI-ready training dataset",
+    "section": "1.3 AI tools",
+    "text": "1.3 AI tools\nCVAT (Computer Vision Annotation Tool), PDG data annotation platform\n\n\n\nRef: https://github.com/opencv/cvat"
+  },
+  {
+    "objectID": "sections/topic-2-AI-model-building.html#synopsis",
+    "href": "sections/topic-2-AI-model-building.html#synopsis",
+    "title": "2  AI model building fundamentals",
+    "section": "2.1 Synopsis",
+    "text": "2.1 Synopsis\nIntroduce AI fundamentals, popular models and applications, and AI model building blocks and detail how to effectively and programmatically combine these building blocks to develop an AI model appropriate to a research problem."
+  },
+  {
+    "objectID": "sections/topic-2-AI-model-building.html#learning-outcome",
+    "href": "sections/topic-2-AI-model-building.html#learning-outcome",
+    "title": "2  AI model building fundamentals",
+    "section": "2.2 Learning outcome",
+    "text": "2.2 Learning outcome\nTrainees will gain sufficient knowledge to select, build, and run an AI model for solving an Arctic science problem related to image analysis and processing of structured scientific data."
+  },
+  {
+    "objectID": "sections/topic-2-AI-model-building.html#tools",
+    "href": "sections/topic-2-AI-model-building.html#tools",
+    "title": "2  AI model building fundamentals",
+    "section": "2.3 Tools",
+    "text": "2.3 Tools\nAI tools: Pytorch, Tensorflow, Data visualization tools: Matplotlib, PDG"
+  },
+  {
+    "objectID": "sections/topic-3-workflow-validation.html#synopsis",
+    "href": "sections/topic-3-workflow-validation.html#synopsis",
+    "title": "3  AI workflow validation, verification, and troubleshooting",
+    "section": "3.1 Synopsis",
+    "text": "3.1 Synopsis\nIntroduce AI model configuration for training (e.g., hyperparameters) and review strategies to conduct real-time monitoring of model performance to (1) detect abnormal model behaviors (e.g., overfitting, model failing to converge), (2) validate model effectiveness (e.g., through cross-validation), and (3) check model robustness (e.g., ability to cope with anomalies and inevitable data noise)."
+  },
+  {
+    "objectID": "sections/topic-3-workflow-validation.html#learning-outcome",
+    "href": "sections/topic-3-workflow-validation.html#learning-outcome",
+    "title": "3  AI workflow validation, verification, and troubleshooting",
+    "section": "3.2 Learning outcome",
+    "text": "3.2 Learning outcome\nTrainees will be able to assemble an AI model, fit the data to the model input and configure the model output to meet research problem needs. They will also be able to verify the model and conduct troubleshooting to make sure the model works correctly."
+  },
+  {
+    "objectID": "sections/topic-3-workflow-validation.html#ai-tools",
+    "href": "sections/topic-3-workflow-validation.html#ai-tools",
+    "title": "3  AI workflow validation, verification, and troubleshooting",
+    "section": "3.3 AI tools",
+    "text": "3.3 AI tools\nTensorboard (an open-source model performance monitoring tool)\n\n\n\nSource: https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html"
+  },
+  {
+    "objectID": "sections/topic-4-model-explainability.html#synopsis",
+    "href": "sections/topic-4-model-explainability.html#synopsis",
+    "title": "4  Model explainability and scientific soundness",
+    "section": "4.1 Synopsis",
+    "text": "4.1 Synopsis\nIntroduce the black box nature of AI models, the importance of interpretability and transparency of AI models (e.g., safety, security, and bias in models and datasets) and methods proposed to explain or reveal the ways that AI models make decisions."
+  },
+  {
+    "objectID": "sections/topic-4-model-explainability.html#learning-outcome",
+    "href": "sections/topic-4-model-explainability.html#learning-outcome",
+    "title": "4  Model explainability and scientific soundness",
+    "section": "4.2 Learning outcome",
+    "text": "4.2 Learning outcome\nTrainees will be able to use different methods of interpretation to jointly analyze and reveal what AI has learned, and whether it is consistent with existing scientific theories and knowledge."
+  },
+  {
+    "objectID": "sections/topic-4-model-explainability.html#ai-tools",
+    "href": "sections/topic-4-model-explainability.html#ai-tools",
+    "title": "4  Model explainability and scientific soundness",
+    "section": "4.3 AI tools",
+    "text": "4.3 AI tools\nZetane viewer (an open-source AI model explanation tool)\n\n\n\nSource: https://zetane.com/gallery"
+  },
+  {
+    "objectID": "sections/topic-5-model-deployment.html#synopsis",
+    "href": "sections/topic-5-model-deployment.html#synopsis",
+    "title": "5  Arctic-AI model deployment for on-demand or batch prediction",
+    "section": "5.1 Synopsis",
+    "text": "5.1 Synopsis\nReview workflows explored by active efforts, such as the PDG, to automate data staging, model training, model inference executions, result post-processing for AI models using both HPC and cloud computing resources (e.g., NSF XSEDE, Amazon Web Services, Google Container Platform, Microsoft AI for Earth), and derived data product sharing and usage. Details will include deployment platforms, user facing scientific gateways, parallelization techniques, approaches to big data processing, and model maintenance."
+  },
+  {
+    "objectID": "sections/topic-5-model-deployment.html#learning-outcome",
+    "href": "sections/topic-5-model-deployment.html#learning-outcome",
+    "title": "5  Arctic-AI model deployment for on-demand or batch prediction",
+    "section": "5.2 Learning outcome",
+    "text": "5.2 Learning outcome\nTrainees will gain knowledge and skills to transform an AI model into a service using public or private cloud for on-demand prediction service or batch prediction processing."
+  },
+  {
+    "objectID": "sections/topic-5-model-deployment.html#nsf-funded-and-other-open-source-ci-tools",
+    "href": "sections/topic-5-model-deployment.html#nsf-funded-and-other-open-source-ci-tools",
+    "title": "5  Arctic-AI model deployment for on-demand or batch prediction",
+    "section": "5.3 NSF-funded and other open-source CI tools",
+    "text": "5.3 NSF-funded and other open-source CI tools\nFor example, PDG, XSEDE, Clowder, Parsl"
+  }
+]
