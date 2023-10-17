@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 8&nbsp; U-Net for RTS mapping hands-on lab</title>
+<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 11&nbsp; MMSegmentation Hands-on Lab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sections/model-explainability.html" rel="next">
-<link href="../sections/u-net-for-semanting-segmentation.html" rel="prev">
+<link href="../sections/model-deployment.html" rel="next">
+<link href="../sections/intro-to-mmsegmentation.html" rel="prev">
 <link href="../images/index/arcticlogo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/u-net-lab.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/mmsegmentation-hands-on-lab.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">MMSegmentation Hands-on Lab</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -155,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/u-net-lab.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sections/u-net-lab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></span></a>
   </div>
 </li>
@@ -173,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/mmsegmentation-hands-on-lab.html" class="sidebar-item-text sidebar-link">
+  <a href="../sections/mmsegmentation-hands-on-lab.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">MMSegmentation Hands-on Lab</span></span></a>
   </div>
 </li>
@@ -211,8 +211,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal"><span class="header-section-number">8.1</span> Goal</a></li>
-  <li><a href="#breakdown" id="toc-breakdown" class="nav-link" data-scroll-target="#breakdown"><span class="header-section-number">8.2</span> Breakdown</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal"><span class="header-section-number">11.1</span> Goal</a></li>
+  <li><a href="#breakdown" id="toc-breakdown" class="nav-link" data-scroll-target="#breakdown"><span class="header-section-number">11.2</span> Breakdown</a></li>
   </ul>
 </nav>
     </div>
@@ -221,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">MMSegmentation Hands-on Lab</span></h1>
 </div>
 
 
@@ -236,38 +236,40 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="goal" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="goal"><span class="header-section-number">8.1</span> Goal</h2>
-<p>To provide participants with practical experience in implementing and experimenting with the U-Net architecture for semantic segmentation on RTS data.</p>
+<section id="goal" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="goal"><span class="header-section-number">11.1</span> Goal</h2>
+<p>To provide participants with practical experience in setting up, configuring, and running semantic segmentation tasks using the mmSegmentation framework.</p>
 </section>
-<section id="breakdown" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="breakdown"><span class="header-section-number">8.2</span> Breakdown</h2>
+<section id="breakdown" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="breakdown"><span class="header-section-number">11.2</span> Breakdown</h2>
 <ol type="1">
-<li>Data Loading
+<li>Exploring Configurations
 <ul>
-<li>Task: Loading RTS data for the lab</li>
+<li>Navigating the configuration system in mmSegmentation.</li>
+<li>Modifying a sample config: Setting dataset paths, model type (e.g., U-Net), hyperparameters, etc.</li>
 </ul></li>
-<li>Implementing U-Net Architecture
+<li>Training a Model
 <ul>
-<li>Task: Define the U-Net architecture using nn.Module in PyTorch</li>
-<li>Guided step-by-step construction of the contracting path, bottleneck, and expansive path</li>
-<li>Tips: Emphasize the importance of matching tensor dimensions</li>
+<li>Launching a training session using a sample configuration.</li>
+<li>Monitoring training progress: Observing loss values, potential visualizations, etc.</li>
+<li>Tips: Highlighting the importance of checkpoints and logging.</li>
 </ul></li>
-<li>Defining the Loss Function and Optimizer
+<li>Evaluating the Model
 <ul>
-<li>Task: Choose an appropriate loss function for segmentation (e.g., Dice loss, cross-entropy loss)</li>
-<li>Set up an optimizer (e.g., Adam) for training</li>
+<li>Using mmSegmentation tools to evaluate the trained model’s performance.</li>
+<li>Interpreting common metrics for semantic segmentation (e.g., mIoU).</li>
+<li>Visualizing segmentation results on sample images.</li>
 </ul></li>
-<li>Mini Training Loop
+<li>Fine-tuning with a Pre-trained Model
 <ul>
-<li>Task: Implement a basic training loop to train the U-Net model on the RTS data subset</li>
-<li>Monitor the loss and visualize some predictions after a few epochs</li>
-<li>Tips: Discuss the importance of data augmentation and learning rate choices for segmentation tasks</li>
+<li>Loading a pre-trained model from the mmSegmentation model zoo.</li>
+<li>Fine-tuning it on the RTS data subset or another sample dataset.</li>
+<li>Observing the benefits of transfer learning in practice.</li>
 </ul></li>
 <li>Discussion and Troubleshooting
 <ul>
-<li>Share insights or observations from the training process</li>
-<li>Encourage participants to discuss their experiences and any modifications they tried</li>
+<li>Sharing insights or observations from the exercises.</li>
+<li>Encouraging participants to discuss their experiences and any modifications they tried.</li>
 </ul></li>
 </ol>
 
@@ -510,13 +512,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sections/u-net-for-semanting-segmentation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deep dive into U-Net for semantic segmentation</span></span>
+      <a href="../sections/intro-to-mmsegmentation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introduction to MMSegmentation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sections/model-explainability.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sections/model-deployment.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Model deployment</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

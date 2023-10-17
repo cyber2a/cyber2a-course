@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 8&nbsp; U-Net for RTS mapping hands-on lab</title>
+<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 12&nbsp; Model deployment</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sections/model-explainability.html" rel="next">
-<link href="../sections/u-net-for-semanting-segmentation.html" rel="prev">
+<link href="../sections/data-ethics.html" rel="next">
+<link href="../sections/mmsegmentation-hands-on-lab.html" rel="prev">
 <link href="../images/index/arcticlogo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/u-net-lab.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/model-deployment.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Model deployment</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -155,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/u-net-lab.html" class="sidebar-item-text sidebar-link active">
+  <a href="../sections/u-net-lab.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></span></a>
   </div>
 </li>
@@ -179,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/model-deployment.html" class="sidebar-item-text sidebar-link">
+  <a href="../sections/model-deployment.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Model deployment</span></span></a>
   </div>
 </li>
@@ -211,8 +211,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal"><span class="header-section-number">8.1</span> Goal</a></li>
-  <li><a href="#breakdown" id="toc-breakdown" class="nav-link" data-scroll-target="#breakdown"><span class="header-section-number">8.2</span> Breakdown</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal"><span class="header-section-number">12.1</span> Goal</a></li>
+  <li><a href="#breakdown" id="toc-breakdown" class="nav-link" data-scroll-target="#breakdown"><span class="header-section-number">12.2</span> Breakdown</a></li>
   </ul>
 </nav>
     </div>
@@ -221,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Model deployment</span></h1>
 </div>
 
 
@@ -236,38 +236,55 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="goal" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="goal"><span class="header-section-number">8.1</span> Goal</h2>
-<p>To provide participants with practical experience in implementing and experimenting with the U-Net architecture for semantic segmentation on RTS data.</p>
+<section id="goal" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="goal"><span class="header-section-number">12.1</span> Goal</h2>
+<p>To provide participants with a comprehensive understanding of the processes, tools, and best practices involved in deploying deep learning models for various applications.</p>
 </section>
-<section id="breakdown" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="breakdown"><span class="header-section-number">8.2</span> Breakdown</h2>
+<section id="breakdown" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="breakdown"><span class="header-section-number">12.2</span> Breakdown</h2>
 <ol type="1">
-<li>Data Loading
+<li>Introduction to Model Deployment
 <ul>
-<li>Task: Loading RTS data for the lab</li>
+<li>What is model deployment and why is it important?</li>
+<li>The lifecycle of a machine learning model: From development to deployment</li>
 </ul></li>
-<li>Implementing U-Net Architecture
+<li>Deployment Challenges
 <ul>
-<li>Task: Define the U-Net architecture using nn.Module in PyTorch</li>
-<li>Guided step-by-step construction of the contracting path, bottleneck, and expansive path</li>
-<li>Tips: Emphasize the importance of matching tensor dimensions</li>
+<li>Model size and computational constraints</li>
+<li>Real-time processing requirements</li>
+<li>Scalability and handling large numbers of requests</li>
 </ul></li>
-<li>Defining the Loss Function and Optimizer
+<li>Model Optimization for Deployment
 <ul>
-<li>Task: Choose an appropriate loss function for segmentation (e.g., Dice loss, cross-entropy loss)</li>
-<li>Set up an optimizer (e.g., Adam) for training</li>
+<li>Quantization: Reducing the precision of the model’s weights</li>
+<li>Pruning: Removing unnecessary weights or neurons</li>
+<li>Knowledge distillation: Training a smaller model using a larger model’s outputs</li>
+<li>ONNX (Open Neural Network Exchange): A platform-neutral format for models</li>
 </ul></li>
-<li>Mini Training Loop
+<li>Deployment Platforms and Tools
 <ul>
-<li>Task: Implement a basic training loop to train the U-Net model on the RTS data subset</li>
-<li>Monitor the loss and visualize some predictions after a few epochs</li>
-<li>Tips: Discuss the importance of data augmentation and learning rate choices for segmentation tasks</li>
+<li>Cloud Platforms: AWS SageMaker, Google AI Platform, Azure Machine Learning</li>
+<li>Edge Deployment: TensorFlow Lite, PyTorch Mobile</li>
+<li>Containers: Docker, Kubernetes for scalable deployments</li>
+<li>Serving Frameworks: TensorFlow Serving, TorchServe</li>
 </ul></li>
-<li>Discussion and Troubleshooting
+<li>Monitoring and Maintaining Deployed Models
 <ul>
-<li>Share insights or observations from the training process</li>
-<li>Encourage participants to discuss their experiences and any modifications they tried</li>
+<li>Importance of monitoring model performance in real-world scenarios</li>
+<li>Tools for monitoring: Prometheus, Grafana, custom logging</li>
+<li>Continuous learning: Updating the model with new data</li>
+<li>Versioning: Managing different versions of deployed models</li>
+</ul></li>
+<li>Security and Ethical Considerations
+<ul>
+<li>Protecting the model from adversarial attacks</li>
+<li>Ensuring user data privacy and compliance with regulations (e.g., GDPR)</li>
+<li>Ethical considerations: Bias in deployed models, transparency, and accountability</li>
+</ul></li>
+<li>Case Study: Real-world Model Deployment
+<ul>
+<li>Walkthrough of a real-world scenario of deploying a deep learning model</li>
+<li>Challenges faced, solutions implemented, and results achieved</li>
 </ul></li>
 </ol>
 
@@ -510,13 +527,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sections/u-net-for-semanting-segmentation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deep dive into U-Net for semantic segmentation</span></span>
+      <a href="../sections/mmsegmentation-hands-on-lab.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">MMSegmentation Hands-on Lab</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sections/model-explainability.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sections/data-ethics.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Data ethics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
