@@ -5,16 +5,17 @@ project:
 book:
   title: "Cyber2A training curriculum for Arctic-AI research **~ DRAFT ~**"
   author: "to include"
-  date: "8/22/2023"
+  date: "10/16/2023"
   search: true
   favicon: images/index/arcticlogo.png
   chapters:
     - index.qmd
-    - sections/topic-1-AI-ready-training-datasets.qmd
-    - sections/topic-2-AI-model-building.qmd
-    - sections/topic-3-workflow-validation.qmd
-    - sections/topic-4-model-explainability.qmd
-    - sections/topic-5-model-deployment.qmd  
+    - sections/intro-to-neural-networks.qmd
+    - sections/AI-ready-training-datasets.qmd
+    #- sections/topic-2-AI-model-building.qmd
+    #- sections/topic-3-workflow-validation.qmd
+    #- sections/topic-4-model-explainability.qmd
+    #- sections/topic-5-model-deployment.qmd  
     - references.qmd
   sidebar:
     tools:
