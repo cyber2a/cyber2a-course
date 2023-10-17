@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 4&nbsp; Model explainability and scientific soundness</title>
+<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 9&nbsp; Model explainability and scientific soundness</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sections/topic-5-model-deployment.html" rel="next">
-<link href="../sections/topic-3-workflow-validation.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../sections/u-net-lab.html" rel="prev">
 <link href="../images/index/arcticlogo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/topic-4-model-explainability.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/model-explainability.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -113,32 +113,56 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-1-AI-ready-training-datasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Design principles for an AI-ready training dataset</span></span></a>
+  <a href="../sections/intro-to-neural-networks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to neural networks</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-2-AI-model-building.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI model building fundamentals</span></span></a>
+  <a href="../sections/retrogressive-thaw-slumps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Retrogressive thaw slumps</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-3-workflow-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI workflow validation, verification, and troubleshooting</span></span></a>
+  <a href="../sections/intro-to-pytorch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intorduction to PyTorch</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-4-model-explainability.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span></a>
+  <a href="../sections/pytorch-hands-on-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PyTorch Hands-on Lab</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-5-model-deployment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Arctic-AI model deployment for on-demand or batch prediction</span></span></a>
+  <a href="../sections/AI-ready-training-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Design principles for an AI-ready training dataset</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/data-anotation-for-deep-learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data annotations for deep learning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/u-net-for-semanting-segmentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deep dive into U-Net for semantic segmentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/u-net-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/model-explainability.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -157,9 +181,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#synopsis" id="toc-synopsis" class="nav-link active" data-scroll-target="#synopsis"><span class="header-section-number">4.1</span> Synopsis</a></li>
-  <li><a href="#learning-outcome" id="toc-learning-outcome" class="nav-link" data-scroll-target="#learning-outcome"><span class="header-section-number">4.2</span> Learning outcome</a></li>
-  <li><a href="#ai-tools" id="toc-ai-tools" class="nav-link" data-scroll-target="#ai-tools"><span class="header-section-number">4.3</span> AI tools</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal"><span class="header-section-number">9.1</span> Goal</a></li>
+  <li><a href="#breakdown" id="toc-breakdown" class="nav-link" data-scroll-target="#breakdown"><span class="header-section-number">9.2</span> Breakdown</a></li>
+  <li><a href="#ai-tools" id="toc-ai-tools" class="nav-link" data-scroll-target="#ai-tools"><span class="header-section-number">9.3</span> AI tools</a></li>
   </ul>
 </nav>
     </div>
@@ -168,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></h1>
 </div>
 
 
@@ -183,16 +207,52 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="synopsis" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="synopsis"><span class="header-section-number">4.1</span> Synopsis</h2>
+<section id="goal" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="goal"><span class="header-section-number">9.1</span> Goal</h2>
 <p>Introduce the black box nature of AI models, the importance of interpretability and transparency of AI models (e.g., safety, security, and bias in models and datasets) and methods proposed to explain or reveal the ways that AI models make decisions.</p>
 </section>
-<section id="learning-outcome" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="learning-outcome"><span class="header-section-number">4.2</span> Learning outcome</h2>
-<p>Trainees will be able to use different methods of interpretation to jointly analyze and reveal what AI has learned, and whether it is consistent with existing scientific theories and knowledge.</p>
+<section id="breakdown" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="breakdown"><span class="header-section-number">9.2</span> Breakdown</h2>
+<ol type="1">
+<li>The Black Box Dilemma
+<ul>
+<li>Why deep learning models are often perceived as “black boxes”</li>
+<li>The importance of transparency and interpretability in scientific applications</li>
+</ul></li>
+<li>Principles of Scientific Soundness
+<ul>
+<li>Reproducibility: Ensuring experiments can be replicated by others</li>
+<li>Robustness: Model performance across different datasets and conditions</li>
+<li>Generalizability: How well models perform on unseen data</li>
+</ul></li>
+<li>Introduction to Model Explainability
+<ul>
+<li>What is model explainability and why is it crucial?</li>
+<li>Differences between global and local explainability</li>
+</ul></li>
+<li>Techniques for Model Interpretation
+<ul>
+<li>Feature Visualization: Understanding what features a model has learned</li>
+<li>Saliency Maps: Highlighting important regions in input data</li>
+<li>Activation Maximization: Visualizing what maximally activates certain neurons</li>
+<li>SHAP (SHapley Additive exPlanations): Game theoretic approach to explain output of any machine learning model</li>
+</ul></li>
+<li>Ensuring Scientific Soundness in Deep Learning
+<ul>
+<li>Data integrity: Ensuring data quality and addressing biases</li>
+<li>Model validation: Techniques beyond traditional train-test splits (e.g., k-fold cross-validation)</li>
+<li>Uncertainty quantification: Understanding and communicating model uncertainty</li>
+</ul></li>
+<li>Case Studies: Failures and Successes
+<ul>
+<li>Real-world examples where lack of explainability or scientific rigor led to issues</li>
+<li>Success stories where proper model interpretation and validation made a difference</li>
+</ul></li>
+<li>Q&amp;A and Discussion Encouraging sharing of personal experiences or challenges related to model explainability and scientific soundness Discussing potential future developments in the field of model interpretability</li>
+</ol>
 </section>
-<section id="ai-tools" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="ai-tools"><span class="header-section-number">4.3</span> AI tools</h2>
+<section id="ai-tools" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="ai-tools"><span class="header-section-number">9.3</span> AI tools</h2>
 <p>Zetane viewer (an open-source AI model explanation tool)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -440,13 +500,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sections/topic-3-workflow-validation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI workflow validation, verification, and troubleshooting</span></span>
+      <a href="../sections/u-net-lab.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sections/topic-5-model-deployment.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Arctic-AI model deployment for on-demand or batch prediction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 3&nbsp; AI workflow validation, verification, and troubleshooting</title>
+<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 6&nbsp; Data annotations for deep learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sections/topic-4-model-explainability.html" rel="next">
-<link href="../sections/topic-2-AI-model-building.html" rel="prev">
+<link href="../sections/u-net-for-semanting-segmentation.html" rel="next">
+<link href="../sections/AI-ready-training-datasets.html" rel="prev">
 <link href="../images/index/arcticlogo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/topic-3-workflow-validation.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI workflow validation, verification, and troubleshooting</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/data-anotation-for-deep-learning.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data annotations for deep learning</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -113,32 +113,56 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-1-AI-ready-training-datasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Design principles for an AI-ready training dataset</span></span></a>
+  <a href="../sections/intro-to-neural-networks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to neural networks</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-2-AI-model-building.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI model building fundamentals</span></span></a>
+  <a href="../sections/retrogressive-thaw-slumps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Retrogressive thaw slumps</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-3-workflow-validation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI workflow validation, verification, and troubleshooting</span></span></a>
+  <a href="../sections/intro-to-pytorch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intorduction to PyTorch</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-4-model-explainability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span></a>
+  <a href="../sections/pytorch-hands-on-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PyTorch Hands-on Lab</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-5-model-deployment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Arctic-AI model deployment for on-demand or batch prediction</span></span></a>
+  <a href="../sections/AI-ready-training-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Design principles for an AI-ready training dataset</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/data-anotation-for-deep-learning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data annotations for deep learning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/u-net-for-semanting-segmentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deep dive into U-Net for semantic segmentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/u-net-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/model-explainability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -157,9 +181,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#synopsis" id="toc-synopsis" class="nav-link active" data-scroll-target="#synopsis"><span class="header-section-number">3.1</span> Synopsis</a></li>
-  <li><a href="#learning-outcome" id="toc-learning-outcome" class="nav-link" data-scroll-target="#learning-outcome"><span class="header-section-number">3.2</span> Learning outcome</a></li>
-  <li><a href="#ai-tools" id="toc-ai-tools" class="nav-link" data-scroll-target="#ai-tools"><span class="header-section-number">3.3</span> AI tools</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link active" data-scroll-target="#notes"><span class="header-section-number">6.1</span> Notes</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link" data-scroll-target="#goal"><span class="header-section-number">6.2</span> Goal</a></li>
+  <li><a href="#breakdown" id="toc-breakdown" class="nav-link" data-scroll-target="#breakdown"><span class="header-section-number">6.3</span> Breakdown</a></li>
   </ul>
 </nav>
     </div>
@@ -168,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI workflow validation, verification, and troubleshooting</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data annotations for deep learning</span></h1>
 </div>
 
 
@@ -183,23 +207,53 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="synopsis" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="synopsis"><span class="header-section-number">3.1</span> Synopsis</h2>
-<p>Introduce AI model configuration for training (e.g., hyperparameters) and review strategies to conduct real-time monitoring of model performance to (1) detect abnormal model behaviors (e.g., overfitting, model failing to converge), (2) validate model effectiveness (e.g., through cross-validation), and (3) check model robustness (e.g., ability to cope with anomalies and inevitable data noise).</p>
+<section id="notes" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="notes"><span class="header-section-number">6.1</span> Notes</h2>
+<p>2 hours</p>
 </section>
-<section id="learning-outcome" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="learning-outcome"><span class="header-section-number">3.2</span> Learning outcome</h2>
-<p>Trainees will be able to assemble an AI model, fit the data to the model input and configure the model output to meet research problem needs. They will also be able to verify the model and conduct troubleshooting to make sure the model works correctly.</p>
+<section id="goal" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="goal"><span class="header-section-number">6.2</span> Goal</h2>
+<p>To provide participants with a comprehensive understanding of the importance of training data, methods to obtain it, tools for annotation, and potential data sources.</p>
 </section>
-<section id="ai-tools" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="ai-tools"><span class="header-section-number">3.3</span> AI tools</h2>
-<p>Tensorboard (an open-source model performance monitoring tool)</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/topic-3/tensorboard_dev.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Source: https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html</figcaption>
-</figure>
-</div>
+<section id="breakdown" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="breakdown"><span class="header-section-number">6.3</span> Breakdown</h2>
+<ol type="1">
+<li>Introduction to Training Data
+<ul>
+<li>What is training data and why is it crucial?</li>
+<li>Differences between labeled and unlabeled data</li>
+</ul></li>
+<li>The Importance of Quality Annotations
+<ul>
+<li>How annotations impact model performance</li>
+<li>Common challenges: Inconsistent annotations, class imbalance, etc.</li>
+<li>Strategies to ensure high-quality annotations: Guidelines, multiple annotators, quality checks</li>
+</ul></li>
+<li>Methods to Obtain Training Data
+<ul>
+<li>Creating your own dataset: Pros, cons, and considerations</li>
+<li>Using pre-existing datasets: Benefits and potential pitfalls</li>
+<li>Data augmentation: Expanding dataset size and diversity</li>
+<li>Transfer learning and pre-trained models: Leveraging external knowledge</li>
+</ul></li>
+<li>Annotation Tools
+<ul>
+<li>Overview of popular annotation tools: Labelbox, VGG Image Annotator (VIA), RectLabel, etc.</li>
+<li>Features to consider: Collaboration, format export options, automation capabilities</li>
+<li>Hands-on demo: Annotating a sample image using a chosen tool</li>
+</ul></li>
+<li>Data Sources for RTS and Arctic Science (15 minutes)
+<ul>
+<li>Public datasets relevant to arctic science and RTS</li>
+<li>Collaborative efforts and data-sharing initiatives in the research community</li>
+<li>Ethical considerations: lesson 12</li>
+</ul></li>
+<li>Q&amp;A and Discussion
+<ul>
+<li>Encouraging sharing of personal experiences or challenges with data annotation</li>
+<li>Discussing potential future developments in annotation tools and techniques</li>
+</ul></li>
+</ol>
 
 
 </section>
@@ -440,13 +494,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sections/topic-2-AI-model-building.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI model building fundamentals</span></span>
+      <a href="../sections/AI-ready-training-datasets.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Design principles for an AI-ready training dataset</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sections/topic-4-model-explainability.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sections/u-net-for-semanting-segmentation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deep dive into U-Net for semantic segmentation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

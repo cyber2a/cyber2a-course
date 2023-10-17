@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 5&nbsp; Arctic-AI model deployment for on-demand or batch prediction</title>
+<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 8&nbsp; U-Net for RTS mapping hands-on lab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="next">
-<link href="../sections/topic-4-model-explainability.html" rel="prev">
+<link href="../sections/model-explainability.html" rel="next">
+<link href="../sections/u-net-for-semanting-segmentation.html" rel="prev">
 <link href="../images/index/arcticlogo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/topic-5-model-deployment.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Arctic-AI model deployment for on-demand or batch prediction</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/u-net-lab.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -113,32 +113,56 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-1-AI-ready-training-datasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Design principles for an AI-ready training dataset</span></span></a>
+  <a href="../sections/intro-to-neural-networks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to neural networks</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-2-AI-model-building.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI model building fundamentals</span></span></a>
+  <a href="../sections/retrogressive-thaw-slumps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Retrogressive thaw slumps</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-3-workflow-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI workflow validation, verification, and troubleshooting</span></span></a>
+  <a href="../sections/intro-to-pytorch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intorduction to PyTorch</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-4-model-explainability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span></a>
+  <a href="../sections/pytorch-hands-on-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PyTorch Hands-on Lab</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-5-model-deployment.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Arctic-AI model deployment for on-demand or batch prediction</span></span></a>
+  <a href="../sections/AI-ready-training-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Design principles for an AI-ready training dataset</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/data-anotation-for-deep-learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data annotations for deep learning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/u-net-for-semanting-segmentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deep dive into U-Net for semantic segmentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/u-net-lab.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/model-explainability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -157,9 +181,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#synopsis" id="toc-synopsis" class="nav-link active" data-scroll-target="#synopsis"><span class="header-section-number">5.1</span> Synopsis</a></li>
-  <li><a href="#learning-outcome" id="toc-learning-outcome" class="nav-link" data-scroll-target="#learning-outcome"><span class="header-section-number">5.2</span> Learning outcome</a></li>
-  <li><a href="#nsf-funded-and-other-open-source-ci-tools" id="toc-nsf-funded-and-other-open-source-ci-tools" class="nav-link" data-scroll-target="#nsf-funded-and-other-open-source-ci-tools"><span class="header-section-number">5.3</span> NSF-funded and other open-source CI tools</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal"><span class="header-section-number">8.1</span> Goal</a></li>
+  <li><a href="#breakdown" id="toc-breakdown" class="nav-link" data-scroll-target="#breakdown"><span class="header-section-number">8.2</span> Breakdown</a></li>
   </ul>
 </nav>
     </div>
@@ -168,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Arctic-AI model deployment for on-demand or batch prediction</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></h1>
 </div>
 
 
@@ -183,22 +206,40 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="synopsis" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="synopsis"><span class="header-section-number">5.1</span> Synopsis</h2>
-<p>Review workflows explored by active efforts, such as the PDG, to automate data staging, model training, model inference executions, result post-processing for AI models using both HPC and cloud computing resources (e.g., NSF XSEDE, Amazon Web Services, Google Container Platform, Microsoft AI for Earth), and derived data product sharing and usage. Details will include deployment platforms, user facing scientific gateways, parallelization techniques, approaches to big data processing, and model maintenance.</p>
+<section id="goal" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="goal"><span class="header-section-number">8.1</span> Goal</h2>
+<p>To provide participants with practical experience in implementing and experimenting with the U-Net architecture for semantic segmentation on RTS data.</p>
 </section>
-<section id="learning-outcome" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="learning-outcome"><span class="header-section-number">5.2</span> Learning outcome</h2>
-<p>Trainees will gain knowledge and skills to transform an AI model into a service using public or private cloud for on-demand prediction service or batch prediction processing.</p>
-</section>
-<section id="nsf-funded-and-other-open-source-ci-tools" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="nsf-funded-and-other-open-source-ci-tools"><span class="header-section-number">5.3</span> NSF-funded and other open-source CI tools</h2>
-<p>For example, PDG, XSEDE, Clowder, Parsl</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/topic-5/pdg_logo.jpg" class="img-fluid figure-img"></p>
-</figure>
-</div>
+<section id="breakdown" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="breakdown"><span class="header-section-number">8.2</span> Breakdown</h2>
+<ol type="1">
+<li>Data Loading
+<ul>
+<li>Task: Loading RTS data for the lab</li>
+</ul></li>
+<li>Implementing U-Net Architecture
+<ul>
+<li>Task: Define the U-Net architecture using nn.Module in PyTorch</li>
+<li>Guided step-by-step construction of the contracting path, bottleneck, and expansive path</li>
+<li>Tips: Emphasize the importance of matching tensor dimensions</li>
+</ul></li>
+<li>Defining the Loss Function and Optimizer
+<ul>
+<li>Task: Choose an appropriate loss function for segmentation (e.g., Dice loss, cross-entropy loss)</li>
+<li>Set up an optimizer (e.g., Adam) for training</li>
+</ul></li>
+<li>Mini Training Loop
+<ul>
+<li>Task: Implement a basic training loop to train the U-Net model on the RTS data subset</li>
+<li>Monitor the loss and visualize some predictions after a few epochs</li>
+<li>Tips: Discuss the importance of data augmentation and learning rate choices for segmentation tasks</li>
+</ul></li>
+<li>Discussion and Troubleshooting
+<ul>
+<li>Share insights or observations from the training process</li>
+<li>Encourage participants to discuss their experiences and any modifications they tried</li>
+</ul></li>
+</ol>
 
 
 </section>
@@ -439,13 +480,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sections/topic-4-model-explainability.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span>
+      <a href="../sections/u-net-for-semanting-segmentation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deep dive into U-Net for semantic segmentation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sections/model-explainability.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

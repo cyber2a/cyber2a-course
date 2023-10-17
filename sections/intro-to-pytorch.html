@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 2&nbsp; AI model building fundamentals</title>
+<title>Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~ - 3&nbsp; Intorduction to PyTorch</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../sections/topic-3-workflow-validation.html" rel="next">
-<link href="../sections/topic-1-AI-ready-training-datasets.html" rel="prev">
+<link href="../sections/pytorch-hands-on-lab.html" rel="next">
+<link href="../sections/retrogressive-thaw-slumps.html" rel="prev">
 <link href="../images/index/arcticlogo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/topic-2-AI-model-building.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI model building fundamentals</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/intro-to-pytorch.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intorduction to PyTorch</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -113,32 +113,56 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-1-AI-ready-training-datasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Design principles for an AI-ready training dataset</span></span></a>
+  <a href="../sections/intro-to-neural-networks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to neural networks</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-2-AI-model-building.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI model building fundamentals</span></span></a>
+  <a href="../sections/retrogressive-thaw-slumps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Retrogressive thaw slumps</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-3-workflow-validation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI workflow validation, verification, and troubleshooting</span></span></a>
+  <a href="../sections/intro-to-pytorch.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intorduction to PyTorch</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-4-model-explainability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span></a>
+  <a href="../sections/pytorch-hands-on-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PyTorch Hands-on Lab</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sections/topic-5-model-deployment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Arctic-AI model deployment for on-demand or batch prediction</span></span></a>
+  <a href="../sections/AI-ready-training-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Design principles for an AI-ready training dataset</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/data-anotation-for-deep-learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data annotations for deep learning</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/u-net-for-semanting-segmentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Deep dive into U-Net for semantic segmentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/u-net-lab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">U-Net for RTS mapping hands-on lab</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sections/model-explainability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Model explainability and scientific soundness</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -157,9 +181,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#synopsis" id="toc-synopsis" class="nav-link active" data-scroll-target="#synopsis"><span class="header-section-number">2.1</span> Synopsis</a></li>
-  <li><a href="#learning-outcome" id="toc-learning-outcome" class="nav-link" data-scroll-target="#learning-outcome"><span class="header-section-number">2.2</span> Learning outcome</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">2.3</span> Tools</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal"><span class="header-section-number">3.1</span> Goal</a></li>
+  <li><a href="#breakdown" id="toc-breakdown" class="nav-link" data-scroll-target="#breakdown"><span class="header-section-number">3.2</span> Breakdown</a></li>
   </ul>
 </nav>
     </div>
@@ -168,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">AI model building fundamentals</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intorduction to PyTorch</span></h1>
 </div>
 
 
@@ -183,18 +206,50 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="synopsis" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="synopsis"><span class="header-section-number">2.1</span> Synopsis</h2>
-<p>Introduce AI fundamentals, popular models and applications, and AI model building blocks and detail how to effectively and programmatically combine these building blocks to develop an AI model appropriate to a research problem.</p>
+<section id="goal" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="goal"><span class="header-section-number">3.1</span> Goal</h2>
+<p>To provide participants with a foundational understanding of PyTorch, its capabilities, and how it can be used to implement neural networks and process data, especially in the context of Retrogressive Thaw Slumps.</p>
 </section>
-<section id="learning-outcome" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="learning-outcome"><span class="header-section-number">2.2</span> Learning outcome</h2>
-<p>Trainees will gain sufficient knowledge to select, build, and run an AI model for solving an Arctic science problem related to image analysis and processing of structured scientific data.</p>
-</section>
-<section id="tools" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="tools"><span class="header-section-number">2.3</span> Tools</h2>
-<p>AI tools: Pytorch, Tensorflow, Data visualization tools: Matplotlib, PDG</p>
-<p><img src="../images/topic-2/tensorflow-vs-pytorch.png" class="img-fluid"></p>
+<section id="breakdown" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="breakdown"><span class="header-section-number">3.2</span> Breakdown</h2>
+<ol type="1">
+<li>Overview of Deep Learning Frameworks
+<ul>
+<li>Brief mention of popular frameworks: TensorFlow, Keras, etc.</li>
+<li>Why PyTorch? Advantages and use cases</li>
+</ul></li>
+<li>PyTorch Basics
+<ul>
+<li>Tensors: Understanding the basic data structure in PyTorch</li>
+<li>Operations with tensors: Reshaping, slicing, mathematical operations</li>
+<li>GPU vs.&nbsp;CPU: How PyTorch utilizes hardware acceleration</li>
+</ul></li>
+<li>Data in PyTorch
+<ul>
+<li>Dataset and DataLoader: Efficiently loading and batching data</li>
+<li>Transformations: Augmenting and preprocessing data</li>
+<li>Connecting the dots: How RTS data can be loaded and preprocessed in PyTorch</li>
+</ul></li>
+<li>Model Building in PyTorch (30 minutes)
+<ul>
+<li>nn.Module: Creating custom neural network architectures</li>
+<li>Layers in PyTorch: Linear, Conv2D, RNN, etc.</li>
+<li>Activation functions: ReLU, Sigmoid, Tanh, etc.</li>
+</ul></li>
+<li>Optimizers, Loss Functions, and Schedulers
+<ul>
+<li>Loss functions: MSE, CrossEntropy, etc.</li>
+<li>Optimizers: Adam, SGD, etc.</li>
+<li>Learning rate schedulers: StepLR, ReduceLROnPlateau, etc.</li>
+</ul></li>
+<li>Training, Validation, and Testing Pipeline
+<ul>
+<li>Forward and backward propagation in PyTorch</li>
+<li>Model evaluation: Accuracy, loss, and other metrics</li>
+<li>Overfitting: Early stopping, dropout, and other regularization techniques</li>
+<li>A simple example: Training, validating, and testing a small neural network on sample data</li>
+</ul></li>
+</ol>
 
 
 </section>
@@ -435,13 +490,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../sections/topic-1-AI-ready-training-datasets.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Design principles for an AI-ready training dataset</span></span>
+      <a href="../sections/retrogressive-thaw-slumps.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Retrogressive thaw slumps</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../sections/topic-3-workflow-validation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">AI workflow validation, verification, and troubleshooting</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sections/pytorch-hands-on-lab.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">PyTorch Hands-on Lab</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
