@@ -1,12 +1,9 @@
 # PyTorch Hands-on Lab
 
-## Notes
-1 hours
-
 ## Goal
 To provide participants with practical experience in using PyTorch, allowing them to implement and experiment with the concepts introduced in the previous session.
 
-## Breakdown:
+## Breakdown
 1. Tensor Operations Exercise 
     - Task: Create tensors, perform basic operations, and move tensors between CPU and GPU
 2. Data Loading and Preprocessing Exercise 

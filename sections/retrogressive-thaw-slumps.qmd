@@ -1,12 +1,9 @@
 # Retrogressive thaw slumps 
 
-## Notes
-duration: 2 hours
-
 ## Goal
 To familiarize participants with the characteristics, significance, and challenges of Retrogressive Thaw Slumps data, and to set the foundation for its application in deep learning
 
-## Breakdown (sample):
+## Breakdown (sample)
 1. Introduction to Retrogressive Thaw Slumps
     - What are Retrogressive Thaw Slumps?
     - Importance in the context of arctic science and climate change

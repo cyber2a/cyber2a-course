@@ -6,4 +6,8 @@ Based on the team’s intensive research and training efforts in AI for Arctic S
 (2) What is the best way to offer training so AI beginners can get hands-on AI experience and prepare for using and developing AI models to solve real-world research problems? and 
 (3) How does one best address Arctic science-specific issues (e.g., identification of spatiotemporal autocorrelation and location-awareness) for the effective AI modeling of geophysical phenomena?
 
-![](/images/index/arcticlogo.png){fig-align="center"}
+The sections presented here potentially fit into a one-week workshop as follows:
+
+![](/images/index/schedule-draft.png){}
+
+![](/images/index/arcticlogo.png){fig-align="center" width=50%}

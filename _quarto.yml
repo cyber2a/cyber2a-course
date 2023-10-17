@@ -19,10 +19,11 @@ book:
     - sections/u-net-for-semanting-segmentation.qmd
     - sections/u-net-lab.qmd
     - sections/model-explainability.qmd
-    #- sections/topic-2-AI-model-building.qmd
-    #- sections/topic-3-workflow-validation.qmd
-    #- sections/topic-4-model-explainability.qmd
-    #- sections/topic-5-model-deployment.qmd  
+    - sections/intro-to-mmsegmentation.qmd
+    - sections/mmsegmentation-hands-on-lab.qmd
+    - sections/model-deployment.qmd
+    - sections/data-ethics.qmd
+    - sections/popular-models-and-applications.qmd
     - references.qmd
   sidebar:
     tools:

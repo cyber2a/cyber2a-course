@@ -1,8 +1,5 @@
 #  Data annotations for deep learning 
 
-## Notes
-2 hours
-
 ## Goal
 To provide participants with a comprehensive understanding of the importance of training data, methods to obtain it, tools for annotation, and potential data sources.
 

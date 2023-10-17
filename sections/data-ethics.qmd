@@ -1,0 +1,8 @@
+# Data ethics
+
+## About
+ Review FAIR and CARE Principles, and their relevance to data ethics
+Examine how ethical considerations are shared and considered at the Arctic Data Center
+Discuss ethical considerations in machine learning
+
+Notes: see https://learning.nceas.ucsb.edu/2022-09-arctic/sections/14-data-ethics.html

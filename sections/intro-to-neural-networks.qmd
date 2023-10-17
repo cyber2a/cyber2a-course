@@ -1,12 +1,9 @@
 # Intro to neural networks 
 
-## Notes: 
-minimal to no coding. duration: 2 hrs
-
-## Goal: 
+## Goal
 Gain a high-level understanding of how a NN works. Understand main components of NN input data, layers, weights, targets, loss function, optimizers, train and test sets, ...
 
-## Breakdown:
+## Breakdown
 1. Introduction and Overview
     - Brief history of NN
     - Importance and applications in today's world

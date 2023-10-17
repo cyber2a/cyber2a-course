@@ -1,0 +1,35 @@
+# Model deployment
+
+## Goal
+To provide participants with a comprehensive understanding of the processes, tools, and best practices involved in deploying deep learning models for various applications.
+
+## Breakdown
+1. Introduction to Model Deployment 
+    - What is model deployment and why is it important?
+    - The lifecycle of a machine learning model: From development to deployment
+2. Deployment Challenges 
+    - Model size and computational constraints
+    - Real-time processing requirements
+    - Scalability and handling large numbers of requests
+3. Model Optimization for Deployment 
+    - Quantization: Reducing the precision of the model's weights
+    - Pruning: Removing unnecessary weights or neurons
+    - Knowledge distillation: Training a smaller model using a larger model's outputs
+    - ONNX (Open Neural Network Exchange): A platform-neutral format for models
+4. Deployment Platforms and Tools 
+    - Cloud Platforms: AWS SageMaker, Google AI Platform, Azure Machine Learning
+    - Edge Deployment: TensorFlow Lite, PyTorch Mobile
+    - Containers: Docker, Kubernetes for scalable deployments
+    - Serving Frameworks: TensorFlow Serving, TorchServe
+5. Monitoring and Maintaining Deployed Models 
+    - Importance of monitoring model performance in real-world scenarios
+    - Tools for monitoring: Prometheus, Grafana, custom logging
+    - Continuous learning: Updating the model with new data
+    - Versioning: Managing different versions of deployed models
+6. Security and Ethical Considerations 
+    - Protecting the model from adversarial attacks
+    - Ensuring user data privacy and compliance with regulations (e.g., GDPR)
+    - Ethical considerations: Bias in deployed models, transparency, and accountability
+7. Case Study: Real-world Model Deployment
+    - Walkthrough of a real-world scenario of deploying a deep learning model
+    - Challenges faced, solutions implemented, and results achieved

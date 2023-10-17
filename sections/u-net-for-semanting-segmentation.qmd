@@ -1,8 +1,5 @@
 # Deep dive into U-Net for semantic segmentation
 
-## Notes
-2 hours
-
 ## Goal
 To provide participants with a deep understanding of the U-Net architecture, its relevance to semantic segmentation tasks, and its application for RTS mapping.
 
