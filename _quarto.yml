@@ -11,7 +11,10 @@ book:
   chapters:
     - index.qmd
     - sections/intro-to-neural-networks.qmd
+    - sections/retrogressive-thaw-slumps.qmd
     - sections/AI-ready-training-datasets.qmd
+    - sections/intro-to-pytorch.qmd
+    - sections/pytorch-hands-on-lab.qmd
     #- sections/topic-2-AI-model-building.qmd
     #- sections/topic-3-workflow-validation.qmd
     #- sections/topic-4-model-explainability.qmd

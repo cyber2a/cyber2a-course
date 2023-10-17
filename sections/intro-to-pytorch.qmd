@@ -1,0 +1,30 @@
+# Intorduction to PyTorch
+
+## Goal
+To provide participants with a foundational understanding of PyTorch, its capabilities, and how it can be used to implement neural networks and process data, especially in the context of Retrogressive Thaw Slumps.
+
+## Breakdown
+1. Overview of Deep Learning Frameworks
+    - Brief mention of popular frameworks: TensorFlow, Keras, etc.
+    - Why PyTorch? Advantages and use cases
+2. PyTorch Basics
+    - Tensors: Understanding the basic data structure in PyTorch
+    - Operations with tensors: Reshaping, slicing, mathematical operations
+    - GPU vs. CPU: How PyTorch utilizes hardware acceleration
+3. Data in PyTorch 
+    - Dataset and DataLoader: Efficiently loading and batching data
+    - Transformations: Augmenting and preprocessing data
+    - Connecting the dots: How RTS data can be loaded and preprocessed in PyTorch
+4. Model Building in PyTorch (30 minutes)
+    - nn.Module: Creating custom neural network architectures
+    - Layers in PyTorch: Linear, Conv2D, RNN, etc.
+    - Activation functions: ReLU, Sigmoid, Tanh, etc.
+5. Optimizers, Loss Functions, and Schedulers
+    - Loss functions: MSE, CrossEntropy, etc.
+    - Optimizers: Adam, SGD, etc.
+    - Learning rate schedulers: StepLR, ReduceLROnPlateau, etc.
+6. Training, Validation, and Testing Pipeline
+    - Forward and backward propagation in PyTorch
+    - Model evaluation: Accuracy, loss, and other metrics
+    - Overfitting: Early stopping, dropout, and other regularization techniques
+    - A simple example: Training, validating, and testing a small neural network on sample data
