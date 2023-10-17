@@ -1,5 +1,8 @@
 # PyTorch Hands-on Lab
 
+## Notes
+1 hours
+
 ## Goal
 To provide participants with practical experience in using PyTorch, allowing them to implement and experiment with the concepts introduced in the previous session.
 

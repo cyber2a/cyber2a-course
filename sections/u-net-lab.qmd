@@ -1,0 +1,22 @@
+# U-Net for RTS mapping hands-on lab
+
+## Goal
+To provide participants with practical experience in implementing and experimenting with the U-Net architecture for semantic segmentation on RTS data.
+
+## Breakdown
+1. Data Loading
+    - Task: Loading RTS data for the lab
+2. Implementing U-Net Architecture 
+    - Task: Define the U-Net architecture using nn.Module in PyTorch
+    - Guided step-by-step construction of the contracting path, bottleneck, and expansive path
+    - Tips: Emphasize the importance of matching tensor dimensions
+3. Defining the Loss Function and Optimizer 
+    - Task: Choose an appropriate loss function for segmentation (e.g., Dice loss, cross-entropy loss)
+    - Set up an optimizer (e.g., Adam) for training
+4. Mini Training Loop 
+    - Task: Implement a basic training loop to train the U-Net model on the RTS data subset
+    - Monitor the loss and visualize some predictions after a few epochs
+    - Tips: Discuss the importance of data augmentation and learning rate choices for segmentation tasks
+5. Discussion and Troubleshooting
+    - Share insights or observations from the training process
+    - Encourage participants to discuss their experiences and any modifications they tried

@@ -1,0 +1,36 @@
+# Model explainability and scientific soundness
+
+## Goal
+Introduce the black box nature of AI models, the importance of interpretability and transparency of AI models (e.g., safety, security, and bias in models and datasets) and methods proposed to explain or reveal the ways that AI models make decisions.
+
+## Breakdown
+1. The Black Box Dilemma
+    - Why deep learning models are often perceived as "black boxes"
+    - The importance of transparency and interpretability in scientific applications
+2. Principles of Scientific Soundness
+    - Reproducibility: Ensuring experiments can be replicated by others
+    - Robustness: Model performance across different datasets and conditions
+    - Generalizability: How well models perform on unseen data
+3. Introduction to Model Explainability
+    - What is model explainability and why is it crucial?
+    - Differences between global and local explainability
+4. Techniques for Model Interpretation
+    - Feature Visualization: Understanding what features a model has learned
+    - Saliency Maps: Highlighting important regions in input data
+    - Activation Maximization: Visualizing what maximally activates certain neurons
+    - SHAP (SHapley Additive exPlanations): Game theoretic approach to explain output of any machine learning model
+5. Ensuring Scientific Soundness in Deep Learning
+    - Data integrity: Ensuring data quality and addressing biases
+    - Model validation: Techniques beyond traditional train-test splits (e.g., k-fold cross-validation)
+    - Uncertainty quantification: Understanding and communicating model uncertainty
+6. Case Studies: Failures and Successes 
+    - Real-world examples where lack of explainability or scientific rigor led to issues
+    - Success stories where proper model interpretation and validation made a difference
+7. Q&A and Discussion
+Encouraging sharing of personal experiences or challenges related to model explainability and scientific soundness
+Discussing potential future developments in the field of model interpretability
+
+## AI tools
+Zetane viewer (an open-source AI model explanation tool)
+
+![Source: https://zetane.com/gallery](/images/topic-4/zetane.png)
