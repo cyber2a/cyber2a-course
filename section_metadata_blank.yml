@@ -1,5 +1,7 @@
 title: # (str) lesson's title
 authors: # a list of author names
+course: # (str) name of course this lesson is part of Ex: Cyber2A workshop
+permalink: # (str) url of final version of lesson
 
 topic: # a list 
   # Options (based on Earth Lab Lessons categories): 
