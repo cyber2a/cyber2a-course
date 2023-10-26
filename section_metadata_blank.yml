@@ -1,0 +1,74 @@
+title: # lesson's title
+topic: 
+  # options follow Earth Lab Lessons categories
+  # select itmes from list that apply to lesson
+  - remote sensing
+  - earth science
+  - social science  
+  - time series
+  - data exploration and analysis
+  - spatial data and gis
+  - reproducible science and programming
+  - find and manage data
+  - file formats
+broad_subject_discipline: 
+  - Physical Sciences and Mathematics
+  - Arts and Humanities
+  - Education
+  - Medicine and Health Sciences
+  - Engineering
+  - Social and Behavioral Sciences
+  - Life Sciences
+
+subject_discipline: 
+  # options follow DMTC categories
+  - Earth Sciences
+  - Arts and Humanities  
+  - Science and Mathematics Education
+  - Medicine and Health Sciences
+  - Environmental Sciences
+  - Oceanography and Atmospheric Sciences and Meteorology
+  - Engineering
+  - Computer Sciences
+  - Social and Behavioral Sciences
+  - Computer Engineering
+  - Genetics and Genomics
+  - Microbiology
+  - Aerospace Engineering
+  - Chemical Engineering
+  - Agriculture
+  - Statistics and Probability
+  - Digital Humanities
+  - History of Art, Architecture, and Archaeology
+  - Biomedical Engineering and Bioengineering
+  - Nutrition
+  - Biomedical Science
+  - Other Languages, Societies, and Cultures
+  - Electrical and Computer Engineering
+  - Astrophysics and Astronomy
+  - Mathematics
+  - Linguistics
+  - Library and Information Science
+
+resource_type:
+teaching_material:
+lecture
+  lab
+  dataset
+    raw
+cleaned
+activity_length: # (same as completion time in DMTC)
+  less than 1 hour
+  1 hour
+  more than 1 hour
+  extended project
+teaching_time:
+exercises_time:
+audience_level:
+  undergraduate
+  graduate
+  faculty
+software_used:
+objectives:
+keywords:
+authors:
