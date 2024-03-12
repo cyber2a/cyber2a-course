@@ -4,209 +4,389 @@
     "href": "index.html",
     "title": "Cyber2A training curriculum for Arctic-AI research ~ DRAFT ~",
     "section": "",
-    "text": "Preface\nBased on the team’s intensive research and training efforts in AI for Arctic Science, we will develop our training curriculum to address three questions:\n\nWhat are the “must-know” topics in AI to help trainees that have little computer science and computing knowledge to quickly grasp the essence of AI and “AI thinking”?\nWhat is the best way to offer training so AI beginners can get hands-on AI experience and prepare for using and developing AI models to solve real-world research problems? and\nHow does one best address Arctic science-specific issues (e.g., identification of spatiotemporal autocorrelation and location-awareness) for the effective AI modeling of geophysical phenomena?\n\nThe sections presented here potentially fit into a one-week workshop as follows:"
+    "text": "Preface\nBased on the team’s intensive research and training efforts in AI for Arctic Science, we will develop our training curriculum to address three questions:\n\nWhat are the “must-know” topics in AI to help trainees that have little computer science and computing knowledge to quickly grasp the essence of AI and “AI thinking”?\nWhat is the best way to offer training so AI beginners can get hands-on AI experience and prepare for using and developing AI models to solve real-world research problems? and\nHow does one best address Arctic science-specific issues (e.g., identification of spatiotemporal autocorrelation and location-awareness) for the effective AI modeling of geophysical phenomena?\n\nThe sections presented here potentially fit into a one-week workshop as follows:",
+    "crumbs": [
+      "Preface"
+    ]
   },
   {
-    "objectID": "sections/intro-to-neural-networks.html#goal",
-    "href": "sections/intro-to-neural-networks.html#goal",
-    "title": "1  Intro to neural networks",
-    "section": "1.1 Goal",
-    "text": "1.1 Goal\nGain a high-level understanding of how a NN works. Understand main components of NN input data, layers, weights, targets, loss function, optimizers, train and test sets, …"
+    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html",
+    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html",
+    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "section": "",
+    "text": "Goal\nThis session kicks off with a relaxed and engaging exploration of AI’s role in Arctic science and geoscience, aiming to lay a solid foundation without overwhelming our audience. We’ll navigate through the use of AI technologies in these fields, highlighting their exciting possibilities and tackling the challenges and ethical considerations. Expect a straightforward, easy-to-follow presentation designed to demystify AI and spark curiosity.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+    ]
   },
   {
-    "objectID": "sections/intro-to-neural-networks.html#breakdown",
-    "href": "sections/intro-to-neural-networks.html#breakdown",
-    "title": "1  Intro to neural networks",
-    "section": "1.2 Breakdown",
-    "text": "1.2 Breakdown\n\nIntroduction and Overview\n\nBrief history of NN\nImportance and applications in today’s world\nRelevance to Arctic science\n\nBasic concepts and terminology\n\nNeurons and layers: Input, Hidden, Output\nWeights and biases\nActivation functions: Sigmoid, ReLU, etc.\n\nHow Neural Networks Learn\n\nForward propagation: How input becomes output\nCost function: Measuring how “wrong” the network is\nBackpropagation: Adjusting weights and biases\nGradient descent and learning rate\n\nTypes of Neural Networks\n\nMLP\nCNN\nRNN/LSTM\nTransformer\n\nTraining, Validation, and Testing\n\nSplitting data: Why and how\nOverfitting and underfitting: Concepts and solutions\nRegularization techniques\n\nReal-world Example and Demonstration\n\nIntroduce frameworks (PyTorch, Tensorflow)\nsimple/interesting examples\nVisualization"
+    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html#key-elements",
+    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html#key-elements",
+    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "section": "Key Elements",
+    "text": "Key Elements\nEngaging visuals, simplified explanations, real-world examples, light tone",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+    ]
   },
   {
-    "objectID": "sections/retrogressive-thaw-slumps.html#goal",
-    "href": "sections/retrogressive-thaw-slumps.html#goal",
-    "title": "2  Retrogressive thaw slumps",
-    "section": "2.1 Goal",
-    "text": "2.1 Goal\nTo familiarize participants with the characteristics, significance, and challenges of Retrogressive Thaw Slumps data, and to set the foundation for its application in deep learning"
+    "objectID": "sections/ai-for-everyone.html",
+    "href": "sections/ai-for-everyone.html",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "",
+    "text": "Goal\nThis session aims to introducing AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
+    ]
   },
   {
-    "objectID": "sections/retrogressive-thaw-slumps.html#breakdown-sample",
-    "href": "sections/retrogressive-thaw-slumps.html#breakdown-sample",
-    "title": "2  Retrogressive thaw slumps",
-    "section": "2.2 Breakdown (sample)",
-    "text": "2.2 Breakdown (sample)\n\nIntroduction to Retrogressive Thaw Slumps\n\nWhat are Retrogressive Thaw Slumps?\nImportance in the context of arctic science and climate change\nVisual representation (images or videos, if available)\n\nCharacteristics of RTS Data\nChallenges with RTS Data\nPotential Applications of Deep Learning with RTS Data\nHands-on Exploration\n\nA brief interactive session where participants can view and explore sample RTS data (using tools like Jupyter notebooks)"
+    "objectID": "sections/ai-for-everyone.html#key-elements",
+    "href": "sections/ai-for-everyone.html#key-elements",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "Key Elements",
+    "text": "Key Elements\nML, DL, NN, CNN, datasets and annotations, training and inference, accuracy and validation, supervised learning, etc.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
+    ]
   },
   {
-    "objectID": "sections/intro-to-pytorch.html#goal",
-    "href": "sections/intro-to-pytorch.html#goal",
-    "title": "3  Intorduction to PyTorch",
-    "section": "3.1 Goal",
-    "text": "3.1 Goal\nTo provide participants with a foundational understanding of PyTorch, its capabilities, and how it can be used to implement neural networks and process data, especially in the context of Retrogressive Thaw Slumps."
+    "objectID": "sections/ai-ready-data-in-arctic-research.html",
+    "href": "sections/ai-ready-data-in-arctic-research.html",
+    "title": "3  AI-Ready Data in Arctic Research: Principles and Practices",
+    "section": "",
+    "text": "Goal\nThis session provides an understanding of ‘AI-ready data’ in Arctic science and geoscience, highlighting the importance of suitable data for AI applications. Participants will learn about creating and managing metadata and organizing data repositories. We’ll discuss best practices for data preparation and structuring for AI processing. By the end, participants will clearly understand AI-ready data characteristics and the steps to transform raw data for AI applications.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI-Ready Data in Arctic Research: Principles and Practices</span>"
+    ]
   },
   {
-    "objectID": "sections/intro-to-pytorch.html#breakdown",
-    "href": "sections/intro-to-pytorch.html#breakdown",
-    "title": "3  Intorduction to PyTorch",
-    "section": "3.2 Breakdown",
-    "text": "3.2 Breakdown\n\nOverview of Deep Learning Frameworks\n\nBrief mention of popular frameworks: TensorFlow, Keras, etc.\nWhy PyTorch? Advantages and use cases\n\nPyTorch Basics\n\nTensors: Understanding the basic data structure in PyTorch\nOperations with tensors: Reshaping, slicing, mathematical operations\nGPU vs. CPU: How PyTorch utilizes hardware acceleration\n\nData in PyTorch\n\nDataset and DataLoader: Efficiently loading and batching data\nTransformations: Augmenting and preprocessing data\nConnecting the dots: How RTS data can be loaded and preprocessed in PyTorch\n\nModel Building in PyTorch (30 minutes)\n\nnn.Module: Creating custom neural network architectures\nLayers in PyTorch: Linear, Conv2D, RNN, etc.\nActivation functions: ReLU, Sigmoid, Tanh, etc.\n\nOptimizers, Loss Functions, and Schedulers\n\nLoss functions: MSE, CrossEntropy, etc.\nOptimizers: Adam, SGD, etc.\nLearning rate schedulers: StepLR, ReduceLROnPlateau, etc.\n\nTraining, Validation, and Testing Pipeline\n\nForward and backward propagation in PyTorch\nModel evaluation: Accuracy, loss, and other metrics\nOverfitting: Early stopping, dropout, and other regularization techniques\nA simple example: Training, validating, and testing a small neural network on sample data"
+    "objectID": "sections/ai-ready-data-in-arctic-research.html#key-elements",
+    "href": "sections/ai-ready-data-in-arctic-research.html#key-elements",
+    "title": "3  AI-Ready Data in Arctic Research: Principles and Practices",
+    "section": "Key Elements",
+    "text": "Key Elements\nAI-ready data definition, data suitability importance, metadata management, data repository organization, data preparation practices, raw data transformation",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI-Ready Data in Arctic Research: Principles and Practices</span>"
+    ]
   },
   {
-    "objectID": "sections/pytorch-hands-on-lab.html#goal",
-    "href": "sections/pytorch-hands-on-lab.html#goal",
-    "title": "4  PyTorch Hands-on Lab",
-    "section": "4.1 Goal",
-    "text": "4.1 Goal\nTo provide participants with practical experience in using PyTorch, allowing them to implement and experiment with the concepts introduced in the previous session."
+    "objectID": "sections/data-annotation.html",
+    "href": "sections/data-annotation.html",
+    "title": "4  Data Annotation: The Foundation of Deep Learning Models",
+    "section": "",
+    "text": "Goal\nThis session explores the critical role of training data in deep learning, focusing on data annotation methods, tools, and strategies for acquiring high-quality data. Participants will learn how well-annotated data supports effective deep learning models, understanding the challenges and best practices in data annotation. By the end, participants will be equipped to prepare their datasets for deep learning.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Annotation: The Foundation of Deep Learning Models</span>"
+    ]
   },
   {
-    "objectID": "sections/pytorch-hands-on-lab.html#breakdown",
-    "href": "sections/pytorch-hands-on-lab.html#breakdown",
-    "title": "4  PyTorch Hands-on Lab",
-    "section": "4.2 Breakdown",
-    "text": "4.2 Breakdown\n\nTensor Operations Exercise\n\nTask: Create tensors, perform basic operations, and move tensors between CPU and GPU\n\nData Loading and Preprocessing Exercise\n\nTask: Load a small subset of RTS data using Dataset and DataLoader\n\nModel Building Exercise\n\nTask: Construct a simple neural network using nn.Module\n\nOptimization Exercise\n\nTask: Define a loss function, an optimizer, and a learning rate scheduler\n\nMini Training Loop Exercise\n\nTask: Implement a basic training loop to train the model on the small subset of RTS data\n\nDiscussion and Troubleshooting\n\nDiscuss potential improvements or extensions to the exercises"
+    "objectID": "sections/data-annotation.html#key-elements",
+    "href": "sections/data-annotation.html#key-elements",
+    "title": "4  Data Annotation: The Foundation of Deep Learning Models",
+    "section": "Key Elements",
+    "text": "Key Elements\nTraining data’s role, annotation methods/tools, annotated data’s importance, annotation challenges, annotation best practices, dataset preparation",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Annotation: The Foundation of Deep Learning Models</span>"
+    ]
   },
   {
-    "objectID": "sections/AI-ready-training-datasets.html#synopsis",
-    "href": "sections/AI-ready-training-datasets.html#synopsis",
-    "title": "5  Design principles for an AI-ready training dataset",
-    "section": "5.1 Synopsis",
-    "text": "5.1 Synopsis\nIntroduce principles, approaches, tools, and strategies to create a high- quality AI-ready training dataset that is diverse, sizable, representative, and minimizes data bias for thoughtful AI research."
+    "objectID": "sections/hands-on-lab-data-annotation.html",
+    "href": "sections/hands-on-lab-data-annotation.html",
+    "title": "5  Hands-On Lab: Data Annotation",
+    "section": "",
+    "text": "Goal\nThis hands-on lab session is designed to give participants practical experience in data annotation for deep learning. Participants will apply the methods, tools, and best practices discussed in the previous session, working directly with datasets to annotate data effectively.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hands-On Lab: Data Annotation</span>"
+    ]
   },
   {
-    "objectID": "sections/AI-ready-training-datasets.html#learning-outcome",
-    "href": "sections/AI-ready-training-datasets.html#learning-outcome",
-    "title": "5  Design principles for an AI-ready training dataset",
-    "section": "5.2 Learning outcome",
-    "text": "5.2 Learning outcome\nTrainees will become familiar with tools for training data creation and gain skills to correctly annotate and document training data and share the data with the broader research community."
+    "objectID": "sections/hands-on-lab-data-annotation.html#key-elements",
+    "href": "sections/hands-on-lab-data-annotation.html#key-elements",
+    "title": "5  Hands-On Lab: Data Annotation",
+    "section": "Key Elements",
+    "text": "Key Elements\nUse of annotation methods and tools, direct dataset interaction",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hands-On Lab: Data Annotation</span>"
+    ]
   },
   {
-    "objectID": "sections/AI-ready-training-datasets.html#ai-tools",
-    "href": "sections/AI-ready-training-datasets.html#ai-tools",
-    "title": "5  Design principles for an AI-ready training dataset",
-    "section": "5.3 AI tools",
-    "text": "5.3 AI tools\nCVAT (Computer Vision Annotation Tool), PDG data annotation platform\n\n\n\nRef: https://github.com/opencv/cvat"
+    "objectID": "sections/the-building-blocks-of-nn-and-dl.html",
+    "href": "sections/the-building-blocks-of-nn-and-dl.html",
+    "title": "6  The Building Blocks of Neural Networks and Deep Learning",
+    "section": "",
+    "text": "Goal\nThis session aims to provide a comprehensive introduction to the fundamental components of neural networks and deep learning. Participants will explore the architecture of neural networks, including layers, neurons, weights, and activation functions, as well as the principles behind training models, such as loss functions and optimizers. The goal is to equip participants with a solid understanding of how neural networks are constructed and how they learn, paving the way for deeper dives into specific neural network models and applications in future sessions.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>The Building Blocks of Neural Networks and Deep Learning</span>"
+    ]
   },
   {
-    "objectID": "sections/data-anotation-for-deep-learning.html#goal",
-    "href": "sections/data-anotation-for-deep-learning.html#goal",
-    "title": "6  Data annotations for deep learning",
-    "section": "6.1 Goal",
-    "text": "6.1 Goal\nTo provide participants with a comprehensive understanding of the importance of training data, methods to obtain it, tools for annotation, and potential data sources."
+    "objectID": "sections/the-building-blocks-of-nn-and-dl.html#key-elements",
+    "href": "sections/the-building-blocks-of-nn-and-dl.html#key-elements",
+    "title": "6  The Building Blocks of Neural Networks and Deep Learning",
+    "section": "Key Elements",
+    "text": "Key Elements\nNeurons and layers, weights and biases, activation functions, model training principles, loss functions, optimizers",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>The Building Blocks of Neural Networks and Deep Learning</span>"
+    ]
   },
   {
-    "objectID": "sections/data-anotation-for-deep-learning.html#breakdown",
-    "href": "sections/data-anotation-for-deep-learning.html#breakdown",
-    "title": "6  Data annotations for deep learning",
-    "section": "6.2 Breakdown",
-    "text": "6.2 Breakdown\n\nIntroduction to Training Data\n\nWhat is training data and why is it crucial?\nDifferences between labeled and unlabeled data\n\nThe Importance of Quality Annotations\n\nHow annotations impact model performance\nCommon challenges: Inconsistent annotations, class imbalance, etc.\nStrategies to ensure high-quality annotations: Guidelines, multiple annotators, quality checks\n\nMethods to Obtain Training Data\n\nCreating your own dataset: Pros, cons, and considerations\nUsing pre-existing datasets: Benefits and potential pitfalls\nData augmentation: Expanding dataset size and diversity\nTransfer learning and pre-trained models: Leveraging external knowledge\n\nAnnotation Tools\n\nOverview of popular annotation tools: Labelbox, VGG Image Annotator (VIA), RectLabel, etc.\nFeatures to consider: Collaboration, format export options, automation capabilities\nHands-on demo: Annotating a sample image using a chosen tool\n\nData Sources for RTS and Arctic Science (15 minutes)\n\nPublic datasets relevant to arctic science and RTS\nCollaborative efforts and data-sharing initiatives in the research community\nEthical considerations: lesson 12\n\nQ&A and Discussion\n\nEncouraging sharing of personal experiences or challenges with data annotation\nDiscussing potential future developments in annotation tools and techniques"
+    "objectID": "sections/intro-to-pytorch.html",
+    "href": "sections/intro-to-pytorch.html",
+    "title": "7  Introduction to PyTorch: Core Functionalities and Advantage",
+    "section": "",
+    "text": "Goal\nThis session will guide participants through the basics of PyTorch’s core functionalities. We’ll closely examine PyTorch’s capabilities with a specific focus on applying it to a sample dataset, setting the stage for a subsequent hands-on session. The goal is to arm participants with the essential knowledge and confidence required to begin utilizing PyTorch in their deep learning endeavors, ensuring they’re well-prepared for practical application and further exploration.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to PyTorch: Core Functionalities and Advantage</span>"
+    ]
   },
   {
-    "objectID": "sections/u-net-for-semanting-segmentation.html#goal",
-    "href": "sections/u-net-for-semanting-segmentation.html#goal",
-    "title": "7  Deep dive into U-Net for semantic segmentation",
-    "section": "7.1 Goal",
-    "text": "7.1 Goal\nTo provide participants with a deep understanding of the U-Net architecture, its relevance to semantic segmentation tasks, and its application for RTS mapping."
+    "objectID": "sections/intro-to-pytorch.html#key-elements",
+    "href": "sections/intro-to-pytorch.html#key-elements",
+    "title": "7  Introduction to PyTorch: Core Functionalities and Advantage",
+    "section": "Key Elements",
+    "text": "Key Elements\nPyTorch’s foundational concepts, data processing, model building, sample dataset application",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to PyTorch: Core Functionalities and Advantage</span>"
+    ]
   },
   {
-    "objectID": "sections/u-net-for-semanting-segmentation.html#breakdown",
-    "href": "sections/u-net-for-semanting-segmentation.html#breakdown",
-    "title": "7  Deep dive into U-Net for semantic segmentation",
-    "section": "7.2 Breakdown",
-    "text": "7.2 Breakdown\n\nIntroduction to Semantic Segmentation\n\nDefinition and significance of semantic segmentation\nDifferences between classification, object detection, and segmentation\nRelevance to RTS mapping\n\nOverview of U-Net Architecture\n\nHistorical context: Why and where was U-Net developed?\nKey features of U-Net: Symmetry, skip connections, etc.\nVisual representation of U-Net’s architecture\n\nEssentials of U-Net Components\n\nContracting path and its role in feature extraction\nBottleneck: Capturing the context\nExpansive path: Localizing features using skip connections\n\nIntroduction to Other Semantic Segmentation Models\n\nFCN (Fully Convolutional Network): The pioneer in end-to-end segmentation\nSegNet: Architecture with encoder-decoder structure\n…\n\nCase Study: U-Net for RTS Mapping\n\nWalkthrough of a real-world application of U-Net for RTS mapping\nVisualization of segmentation results on RTS data"
+    "objectID": "sections/hands-on-lab-pytorch.html",
+    "href": "sections/hands-on-lab-pytorch.html",
+    "title": "8  Hands-On Lab: PyTorch",
+    "section": "",
+    "text": "Goal\nIn this hands-on lab session, participants will apply their foundational knowledge of PyTorch to a practical exercise. Participants will navigate through data loading, model creation, training, and evaluation within the PyTorch framework.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Hands-On Lab: PyTorch</span>"
+    ]
   },
   {
-    "objectID": "sections/u-net-lab.html#goal",
-    "href": "sections/u-net-lab.html#goal",
-    "title": "8  U-Net for RTS mapping hands-on lab",
-    "section": "8.1 Goal",
-    "text": "8.1 Goal\nTo provide participants with practical experience in implementing and experimenting with the U-Net architecture for semantic segmentation on RTS data."
+    "objectID": "sections/hands-on-lab-pytorch.html#key-elements",
+    "href": "sections/hands-on-lab-pytorch.html#key-elements",
+    "title": "8  Hands-On Lab: PyTorch",
+    "section": "Key Elements",
+    "text": "Key Elements\nData processing, model building, loss functions, training and evaluation, hands-on PyTorch implementation",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Hands-On Lab: PyTorch</span>"
+    ]
   },
   {
-    "objectID": "sections/u-net-lab.html#breakdown",
-    "href": "sections/u-net-lab.html#breakdown",
-    "title": "8  U-Net for RTS mapping hands-on lab",
-    "section": "8.2 Breakdown",
-    "text": "8.2 Breakdown\n\nData Loading\n\nTask: Loading RTS data for the lab\n\nImplementing U-Net Architecture\n\nTask: Define the U-Net architecture using nn.Module in PyTorch\nGuided step-by-step construction of the contracting path, bottleneck, and expansive path\nTips: Emphasize the importance of matching tensor dimensions\n\nDefining the Loss Function and Optimizer\n\nTask: Choose an appropriate loss function for segmentation (e.g., Dice loss, cross-entropy loss)\nSet up an optimizer (e.g., Adam) for training\n\nMini Training Loop\n\nTask: Implement a basic training loop to train the U-Net model on the RTS data subset\nMonitor the loss and visualize some predictions after a few epochs\nTips: Discuss the importance of data augmentation and learning rate choices for segmentation tasks\n\nDiscussion and Troubleshooting\n\nShare insights or observations from the training process\nEncourage participants to discuss their experiences and any modifications they tried"
+    "objectID": "sections/exploring-advanced-neural-networks.html",
+    "href": "sections/exploring-advanced-neural-networks.html",
+    "title": "9  Exploring Advanced Neural Networks: Instance Segmentation",
+    "section": "",
+    "text": "Goal\nThis session focus on learning advanced neural networks through the instance segmentation. Participants will gain insights into models such as Mask R-CNN, focusing on how these networks are structured, function, and applied to differentiate and precisely segment individual objects within images. The goal is to deepen understanding of instance segmentation’s technical foundations and practical applications, preparing participants for hands-on implementation and exploration of its real-world utility.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Exploring Advanced Neural Networks: Instance Segmentation</span>"
+    ]
   },
   {
-    "objectID": "sections/model-explainability.html#goal",
-    "href": "sections/model-explainability.html#goal",
-    "title": "9  Model explainability and scientific soundness",
-    "section": "9.1 Goal",
-    "text": "9.1 Goal\nIntroduce the black box nature of AI models, the importance of interpretability and transparency of AI models (e.g., safety, security, and bias in models and datasets) and methods proposed to explain or reveal the ways that AI models make decisions."
+    "objectID": "sections/exploring-advanced-neural-networks.html#key-elements",
+    "href": "sections/exploring-advanced-neural-networks.html#key-elements",
+    "title": "9  Exploring Advanced Neural Networks: Instance Segmentation",
+    "section": "Key Elements",
+    "text": "Key Elements\nInstance segmentation techniques, models like Mask R-CNN, network structure and functionality, object differentiation and segmentation",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Exploring Advanced Neural Networks: Instance Segmentation</span>"
+    ]
   },
   {
-    "objectID": "sections/model-explainability.html#breakdown",
-    "href": "sections/model-explainability.html#breakdown",
-    "title": "9  Model explainability and scientific soundness",
-    "section": "9.2 Breakdown",
-    "text": "9.2 Breakdown\n\nThe Black Box Dilemma\n\nWhy deep learning models are often perceived as “black boxes”\nThe importance of transparency and interpretability in scientific applications\n\nPrinciples of Scientific Soundness\n\nReproducibility: Ensuring experiments can be replicated by others\nRobustness: Model performance across different datasets and conditions\nGeneralizability: How well models perform on unseen data\n\nIntroduction to Model Explainability\n\nWhat is model explainability and why is it crucial?\nDifferences between global and local explainability\n\nTechniques for Model Interpretation\n\nFeature Visualization: Understanding what features a model has learned\nSaliency Maps: Highlighting important regions in input data\nActivation Maximization: Visualizing what maximally activates certain neurons\nSHAP (SHapley Additive exPlanations): Game theoretic approach to explain output of any machine learning model\n\nEnsuring Scientific Soundness in Deep Learning\n\nData integrity: Ensuring data quality and addressing biases\nModel validation: Techniques beyond traditional train-test splits (e.g., k-fold cross-validation)\nUncertainty quantification: Understanding and communicating model uncertainty\n\nCase Studies: Failures and Successes\n\nReal-world examples where lack of explainability or scientific rigor led to issues\nSuccess stories where proper model interpretation and validation made a difference\n\nQ&A and Discussion Encouraging sharing of personal experiences or challenges related to model explainability and scientific soundness Discussing potential future developments in the field of model interpretability"
+    "objectID": "sections/intro-to-dl-libraries-for-image-analysis.html",
+    "href": "sections/intro-to-dl-libraries-for-image-analysis.html",
+    "title": "10  Introduction to Deep Learning Libraries for Image Analysis",
+    "section": "",
+    "text": "Goal\nThis session introduces participants to specialized deep learning libraries for image analysis, such as Detectron2 and MMSegmentation. The goal is to dive into these libraries’ unique capabilities in handling sophisticated image analysis tasks like instance segmentation and semantic segmentation. Participants will learn how to navigate these libraries and leverage their advanced features for image analysis projects. By session’s end, participants will be adept at selecting and utilizing these libraries to enhance their research or projects in image analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Introduction to Deep Learning Libraries for Image Analysis</span>"
+    ]
   },
   {
-    "objectID": "sections/model-explainability.html#ai-tools",
-    "href": "sections/model-explainability.html#ai-tools",
-    "title": "9  Model explainability and scientific soundness",
-    "section": "9.3 AI tools",
-    "text": "9.3 AI tools\nZetane viewer (an open-source AI model explanation tool)\n\n\n\nSource: https://zetane.com/gallery"
+    "objectID": "sections/intro-to-dl-libraries-for-image-analysis.html#key-elements",
+    "href": "sections/intro-to-dl-libraries-for-image-analysis.html#key-elements",
+    "title": "10  Introduction to Deep Learning Libraries for Image Analysis",
+    "section": "Key Elements",
+    "text": "Key Elements\nOverview of Detectron2 and MMSegmentation, capabilities and features of each library, practical application examples, navigating library documentation and resources",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Introduction to Deep Learning Libraries for Image Analysis</span>"
+    ]
   },
   {
-    "objectID": "sections/intro-to-mmsegmentation.html#goal",
-    "href": "sections/intro-to-mmsegmentation.html#goal",
-    "title": "10  Introduction to MMSegmentation",
-    "section": "10.1 Goal",
-    "text": "10.1 Goal\nTo familiarize participants with the mmSegmentation framework, its capabilities, features, and how it can be utilized for semantic segmentation tasks, including RTS mapping."
+    "objectID": "sections/hands-on-lab-detectron2.html",
+    "href": "sections/hands-on-lab-detectron2.html",
+    "title": "11  Hands-On Lab: Detectron2",
+    "section": "",
+    "text": "Goal\nThis hands-on lab session provides participants with practical experience in using Detectron2. Participants will engage in interactive exercises to apply Detectron2 to real-world image analysis tasks, learning how to set up the environment, load data, configure models, and interpret results.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Hands-On Lab: Detectron2</span>"
+    ]
   },
   {
-    "objectID": "sections/intro-to-mmsegmentation.html#breakdown",
-    "href": "sections/intro-to-mmsegmentation.html#breakdown",
-    "title": "10  Introduction to MMSegmentation",
-    "section": "10.2 Breakdown",
-    "text": "10.2 Breakdown\n\nWhy Use a Framework Instead of Building from Scratch?\n\nEfficiency: Frameworks provide pre-implemented functions and structures, reducing development time.\nReliability: Established frameworks are tested by a broad community, ensuring fewer bugs and issues.\nScalability: Frameworks often come with built-in tools for scaling, such as distributed training.\nCommunity Support: Access to a community of users for troubleshooting, sharing best practices, and updates.\nModel Zoo: Availability of pre-trained models and benchmarks, facilitating transfer learning and comparison.\nTrade-offs: While frameworks offer many advantages, they might come with a learning curve and may not be as flexible as a custom solution for very specific needs.\n\nOverview of mmSegmentation\n\nWhat is mmSegmentation and its place within the MM (MMLab) ecosystem\n\nCore Components of mmSegmentation\n\nDatasets and Data Loaders: How mmSegmentation handles data\nModels: Overview of built-in architectures (including U-Net and its variants)\nConfigs: Understanding the configuration system in mmSegmentation\n\nTraining and Evaluating Models\n\nSetting up a training configuration: Hyperparameters, dataset paths, etc.\nLaunching a training session: Commands and best practices\nMonitoring training: Losses, metrics, and visualizations\nEvaluating models: Tools and metrics available within mmSegmentation\n\nFine-tuning and Transfer Learning\n\nThe importance of transfer learning in semantic segmentation\nUsing pre-trained models from the mmSegmentation model zoo\nFine-tuning strategies for domain-specific tasks like RTS mapping\n\nCustomizing mmSegmentation\n\nAdding custom datasets: Preparing data and integrating it into the framework\nImplementing custom model architectures or modifications\nExtending functionalities: Plugins, hooks, and more\n\nExploring Other Frameworks for Diverse Applications\n\nDetectron2: Specialized for object detection and instance segmentation.\nTransformers (by Hugging Face): Tailored for NLP tasks with transformer architectures."
+    "objectID": "sections/hands-on-lab-detectron2.html#key-elements",
+    "href": "sections/hands-on-lab-detectron2.html#key-elements",
+    "title": "11  Hands-On Lab: Detectron2",
+    "section": "Key Elements",
+    "text": "Key Elements\nPractical Detectron2 application, environment setup data loading and preparation, model configuration and usage, result interpretation",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Hands-On Lab: Detectron2</span>"
+    ]
   },
   {
-    "objectID": "sections/mmsegmentation-hands-on-lab.html#goal",
-    "href": "sections/mmsegmentation-hands-on-lab.html#goal",
-    "title": "11  MMSegmentation Hands-on Lab",
-    "section": "11.1 Goal",
-    "text": "11.1 Goal\nTo provide participants with practical experience in setting up, configuring, and running semantic segmentation tasks using the mmSegmentation framework."
+    "objectID": "sections/ai-workflows-and-mlops.html",
+    "href": "sections/ai-workflows-and-mlops.html",
+    "title": "12  AI Workflows and MLOps: From Development to Deployment",
+    "section": "",
+    "text": "Goal",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
+    ]
   },
   {
-    "objectID": "sections/mmsegmentation-hands-on-lab.html#breakdown",
-    "href": "sections/mmsegmentation-hands-on-lab.html#breakdown",
-    "title": "11  MMSegmentation Hands-on Lab",
-    "section": "11.2 Breakdown",
-    "text": "11.2 Breakdown\n\nExploring Configurations\n\nNavigating the configuration system in mmSegmentation.\nModifying a sample config: Setting dataset paths, model type (e.g., U-Net), hyperparameters, etc.\n\nTraining a Model\n\nLaunching a training session using a sample configuration.\nMonitoring training progress: Observing loss values, potential visualizations, etc.\nTips: Highlighting the importance of checkpoints and logging.\n\nEvaluating the Model\n\nUsing mmSegmentation tools to evaluate the trained model’s performance.\nInterpreting common metrics for semantic segmentation (e.g., mIoU).\nVisualizing segmentation results on sample images.\n\nFine-tuning with a Pre-trained Model\n\nLoading a pre-trained model from the mmSegmentation model zoo.\nFine-tuning it on the RTS data subset or another sample dataset.\nObserving the benefits of transfer learning in practice.\n\nDiscussion and Troubleshooting\n\nSharing insights or observations from the exercises.\nEncouraging participants to discuss their experiences and any modifications they tried."
+    "objectID": "sections/ai-workflows-and-mlops.html#key-elements",
+    "href": "sections/ai-workflows-and-mlops.html#key-elements",
+    "title": "12  AI Workflows and MLOps: From Development to Deployment",
+    "section": "Key Elements",
+    "text": "Key Elements",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
+    ]
   },
   {
-    "objectID": "sections/model-deployment.html#goal",
-    "href": "sections/model-deployment.html#goal",
-    "title": "12  Model deployment",
-    "section": "12.1 Goal",
-    "text": "12.1 Goal\nTo provide participants with a comprehensive understanding of the processes, tools, and best practices involved in deploying deep learning models for various applications."
+    "objectID": "sections/hands-on-lab-ai-workflows.html",
+    "href": "sections/hands-on-lab-ai-workflows.html",
+    "title": "13  Hands-On Lab: AI Workflows",
+    "section": "",
+    "text": "Goal",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+    ]
   },
   {
-    "objectID": "sections/model-deployment.html#breakdown",
-    "href": "sections/model-deployment.html#breakdown",
-    "title": "12  Model deployment",
-    "section": "12.2 Breakdown",
-    "text": "12.2 Breakdown\n\nIntroduction to Model Deployment\n\nWhat is model deployment and why is it important?\nThe lifecycle of a machine learning model: From development to deployment\n\nDeployment Challenges\n\nModel size and computational constraints\nReal-time processing requirements\nScalability and handling large numbers of requests\n\nModel Optimization for Deployment\n\nQuantization: Reducing the precision of the model’s weights\nPruning: Removing unnecessary weights or neurons\nKnowledge distillation: Training a smaller model using a larger model’s outputs\nONNX (Open Neural Network Exchange): A platform-neutral format for models\n\nDeployment Platforms and Tools\n\nCloud Platforms: AWS SageMaker, Google AI Platform, Azure Machine Learning\nEdge Deployment: TensorFlow Lite, PyTorch Mobile\nContainers: Docker, Kubernetes for scalable deployments\nServing Frameworks: TensorFlow Serving, TorchServe\n\nMonitoring and Maintaining Deployed Models\n\nImportance of monitoring model performance in real-world scenarios\nTools for monitoring: Prometheus, Grafana, custom logging\nContinuous learning: Updating the model with new data\nVersioning: Managing different versions of deployed models\n\nSecurity and Ethical Considerations\n\nProtecting the model from adversarial attacks\nEnsuring user data privacy and compliance with regulations (e.g., GDPR)\nEthical considerations: Bias in deployed models, transparency, and accountability\n\nCase Study: Real-world Model Deployment\n\nWalkthrough of a real-world scenario of deploying a deep learning model\nChallenges faced, solutions implemented, and results achieved"
+    "objectID": "sections/hands-on-lab-ai-workflows.html#key-elements",
+    "href": "sections/hands-on-lab-ai-workflows.html#key-elements",
+    "title": "13  Hands-On Lab: AI Workflows",
+    "section": "Key Elements",
+    "text": "Key Elements",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+    ]
   },
   {
-    "objectID": "sections/data-ethics.html#about",
-    "href": "sections/data-ethics.html#about",
-    "title": "13  Data ethics",
-    "section": "13.1 About",
-    "text": "13.1 About\nReview FAIR and CARE Principles, and their relevance to data ethics Examine how ethical considerations are shared and considered at the Arctic Data Center Discuss ethical considerations in machine learning\nNotes: see https://learning.nceas.ucsb.edu/2022-09-arctic/sections/14-data-ethics.html"
+    "objectID": "sections/foundation-models.html",
+    "href": "sections/foundation-models.html",
+    "title": "14  Foundation Models: The Cornerstones of Modern AI",
+    "section": "",
+    "text": "Goal\nThis session provides an introductory overview of foundation models, such as GPT and SAM, underscoring their revolutionary role in AI’s evolution. Participants will learn how foundation models can be adapted and applied to address unique challenges in the Arctic. The aim is to equip participants with an understanding of foundation models’ potential in enhancing Arctic research and solving domain-specific problems, paving the way for innovative AI-driven solutions in extreme environments.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Foundation Models: The Cornerstones of Modern AI</span>"
+    ]
   },
   {
-    "objectID": "sections/popular-models-and-applications.html#goal",
-    "href": "sections/popular-models-and-applications.html#goal",
-    "title": "14  Overview of popular models and applications",
-    "section": "14.1 Goal",
-    "text": "14.1 Goal\nTo introduce participants to the state-of-the-art deep learning models, recent research, and practical applications tailored for challenges and studies related to Arctic research."
+    "objectID": "sections/foundation-models.html#key-elements",
+    "href": "sections/foundation-models.html#key-elements",
+    "title": "14  Foundation Models: The Cornerstones of Modern AI",
+    "section": "Key Elements",
+    "text": "Key Elements\nIntroduction to foundation models, application in Arctic science and research, adapting models for Arctic challenges",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Foundation Models: The Cornerstones of Modern AI</span>"
+    ]
   },
   {
-    "objectID": "sections/popular-models-and-applications.html#breakdownsample",
-    "href": "sections/popular-models-and-applications.html#breakdownsample",
-    "title": "14  Overview of popular models and applications",
-    "section": "14.2 Breakdown(sample)",
-    "text": "14.2 Breakdown(sample)\n\nThe Arctic Context\n\nBrief overview of Arctic research\nThe potential of deep learning in addressing Arctic-specific challenges\n\nSatellite Imagery Analysis (15 minutes)\n\nCase study (data, models, …)\n\nClimate Modeling and Prediction\n\nCase study (data, models, …)\n\nBiodiversity and Ecosystem Monitoring\n\nCase study (data, models, …)\n\nUnderwater Acoustic Analysis\n\nCase study (data, models, …)\n\nIndigenous Knowledge and Cultural Preservation\n\nCase study (data, models, …)\n\nFuture Directions and Open Challenges (15 minutes)\n\nEmerging areas in Arctic research where deep learning can play a role\nThe importance of interdisciplinary collaboration: Combining domain expertise with AI\nEthical considerations: Data privacy, indigenous rights, and responsible AI"
+    "objectID": "sections/hands-on-lab-foundation-models.html",
+    "href": "sections/hands-on-lab-foundation-models.html",
+    "title": "15  Hands-On Lab: Foundation Models",
+    "section": "",
+    "text": "Goal\nIn this hands-on lab, participants will dive into the practical application of foundation models, such as GPT, for Arctic research. The session is designed to guide participants through customizing and applying these advanced AI tools to analyze and interpret data specific to Arctic science challenges. By the lab’s conclusion, participants will have developed the skills to use foundation models creatively and effectively.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: Foundation Models</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-foundation-models.html#key-elements",
+    "href": "sections/hands-on-lab-foundation-models.html#key-elements",
+    "title": "15  Hands-On Lab: Foundation Models",
+    "section": "Key Elements",
+    "text": "Key Elements\nCustomizing foundation models for Arctic research, addressing real-world Arctic research scenarios",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: Foundation Models</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-ethics.html",
+    "href": "sections/ai-ethics.html",
+    "title": "16  AI Ethics",
+    "section": "",
+    "text": "Goal\nReview FAIR and CARE Principles, and their relevance to data ethics. Examine how ethical considerations are shared and considered at the Arctic Data Center. Discuss ethical considerations in machine learning.\nNotes: see https://learning.nceas.ucsb.edu/2022-09-arctic/sections/14-data-ethics.html",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Ethics</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-ethics.html#key-elements",
+    "href": "sections/ai-ethics.html#key-elements",
+    "title": "16  AI Ethics",
+    "section": "Key Elements",
+    "text": "Key Elements",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Ethics</span>"
+    ]
+  },
+  {
+    "objectID": "sections/socially-responsible-ai.html",
+    "href": "sections/socially-responsible-ai.html",
+    "title": "17  Socially Responsible AI",
+    "section": "",
+    "text": "Goal",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Socially Responsible AI</span>"
+    ]
+  },
+  {
+    "objectID": "sections/socially-responsible-ai.html#key-elements",
+    "href": "sections/socially-responsible-ai.html#key-elements",
+    "title": "17  Socially Responsible AI",
+    "section": "Key Elements",
+    "text": "Key Elements",
+    "crumbs": [
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Socially Responsible AI</span>"
+    ]
+  },
+  {
+    "objectID": "sections/reproducibility.html",
+    "href": "sections/reproducibility.html",
+    "title": "18  Reproducibility",
+    "section": "",
+    "text": "Goal\nThis session aims to highlight the importance of reproducibility in AI-driven Arctic research. Participants will learn about the challenges and best practices for ensuring that AI models and their results can be reproduced by other researchers, a cornerstone for building trust and advancing the field. The discussion will cover strategies for documenting experiments, sharing data and code, and using version control systems.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Reproducibility</span>"
+    ]
+  },
+  {
+    "objectID": "sections/reproducibility.html#key-elements",
+    "href": "sections/reproducibility.html#key-elements",
+    "title": "18  Reproducibility",
+    "section": "Key Elements",
+    "text": "Key Elements\nImportance of reproducibility, challenges to achieving reproducibility, best practices for reproducible research, tools and techniques to enhance reproducibility",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Reproducibility</span>"
+    ]
+  },
+  {
+    "objectID": "sections/the-fun-and-frontiers-of-ai.html",
+    "href": "sections/the-fun-and-frontiers-of-ai.html",
+    "title": "19  The Fun and Frontiers of AI: Innovation, Imagination, Interaction",
+    "section": "",
+    "text": "Goal\nThis session is designed to inspire and engage participants by showcasing the most innovative and imaginative applications of AI across various fields, with a special emphasis on Arctic research. From creative endeavors like art and music generation to practical applications in climate science and wildlife conservation, participants will discover the diverse ways AI can foster innovation, imagination, and interaction. The session aims to stimulate discussion, encourage creative thinking, and highlight the collaborative potential of AI.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>The Fun and Frontiers of AI: Innovation, Imagination, Interaction</span>"
+    ]
+  },
+  {
+    "objectID": "sections/the-fun-and-frontiers-of-ai.html#key-elements",
+    "href": "sections/the-fun-and-frontiers-of-ai.html#key-elements",
+    "title": "19  The Fun and Frontiers of AI: Innovation, Imagination, Interaction",
+    "section": "Key Elements",
+    "text": "Key Elements\nInnovative AI applications, inspiring creative thinking, future AI possibilities",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>The Fun and Frontiers of AI: Innovation, Imagination, Interaction</span>"
+    ]
   }
 ]
