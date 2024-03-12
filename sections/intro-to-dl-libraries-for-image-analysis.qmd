@@ -1,0 +1,7 @@
+# Introduction to Deep Learning Libraries for Image Analysis
+
+## Goal {.unnumbered}
+This session introduces participants to specialized deep learning libraries for image analysis, such as Detectron2 and MMSegmentation. The goal is to dive into these libraries' unique capabilities in handling sophisticated image analysis tasks like instance segmentation and semantic segmentation. Participants will learn how to navigate these libraries and leverage their advanced features for image analysis projects. By session's end, participants will be adept at selecting and utilizing these libraries to enhance their research or projects in image analysis.
+
+## Key Elements {.unnumbered}
+Overview of Detectron2 and MMSegmentation, capabilities and features of each library, practical application examples, navigating library documentation and resources

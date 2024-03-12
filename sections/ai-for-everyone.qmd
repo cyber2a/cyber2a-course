@@ -1,0 +1,7 @@
+# AI for  Everyone: An Introductory Overview
+
+## Goal {.unnumbered}
+This session aims to introducing AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions
+
+## Key Elements {.unnumbered}
+ML, DL, NN, CNN, datasets and annotations, training and inference, accuracy and validation, supervised learning, etc.

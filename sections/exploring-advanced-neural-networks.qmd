@@ -1,0 +1,8 @@
+# Exploring Advanced Neural Networks: Instance Segmentation
+
+## Goal {.unnumbered}
+This session focus on learning advanced neural networks through the instance segmentation. Participants will gain insights into models such as Mask R-CNN, focusing on how these networks are structured, function, and applied to differentiate and precisely segment individual objects within images. The goal is to deepen understanding of instance segmentation's technical foundations and practical applications, preparing participants for hands-on implementation and exploration of its real-world utility. 
+
+## Key Elements {.unnumbered}
+Instance segmentation techniques, models like Mask R-CNN, network structure and functionality, object differentiation and segmentation
+

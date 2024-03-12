@@ -1,0 +1,8 @@
+# Hands-On Lab: Detectron2
+
+## Goal {.unnumbered}
+This hands-on lab session provides participants with practical experience in using Detectron2. Participants will engage in interactive exercises to apply Detectron2 to real-world image analysis tasks, learning how to set up the environment, load data, configure models, and interpret results.
+
+## Key Elements {.unnumbered}
+Practical Detectron2 application, environment setup
+data loading and preparation, model configuration and usage, result interpretation

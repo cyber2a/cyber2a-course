@@ -1,0 +1,7 @@
+# Foundation Models: The Cornerstones of Modern AI
+
+## Goal {.unnumbered}
+This session provides an introductory overview of foundation models, such as GPT and SAM, underscoring their revolutionary role in AI's evolution. Participants will learn how foundation models can be adapted and applied to address unique challenges in the Arctic. The aim is to equip participants with an understanding of foundation models' potential in enhancing Arctic research and solving domain-specific problems, paving the way for innovative AI-driven solutions in extreme environments.
+
+## Key Elements {.unnumbered}
+Introduction to foundation models, application in Arctic science and research, adapting models for Arctic challenges

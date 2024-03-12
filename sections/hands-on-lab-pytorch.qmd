@@ -1,0 +1,8 @@
+# Hands-On Lab: PyTorch
+
+## Goal {.unnumbered}
+In this hands-on lab session, participants will apply their foundational knowledge of PyTorch to a practical exercise. Participants will navigate through data loading, model creation, training, and evaluation within the PyTorch framework.
+
+## Key Elements {.unnumbered}
+Data processing, model building, loss functions, training and evaluation, hands-on PyTorch implementation
+
