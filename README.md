@@ -6,7 +6,7 @@ Online materials for the [Cyber2A course on AI for Arctic research](https://cybe
 
 # Prospective Workshop Schedule
 
-<img src="/images/index/schedule-draft.png"/>
+<img src="https://cyber2a.github.io/workshop/workshop-schedule.png"/>
 
 # Book Draft
 The quarto book in this repository is a draft and currently under development.

@@ -1,0 +1,19 @@
+#  Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier {.unnumbered}
+
+## Overview
+
+In this session, we will introduce and explore the Arctic Retrogressive Thaw Slump (ARTS) dataset. We aim to illuminate the background and motivation behind the ARTS dataset, detail its design elements including functions, metadata, and usage, and underscore its defining features such as scalability, scientific integrity, and the potential for community contribution.
+
+## Outline
+
+* Background and motivation of the Arctic
+* Retrogressive Thaw Slump (ARTS) data set.
+* Source data for the ARTS data set
+* Design of the data set - functions, metadata, usage
+* Features of the data set - scalable, scientific, contributable
+* Data Curation Framework - standards, protocols
+* The ARTS repository - user and contributor guideline
+* Questions and discussions
+
+## Reference
+* [https://github.com/whrc/ARTS](https://github.com/whrc/ARTS)

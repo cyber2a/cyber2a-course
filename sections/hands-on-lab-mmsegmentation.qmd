@@ -1,0 +1,19 @@
+# Hands-On Lab: MMSegmentation {.unnumbered}
+
+## Overview
+
+This hands-on lab session provides participants with practical experience using MMSegmentation to perform semantic segmentation tasks. Participants will engage in guided exercises that build on the concepts introduced in the previous session, applying MMSegmentation to real-world datasets relevant to Arctic research. By the end of this session, participants will have gained the practical skills necessary to implement and fine-tune semantic segmentation models using MMSegmentation, enabling them to effectively apply these techniques in their own research projects.
+
+## Outline
+
+* Recap of MMSegmentation core functionalities
+* Guided exercise 1: preparing and loading data
+* Guided exercise 2: building and training a semantic segmentation model
+* Guided exercise 3: evaluating and fine-tuning the model
+* Working with real-world datasets: Arctic research applications
+* Troubleshooting and optimization tips
+* Conclusion and Q&A
+
+## Reference
+
+* [https://mmsegmentation.readthedocs.io/en/latest/user_guides/index.html](https://mmsegmentation.readthedocs.io/en/latest/user_guides/index.html)

@@ -1,8 +1,22 @@
-# Introduction to PyTorch: Core Functionalities and Advantage
+# Introduction to PyTorch: Core Functionalities and Advantages {.unnumbered}
 
-## Goal {.unnumbered}
- This session will guide participants through the basics of PyTorch's core functionalities. We'll closely examine PyTorch's capabilities with a specific focus on applying it to a sample dataset, setting the stage for a subsequent hands-on session. The goal is to arm participants with the essential knowledge and confidence required to begin utilizing PyTorch in their deep learning endeavors, ensuring they're well-prepared for practical application and further exploration.
+## Goal
 
-## Key Elements {.unnumbered}
-PyTorch's foundational concepts, data processing, model building, sample dataset application
+This session introduces PyTorch, one of the most popular deep learning frameworks, known for its flexibility and ease of use. Participants will gain hands-on experience with PyTorch’s core functionalities and apply them to a sample dataset, setting the stage for a subsequent hands-on session. The goal is to arm participants with the essential knowledge and confidence required to begin utilizing PyTorch in their deep learning endeavors, ensuring they’re well-prepared for practical application and further exploration.
+
+## Outline
+
+* Introduction to PyTorch
+* Understanding PyTorch’s core functionalities
+* Working with data in PyTorch
+* Building a simple neural network in PyTorch
+* Training a model
+* Evaluating a model
+* Conclusion and preparing for hands-on session
+
+## Reference
+
+* [https://pytorch.org](https://pytorch.org)
+* [https://pytorch.org/tutorials/](https://pytorch.org/tutorials/)
+
 

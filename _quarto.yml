@@ -10,26 +10,42 @@ book:
   favicon: images/index/arcticlogo.png
   chapters:
     - index.qmd
-    - sections/breaking-the-ice-with-ai-in-arctic-science.qmd
-    - sections/ai-for-everyone.qmd
-    - sections/ai-ready-data-in-arctic-research.qmd
-    - sections/data-annotation.qmd
-    - sections/hands-on-lab-data-annotation.qmd    
-    - sections/the-building-blocks-of-nn-and-dl.qmd
-    - sections/intro-to-pytorch.qmd
-    - sections/hands-on-lab-pytorch.qmd
-    - sections/exploring-advanced-neural-networks.qmd
-    - sections/intro-to-dl-libraries-for-image-analysis.qmd
-    - sections/hands-on-lab-detectron2.qmd
-    - sections/ai-workflows-and-mlops.qmd
-    - sections/hands-on-lab-ai-workflows.qmd
-    - sections/foundation-models.qmd
-    - sections/hands-on-lab-foundation-models.qmd
-    - sections/ai-ethics.qmd
-    - sections/socially-responsible-ai.qmd
-    - sections/reproducibility.qmd
-    - sections/the-fun-and-frontiers-of-ai.qmd
-    - references.qmd
+    - part: "<b>Introduction to AI and Arctic Science</b>"
+      chapters:
+        - sections/breaking-the-ice-with-ai-in-arctic-science.qmd
+        - sections/ai-for-everyone.qmd
+        - sections/guest-lecture-anna-chandi.qmd
+        - sections/the-fun-and-frontiers-of-ai.qmd
+
+    - part: "<b>Data Management and Preparation for AI</b>"
+      chapters:  
+        - sections/ai-ready-data-in-arctic-research.qmd
+        - sections/guest-lecture-yili-arts-dataset.qmd
+        - sections/data-annotation.qmd
+        - sections/hands-on-lab-data-annotation.qmd    
+    
+    - part: "<b>AI Fundamentals and Techniques</b>"
+      chapters:
+        - sections/the-building-blocks-of-nn-and-dl.qmd
+        - sections/intro-to-pytorch.qmd
+        - sections/hands-on-lab-pytorch.qmd
+        - sections/exploring-advanced-neural-networks.qmd
+        - sections/intro-to-dl-libraries-for-image-analysis.qmd
+        - sections/hands-on-lab-mmsegmentation.qmd
+
+    - part: "<b>Advanced AI Workflows and Models</b>"
+      chapters:
+        - sections/ai-workflows-and-mlops.qmd
+        - sections/hands-on-lab-ai-workflows.qmd
+        - sections/foundation-models.qmd
+        - sections/hands-on-lab-foundation-models.qmd
+    
+    - part: "<b>Ethics and Social Implications of AI</b>"
+      chapters:
+        - sections/ai-ethics.qmd
+        - sections/socially-responsible-ai.qmd
+        - sections/reproducibility.qmd
+    
   sidebar:
     tools:
       - icon: house-door-fill

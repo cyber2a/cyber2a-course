@@ -1,6 +1,3 @@
-# Hands-On Lab: AI Workflows
+# Hands-On Lab: AI Workflows {.unnumbered}
 
-## Goal {.unnumbered}
- 
-## Key Elements {.unnumbered}
 

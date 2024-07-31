@@ -8,6 +8,6 @@ Based on the team’s intensive research and training efforts in AI for Arctic S
 
 The sections presented here potentially fit into a one-week workshop as follows:
 
-![](/images/index/schedule-draft.png){}
+![](https://cyber2a.github.io/workshop/workshop-schedule.png){}
 
 ![](/images/index/arcticlogo.png){fig-align="center" width=50%}

@@ -1,8 +1,18 @@
-# Hands-On Lab: PyTorch
+# Hands-On Lab: PyTorch {.unnumbered}
 
-## Goal {.unnumbered}
-In this hands-on lab session, participants will apply their foundational knowledge of PyTorch to a practical exercise. Participants will navigate through data loading, model creation, training, and evaluation within the PyTorch framework.
+## Overview
+This hands-on lab session is designed to provide participants with practical experience using PyTorch to build, train, and evaluate neural network models. Participants will work through guided exercises that reinforce the concepts introduced in the previous session, applying PyTorch to real-world datasets relevant to Arctic research. By the end of this session, participants will have a solid understanding of how to implement deep learning models using PyTorch, empowering them to tackle their own projects with confidence.
 
-## Key Elements {.unnumbered}
-Data processing, model building, loss functions, training and evaluation, hands-on PyTorch implementation
+## Outline
 
+* Recap of PyTorch core functionalities
+* Guided exercise 1: working with real-world datasets
+* Guided exercise 2: building a simple neural network
+* Guided exercise 3: training and evaluating the model
+* Troubleshooting and optimization tips
+* Conclusion and Q&A
+
+## Reference
+* [https://pytorch.org/tutorials/intermediate/torchvision_tutorial.html](https://pytorch.org/tutorials/intermediate/torchvision_tutorial.html)
+* [https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)
+* [https://pytorch.org/tutorials/beginner/vt_tutorial.html](https://pytorch.org/tutorials/beginner/vt_tutorial.html)

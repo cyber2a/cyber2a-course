@@ -1,7 +1,26 @@
-# Foundation Models: The Cornerstones of Modern AI
+# Foundation Models: The Cornerstones of Modern AI {.unnumbered}
 
-## Goal {.unnumbered}
-This session provides an introductory overview of foundation models, such as GPT and SAM, underscoring their revolutionary role in AI's evolution. Participants will learn how foundation models can be adapted and applied to address unique challenges in the Arctic. The aim is to equip participants with an understanding of foundation models' potential in enhancing Arctic research and solving domain-specific problems, paving the way for innovative AI-driven solutions in extreme environments.
+## Overview
 
-## Key Elements {.unnumbered}
-Introduction to foundation models, application in Arctic science and research, adapting models for Arctic challenges
+Foundation models (FM) are deep learning models trained on massive raw unlabelled datasets usually through self-supervised learning. FMs enable today’s data scientists to use them as the base and fine-tune using domain specific data to obtain models that can handle a wide range of tasks [1, 6, 7]. In this talk, we provide an introduction to FMs, its history, evolution, and go through its key features and categories, and a few examples. We also briefly discuss how foundation models work. This talk will be a precursor to the hands-on session that follows on the same topic.
+
+![](https://cyber2a.github.io/workshop/preview/images/foundation-models.png)
+Image source: 2021 paper on foundation models by Stanford researchers [1].
+
+In this session, we take a closer look at what constitutes a foundation model, a few examples, and some basic principles around how it works.
+
+## Outline 
+1. Introduction to foundation models, its history and evolution
+2. Key features of foundation models
+3. Types of foundation models: Language, Vision, Generative, and Multimodal
+4. Examples of foundation models: BERT [3], GPT [4], YOLO [2], SAM [5], DALLE-2
+5. How do foundation models work?
+
+## Reference 
+1. [On the opportunities and risk of Foundation models](https://arxiv.org/abs/2108.07258) 
+2. [You Only Look Once](https://arxiv.org/abs/1506.02640) 
+3. [BERT](https://arxiv.org/abs/1810.04805)
+4. [GPT3](https://arxiv.org/abs/2005.14165)
+5. [Segment Anything Model](https://segment-anything.com/)
+6. [NVIDIA blog post on foundation models](https://blogs.nvidia.com/blog/what-are-foundation-models/)
+7. [What are Foundation Models? - Generative AI](https://aws.amazon.com/what-is/foundation-models/)

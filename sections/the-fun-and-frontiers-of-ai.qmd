@@ -1,9 +1,4 @@
-# The Fun and Frontiers of AI: Innovation, Imagination, Interaction
+# The Fun and Frontiers of AI: Innovation, Imagination, Interaction {.unnumbered}
 
-## Goal {.unnumbered}
-This session is designed to inspire and engage participants by showcasing the most innovative and imaginative applications of AI across various fields, with a special emphasis on Arctic research. From creative endeavors like art and music generation to practical applications in climate science and wildlife conservation, participants will discover the diverse ways AI can foster innovation, imagination, and interaction. The session aims to stimulate discussion, encourage creative thinking, and highlight the collaborative potential of AI. 
-
-## Key Elements {.unnumbered}
-Innovative AI applications, inspiring creative thinking, future AI possibilities
 
 

@@ -1,8 +1,18 @@
-# Exploring Advanced Neural Networks: Instance Segmentation
+# Exploring Advanced Neural Networks: Semantic Segmentation {.unnumbered}
 
-## Goal {.unnumbered}
-This session focus on learning advanced neural networks through the instance segmentation. Participants will gain insights into models such as Mask R-CNN, focusing on how these networks are structured, function, and applied to differentiate and precisely segment individual objects within images. The goal is to deepen understanding of instance segmentation's technical foundations and practical applications, preparing participants for hands-on implementation and exploration of its real-world utility. 
+## Overview
 
-## Key Elements {.unnumbered}
-Instance segmentation techniques, models like Mask R-CNN, network structure and functionality, object differentiation and segmentation
+This session focuses on advanced neural networks, specifically targeting semantic segmentation. Participants will delve into models such as Fully Convolutional Networks (FCNs) and U-Net, learning how these networks are structured, how they function, and how they can be applied to accurately segment and label each pixel of an image according to the object it represents. The goal is to deepen participants’ understanding of the technical foundations and practical applications of semantic segmentation, equipping them with the skills needed for hands-on implementation and exploration of its real-world utility, particularly in the context of Arctic research.
 
+## Outline
+
+* Introduction to semantic segmentation
+* Overview of key models: Fully Convolutional Networks (FCNs) and U-Net
+* Detailed architecture and functionality
+* Applications in Arctic research: case studies
+* Conclusion and Q&A
+
+## Reference
+
+* Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. “U-net: Convolutional networks for biomedical image segmentation.” Medical image computing and computer-assisted intervention–MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18. Springer International Publishing, 2015. https://arxiv.org/abs/1505.04597
+* Minaee, Shervin, et al. “Image segmentation using deep learning: A survey.” IEEE transactions on pattern analysis and machine intelligence 44.7 (2021): 3523-3542. http://www.arxiv.org/abs/2001.05566

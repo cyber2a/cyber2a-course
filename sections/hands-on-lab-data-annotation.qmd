@@ -1,8 +1,3 @@
-# Hands-On Lab: Data Annotation
+# Hands-On Lab: Data Annotation {.unnumbered}
 
-## Goal {.unnumbered}
-This hands-on lab session is designed to give participants practical experience in data annotation for deep learning. Participants will apply the methods, tools, and best practices discussed in the previous session, working directly with datasets to annotate data effectively.
-
-## Key Elements {.unnumbered}
-Use of annotation methods and tools, direct dataset interaction
 

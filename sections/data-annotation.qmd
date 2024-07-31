@@ -1,7 +1,1 @@
-# Data Annotation: The Foundation of Deep Learning Models
-
-## Goal {.unnumbered}
-This session explores the critical role of training data in deep learning, focusing on data annotation methods, tools, and strategies for acquiring high-quality data. Participants will learn how well-annotated data supports effective deep learning models, understanding the challenges and best practices in data annotation. By the end, participants will be equipped to prepare their datasets for deep learning.
-
-## Key Elements {.unnumbered}
-Training data's role, annotation methods/tools, annotated data's importance, annotation challenges, annotation best practices, dataset preparation
+# Data Annotation: The Foundation of Deep Learning Models {.unnumbered}

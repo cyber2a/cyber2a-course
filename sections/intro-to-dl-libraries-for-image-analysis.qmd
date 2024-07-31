@@ -1,7 +1,19 @@
-# Introduction to Deep Learning Libraries for Image Analysis
+# Introduction to Deep Learning Libraries for Image Analysis {.unnumbered}
 
-## Goal {.unnumbered}
-This session introduces participants to specialized deep learning libraries for image analysis, such as Detectron2 and MMSegmentation. The goal is to dive into these libraries' unique capabilities in handling sophisticated image analysis tasks like instance segmentation and semantic segmentation. Participants will learn how to navigate these libraries and leverage their advanced features for image analysis projects. By session's end, participants will be adept at selecting and utilizing these libraries to enhance their research or projects in image analysis.
+## Overview
 
-## Key Elements {.unnumbered}
-Overview of Detectron2 and MMSegmentation, capabilities and features of each library, practical application examples, navigating library documentation and resources
+his session introduces participants to MMSegmentation, a specialized deep learning library designed for semantic segmentation tasks. Participants will explore the unique capabilities of MMSegmentation in handling sophisticated image analysis projects. The session will cover how to navigate the library, implement advanced features, and apply them to real-world datasets, particularly in the context of Arctic research. While the focus will be on MMSegmentation, Detectron2 will also be mentioned as another powerful tool for image analysis. By the end of this session, participants will have a theoretical understanding of MMSegmentation and be prepared for a more extensive hands-on lab session.
+
+## Outline
+
+* Introduction to MMSegmentation: features and capabilities
+* Navigating MMSegmentation: tools and techniques
+* Implementing semantic segmentation with MMSegmentation
+* Practical applications in Arctic research
+* Brief overview of Detectron2 for comparison
+* Conclusion and Q&A
+
+## Reference
+
+* [https://github.com/open-mmlab/mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
+* [https://github.com/facebookresearch/detectron2](https://github.com/facebookresearch/detectron2) (for further exploration)

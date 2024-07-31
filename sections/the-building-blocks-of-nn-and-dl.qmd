@@ -1,7 +1,16 @@
-#  The Building Blocks of Neural Networks and Deep Learning
+#  The Building Blocks of Neural Networks and Deep Learning {.unnumbered}
 
-## Goal {.unnumbered}
+## Overview
+
 This session aims to provide a comprehensive introduction to the fundamental components of neural networks and deep learning. Participants will explore the architecture of neural networks, including layers, neurons, weights, and activation functions, as well as the principles behind training models, such as loss functions and optimizers. The goal is to equip participants with a solid understanding of how neural networks are constructed and how they learn, paving the way for deeper dives into specific neural network models and applications in future sessions.
 
-## Key Elements {.unnumbered}
-Neurons and layers, weights and biases, activation functions, model training principles, loss functions, optimizers
+## Outline
+
+* Fundamentals of neural network: history and evolution
+* Core components: neurons, layers, and weights
+* Architecture of neural networks: layers and activation functions
+* Training neural networks: loss functions and optimizers
+* Conclusion and Q&A
+
+## Reference
+* [https://cs231n.stanford.edu](https://cs231n.stanford.edu)

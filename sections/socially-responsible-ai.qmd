@@ -1,7 +1,4 @@
-# Socially Responsible AI
+# Socially Responsible AI {.unnumbered}
 
-## Goal {.unnumbered}
-
-## Key Elements {.unnumbered}
 
 
