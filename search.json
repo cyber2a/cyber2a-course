@@ -10,403 +10,388 @@
     ]
   },
   {
-    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html",
-    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html",
-    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "objectID": "sections/guest-lecture-yili-arts-dataset.html",
+    "href": "sections/guest-lecture-yili-arts-dataset.html",
+    "title": "Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier",
     "section": "",
-    "text": "Goal\nThis session kicks off with a relaxed and engaging exploration of AI’s role in Arctic science and geoscience, aiming to lay a solid foundation without overwhelming our audience. We’ll navigate through the use of AI technologies in these fields, highlighting their exciting possibilities and tackling the challenges and ethical considerations. Expect a straightforward, easy-to-follow presentation designed to demystify AI and spark curiosity.",
+    "text": "Overview\nIn this session, we will introduce and explore the Arctic Retrogressive Thaw Slump (ARTS) dataset. We aim to illuminate the background and motivation behind the ARTS dataset, detail its design elements including functions, metadata, and usage, and underscore its defining features such as scalability, scientific integrity, and the potential for community contribution.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+      "<b>Data Management and Preparation for AI</b>",
+      "Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier"
     ]
   },
   {
-    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html#key-elements",
-    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html#key-elements",
-    "title": "1  Breaking the Ice with AI in Arctic Science",
-    "section": "Key Elements",
-    "text": "Key Elements\nEngaging visuals, simplified explanations, real-world examples, light tone",
+    "objectID": "sections/guest-lecture-yili-arts-dataset.html#outline",
+    "href": "sections/guest-lecture-yili-arts-dataset.html#outline",
+    "title": "Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier",
+    "section": "Outline",
+    "text": "Outline\n\nBackground and motivation of the Arctic\nRetrogressive Thaw Slump (ARTS) data set.\nSource data for the ARTS data set\nDesign of the data set - functions, metadata, usage\nFeatures of the data set - scalable, scientific, contributable\nData Curation Framework - standards, protocols\nThe ARTS repository - user and contributor guideline\nQuestions and discussions",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+      "<b>Data Management and Preparation for AI</b>",
+      "Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier"
     ]
   },
   {
-    "objectID": "sections/ai-for-everyone.html",
-    "href": "sections/ai-for-everyone.html",
-    "title": "2  AI for Everyone: An Introductory Overview",
-    "section": "",
-    "text": "Goal\nThis session aims to introducing AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions",
+    "objectID": "sections/guest-lecture-yili-arts-dataset.html#reference",
+    "href": "sections/guest-lecture-yili-arts-dataset.html#reference",
+    "title": "Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://github.com/whrc/ARTS",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
-    ]
-  },
-  {
-    "objectID": "sections/ai-for-everyone.html#key-elements",
-    "href": "sections/ai-for-everyone.html#key-elements",
-    "title": "2  AI for Everyone: An Introductory Overview",
-    "section": "Key Elements",
-    "text": "Key Elements\nML, DL, NN, CNN, datasets and annotations, training and inference, accuracy and validation, supervised learning, etc.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
-    ]
-  },
-  {
-    "objectID": "sections/ai-ready-data-in-arctic-research.html",
-    "href": "sections/ai-ready-data-in-arctic-research.html",
-    "title": "3  AI-Ready Data in Arctic Research: Principles and Practices",
-    "section": "",
-    "text": "Goal\nThis session provides an understanding of ‘AI-ready data’ in Arctic science and geoscience, highlighting the importance of suitable data for AI applications. Participants will learn about creating and managing metadata and organizing data repositories. We’ll discuss best practices for data preparation and structuring for AI processing. By the end, participants will clearly understand AI-ready data characteristics and the steps to transform raw data for AI applications.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI-Ready Data in Arctic Research: Principles and Practices</span>"
-    ]
-  },
-  {
-    "objectID": "sections/ai-ready-data-in-arctic-research.html#key-elements",
-    "href": "sections/ai-ready-data-in-arctic-research.html#key-elements",
-    "title": "3  AI-Ready Data in Arctic Research: Principles and Practices",
-    "section": "Key Elements",
-    "text": "Key Elements\nAI-ready data definition, data suitability importance, metadata management, data repository organization, data preparation practices, raw data transformation",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI-Ready Data in Arctic Research: Principles and Practices</span>"
-    ]
-  },
-  {
-    "objectID": "sections/data-annotation.html",
-    "href": "sections/data-annotation.html",
-    "title": "4  Data Annotation: The Foundation of Deep Learning Models",
-    "section": "",
-    "text": "Goal\nThis session explores the critical role of training data in deep learning, focusing on data annotation methods, tools, and strategies for acquiring high-quality data. Participants will learn how well-annotated data supports effective deep learning models, understanding the challenges and best practices in data annotation. By the end, participants will be equipped to prepare their datasets for deep learning.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Annotation: The Foundation of Deep Learning Models</span>"
-    ]
-  },
-  {
-    "objectID": "sections/data-annotation.html#key-elements",
-    "href": "sections/data-annotation.html#key-elements",
-    "title": "4  Data Annotation: The Foundation of Deep Learning Models",
-    "section": "Key Elements",
-    "text": "Key Elements\nTraining data’s role, annotation methods/tools, annotated data’s importance, annotation challenges, annotation best practices, dataset preparation",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Annotation: The Foundation of Deep Learning Models</span>"
-    ]
-  },
-  {
-    "objectID": "sections/hands-on-lab-data-annotation.html",
-    "href": "sections/hands-on-lab-data-annotation.html",
-    "title": "5  Hands-On Lab: Data Annotation",
-    "section": "",
-    "text": "Goal\nThis hands-on lab session is designed to give participants practical experience in data annotation for deep learning. Participants will apply the methods, tools, and best practices discussed in the previous session, working directly with datasets to annotate data effectively.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hands-On Lab: Data Annotation</span>"
-    ]
-  },
-  {
-    "objectID": "sections/hands-on-lab-data-annotation.html#key-elements",
-    "href": "sections/hands-on-lab-data-annotation.html#key-elements",
-    "title": "5  Hands-On Lab: Data Annotation",
-    "section": "Key Elements",
-    "text": "Key Elements\nUse of annotation methods and tools, direct dataset interaction",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hands-On Lab: Data Annotation</span>"
+      "<b>Data Management and Preparation for AI</b>",
+      "Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier"
     ]
   },
   {
     "objectID": "sections/the-building-blocks-of-nn-and-dl.html",
     "href": "sections/the-building-blocks-of-nn-and-dl.html",
-    "title": "6  The Building Blocks of Neural Networks and Deep Learning",
+    "title": "The Building Blocks of Neural Networks and Deep Learning",
     "section": "",
-    "text": "Goal\nThis session aims to provide a comprehensive introduction to the fundamental components of neural networks and deep learning. Participants will explore the architecture of neural networks, including layers, neurons, weights, and activation functions, as well as the principles behind training models, such as loss functions and optimizers. The goal is to equip participants with a solid understanding of how neural networks are constructed and how they learn, paving the way for deeper dives into specific neural network models and applications in future sessions.",
+    "text": "Overview\nThis session aims to provide a comprehensive introduction to the fundamental components of neural networks and deep learning. Participants will explore the architecture of neural networks, including layers, neurons, weights, and activation functions, as well as the principles behind training models, such as loss functions and optimizers. The goal is to equip participants with a solid understanding of how neural networks are constructed and how they learn, paving the way for deeper dives into specific neural network models and applications in future sessions.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>The Building Blocks of Neural Networks and Deep Learning</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "The Building Blocks of Neural Networks and Deep Learning"
     ]
   },
   {
-    "objectID": "sections/the-building-blocks-of-nn-and-dl.html#key-elements",
-    "href": "sections/the-building-blocks-of-nn-and-dl.html#key-elements",
-    "title": "6  The Building Blocks of Neural Networks and Deep Learning",
-    "section": "Key Elements",
-    "text": "Key Elements\nNeurons and layers, weights and biases, activation functions, model training principles, loss functions, optimizers",
+    "objectID": "sections/the-building-blocks-of-nn-and-dl.html#outline",
+    "href": "sections/the-building-blocks-of-nn-and-dl.html#outline",
+    "title": "The Building Blocks of Neural Networks and Deep Learning",
+    "section": "Outline",
+    "text": "Outline\n\nFundamentals of neural network: history and evolution\nCore components: neurons, layers, and weights\nArchitecture of neural networks: layers and activation functions\nTraining neural networks: loss functions and optimizers\nConclusion and Q&A",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>The Building Blocks of Neural Networks and Deep Learning</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "The Building Blocks of Neural Networks and Deep Learning"
+    ]
+  },
+  {
+    "objectID": "sections/the-building-blocks-of-nn-and-dl.html#reference",
+    "href": "sections/the-building-blocks-of-nn-and-dl.html#reference",
+    "title": "The Building Blocks of Neural Networks and Deep Learning",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://cs231n.stanford.edu",
+    "crumbs": [
+      "<b>AI Fundamentals and Techniques</b>",
+      "The Building Blocks of Neural Networks and Deep Learning"
     ]
   },
   {
     "objectID": "sections/intro-to-pytorch.html",
     "href": "sections/intro-to-pytorch.html",
-    "title": "7  Introduction to PyTorch: Core Functionalities and Advantage",
+    "title": "Introduction to PyTorch: Core Functionalities and Advantages",
     "section": "",
-    "text": "Goal\nThis session will guide participants through the basics of PyTorch’s core functionalities. We’ll closely examine PyTorch’s capabilities with a specific focus on applying it to a sample dataset, setting the stage for a subsequent hands-on session. The goal is to arm participants with the essential knowledge and confidence required to begin utilizing PyTorch in their deep learning endeavors, ensuring they’re well-prepared for practical application and further exploration.",
+    "text": "Goal\nThis session introduces PyTorch, one of the most popular deep learning frameworks, known for its flexibility and ease of use. Participants will gain hands-on experience with PyTorch’s core functionalities and apply them to a sample dataset, setting the stage for a subsequent hands-on session. The goal is to arm participants with the essential knowledge and confidence required to begin utilizing PyTorch in their deep learning endeavors, ensuring they’re well-prepared for practical application and further exploration.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to PyTorch: Core Functionalities and Advantage</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "Introduction to PyTorch: Core Functionalities and Advantages"
     ]
   },
   {
-    "objectID": "sections/intro-to-pytorch.html#key-elements",
-    "href": "sections/intro-to-pytorch.html#key-elements",
-    "title": "7  Introduction to PyTorch: Core Functionalities and Advantage",
-    "section": "Key Elements",
-    "text": "Key Elements\nPyTorch’s foundational concepts, data processing, model building, sample dataset application",
+    "objectID": "sections/intro-to-pytorch.html#outline",
+    "href": "sections/intro-to-pytorch.html#outline",
+    "title": "Introduction to PyTorch: Core Functionalities and Advantages",
+    "section": "Outline",
+    "text": "Outline\n\nIntroduction to PyTorch\nUnderstanding PyTorch’s core functionalities\nWorking with data in PyTorch\nBuilding a simple neural network in PyTorch\nTraining a model\nEvaluating a model\nConclusion and preparing for hands-on session",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to PyTorch: Core Functionalities and Advantage</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "Introduction to PyTorch: Core Functionalities and Advantages"
+    ]
+  },
+  {
+    "objectID": "sections/intro-to-pytorch.html#reference",
+    "href": "sections/intro-to-pytorch.html#reference",
+    "title": "Introduction to PyTorch: Core Functionalities and Advantages",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://pytorch.org\nhttps://pytorch.org/tutorials/",
+    "crumbs": [
+      "<b>AI Fundamentals and Techniques</b>",
+      "Introduction to PyTorch: Core Functionalities and Advantages"
     ]
   },
   {
     "objectID": "sections/hands-on-lab-pytorch.html",
     "href": "sections/hands-on-lab-pytorch.html",
-    "title": "8  Hands-On Lab: PyTorch",
+    "title": "Hands-On Lab: PyTorch",
     "section": "",
-    "text": "Goal\nIn this hands-on lab session, participants will apply their foundational knowledge of PyTorch to a practical exercise. Participants will navigate through data loading, model creation, training, and evaluation within the PyTorch framework.",
+    "text": "Overview\nThis hands-on lab session is designed to provide participants with practical experience using PyTorch to build, train, and evaluate neural network models. Participants will work through guided exercises that reinforce the concepts introduced in the previous session, applying PyTorch to real-world datasets relevant to Arctic research. By the end of this session, participants will have a solid understanding of how to implement deep learning models using PyTorch, empowering them to tackle their own projects with confidence.",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Hands-On Lab: PyTorch</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "Hands-On Lab: PyTorch"
     ]
   },
   {
-    "objectID": "sections/hands-on-lab-pytorch.html#key-elements",
-    "href": "sections/hands-on-lab-pytorch.html#key-elements",
-    "title": "8  Hands-On Lab: PyTorch",
-    "section": "Key Elements",
-    "text": "Key Elements\nData processing, model building, loss functions, training and evaluation, hands-on PyTorch implementation",
+    "objectID": "sections/hands-on-lab-pytorch.html#outline",
+    "href": "sections/hands-on-lab-pytorch.html#outline",
+    "title": "Hands-On Lab: PyTorch",
+    "section": "Outline",
+    "text": "Outline\n\nRecap of PyTorch core functionalities\nGuided exercise 1: working with real-world datasets\nGuided exercise 2: building a simple neural network\nGuided exercise 3: training and evaluating the model\nTroubleshooting and optimization tips\nConclusion and Q&A",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Hands-On Lab: PyTorch</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "Hands-On Lab: PyTorch"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-pytorch.html#reference",
+    "href": "sections/hands-on-lab-pytorch.html#reference",
+    "title": "Hands-On Lab: PyTorch",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://pytorch.org/tutorials/intermediate/torchvision_tutorial.html\nhttps://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html\nhttps://pytorch.org/tutorials/beginner/vt_tutorial.html",
+    "crumbs": [
+      "<b>AI Fundamentals and Techniques</b>",
+      "Hands-On Lab: PyTorch"
     ]
   },
   {
     "objectID": "sections/exploring-advanced-neural-networks.html",
     "href": "sections/exploring-advanced-neural-networks.html",
-    "title": "9  Exploring Advanced Neural Networks: Instance Segmentation",
+    "title": "Exploring Advanced Neural Networks: Semantic Segmentation",
     "section": "",
-    "text": "Goal\nThis session focus on learning advanced neural networks through the instance segmentation. Participants will gain insights into models such as Mask R-CNN, focusing on how these networks are structured, function, and applied to differentiate and precisely segment individual objects within images. The goal is to deepen understanding of instance segmentation’s technical foundations and practical applications, preparing participants for hands-on implementation and exploration of its real-world utility.",
+    "text": "Overview\nThis session focuses on advanced neural networks, specifically targeting semantic segmentation. Participants will delve into models such as Fully Convolutional Networks (FCNs) and U-Net, learning how these networks are structured, how they function, and how they can be applied to accurately segment and label each pixel of an image according to the object it represents. The goal is to deepen participants’ understanding of the technical foundations and practical applications of semantic segmentation, equipping them with the skills needed for hands-on implementation and exploration of its real-world utility, particularly in the context of Arctic research.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Exploring Advanced Neural Networks: Instance Segmentation</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "Exploring Advanced Neural Networks: Semantic Segmentation"
     ]
   },
   {
-    "objectID": "sections/exploring-advanced-neural-networks.html#key-elements",
-    "href": "sections/exploring-advanced-neural-networks.html#key-elements",
-    "title": "9  Exploring Advanced Neural Networks: Instance Segmentation",
-    "section": "Key Elements",
-    "text": "Key Elements\nInstance segmentation techniques, models like Mask R-CNN, network structure and functionality, object differentiation and segmentation",
+    "objectID": "sections/exploring-advanced-neural-networks.html#outline",
+    "href": "sections/exploring-advanced-neural-networks.html#outline",
+    "title": "Exploring Advanced Neural Networks: Semantic Segmentation",
+    "section": "Outline",
+    "text": "Outline\n\nIntroduction to semantic segmentation\nOverview of key models: Fully Convolutional Networks (FCNs) and U-Net\nDetailed architecture and functionality\nApplications in Arctic research: case studies\nConclusion and Q&A",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Exploring Advanced Neural Networks: Instance Segmentation</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "Exploring Advanced Neural Networks: Semantic Segmentation"
+    ]
+  },
+  {
+    "objectID": "sections/exploring-advanced-neural-networks.html#reference",
+    "href": "sections/exploring-advanced-neural-networks.html#reference",
+    "title": "Exploring Advanced Neural Networks: Semantic Segmentation",
+    "section": "Reference",
+    "text": "Reference\n\nRonneberger, Olaf, Philipp Fischer, and Thomas Brox. “U-net: Convolutional networks for biomedical image segmentation.” Medical image computing and computer-assisted intervention–MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18. Springer International Publishing, 2015. https://arxiv.org/abs/1505.04597\nMinaee, Shervin, et al. “Image segmentation using deep learning: A survey.” IEEE transactions on pattern analysis and machine intelligence 44.7 (2021): 3523-3542. http://www.arxiv.org/abs/2001.05566",
+    "crumbs": [
+      "<b>AI Fundamentals and Techniques</b>",
+      "Exploring Advanced Neural Networks: Semantic Segmentation"
     ]
   },
   {
     "objectID": "sections/intro-to-dl-libraries-for-image-analysis.html",
     "href": "sections/intro-to-dl-libraries-for-image-analysis.html",
-    "title": "10  Introduction to Deep Learning Libraries for Image Analysis",
+    "title": "Introduction to Deep Learning Libraries for Image Analysis",
     "section": "",
-    "text": "Goal\nThis session introduces participants to specialized deep learning libraries for image analysis, such as Detectron2 and MMSegmentation. The goal is to dive into these libraries’ unique capabilities in handling sophisticated image analysis tasks like instance segmentation and semantic segmentation. Participants will learn how to navigate these libraries and leverage their advanced features for image analysis projects. By session’s end, participants will be adept at selecting and utilizing these libraries to enhance their research or projects in image analysis.",
+    "text": "Overview\nhis session introduces participants to MMSegmentation, a specialized deep learning library designed for semantic segmentation tasks. Participants will explore the unique capabilities of MMSegmentation in handling sophisticated image analysis projects. The session will cover how to navigate the library, implement advanced features, and apply them to real-world datasets, particularly in the context of Arctic research. While the focus will be on MMSegmentation, Detectron2 will also be mentioned as another powerful tool for image analysis. By the end of this session, participants will have a theoretical understanding of MMSegmentation and be prepared for a more extensive hands-on lab session.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Introduction to Deep Learning Libraries for Image Analysis</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "Introduction to Deep Learning Libraries for Image Analysis"
     ]
   },
   {
-    "objectID": "sections/intro-to-dl-libraries-for-image-analysis.html#key-elements",
-    "href": "sections/intro-to-dl-libraries-for-image-analysis.html#key-elements",
-    "title": "10  Introduction to Deep Learning Libraries for Image Analysis",
-    "section": "Key Elements",
-    "text": "Key Elements\nOverview of Detectron2 and MMSegmentation, capabilities and features of each library, practical application examples, navigating library documentation and resources",
+    "objectID": "sections/intro-to-dl-libraries-for-image-analysis.html#outline",
+    "href": "sections/intro-to-dl-libraries-for-image-analysis.html#outline",
+    "title": "Introduction to Deep Learning Libraries for Image Analysis",
+    "section": "Outline",
+    "text": "Outline\n\nIntroduction to MMSegmentation: features and capabilities\nNavigating MMSegmentation: tools and techniques\nImplementing semantic segmentation with MMSegmentation\nPractical applications in Arctic research\nBrief overview of Detectron2 for comparison\nConclusion and Q&A",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Introduction to Deep Learning Libraries for Image Analysis</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "Introduction to Deep Learning Libraries for Image Analysis"
     ]
   },
   {
-    "objectID": "sections/hands-on-lab-detectron2.html",
-    "href": "sections/hands-on-lab-detectron2.html",
-    "title": "11  Hands-On Lab: Detectron2",
+    "objectID": "sections/intro-to-dl-libraries-for-image-analysis.html#reference",
+    "href": "sections/intro-to-dl-libraries-for-image-analysis.html#reference",
+    "title": "Introduction to Deep Learning Libraries for Image Analysis",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://github.com/open-mmlab/mmsegmentation\nhttps://github.com/facebookresearch/detectron2 (for further exploration)",
+    "crumbs": [
+      "<b>AI Fundamentals and Techniques</b>",
+      "Introduction to Deep Learning Libraries for Image Analysis"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-mmsegmentation.html",
+    "href": "sections/hands-on-lab-mmsegmentation.html",
+    "title": "Hands-On Lab: MMSegmentation",
     "section": "",
-    "text": "Goal\nThis hands-on lab session provides participants with practical experience in using Detectron2. Participants will engage in interactive exercises to apply Detectron2 to real-world image analysis tasks, learning how to set up the environment, load data, configure models, and interpret results.",
+    "text": "Overview\nThis hands-on lab session provides participants with practical experience using MMSegmentation to perform semantic segmentation tasks. Participants will engage in guided exercises that build on the concepts introduced in the previous session, applying MMSegmentation to real-world datasets relevant to Arctic research. By the end of this session, participants will have gained the practical skills necessary to implement and fine-tune semantic segmentation models using MMSegmentation, enabling them to effectively apply these techniques in their own research projects.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Hands-On Lab: Detectron2</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "Hands-On Lab: MMSegmentation"
     ]
   },
   {
-    "objectID": "sections/hands-on-lab-detectron2.html#key-elements",
-    "href": "sections/hands-on-lab-detectron2.html#key-elements",
-    "title": "11  Hands-On Lab: Detectron2",
-    "section": "Key Elements",
-    "text": "Key Elements\nPractical Detectron2 application, environment setup data loading and preparation, model configuration and usage, result interpretation",
+    "objectID": "sections/hands-on-lab-mmsegmentation.html#outline",
+    "href": "sections/hands-on-lab-mmsegmentation.html#outline",
+    "title": "Hands-On Lab: MMSegmentation",
+    "section": "Outline",
+    "text": "Outline\n\nRecap of MMSegmentation core functionalities\nGuided exercise 1: preparing and loading data\nGuided exercise 2: building and training a semantic segmentation model\nGuided exercise 3: evaluating and fine-tuning the model\nWorking with real-world datasets: Arctic research applications\nTroubleshooting and optimization tips\nConclusion and Q&A",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Hands-On Lab: Detectron2</span>"
+      "<b>AI Fundamentals and Techniques</b>",
+      "Hands-On Lab: MMSegmentation"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-mmsegmentation.html#reference",
+    "href": "sections/hands-on-lab-mmsegmentation.html#reference",
+    "title": "Hands-On Lab: MMSegmentation",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://mmsegmentation.readthedocs.io/en/latest/user_guides/index.html",
+    "crumbs": [
+      "<b>AI Fundamentals and Techniques</b>",
+      "Hands-On Lab: MMSegmentation"
     ]
   },
   {
     "objectID": "sections/ai-workflows-and-mlops.html",
     "href": "sections/ai-workflows-and-mlops.html",
-    "title": "12  AI Workflows and MLOps: From Development to Deployment",
+    "title": "AI Workflows and MLOps: From Development to Deployment",
     "section": "",
-    "text": "Goal",
+    "text": "Instructors\nBen Galewsky, Sr. Research Software Engineer National Center for Supercomputing Applications (NCSA) University of Illinois Urbana-Champaign",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
+      "<b>Advanced AI Workflows and Models</b>",
+      "AI Workflows and MLOps: From Development to Deployment"
     ]
   },
   {
-    "objectID": "sections/ai-workflows-and-mlops.html#key-elements",
-    "href": "sections/ai-workflows-and-mlops.html#key-elements",
-    "title": "12  AI Workflows and MLOps: From Development to Deployment",
-    "section": "Key Elements",
-    "text": "Key Elements",
+    "objectID": "sections/ai-workflows-and-mlops.html#overview",
+    "href": "sections/ai-workflows-and-mlops.html#overview",
+    "title": "AI Workflows and MLOps: From Development to Deployment",
+    "section": "Overview",
+    "text": "Overview\nMachine learning models have become a vital tool for most branches of science. The process and tools for training these models on the lab’s desktop is often fragile, slow, and not reproducible. In this workshop, we will introduce the concept of MLOps, which is a set of practices that aims to streamline the process of developing, training, and deploying machine learning models. We will use the popular open source MLOps tool, MLflow, to demonstrate how to track experiments, package code, and deploy models. We will also introduce Garden, a tool that allows researchers to publish ML Models as citable objects.",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
+      "<b>Advanced AI Workflows and Models</b>",
+      "AI Workflows and MLOps: From Development to Deployment"
     ]
   },
   {
-    "objectID": "sections/hands-on-lab-ai-workflows.html",
-    "href": "sections/hands-on-lab-ai-workflows.html",
-    "title": "13  Hands-On Lab: AI Workflows",
-    "section": "",
-    "text": "Goal",
+    "objectID": "sections/ai-workflows-and-mlops.html#outline",
+    "href": "sections/ai-workflows-and-mlops.html#outline",
+    "title": "AI Workflows and MLOps: From Development to Deployment",
+    "section": "Outline",
+    "text": "Outline\n\nIntroduction to MLOps\nIntroduction to MLflow\nTracking experiments with MLflow\nPackaging code with MLflow\nDeploying models with MLflow\nPublishing models with Garden",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+      "<b>Advanced AI Workflows and Models</b>",
+      "AI Workflows and MLOps: From Development to Deployment"
     ]
   },
   {
-    "objectID": "sections/hands-on-lab-ai-workflows.html#key-elements",
-    "href": "sections/hands-on-lab-ai-workflows.html#key-elements",
-    "title": "13  Hands-On Lab: AI Workflows",
-    "section": "Key Elements",
-    "text": "Key Elements",
+    "objectID": "sections/ai-workflows-and-mlops.html#reference",
+    "href": "sections/ai-workflows-and-mlops.html#reference",
+    "title": "AI Workflows and MLOps: From Development to Deployment",
+    "section": "Reference",
+    "text": "Reference\n\nMLflow\nGarden",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+      "<b>Advanced AI Workflows and Models</b>",
+      "AI Workflows and MLOps: From Development to Deployment"
     ]
   },
   {
     "objectID": "sections/foundation-models.html",
     "href": "sections/foundation-models.html",
-    "title": "14  Foundation Models: The Cornerstones of Modern AI",
+    "title": "Foundation Models: The Cornerstones of Modern AI",
     "section": "",
-    "text": "Goal\nThis session provides an introductory overview of foundation models, such as GPT and SAM, underscoring their revolutionary role in AI’s evolution. Participants will learn how foundation models can be adapted and applied to address unique challenges in the Arctic. The aim is to equip participants with an understanding of foundation models’ potential in enhancing Arctic research and solving domain-specific problems, paving the way for innovative AI-driven solutions in extreme environments.",
+    "text": "Overview\nFoundation models (FM) are deep learning models trained on massive raw unlabelled datasets usually through self-supervised learning. FMs enable today’s data scientists to use them as the base and fine-tune using domain specific data to obtain models that can handle a wide range of tasks [1, 6, 7]. In this talk, we provide an introduction to FMs, its history, evolution, and go through its key features and categories, and a few examples. We also briefly discuss how foundation models work. This talk will be a precursor to the hands-on session that follows on the same topic.\nImage source: 2021 paper on foundation models by Stanford researchers [1].\nIn this session, we take a closer look at what constitutes a foundation model, a few examples, and some basic principles around how it works.",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Foundation Models: The Cornerstones of Modern AI</span>"
+      "<b>Advanced AI Workflows and Models</b>",
+      "Foundation Models: The Cornerstones of Modern AI"
     ]
   },
   {
-    "objectID": "sections/foundation-models.html#key-elements",
-    "href": "sections/foundation-models.html#key-elements",
-    "title": "14  Foundation Models: The Cornerstones of Modern AI",
-    "section": "Key Elements",
-    "text": "Key Elements\nIntroduction to foundation models, application in Arctic science and research, adapting models for Arctic challenges",
+    "objectID": "sections/foundation-models.html#outline",
+    "href": "sections/foundation-models.html#outline",
+    "title": "Foundation Models: The Cornerstones of Modern AI",
+    "section": "Outline",
+    "text": "Outline\n\nIntroduction to foundation models, its history and evolution\nKey features of foundation models\nTypes of foundation models: Language, Vision, Generative, and Multimodal\nExamples of foundation models: BERT [3], GPT [4], YOLO [2], SAM [5], DALLE-2\nHow do foundation models work?",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Foundation Models: The Cornerstones of Modern AI</span>"
+      "<b>Advanced AI Workflows and Models</b>",
+      "Foundation Models: The Cornerstones of Modern AI"
+    ]
+  },
+  {
+    "objectID": "sections/foundation-models.html#reference",
+    "href": "sections/foundation-models.html#reference",
+    "title": "Foundation Models: The Cornerstones of Modern AI",
+    "section": "Reference",
+    "text": "Reference\n\nOn the opportunities and risk of Foundation models\nYou Only Look Once\nBERT\nGPT3\nSegment Anything Model\nNVIDIA blog post on foundation models\nWhat are Foundation Models? - Generative AI",
+    "crumbs": [
+      "<b>Advanced AI Workflows and Models</b>",
+      "Foundation Models: The Cornerstones of Modern AI"
     ]
   },
   {
     "objectID": "sections/hands-on-lab-foundation-models.html",
     "href": "sections/hands-on-lab-foundation-models.html",
-    "title": "15  Hands-On Lab: Foundation Models",
+    "title": "Hands-On Lab: Foundation Models",
     "section": "",
-    "text": "Goal\nIn this hands-on lab, participants will dive into the practical application of foundation models, such as GPT, for Arctic research. The session is designed to guide participants through customizing and applying these advanced AI tools to analyze and interpret data specific to Arctic science challenges. By the lab’s conclusion, participants will have developed the skills to use foundation models creatively and effectively.",
+    "text": "Overview\nThe hands-on lab on foundation models will focus on building and applying small-scale foundation models for some example use cases. The main goal of this 1-hour session will be to get more familiarized with foundation models and in interacting with them.",
     "crumbs": [
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: Foundation Models</span>"
+      "<b>Advanced AI Workflows and Models</b>",
+      "Hands-On Lab: Foundation Models"
     ]
   },
   {
-    "objectID": "sections/hands-on-lab-foundation-models.html#key-elements",
-    "href": "sections/hands-on-lab-foundation-models.html#key-elements",
-    "title": "15  Hands-On Lab: Foundation Models",
-    "section": "Key Elements",
-    "text": "Key Elements\nCustomizing foundation models for Arctic research, addressing real-world Arctic research scenarios",
+    "objectID": "sections/hands-on-lab-foundation-models.html#outline",
+    "href": "sections/hands-on-lab-foundation-models.html#outline",
+    "title": "Hands-On Lab: Foundation Models",
+    "section": "Outline",
+    "text": "Outline\n\nImage Segmentation using Segment Anything Model (SAM)\nChatbot using LLMs + RAG",
     "crumbs": [
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: Foundation Models</span>"
+      "<b>Advanced AI Workflows and Models</b>",
+      "Hands-On Lab: Foundation Models"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-foundation-models.html#references",
+    "href": "sections/hands-on-lab-foundation-models.html#references",
+    "title": "Hands-On Lab: Foundation Models",
+    "section": "References",
+    "text": "References\n\nSegment Anything\nSegment Anything Notebook",
+    "crumbs": [
+      "<b>Advanced AI Workflows and Models</b>",
+      "Hands-On Lab: Foundation Models"
     ]
   },
   {
     "objectID": "sections/ai-ethics.html",
     "href": "sections/ai-ethics.html",
-    "title": "16  AI Ethics",
+    "title": "AI Ethics",
     "section": "",
     "text": "Goal\nReview FAIR and CARE Principles, and their relevance to data ethics. Examine how ethical considerations are shared and considered at the Arctic Data Center. Discuss ethical considerations in machine learning.",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Ethics</span>"
+      "<b>Ethics and Social Implications of AI</b>",
+      "AI Ethics"
     ]
   },
   {
     "objectID": "sections/ai-ethics.html#introduction",
     "href": "sections/ai-ethics.html#introduction",
-    "title": "16  AI Ethics",
-    "section": "16.1 Introduction",
-    "text": "16.1 Introduction\nArtificial Intelligence (AI) can be thought of as the development of computer systems that can perform tasks we usually think require human intelligence, such as image recognition, language translation, or autonomous movement. The rapid development and adoption of AI tools in the past years, particularly machine learning algorithms, has revolutionized how big datasets are analyzed, transforming decision-making in all sectors of society. However, frameworks to examine the ethical considerations of AI are just emerging, and careful consideration of how to best develop and apply AI systems is essential to the responsible use of these new, rapidly changing tools. In this section, we will give an overview of the FAST Principles put forward by the Alan Turing Institute in their guide for the responsible design and implementation of AI systems (Leslie, 2019).\n\n16.1.1 The FAST Principles\nFAST stands for Fairness, Accountability, Sustainability, and Transparency. The FAST principles aim to guide the ethical development of AI projects from their inception to deployment. The continuous involvement and commitment of software developers, domain experts, technical leads, project managers, rightsholders, and collaborators involved in the AI project is crucial to implement these principles successfully. The following is a brief overview of each of the FAST principles, we greatly encourage you to read through the Alan Turing Institute guide to learn more!\n\n\n\nLeslie, 2019\n\n\n\n\n16.1.2 Fairness\nBias can enter at any point of a research project, from data collection and preprocessing, to model design and implementation. This is because AI projects, as any other, are created by human beings who (even with the best of intentions) can introduce error, prejudice, or misjudgement into a system. Fairness refers to the active minimization of bias and commitment to not harm others through the outcomes of an AI system. The FAST principles (Leslie, 2019) suggest the following baseline for fairness:\n\nThe designers and users of AI systems ensure that the decisions and behaviours of their models do not generate discriminatory or inequitable impacts on affected individuals and communities. This entails that these designers and users ensure that the AI systems they are developing and deploying:\n\nAre trained and tested on properly representative, relevant, accurate, and generalisable datasets (Data Fairness)\nHave model architectures that do not include target variables, features, processes, or analytical structures (correlations, interactions, and inferences) which are unreasonable, morally objectionable, or unjustifiable (Design Fairness)\nDo not have discriminatory or inequitable impacts on the lives of the people they affect (Outcome Fairness)\nAre deployed by users sufficiently trained to implement them responsibly and without bias (Implementation Fairness)\n\n\n\n\n\n\n\n\nReal-life Example : Insufficient Radar Network\n\n\n\n\n\nThe following figure (McGovern et al., 2022) shows coverage of the national Doppler weather network (green and yellow circles) over a demographic map of the Black population in the southeast US. This would be an example of an issue in data fairness, since radar coverage does not represent the population uniformly, leaving out areas with higher Black population. Problems with outcome fairness could ensue if this non-representative biases an AI model to under-predict weather impacts in such populations.\n\n\n\nMcGovern et al., 2022 by courtesy of Jack Sillin (CC BY 4.0).\n\n\n\n\n\n\n\n16.1.3 Accountability\nAccountability in AI projects stems from the shared view that isolated AI models used to automate decisions are not morally responsible in the same way as a decision-making human. As outputs from AI models are increasingly used to make decisions that affect the environment and human lives, there is a critical need for competent human authorities to offer explanations and justifications for the development process, outputs, and ensuing decisions made by AI systems. Such answerability assignments can be challenging, as AI implementations are often the product of big development teams where the responsibility to answer for a project’s outcome may not be delineated, creating an issue known as “the problem of many hands.” The FAST principles encourage the following accountability implementation:\nAccountability by Design: All AI systems must be designed to facilitate end-to-end answerability and auditability. This requires both responsible humans-in-the-loop across the entire design and implementation chain as well as activity monitoring protocols that enable end-to-end oversight and review.\n\n\n\n\n\n\nReal-life Example: AI for natural disasters response\n\n\n\n\n\nAccountability and the ability to audit AI methods can be crucial when model outputs support critical decision-making, such as in natural disasters. In 2021, a New York Times investigation (Fink, 2021) covered a private company’s premature release of outputs about neighborhoods most affected by potential earthquakes in Seattle. While the initial release erroneously did not show threats for non-residential areas, ensuing updated versions showed non-compatible predictions again. Although the company acknowledged that its AI models would not replace the first responder’s judgment, the lack of audibility and opacity in the model development hindered accountability for any party, ultimately eroding the public confidence in the tools and leading to a loss of public resources.\n\n\n\n\n\n\n16.1.4 Sustainability\nSustainability in the FAST principles includes continuous assessment of the social impacts of an AI system and technical sustainability of the AI model. In the first consideration, the FAST principles advocate for performing a Stakeholder Impact Assessment (SIA) at different stages to help build confidence in the project and uncover unexpected risks or biases, among other benefits. The Alan Turing Institute guide shares a prototype of an SIA (Leslie, 2019). The core of technical sustainability is creating safe, accurate, reliable, secure, and robust AI systems. To achieve these technical goals, teams must implement thorough testing, performance metrics, uncertainty quantification, and be aware of changes to the underlying distribution of data, among other essential practices.\n\n\n\n\n\n\nReal-life Example: SpaceCows\n\n\n\n\n\nThe SpaceCows project (Shepherd, 2021; ABC Australia, 2024) in northern Australia is a collaboration between scientists, industry leaders, and local indigenous communities developing AI centered platforms to analyze GPS tracking data collected from feral cows alongside satellite imagery and weather data. Indigenous knowledge and traditional land owners have been at the center of the development, providing guidance and ultimately benefiting from the AI tools to protect their land and cultural sites.\n\n\n\nImportant indigenous cultural sites can be damaged by feral cattle. Image from CSIRO, SpaceCows: Using AI to tackle feral herds in the Top End.\n\n\nVideos with more information on SpaceCows:\nCSIRO rolls out world’s largest remote ‘space cows’ herd management system\nSpaceCows: Using AI to tackle feral herds in the Top End\n\n\n\n\n\n16.1.5 Transparency\nUnder the FAST principles, transparency in AI projects refers to transparency about how an AI project was designed and implemented and the content and justification of the outcome produced by the AI model. To ensure process transparency, the project should show how the design and implementation included ethical, safety, and fairness considerations throughout the project. To clarify the content and explain the outcomes of an AI system, the project should offer plain language, non-technical explanations accessible to non-specialists that convey how and why a model performed the way it did. In this direction, it is essential to avoid a ‘mathematical glass box’ where the code and mathematics behind the algorithm are openly available, but there is a lack of rationale about how or why the model goes from input to output. Finally, the explanations about how the outcomes were produced should become the basis to justify the outcomes in terms of ethical permissibility, fairness, and trustworthiness. A careful consideration of the balance between the sustainability and transparency principles is necessary when dealing with protected or private data.\n\n\n\n\n\n\nReal-life Example: France’s Digital Republic Act\n\n\n\n\n\nThe concern for transparency in using personal data is an active space for debate. In 2018, the French government passed a law to protect citizens’ privacy, establishing the citizen’s “right to an explanation” regarding, among other things, how an algorithm contributed to decisions on their persona and which data was processed (Edwards and Veale, 2017; Lo Piano, 2020). Overall, this legislation aims to create a fairer and more transparent digital environment where everyone can enjoy equal opportunities.\n\n\n\nPhoto by Google DeepMind\n\n\n\n\n\n\n\n16.1.6 Conclusion\nAs new AI developments and applications rapidly emerge and transform everyday life, we need to pause and ensure these technologies are fair, sustainable, and transparent. We must acknowledge human responsibility in designing and implementing AI systems to use these novel tools fairly and with accountability. Finally, we acknowledge that the information covered here is a lightning introduction to AI’s ethical considerations and implications. Whether you are a researcher interested in using AI for the first time or a seasoned ML practitioner, we urge you to dive into the necessary and ever-expanding AI ethics work to learn how to best incorporate these concepts into your work.",
+    "title": "AI Ethics",
+    "section": "Introduction",
+    "text": "Introduction\nArtificial Intelligence (AI) can be thought of as the development of computer systems that can perform tasks we usually think require human intelligence, such as image recognition, language translation, or autonomous movement. The rapid development and adoption of AI tools in the past years, particularly machine learning algorithms, has revolutionized how big datasets are analyzed, transforming decision-making in all sectors of society. However, frameworks to examine the ethical considerations of AI are just emerging, and careful consideration of how to best develop and apply AI systems is essential to the responsible use of these new, rapidly changing tools. In this section, we will give an overview of the FAST Principles put forward by the Alan Turing Institute in their guide for the responsible design and implementation of AI systems (Leslie, 2019).\n\nThe FAST Principles\nFAST stands for Fairness, Accountability, Sustainability, and Transparency. The FAST principles aim to guide the ethical development of AI projects from their inception to deployment. The continuous involvement and commitment of software developers, domain experts, technical leads, project managers, rightsholders, and collaborators involved in the AI project is crucial to implement these principles successfully. The following is a brief overview of each of the FAST principles, we greatly encourage you to read through the Alan Turing Institute guide to learn more!\n\n\n\nLeslie, 2019\n\n\n\n\nFairness\nBias can enter at any point of a research project, from data collection and preprocessing, to model design and implementation. This is because AI projects, as any other, are created by human beings who (even with the best of intentions) can introduce error, prejudice, or misjudgement into a system. Fairness refers to the active minimization of bias and commitment to not harm others through the outcomes of an AI system. The FAST principles (Leslie, 2019) suggest the following baseline for fairness:\n\nThe designers and users of AI systems ensure that the decisions and behaviours of their models do not generate discriminatory or inequitable impacts on affected individuals and communities. This entails that these designers and users ensure that the AI systems they are developing and deploying:\n\nAre trained and tested on properly representative, relevant, accurate, and generalisable datasets (Data Fairness)\nHave model architectures that do not include target variables, features, processes, or analytical structures (correlations, interactions, and inferences) which are unreasonable, morally objectionable, or unjustifiable (Design Fairness)\nDo not have discriminatory or inequitable impacts on the lives of the people they affect (Outcome Fairness)\nAre deployed by users sufficiently trained to implement them responsibly and without bias (Implementation Fairness)\n\n\n\n\n\n\n\n\nReal-life Example : Insufficient Radar Network\n\n\n\n\n\nThe following figure (McGovern et al., 2022) shows coverage of the national Doppler weather network (green and yellow circles) over a demographic map of the Black population in the southeast US. This would be an example of an issue in data fairness, since radar coverage does not represent the population uniformly, leaving out areas with higher Black population. Problems with outcome fairness could ensue if this non-representative biases an AI model to under-predict weather impacts in such populations.\n\n\n\nMcGovern et al., 2022 by courtesy of Jack Sillin (CC BY 4.0).\n\n\n\n\n\n\n\nAccountability\nAccountability in AI projects stems from the shared view that isolated AI models used to automate decisions are not morally responsible in the same way as a decision-making human. As outputs from AI models are increasingly used to make decisions that affect the environment and human lives, there is a critical need for competent human authorities to offer explanations and justifications for the development process, outputs, and ensuing decisions made by AI systems. Such answerability assignments can be challenging, as AI implementations are often the product of big development teams where the responsibility to answer for a project’s outcome may not be delineated, creating an issue known as “the problem of many hands.” The FAST principles encourage the following accountability implementation:\nAccountability by Design: All AI systems must be designed to facilitate end-to-end answerability and auditability. This requires both responsible humans-in-the-loop across the entire design and implementation chain as well as activity monitoring protocols that enable end-to-end oversight and review.\n\n\n\n\n\n\nReal-life Example: AI for natural disasters response\n\n\n\n\n\nAccountability and the ability to audit AI methods can be crucial when model outputs support critical decision-making, such as in natural disasters. In 2021, a New York Times investigation (Fink, 2021) covered a private company’s premature release of outputs about neighborhoods most affected by potential earthquakes in Seattle. While the initial release erroneously did not show threats for non-residential areas, ensuing updated versions showed non-compatible predictions again. Although the company acknowledged that its AI models would not replace the first responder’s judgment, the lack of audibility and opacity in the model development hindered accountability for any party, ultimately eroding the public confidence in the tools and leading to a loss of public resources.\n\n\n\n\n\n\nSustainability\nSustainability in the FAST principles includes continuous assessment of the social impacts of an AI system and technical sustainability of the AI model. In the first consideration, the FAST principles advocate for performing a Stakeholder Impact Assessment (SIA) at different stages to help build confidence in the project and uncover unexpected risks or biases, among other benefits. The Alan Turing Institute guide shares a prototype of an SIA (Leslie, 2019). The core of technical sustainability is creating safe, accurate, reliable, secure, and robust AI systems. To achieve these technical goals, teams must implement thorough testing, performance metrics, uncertainty quantification, and be aware of changes to the underlying distribution of data, among other essential practices.\n\n\n\n\n\n\nReal-life Example: SpaceCows\n\n\n\n\n\nThe SpaceCows project (Shepherd, 2021; ABC Australia, 2024) in northern Australia is a collaboration between scientists, industry leaders, and local indigenous communities developing AI centered platforms to analyze GPS tracking data collected from feral cows alongside satellite imagery and weather data. Indigenous knowledge and traditional land owners have been at the center of the development, providing guidance and ultimately benefiting from the AI tools to protect their land and cultural sites.\n\n\n\nImportant indigenous cultural sites can be damaged by feral cattle. Image from CSIRO, SpaceCows: Using AI to tackle feral herds in the Top End.\n\n\nVideos with more information on SpaceCows:\nCSIRO rolls out world’s largest remote ‘space cows’ herd management system\nSpaceCows: Using AI to tackle feral herds in the Top End\n\n\n\n\n\nTransparency\nUnder the FAST principles, transparency in AI projects refers to transparency about how an AI project was designed and implemented and the content and justification of the outcome produced by the AI model. To ensure process transparency, the project should show how the design and implementation included ethical, safety, and fairness considerations throughout the project. To clarify the content and explain the outcomes of an AI system, the project should offer plain language, non-technical explanations accessible to non-specialists that convey how and why a model performed the way it did. In this direction, it is essential to avoid a ‘mathematical glass box’ where the code and mathematics behind the algorithm are openly available, but there is a lack of rationale about how or why the model goes from input to output. Finally, the explanations about how the outcomes were produced should become the basis to justify the outcomes in terms of ethical permissibility, fairness, and trustworthiness. A careful consideration of the balance between the sustainability and transparency principles is necessary when dealing with protected or private data.\n\n\n\n\n\n\nReal-life Example: France’s Digital Republic Act\n\n\n\n\n\nThe concern for transparency in using personal data is an active space for debate. In 2018, the French government passed a law to protect citizens’ privacy, establishing the citizen’s “right to an explanation” regarding, among other things, how an algorithm contributed to decisions on their persona and which data was processed (Edwards and Veale, 2017; Lo Piano, 2020). Overall, this legislation aims to create a fairer and more transparent digital environment where everyone can enjoy equal opportunities.\n\n\n\nPhoto by Google DeepMind\n\n\n\n\n\n\n\nConclusion\nAs new AI developments and applications rapidly emerge and transform everyday life, we need to pause and ensure these technologies are fair, sustainable, and transparent. We must acknowledge human responsibility in designing and implementing AI systems to use these novel tools fairly and with accountability. Finally, we acknowledge that the information covered here is a lightning introduction to AI’s ethical considerations and implications. Whether you are a researcher interested in using AI for the first time or a seasoned ML practitioner, we urge you to dive into the necessary and ever-expanding AI ethics work to learn how to best incorporate these concepts into your work.",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Ethics</span>"
+      "<b>Ethics and Social Implications of AI</b>",
+      "AI Ethics"
     ]
   },
   {
     "objectID": "sections/ai-ethics.html#references",
     "href": "sections/ai-ethics.html#references",
-    "title": "16  AI Ethics",
-    "section": "16.2 References",
-    "text": "16.2 References\nEdwards, Lilian, and Michael Veale. (2017). Enslaving the algorithm: From a  right to an explanationn to a  right to better decisionss?. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3052831.\nFink, Sheri. (2019). “This High-Tech Solution to Disaster Response May Be Too Good to Be True.” The New York Times. www.nytimes.com/2019/08/09/us/emergency-response-disaster-technology.html.\nLeslie, D. (2019). Understanding artificial intelligence ethics and safety: A guide for the responsible design and implementation of AI systems in the public sector. The Alan Turing Institute. https://doi.org/10.5281/zenodo.3240529\nLo Piano, S. (2020). Ethical principles in machine learning and artificial intelligence: cases from the field and possible ways forward. Humanit Soc Sci Commun 7, 9. https://doi.org/10.1057/s41599-020-0501-9\nMcGovern, A., Ebert-Uphoff, I., Gagne, D. J., & Bostrom, A. (2022). Why we need to focus on developing ethical, responsible, and trustworthy artificial intelligence approaches for environmental science. Environmental Data Science, 1, e6. doi:10.1017/eds.2022.5\nShepard, Tory. (2021) Indigenous Rangers to Use SpaceCows Program to Protect Sacred Sites and Rock Art from Feral Herds.” The Guardian, Guardian News and Media. www.theguardian.com/australia-news/2021/sep/15/indigenous-rangers-to-use-spacecows-program-to-protect-sacred-sites-and-rock-art-from-feral-herds.\n(2021). SpaceCows: Using AI to Tackle Feral Herds in the Top End. CSIRO. www.csiro.au/en/news/all/news/2021/september/spacecows-using-ai-to-tackle-feral-herds-in-the-top-end.",
+    "title": "AI Ethics",
+    "section": "References",
+    "text": "References\nEdwards, Lilian, and Michael Veale. (2017). Enslaving the algorithm: From a  right to an explanationn to a  right to better decisionss?. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3052831.\nFink, Sheri. (2019). “This High-Tech Solution to Disaster Response May Be Too Good to Be True.” The New York Times. www.nytimes.com/2019/08/09/us/emergency-response-disaster-technology.html.\nLeslie, D. (2019). Understanding artificial intelligence ethics and safety: A guide for the responsible design and implementation of AI systems in the public sector. The Alan Turing Institute. https://doi.org/10.5281/zenodo.3240529\nLo Piano, S. (2020). Ethical principles in machine learning and artificial intelligence: cases from the field and possible ways forward. Humanit Soc Sci Commun 7, 9. https://doi.org/10.1057/s41599-020-0501-9\nMcGovern, A., Ebert-Uphoff, I., Gagne, D. J., & Bostrom, A. (2022). Why we need to focus on developing ethical, responsible, and trustworthy artificial intelligence approaches for environmental science. Environmental Data Science, 1, e6. doi:10.1017/eds.2022.5\nShepard, Tory. (2021) Indigenous Rangers to Use SpaceCows Program to Protect Sacred Sites and Rock Art from Feral Herds.” The Guardian, Guardian News and Media. www.theguardian.com/australia-news/2021/sep/15/indigenous-rangers-to-use-spacecows-program-to-protect-sacred-sites-and-rock-art-from-feral-herds.\n(2021). SpaceCows: Using AI to Tackle Feral Herds in the Top End. CSIRO. www.csiro.au/en/news/all/news/2021/september/spacecows-using-ai-to-tackle-feral-herds-in-the-top-end.",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Ethics</span>"
+      "<b>Ethics and Social Implications of AI</b>",
+      "AI Ethics"
     ]
   },
   {
     "objectID": "sections/ai-ethics.html#further-reading",
     "href": "sections/ai-ethics.html#further-reading",
-    "title": "16  AI Ethics",
-    "section": "16.3 Further Reading",
-    "text": "16.3 Further Reading\nAcademic Data Science Alliance (ADSA) (2024) The Data Sciene Ethos https://ethos.academicdatascience.org\nChen, W., & Quan-Haase, A. (2020) Big Data Ethics and Politics: Towards New Understandings. Social Science Computer Review. https://journals.sagepub.com/doi/10.1177/0894439318810734\nCrawford, K., & Paglen, T. (2019) Excavating AI: The Politics of Training Sets for Machine Learning. https://excavating.ai/\nGray, J., & Witt, A. (2021) A feminist data ethics of care framework for machine learning: The what, why, who and how. First Monday, 26(12), Article number: 11833",
+    "title": "AI Ethics",
+    "section": "Further Reading",
+    "text": "Further Reading\nAcademic Data Science Alliance (ADSA) (2024) The Data Sciene Ethos https://ethos.academicdatascience.org\nChen, W., & Quan-Haase, A. (2020) Big Data Ethics and Politics: Towards New Understandings. Social Science Computer Review. https://journals.sagepub.com/doi/10.1177/0894439318810734\nCrawford, K., & Paglen, T. (2019) Excavating AI: The Politics of Training Sets for Machine Learning. https://excavating.ai/\nGray, J., & Witt, A. (2021) A feminist data ethics of care framework for machine learning: The what, why, who and how. First Monday, 26(12), Article number: 11833",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>AI Ethics</span>"
-    ]
-  },
-  {
-    "objectID": "sections/socially-responsible-ai.html",
-    "href": "sections/socially-responsible-ai.html",
-    "title": "17  Socially Responsible AI",
-    "section": "",
-    "text": "Goal",
-    "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Socially Responsible AI</span>"
-    ]
-  },
-  {
-    "objectID": "sections/socially-responsible-ai.html#key-elements",
-    "href": "sections/socially-responsible-ai.html#key-elements",
-    "title": "17  Socially Responsible AI",
-    "section": "Key Elements",
-    "text": "Key Elements",
-    "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Socially Responsible AI</span>"
-    ]
-  },
-  {
-    "objectID": "sections/reproducibility.html",
-    "href": "sections/reproducibility.html",
-    "title": "18  Reproducibility",
-    "section": "",
-    "text": "Goal\nThis session aims to highlight the importance of reproducibility in AI-driven Arctic research. Participants will learn about the challenges and best practices for ensuring that AI models and their results can be reproduced by other researchers, a cornerstone for building trust and advancing the field. The discussion will cover strategies for documenting experiments, sharing data and code, and using version control systems.",
-    "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Reproducibility</span>"
-    ]
-  },
-  {
-    "objectID": "sections/reproducibility.html#key-elements",
-    "href": "sections/reproducibility.html#key-elements",
-    "title": "18  Reproducibility",
-    "section": "Key Elements",
-    "text": "Key Elements\nImportance of reproducibility, challenges to achieving reproducibility, best practices for reproducible research, tools and techniques to enhance reproducibility",
-    "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Reproducibility</span>"
-    ]
-  },
-  {
-    "objectID": "sections/the-fun-and-frontiers-of-ai.html",
-    "href": "sections/the-fun-and-frontiers-of-ai.html",
-    "title": "19  The Fun and Frontiers of AI: Innovation, Imagination, Interaction",
-    "section": "",
-    "text": "Goal\nThis session is designed to inspire and engage participants by showcasing the most innovative and imaginative applications of AI across various fields, with a special emphasis on Arctic research. From creative endeavors like art and music generation to practical applications in climate science and wildlife conservation, participants will discover the diverse ways AI can foster innovation, imagination, and interaction. The session aims to stimulate discussion, encourage creative thinking, and highlight the collaborative potential of AI.",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>The Fun and Frontiers of AI: Innovation, Imagination, Interaction</span>"
-    ]
-  },
-  {
-    "objectID": "sections/the-fun-and-frontiers-of-ai.html#key-elements",
-    "href": "sections/the-fun-and-frontiers-of-ai.html#key-elements",
-    "title": "19  The Fun and Frontiers of AI: Innovation, Imagination, Interaction",
-    "section": "Key Elements",
-    "text": "Key Elements\nInnovative AI applications, inspiring creative thinking, future AI possibilities",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>The Fun and Frontiers of AI: Innovation, Imagination, Interaction</span>"
+      "<b>Ethics and Social Implications of AI</b>",
+      "AI Ethics"
     ]
   }
 ]
