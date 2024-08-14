@@ -8,6 +8,8 @@ These guidelines are here to help you create effective and engaging sessions for
 
 * **Choose Your Tools:** You can use either Jupyter Notebook or VSCode for the hands-on parts of your session. Choose whichever one you’re more comfortable with. We will be using [CyVerse Learning Center](https://learning.cyverse.org) for the hands-on part of the workshop.
 
+* **Check Data Licensing:** If you are using any data in your session, ensure that you check the data license to confirm that it can be used and shared freely, both within the workshop and when the course materials are later open-sourced.
+
 * **Offer Support:** Make sure participants know how to ask for help if they get stuck. Regularly ask participants if they’re keeping up and adjust your pace if needed.
 
 * **Extra Resources:** Provide additional materials like readings or videos for participants who want to learn more.
