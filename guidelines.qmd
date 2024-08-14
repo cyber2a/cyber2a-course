@@ -1,0 +1,17 @@
+# Workshop Development Guidelines {.unnumbered}
+
+These guidelines are here to help you create effective and engaging sessions for our workshop. The goal is to balance theory with practical work, making the learning experience enjoyable and easy to follow.
+
+* **Balance Theory and Hands-On Work:** Spend about one-third of the time on theory and the other two-thirds on hands-on activities.
+
+* **Build Gradually:** Start with the basics and build up gradually. Expand both the theory and hands-on tasks as you go along. For example, This [Jupyter notebook](https://github.com/NCEAS/scalable-computing-examples/blob/main/04-pleasing/pleasing.ipynb) from NCEAS workshop shows how to introduce theory and hands-on practice.  
+
+* **Choose Your Tools:** You can use either Jupyter Notebook or VSCode for the hands-on parts of your session. Choose whichever one you’re more comfortable with. We will be using [CyVerse Learning Center](https://learning.cyverse.org) for the hands-on part of the workshop.
+
+* **Offer Support:** Make sure participants know how to ask for help if they get stuck. Regularly ask participants if they’re keeping up and adjust your pace if needed.
+
+* **Extra Resources:** Provide additional materials like readings or videos for participants who want to learn more.
+
+
+
+

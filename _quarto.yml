@@ -10,6 +10,7 @@ book:
   favicon: images/index/arcticlogo.png
   chapters:
     - index.qmd
+    - guidelines.qmd
     - part: "<b>Introduction to AI and Arctic Science</b>"
       chapters:
         - sections/breaking-the-ice-with-ai-in-arctic-science.qmd
@@ -45,6 +46,8 @@ book:
         - sections/ai-ethics.qmd
         - sections/socially-responsible-ai.qmd
         - sections/reproducibility.qmd
+
+
     
   sidebar:
     tools:
