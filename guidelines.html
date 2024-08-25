@@ -310,8 +310,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#session-structure-and-content" id="toc-session-structure-and-content" class="nav-link active" data-scroll-target="#session-structure-and-content">Session Structure and Content</a></li>
+  <li><a href="#editing-session-materials" id="toc-editing-session-materials" class="nav-link" data-scroll-target="#editing-session-materials">Editing Session Materials</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -336,6 +343,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>These guidelines are here to help you create effective and engaging sessions for our workshop. The goal is to balance theory with practical work, making the learning experience enjoyable and easy to follow.</p>
+<section id="session-structure-and-content" class="level2">
+<h2 class="anchored" data-anchor-id="session-structure-and-content">Session Structure and Content</h2>
 <ul>
 <li><p><strong>Balance Theory and Hands-On Work:</strong> Spend about one-third of the time on theory and the other two-thirds on hands-on activities.</p></li>
 <li><p><strong>Build Gradually:</strong> Start with the basics and build up gradually. Expand both the theory and hands-on tasks as you go along. For example, This <a href="https://github.com/NCEAS/scalable-computing-examples/blob/main/04-pleasing/pleasing.ipynb">Jupyter notebook</a> from NCEAS workshop shows how to introduce theory and hands-on practice.</p></li>
@@ -344,8 +353,20 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Offer Support:</strong> Make sure participants know how to ask for help if they get stuck. Regularly ask participants if they’re keeping up and adjust your pace if needed.</p></li>
 <li><p><strong>Extra Resources:</strong> Provide additional materials like readings or videos for participants who want to learn more.</p></li>
 </ul>
+</section>
+<section id="editing-session-materials" class="level2">
+<h2 class="anchored" data-anchor-id="editing-session-materials">Editing Session Materials</h2>
+<p>We are using <a href="https://quarto.org">Quarto</a> to create the workshop materials. You can find the source files for the workshop materials at <a href="https://github.com/cyber2a/cyber2a-course">GitHub</a>. The pages for each session have already been established, and you just need to add your content to the corresponding session file. The content is primarily written in Markdown, with some additional features provided by Quarto. Here are some tips for editing the materials:</p>
+<ul>
+<li><p><strong>Getting Started</strong>: You can find a guide to getting started with Quarto, including editing and previewing your content locally with various tools, <a href="https://quarto.org/docs/get-started/">here</a>.</p></li>
+<li><p><strong>Quarto Guide:</strong> You can find a comprehensive guide to Quarto <a href="https://quarto.org/docs/guide/">here</a>.</p></li>
+<li><p><strong>Format</strong>: You can choose to write your content in either Jupyter Notebook (<code>.ipynb</code>) or Markdown files (<code>.qmd</code>). Quarto can render both formats.</p></li>
+<li><p><strong>Embed Notebooks</strong>: If you choose to write your content in Markdown but have a separate Jupyter Notebook for the hands-on part, you can embed the notebook. Follow the guide <a href="https://quarto.org/docs/computations/python.html#embed-notebooks">here</a> to learn how to do this.</p></li>
+</ul>
+<p>If you have any questions or need help with editing the materials, please reach out to <a href="mailto:%20chsu53@asu.edu">Chia-Yu Hsu</a> or ask in the Slack channel.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
