@@ -40,6 +40,72 @@
     ]
   },
   {
+    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html",
+    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html",
+    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "section": "",
+    "text": "Goal\nThis session kicks off with a relaxed and engaging exploration of AI’s role in Arctic science and geoscience, aiming to lay a solid foundation without overwhelming our audience. We’ll navigate through the use of AI technologies in these fields, highlighting their exciting possibilities and tackling the challenges and ethical considerations. Expect a straightforward, easy-to-follow presentation designed to demystify AI and spark curiosity.",
+    "crumbs": [
+      "<b>Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+    ]
+  },
+  {
+    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html#key-elements",
+    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html#key-elements",
+    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "section": "Key Elements",
+    "text": "Key Elements\nEngaging visuals, simplified explanations, real-world examples, light tone",
+    "crumbs": [
+      "<b>Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html",
+    "href": "sections/ai-for-everyone.html",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "",
+    "text": "Goal\nThis session aims to introducing AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions",
+    "crumbs": [
+      "<b>Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#key-elements",
+    "href": "sections/ai-for-everyone.html#key-elements",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "Key Elements",
+    "text": "Key Elements\nML, DL, NN, CNN, datasets and annotations, training and inference, accuracy and validation, supervised learning, etc.",
+    "crumbs": [
+      "<b>Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-ready-data-in-arctic-research.html",
+    "href": "sections/ai-ready-data-in-arctic-research.html",
+    "title": "3  AI-Ready Data in Arctic Research: Principles and Practices",
+    "section": "",
+    "text": "Goal\nThis session provides an understanding of ‘AI-ready data’ in Arctic science and geoscience, highlighting the importance of suitable data for AI applications. Participants will learn about creating and managing metadata and organizing data repositories. We’ll discuss best practices for data preparation and structuring for AI processing. By the end, participants will clearly understand AI-ready data characteristics and the steps to transform raw data for AI applications.",
+    "crumbs": [
+      "<b>Data Management and Preparation for AI</b>",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI-Ready Data in Arctic Research: Principles and Practices</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-ready-data-in-arctic-research.html#key-elements",
+    "href": "sections/ai-ready-data-in-arctic-research.html#key-elements",
+    "title": "3  AI-Ready Data in Arctic Research: Principles and Practices",
+    "section": "Key Elements",
+    "text": "Key Elements\nAI-ready data definition, data suitability importance, metadata management, data repository organization, data preparation practices, raw data transformation",
+    "crumbs": [
+      "<b>Data Management and Preparation for AI</b>",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>AI-Ready Data in Arctic Research: Principles and Practices</span>"
+    ]
+  },
+  {
     "objectID": "sections/guest-lecture-yili-arts-dataset.html",
     "href": "sections/guest-lecture-yili-arts-dataset.html",
     "title": "Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier",
@@ -70,6 +136,50 @@
     "crumbs": [
       "<b>Data Management and Preparation for AI</b>",
       "Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier"
+    ]
+  },
+  {
+    "objectID": "sections/data-annotation.html",
+    "href": "sections/data-annotation.html",
+    "title": "4  Data Annotation: The Foundation of Deep Learning Models",
+    "section": "",
+    "text": "Goal\nThis session explores the critical role of training data in deep learning, focusing on data annotation methods, tools, and strategies for acquiring high-quality data. Participants will learn how well-annotated data supports effective deep learning models, understanding the challenges and best practices in data annotation. By the end, participants will be equipped to prepare their datasets for deep learning.",
+    "crumbs": [
+      "<b>Data Management and Preparation for AI</b>",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Annotation: The Foundation of Deep Learning Models</span>"
+    ]
+  },
+  {
+    "objectID": "sections/data-annotation.html#key-elements",
+    "href": "sections/data-annotation.html#key-elements",
+    "title": "4  Data Annotation: The Foundation of Deep Learning Models",
+    "section": "Key Elements",
+    "text": "Key Elements\nTraining data’s role, annotation methods/tools, annotated data’s importance, annotation challenges, annotation best practices, dataset preparation",
+    "crumbs": [
+      "<b>Data Management and Preparation for AI</b>",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Data Annotation: The Foundation of Deep Learning Models</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-data-annotation.html",
+    "href": "sections/hands-on-lab-data-annotation.html",
+    "title": "5  Hands-On Lab: Data Annotation",
+    "section": "",
+    "text": "Goal\nThis hands-on lab session is designed to give participants practical experience in data annotation for deep learning. Participants will apply the methods, tools, and best practices discussed in the previous session, working directly with datasets to annotate data effectively.",
+    "crumbs": [
+      "<b>Data Management and Preparation for AI</b>",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hands-On Lab: Data Annotation</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-data-annotation.html#key-elements",
+    "href": "sections/hands-on-lab-data-annotation.html#key-elements",
+    "title": "5  Hands-On Lab: Data Annotation",
+    "section": "Key Elements",
+    "text": "Key Elements\nUse of annotation methods and tools, direct dataset interaction",
+    "crumbs": [
+      "<b>Data Management and Preparation for AI</b>",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Hands-On Lab: Data Annotation</span>"
     ]
   },
   {
