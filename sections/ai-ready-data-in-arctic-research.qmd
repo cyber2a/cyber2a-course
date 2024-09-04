@@ -1,4 +1,9 @@
-# AI-Ready Data in Arctic Research: Principles and Practices {.unnumbered}
+# AI-Ready Data in Arctic Research: Principles and Practices
 
+## Goal {.unnumbered}
+This session provides an understanding of 'AI-ready data' in Arctic science and geoscience, highlighting the importance of suitable data for AI applications. Participants will learn about creating and managing metadata and organizing data repositories. We'll discuss best practices for data preparation and structuring for AI processing. By the end, participants will clearly understand AI-ready data characteristics and the steps to transform raw data for AI applications.
+
+## Key Elements {.unnumbered}
+AI-ready data definition, data suitability importance, metadata management, data repository organization, data preparation practices, raw data transformation
 
 
