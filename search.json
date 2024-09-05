@@ -533,5 +533,27 @@
       "<b>Ethics and Social Implications of AI</b>",
       "AI Ethics"
     ]
+  },
+  {
+    "objectID": "sections/reproducibility.html",
+    "href": "sections/reproducibility.html",
+    "title": "Reproducibility",
+    "section": "",
+    "text": "Goal\nThis session aims to highlight the importance of reproducibility in AI-driven Arctic research. Participants will learn about the challenges and best practices for ensuring that AI models and their results can be reproduced by other researchers, a cornerstone for building trust and advancing the field. The discussion will cover strategies for documenting experiments, sharing data and code, and using version control systems.",
+    "crumbs": [
+      "<b>Ethics and Social Implications of AI</b>",
+      "Reproducibility"
+    ]
+  },
+  {
+    "objectID": "sections/reproducibility.html#key-elements",
+    "href": "sections/reproducibility.html#key-elements",
+    "title": "Reproducibility",
+    "section": "Key Elements",
+    "text": "Key Elements\nImportance of reproducibility, challenges to achieving reproducibility, best practices for reproducible research, tools and techniques to enhance reproducibility",
+    "crumbs": [
+      "<b>Ethics and Social Implications of AI</b>",
+      "Reproducibility"
+    ]
   }
 ]
