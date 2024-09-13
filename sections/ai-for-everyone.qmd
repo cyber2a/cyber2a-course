@@ -1,7 +1,52 @@
 # AI for  Everyone: An Introductory Overview
 
-## Goal {.unnumbered}
-This session aims to introducing AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions
+## Goal
+This session aims to introduce AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions.
 
-## Key Elements {.unnumbered}
+## Key Elements
 ML, DL, NN, CNN, datasets and annotations, training and inference, accuracy and validation, supervised learning, etc.
+
+## Outline
+
+### 1. **Introduction to Artificial Intelligence (5 minutes)**
+   - What is AI?  
+     - Definition and core concepts.
+     - Brief history and its role in modern research.
+   - Key takeaway: 
+     – Artificial Intelligence as a tool, that helps you find insight and patterns in data by applying specific types of algorithms.
+     – Artificial Intelligence can be useful during not only the data analysis phase of a scientific method but every step from generating a hypothesis to publishing results. (Let's find out how together)
+
+
+### 2. **AI Types and Techniques (10 minutes)**
+   - **Supervised vs. Unsupervised Learning**  
+     - Definitions and examples of each.
+     - When to use them in scientific research.
+   - **Techniques Overview**  
+     - Machine Learning (ML)
+     - Deep Learning (DL)
+     - Natural Language Processing (NLP)
+   - Key takeaway: Different types and techniques of AI can be applied depending on the type of data and research questions.
+
+### 3. **Working with Datasets (8 minutes)**
+- **Importance of Data**  
+    - How AI models depend on good data (quality over quantity).
+- **Types of Datasets**  
+    - Structured vs. unstructured data.
+    - Examples relevant to Arctic science.
+- Key takeaway: Data is the foundation of AI; understanding it improves AI's accuracy and usefulness.
+
+### 4. **Hands-On: Building a Simple ML Model (17 minutes)**
+   - **Introduction to a Dataset**  
+   - **Step-by-step Model Creation (Python)**  
+   - **Testing and Evaluating Results**  
+     - Show how to evaluate the performance of the model.
+   - Key takeaway: Building an AI model is more accessible than it seems, even for beginners.
+
+### 5. **The Future of AI in Science (7 minutes)**
+   - **Emerging AI Trends**  
+
+### 6. **Q&A and Recap (8 minutes)**
+   - **Discussion:**  
+     - Let's think about specific Arctic science-related problems.
+     - Explore how AI might help address these problems.
+     - Key takeaway: AI can be applied at every stage of scientific research.
