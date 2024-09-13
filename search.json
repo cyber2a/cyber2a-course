@@ -66,7 +66,7 @@
     "href": "sections/ai-for-everyone.html",
     "title": "2  AI for Everyone: An Introductory Overview",
     "section": "",
-    "text": "Goal\nThis session aims to introducing AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions",
+    "text": "2.1 Goal\nThis session aims to introduce AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions.",
     "crumbs": [
       "<b>Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
@@ -76,8 +76,19 @@
     "objectID": "sections/ai-for-everyone.html#key-elements",
     "href": "sections/ai-for-everyone.html#key-elements",
     "title": "2  AI for Everyone: An Introductory Overview",
-    "section": "Key Elements",
-    "text": "Key Elements\nML, DL, NN, CNN, datasets and annotations, training and inference, accuracy and validation, supervised learning, etc.",
+    "section": "2.2 Key Elements",
+    "text": "2.2 Key Elements\nML, DL, NN, CNN, datasets and annotations, training and inference, accuracy and validation, supervised learning, etc.",
+    "crumbs": [
+      "<b>Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#outline",
+    "href": "sections/ai-for-everyone.html#outline",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "2.3 Outline",
+    "text": "2.3 Outline\n\n2.3.1 1. Introduction to Artificial Intelligence (5 minutes)\n\nWhat is AI?\n\nDefinition and core concepts.\nBrief history and its role in modern research.\n\nKey takeaway: – Artificial Intelligence as a tool, that helps you find insight and patterns in data by applying specific types of algorithms. – Artificial Intelligence can be useful during not only the data analysis phase of a scientific method but every step from generating a hypothesis to publishing results. (Let’s find out how together)\n\n\n\n2.3.2 2. AI Types and Techniques (10 minutes)\n\nSupervised vs. Unsupervised Learning\n\nDefinitions and examples of each.\nWhen to use them in scientific research.\n\nTechniques Overview\n\nMachine Learning (ML)\nDeep Learning (DL)\nNatural Language Processing (NLP)\n\nKey takeaway: Different types and techniques of AI can be applied depending on the type of data and research questions.\n\n\n\n2.3.3 3. Working with Datasets (8 minutes)\n\nImportance of Data\n\nHow AI models depend on good data (quality over quantity).\n\nTypes of Datasets\n\nStructured vs. unstructured data.\nExamples relevant to Arctic science.\n\nKey takeaway: Data is the foundation of AI; understanding it improves AI’s accuracy and usefulness.\n\n\n\n2.3.4 4. Hands-On: Building a Simple ML Model (17 minutes)\n\nIntroduction to a Dataset\n\nStep-by-step Model Creation (Python)\n\nTesting and Evaluating Results\n\nShow how to evaluate the performance of the model.\n\nKey takeaway: Building an AI model is more accessible than it seems, even for beginners.\n\n\n\n2.3.5 5. The Future of AI in Science (7 minutes)\n\nEmerging AI Trends\n\n\n\n2.3.6 6. Q&A and Recap (8 minutes)\n\nDiscussion:\n\nLet’s think about specific Arctic science-related problems.\nExplore how AI might help address these problems.\nKey takeaway: AI can be applied at every stage of scientific research.",
     "crumbs": [
       "<b>Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
