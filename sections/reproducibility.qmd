@@ -4,7 +4,7 @@
 This session aims to highlight the importance of reproducibility in AI-driven Arctic research. Participants will learn about the challenges and best practices for ensuring that AI models and their results can be reproduced by other researchers, a cornerstone for building trust and advancing the field. The discussion will cover strategies for documenting experiments, sharing data and code, and using version control systems.
 
 ## Introduction
-**Reproducibility** is not a new topic when it comes to artificial intelligence and machine learning in science, but is more important than ever as AI research is often criticized for not being reproducible1. This becomes particularly problematic when validation of a model requires reproducing it.
+**Reproducibility** is not a new topic when it comes to artificial intelligence and machine learning in science, but is more important than ever as AI research is often criticized for not being reproducible. This becomes particularly problematic when validation of a model requires reproducing it.
 
 ## Key Elements & Terminology
 Importance of reproducibility, challenges to achieving reproducibility, best practices for reproducible research, tools and techniques to enhance reproducibility
