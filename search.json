@@ -561,7 +561,7 @@
     "href": "sections/reproducibility.html#introduction",
     "title": "Reproducibility",
     "section": "Introduction",
-    "text": "Introduction\nReproducibility is not a new topic when it comes to artificial intelligence and machine learning in science, but is more important than ever as AI research is often criticized for not being reproducible1. This becomes particularly problematic when validation of a model requires reproducing it.",
+    "text": "Introduction\nReproducibility is not a new topic when it comes to artificial intelligence and machine learning in science, but is more important than ever as AI research is often criticized for not being reproducible. This becomes particularly problematic when validation of a model requires reproducing it.",
     "crumbs": [
       "<b>Ethics and Social Implications of AI</b>",
       "Reproducibility"
