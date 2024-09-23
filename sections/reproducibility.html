@@ -315,7 +315,19 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal">Goal</a></li>
-  <li><a href="#key-elements" id="toc-key-elements" class="nav-link" data-scroll-target="#key-elements">Key Elements</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#key-elements-terminology" id="toc-key-elements-terminology" class="nav-link" data-scroll-target="#key-elements-terminology">Key Elements &amp; Terminology</a>
+  <ul class="collapse">
+  <li><a href="#key-terms" id="toc-key-terms" class="nav-link" data-scroll-target="#key-terms">Key terms:</a></li>
+  </ul></li>
+  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a>
+  <ul class="collapse">
+  <li><a href="#the-reproducibility-checklist" id="toc-the-reproducibility-checklist" class="nav-link" data-scroll-target="#the-reproducibility-checklist">The Reproducibility Checklist</a></li>
+  <li><a href="#sharing-code" id="toc-sharing-code" class="nav-link" data-scroll-target="#sharing-code">Sharing Code</a></li>
+  <li><a href="#model-repositories" id="toc-model-repositories" class="nav-link" data-scroll-target="#model-repositories">Model Repositories</a></li>
+  <li><a href="#version-control" id="toc-version-control" class="nav-link" data-scroll-target="#version-control">Version Control</a></li>
+  </ul></li>
+  <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources">References &amp; Resources</a></li>
   </ul>
 </nav>
     </div>
@@ -341,13 +353,113 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="goal" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="goal">Goal</h2>
+<section id="goal" class="level2">
+<h2 class="anchored" data-anchor-id="goal">Goal</h2>
 <p>This session aims to highlight the importance of reproducibility in AI-driven Arctic research. Participants will learn about the challenges and best practices for ensuring that AI models and their results can be reproduced by other researchers, a cornerstone for building trust and advancing the field. The discussion will cover strategies for documenting experiments, sharing data and code, and using version control systems.</p>
 </section>
-<section id="key-elements" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="key-elements">Key Elements</h2>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><strong>Reproducibility</strong> is not a new topic when it comes to artificial intelligence and machine learning in science, but is more important than ever as AI research is often criticized for not being reproducible1. This becomes particularly problematic when validation of a model requires reproducing it.</p>
+</section>
+<section id="key-elements-terminology" class="level2">
+<h2 class="anchored" data-anchor-id="key-elements-terminology">Key Elements &amp; Terminology</h2>
 <p>Importance of reproducibility, challenges to achieving reproducibility, best practices for reproducible research, tools and techniques to enhance reproducibility</p>
+<section id="key-terms" class="level3">
+<h3 class="anchored" data-anchor-id="key-terms">Key terms:</h3>
+<ul>
+<li><p><strong>Hyperparameter:</strong> parameters whose values control the learning process and determine the values of model parameters that a learning algorithm ends up learning. The prefix “hyper” in the term indicates their role as top-level parameters controlling the learning process. Hyperparameters exist externally in the model and cannot be estimated using the data because the developer sets these values before the model training begins.</p></li>
+<li><p><strong>Modeling code:</strong> code used to implement the model</p></li>
+<li><p><strong>Implementation code:</strong> code used for inference</p></li>
+</ul>
+</section>
+</section>
+<section id="outline" class="level2">
+<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<section id="the-reproducibility-checklist" class="level3">
+<h3 class="anchored" data-anchor-id="the-reproducibility-checklist">The Reproducibility Checklist</h3>
+<p>The Reproducibility Checklist was created by Canadian computer scientist, Joelle Pineau, with the goal of facilitating reproducible machine learning algorithms that can be tested and replicated. Their checklist is as follows:</p>
+<p><strong>For all models and algorithms, check that you include:</strong></p>
+<ul>
+<li><p>A clear description of the mathematical setting, algorithm, and/or model</p></li>
+<li><p>An analysis of the complexity (time, space, sample size) of any algorithm</p></li>
+<li><p>A link to a downloadable source code*, with specification of all dependencies, including external libraries</p></li>
+</ul>
+<p><strong>For any theoretical claim, check that you include:</strong></p>
+<ul>
+<li><p>A statement of the result</p></li>
+<li><p>A clear explanation of each assumption</p></li>
+<li><p>A complete proof of the claim</p></li>
+</ul>
+<p><strong>For all figures and tables that include empirical results, check that you include:</strong></p>
+<ul>
+<li><p>A complete description of the data collection process, including sample size</p></li>
+<li><p>A link to a downloadable version of the dataset or simulation environment</p></li>
+<li><p>An explanation of any data that was excluded and a description of any preprocessing step</p></li>
+<li><p>An explanation of how samples were allocated for training, validation, and testing</p></li>
+<li><p>The range of hyperparameters considered, method to select the best hyperparameter configuration, and specification of each hyperparameter used to generate results</p></li>
+<li><p>The exact number of evaluation runs</p></li>
+<li><p>A description of how experiments were run</p></li>
+<li><p>A clear definition of the specific measure of statistics used to report results</p></li>
+<li><p>Clearly defined error bars</p></li>
+<li><p>A description of results with central tendency (e.g., mean) and variation (e.g., standard deviation)</p></li>
+<li><p>A description of the computing infrastructure used</p></li>
+</ul>
+<p>*With sensitive data or proprietary code, scientists may not wish to release all of its code and data. In this case, data can be anonymized and/or partial code can be released that won’t run but can be read and reproduced</p>
+</section>
+<section id="sharing-code" class="level3">
+<h3 class="anchored" data-anchor-id="sharing-code">Sharing Code</h3>
+<p>The first step to solving the problem of reproducibility is <strong>sharing the code</strong> that was used to generate the model. This allows other researchers to: + Validate the model</p>
+<ul>
+<li><p>Track code construction and see any author annotations</p></li>
+<li><p>Expand on published work</p></li>
+</ul>
+<p>Despite this, sharing code does not always mean that models are fully reproducible. Many machine learning models are trained on restricted datasets or require extensive computing power for training the model. Because of this, there are a few additional criteria that improve reproducibility including:</p>
+<ul>
+<li><p>Data and metadata availability (must be included without question)</p></li>
+<li><p>Transparency of the code you’re using and dependencies needed to run the code</p></li>
+<li><p>Easily installable computational analysis tools and pipelines</p></li>
+<li><p>Installed software should behave the same on every machine and should have the same runtime</p></li>
+</ul>
+</section>
+<section id="model-repositories" class="level3">
+<h3 class="anchored" data-anchor-id="model-repositories">Model Repositories</h3>
+<p><strong>PyTorch Hub</strong> is a pre-trained model repository designed to facilitate reproducibility and enable new research. It is easily usable with Colab and Papers with Code, but models must be trained on openly accessible data.</p>
+<ul>
+<li>Papers with Code is an open source hub for publications that include direct links to GitHub code, no account needed to access datasets.</li>
+</ul>
+</section>
+<section id="version-control" class="level3">
+<h3 class="anchored" data-anchor-id="version-control">Version Control</h3>
+<p><strong>Version control</strong> is the process of keeping track of every individual change by each contributor that’s saved in a version control framework, or a special database. Keeping a history of these changes to track model performance relative to model parameters saves the time you’d spend retraining the model. Using a version control system ensures easier:</p>
+<ul>
+<li><p><strong>Collaboration</strong></p></li>
+<li><p><strong>Versioning</strong></p>
+<ul>
+<li>If your model breaks, you’ll have a log of any changes that were made, allowing you or others to revert back to a stable version</li>
+</ul></li>
+<li><p><strong>Dependency tracking</strong></p>
+<ul>
+<li>You can test more than one model on different branches or repositories, tune the model parameters and hyperparameters, and monitor the accuracy of each implemented change</li>
+</ul></li>
+<li><p><strong>Model updates</strong></p>
+<ul>
+<li>Version control allows for incrementally released versions while continuing the development of the next release</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="references-resources" class="level2">
+<h2 class="anchored" data-anchor-id="references-resources">References &amp; Resources</h2>
+<ol type="1">
+<li>Gundersen, Odd Erik, and Sigbjørn Kjensmo. 2018. “State of the Art: Reproducibility in Artificial Intelligence”. Proceedings of the AAAI Conference on Artificial Intelligence 32 (1). https://doi.org/10.1609/aaai.v32i1.11503.</li>
+<li>Gundersen, Odd Erik, Yolanda Gil, and David W. Aha. “On Reproducible AI: Towards Reproducible Research, Open Science, and Digital Scholarship in AI Publications.” AI Magazine 39, no. 3 (September 28, 2018): 56–68. https://doi.org/10.1609/aimag.v39i3.2816.</li>
+<li>“How the AI Community Can Get Serious about Reproducibility.” Accessed September 18, 2024. https://ai.meta.com/blog/how-the-ai-community-can-get-serious-about-reproducibility/.</li>
+<li>Abid, Areeba. “Addressing ML’s Reproducibility Crisis.” Medium, January 7, 2021. https://towardsdatascience.com/addressing-mls-reproducibility-crisis-7d59e9ed050.</li>
+<li>PyTorch. “Towards Reproducible Research with PyTorch Hub.” Accessed September 18, 2024. https://pytorch.org/blog/towards-reproducible-research-with-pytorch-hub/.</li>
+<li>Stojnic, Robert. “ML Code Completeness Checklist.” PapersWithCode (blog), April 8, 2020. https://medium.com/paperswithcode/ml-code-completeness-checklist-e9127b168501.</li>
+<li>Akalin, Altuna. “Scientific Data Analysis Pipelines and Reproducibility.” Medium, July 5, 2021. https://towardsdatascience.com/scientific-data-analysis-pipelines-and-reproducibility-75ff9df5b4c5.</li>
+<li>Hashesh, Ahmed. “Version Control for ML Models: What It Is and How To Implement It.” neptune.ai, July 22, 2022. https://neptune.ai/blog/version-control-for-ml-models.</li>
+</ol>
 
 
 </section>

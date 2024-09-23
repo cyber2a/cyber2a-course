@@ -557,11 +557,44 @@
     ]
   },
   {
-    "objectID": "sections/reproducibility.html#key-elements",
-    "href": "sections/reproducibility.html#key-elements",
+    "objectID": "sections/reproducibility.html#introduction",
+    "href": "sections/reproducibility.html#introduction",
     "title": "Reproducibility",
-    "section": "Key Elements",
-    "text": "Key Elements\nImportance of reproducibility, challenges to achieving reproducibility, best practices for reproducible research, tools and techniques to enhance reproducibility",
+    "section": "Introduction",
+    "text": "Introduction\nReproducibility is not a new topic when it comes to artificial intelligence and machine learning in science, but is more important than ever as AI research is often criticized for not being reproducible1. This becomes particularly problematic when validation of a model requires reproducing it.",
+    "crumbs": [
+      "<b>Ethics and Social Implications of AI</b>",
+      "Reproducibility"
+    ]
+  },
+  {
+    "objectID": "sections/reproducibility.html#key-elements-terminology",
+    "href": "sections/reproducibility.html#key-elements-terminology",
+    "title": "Reproducibility",
+    "section": "Key Elements & Terminology",
+    "text": "Key Elements & Terminology\nImportance of reproducibility, challenges to achieving reproducibility, best practices for reproducible research, tools and techniques to enhance reproducibility\n\nKey terms:\n\nHyperparameter: parameters whose values control the learning process and determine the values of model parameters that a learning algorithm ends up learning. The prefix “hyper” in the term indicates their role as top-level parameters controlling the learning process. Hyperparameters exist externally in the model and cannot be estimated using the data because the developer sets these values before the model training begins.\nModeling code: code used to implement the model\nImplementation code: code used for inference",
+    "crumbs": [
+      "<b>Ethics and Social Implications of AI</b>",
+      "Reproducibility"
+    ]
+  },
+  {
+    "objectID": "sections/reproducibility.html#outline",
+    "href": "sections/reproducibility.html#outline",
+    "title": "Reproducibility",
+    "section": "Outline",
+    "text": "Outline\n\nThe Reproducibility Checklist\nThe Reproducibility Checklist was created by Canadian computer scientist, Joelle Pineau, with the goal of facilitating reproducible machine learning algorithms that can be tested and replicated. Their checklist is as follows:\nFor all models and algorithms, check that you include:\n\nA clear description of the mathematical setting, algorithm, and/or model\nAn analysis of the complexity (time, space, sample size) of any algorithm\nA link to a downloadable source code*, with specification of all dependencies, including external libraries\n\nFor any theoretical claim, check that you include:\n\nA statement of the result\nA clear explanation of each assumption\nA complete proof of the claim\n\nFor all figures and tables that include empirical results, check that you include:\n\nA complete description of the data collection process, including sample size\nA link to a downloadable version of the dataset or simulation environment\nAn explanation of any data that was excluded and a description of any preprocessing step\nAn explanation of how samples were allocated for training, validation, and testing\nThe range of hyperparameters considered, method to select the best hyperparameter configuration, and specification of each hyperparameter used to generate results\nThe exact number of evaluation runs\nA description of how experiments were run\nA clear definition of the specific measure of statistics used to report results\nClearly defined error bars\nA description of results with central tendency (e.g., mean) and variation (e.g., standard deviation)\nA description of the computing infrastructure used\n\n*With sensitive data or proprietary code, scientists may not wish to release all of its code and data. In this case, data can be anonymized and/or partial code can be released that won’t run but can be read and reproduced\n\n\nSharing Code\nThe first step to solving the problem of reproducibility is sharing the code that was used to generate the model. This allows other researchers to: + Validate the model\n\nTrack code construction and see any author annotations\nExpand on published work\n\nDespite this, sharing code does not always mean that models are fully reproducible. Many machine learning models are trained on restricted datasets or require extensive computing power for training the model. Because of this, there are a few additional criteria that improve reproducibility including:\n\nData and metadata availability (must be included without question)\nTransparency of the code you’re using and dependencies needed to run the code\nEasily installable computational analysis tools and pipelines\nInstalled software should behave the same on every machine and should have the same runtime\n\n\n\nModel Repositories\nPyTorch Hub is a pre-trained model repository designed to facilitate reproducibility and enable new research. It is easily usable with Colab and Papers with Code, but models must be trained on openly accessible data.\n\nPapers with Code is an open source hub for publications that include direct links to GitHub code, no account needed to access datasets.\n\n\n\nVersion Control\nVersion control is the process of keeping track of every individual change by each contributor that’s saved in a version control framework, or a special database. Keeping a history of these changes to track model performance relative to model parameters saves the time you’d spend retraining the model. Using a version control system ensures easier:\n\nCollaboration\nVersioning\n\nIf your model breaks, you’ll have a log of any changes that were made, allowing you or others to revert back to a stable version\n\nDependency tracking\n\nYou can test more than one model on different branches or repositories, tune the model parameters and hyperparameters, and monitor the accuracy of each implemented change\n\nModel updates\n\nVersion control allows for incrementally released versions while continuing the development of the next release",
+    "crumbs": [
+      "<b>Ethics and Social Implications of AI</b>",
+      "Reproducibility"
+    ]
+  },
+  {
+    "objectID": "sections/reproducibility.html#references-resources",
+    "href": "sections/reproducibility.html#references-resources",
+    "title": "Reproducibility",
+    "section": "References & Resources",
+    "text": "References & Resources\n\nGundersen, Odd Erik, and Sigbjørn Kjensmo. 2018. “State of the Art: Reproducibility in Artificial Intelligence”. Proceedings of the AAAI Conference on Artificial Intelligence 32 (1). https://doi.org/10.1609/aaai.v32i1.11503.\nGundersen, Odd Erik, Yolanda Gil, and David W. Aha. “On Reproducible AI: Towards Reproducible Research, Open Science, and Digital Scholarship in AI Publications.” AI Magazine 39, no. 3 (September 28, 2018): 56–68. https://doi.org/10.1609/aimag.v39i3.2816.\n“How the AI Community Can Get Serious about Reproducibility.” Accessed September 18, 2024. https://ai.meta.com/blog/how-the-ai-community-can-get-serious-about-reproducibility/.\nAbid, Areeba. “Addressing ML’s Reproducibility Crisis.” Medium, January 7, 2021. https://towardsdatascience.com/addressing-mls-reproducibility-crisis-7d59e9ed050.\nPyTorch. “Towards Reproducible Research with PyTorch Hub.” Accessed September 18, 2024. https://pytorch.org/blog/towards-reproducible-research-with-pytorch-hub/.\nStojnic, Robert. “ML Code Completeness Checklist.” PapersWithCode (blog), April 8, 2020. https://medium.com/paperswithcode/ml-code-completeness-checklist-e9127b168501.\nAkalin, Altuna. “Scientific Data Analysis Pipelines and Reproducibility.” Medium, July 5, 2021. https://towardsdatascience.com/scientific-data-analysis-pipelines-and-reproducibility-75ff9df5b4c5.\nHashesh, Ahmed. “Version Control for ML Models: What It Is and How To Implement It.” neptune.ai, July 22, 2022. https://neptune.ai/blog/version-control-for-ml-models.",
     "crumbs": [
       "<b>Ethics and Social Implications of AI</b>",
       "Reproducibility"
