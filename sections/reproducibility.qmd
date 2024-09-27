@@ -79,6 +79,7 @@ Despite this, sharing code does not always mean that models are fully reproducib
 + Easily installable computational analysis tools and pipelines
 
 + Installed software should behave the same on every machine and should have the same runtime
+![The Reproducibility Spectrum by Altuna Akalin in Towards Data Science](images/ReproSpectrum.png)
 
 ### Model Repositories
 **PyTorch Hub** is a pre-trained model repository designed to facilitate reproducibility and enable new research. It is easily usable with Colab and Papers with Code, but models must be trained on openly accessible data.
