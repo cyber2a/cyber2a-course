@@ -65,9 +65,7 @@ The Reproducibility Checklist was created by Canadian computer scientist, Joelle
 ### Sharing Code
 The first step to solving the problem of reproducibility is **sharing the code** that was used to generate the model. This allows other researchers to:
 + Validate the model
-
 + Track code construction and see any author annotations
-
 + Expand on published work
 
 Despite this, sharing code does not always mean that models are fully reproducible. Many machine learning models are trained on restricted datasets or require extensive computing power for training the model. Because of this, there are a few additional criteria that improve reproducibility including:
