@@ -6,18 +6,13 @@ This session aims to highlight the importance of reproducibility in AI-driven Ar
 ## Introduction
 **Reproducibility** is not a new topic when it comes to artificial intelligence and machine learning in science, but is more important than ever as AI research is often criticized for not being reproducible. This becomes particularly problematic when validation of a model requires reproducing it.
 
-## Key Elements & Terminology
-Importance of reproducibility, challenges to achieving reproducibility, best practices for reproducible research, tools and techniques to enhance reproducibility
+## Why is Reproducibility Important?
+### Reproducible vs. Replicable
 
-### Key terms:
-+ **Hyperparameter:** parameters whose values control the learning process and determine the values of model parameters that a learning algorithm ends up learning. The prefix “hyper” in the term indicates their role as top-level parameters controlling the learning process. Hyperparameters exist externally in the model and cannot be estimated using the data because the developer sets these values before the model training begins.
+- Reproducible means that other researchers can take the same data, run the same analysis, and get the same result.
+- Replicable means other researchers can take different data, run the same analysis, and get their own result without errors. 
 
-+ **Modeling code:** code used to implement the model
-
-+ **Implementation code:** code used for inference
-
-## Outline 
-### The Reproducibility Checklist
+## The Reproducibility Checklist
 The Reproducibility Checklist was created by Canadian computer scientist, Joelle Pineau, with the goal of facilitating reproducible machine learning algorithms that can be tested and replicated. Their checklist is as follows:
 
 **For all models and algorithms, check that you include:**
@@ -62,7 +57,12 @@ The Reproducibility Checklist was created by Canadian computer scientist, Joelle
 
 *With sensitive data or proprietary code, scientists may not wish to release all of its code and data. In this case, data can be anonymized and/or partial code can be released that won’t run but can be read and reproduced 
 
-### Sharing Code
+Consider the sensitivity of your data/code when publishing.
+- Sensitive data should be anonymized before publishing
+- Researchers or organizations may only release partial code if their code is propietary
+  - Be sure that the partial code released is still entirely executable
+
+## Sharing Code
 The first step to solving the problem of reproducibility is **sharing the code** that was used to generate the model. This allows other researchers to:
 + Validate the model
 + Track code construction and see any author annotations
@@ -77,18 +77,34 @@ Despite this, sharing code does not always mean that models are fully reproducib
 + Easily installable computational analysis tools and pipelines
 
 + Installed software should behave the same on every machine and should have the same runtime
+
+### Trips and Tricks to Sharing Code
+- Avoid using absolute file paths when reading in data (and in general the use of slashes, as these differ between operating systems)
+
+![Avoid using an absolute path to read in your data as shown here](../images/absolutepath.png)
+
+- Clean your data *within* your code
+- Avoid copy/pasting in a spreadsheet
+- Always keep an unedited version of your raw data
+
 ![The Reproducibility Spectrum by Altuna Akalin in Towards Data Science](../images/ReproSpectrum.png)
 
-### Model Repositories
+## Model Repositories
 **PyTorch Hub** is a pre-trained model repository designed to facilitate reproducibility and enable new research. It is easily usable with [Colab](https://colab.google/) and [Papers with Code](https://paperswithcode.com/), but models must be trained on openly accessible data.
 	
 - [Papers with Code](https://paperswithcode.com/) is an open source hub for publications that include direct links to GitHub code, no account needed to access datasets.
 ![Example paper with attached code from Papers with Code](../images/PaperswithCode.png)
-### Version Control
+## Version Control
 ![](../images/VersionControl.png)
 
-**Version control** is the process of keeping track of every individual change by each contributor that’s saved in a version control framework, or a special database. Keeping a history of these changes to track model performance relative to model parameters saves the time you’d spend retraining the model.
-Using a version control system ensures easier:
+**Version control** is the process of keeping track of every individual change by each contributor that’s saved in a version control framework, or a special database. Keeping a history of these changes to track model performance relative to model parameters saves the time you’d spend retraining the model. The three components of version control in machine learning are:
+- Code: We recommend writing and storing your model code in the same language as your implementation code to make it easier to maintain all code and dependencies
+
+- Data: Versioning should link the data to the appropriate metadata and note any changes in either
+
+- Model: The model connects your code and data with your model parameters and analysis
+
+***Using a version control system ensures easier:***
 
 + **Collaboration**
 
@@ -100,6 +116,26 @@ Using a version control system ensures easier:
 
 + **Model updates**
 	- Version control allows for incrementally released versions while continuing the development of the next release
+
+## Summary
+Consider the following to ensure your model is repproducible:
+- Use the reproducibility checklist for algorithms, theoretical claims, and figures/tables.
+- Anonymize any sensitive data and remove proprietary code before publishing
+  - BUT still provide training data and enough code for others to replicate your model
+- Share data and metadata, be transparent in any dependencies needed to run your model, use easily installable computational analysis tools and pipelines, and ensure installed software behaves the same on every machine (i.e. runtime)
+- Use a pre-trained model repository (ex. PyTorch Hub) and publish to open-source journals/websites (ex. Papers with Code)
+- Practice efficient version control (recommend GitHub if working with collaborators)
+
+## Hands-On Activity
+LEGO Metadata: In groups of 3-5 people, take ~15 minutes to create a structure out of LEGO bricks and write instructions for a group who will recreate your structure based on these instructions.
+
+Groups will then be rotated and given instructions and LEGO pieces from another group where they will have ~15 minutes to attempt to recreate that group's structure.
+
+We will have a closing group discussion about this activity. Some questions include:
+- What were some assumptions you made while writing your instructions?
+- Were there any unexpected hurdles you encountered when writing your instructions or trying to replicate another group's structure?
+- What did you find most difficult about this activity?
+- Now that you see how successful or unsuccessful the other group was in recreating your structure, is there anything you would do differently?
 
 ## References & Resources
 1. Gundersen, Odd Erik, and Sigbjørn Kjensmo. 2018. “State of the Art: Reproducibility in Artificial Intelligence”. Proceedings of the AAAI Conference on Artificial Intelligence 32 (1). https://doi.org/10.1609/aaai.v32i1.11503.
