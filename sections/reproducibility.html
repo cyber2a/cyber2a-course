@@ -316,16 +316,18 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal">Goal</a></li>
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#key-elements-terminology" id="toc-key-elements-terminology" class="nav-link" data-scroll-target="#key-elements-terminology">Key Elements &amp; Terminology</a>
+  <li><a href="#why-is-reproducibility-important" id="toc-why-is-reproducibility-important" class="nav-link" data-scroll-target="#why-is-reproducibility-important">Why is Reproducibility Important?</a>
   <ul class="collapse">
-  <li><a href="#key-terms" id="toc-key-terms" class="nav-link" data-scroll-target="#key-terms">Key terms:</a></li>
+  <li><a href="#reproducible-vs.-replicable" id="toc-reproducible-vs.-replicable" class="nav-link" data-scroll-target="#reproducible-vs.-replicable">Reproducible vs.&nbsp;Replicable</a></li>
   </ul></li>
-  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a>
-  <ul class="collapse">
   <li><a href="#the-reproducibility-checklist" id="toc-the-reproducibility-checklist" class="nav-link" data-scroll-target="#the-reproducibility-checklist">The Reproducibility Checklist</a></li>
-  <li><a href="#sharing-code" id="toc-sharing-code" class="nav-link" data-scroll-target="#sharing-code">Sharing Code</a></li>
-  <li><a href="#model-repositories" id="toc-model-repositories" class="nav-link" data-scroll-target="#model-repositories">Model Repositories</a></li>
+  <li><a href="#sharing-code" id="toc-sharing-code" class="nav-link" data-scroll-target="#sharing-code">Sharing Code</a>
+  <ul class="collapse">
+  <li><a href="#trips-and-tricks-to-sharing-code" id="toc-trips-and-tricks-to-sharing-code" class="nav-link" data-scroll-target="#trips-and-tricks-to-sharing-code">Trips and Tricks to Sharing Code</a></li>
   </ul></li>
+  <li><a href="#model-repositories" id="toc-model-repositories" class="nav-link" data-scroll-target="#model-repositories">Model Repositories</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#hands-on-activity" id="toc-hands-on-activity" class="nav-link" data-scroll-target="#hands-on-activity">Hands-On Activity</a></li>
   <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources">References &amp; Resources</a></li>
   </ul>
 </nav>
@@ -360,22 +362,18 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p><strong>Reproducibility</strong> is not a new topic when it comes to artificial intelligence and machine learning in science, but is more important than ever as AI research is often criticized for not being reproducible. This becomes particularly problematic when validation of a model requires reproducing it.</p>
 </section>
-<section id="key-elements-terminology" class="level2">
-<h2 class="anchored" data-anchor-id="key-elements-terminology">Key Elements &amp; Terminology</h2>
-<p>Importance of reproducibility, challenges to achieving reproducibility, best practices for reproducible research, tools and techniques to enhance reproducibility</p>
-<section id="key-terms" class="level3">
-<h3 class="anchored" data-anchor-id="key-terms">Key terms:</h3>
+<section id="why-is-reproducibility-important" class="level2">
+<h2 class="anchored" data-anchor-id="why-is-reproducibility-important">Why is Reproducibility Important?</h2>
+<section id="reproducible-vs.-replicable" class="level3">
+<h3 class="anchored" data-anchor-id="reproducible-vs.-replicable">Reproducible vs.&nbsp;Replicable</h3>
 <ul>
-<li><p><strong>Hyperparameter:</strong> parameters whose values control the learning process and determine the values of model parameters that a learning algorithm ends up learning. The prefix “hyper” in the term indicates their role as top-level parameters controlling the learning process. Hyperparameters exist externally in the model and cannot be estimated using the data because the developer sets these values before the model training begins.</p></li>
-<li><p><strong>Modeling code:</strong> code used to implement the model</p></li>
-<li><p><strong>Implementation code:</strong> code used for inference</p></li>
+<li>Reproducible means that other researchers can take the same data, run the same analysis, and get the same result.</li>
+<li>Replicable means other researchers can take different data, run the same analysis, and get their own result without errors.</li>
 </ul>
 </section>
 </section>
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
-<section id="the-reproducibility-checklist" class="level3">
-<h3 class="anchored" data-anchor-id="the-reproducibility-checklist">The Reproducibility Checklist</h3>
+<section id="the-reproducibility-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="the-reproducibility-checklist">The Reproducibility Checklist</h2>
 <p>The Reproducibility Checklist was created by Canadian computer scientist, Joelle Pineau, with the goal of facilitating reproducible machine learning algorithms that can be tested and replicated. Their checklist is as follows:</p>
 <p><strong>For all models and algorithms, check that you include:</strong></p>
 <ul>
@@ -404,25 +402,54 @@ ul.task-list li input[type="checkbox"] {
 <li><p>A description of the computing infrastructure used</p></li>
 </ul>
 <p>*With sensitive data or proprietary code, scientists may not wish to release all of its code and data. In this case, data can be anonymized and/or partial code can be released that won’t run but can be read and reproduced</p>
+<p>Consider the sensitivity of your data/code when publishing. - Sensitive data should be anonymized before publishing - Researchers or organizations may only release partial code if their code is propietary - Be sure that the partial code released is still entirely executable</p>
 </section>
-<section id="sharing-code" class="level3">
-<h3 class="anchored" data-anchor-id="sharing-code">Sharing Code</h3>
+<section id="sharing-code" class="level2">
+<h2 class="anchored" data-anchor-id="sharing-code">Sharing Code</h2>
 <p>The first step to solving the problem of reproducibility is <strong>sharing the code</strong> that was used to generate the model. This allows other researchers to: + Validate the model + Track code construction and see any author annotations + Expand on published work</p>
 <p>Despite this, sharing code does not always mean that models are fully reproducible. Many machine learning models are trained on restricted datasets or require extensive computing power for training the model. Because of this, there are a few additional criteria that improve reproducibility including:</p>
 <ul>
 <li><p>Data and metadata availability (must be included without question)</p></li>
 <li><p>Transparency of the code you’re using and dependencies needed to run the code</p></li>
 <li><p>Easily installable computational analysis tools and pipelines</p></li>
-<li><p>Installed software should behave the same on every machine and should have the same runtime <img src="../images/ReproSpectrum.png" class="img-fluid" alt="The Reproducibility Spectrum by Altuna Akalin in Towards Data Science"></p></li>
+<li><p>Installed software should behave the same on every machine and should have the same runtime</p></li>
 </ul>
+<section id="trips-and-tricks-to-sharing-code" class="level3">
+<h3 class="anchored" data-anchor-id="trips-and-tricks-to-sharing-code">Trips and Tricks to Sharing Code</h3>
+<ul>
+<li>Avoid using absolute file paths when reading in data (and in general the use of slashes, as these differ between operating systems)</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/absolutepath.png" class="img-fluid figure-img"></p>
+<figcaption>Avoid using an absolute path to read in your data as shown here</figcaption>
+</figure>
+</div>
+<ul>
+<li>Clean your data <em>within</em> your code</li>
+<li>Avoid copy/pasting in a spreadsheet</li>
+<li>Always keep an unedited version of your raw data</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/ReproSpectrum.png" class="img-fluid figure-img"></p>
+<figcaption>The Reproducibility Spectrum by Altuna Akalin in Towards Data Science</figcaption>
+</figure>
+</div>
 </section>
-<section id="model-repositories" class="level3">
-<h3 class="anchored" data-anchor-id="model-repositories">Model Repositories</h3>
+</section>
+<section id="model-repositories" class="level2">
+<h2 class="anchored" data-anchor-id="model-repositories">Model Repositories</h2>
 <p><strong>PyTorch Hub</strong> is a pre-trained model repository designed to facilitate reproducibility and enable new research. It is easily usable with <a href="https://colab.google/">Colab</a> and <a href="https://paperswithcode.com/">Papers with Code</a>, but models must be trained on openly accessible data.</p>
 <ul>
-<li><a href="https://paperswithcode.com/">Papers with Code</a> is an open source hub for publications that include direct links to GitHub code, no account needed to access datasets. <img src="../images/PaperswithCode.png" class="img-fluid" alt="Example paper with attached code from Papers with Code"> ### Version Control <img src="../images/VersionControl.png" class="img-fluid"></li>
+<li><a href="https://paperswithcode.com/">Papers with Code</a> is an open source hub for publications that include direct links to GitHub code, no account needed to access datasets. <img src="../images/PaperswithCode.png" class="img-fluid" alt="Example paper with attached code from Papers with Code"> ## Version Control <img src="../images/VersionControl.png" class="img-fluid"></li>
 </ul>
-<p><strong>Version control</strong> is the process of keeping track of every individual change by each contributor that’s saved in a version control framework, or a special database. Keeping a history of these changes to track model performance relative to model parameters saves the time you’d spend retraining the model. Using a version control system ensures easier:</p>
+<p><strong>Version control</strong> is the process of keeping track of every individual change by each contributor that’s saved in a version control framework, or a special database. Keeping a history of these changes to track model performance relative to model parameters saves the time you’d spend retraining the model. The three components of version control in machine learning are: - Code: We recommend writing and storing your model code in the same language as your implementation code to make it easier to maintain all code and dependencies</p>
+<ul>
+<li><p>Data: Versioning should link the data to the appropriate metadata and note any changes in either</p></li>
+<li><p>Model: The model connects your code and data with your model parameters and analysis</p></li>
+</ul>
+<p><strong><em>Using a version control system ensures easier:</em></strong></p>
 <ul>
 <li><p><strong>Collaboration</strong></p></li>
 <li><p><strong>Versioning</strong></p>
@@ -439,6 +466,15 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Consider the following to ensure your model is repproducible: - Use the reproducibility checklist for algorithms, theoretical claims, and figures/tables. - Anonymize any sensitive data and remove proprietary code before publishing - BUT still provide training data and enough code for others to replicate your model - Share data and metadata, be transparent in any dependencies needed to run your model, use easily installable computational analysis tools and pipelines, and ensure installed software behaves the same on every machine (i.e.&nbsp;runtime) - Use a pre-trained model repository (ex. PyTorch Hub) and publish to open-source journals/websites (ex. Papers with Code) - Practice efficient version control (recommend GitHub if working with collaborators)</p>
+</section>
+<section id="hands-on-activity" class="level2">
+<h2 class="anchored" data-anchor-id="hands-on-activity">Hands-On Activity</h2>
+<p>LEGO Metadata: In groups of 3-5 people, take ~15 minutes to create a structure out of LEGO bricks and write instructions for a group who will recreate your structure based on these instructions.</p>
+<p>Groups will then be rotated and given instructions and LEGO pieces from another group where they will have ~15 minutes to attempt to recreate that group’s structure.</p>
+<p>We will have a closing group discussion about this activity. Some questions include: - What were some assumptions you made while writing your instructions? - Were there any unexpected hurdles you encountered when writing your instructions or trying to replicate another group’s structure? - What did you find most difficult about this activity? - Now that you see how successful or unsuccessful the other group was in recreating your structure, is there anything you would do differently?</p>
 </section>
 <section id="references-resources" class="level2">
 <h2 class="anchored" data-anchor-id="references-resources">References &amp; Resources</h2>
