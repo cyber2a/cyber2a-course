@@ -42,55 +42,55 @@ checklist is as follows:
 
 **For all models and algorithms, check that you include:**
 
-- [ ] A clear description of the mathematical setting, algorithm, and/or
-    model
+-   [ ] A clear description of the mathematical setting, algorithm,
+    and/or model
 
-- [ ] An analysis of the complexity (time, space, sample size) of any
+-   [ ] An analysis of the complexity (time, space, sample size) of any
     algorithm
 
-- [ ] A link to a downloadable source code\*, with specification of all
-    dependencies, including external libraries
+-   [ ] A link to a downloadable source code\*, with specification of
+    all dependencies, including external libraries
 
 **For any theoretical claim, check that you include:**
 
-- [ ] A statement of the result
+-   [ ] A statement of the result
 
-- [ ] A clear explanation of each assumption
+-   [ ] A clear explanation of each assumption
 
-- [ ] A complete proof of the claim
+-   [ ] A complete proof of the claim
 
 **For all figures and tables that include empirical results, check that
 you include:**
 
-- [ ] A complete description of the data collection process, including
+-   [ ] A complete description of the data collection process, including
     sample size
 
-- [ ] A link to a downloadable version of the dataset or simulation
+-   [ ] A link to a downloadable version of the dataset or simulation
     environment
 
-- [ ] An explanation of any data that was excluded and a description of
-    any preprocessing step
+-   [ ] An explanation of any data that was excluded and a description
+    of any preprocessing step
 
-- [ ] An explanation of how samples were allocated for training,
+-   [ ] An explanation of how samples were allocated for training,
     validation, and testing
 
-- [ ] The range of hyperparameters considered, method to select the best
-    hyperparameter configuration, and specification of each
+-   [ ] The range of hyperparameters considered, method to select the
+    best hyperparameter configuration, and specification of each
     hyperparameter used to generate results
 
-- [ ] The exact number of evaluation runs
+-   [ ] The exact number of evaluation runs
 
-- [ ] A description of how experiments were run
+-   [ ] A description of how experiments were run
 
-- [ ] A clear definition of the specific measure of statistics used to
+-   [ ] A clear definition of the specific measure of statistics used to
     report results
 
-- [ ] Clearly defined error bars
+-   [ ] Clearly defined error bars
 
-- [ ] A description of results with central tendency (e.g., mean) and
+-   [ ] A description of results with central tendency (e.g., mean) and
     variation (e.g., standard deviation)
 
-- [ ] A description of the computing infrastructure used
+-   [ ] A description of the computing infrastructure used
 
 \*With sensitive data or proprietary code, scientists may not wish to
 release all of its code and data. In this case, data can be anonymized
