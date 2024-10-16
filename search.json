@@ -50,36 +50,6 @@
     ]
   },
   {
-    "objectID": "guidelines.html",
-    "href": "guidelines.html",
-    "title": "Workshop Development Guidelines",
-    "section": "",
-    "text": "Session Structure and Content",
-    "crumbs": [
-      "Workshop Development Guidelines"
-    ]
-  },
-  {
-    "objectID": "guidelines.html#session-structure-and-content",
-    "href": "guidelines.html#session-structure-and-content",
-    "title": "Workshop Development Guidelines",
-    "section": "",
-    "text": "Balance Theory and Hands-On Work: Spend about one-third of the time on theory and the other two-thirds on hands-on activities.\nBuild Gradually: Start with the basics and build up gradually. Expand both the theory and hands-on tasks as you go along. For example, This Jupyter notebook from NCEAS workshop shows how to introduce theory and hands-on practice.\nChoose Your Tools: You can use either Jupyter Notebook or VSCode for the hands-on parts of your session. Choose whichever one you’re more comfortable with. We will be using CyVerse Learning Center for the hands-on part of the workshop.\nCheck Data Licensing: If you are using any data in your session, ensure that you check the data license to confirm that it can be used and shared freely, both within the workshop and when the course materials are later open-sourced.\nOffer Support: Make sure participants know how to ask for help if they get stuck. Regularly ask participants if they’re keeping up and adjust your pace if needed.\nExtra Resources: Provide additional materials like readings or videos for participants who want to learn more.",
-    "crumbs": [
-      "Workshop Development Guidelines"
-    ]
-  },
-  {
-    "objectID": "guidelines.html#editing-session-materials",
-    "href": "guidelines.html#editing-session-materials",
-    "title": "Workshop Development Guidelines",
-    "section": "Editing Session Materials",
-    "text": "Editing Session Materials\nWe are using Quarto to create the workshop materials. You can find the source files for the workshop materials at GitHub. The pages for each session have already been established, and you just need to add your content to the corresponding session file. The content is primarily written in Markdown, with some additional features provided by Quarto. Here are some tips for editing the materials:\n\nGetting Started: You can find a guide to getting started with Quarto, including editing and previewing your content locally with various tools, here.\nQuarto Guide: You can find a comprehensive guide to Quarto here.\nFormat: You can choose to write your content in either Jupyter Notebook (.ipynb) or Markdown files (.qmd). Quarto can render both formats.\nEmbed Notebooks: If you choose to write your content in Markdown but have a separate Jupyter Notebook for the hands-on part, you can embed the notebook. Follow the guide here to learn how to do this.\n\nIf you have any questions or need help with editing the materials, please reach out to Chia-Yu Hsu or ask in the Slack channel.",
-    "crumbs": [
-      "Workshop Development Guidelines"
-    ]
-  },
-  {
     "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html",
     "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html",
     "title": "1  Breaking the Ice with AI in Arctic Science",
