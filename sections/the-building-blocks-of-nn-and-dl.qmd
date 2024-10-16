@@ -1,4 +1,4 @@
-#  The Building Blocks of Neural Networks and Deep Learning {.unnumbered}
+#  The Building Blocks of Neural Networks and Deep Learning
 
 ## Overview
 

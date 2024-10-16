@@ -1,4 +1,4 @@
-# Exploring Advanced Neural Networks: Semantic Segmentation {.unnumbered}
+# Exploring Advanced Neural Networks: Semantic Segmentation
 
 ## Overview
 

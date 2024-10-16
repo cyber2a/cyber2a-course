@@ -1,4 +1,4 @@
-# Hands-On Lab: PyTorch {.unnumbered}
+# Hands-On Lab: PyTorch
 
 ## Overview
 This hands-on lab session is designed to provide participants with practical experience using PyTorch to build, train, and evaluate neural network models. Participants will work through guided exercises that reinforce the concepts introduced in the previous session, applying PyTorch to real-world datasets relevant to Arctic research. By the end of this session, participants will have a solid understanding of how to implement deep learning models using PyTorch, empowering them to tackle their own projects with confidence.

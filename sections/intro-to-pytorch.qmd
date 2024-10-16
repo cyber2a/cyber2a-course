@@ -1,4 +1,4 @@
-# Introduction to PyTorch: Core Functionalities and Advantages {.unnumbered}
+# Introduction to PyTorch: Core Functionalities and Advantages
 
 ## Goal
 

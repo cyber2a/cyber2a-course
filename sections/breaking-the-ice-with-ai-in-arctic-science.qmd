@@ -1,8 +1,8 @@
 # Breaking the Ice with AI in Arctic Science
 
-## Goal {.unnumbered}
+## Goal
 This session kicks off with a relaxed and engaging exploration of AI's role in Arctic science and geoscience, aiming to lay a solid foundation without overwhelming our audience. We'll navigate through the use of AI technologies in these fields, highlighting their exciting possibilities and tackling the challenges and ethical considerations. Expect a straightforward, easy-to-follow presentation designed to demystify AI and spark curiosity.
 
-## Key Elements {.unnumbered}
+## Key Elements
 Engaging visuals, simplified explanations, real-world examples, light tone
  

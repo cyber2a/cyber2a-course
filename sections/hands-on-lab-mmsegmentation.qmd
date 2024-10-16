@@ -1,4 +1,4 @@
-# Hands-On Lab: MMSegmentation {.unnumbered}
+# Hands-On Lab: MMSegmentation
 
 ## Overview
 

@@ -1,8 +1,8 @@
-# Introduction to Deep Learning Libraries for Image Analysis {.unnumbered}
+# Introduction to Deep Learning Libraries for Image Analysis
 
 ## Overview
 
-his session introduces participants to MMSegmentation, a specialized deep learning library designed for semantic segmentation tasks. Participants will explore the unique capabilities of MMSegmentation in handling sophisticated image analysis projects. The session will cover how to navigate the library, implement advanced features, and apply them to real-world datasets, particularly in the context of Arctic research. While the focus will be on MMSegmentation, Detectron2 will also be mentioned as another powerful tool for image analysis. By the end of this session, participants will have a theoretical understanding of MMSegmentation and be prepared for a more extensive hands-on lab session.
+This session introduces participants to MMSegmentation, a specialized deep learning library designed for semantic segmentation tasks. Participants will explore the unique capabilities of MMSegmentation in handling sophisticated image analysis projects. The session will cover how to navigate the library, implement advanced features, and apply them to real-world datasets, particularly in the context of Arctic research. While the focus will be on MMSegmentation, Detectron2 will also be mentioned as another powerful tool for image analysis. By the end of this session, participants will have a theoretical understanding of MMSegmentation and be prepared for a more extensive hands-on lab session.
 
 ## Outline
 

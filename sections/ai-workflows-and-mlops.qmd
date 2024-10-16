@@ -1,4 +1,4 @@
-# AI Workflows and MLOps: From Development to Deployment {.unnumbered}
+# AI Workflows and MLOps: From Development to Deployment
 
 ## Instructors
 

@@ -1,4 +1,4 @@
-# Hands-On Lab: Foundation Models {.unnumbered}
+# Hands-On Lab: Foundation Models
 
 ## Overview
 The hands-on lab on foundation models will focus on building and applying small-scale foundation models for some example use cases. The main goal of this 1-hour session will be to get more familiarized with foundation models and in interacting with them.

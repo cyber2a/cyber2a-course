@@ -1,4 +1,4 @@
-# Foundation Models: The Cornerstones of Modern AI {.unnumbered}
+# Foundation Models: The Cornerstones of Modern AI
 
 ## Overview
 
