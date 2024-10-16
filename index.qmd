@@ -24,7 +24,7 @@ The course has been designed with several guiding principals in mind.
 
 * **Build Gradually:** Start with the basics and build up gradually. Expand both the theory and hands-on tasks as you go along.  
 
-* **Choose Your Tools:** You can use either Jupyter Notebook or VSCode for the hands-on parts of your session. Choose whichever one you’re more comfortable with. We will be using [CyVerse Learning Center](https://learning.cyverse.org) for the hands-on part of the workshop.
+* **Choose Your Tools:** You can use either Jupyter Notebook or VSCode for the hands-on parts of your session. Choose whichever one you’re more comfortable with.
 
 * **Open Data Licensing:** Use open data for examples that can be ethically shared and re-used, both within the workshop and when the course materials are used and incorporated into other courses.
 
