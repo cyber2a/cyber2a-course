@@ -74,34 +74,133 @@
   {
     "objectID": "sections/ai-for-everyone.html",
     "href": "sections/ai-for-everyone.html",
-    "title": "2  AI for Everyone: An Introductory Overview",
+    "title": "2  AI for Everyone",
     "section": "",
-    "text": "2.1 Goal\nThis session aims to introduce AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions.",
+    "text": "2.1 Session Goal\nThis session introduces AI to a non-specialist audience, ensuring participants can understand essential concepts. The focus is on key terminology and principles of machine learning (ML), deep learning (DL), and neural networks (NN). By the end of this session, participants will have foundational knowledge of AI concepts to engage with more advanced topics.",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
     ]
   },
   {
-    "objectID": "sections/ai-for-everyone.html#key-elements",
-    "href": "sections/ai-for-everyone.html#key-elements",
-    "title": "2  AI for Everyone: An Introductory Overview",
-    "section": "2.2 Key Elements",
-    "text": "2.2 Key Elements\nML, DL, NN, CNN, datasets and annotations, training and inference, accuracy and validation, supervised learning, etc.",
+    "objectID": "sections/ai-for-everyone.html#table-of-contents",
+    "href": "sections/ai-for-everyone.html#table-of-contents",
+    "title": "2  AI for Everyone",
+    "section": "2.2 Table of Contents",
+    "text": "2.2 Table of Contents\n\nWhat is AI?\nThe Role of AI in Modern Research\nAI Types and Techniques\nWorking with Datasets\nHands-On: Building a Simple ML Model\nThe Future of AI & Science",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
     ]
   },
   {
-    "objectID": "sections/ai-for-everyone.html#outline",
-    "href": "sections/ai-for-everyone.html#outline",
-    "title": "2  AI for Everyone: An Introductory Overview",
-    "section": "2.3 Outline",
-    "text": "2.3 Outline\n\n2.3.1 1. Introduction to Artificial Intelligence (5 minutes)\n\nWhat is AI?\n\nDefinition and core concepts.\nBrief history and its role in modern research.\n\nKey takeaway: – Artificial Intelligence as a tool, that helps you find insight and patterns in data by applying specific types of algorithms. – Artificial Intelligence can be useful during not only the data analysis phase of a scientific method but every step from generating a hypothesis to publishing results. (Let’s find out how together)\n\n\n\n2.3.2 2. AI Types and Techniques (10 minutes)\n\nSupervised vs. Unsupervised Learning\n\nDefinitions and examples of each.\nWhen to use them in scientific research.\n\nTechniques Overview\n\nMachine Learning (ML)\nDeep Learning (DL)\nNatural Language Processing (NLP)\n\nKey takeaway: Different types and techniques of AI can be applied depending on the type of data and research questions.\n\n\n\n2.3.3 3. Working with Datasets (8 minutes)\n\nImportance of Data\n\nHow AI models depend on good data (quality over quantity).\n\nTypes of Datasets\n\nStructured vs. unstructured data.\nExamples relevant to Arctic science.\n\nKey takeaway: Data is the foundation of AI; understanding it improves AI’s accuracy and usefulness.\n\n\n\n2.3.4 4. Hands-On: Building a Simple ML Model (17 minutes)\n\nIntroduction to a Dataset\n\nStep-by-step Model Creation (Python)\n\nTesting and Evaluating Results\n\nShow how to evaluate the performance of the model.\n\nKey takeaway: Building an AI model is more accessible than it seems, even for beginners.\n\n\n\n2.3.5 5. The Future of AI in Science (7 minutes)\n\nEmerging AI Trends\n\n\n\n2.3.6 6. Q&A and Recap (8 minutes)\n\nDiscussion:\n\nLet’s think about specific Arctic science-related problems.\nExplore how AI might help address these problems.\nKey takeaway: AI can be applied at every stage of scientific research.",
+    "objectID": "sections/ai-for-everyone.html#section-1-what-is-ai",
+    "href": "sections/ai-for-everyone.html#section-1-what-is-ai",
+    "title": "2  AI for Everyone",
+    "section": "2.3 Section 1: What is AI?",
+    "text": "2.3 Section 1: What is AI?\nDefinition: Artificial Intelligence (AI) refers to computer systems capable of performing tasks requiring cognitive functions, such as recognizing patterns, learning from data, and making predictions.\nKey takeaway: AI helps identify patterns in data, supporting every step of the scientific method, from observation to conclusion.",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for  Everyone: An Introductory Overview</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#section-2-the-role-of-ai-in-modern-research",
+    "href": "sections/ai-for-everyone.html#section-2-the-role-of-ai-in-modern-research",
+    "title": "2  AI for Everyone",
+    "section": "2.4 Section 2: The Role of AI in Modern Research",
+    "text": "2.4 Section 2: The Role of AI in Modern Research\n\nGenomics Example: AI helped detect complex genetic patterns in rice genotypes.\nAstrophysics Example: AI’s role in analyzing cosmic data for solving the Missing Satellite Problem.\nArctic Research Example: AI predicts ice movement patterns, supporting Arctic expeditions by analyzing satellite imagery.\n\nAsk the audience for scientific discoveries they know of that wouldn’t have been possible without AI.\nKey takeaway: AI accelerates discoveries across various fields, from genomics to climate modeling and astrophysics.",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#section-3-ai-types-and-techniques",
+    "href": "sections/ai-for-everyone.html#section-3-ai-types-and-techniques",
+    "title": "2  AI for Everyone",
+    "section": "2.5 Section 3: AI Types and Techniques",
+    "text": "2.5 Section 3: AI Types and Techniques\n\n2.5.1 Machine Learning (ML)\nMachine Learning focuses on algorithms that allow computers to learn from data. Link ML to psychology through Geoffrey Hinton and the rise of deep learning (DL).\n\nSupervised Learning: Training on labeled data.\nUnsupervised Learning: Discovering patterns within unlabeled data.\nReinforcement Learning (RL): An agent learns by interacting with an environment, commonly used in robotics.\n\n\n\n2.5.2 Neural Networks (NN)\n\nInspired by the brain’s structure, NNs consist of interconnected nodes (neurons) that process information.\n\n\n\n2.5.3 Convolutional Neural Networks (CNN)\n\nCNNs are specialized for processing structured data, like images.\n\nKey takeaway: ML techniques are vital for Arctic research, including supervised, unsupervised, and reinforcement learning.",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#section-4-working-with-datasets",
+    "href": "sections/ai-for-everyone.html#section-4-working-with-datasets",
+    "title": "2  AI for Everyone",
+    "section": "2.6 Section 4: Working with Datasets",
+    "text": "2.6 Section 4: Working with Datasets\n\n2.6.1 Importance of Data\n“Garbage in, garbage out” is especially true in AI. Quality data leads to accurate models.\n\nStructured Data: Clearly defined types (e.g., temperature readings).\nUnstructured Data: Complex formats (e.g., satellite imagery), requiring preprocessing.\n\nKey takeaway: Quality data is the foundation for accurate predictions and insights in AI.",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#section-5-hands-on-building-a-simple-ml-model",
+    "href": "sections/ai-for-everyone.html#section-5-hands-on-building-a-simple-ml-model",
+    "title": "2  AI for Everyone",
+    "section": "2.7 Section 5: Hands-On: Building a Simple ML Model",
+    "text": "2.7 Section 5: Hands-On: Building a Simple ML Model\nGuide participants through building a simple model in Python.\nKey takeaway: Machine Learning involves algorithms that allow systems to learn from data, making predictions.",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#section-6-rapid-surge-in-ai-talk-why-now",
+    "href": "sections/ai-for-everyone.html#section-6-rapid-surge-in-ai-talk-why-now",
+    "title": "2  AI for Everyone",
+    "section": "2.8 Section 6: Rapid Surge in AI Talk: Why Now?",
+    "text": "2.8 Section 6: Rapid Surge in AI Talk: Why Now?\nAsk the audience: Why has AI been a hot topic recently? Discuss the rise of Large Language Models (LLMs), GPT-3, and the role of transformers.\n\n2.8.1 Brief History:\n\nIn 2017, the Transformer architecture allowed models to weigh word importance, revolutionizing LLMs.\n\nKey takeaway: The transformer model paved the way for advanced LLMs like GPT-3, driving the current AI surge.",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#section-7-the-future-of-ai-in-science-7-minutes",
+    "href": "sections/ai-for-everyone.html#section-7-the-future-of-ai-in-science-7-minutes",
+    "title": "2  AI for Everyone",
+    "section": "2.9 Section 7: The Future of AI in Science (7 minutes)",
+    "text": "2.9 Section 7: The Future of AI in Science (7 minutes)\nExercise: Invite participants to imagine how AI could transform their Arctic research areas.\n\nScientific Method:\n\nObservation: AI aids data collection (e.g., computer vision).\nHypothesis: Unsupervised learning clusters data.\nExperiment: Reinforcement learning simulates environments.\nConclusion: AI can analyze data and validate hypotheses.",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#section-8-qa-and-recap-8-minutes",
+    "href": "sections/ai-for-everyone.html#section-8-qa-and-recap-8-minutes",
+    "title": "2  AI for Everyone",
+    "section": "2.10 Section 8: Q&A and Recap (8 minutes)",
+    "text": "2.10 Section 8: Q&A and Recap (8 minutes)\nLet’s consider arctic-related challenges, recap the session, and link AI to the scientific method.",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#additional-resources",
+    "href": "sections/ai-for-everyone.html#additional-resources",
+    "title": "2  AI for Everyone",
+    "section": "2.11 Additional Resources",
+    "text": "2.11 Additional Resources\n\nBooks:\n\nRay Kurzweil, How to Create a Mind (2012)\nMax Bennett, A Brief History of Intelligence (2023)\n\nVideos:\n\n3Blue1Brown’s Neural Networks Playlist\n\nPapers:\n\nJakob Uszkoreit, The Transformer (2017)",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#do-you-have-any-questions",
+    "href": "sections/ai-for-everyone.html#do-you-have-any-questions",
+    "title": "2  AI for Everyone",
+    "section": "2.12 Do You Have Any Questions?",
+    "text": "2.12 Do You Have Any Questions?\nFeel free to reach out: - Email: alyonak@nceas.ucsb.edu - Website: alonakosobokova.com - YouTube: Dork Matter Girl",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
     ]
   },
   {
