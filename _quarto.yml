@@ -10,7 +10,6 @@ book:
   favicon: images/index/arcticlogo.png
   chapters:
     - index.qmd
-    - guidelines.qmd
     - part: "<b>Day 1: Introduction to AI and Arctic Science</b>"
       chapters:
         - sections/breaking-the-ice-with-ai-in-arctic-science.qmd
