@@ -3,50 +3,48 @@ project:
   output-dir: _book
 
 book:
-  title: "Cyber2A training curriculum for Arctic-AI research **~ DRAFT ~**"
-  author: "to include"
-  date: "10/16/2023"
+  title: "Cyber2A: AI for Arctic Research"
+  author: "Wenwen Li, Anna Liljedahl, Matthew B. Jones, Alyona Kosobokova, Jim Regetz, Chia-Yu Hsu, Chandi Witharana, Yili Yang, Ben Galewsky, Minu Mathew, Sandeep Satheesan, Nicole Greco, Kenton McHenry, Carmen Galaz García, Kate Holman Billmeier"
+  date: "2024-10-21"
   search: true
   favicon: images/index/arcticlogo.png
   chapters:
     - index.qmd
     - guidelines.qmd
-    - part: "<b>Introduction to AI and Arctic Science</b>"
+    - part: "<b>Day 1: Introduction to AI and Arctic Science</b>"
       chapters:
         - sections/breaking-the-ice-with-ai-in-arctic-science.qmd
         - sections/ai-for-everyone.qmd
-        - sections/guest-lecture-anna-chandi.qmd
-        - sections/the-fun-and-frontiers-of-ai.qmd
-
-    - part: "<b>Data Management and Preparation for AI</b>"
-      chapters:  
         - sections/ai-ready-data-in-arctic-research.qmd
-        - sections/guest-lecture-yili-arts-dataset.qmd
         - sections/data-annotation.qmd
         - sections/hands-on-lab-data-annotation.qmd    
     
-    - part: "<b>AI Fundamentals and Techniques</b>"
+    - part: "<b>Day 2: AI Fundamentals and Techniques</b>"
       chapters:
         - sections/the-building-blocks-of-nn-and-dl.qmd
         - sections/intro-to-pytorch.qmd
         - sections/hands-on-lab-pytorch.qmd
+        - sections/guest-lecture-anna-chandi.qmd
+        - sections/ai-ethics.qmd
+
+    - part: "<b>Day 3: Advanced AI Workflows and Models</b>"
+      chapters:
+        - sections/guest-lecture-yili-arts-dataset.qmd
         - sections/exploring-advanced-neural-networks.qmd
         - sections/intro-to-dl-libraries-for-image-analysis.qmd
         - sections/hands-on-lab-mmsegmentation.qmd
 
-    - part: "<b>Advanced AI Workflows and Models</b>"
+    - part: "<b>Day 4: Workflows and Foundation Models</b>"
       chapters:
         - sections/ai-workflows-and-mlops.qmd
         - sections/hands-on-lab-ai-workflows.qmd
         - sections/foundation-models.qmd
         - sections/hands-on-lab-foundation-models.qmd
-    
-    - part: "<b>Ethics and Social Implications of AI</b>"
-      chapters:
-        - sections/ai-ethics.qmd
-        - sections/socially-responsible-ai.qmd
         - sections/reproducibility.qmd
-
+    
+    - part: "<b>Day 5: AI Frontiers</b>"
+      chapters:
+        - sections/the-fun-and-frontiers-of-ai.qmd
 
     
   sidebar:

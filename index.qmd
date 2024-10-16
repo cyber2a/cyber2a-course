@@ -1,13 +1,53 @@
-# Preface {.unnumbered}
+# Course Overview {.unnumbered}
 
-Based on the team’s intensive research and training efforts in AI for Arctic Science, we will develop our training curriculum to address three questions: 
+![](/images/index/arcticlogo.png){fig-align="center" width=20%}
 
-(1) What are the “must-know” topics in AI to help trainees that have little computer science and computing knowledge to quickly grasp the essence of AI and “AI thinking”? 
-(2) What is the best way to offer training so AI beginners can get hands-on AI experience and prepare for using and developing AI models to solve real-world research problems? and 
-(3) How does one best address Arctic science-specific issues (e.g., identification of spatiotemporal autocorrelation and location-awareness) for the effective AI modeling of geophysical phenomena?
+**AI for Arctic Research** represents an introduction to Artificial Intelligence (AI) techniques produced by the Cyber2A project, an innovative training program to empower the Arctic science community with advanced AI-driven data analytics and cyberinfrastructure (CI) skills to tackle the pressing challenges facing the Arctic and thus our planet. Today, Artificial Intelligence has become one of the most powerful tools to analyze Arctic big data and enable new ways of data-driven discovery. However, training on these emerging topics is often missing in current undergraduate and graduate curricula, particularly for active Arctic researchers. This project aims to fill this skills gap in order to foster the growth of an Arctic science workforce with strong data science skills through a series of complementary and mutually reinforcing training activities.
 
-The sections presented here potentially fit into a one-week workshop as follows:
+The week-long course is designed with a modular curriculum, where each module can be incorporated into learning activities across Universities and other organizations. The curriculum is free to be re-used, licensed under a CC-BY Attribution license and covers 5 main topical areas:
 
-![](https://cyber2a.github.io/workshop/workshop-schedule.png){}
+- Introduction to AI and Arctic Science
+- AI Fundamentals and Techniques
+- Advanced AI Workflows and Models
+- Workflows and Foundation Models
+- AI Frontiers
 
-![](/images/index/arcticlogo.png){fig-align="center" width=50%}
+The sections presented here fit into a one-week workshop as follows, but the modules can be also used individually:
+
+![](https://cyber2a.github.io/workshop/cyber2Aschedule.png)
+
+## Session Structure and Content
+
+The course has been designed with several guiding principals in mind.
+
+* **Balance Theory and Hands-On Work:** Spend about one-third of the time on theory and the other two-thirds on hands-on activities.
+
+* **Build Gradually:** Start with the basics and build up gradually. Expand both the theory and hands-on tasks as you go along.  
+
+* **Choose Your Tools:** You can use either Jupyter Notebook or VSCode for the hands-on parts of your session. Choose whichever one you’re more comfortable with. We will be using [CyVerse Learning Center](https://learning.cyverse.org) for the hands-on part of the workshop.
+
+* **Open Data Licensing:** Use open data for examples that can be ethically shared and re-used, both within the workshop and when the course materials are used and incorporated into other courses.
+
+* **Offer Support:** Make sure participants know how to ask for help if they get stuck. Regularly ask participants if they’re keeping up and adjust the pace if needed.
+
+* **Extra Resources:** Provide additional materials like readings or videos for participants who want to learn more.
+
+## About this book
+
+This book is written in [Quarto](https://quarto.org/), a cross platform markdown-based platform for writing books and technical materials that works with Python, R, and other langguages.
+
+* **Getting Started**: You can find a guide to getting started with Quarto, including editing and previewing content locally with various tools, [here](https://quarto.org/docs/get-started/).
+
+* **Quarto Guide:** You can find a comprehensive guide to Quarto [here](https://quarto.org/docs/guide/).
+
+* **Format**: You can choose to write your content in either Jupyter Notebook (`.ipynb`) or Markdown files (`.qmd`). Quarto can render both formats.
+
+* **Embed Notebooks**: If you choose to write your content in Markdown but have a separate Jupyter Notebook for the hands-on part, you can embed the notebook. Follow the guide [here](https://quarto.org/docs/computations/python.html#embed-notebooks) to learn how to do this. 
+
+## Acknowledgements
+
+These course materials were developed with funding for [Cyber2A](cyber2a.github.io) from the National Science Foundation under [award # 2230034](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2230034&HistoricalAwards=true) to W. Li and M. Jones and [award # 2230035](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2230035&HistoricalAwards=true) to A. Liljedahl and K. McHenry
+
+## License
+
+ <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Cyber2A: AI for Arctic Research</span> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p> 
