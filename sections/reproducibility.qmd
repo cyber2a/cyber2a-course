@@ -244,7 +244,7 @@ questions include:
 
 - Now that you see how successful or unsuccessful the other group was in recreating your structure, is there anything you would do differently?
 
-This activity was adapted from the ![Lego Metadata for Reproducibility Game Pack](https://eprints.gla.ac.uk/196477/) developed by Mary Donaldson and Matt Mahon at the University of Glasgow.
+This activity was adapted from the ![Lego Metadata for Reproducibility Game Pack](http://dx.doi.org/10.36399/gla.pubs.196477) developed by Mary Donaldson and Matt Mahon at the University of Glasgow.
 
 ## References & Resources
 
