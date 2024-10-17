@@ -97,18 +97,19 @@ release all of its code and data. In this case, data can be anonymized
 and/or partial code can be released that won’t run but can be read and
 reproduced
 
-Consider the sensitivity of your data/code when publishing. - Sensitive
-data should be anonymized before publishing - Researchers or
-organizations may only release partial code if their code is
-propietary - Be sure that the partial code released is still entirely
-executable
+Consider the sensitivity of your data/code when publishing. 
+- Sensitive data should be anonymized before publishing 
+- Researchers or organizations may only release partial code if their code is propietary 
+- Be sure that the partial code released is still entirely executable
 
 ## Sharing Code
 
 The first step to solving the problem of reproducibility is **sharing
 the code** that was used to generate the model. This allows other
-researchers to: + Validate the model + Track code construction and see
-any author annotations + Expand on published work
+researchers to: 
+- Validate the model 
+- Track code construction and see any author annotations 
+- Expand on published work
 
 Despite this, sharing code does not always mean that models are fully
 reproducible. Many machine learning models are trained on restricted
@@ -160,9 +161,9 @@ change by each contributor that’s saved in a version control framework,
 or a special database. Keeping a history of these changes to track model
 performance relative to model parameters saves the time you’d spend
 retraining the model. The three components of version control in machine
-learning are: - Code: We recommend writing and storing your model code
-in the same language as your implementation code to make it easier to
-maintain all code and dependencies
+learning are: 
+
+- Code: We recommend writing and storing your model code in the same language as your implementation code to make it easier to maintain all code and dependencies
 
 -   Data: Versioning should link the data to the appropriate metadata
     and note any changes in either
@@ -192,18 +193,14 @@ maintain all code and dependencies
 
 ## Summary
 
-Consider the following to ensure your model is repproducible: - Use the
-reproducibility checklist for algorithms, theoretical claims, and
-figures/tables. - Anonymize any sensitive data and remove proprietary
-code before publishing - BUT still provide training data and enough code
-for others to replicate your model - Share data and metadata, be
-transparent in any dependencies needed to run your model, use easily
-installable computational analysis tools and pipelines, and ensure
-installed software behaves the same on every machine (i.e. runtime) -
-Use a pre-trained model repository (ex. PyTorch Hub) and publish to
-open-source journals/websites (ex. Papers with Code) - Practice
-efficient version control (recommend GitHub if working with
-collaborators)
+Consider the following to ensure your model is reproducible: 
+- Use the reproducibility checklist for algorithms, theoretical claims, and figures/tables. 
+- Anonymize any sensitive data and remove proprietary code before publishing 
+  - BUT still provide training data and enough code for others to replicate your model 
+- Share data and metadata, be transparent in any dependencies needed to run your model, use easily installable computational analysis tools and pipelines, and ensure installed software behaves the same on every machine (i.e. runtime) 
+- Use a pre-trained model repository (ex. PyTorch Hub) and publish to
+open-source journals/websites (ex. Papers with Code) 
+- Practice efficient version control (recommend GitHub if working with collaborators)
 
 ## Hands-On Activity
 
@@ -216,12 +213,11 @@ another group where they will have \~15 minutes to attempt to recreate
 that group's structure.
 
 We will have a closing group discussion about this activity. Some
-questions include: - What were some assumptions you made while writing
-your instructions? - Were there any unexpected hurdles you encountered
-when writing your instructions or trying to replicate another group's
-structure? - What did you find most difficult about this activity? - Now
-that you see how successful or unsuccessful the other group was in
-recreating your structure, is there anything you would do differently?
+questions include: 
+- What were some assumptions you made while writing your instructions? 
+- Were there any unexpected hurdles you encountered when writing your instructions or trying to replicate another group's structure? 
+- What did you find most difficult about this activity? 
+- Now that you see how successful or unsuccessful the other group was in recreating your structure, is there anything you would do differently?
 
 ## References & Resources
 
