@@ -28,6 +28,8 @@ reproducing it.
 
 ### Reproducible vs. Replicable
 
+Reproducibility is important in science because it allows other researchers to validate the results of a study and/or use the same analysis for processing their data, promoting open science and collaboration.
+
 -   Reproducible means that other researchers can take the same data,
     run the same analysis, and get the same result.
 -   Replicable means other researchers can take different data, run the
@@ -37,7 +39,7 @@ reproducing it.
 
 The Reproducibility Checklist was created by Canadian computer
 scientist, Joelle Pineau, with the goal of facilitating reproducible
-machine learning algorithms that can be tested and replicated. Their
+machine learning algorithms that can be tested and replicated. When publishing your model, it is beneficial to work through this checklist and ensure that you're including the items on this checklist. The
 checklist is as follows:
 
 **For all models and algorithms, check that you include:**
@@ -93,17 +95,17 @@ you include:**
 -   [ ] A description of the computing infrastructure used
 
 \*With sensitive data or proprietary code, scientists may not wish to
-release all of its code and data. In this case, data can be anonymized
+release all of their code and data. In this case, data can be anonymized
 and/or partial code can be released that won’t run but can be read and
-reproduced
+reproduced.
 
 Consider the sensitivity of your data/code when publishing. 
 
 - Sensitive data should be anonymized before publishing 
 
-- Researchers or organizations may only release partial code if their code is propietary 
+- Researchers or organizations may only release partial code if their code is proprietary 
 
-- Be sure that the partial code released is still entirely executable
+- Be sure that the partial code released can still be read and reproduced
 
 ## Sharing Code
 
@@ -145,6 +147,7 @@ here](../images/absolutepath.png)
 -   Avoid copy/pasting in a spreadsheet
 -   Always keep an unedited version of your raw data
 
+A general guide to publishing reproducible work:
 ![The Reproducibility Spectrum by Altuna Akalin in Towards Data
 Science](../images/ReproSpectrum.png)
 
@@ -159,17 +162,21 @@ accessible data.
 -   [Papers with Code](https://paperswithcode.com/) is an open source
     hub for publications that include direct links to GitHub code, no
     account needed to access datasets. ![Example paper with attached
-    code from Papers with Code](../images/PaperswithCode.png) \##
-    Version Control ![](../images/VersionControl.png)
+    code from Papers with Code](../images/PaperswithCode.png) 
+    
+## Version Control 
+![](../images/VersionControl.png)
 
 **Version control** is the process of keeping track of every individual
 change by each contributor that’s saved in a version control framework,
 or a special database. Keeping a history of these changes to track model
 performance relative to model parameters saves the time you’d spend
-retraining the model. The three components of version control in machine
+retraining the model. 
+
+The three components of version control in machine
 learning are: 
 
-- Code: We recommend writing and storing your model code in the same language as your implementation code to make it easier to maintain all code and dependencies
+-   Code: We recommend writing and storing your model code in the same language as your implementation code to make it easier to maintain all code and dependencies
 
 -   Data: Versioning should link the data to the appropriate metadata
     and note any changes in either
@@ -181,6 +188,8 @@ learning are:
 
 -   **Collaboration**
 
+    -   Collaborators can easily pull changes from a shared repository, push their own changes, annotate their code, and revert back to previous versions of their model
+    
 -   **Versioning**
 
     -   If your model breaks, you’ll have a log of any changes that were
