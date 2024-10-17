@@ -244,7 +244,7 @@ questions include:
 
 - Now that you see how successful or unsuccessful the other group was in recreating your structure, is there anything you would do differently?
 
-This activity was adapted from the ![Lego Metadata for Reproducibility Game Pack](http://dx.doi.org/10.36399/gla.pubs.196477) developed by Mary Donaldson and Matt Mahon at the University of Glasgow.
+This activity was adapted from the Lego Metadata for Reproducibility Game Pack (doi: 10.36399/gla.pubs.196477) developed by Mary Donaldson and Matt Mahon at the University of Glasgow.
 
 ## References & Resources
 
@@ -275,3 +275,4 @@ This activity was adapted from the ![Lego Metadata for Reproducibility Game Pack
     To Implement It.” neptune.ai, July 22, 2022.
     https://neptune.ai/blog/version-control-for-ml-models.
 9. NCEAS Learning Hub: https://www.nceas.ucsb.edu/learning-hub.
+10. Donaldson, M.  and Mahon, M. 2019. LEGO® Metadata for Reproducibility game pack. Documentation. University of Glasgow. (doi: 10.36399/gla.pubs.196477).
