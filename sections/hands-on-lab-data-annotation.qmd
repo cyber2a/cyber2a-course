@@ -15,36 +15,48 @@ This hands-on lab session is designed to give participants practical experience 
 ## Key Elements {.unnumbered}
 Use of annotation methods and tools, direct dataset interaction
 
-## Hands-on annotation activitites (WIP!!)
+**Be sure to have COCO JSON output**
 
-Ideally we'll cover:
+## Choose your own adventure(s)
+
+Ideally you'll cover:
 - Simple bounding box annotation
 - Polygon annotation
 - Interactive segmentation (like sam-geo)
 - Using one or more locally installed tools
-- and one or more cloud (web-based) tools
+- One or more cloud (web-based) tools
 
-### Local tools
-- [MakeSense](https://github.com/SkalskiP/make-sense)
-  - See local setup with Docker
-- [segment-geospatial](https://samgeo.gishub.org/) (samgeo) -- either locally or in Google colab?
-  - My copy of the [Google Colab notebook](https://drive.google.com/drive/folders/1Q2_nxS8Wwk2m_ouubQ1XRyrtvBhJ5kuw) (related to [this workshop](https://samgeo.gishub.org/workshops/cn_workshop/))
-- [cvat](https://www.cvat.ai/)
-  - Locally with the [self-hosted application](https://github.com/cvat-ai/cvat) if I can get the dang thing [installed & running](https://docs.cvat.ai/docs/administration/basics/installation/)!
-  - Otherwise people could create accounts and use their [hosted platform](https://app.cvat.ai/auth/login)
-  - The V7 [cvat guide](https://www.v7labs.com/blog/cvat-guide) might be helpful?
+### Adventure: [Roboflow](https://app.roboflow.com/)
+- Roboflow offers a cloud-hosted, web-based platform for computer vision, including tooling for data annotation along with model training and deployment
+- They offer a limited free tier
+- Free tier does not offer any privacy
+
+### Adventure: [CVAT](https://www.cvat.ai/)
+
+- CVAT can be used as a [desktop application](https://github.com/cvat-ai/cvat) that you [install & run](https://docs.cvat.ai/docs/administration/basics/installation/) on your own local computer or server.
+- However, for today, consider creating your own (free) account for annotating using their [hosted platform](https://app.cvat.ai/auth/login)
+- The V7 [cvat guide](https://www.v7labs.com/blog/cvat-guide) might be helpful
+
+### Adventure: [Segment-Geospatial](https://samgeo.gishub.org/) (samgeo)
+- Either locally or in JupyterLab (or Google colab)
+- `sudo apt install libgdal-dev gdal-bin`
+- My copy of the [Google Colab notebook](https://drive.google.com/drive/folders/1Q2_nxS8Wwk2m_ouubQ1XRyrtvBhJ5kuw) (related to [this workshop](https://samgeo.gishub.org/workshops/cn_workshop/))
+
+### Adventure: [Penguin Watch](https://www.zooniverse.org/projects/penguintom79/penguin-watch)
+
+- Penguin Watch is a project on [Zooniverse](https://www.zooniverse.org), a cool community crowdsourcing platform for data annotation and digitization
+
+### Adventure: [Label Studio](https://labelstud.io/guide/labeling)
+
+- Multi-type data labeling and annotation tool with standardized output format
+- Works on various data types (text, image, audio)
+- Has both [open source option](https://github.com/HumanSignal/label-studio) and [paid cloud service](https://humansignal.com/goenterprise/)
+- See online [playground](https://labelstud.io/playground/)
+
+## Other things to try
 - [VGG Image Annotator (VIA)](https://www.robots.ox.ac.uk/~vgg/software/via/)
   - Try local installation?
-- :fire: [Label Studio](https://labelstud.io/guide/labeling)
-  - Multi-type data labeling and annotation tool with standardized output format
-  - Works on various data types (text, image, audio)
-  - Has both [open source option](https://github.com/HumanSignal/label-studio) and [paid cloud service](https://humansignal.com/goenterprise/)
-  - See online [playground](https://labelstud.io/playground/)
-
-### Web-based tools
-- Choose some service with free tier, create accounts, and try out?
-  Maybe folks choose from among some options, try out, then report back?
-- Check out [Zooniverse](https://www.zooniverse.org)
 - [SAM demo](https://segment-anything.com/demo#) for understanding how this can be used for interactive segmentation
   - two-polar-bears.jpg
-
+- [MakeSense](https://github.com/SkalskiP/make-sense)
+  - See local setup with Docker
