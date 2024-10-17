@@ -315,9 +315,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#trips-and-tricks-to-sharing-code" id="toc-trips-and-tricks-to-sharing-code" class="nav-link" data-scroll-target="#trips-and-tricks-to-sharing-code"><span class="header-section-number">19.5.1</span> Trips and Tricks to Sharing Code</a></li>
   </ul></li>
   <li><a href="#model-repositories" id="toc-model-repositories" class="nav-link" data-scroll-target="#model-repositories"><span class="header-section-number">19.6</span> Model Repositories</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">19.7</span> Summary</a></li>
-  <li><a href="#hands-on-activity" id="toc-hands-on-activity" class="nav-link" data-scroll-target="#hands-on-activity"><span class="header-section-number">19.8</span> Hands-On Activity</a></li>
-  <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources"><span class="header-section-number">19.9</span> References &amp; Resources</a></li>
+  <li><a href="#version-control" id="toc-version-control" class="nav-link" data-scroll-target="#version-control"><span class="header-section-number">19.7</span> Version Control</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">19.8</span> Summary</a></li>
+  <li><a href="#hands-on-activity" id="toc-hands-on-activity" class="nav-link" data-scroll-target="#hands-on-activity"><span class="header-section-number">19.9</span> Hands-On Activity</a></li>
+  <li><a href="#references-resources" id="toc-references-resources" class="nav-link" data-scroll-target="#references-resources"><span class="header-section-number">19.10</span> References &amp; Resources</a></li>
   </ul>
 </nav>
     </div>
@@ -355,6 +356,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="19.3" class="anchored" data-anchor-id="why-is-reproducibility-important"><span class="header-section-number">19.3</span> Why is Reproducibility Important?</h2>
 <section id="reproducible-vs.-replicable" class="level3" data-number="19.3.1">
 <h3 data-number="19.3.1" class="anchored" data-anchor-id="reproducible-vs.-replicable"><span class="header-section-number">19.3.1</span> Reproducible vs.&nbsp;Replicable</h3>
+<p>Reproducibility is important in science because it allows other researchers to validate the results of a study and/or use the same analysis for processing their data, promoting open science and collaboration.</p>
 <ul>
 <li>Reproducible means that other researchers can take the same data, run the same analysis, and get the same result.</li>
 <li>Replicable means other researchers can take different data, run the same analysis, and get their own result without errors.</li>
@@ -363,7 +365,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="the-reproducibility-checklist" class="level2" data-number="19.4">
 <h2 data-number="19.4" class="anchored" data-anchor-id="the-reproducibility-checklist"><span class="header-section-number">19.4</span> The Reproducibility Checklist</h2>
-<p>The Reproducibility Checklist was created by Canadian computer scientist, Joelle Pineau, with the goal of facilitating reproducible machine learning algorithms that can be tested and replicated. Their checklist is as follows:</p>
+<p>The Reproducibility Checklist was created by Canadian computer scientist, Joelle Pineau, with the goal of facilitating reproducible machine learning algorithms that can be tested and replicated. When publishing your model, it is beneficial to work through this checklist and ensure that you’re including the items on this checklist. The checklist is as follows:</p>
 <p><strong>For all models and algorithms, check that you include:</strong></p>
 <ul class="task-list">
 <li><p><label><input type="checkbox">A clear description of the mathematical setting, algorithm, and/or model</label></p></li>
@@ -390,12 +392,12 @@ ul.task-list li input[type="checkbox"] {
 <li><p><label><input type="checkbox">A description of results with central tendency (e.g., mean) and variation (e.g., standard deviation)</label></p></li>
 <li><p><label><input type="checkbox">A description of the computing infrastructure used</label></p></li>
 </ul>
-<p>*With sensitive data or proprietary code, scientists may not wish to release all of its code and data. In this case, data can be anonymized and/or partial code can be released that won’t run but can be read and reproduced</p>
+<p>*With sensitive data or proprietary code, scientists may not wish to release all of their code and data. In this case, data can be anonymized and/or partial code can be released that won’t run but can be read and reproduced.</p>
 <p>Consider the sensitivity of your data/code when publishing.</p>
 <ul>
 <li><p>Sensitive data should be anonymized before publishing</p></li>
-<li><p>Researchers or organizations may only release partial code if their code is propietary</p></li>
-<li><p>Be sure that the partial code released is still entirely executable</p></li>
+<li><p>Researchers or organizations may only release partial code if their code is proprietary</p></li>
+<li><p>Be sure that the partial code released can still be read and reproduced</p></li>
 </ul>
 </section>
 <section id="sharing-code" class="level2" data-number="19.5">
@@ -429,21 +431,21 @@ ul.task-list li input[type="checkbox"] {
 <li>Avoid copy/pasting in a spreadsheet</li>
 <li>Always keep an unedited version of your raw data</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/ReproSpectrum.png" class="img-fluid figure-img"></p>
-<figcaption>The Reproducibility Spectrum by Altuna Akalin in Towards Data Science</figcaption>
-</figure>
-</div>
+<p>A general guide to publishing reproducible work: <img src="../images/ReproSpectrum.png" class="img-fluid" alt="The Reproducibility Spectrum by Altuna Akalin in Towards Data Science"></p>
 </section>
 </section>
 <section id="model-repositories" class="level2" data-number="19.6">
 <h2 data-number="19.6" class="anchored" data-anchor-id="model-repositories"><span class="header-section-number">19.6</span> Model Repositories</h2>
 <p><strong>PyTorch Hub</strong> is a pre-trained model repository designed to facilitate reproducibility and enable new research. It is easily usable with <a href="https://colab.google/">Colab</a> and <a href="https://paperswithcode.com/">Papers with Code</a>, but models must be trained on openly accessible data.</p>
 <ul>
-<li><a href="https://paperswithcode.com/">Papers with Code</a> is an open source hub for publications that include direct links to GitHub code, no account needed to access datasets. <img src="../images/PaperswithCode.png" class="img-fluid" alt="Example paper with attached code from Papers with Code"> ## Version Control <img src="../images/VersionControl.png" class="img-fluid"></li>
+<li><a href="https://paperswithcode.com/">Papers with Code</a> is an open source hub for publications that include direct links to GitHub code, no account needed to access datasets. <img src="../images/PaperswithCode.png" class="img-fluid" alt="Example paper with attached code from Papers with Code"></li>
 </ul>
-<p><strong>Version control</strong> is the process of keeping track of every individual change by each contributor that’s saved in a version control framework, or a special database. Keeping a history of these changes to track model performance relative to model parameters saves the time you’d spend retraining the model. The three components of version control in machine learning are:</p>
+</section>
+<section id="version-control" class="level2" data-number="19.7">
+<h2 data-number="19.7" class="anchored" data-anchor-id="version-control"><span class="header-section-number">19.7</span> Version Control</h2>
+<p><img src="../images/VersionControl.png" class="img-fluid"></p>
+<p><strong>Version control</strong> is the process of keeping track of every individual change by each contributor that’s saved in a version control framework, or a special database. Keeping a history of these changes to track model performance relative to model parameters saves the time you’d spend retraining the model.</p>
+<p>The three components of version control in machine learning are:</p>
 <ul>
 <li><p>Code: We recommend writing and storing your model code in the same language as your implementation code to make it easier to maintain all code and dependencies</p></li>
 <li><p>Data: Versioning should link the data to the appropriate metadata and note any changes in either</p></li>
@@ -451,7 +453,10 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong><em>Using a version control system ensures easier:</em></strong></p>
 <ul>
-<li><p><strong>Collaboration</strong></p></li>
+<li><p><strong>Collaboration</strong></p>
+<ul>
+<li>Collaborators can easily pull changes from a shared repository, push their own changes, annotate their code, and revert back to previous versions of their model</li>
+</ul></li>
 <li><p><strong>Versioning</strong></p>
 <ul>
 <li>If your model breaks, you’ll have a log of any changes that were made, allowing you or others to revert back to a stable version</li>
@@ -466,8 +471,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="summary" class="level2" data-number="19.7">
-<h2 data-number="19.7" class="anchored" data-anchor-id="summary"><span class="header-section-number">19.7</span> Summary</h2>
+<section id="summary" class="level2" data-number="19.8">
+<h2 data-number="19.8" class="anchored" data-anchor-id="summary"><span class="header-section-number">19.8</span> Summary</h2>
 <p>Consider the following to ensure your model is reproducible:</p>
 <ul>
 <li><p>Use the reproducibility checklist for algorithms, theoretical claims, and figures/tables.</p></li>
@@ -480,8 +485,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Practice efficient version control (recommend GitHub if working with collaborators)</p></li>
 </ul>
 </section>
-<section id="hands-on-activity" class="level2" data-number="19.8">
-<h2 data-number="19.8" class="anchored" data-anchor-id="hands-on-activity"><span class="header-section-number">19.8</span> Hands-On Activity</h2>
+<section id="hands-on-activity" class="level2" data-number="19.9">
+<h2 data-number="19.9" class="anchored" data-anchor-id="hands-on-activity"><span class="header-section-number">19.9</span> Hands-On Activity</h2>
 <p>LEGO Metadata: In groups of 3-5 people, take ~15 minutes to create a structure out of LEGO bricks and write instructions for a group who will recreate your structure based on these instructions.</p>
 <p>Groups will then be rotated and given instructions and LEGO pieces from another group where they will have ~15 minutes to attempt to recreate that group’s structure.</p>
 <p>We will have a closing group discussion about this activity. Some questions include:</p>
@@ -492,8 +497,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Now that you see how successful or unsuccessful the other group was in recreating your structure, is there anything you would do differently?</p></li>
 </ul>
 </section>
-<section id="references-resources" class="level2" data-number="19.9">
-<h2 data-number="19.9" class="anchored" data-anchor-id="references-resources"><span class="header-section-number">19.9</span> References &amp; Resources</h2>
+<section id="references-resources" class="level2" data-number="19.10">
+<h2 data-number="19.10" class="anchored" data-anchor-id="references-resources"><span class="header-section-number">19.10</span> References &amp; Resources</h2>
 <ol type="1">
 <li>Gundersen, Odd Erik, and Sigbjørn Kjensmo. 2018. “State of the Art: Reproducibility in Artificial Intelligence”. Proceedings of the AAAI Conference on Artificial Intelligence 32 (1). https://doi.org/10.1609/aaai.v32i1.11503.</li>
 <li>Gundersen, Odd Erik, Yolanda Gil, and David W. Aha. “On Reproducible AI: Towards Reproducible Research, Open Science, and Digital Scholarship in AI Publications.” AI Magazine 39, no. 3 (September 28, 2018): 56–68. https://doi.org/10.1609/aimag.v39i3.2816.</li>
