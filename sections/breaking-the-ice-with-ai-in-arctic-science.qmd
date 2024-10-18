@@ -10,6 +10,18 @@ The Arctic is one of the Earth's remaining frontiers that is critical to the Ear
 
 ## AI for Arctic Challenges
 
+::: {.callout}
+
+“AI will be the most transformative technology since electricity.” – Eric Schmidt
+
+:::
+
+::: {.callout}
+
+“AI is just another model.” – Unknown
+
+:::
+
 ::: {.callout-tip collapse="false"}
 ## Artificial Intelligence
 
