@@ -9,6 +9,18 @@ number-sections: true
 from: markdown+emoji
 ---
 
+<style>
+figcaption {
+  font-size: 0.5em;
+}
+.column-margin {
+  figcaption {
+    font-size: 0.5em;
+  }
+}
+</style>
+
+
 ## Goals {.unnumbered}
 This session explores the critical role of training data in deep learning, focusing on data annotation methods, tools, and strategies for acquiring high-quality data. Participants will learn how well-annotated data supports effective deep learning models, understanding the challenges and best practices in data annotation. By the end, participants will be equipped to prepare their datasets for deep learning.
 
@@ -27,37 +39,40 @@ Training data's role, annotation methods/tools, annotated data's importance, ann
 
 ### Fueling intelligence: It’s All About the Data!
 
-The modern AI renaissance is driven by:
+The modern AI renaissance is driven by the synergistic combination of _**Computing advances**_, __*more & better data for training*__, and __*Algorithmic innovations*__.
 
-- Algorithmic innovations
-- Computing advances
-- More & better data for training
+![Source: [OECD.ai](https://oecd.ai/en/compute)](/images/data-annotation/ai-enablers.png){.lightbox width=60%}
 
-Of these, I would argue that the massive upscaling of _training data_ has been most influential. Don't get me wrong, the other two are also critical. But to a large extent, the most important advances in algorithms and compute are indeed the ones that are allowing us to efficiently use the large amount of data. **The more data available, the better the model can learn.**
+Each of these is critical, but you really can't overstate the importance of massively upscaling _training and validation data_. Indeed, to a large extent, the most important advances in algorithms and compute are indeed the ones that are allowing us to efficiently use the large amount of data. **The more data available, the better the model can learn.**
 
 Remember that in Machine Learning:
 
-1. You are building a model to produce some __*desired output*__ for a __*given input*__. If I provide an aerial photo that contains a water body, or a camera trap video that contains a bear, or an audio recording that captures a the song of a particular bird species, I want the model to correctly detect, recognize, and report those features.
-2. You are _not_ building this model by instructing the computer _how_ to detect the water body or the bear or the bird species. Instead, you provide many (often many many!) _examples_ of the phenomena of interest, and feed them to an algorithm that adaptively learns from these examples. Now, in practice there may be rule-based guardrails, but we can talk about that separately later in the course.
+1. You are building a model to produce some __*desired output*__ for a __*given input*__. Imagine handing a model an aerial photo that contains a water body, or a camera trap video that contains a bear, or an audio recording that captures a the song of a particular bird species. In each case, you want the model to correctly detect, recognize, and report the relevant feature.
+2. To achieve this, you do _not_ build this model by instructing the computer _how_ to detect the water body or the bear or the bird species. Instead, you assemble many (often many, many!) good _examples_ of the phenomena of interest, and feed them to an algorithm that allows the model to adaptively learn from these examples. Now, in practice there may be rule-based guardrails, but we can talk about that separately later in the course.
 
 Much of this course is about understanding what kinds of model structures and learning algorithms allow this seemingly magical learning to happen inside the computer, and what the end-to-end process looks like. But for the sake of these next couple of sections, what is important is that this core concept makes sense to you:
 
 _For any given project, you will quite likely be pulling a generic AI tool off the shelf that has basically no particular knowledge of your particular application area, and the way you will adapt it to apply to your project is not by hand-tweaking parameters or choosing functional forms or anything like that, but rather by (again) exposing the algorithm to many examples._
 
-Without lots of data to learn from, even the best training algorithms in the world will just sit and gather dust!
+Bottom line, much like vehicles without fuel, even the best training algorithms in the world will just sit and gather dust if they don't have sufficient data to learn from!
 
-Therefore although a lot of this week is about the models and how to operationalize them on compute platforms, your success in applying AI (especially if you training models, not just applying them) will depend on having a robust and effective _data pipeline_, from data collection methods to data labeling to data curation.
+![Source: [Walking Dead Fandom](https://walkingdead.fandom.com/wiki/Gas_Station_%28Season_1%29?file=S1GasStation.PNG)](/images/data-annotation/walking-dead-no-gas.webp){.lightbox width=60%}
+
+Therefore although a lot of this week is about the models and how to operationalize them on compute platforms, your success in applying AI (especially if you are training and/or fine-tuning models, not simply applying pre-trained models) will depend on having a robust and effective _data pipeline_, from data collection methods to data annotation to data curation.
 
 ::: {.column-margin}
 ![Source: [DZone](https://dzone.com/articles/an-introduction-to-data-labeling-in-artificial-int)](/images/data-annotation/ml-time-allocation.webp){.lightbox}
 :::
 
+In this module, we focus on _data annotation_.
+
 ### What is annotation?
-(10 minutes)
 
 Data annotation is the process of labeling or marking up data with information that is not already explicit in the data itself.
 
 In general, we do this to provide important and relevant context or meaning to the data. As humans, especially in knowledge work, we do this all the time for the purpose of sharing information with others.
+
+![Source: [PowerPoint Tricks](https://www.youtube.com/watch?app=desktop&v=HP6Rb6mCQQM)](/images/data-annotation/labels-and-highlights.jpg){.lightbox width=60%}
 
 In the context of Machine Learning and AI, our objective is to teach a model how to create accurate and useful annotations itself when it encounters new, unannotated data. In order to do this, we need to provide the model with annotated examples that it can train on.
 
@@ -72,7 +87,7 @@ Simply put, annotation refers to labeling data with information that a model nee
 <!-- set.seed(10); iris %>% sample_n(10) %>% kableExtra::kbl() %>% kableExtra::kable_styling(c("striped", "hold_position"), full_width = FALSE) -->
 ::: {.callout-note collapse="true" icon="false"
      title="Tabular Data Annotation"}
-![](/images/data-annotation/iris-table.jpg){width=80%}
+![](/images/data-annotation/iris-table.jpg){.lightbox width=80%}
 
 - Label (aka Target) column: _Species_
 
@@ -80,7 +95,7 @@ When working with tabular data, we don't usually talk about "annotating" the dat
 :::
 ::: {.callout-note collapse="true" icon="false"
      title="Text Annotation"}
-![](/images/data-annotation/muir-quote.jpg){width=80%}
+![](/images/data-annotation/muir-quote.jpg){.lightbox width=80%}
 
 - Sentiment: _Positive_
 - Parts of speech: _most_::adv,  _beautiful_::adj
@@ -88,7 +103,7 @@ When working with tabular data, we don't usually talk about "annotating" the dat
 :::
 ::: {.callout-note collapse="true" icon="false"
      title="Audio Annotation"}
-![](/images/data-annotation/canyon-wren-song.png){width=80%}
+![](/images/data-annotation/canyon-wren-song.png){.lightbox width=80%}
 
 - Voice recognition
 - Speech to text
@@ -99,7 +114,7 @@ When working with tabular data, we don't usually talk about "annotating" the dat
 :::
 ::: {.callout-note collapse="true" icon="false"
      title="Video Annotation"}
-![](/images/data-annotation/annotated-video.gif){width=80%}
+![](/images/data-annotation/annotated-video.gif){.lightbox width=80%}
 
 Like image annotation, but with many frames.
 Focus is often on capturing motion, paths, change.
@@ -157,7 +172,6 @@ Or another common way to breaks this down is the following 5 factors:
 5. **Tools**
 
 ### Annotation best practices
-(5 minutes)
 
 * **Clear Labeling Instructions**: Guidelines to standardize annotations.
 * **Annotator Training**: Ensure annotators understand the domain and use cases.
@@ -205,22 +219,29 @@ In this context:
 
 ### Image Annotation Types
 
-The type of annotation you apply will depend partly on the task, as different annotation types are naturally suited for different tasks. However, the decision will also be driven in part by time, cost, and accuracy considerations.
+The type of annotation you apply will depend partly on the task (see next section), as different annotation types are naturally suited for different tasks. However, the decision will also be driven in part by time, cost, and accuracy considerations.
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Text labels"}
+**Text labels** are words or phrases associated with the image as a whole, without explicit linkage to any localized portion of the image.
+![](/images/data-annotation/santa-rosa-beach.jpg){.lightbox width=80%}
+
+- Label: __*beach*__
+- Caption: "__*Embracing the serenity of the shore, where the sky meets the ocean #outdoor #beachlife #nature*__"
+:::
 
 ::: {.callout-caution collapse="true" icon="false"
      title="Bounding boxes"}
 **Bounding boxes** are rectangles drawn around objects to localize them within an image.
-![](/images/data-annotation/building-bbox.jpg){width=80%}
+![](/images/data-annotation/building-bbox.jpg){.lightbox width=80%}
 
-Typically they are _axis-aligned_, meaning two sides are parallel with
-the image top/bottom, and two sides are parallel with the image sides, but
-sometimes rotation is supported.
+Typically they are _axis-aligned_, meaning two sides are parallel with the image top/bottom, and two sides are parallel with the image sides, but sometimes rotation is supported.
 :::
 
 ::: {.callout-caution collapse="true" icon="false"
      title="Polygons"}
 Generalizing the bounding box concept, **polygons** are a series of 3 or more connected line segments (each with definable end coordinates) that form a closed shape (i.e. the end of the last segment is the beginning of the first segment), used to more precisely localize objects or areas by outlining their shape.
-![](/images/data-annotation/building-polygon.jpg){width=80%}
+![](/images/data-annotation/building-polygon.jpg){.lightbox width=80%}
 :::
 
 ::: {.callout-caution collapse="true" icon="false"
@@ -229,25 +250,25 @@ Generalizing the bounding box concept, **polygons** are a series of 3 or more co
 
 In practice, pixel segmentations can be produced either by drawing a polygon or using a brush tool.
 
-![](/images/data-annotation/building-segmentation.jpg){width=80%}
+![](/images/data-annotation/building-segmentation.jpg){.lightbox width=80%}
 :::
 
 ::: {.callout-caution collapse="true" icon="false"
      title="Keypoints"}
 **Keypoints** are simply points, used for denoting specific landmarks or features (e.g., skeletal points in human pose estimation).
-![](/images/data-annotation/buildings-points.jpg){width=80%}
+![](/images/data-annotation/buildings-points.jpg){.lightbox width=80%}
 :::
 
 ::: {.callout-caution collapse="true" icon="false"
      title="Polylines"}
 **Polylines** are conceptually similar to polygons, but they do not form a closed shape. Instead, the lines are used to mark linear features such as roads, rivers, powerlines, or boundaries.
-![](/images/data-annotation/road-lines.jpg){width=80%}
+![](/images/data-annotation/road-lines.jpg){.lightbox width=80%}
 :::
 
 ::: {.callout-caution collapse="true" icon="false"
      title="3D Cuboids"}
 **3D cuboids** are bounding boxes extended to three dimensions. These are often used in LiDAR data which is represented as a 3-dimensional point cloud, but can also be used to indicate depth of field in a 2D image when the modeling task involves understanding position in three dimensions.
-![](/images/data-annotation/bear-3dcuboid.jpg){width=80%}
+![](/images/data-annotation/bear-3dcuboid.jpg){.lightbox width=80%}
 :::
 
 ### Image Annotation Tasks
