@@ -251,21 +251,21 @@ This activity was adapted from the Lego Metadata for Reproducibility Game Pack (
 1.  [Gundersen, Odd Erik, and Sigbjørn Kjensmo. 2018. “State of the Art:
     Reproducibility in Artificial Intelligence”. Proceedings of the AAAI
     Conference on Artificial Intelligence 32 (1).](https://doi.org/10.1609/aaai.v32i1.11503)
-2.  Gundersen, Odd Erik, Yolanda Gil, and David W. Aha. “On Reproducible
+2.  [Gundersen, Odd Erik, Yolanda Gil, and David W. Aha. “On Reproducible
     AI: Towards Reproducible Research, Open Science, and Digital
     Scholarship in AI Publications.” AI Magazine 39, no. 3 (September
-    28, 2018): 56–68. https://doi.org/10.1609/aimag.v39i3.2816.
-3.  “How the AI Community Can Get Serious about Reproducibility.”
-    Accessed September 18, 2024.https://ai.meta.com/blog/how-the-ai-community-can-get-serious-about-reproducibility/.
-4.  Abid, Areeba. “Addressing ML’s Reproducibility Crisis.” Medium,
-    January 7, 2021. https://towardsdatascience.com/addressing-mls-reproducibility-crisis-7d59e9ed050.
-5.  PyTorch. “Towards Reproducible Research with PyTorch Hub.” Accessed
-    September 18, 2024. https://pytorch.org/blog/towards-reproducible-research-with-pytorch-hub/.
-6.  Stojnic, Robert. “ML Code Completeness Checklist.” PapersWithCode
-    (blog), April 8, 2020. https://medium.com/paperswithcode/ml-code-completeness-checklist-e9127b168501.
-7.  Akalin, Altuna. “Scientific Data Analysis Pipelines and
-    Reproducibility.” Medium, July 5, 2021. https://towardsdatascience.com/scientific-data-analysis-pipelines-and-reproducibility-75ff9df5b4c5.
-8.  Hashesh, Ahmed. “Version Control for ML Models: What It Is and How
-    To Implement It.” neptune.ai, July 22, 2022. https://neptune.ai/blog/version-control-for-ml-models.
-9. NCEAS Learning Hub: https://www.nceas.ucsb.edu/learning-hub.
-10. Donaldson, M.  and Mahon, M. 2019. LEGO® Metadata for Reproducibility game pack. Documentation. University of Glasgow. (doi: 10.36399/gla.pubs.196477).
+    28, 2018): 56–68.](https://doi.org/10.1609/aimag.v39i3.2816)
+3.  [“How the AI Community Can Get Serious about Reproducibility.”
+    Accessed September 18, 2024.](https://ai.meta.com/blog/how-the-ai-community-can-get-serious-about-reproducibility/)
+4.  [Abid, Areeba. “Addressing ML’s Reproducibility Crisis.” Medium,
+    January 7, 2021.](https://towardsdatascience.com/addressing-mls-reproducibility-crisis-7d59e9ed050)
+5.  [PyTorch. “Towards Reproducible Research with PyTorch Hub.” Accessed
+    September 18, 2024.](https://pytorch.org/blog/towards-reproducible-research-with-pytorch-hub/)
+6.  [Stojnic, Robert. “ML Code Completeness Checklist.” PapersWithCode
+    (blog), April 8, 2020.](https://medium.com/paperswithcode/ml-code-completeness-checklist-e9127b168501)
+7.  [Akalin, Altuna. “Scientific Data Analysis Pipelines and
+    Reproducibility.” Medium, July 5, 2021.](https://towardsdatascience.com/scientific-data-analysis-pipelines-and-reproducibility-75ff9df5b4c5.)
+8. [Hashesh, Ahmed. “Version Control for ML Models: What It Is and How
+    To Implement It.” neptune.ai, July 22, 2022.](https://neptune.ai/blog/version-control-for-ml-models)
+9. [NCEAS Learning Hub](https://www.nceas.ucsb.edu/learning-hub)
+10. [Donaldson, M.  and Mahon, M. 2019. LEGO® Metadata for Reproducibility game pack. Documentation. University of Glasgow.](https://eprints.gla.ac.uk/196477/)
