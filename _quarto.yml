@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Cyber2A: AI for Arctic Research"
-  author: "Wenwen Li, Anna Liljedahl, Matthew B. Jones, Alyona Kosobokova, Jim Regetz, Chia-Yu Hsu, Chandi Witharana, Yili Yang, Ben Galewsky, Minu Mathew, Sandeep Satheesan, Nicole Greco, Kenton McHenry, Carmen Galaz García, Kate Holman Billmeier"
+  author: "Wenwen Li, Anna Liljedahl, Matthew B. Jones, Chia-Yu Hsu, Alyona Kosobokova, Jim Regetz, Chandi Witharana, Yili Yang, Ben Galewsky, Minu Mathew, Sandeep Satheesan, Nicole Greco, Kenton McHenry, Carmen Galaz García, Kate Holman Billmeier"
   date: "2024-10-21"
   search: true
   favicon: images/index/arcticlogo.png
@@ -23,7 +23,7 @@ book:
         - sections/the-building-blocks-of-nn-and-dl.qmd
         - sections/intro-to-pytorch.qmd
         - sections/hands-on-lab-pytorch.qmd
-        - sections/guest-lecture-anna-chandi.qmd
+        - sections/permafrost-discovery-gateway.qmd
         - sections/ai-ethics.qmd
 
     - part: "<b>Day 3: Advanced AI Workflows and Models</b>"
@@ -59,6 +59,7 @@ book:
         aria-label: GitHub
 
 bibliography: references.bib
+csl: ieee.csl
 
 format:
   html:
