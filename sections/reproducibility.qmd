@@ -248,9 +248,9 @@ This activity was adapted from the Lego Metadata for Reproducibility Game Pack (
 
 ## References & Resources
 
-1.  Gundersen, Odd Erik, and Sigbjørn Kjensmo. 2018. “State of the Art:
+1.  [Gundersen, Odd Erik, and Sigbjørn Kjensmo. 2018. “State of the Art:
     Reproducibility in Artificial Intelligence”. Proceedings of the AAAI
-    Conference on Artificial Intelligence 32 (1). https://doi.org/10.1609/aaai.v32i1.11503
+    Conference on Artificial Intelligence 32 (1).](https://doi.org/10.1609/aaai.v32i1.11503)
 2.  Gundersen, Odd Erik, Yolanda Gil, and David W. Aha. “On Reproducible
     AI: Towards Reproducible Research, Open Science, and Digital
     Scholarship in AI Publications.” AI Magazine 39, no. 3 (September
