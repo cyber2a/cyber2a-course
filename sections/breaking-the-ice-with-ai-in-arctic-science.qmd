@@ -57,9 +57,23 @@ Techniques for machine learning are often divided into three types (supervised, 
 
 These general approaches all have strengths and weaknesses, and are often used in combination to tackle different aspects of a learning problem.
 
-## Gallery of Geospatial AI
+## Geospatial AI
 
-In this course, we will more narrowly focus on geospatial applications of AI, and particularly on the use of deep learning techniques that employ, for example, convolutional neural networks for feature recognition tasks across massive image datasets such as satellite imagery. As we'll see during the course, advances in 
+In this course, we will more narrowly focus on geospatial applications of AI, and particularly on the use of deep learning techniques that employ, for example, convolutional neural networks for feature recognition tasks across massive image datasets such as satellite imagery. As we'll see during the course, advances in computing hardware, and particularly in available Graphical Processing Unit (GPU) performance have enabled massive growth in the scale of models that can be generated. Today, we can train deep learning models on high-resolution, sub-meter scale satellite imagery (e.g., pan-Arctic, 50cm Maxar imagery), and apply the generated models across the Arctic to better understand change at Arctic scales.
+
+For one example, Witharana et al. [@witharana_object-based_2021] trained a convolutional neural network model on Maxar imagery, and used the trained model to detect permafrost ice-wedges across the entire Arctic at sub-meter scale [@witharana_ice-wedge_2023], producing a map of over a billion vector features, and the first-ever permafrost map at this scale.
+
+::: {layout-ncol="1"}
+
+![](../images/breaking-ice/iwp02.jpg)
+
+:::
+
+::: {.column-margin}
+
+![](../images/breaking-ice/iwp01.jpg)
+
+:::
 
 ## Welcome and Introductions
 
@@ -79,15 +93,15 @@ Let's kick the week off with a warm welcome and round of introductions. We'll st
 
 ## Cyber2A project
 
+Despite the power of these machine learning techniques for Arctic research, the Arcitc community has been somewhat delayed compared to other geoscience disciplines in adopting these techniques. 
+
 ![](../images/breaking-ice/arctic-dl-trend.png)
 
-## Goal
+The [Cyber2A](https://cyber2a.github.io/) project aims to build an Arctic learning community to stimulate the use of GeoAI through data science education. This short-course represents a first pass at a survey of relevant AI techniques that would be useful across Arctic regions and disciplines. The goal is to produce an online curriculum and materials that can be used for self-paced learning by Arctic researchers, and can be included in University graduate and undergraduate courses. While there are many online tutorials on machine learning and AI, these materials will specifically target the types of data and challenges typically found in Arctic research, and focus in on the techniques that will make data science learning more approachable. 
 
-This session kicks off with a relaxed and engaging exploration of AI's role in Arctic science and geoscience, aiming to lay a solid foundation without overwhelming our audience. We'll navigate through the use of AI technologies in these fields, highlighting their exciting possibilities and tackling the challenges and ethical considerations. Expect a straightforward, easy-to-follow presentation designed to demystify AI and spark curiosity.
+This course is also a starting point, and not an endpoint. We welcome feedback, suggestions, revisions, and edits to the materials. We want people to adopt, adapt, and revise the materials, and, importantly, contribute those changes back so that others can benefit from these curricular advances. Look for more from Cyber2A as we continue to engage in promoting the use of GeoAI across the Arctic.
 
-## Key Elements
-
-Engaging visuals, simplified explanations, real-world examples, light tone
+![](../images/breaking-ice/cyber2a-project.png)
 
 ## References {.unnumbered}
 
