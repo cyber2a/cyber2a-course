@@ -23,7 +23,7 @@ book:
         - sections/the-building-blocks-of-nn-and-dl.qmd
         - sections/intro-to-pytorch.qmd
         - sections/hands-on-lab-pytorch.qmd
-        - sections/guest-lecture-anna-chandi.qmd
+        - sections/permafrost-discovery-gateway.qmd
         - sections/ai-ethics.qmd
 
     - part: "<b>Day 3: Advanced AI Workflows and Models</b>"
