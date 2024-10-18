@@ -1,59 +1,69 @@
-# AI for Everyone
+---
+title: "AI for Everyone"
+execute:
+ freeze: auto
+editor:
+ render-on-save: true
+from: markdown+emoji
+---
 
-## Session Goal
+## Learning Objectives
 
 This session introduces AI to a non-specialist audience, ensuring participants can understand essential concepts. The focus is on key terminology and principles of machine learning (ML), deep learning (DL), and neural networks (NN). By the end of this session, participants will have foundational knowledge of AI concepts to engage with more advanced topics.
 
-
 ## Table of Contents
-1. What is AI?
+1. What is AI? History and Challenges
+3. Types and Techniques
+4. Working with Data
 2. The Role of AI in Modern Research
-3. AI Types and Techniques
-4. Working with Datasets
-5. Hands-On: Building a Simple ML Model
-6. The Future of AI & Science
+5. The Future of AI & Science
+6. Hands-On: Setting up the Coding Environment
 
-
-## Section 1: What is AI?
+## What is AI?
 
 **Definition:** Artificial Intelligence (AI) refers to computer systems capable of performing tasks requiring cognitive functions, such as recognizing patterns, learning from data, and making predictions.
 
-**Key takeaway:** AI helps identify patterns in data, supporting every step of the scientific method, from observation to conclusion.
+AI helps identify patterns in data, supporting every step of the scientific method, from observation to conclusion.
 
+But what is *human intelligence*?
+Well, we don't really know...
 
-## Section 2: The Role of AI in Modern Research
+Let's focus on a simpler question:
+![How do humans think?](../images/geoffrey_hinton.png)
 
-- **Genomics Example:** AI helped detect complex genetic patterns in rice genotypes.
-- **Astrophysics Example:** AI's role in analyzing cosmic data for solving the Missing Satellite Problem.
-- **Arctic Research Example:** AI predicts ice movement patterns, supporting Arctic expeditions by analyzing satellite imagery.
+We think experientially, or in other words, probabilistically.
 
-Ask the audience for scientific discoveries they know of that wouldn’t have been possible without AI.
-
-**Key takeaway:** AI accelerates discoveries across various fields, from genomics to climate modeling and astrophysics.
-
-## Section 3: AI Types and Techniques
+## AI Types and Techniques
 
 ### Machine Learning (ML)
 
-Machine Learning focuses on algorithms that allow computers to learn from data. Link ML to psychology through Geoffrey Hinton and the rise of deep learning (DL).
+![](../images/machine_learning.png)
+
+![](../images/types_techniques.png.png)
 
 - **Supervised Learning:** Training on labeled data.
 - **Unsupervised Learning:** Discovering patterns within unlabeled data.
 - **Reinforcement Learning (RL):** An agent learns by interacting with an environment, commonly used in robotics.
 
 ### Neural Networks (NN)
-- Inspired by the brain’s structure, NNs consist of interconnected nodes (neurons) that process information.
-  
-### Convolutional Neural Networks (CNN)
-- CNNs are specialized for processing structured data, like images.
 
-**Key takeaway:** ML techniques are vital for Arctic research, including supervised, unsupervised, and reinforcement learning.
+Neural Networks are loosely inspired by the brain’s structure, NNs consist of interconnected nodes (neurons) that process information.
+
+![](../images/neural_networks.png)
+  
+
+### Deep Learning
+  
+![](../images/deep_learning.png)
+
+- **Convolutional Neural Networks (CNN)** are specialized for processing structured data, like images.
+- **Large Language Models (LLM)** are neural networks that understand and generate human language (e.g., GPT-3).
+-*Recurrent Neural Networks (RNN)** handle sequential data by remembering previous inputs,. They are used for tasks like speech recognition and time series.
 
 
-## Section 4: Working with Datasets 
+##Data
 
-### Importance of Data
-"Garbage in, garbage out" is especially true in AI. Quality data leads to accurate models.
+"Garbage in, garbage out": Quality data leads to accurate models.
 
 - **Structured Data:** Clearly defined types (e.g., temperature readings).
 - **Unstructured Data:** Complex formats (e.g., satellite imagery), requiring preprocessing.
@@ -61,48 +71,41 @@ Machine Learning focuses on algorithms that allow computers to learn from data. 
 **Key takeaway:** Quality data is the foundation for accurate predictions and insights in AI.
 
 
-## Section 5: Hands-On: Building a Simple ML Model 
-
-Guide participants through building a simple model in Python.
-
-**Key takeaway:** Machine Learning involves algorithms that allow systems to learn from data, making predictions.
-
-
-## Section 6: Rapid Surge in AI Talk: Why Now?
-
-Ask the audience: Why has AI been a hot topic recently? Discuss the rise of Large Language Models (LLMs), GPT-3, and the role of transformers.
+## Rapid Surge in AI Talk: Why Now?
 
 ### Brief History:
-- In 2017, the **Transformer** architecture allowed models to weigh word importance, revolutionizing LLMs.
 
-**Key takeaway:** The transformer model paved the way for advanced LLMs like GPT-3, driving the current AI surge.
 
-## Section 7: The Future of AI in Science (7 minutes)
+- 1986: Backpropagation was introduced by Geoffrey Hinton and colleagues, revolutionizing neural networks by enabling them to adjust weights and improve through learning. This breakthrough laid the foundation for modern deep learning.
 
-**Exercise:** Invite participants to imagine how AI could transform their Arctic research areas.
+- 2017: The Transformer architecture was introduced, which transformed natural language processing (NLP) using an attention mechanism. It allowed models to weigh the importance of words in a sequence and process entire sentences in parallel, significantly improving efficiency and accuracy.
+
+- 2018-2020: The combination of backpropagation, advanced computing power (GPUs, cloud technology), and the availability of large datasets led to the rise of Large Language Models (LLMs) like GPT-3, with 175 billion parameters, capable of generating human-like text and answering questions.
+
+**Key takeaway:** The transformer model paved the way for advanced LLMs like GPT-3, driving the current AI surge. Advancements in computing power allowed these models to process massive datasets quickly, enabling them to generate highly accurate predictions, perform complex tasks, and revolutionize fields such as language processing, automation, and research.
+
+## The Future of AI in Science 
+
+![](../images/ai_and_science.png)
+
 
 - **Scientific Method:**
-  - **Observation:** AI aids data collection (e.g., computer vision).
-  - **Hypothesis:** Unsupervised learning clusters data.
-  - **Experiment:** Reinforcement learning simulates environments.
-  - **Conclusion:** AI can analyze data and validate hypotheses.
-
-
-## Section 8: Q&A and Recap (8 minutes)
-
-Let's consider arctic-related challenges, recap the session, and link AI to the scientific method.
+ - **Observation:** AI aids data collection (e.g., computer vision).
+ - **Hypothesis:** Unsupervised learning clusters data.
+ - **Experiment:** Reinforcement learning simulates environments.
+ - **Conclusion:** AI can analyze data and validate hypotheses.
 
 
 ## Additional Resources
 - **Books:** 
-  - Ray Kurzweil, *How to Create a Mind* (2012)
-  - Max Bennett, *A Brief History of Intelligence* (2023)
-  
+ - Ray Kurzweil, *How to Create a Mind* (2012)
+ - Max Bennett, *A Brief History of Intelligence* (2023)
+  
 - **Videos:**
-  - [3Blue1Brown’s Neural Networks Playlist](https://youtube.com/playlist?list=PLlN8HWAQWEiYJY60Ov1hTB0e2WrJyVISw)
+ - [3Blue1Brown’s Neural Networks Playlist](https://youtube.com/playlist?list=PLlN8HWAQWEiYJY60Ov1hTB0e2WrJyVISw)
 
 - **Papers:** 
-  - Jakob Uszkoreit, *The Transformer* (2017)
+ - Jakob Uszkoreit, *The Transformer* (2017)
 
 
 ## Do You Have Any Questions?
