@@ -59,6 +59,7 @@ book:
         aria-label: GitHub
 
 bibliography: references.bib
+csl: ieee.csl
 
 format:
   html:
