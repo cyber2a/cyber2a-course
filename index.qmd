@@ -34,13 +34,17 @@ The course has been designed with several guiding principals in mind.
 
 ## About this book
 
-This book is written in [Quarto](https://quarto.org/), a cross platform markdown-based platform for writing books and technical materials that works with Python, R, and other langguages.
+Citation:
+
+> Wenwen Li, Anna Liljedahl, Matthew B. Jones, Chia-Yu Hsu, Alyona Kosobokova, Jim Regetz, Chandi Witharana, Yili Yang, Ben Galewsky, Minu Mathew, Sandeep Satheesan, Nicole Greco, Kenton McHenry, Carmen Galaz García, Kate Holman Billmeier. 2024. **AI for Arctic Research.** Arctic Data Center. [doi:10.18739/A2222R77V](https://doi.org/10.18739/A2222R77V)
+
+The materials in this book are [licensed](#license) for reuse, and are available from the [cyber2a-course github repository](https://github.com/cyber2a/cyber2a-course). The book is written in [Quarto](https://quarto.org/), a cross platform markdown-based platform for writing books and technical materials that works with Python, R, and other languages.
 
 * **Getting Started**: You can find a guide to getting started with Quarto, including editing and previewing content locally with various tools, [here](https://quarto.org/docs/get-started/).
 
 * **Quarto Guide:** You can find a comprehensive guide to Quarto [here](https://quarto.org/docs/guide/).
 
-* **Format**: You can choose to write your content in either Jupyter Notebook (`.ipynb`) or Markdown files (`.qmd`). Quarto can render both formats.
+* **Format**: You can choose to write your content in either Jupyter Notebook (`.ipynb`) or Markdown files (`.qmd`). Quarto can render both formats. And both formats can be easily included in other teaching materials.
 
 * **Embed Notebooks**: If you choose to write your content in Markdown but have a separate Jupyter Notebook for the hands-on part, you can embed the notebook. Follow the guide [here](https://quarto.org/docs/computations/python.html#embed-notebooks) to learn how to do this. 
 
