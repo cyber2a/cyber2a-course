@@ -54,7 +54,62 @@
     "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html",
     "title": "1  Breaking the Ice with AI in Arctic Science",
     "section": "",
-    "text": "1.1 Goal\nThis session kicks off with a relaxed and engaging exploration of AI’s role in Arctic science and geoscience, aiming to lay a solid foundation without overwhelming our audience. We’ll navigate through the use of AI technologies in these fields, highlighting their exciting possibilities and tackling the challenges and ethical considerations. Expect a straightforward, easy-to-follow presentation designed to demystify AI and spark curiosity.",
+    "text": "1.1 Course Synopsis",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+    ]
+  },
+  {
+    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html#course-synopsis",
+    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html#course-synopsis",
+    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "section": "",
+    "text": "1.1.1 The changing Arctic\nThe Arctic is one of the Earth’s remaining frontiers that is critical to the Earth’s climate system. Climate warming and change have pushed the Arctic ecosystem to a tipping point: the frozen is becoming unfrozen with subsequent dramatic impact to its terrestrial and coastal landscapes. Permafrost warming and degradation are documented across the Arctic[1], [2], [3], and are coupled with long-term global warming and extremes in air temperature and precipitation [4], [5], [6]. Further, Arctic sea ice is decreasing rapidly [7], which increases coastal erosion rates across the globe [8]. The Arctic region is remote and is experiencing dramatic changes with local and global implications due to the shift from ice to water: altered soil carbon fluxes [9], changes in vegetation cover [10], shifts in animal behavior [11], and challenges to infrastructure [12]. Accordingly, the transformation of ice to water through degrading permafrost and melting sea and lake ice reverberates through the entire Arctic ecosystem and, therefore, enlists the interest of a broad range of earth, engineering, and social science disciplines [13]. Remote sensing of satellite imagery is an important approach in developing Arctic baseline information, monitoring change, and exploring physical processes [14], [15]. Today, there exist important climatic, geological, biological and sociological data that are yet to be exploited by the Arctic science community. To make the best possible use of these data to address the pressing challenges facing the Arctic environment and Arctic people, the more advanced methods and tools that are available need to be applied. AI-driven analytics, especially those incorporating deep machine learning, can process Arctic big data, automatically detect hidden patterns, and derive new knowledge to enable a new wave of data-driven discovery [16].\n\n\n\n\n\nArctic mountains\n\n\n\n\n1.1.2 AI for Arctic Challenges\n\n\n\n\n\n\nArtificial Intelligence\n\n\n\n\n\nArtificial Intelligence is…\n\n\n\n\n\n\n\n\n\nMachine Learning\n\n\n\n\n\nMachine learning is…",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+    ]
+  },
+  {
+    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html#welcome-and-introductions",
+    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html#welcome-and-introductions",
+    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "section": "1.2 Welcome and Introductions",
+    "text": "1.2 Welcome and Introductions\nTBD",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+    ]
+  },
+  {
+    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html#gallery-of-global-ai",
+    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html#gallery-of-global-ai",
+    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "section": "1.3 Gallery of Global AI",
+    "text": "1.3 Gallery of Global AI\nTBD",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+    ]
+  },
+  {
+    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html#cyber2a-project",
+    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html#cyber2a-project",
+    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "section": "1.4 Cyber2A project",
+    "text": "1.4 Cyber2A project\nTBD",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+    ]
+  },
+  {
+    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html#goal",
+    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html#goal",
+    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "section": "1.5 Goal",
+    "text": "1.5 Goal\nThis session kicks off with a relaxed and engaging exploration of AI’s role in Arctic science and geoscience, aiming to lay a solid foundation without overwhelming our audience. We’ll navigate through the use of AI technologies in these fields, highlighting their exciting possibilities and tackling the challenges and ethical considerations. Expect a straightforward, easy-to-follow presentation designed to demystify AI and spark curiosity.",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
@@ -64,8 +119,19 @@
     "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html#key-elements",
     "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html#key-elements",
     "title": "1  Breaking the Ice with AI in Arctic Science",
-    "section": "1.2 Key Elements",
-    "text": "1.2 Key Elements\nEngaging visuals, simplified explanations, real-world examples, light tone",
+    "section": "1.6 Key Elements",
+    "text": "1.6 Key Elements\nEngaging visuals, simplified explanations, real-world examples, light tone",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
+    ]
+  },
+  {
+    "objectID": "sections/breaking-the-ice-with-ai-in-arctic-science.html#references",
+    "href": "sections/breaking-the-ice-with-ai-in-arctic-science.html#references",
+    "title": "1  Breaking the Ice with AI in Arctic Science",
+    "section": "References",
+    "text": "References\n\n\n[1] A.\nK. Liljedahl et al., “Pan-Arctic ice-wedge\ndegradation in warming permafrost and its influence on tundra\nhydrology,” Nature Geoscience, vol. 9, no. 4, pp.\n312–318, Apr. 2016, doi: 10.1038/ngeo2674.\n\n\n[2] A.\nA. Vasiliev, D. S. Drozdov, A. G. Gravis, G. V. Malkova, K. E. Nyland,\nand D. A. Streletskiy, “Permafrost degradation in the\nWestern Russian Arctic,”\nEnvironmental Research Letters, vol. 15, no. 4, p. 045001, Apr.\n2020, doi: 10.1088/1748-9326/ab6f12.\n\n\n[3] S.\nL. Smith, H. B. O’Neill, K. Isaksen, J. Noetzli, and V. E. Romanovsky,\n“The changing thermal state of permafrost,” Nature\nReviews Earth & Environment, vol. 3, no. 1, pp. 10–23, Jan.\n2022, doi: 10.1038/s43017-021-00240-1.\n\n\n[4] T.\nA. Douglas, M. R. Turetsky, and C. D. Koven, “Increased rainfall\nstimulates permafrost thaw across a variety of Interior\nAlaskan boreal ecosystems,” npj Climate and\nAtmospheric Science, vol. 3, no. 1, pp. 1–7, Jul. 2020, doi: 10.1038/s41612-020-0130-4.\n\n\n[5] R.\nÍ. Magnússon et al., “Extremely wet summer events enhance\npermafrost thaw for multiple years in Siberian\ntundra,” Nature Communications, vol. 13, no. 1, p. 1556,\nMar. 2022, doi: 10.1038/s41467-022-29248-x.\n\n\n[6] L.\nM. Farquharson, V. E. Romanovsky, W. L. Cable, D. A. Walker, S. V.\nKokelj, and D. Nicolsky, “Climate Change\nDrives Widespread and Rapid\nThermokarst Development in Very\nCold Permafrost in the Canadian\nHigh Arctic,” Geophysical Research\nLetters, vol. 46, no. 12, pp. 6681–6689, 2019, doi: 10.1029/2019GL082187.\n\n\n[7] D.\nNotz and J. Stroeve, “Observed Arctic sea-ice loss\ndirectly follows anthropogenic CO2 emission,”\nScience, vol. 354, no. 6313, pp. 747–750, Nov. 2016, doi: 10.1126/science.aag2345.\n\n\n[8] D.\nM. Nielsen, M. Dobrynin, J. Baehr, S. Razumov, and M. Grigoriev,\n“Coastal Erosion Variability at the\nSouthern Laptev Sea\nLinked to Winter Sea\nIce and the Arctic\nOscillation,” Geophysical Research Letters,\nvol. 47, no. 5, p. e2019GL086876, 2020, doi: 10.1029/2019GL086876.\n\n\n[9] L.\nBruhwiler, F.-J. W. Parmentier, P. Crill, M. Leonard, and P. I. Palmer,\n“The Arctic Carbon Cycle\nand Its Response to Changing\nClimate,” Current Climate Change Reports,\nvol. 7, no. 1, pp. 14–34, Mar. 2021, doi: 10.1007/s40641-020-00169-5.\n\n\n[10] T.\nK. F. Campbell, T. C. Lantz, R. H. Fraser, and D. Hogan, “High\nArctic Vegetation Change\nMediated by Hydrological\nConditions,” Ecosystems, vol. 24, no. 1,\npp. 106–121, Jan. 2021, doi: 10.1007/s10021-020-00506-7.\n\n\n[11] S.\nC. Davidson et al., “Ecological insights from three\ndecades of animal movement tracking across a changing\nArctic,” Science, vol. 370, no. 6517, pp.\n712–715, Nov. 2020, doi: 10.1126/science.abb7080.\n\n\n[12] L.\nSuter, D. Streletskiy, and N. Shiklomanov, “Assessment of the cost\nof climate change impacts on critical infrastructure in the circumpolar\nArctic,” Polar Geography, vol. 42, no. 4,\npp. 267–286, Oct. 2019, doi: 10.1080/1088937X.2019.1686082.\n\n\n[13] M.\nL. Druckenmiller et al., “The\nArctic,” Bulletin of the American Meteorological\nSociety, vol. 102, no. 8, pp. S263–S316, Aug. 2021, doi: 10.1175/BAMS-D-21-0086.1.\n\n\n[14] M.\nPhilipp, A. Dietz, S. Buchelt, and C. Kuenzer, “Trends in\nSatellite Earth Observation for\nPermafrost Related\nAnalyses—A Review,”\nRemote Sensing, vol. 13, no. 6, p. 1217, Jan. 2021, doi: 10.3390/rs13061217.\n\n\n[15] “Changing state of Arctic\nsea ice across all seasons - IOPscience.” Accessed:\nOct. 18, 2024. [Online]. Available: https://iopscience.iop.org/article/10.1088/1748-9326/aade56\n\n\n[16] “AI in\nAnalytics: Top Use\nCases and Tools.” Accessed: Oct. 18,\n2024. [Online]. Available: https://www.marketingaiinstitute.com/blog/how-to-use-artificial-intelligence-for-analytics",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Breaking the Ice with AI in Arctic Science</span>"
@@ -366,6 +432,17 @@
     "crumbs": [
       "<b>Day 2: AI Fundamentals and Techniques</b>",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Hands-On Lab: PyTorch</span>"
+    ]
+  },
+  {
+    "objectID": "sections/permafrost-discovery-gateway.html",
+    "href": "sections/permafrost-discovery-gateway.html",
+    "title": "9  Permafrost Discovery Gateway",
+    "section": "",
+    "text": "We have more satellite imagery data than what we know what to do with. There are many people with different knowledges and common passions for permafrost-affected landscapes. At the same time, Alaska and the Arctic at large are starving for basic geospatial information about it’s permafrost-affected landscape and infrastructure and people may have a hard time finding others to help make visions come true. The Permafrost Discovery Gateway (PDG) is an online free tool meant to empower a) researchers to produce and do science with big geospatial data (think sub-meter resolution maps across Alaska and the entire Arctic) and b) agencies and community leaders in land and infrastructure management that involves permafrost. PDG currently offers easy visual exploration via a regular web-browser of datasets that otherwise crush traditional GIS software due to the file size. In the works are, for example, new big datasets of permafrost thaw features and infrastructure, partial dataset download tool, the incorporation of statistical summaries and AI tools that help the user find interesting stories in the big data products, plug-and-play workflows to help you develop your own big dataset, and the monitoring of permafrost thaw near-real time. The PDG can become a gateway where data and people can connect, where technology enables anyone with an internet connection, no matter your technical skills and resources, to connect, explore, and together create.",
+    "crumbs": [
+      "<b>Day 2: AI Fundamentals and Techniques</b>",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Permafrost Discovery Gateway</span>"
     ]
   },
   {
