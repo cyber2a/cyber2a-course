@@ -1,8 +1,6 @@
 # Breaking the Ice with AI in Arctic Science
  
-## Course Synopsis
-
-### The changing Arctic
+## The changing Arctic
 
 The Arctic is one of the Earth's remaining frontiers that is critical to the Earth’s climate system. Climate warming and change have pushed the Arctic ecosystem to a tipping point: the frozen is becoming unfrozen with subsequent dramatic impact to its terrestrial and coastal landscapes. Permafrost warming and degradation are documented across the Arctic[@liljedahl_pan-arctic_2016;@vasiliev_permafrost_2020;@smith_changing_2022], and are coupled with long-term global warming and extremes in air temperature and precipitation [@douglas_increased_2020;@magnusson_extremely_2022;@farquharson_climate_2019]. Further, Arctic sea ice is decreasing rapidly [@notz_observed_2016], which increases coastal erosion rates across the globe [@nielsen_coastal_2020]. The Arctic region is remote and is experiencing dramatic changes with local and global implications due to the shift from ice to water: altered soil carbon fluxes [@bruhwiler_arctic_2021], changes in vegetation cover [@campbell_high_2021], shifts in animal behavior [@davidson_ecological_2020], and challenges to infrastructure [@suter_assessment_2019]. Accordingly, the transformation of ice to water through degrading permafrost and melting sea and lake ice reverberates through the entire Arctic ecosystem and, therefore, enlists the interest of a broad range of earth, engineering, and social science disciplines [@druckenmiller_arctic_2021]. Remote sensing of satellite imagery is an important approach in developing Arctic baseline information, monitoring change, and exploring physical processes [@philipp_trends_2021;@noauthor_changing_nodate]. Today, there exist important climatic, geological, biological and sociological data that are yet to be exploited by the Arctic science community. To make the best possible use of these data to address the pressing challenges facing the Arctic environment and Arctic people, the more advanced methods and tools that are available need to be applied. AI-driven analytics, especially those incorporating deep machine learning, can process Arctic big data, automatically detect hidden patterns, and derive new knowledge to enable a new wave of data-driven discovery [@noauthor_ai_nodate].
 
@@ -10,7 +8,7 @@ The Arctic is one of the Earth's remaining frontiers that is critical to the Ear
 ![Arctic mountains](../images/breaking-ice/arctic-mtns.jpg)
 :::
 
-### AI for Arctic Challenges
+## AI for Arctic Challenges
 
 ::: {.callout-tip collapse="false"}
 ## Artificial Intelligence
@@ -53,8 +51,19 @@ In this course, we will more narrowly focus on geospatial applications of AI, an
 
 ## Welcome and Introductions
 
-TBD
+Let's kick the week off with a warm welcome and round of introductions. We'll start with our Cyber2A project [instructors and speakers](https://cyber2a.github.io/workshop/#instructors-and-speakers), and then introduce each of our participants. Everyone is here due to a deep interest in finding solutions to challenges in Arctic science, and everyone is on their own personal journey through data and science. To learn a little about one another, let's share:
 
+- Name and affiliation
+- Your data science background (be brief!)
+- One! thing you'd like to get out of the course
+
+::: {.column-body}
+
+![](../images/breaking-ice/horst-welcome.png)
+
+[Artwork by \@allison_horst](https://twitter.com/allison_horst) 
+
+:::
 
 ## Cyber2A project
 
