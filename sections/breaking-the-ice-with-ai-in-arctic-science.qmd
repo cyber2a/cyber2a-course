@@ -15,28 +15,50 @@ The Arctic is one of the Earth's remaining frontiers that is critical to the Ear
 ::: {.callout-tip collapse="false"}
 ## Artificial Intelligence
 
-Artificial Intelligence is...
+**Artificial Intelligence (AI)** in its broadest sense describes the focus on computing systems that exhibit forms of intelligence. Multiple approaches towards AI have been identified, including:
 
+- **Knowledge Representation and Reasoning** to gain a semantic, logical model of a system
+- **Machine Learning** in which statistical models are used for pattern recognition and prediction
+- **Natural Language Processing** for communication in human languages such as English
+- **Expert Systems** using rule-based logical systems for decision-making
+- **Large Language Models** for filtering and generating language
+- **...**
+
+:::
+
+The pursuit of AI as a field has been around since the 1956 with the [Dartmouth Workshop](https://en.wikipedia.org/wiki/Dartmouth_workshop), but really took a leap forward in the 2010's with rising performance of computing hardware and new techniques in machine learning, particularly in the field of deep learning. More recently, AI has entered the public consciousness with the promotion of large language models (LLMs) such as the [GPT-3](https://en.wikipedia.org/wiki/GPT-3) [transformer model](https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)) and related generative AI systems that are based on foundation models and can quickly generate new outputs [@NIPS2017_3f5ee243].
+
+::: {.column-margin}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/AI_hierarchy.svg/399px-AI_hierarchy.svg.png)
 :::
 
 ::: {.callout-tip collapse="false"}
 ## Machine Learning
 
-Machine learning is...
+**Machine learning** (ML) is the subfield of AI concerned with pattern detection using statistical models, which then can be applied to unseen data for prediction and extrapolation without explicit instructions  [@jordan_machine_2015]. This mechanistic view of 'learning' supports robust evaluation of error and has applications in computer vision, image recognition, speech recognition, text processing and filtering, and many more areas.
 
 :::
+
+Techniques for machine learning are often divided into three types (supervised, unsupervised, and reinforcement learning). These techiques differ based on the feedback provided to the learning system:
+
+- **Supervised learning**: Training input data are labeled (often manually) by a human, and the algorithm learns by generalizing from these inputs to predict correct outputs
+- **Unsupervised learning**: Without labels, the ML algorithm is designed to detect patterns and structure in the input, often using techniques like gradient descent, clustering, and classification algorithms.
+- **Reinforcement learning**: A ML algorithm learns dynamically from interactive input to solve a problem or learn a goal, where correct responses are rewarded (weighted) higher than less correct responses. Learning then becomes an optimization/hill-climbing problem.
+
+These general approaches all have strengths and weaknesses, and are often used in combination to tackle different aspects of a learning problem.
+
+## Gallery of Geospatial AI
+
+In this course, we will more narrowly focus on geospatial applications of AI, and particularly on the use of deep learning techniques that employ, for example, convolutional neural networks for feature recognition tasks across massive image datasets such as satellite imagery. As we'll see during the course, advances in 
 
 ## Welcome and Introductions
 
 TBD
 
-## Gallery of Global AI
-
-TBD
 
 ## Cyber2A project
 
-TBD
+![](../images/breaking-ice/arctic-dl-trend.png)
 
 ## Goal
 
