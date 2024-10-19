@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -293,6 +313,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -304,17 +330,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal">Goal</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">10.1</span> Introduction</a>
-  <ul class="collapse">
-  <li><a href="#the-fast-principles" id="toc-the-fast-principles" class="nav-link" data-scroll-target="#the-fast-principles"><span class="header-section-number">10.1.1</span> The FAST Principles</a></li>
-  <li><a href="#fairness" id="toc-fairness" class="nav-link" data-scroll-target="#fairness"><span class="header-section-number">10.1.2</span> Fairness</a></li>
-  <li><a href="#accountability" id="toc-accountability" class="nav-link" data-scroll-target="#accountability"><span class="header-section-number">10.1.3</span> Accountability</a></li>
-  <li><a href="#sustainability" id="toc-sustainability" class="nav-link" data-scroll-target="#sustainability"><span class="header-section-number">10.1.4</span> Sustainability</a></li>
-  <li><a href="#transparency" id="toc-transparency" class="nav-link" data-scroll-target="#transparency"><span class="header-section-number">10.1.5</span> Transparency</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">10.1.6</span> Conclusion</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">10.2</span> References</a></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">10.3</span> Further Reading</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">10.1</span> Introduction</a></li>
+  <li><a href="#the-fast-principles" id="toc-the-fast-principles" class="nav-link" data-scroll-target="#the-fast-principles"><span class="header-section-number">10.2</span> The FAST Principles</a></li>
+  <li><a href="#fairness" id="toc-fairness" class="nav-link" data-scroll-target="#fairness"><span class="header-section-number">10.3</span> Fairness</a></li>
+  <li><a href="#accountability" id="toc-accountability" class="nav-link" data-scroll-target="#accountability"><span class="header-section-number">10.4</span> Accountability</a></li>
+  <li><a href="#sustainability" id="toc-sustainability" class="nav-link" data-scroll-target="#sustainability"><span class="header-section-number">10.5</span> Sustainability</a></li>
+  <li><a href="#transparency" id="toc-transparency" class="nav-link" data-scroll-target="#transparency"><span class="header-section-number">10.6</span> Transparency</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">10.7</span> Conclusion</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">10.8</span> Further Reading</a></li>
   </ul>
 </nav>
     </div>
@@ -340,16 +363,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>&gt;&gt;&gt;&gt;THIS SECTION IS UNDER DEVELOPMENT&lt;&lt;&lt;&lt;</strong></p>
 <section id="goal" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="goal">Goal</h2>
 <p>Review FAIR and CARE Principles, and their relevance to data ethics. Examine how ethical considerations are shared and considered at the Arctic Data Center. Discuss ethical considerations in machine learning.</p>
 </section>
 <section id="introduction" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">10.1</span> Introduction</h2>
-<p><strong>Artificial Intelligence (AI)</strong> can be thought of as the development of computer systems that can perform tasks we usually think require human intelligence, such as image recognition, language translation, or autonomous movement. The rapid development and adoption of AI tools in the past years, particularly machine learning algorithms, has revolutionized how big datasets are analyzed, transforming decision-making in all sectors of society. However, <strong>frameworks to examine the ethical considerations of AI are just emerging</strong>, and careful consideration of how to best develop and apply AI systems is essential to the responsible use of these new, rapidly changing tools. In this section, we will give an overview of the FAST Principles put forward by the Alan Turing Institute in their guide for the responsible design and implementation of AI systems (Leslie, 2019).</p>
-<section id="the-fast-principles" class="level3" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="the-fast-principles"><span class="header-section-number">10.1.1</span> The FAST Principles</h3>
+<p><strong>Artificial Intelligence (AI)</strong> can be thought of as the development of computer systems that can perform tasks we usually think require human intelligence, such as image recognition, language translation, or autonomous movement. The rapid development and adoption of AI tools in the past years, particularly machine learning algorithms, has revolutionized how big datasets are analyzed, transforming decision-making in all sectors of society. However, <strong>frameworks to examine the ethical considerations of AI are just emerging</strong>, and careful consideration of how to best develop and apply AI systems is essential to the responsible use of these new, rapidly changing tools. In this section, we will give an overview of the FAST Principles put forward by the Alan Turing Institute in their guide for the responsible design and implementation of AI systems <span class="citation" data-cites="leslie_understanding_2019"><a href="../references.html#ref-leslie_understanding_2019" role="doc-biblioref">[1]</a></span>.</p>
+</section>
+<section id="the-fast-principles" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="the-fast-principles"><span class="header-section-number">10.2</span> The FAST Principles</h2>
 <p><strong>FAST stands for Fairness, Accountability, Sustainability, and Transparency.</strong> The FAST principles aim to guide the ethical development of AI projects from their inception to deployment. The continuous involvement and commitment of software developers, domain experts, technical leads, project managers, rightsholders, and collaborators involved in the AI project is crucial to implement these principles successfully. The following is a brief overview of each of the FAST principles, we greatly encourage you to read through the Alan Turing Institute guide to learn more!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -358,9 +381,9 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="fairness" class="level3" data-number="10.1.2">
-<h3 data-number="10.1.2" class="anchored" data-anchor-id="fairness"><span class="header-section-number">10.1.2</span> Fairness</h3>
-<p>Bias can enter at any point of a research project, from data collection and preprocessing, to model design and implementation. This is because AI projects, as any other, are created by human beings who (even with the best of intentions) can introduce error, prejudice, or misjudgement into a system. <strong>Fairness refers to the active minimization of bias and commitment to not harm others through the outcomes of an AI system.</strong> The FAST principles (Leslie, 2019) suggest the following baseline for fairness:</p>
+<section id="fairness" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="fairness"><span class="header-section-number">10.3</span> Fairness</h2>
+<p>Bias can enter at any point of a research project, from data collection and preprocessing, to model design and implementation. This is because AI projects, as any other, are created by human beings who (even with the best of intentions) can introduce error, prejudice, or misjudgement into a system. <strong>Fairness refers to the active minimization of bias and commitment to not harm others through the outcomes of an AI system.</strong> The FAST principles <span class="citation" data-cites="leslie_understanding_2019"><a href="../references.html#ref-leslie_understanding_2019" role="doc-biblioref">[1]</a></span> suggest the following baseline for fairness:</p>
 <blockquote class="blockquote">
 <p>The designers and users of AI systems ensure that the decisions and behaviours of their models do not generate discriminatory or inequitable impacts on affected individuals and communities. This entails that these designers and users ensure that the AI systems they are developing and deploying:</p>
 <ol type="1">
@@ -371,7 +394,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 </blockquote>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -380,9 +403,9 @@ Real-life Example : Insufficient Radar Network
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>The following figure (McGovern et al., 2022) shows coverage of the national Doppler weather network (green and yellow circles) over a demographic map of the Black population in the southeast US. This would be an example of an <strong>issue in data fairness, since radar coverage does not represent the population uniformly, leaving out areas with higher Black population</strong>. Problems with outcome fairness could ensue if this non-representative biases an AI model to under-predict weather impacts in such populations.</p>
+<p>The following figure <span class="citation" data-cites="mcgovern_why_2022"><a href="../references.html#ref-mcgovern_why_2022" role="doc-biblioref">[2]</a></span> shows coverage of the national Doppler weather network (green and yellow circles) over a demographic map of the Black population in the southeast US. This would be an example of an <strong>issue in data fairness, since radar coverage does not represent the population uniformly, leaving out areas with higher Black population</strong>. Problems with outcome fairness could ensue if this non-representative biases an AI model to under-predict weather impacts in such populations.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/ai-ethics/are-black-americans-underserved-by-radar.png" class="img-fluid figure-img"></p>
@@ -393,12 +416,12 @@ Real-life Example : Insufficient Radar Network
 </div>
 </div>
 </section>
-<section id="accountability" class="level3" data-number="10.1.3">
-<h3 data-number="10.1.3" class="anchored" data-anchor-id="accountability"><span class="header-section-number">10.1.3</span> Accountability</h3>
+<section id="accountability" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="accountability"><span class="header-section-number">10.4</span> Accountability</h2>
 <p>Accountability in AI projects stems from the shared view that isolated AI models used to automate decisions are not morally responsible in the same way as a decision-making human. As outputs from AI models are increasingly used to make decisions that affect the environment and human lives, <strong>there is a critical need for competent human authorities to offer explanations and justifications for the development process, outputs, and ensuing decisions made by AI systems</strong>. Such answerability assignments can be challenging, as AI implementations are often the product of big development teams where the responsibility to answer for a project’s outcome may not be delineated, creating an issue known as “the problem of many hands.” The FAST principles encourage the following accountability implementation:</p>
 <p><strong>Accountability by Design:</strong> All AI systems must be designed to facilitate end-to-end answerability and auditability. This requires both responsible <em>humans-in-the-loop</em> across the entire design and implementation chain as well as <em>activity monitoring protocols</em> that enable end-to-end oversight and review.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -407,19 +430,19 @@ Real-life Example: AI for natural disasters response
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>Accountability and the ability to audit AI methods can be crucial when model outputs support critical decision-making, such as in natural disasters. In 2021, a New York Times investigation (Fink, 2021) covered a private company’s premature release of outputs about neighborhoods most affected by potential earthquakes in Seattle. While the initial release erroneously did not show threats for non-residential areas, ensuing updated versions showed non-compatible predictions again. Although the company acknowledged that its AI models would not replace the first responder’s judgment, the lack of audibility and opacity in the model development hindered accountability for any party, ultimately eroding the public confidence in the tools and leading to a loss of public resources.</p>
+<p>Accountability and the ability to audit AI methods can be crucial when model outputs support critical decision-making, such as in natural disasters. In 2021, a New York Times investigation <span class="citation" data-cites="fink_this_2019"><a href="../references.html#ref-fink_this_2019" role="doc-biblioref">[3]</a></span>] covered a private company’s premature release of outputs about neighborhoods most affected by potential earthquakes in Seattle. While the initial release erroneously did not show threats for non-residential areas, ensuing updated versions showed non-compatible predictions again. Although the company acknowledged that its AI models would not replace the first responder’s judgment, the lack of audibility and opacity in the model development hindered accountability for any party, ultimately eroding the public confidence in the tools and leading to a loss of public resources.</p>
 <p><img src="../images/ai-ethics/first-responders-from-surrounding-cities-conduct-search-9d90e0.jpg" class="img-fluid"></p>
 </div>
 </div>
 </div>
 </section>
-<section id="sustainability" class="level3" data-number="10.1.4">
-<h3 data-number="10.1.4" class="anchored" data-anchor-id="sustainability"><span class="header-section-number">10.1.4</span> Sustainability</h3>
-<p><strong>Sustainability in the FAST principles includes continuous assessment of the social impacts of an AI system and technical sustainability of the AI model</strong>. In the first consideration, the FAST principles advocate for performing a Stakeholder Impact Assessment (SIA) at different stages to help build confidence in the project and uncover unexpected risks or biases, among other benefits. The Alan Turing Institute guide shares a prototype of an SIA (Leslie, 2019). The core of technical sustainability is creating safe, accurate, reliable, secure, and robust AI systems. To achieve these technical goals, teams must implement thorough testing, performance metrics, uncertainty quantification, and be aware of changes to the underlying distribution of data, among other essential practices.</p>
+<section id="sustainability" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="sustainability"><span class="header-section-number">10.5</span> Sustainability</h2>
+<p><strong>Sustainability in the FAST principles includes continuous assessment of the social impacts of an AI system and technical sustainability of the AI model</strong>. In the first consideration, the FAST principles advocate for performing a Stakeholder Impact Assessment (SIA) at different stages to help build confidence in the project and uncover unexpected risks or biases, among other benefits. The Alan Turing Institute guide shares a prototype of an SIA <span class="citation" data-cites="leslie_understanding_2019"><a href="../references.html#ref-leslie_understanding_2019" role="doc-biblioref">[1]</a></span>. The core of technical sustainability is creating safe, accurate, reliable, secure, and robust AI systems. To achieve these technical goals, teams must implement thorough testing, performance metrics, uncertainty quantification, and be aware of changes to the underlying distribution of data, among other essential practices.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -428,9 +451,9 @@ Real-life Example: SpaceCows
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>The SpaceCows project (Shepherd, 2021; ABC Australia, 2024) in northern Australia is a collaboration between scientists, industry leaders, and local indigenous communities developing AI centered platforms to analyze GPS tracking data collected from feral cows alongside satellite imagery and weather data. Indigenous knowledge and traditional land owners have been at the center of the development, providing guidance and ultimately benefiting from the AI tools to protect their land and cultural sites.</p>
+<p>The SpaceCows project <span class="citation" data-cites="shepherd_indigenous_2021 csiro_spacecows_nodate"><a href="../references.html#ref-shepherd_indigenous_2021" role="doc-biblioref">[4]</a>, <a href="../references.html#ref-csiro_spacecows_nodate" role="doc-biblioref">[5]</a></span> in northern Australia is a collaboration between scientists, industry leaders, and local indigenous communities developing AI centered platforms to analyze GPS tracking data collected from feral cows alongside satellite imagery and weather data. Indigenous knowledge and traditional land owners have been at the center of the development, providing guidance and ultimately benefiting from the AI tools to protect their land and cultural sites.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/ai-ethics/Feral-herds-can-damage-important-rock-art.jpg" class="img-fluid figure-img"></p>
@@ -444,11 +467,11 @@ Real-life Example: SpaceCows
 </div>
 </div>
 </section>
-<section id="transparency" class="level3" data-number="10.1.5">
-<h3 data-number="10.1.5" class="anchored" data-anchor-id="transparency"><span class="header-section-number">10.1.5</span> Transparency</h3>
+<section id="transparency" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="transparency"><span class="header-section-number">10.6</span> Transparency</h2>
 <p>Under the FAST principles, transparency in AI projects refers to transparency about how an AI project was designed and implemented and the content and justification of the outcome produced by the AI model. To ensure process transparency, the project should <strong>show how the design and implementation included ethical, safety, and fairness considerations throughout the project</strong>. To clarify the content and explain the outcomes of an AI system, <strong>the project should offer plain language, non-technical explanations accessible to non-specialists that convey how and why a model performed the way it did</strong>. In this direction, it is essential to avoid a ‘mathematical glass box’ where the code and mathematics behind the algorithm are openly available, but there is a lack of rationale about how or why the model goes from input to output. Finally, the explanations about how the outcomes were produced should become the basis to justify the outcomes in terms of ethical permissibility, fairness, and trustworthiness. A careful consideration of the balance between the sustainability and transparency principles is necessary when dealing with protected or private data.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -457,9 +480,9 @@ Real-life Example: France’s Digital Republic Act
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>The concern for transparency in using personal data is an active space for debate. In 2018, the French government passed a law to protect citizens’ privacy, establishing the citizen’s “right to an explanation” regarding, among other things, how an algorithm contributed to decisions on their persona and which data was processed (Edwards and Veale, 2017; Lo Piano, 2020). Overall, this legislation aims to create a fairer and more transparent digital environment where everyone can enjoy equal opportunities.</p>
+<p>The concern for transparency in using personal data is an active space for debate. In 2018, the French government passed a law to protect citizens’ privacy, establishing the citizen’s “right to an explanation” regarding, among other things, how an algorithm contributed to decisions on their persona and which data was processed <span class="citation" data-cites="edwards_enslaving_2018 lo_piano_ethical_2020"><a href="../references.html#ref-edwards_enslaving_2018" role="doc-biblioref">[6]</a>, <a href="../references.html#ref-lo_piano_ethical_2020" role="doc-biblioref">[7]</a></span>. Overall, this legislation aims to create a fairer and more transparent digital environment where everyone can enjoy equal opportunities.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/ai-ethics/google-deepmind-x-jiPtOms98-unsplash copy.jpg" class="img-fluid figure-img"></p>
@@ -470,29 +493,53 @@ Real-life Example: France’s Digital Republic Act
 </div>
 </div>
 </section>
-<section id="conclusion" class="level3" data-number="10.1.6">
-<h3 data-number="10.1.6" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">10.1.6</span> Conclusion</h3>
+<section id="conclusion" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">10.7</span> Conclusion</h2>
 <p>As new AI developments and applications rapidly emerge and transform everyday life, we need to pause and ensure these technologies are fair, sustainable, and transparent. We must acknowledge human responsibility in designing and implementing AI systems to use these novel tools fairly and with accountability. Finally, we acknowledge that the information covered here is a lightning introduction to AI’s ethical considerations and implications. <strong>Whether you are a researcher interested in using AI for the first time or a seasoned ML practitioner, we urge you to dive into the necessary and ever-expanding AI ethics work to learn how to best incorporate these concepts into your work.</strong></p>
 </section>
-</section>
-<section id="references" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="references"><span class="header-section-number">10.2</span> References</h2>
-<p>Edwards, Lilian, and Michael Veale. (2017). Enslaving the algorithm: From a&nbsp; right to an explanationn to a&nbsp; right to better decisionss?. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3052831.</p>
-<p>Fink, Sheri. (2019). “This High-Tech Solution to Disaster Response May Be Too Good to Be True.” The New York Times. www.nytimes.com/2019/08/09/us/emergency-response-disaster-technology.html.</p>
-<p>Leslie, D. (2019). Understanding artificial intelligence ethics and safety: A guide for the responsible design and implementation of AI systems in the public sector. The Alan Turing Institute. https://doi.org/10.5281/zenodo.3240529</p>
-<p>Lo Piano, S. (2020). Ethical principles in machine learning and artificial intelligence: cases from the field and possible ways forward. Humanit Soc Sci Commun 7, 9. https://doi.org/10.1057/s41599-020-0501-9</p>
-<p>McGovern, A., Ebert-Uphoff, I., Gagne, D. J., &amp; Bostrom, A. (2022). Why we need to focus on developing ethical, responsible, and trustworthy artificial intelligence approaches for environmental science. Environmental Data Science, 1, e6. doi:10.1017/eds.2022.5</p>
-<p>Shepard, Tory. (2021) Indigenous Rangers to Use SpaceCows Program to Protect Sacred Sites and Rock Art from Feral Herds.” The Guardian, Guardian News and Media. www.theguardian.com/australia-news/2021/sep/15/indigenous-rangers-to-use-spacecows-program-to-protect-sacred-sites-and-rock-art-from-feral-herds.</p>
-<p>(2021). SpaceCows: Using AI to Tackle Feral Herds in the Top End. CSIRO. www.csiro.au/en/news/all/news/2021/september/spacecows-using-ai-to-tackle-feral-herds-in-the-top-end.</p>
-</section>
-<section id="further-reading" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">10.3</span> Further Reading</h2>
-<p>Academic Data Science Alliance (ADSA) (2024) The Data Sciene Ethos https://ethos.academicdatascience.org</p>
-<p>Chen, W., &amp; Quan-Haase, A. (2020) Big Data Ethics and Politics: Towards New Understandings. Social Science Computer Review. https://journals.sagepub.com/doi/10.1177/0894439318810734</p>
-<p>Crawford, K., &amp; Paglen, T. (2019) Excavating AI: The Politics of Training Sets for Machine Learning. https://excavating.ai/</p>
-<p>Gray, J., &amp; Witt, A. (2021) A feminist data ethics of care framework for machine learning: The what, why, who and how. First Monday, 26(12), Article number: 11833</p>
+<section id="further-reading" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">10.8</span> Further Reading</h2>
+<p>Academic Data Science Alliance (ADSA) (2024) The Data Sciene Ethos https://ethos.academicdatascience.org <span class="citation" data-cites="adsa_data_ethos_2024"><a href="../references.html#ref-adsa_data_ethos_2024" role="doc-biblioref">[8]</a></span></p>
+<p>Chen, W., &amp; Quan-Haase, A. (2020) Big Data Ethics and Politics: Towards New Understandings. Social Science Computer Review. <span class="citation" data-cites="chen_big_2020"><a href="../references.html#ref-chen_big_2020" role="doc-biblioref">[9]</a></span></p>
+<p>Crawford, K., &amp; Paglen, T. (2019) <a href="https://excavating.ai/">Excavating AI: The Politics of Training Sets for Machine Learning.</a> <span class="citation" data-cites="noauthor_excavating_2024"><a href="../references.html#ref-noauthor_excavating_2024" role="doc-biblioref">[10]</a></span></p>
+<p>Gray, J., &amp; Witt, A. (2021) A feminist data ethics of care framework for machine learning: The what, why, who and how. First Monday, 26(12), Article number: 11833 <span class="citation" data-cites="gray_feminist_2021"><a href="../references.html#ref-gray_feminist_2021" role="doc-biblioref">[11]</a></span></p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-leslie_understanding_2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">D. Leslie, <span>“Understanding artificial intelligence ethics and safety: <span>A</span> guide for the responsible design and implementation of <span>AI</span> systems in the public sector,”</span> Zenodo, Jun. 2019. doi: <a href="https://doi.org/10.5281/zenodo.3240529">10.5281/zenodo.3240529</a>.</div>
+</div>
+<div id="ref-mcgovern_why_2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">A. McGovern, I. Ebert-Uphoff, D. J. G. Ii, and A. Bostrom, <span>“Why we need to focus on developing ethical, responsible, and trustworthy artificial intelligence approaches for environmental science,”</span> <em>Environmental Data Science</em>, vol. 1, p. e6, Jan. 2022, doi: <a href="https://doi.org/10.1017/eds.2022.5">10.1017/eds.2022.5</a>.</div>
+</div>
+<div id="ref-fink_this_2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">S. Fink, <span>“This <span>High</span>-<span>Tech</span> <span>Solution</span> to <span>Disaster</span> <span>Response</span> <span>May</span> <span>Be</span> <span>Too</span> <span>Good</span> to <span>Be</span> <span>True</span>,”</span> <em>The New York Times</em>, Aug. 2019, Accessed: Oct. 19, 2024. [Online]. Available: <a href="https://www.nytimes.com/2019/08/09/us/emergency-response-disaster-technology.html">https://www.nytimes.com/2019/08/09/us/emergency-response-disaster-technology.html</a></div>
+</div>
+<div id="ref-shepherd_indigenous_2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">T. Shepherd, <span>“Indigenous rangers to use <span>SpaceCows</span> program to protect sacred sites and rock art from feral herds,”</span> <em>The Guardian</em>, Sep. 2021, Accessed: Oct. 19, 2024. [Online]. Available: <a href="https://www.theguardian.com/australia-news/2021/sep/15/indigenous-rangers-to-use-spacecows-program-to-protect-sacred-sites-and-rock-art-from-feral-herds">https://www.theguardian.com/australia-news/2021/sep/15/indigenous-rangers-to-use-spacecows-program-to-protect-sacred-sites-and-rock-art-from-feral-herds</a></div>
+</div>
+<div id="ref-csiro_spacecows_nodate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">CSIRO, <span>“<span>SpaceCows</span>: <span>Using</span> <span>AI</span> to tackle feral herds in the <span>Top</span> <span>End</span>.”</span> Accessed: Oct. 19, 2024. [Online]. Available: <a href="https://www.csiro.au/en/news/All/News/2021/September/SpaceCows-Using-AI-to-tackle-feral-herds-in-the-Top-End">https://www.csiro.au/en/news/All/News/2021/September/SpaceCows-Using-AI-to-tackle-feral-herds-in-the-Top-End</a></div>
+</div>
+<div id="ref-edwards_enslaving_2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">L. Edwards and M. Veale, <span>“Enslaving the <span>Algorithm</span>: <span>From</span> a <span>‘<span>Right</span> to an <span>Explanation</span>’</span> to a <span>‘<span>Right</span> to <span>Better</span> <span>Decisions</span>’</span>?”</span> Social Science Research Network, Rochester, NY, 2018. doi: <a href="https://doi.org/10.2139/ssrn.3052831">10.2139/ssrn.3052831</a>.</div>
+</div>
+<div id="ref-lo_piano_ethical_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">S. Lo Piano, <span>“Ethical principles in machine learning and artificial intelligence: Cases from the field and possible ways forward,”</span> <em>Humanities and Social Sciences Communications</em>, vol. 7, no. 1, pp. 1–7, Jun. 2020, doi: <a href="https://doi.org/10.1057/s41599-020-0501-9">10.1057/s41599-020-0501-9</a>.</div>
+</div>
+<div id="ref-adsa_data_ethos_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">A. D. S. A. (ADSA), <span>“The <span>Data</span> <span>Science</span> <span>Ethos</span> - <span>Operationalizing</span> <span>Ethics</span> in <span>Data</span> <span>Science</span>,”</span> <em>The Data Science Ethos</em>. Accessed: Oct. 19, 2024. [Online]. Available: <a href="https://ethos.academicdatascience.org/">https://ethos.academicdatascience.org/</a></div>
+</div>
+<div id="ref-chen_big_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">W. Chen and A. Quan-Haase, <span>“Big <span>Data</span> <span>Ethics</span> and <span>Politics</span>: <span>Toward</span> <span>New</span> <span>Understandings</span>,”</span> <em>Social Science Computer Review</em>, vol. 38, no. 1, pp. 3–9, Feb. 2020, doi: <a href="https://doi.org/10.1177/0894439318810734">10.1177/0894439318810734</a>.</div>
+</div>
+<div id="ref-noauthor_excavating_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline"><span>“Excavating <span>AI</span>.”</span> Accessed: Oct. 19, 2024. [Online]. Available: <a href="https://excavating.ai/">https://excavating.ai/</a></div>
+</div>
+<div id="ref-gray_feminist_2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">J. Gray and A. Witt, <span>“A feminist data ethics of care for machine learning: <span>The</span> what, why, who and how,”</span> <em>First Monday</em>, Dec. 2021, doi: <a href="https://doi.org/10.5210/fm.v26i12.11833">10.5210/fm.v26i12.11833</a>.</div>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
