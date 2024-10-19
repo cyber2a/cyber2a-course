@@ -44,6 +44,7 @@ book:
     - part: "<b>Day 5: AI Frontiers</b>"
       chapters:
         - sections/the-fun-and-frontiers-of-ai.qmd
+    - references.qmd
 
     
   sidebar:

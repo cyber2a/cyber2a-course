@@ -102,8 +102,3 @@ The [Cyber2A](https://cyber2a.github.io/) project aims to build an Arctic learni
 This course is also a starting point, and not an endpoint. We welcome feedback, suggestions, revisions, and edits to the materials. We want people to adopt, adapt, and revise the materials, and, importantly, contribute those changes back so that others can benefit from these curricular advances. Look for more from Cyber2A as we continue to engage in promoting the use of GeoAI across the Arctic.
 
 ![](../images/breaking-ice/cyber2a-project.png)
-
-## References {.unnumbered}
-
-::: {#refs}
-:::
