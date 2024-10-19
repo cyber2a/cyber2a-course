@@ -4,10 +4,72 @@ project:
 
 book:
   title: "Cyber2A: AI for Arctic Research"
-  author: "Wenwen Li, Anna Liljedahl, Matthew B. Jones, Chia-Yu Hsu, Alyona Kosobokova, Jim Regetz, Chandi Witharana, Yili Yang, Ben Galewsky, Minu Mathew, Sandeep Satheesan, Nicole Greco, Kenton McHenry, Carmen Galaz García, Kate Holman Billmeier"
+  doi: 10.18739/A2222R77V
+  author:
+  - name: Wenwen Li
+    affiliation:
+      - id: asu
+        name: Arizona State University
+        ror: https://ror.org/03efmqc40
+  - name: Anna Liljedahl
+    affiliation:
+      - id: woodwell
+        name: Woodwell Climate
+        ror: https://ror.org/04cvvej54
+  - name: Matthew B. Jones
+    orcid: https://orcid.org/0000-0003-0077-4738
+    affiliation:
+      - id: nceas
+        name: University of California Santa Barbara
+        department: National Center for Ecological Analysis and Synthesis
+        ror: https://ror.org/0146z4r19
+  - name: Chia-Yu Hsu
+    affiliation:
+      - ref: asu
+  - name: Alyona Kosobokova
+    affiliation:
+      - ref: nceas
+  - name: Jim Regetz
+    affiliation:
+      - ref: nceas
+  - name: Chandi Witharana
+    affiliation:
+      - id: uconn
+        name: University of Connecticut
+        ror: https://ror.org/02der9h97
+  - name: Yili Yang
+    affiliation:
+      - ref: woodwell
+  - name: Ben Galewsky
+    affiliation:
+      - id: ncsa
+        name: National Center for Supercomputing Applications
+        ror: https://ror.org/03g9ch715
+  - name: Minu Mathew
+    affiliation:
+      - ref: ncsa
+  - name: Sandeep Satheesan
+    affiliation:
+      - ref: ncsa
+  - name: Nicole Greco
+    affiliation:
+      - ref: nceas
+  - name: Kenton McHenry
+    affiliation:
+      - ref: ncsa
+  - name: Carmen Galaz García
+    affiliation:
+      - ref: nceas
+  - name: Kate Holman Billmeier
+    affiliation:
+      - id: wellspring
+        name: Wellspring Group Consulting
   date: "2024-10-21"
   search: true
   favicon: images/index/arcticlogo.png
+  license: CC BY
+  repo-url: https://github.com/cyber2a/cyber2a-course/
+  url: https://cyber2a.github.io/cyber2a-course/
   chapters:
     - index.qmd
     - part: "<b>Day 1: Introduction to AI and Arctic Science</b>"
@@ -46,18 +108,17 @@ book:
         - sections/the-fun-and-frontiers-of-ai.qmd
     - references.qmd
 
-    
-  sidebar:
-    tools:
-      - icon: house-door-fill
-        href: https://cyber2a.github.io
-        aria-label: Cyber2A Homepage
-      - icon: twitter
-        href: https://twitter.com/cyber2a_nsf
-        aria-label: Twitter
-      - icon: github
-        href: https://github.com/cyber2a/cyber2a-course
-        aria-label: GitHub
+sidebar:
+  tools:
+    - icon: house-door-fill
+      href: https://cyber2a.github.io
+      aria-label: Cyber2A Homepage
+    - icon: twitter
+      href: https://twitter.com/cyber2a_nsf
+      aria-label: Twitter
+    - icon: github
+      href: https://github.com/cyber2a/cyber2a-course
+      aria-label: GitHub
 
 bibliography: references.bib
 csl: ieee.csl
