@@ -93,7 +93,7 @@ Let's kick the week off with a warm welcome and round of introductions. We'll st
 
 ## Cyber2A project
 
-Despite the power of these machine learning techniques for Arctic research, the Arcitc community has been somewhat delayed compared to other geoscience disciplines in adopting these techniques. 
+Despite the power of these machine learning techniques for Arctic research, the Arctic community has been somewhat delayed compared to other geoscience disciplines in adopting these techniques. 
 
 ![](../images/breaking-ice/arctic-dl-trend.png)
 
