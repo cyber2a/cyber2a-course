@@ -27,20 +27,33 @@ Ideally you'll cover:
 - One or more cloud (web-based) tools
 
 ### Adventure: [Roboflow](https://app.roboflow.com/)
+![.](/images/data-annotation/tool-roboflow.jpg){.lightbox width=60%}
+
 - Roboflow offers a cloud-hosted, web-based platform for computer vision, including tooling for data annotation along with model training and deployment
 - They offer a limited free tier
 - Free tier does not offer any privacy
 
 ### Adventure: [CVAT](https://www.cvat.ai/)
+![.](/images/data-annotation/tool-cvat.jpg){.lightbox width=60%}
 
 - CVAT can be used as a [desktop application](https://github.com/cvat-ai/cvat) that you [install & run](https://docs.cvat.ai/docs/administration/basics/installation/) on your own local computer or server.
 - However, for today, consider creating your own (free) account for annotating using their [hosted platform](https://app.cvat.ai/auth/login)
 - The V7 [cvat guide](https://www.v7labs.com/blog/cvat-guide) might be helpful
 
 ### Adventure: [Segment-Geospatial](https://samgeo.gishub.org/) (samgeo)
-- Either locally or in JupyterLab (or Google colab)
+
+This is an open source tool that you can either install locally or run in JupyterLab (or Google colab).
+
+First check out the online [Segment Anything Model (SAM) demo](https://segment-anything.com/demo). SAM was developed by Meta AI. It is trained as a generalized segmentation model that is able to segment (but not label) arbitrary objects in an image. It is designed as a _promptable_ tool, which means a user can provide initial point(s) or box(es) that roughly localize an object within an image, and SAM will try to fully segment that object. Alternatively, it can automatically segment an entier image, effectively by self-promtping with a complete grid of points, and then intelligently merging the corresponding segments.
+
+Today, SAM is used by numerous image annotation tools to provide interactive, AI-assisted segmentation capabilities.
+
+One such tool is the [segment-geospatial](https://samgeo.gishub.org/) Python package, which provides some base functionality for applying SAM to geospatial data, either programatically or interactively.
+
 - `sudo apt install libgdal-dev gdal-bin`
 - My copy of the [Google Colab notebook](https://drive.google.com/drive/folders/1Q2_nxS8Wwk2m_ouubQ1XRyrtvBhJ5kuw) (related to [this workshop](https://samgeo.gishub.org/workshops/cn_workshop/))
+
+Note that in addition to using segment-geospatial directly using Python in a notebook or other environment, you can also play with SAM-assisted segmentation in [QGIS](https://github.com/BjornNyberg/Geometric-Attributes-Toolbox/wiki/User-Guide#segment-anything-model) and [ArcGIS](https://www.arcgis.com/home/item.html?id=9b67b441f29f4ce6810979f5f0667ebe).
 
 ### Adventure: [Penguin Watch](https://www.zooniverse.org/projects/penguintom79/penguin-watch)
 
@@ -53,6 +66,23 @@ Ideally you'll cover:
 - Has both [open source option](https://github.com/HumanSignal/label-studio) and [paid cloud service](https://humansignal.com/goenterprise/)
 - See online [playground](https://labelstud.io/playground/)
 
+### Adventure: [IRIS](https://github.com/ESA-PhiLab/iris) (Intelligently Reinforced Image Segmentation)
+
+- Tool for manual image segmentation of satellite imagery (or images in general).
+- _Semi-automated annotation for image segmentation_
+- See [YouTube video](https://www.youtube.com/watch?v=ERJA2-fTW6k) with the main creator Alistar Francis
+- Main premise:
+  - In each image, there is a lot of correlation between the pixels
+  - In one scene, might only be a few types of pixels
+- Runs as a JS application on the frontend with Python in the backend
+- Designed to accelerate the creation of ML training datasets for Earth Observation.
+- Flask app which can be run locally
+- Support by AI (gradient boosted decision tree) when doing image segmentation
+- Multiple and configurable views for multispectral imagery
+- Simple setup with pip and one configuration file
+- Platform independent app (runs on Linux, Windows and Mac OS)
+- Multi-user support: work in a team on your dataset and merge the results
+
 ## Other things to try
 - [VGG Image Annotator (VIA)](https://www.robots.ox.ac.uk/~vgg/software/via/)
   - Try local installation?
@@ -60,3 +90,8 @@ Ideally you'll cover:
   - two-polar-bears.jpg
 - [MakeSense](https://github.com/SkalskiP/make-sense)
   - See local setup with Docker
+- [DeepForest](https://deepforest.readthedocs.io/en/v1.3.3/landing.html)
+  - From the Weecology lab
+  - Python package for training and predicting ecological objects in airborne imagery
+  - Comes with a tree crown object detection model and a bird detection model
+  - See [GitHub repo](https://github.com/weecology/DeepForest)
