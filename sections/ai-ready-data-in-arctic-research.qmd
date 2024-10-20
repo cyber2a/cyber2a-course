@@ -19,13 +19,13 @@ This is really a variant on Analysis Ready Data (ARD), or, more recently, "Analy
 
 ![Mahecha et al. 2020. [@mahecha_earth_2020] Visualization of the implemented Earth system data cube. The figure shows from the top left to bottom right the variables sensible heat (H), latent heat (LE), gross primary production (GPP), surface moisture (SM), land surface temperature (LST), air temperature (Tair), cloudiness (C), precipitation (P), and water vapour (V). The resolution in space is 0.25° and 8 d in time, and we are inspecting the time from May 2008 to May 2010; the spatial range is from 15° S to 60° N, and 10° E to 65° W.](../images/ai-ready/mahecha_data_cube.png)
 
-Working with `xarray` and `zarr`, one can access many multi-petabyte earth systems datasets like CMIP6 and ERA5. For an overview of Zarr, see the Arctic Data Center Scalable Computing course [chapter on Zarr](https://learning.nceas.ucsb.edu/2024-03-arctic/sections/zarr.html).
+Working with `xarray` and `zarr`, one can access many multi-petabyte earth systems datasets like CMIP6 (Coupled Model Intercomparison Project Phase 6) and ERA5 (Earth Re). For an overview of Zarr, see the Arctic Data Center Scalable Computing course [chapter on Zarr](https://learning.nceas.ucsb.edu/2024-03-arctic/sections/zarr.html).
 
-Take, for example, the ERA5 dataset, whic is normally downloadable in bulk from the Copernicus Data Service. [ARCO-ERA5](https://github.com/google-research/arco-era5
-) is an Analysis Ready, Cloud Optimized variant of ERA5 which has been reprocessed into a consistent 0.25° global grid, and chunked and saved in Zarr format such that spatial and temporal subsets are easily extracted. Hosted on the Google Cloud Storage in a public bucket (`gcp-public-data-arco-era5`), anyone can easily access slices of this massive multi-petabyte dataset from anywhere on the Internet, and can be doing analysis in seconds.
+Take, for example, the ERA5 reanalysis dataset [@noauthor_era5_nodate], which is normally downloadable in bulk from the Copernicus Data Service. [ARCO-ERA5](https://github.com/google-research/arco-era5
+) is an Analysis Ready, Cloud Optimized variant of ERA5 which has been reprocessed into a consistent 0.25° global grid, and chunked and saved in Zarr format with extensive metadata such that spatial and temporal subsets are easily extracted. Hosted on the Google Cloud Storage service in a public bucket (`gcp-public-data-arco-era5`), anyone can easily access slices of this massive multi-petabyte dataset from anywhere on the Internet, and can be doing analysis in seconds. Let's take a quick peek at this massive dataset:
 
 
-```{python}
+```python
 import xarray
 
 ds = xarray.open_zarr(
@@ -36,12 +36,50 @@ ds = xarray.open_zarr(
 ds
 ```
 
-Nothing really special about AI-Ready vs analysis ready. Labeling is probably the main difference.
+![](../images/ai-ready/era5-zarr-arco.png)
 
-Federal government is preparing for AI [@noauthor_ai-ready_2024]
+With one line of code, we accessed 273 climate variables (e.g., `2m_temperature`, `evaporation`, `forecast_albedo`) spanning 8 decades at hourly time scales. And while this dataset is massive, we can explore it from the comfort of our laptop (not all at once, for which we would need a bigger machine!).
+
+So, there's nothing really special about AI-Ready data, in that a lot of the core requirements for Analysis Ready Data are exactly what are needed for AI modeling as well. Labeling is probably the main difference. Neverthless, many groups have gotten motivated by the promise of AI, and particularly machine learning, across disciplines. For example, the federal government has been ramping up readiness for AI across many agencies. In 2019, the White House Office of Science Technology and Policy (OSTP) started an AI-Readiness matrix, which was followed shortly by the National AI Initiative Act in 2020 [@long_ai-ready_2023].
+
+![](https://bipartisan-policy-center.imgix.net/wp-content/uploads/2023/02/AI-Ready-Open-Data.jpg?auto=compress,format&q=90&ixlib=imgixjs-3.4.2&w=4088)
+
+For example, management agencies have started entire new programs to prepare data and staff for the introcution of AI and machine learning into their processes. One such program with a focus on AI-Ready data is NOAA's Center for Artificial Intelligence (NCAI).
 
 ![[NOAA NCAI](https://www.noaa.gov/ai)](../images/ai-ready/noaa-ncai.png)
 
+In beginning to define AI-Ready data for NOAA, [Christensen et al. 2020](https://www.star.nesdis.noaa.gov/star/documents/meetings/2020AI/presentations/202010/20201022_Christensen.pdf) defined several axes for evaluation, including data quality, data acess, and data documentation. We'll be dinving into many of these today and over the course of the week.
+
+::: {layout="[1,1,1]"}
+
+::: {.callout-tip}
+## Data Quality
+
+- Completeness
+- Consistency
+- Lack of bias
+- Timeliness
+- Provenance and Integrity
+:::
+
+::: {.callout-tip}
+## Data Access
+
+- Formats
+- Delivery options
+- Usage rights
+- Security / privacy
+:::
+
+::: {.callout-tip}
+## Data Documentation
+
+- Dataset Metadata
+- Data dictionary
+- Identifier
+:::
+
+:::
 
 ## Open Data Foundations
 
@@ -64,6 +102,8 @@ FAIR and CARE
 ## Data Quality
 
 MetaDIG
+
+![Data Quality assessment](../images/ai-ready/metadig-report.png)
 
 ## Analysis Ready Data
 
