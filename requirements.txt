@@ -1,0 +1,6 @@
+ipykernel
+xarray
+jupyter
+zarr
+fsspec
+gcsfs

@@ -1,9 +1,96 @@
+---
+execute:
+  freeze: true
+---
 # AI-Ready Data in Arctic Research: Principles and Practices
 
 ## Goal {.unnumbered}
 This session provides an understanding of 'AI-ready data' in Arctic science and geoscience, highlighting the importance of suitable data for AI applications. Participants will learn about creating and managing metadata and organizing data repositories. We'll discuss best practices for data preparation and structuring for AI processing. By the end, participants will clearly understand AI-ready data characteristics and the steps to transform raw data for AI applications.
 
+## Are we ready for AI?
+
+::: {.callout-tip}
+## What is AI-Ready Data?
+
+Data that are **accessible**, preferably **open**, **well-documented**, making them easily **interpretable** for **reuse** and analysis.
+:::
+
+This is really a variant on Analysis Ready Data (ARD), or, more recently, "Analysis Ready, Cloud Optimized (ARCO)" data.
+
+![Mahecha et al. 2020 . Visualization of the implemented Earth system data cube. The figure shows from the top left to bottom right the variables sensible heat (H), latent heat (LE), gross primary production (GPP), surface moisture (SM), land surface temperature (LST), air temperature (Tair), cloudiness (C), precipitation (P), and water vapour (V). The resolution in space is 0.25° and 8 d in time, and we are inspecting the time from May 2008 to May 2010; the spatial range is from 15° S to 60° N, and 10° E to 65° W.](../images/ai-ready/mahecha_data_cube.png)
+
+Working with `xarray` and `zarr`, one can access many multi-petabyte earth systems datasets like CMIP6 and ERA5. For an overview of Zarr, see the Arctic Data Center Scalable Computing course [chapter on Zarr](https://learning.nceas.ucsb.edu/2024-03-arctic/sections/zarr.html).
+
+Take, for example, the ERA5 dataset, whic is normally downloadable in bulk from the Copernicus Data Service. [ARCO-ERA5](https://github.com/google-research/arco-era5
+) is an Analysis Ready, Cloud Optimized variant of ERA5 which has been reprocessed into a consistent 0.25° global grid, and chunked and saved in Zarr format such that spatial and temporal subsets are easily extracted. Hosted on the Google Cloud Storage in a public bucket (`gcp-public-data-arco-era5`), anyone can easily access slices of this massive multi-petabyte dataset from anywhere on the Internet, and can be doing analysis in seconds.
+
+
+```{python}
+import xarray
+
+ds = xarray.open_zarr(
+    'gs://gcp-public-data-arco-era5/ar/full_37-1h-0p25deg-chunk-1.zarr-v3',
+    chunks=None,
+    storage_options=dict(token='anon')
+)
+ds
+```
+
+Nothing really special about AI-Ready vs analysis ready. Labeling is probably the main difference.
+
+Federal government is preparing for AI [@noauthor_ai-ready_2024]
+
+![[NOAA NCAI](https://www.noaa.gov/ai)](../images/ai-ready/noaa-ncai.png)
+
+
+## Open Data Foundations
+
+AI requires data access. And while the open data movement has seen massive growth and adoption, it's an unfortunate fact that most research data collected today are still not published and accessible. 
+
+Arctic Data Center and Data Repositories
+
+![Arctic Data Center Catalog](../images/ai-ready/adc-catalog.png)
+
+![DARTS retrogressive thaw slump dataset [doi:10.18739/A2RR1PP44](https://doi.org/10.18739/A2RR1PP44) ](../images/ai-ready/darts-dataset.png)
+
+DataONE
+
+Graph of Arctic Data across DataONE
+
+Data Documentation for reuse
+
+FAIR and CARE
+
+## Data Quality
+
+MetaDIG
+
+## Analysis Ready Data
+
+## AI Ready Data
+
+## ESIP AI-Readiness Checklist
+
+[@noauthor_checklist_2022]
+
+- Data Preparation
+- Data Quality
+- Data Documentation
+- Data Access
+
+## Croissant
+
+Schema.org as *lingua franca*
+
+
+Croissant specifiction [@benjelloun_croissant_2024]
+
+Croissant Responsible AI (RAI) specification and use cases
+
+
+## Exercise
+
+Documenting data
+
 ## Key Elements {.unnumbered}
 AI-ready data definition, data suitability importance, metadata management, data repository organization, data preparation practices, raw data transformation
-
-
