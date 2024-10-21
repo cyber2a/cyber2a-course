@@ -317,8 +317,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#adventure-roboflow" id="toc-adventure-roboflow" class="nav-link" data-scroll-target="#adventure-roboflow"><span class="header-section-number">5.2</span> Adventure: Roboflow</a></li>
   <li><a href="#adventure-cvat" id="toc-adventure-cvat" class="nav-link" data-scroll-target="#adventure-cvat"><span class="header-section-number">5.3</span> Adventure: CVAT</a></li>
   <li><a href="#adventure-zooniverse" id="toc-adventure-zooniverse" class="nav-link" data-scroll-target="#adventure-zooniverse"><span class="header-section-number">5.4</span> Adventure: Zooniverse</a></li>
-  <li><a href="#adventure-segment-geospatial-samgeo" id="toc-adventure-segment-geospatial-samgeo" class="nav-link" data-scroll-target="#adventure-segment-geospatial-samgeo"><span class="header-section-number">5.5</span> Adventure: Segment-Geospatial (samgeo)</a></li>
-  <li><a href="#adventure-iris-intelligently-reinforced-image-segmentation" id="toc-adventure-iris-intelligently-reinforced-image-segmentation" class="nav-link" data-scroll-target="#adventure-iris-intelligently-reinforced-image-segmentation"><span class="header-section-number">5.6</span> Adventure: IRIS (Intelligently Reinforced Image Segmentation)</a></li>
+  <li><a href="#adventure-iris-intelligently-reinforced-image-segmentation" id="toc-adventure-iris-intelligently-reinforced-image-segmentation" class="nav-link" data-scroll-target="#adventure-iris-intelligently-reinforced-image-segmentation"><span class="header-section-number">5.5</span> Adventure: IRIS (Intelligently Reinforced Image Segmentation)</a></li>
+  <li><a href="#adventure-segment-geospatial-samgeo" id="toc-adventure-segment-geospatial-samgeo" class="nav-link" data-scroll-target="#adventure-segment-geospatial-samgeo"><span class="header-section-number">5.6</span> Adventure: Segment-Geospatial (samgeo)</a></li>
   <li><a href="#adventure-label-studio" id="toc-adventure-label-studio" class="nav-link" data-scroll-target="#adventure-label-studio"><span class="header-section-number">5.7</span> Adventure: Label Studio</a></li>
   <li><a href="#other-things-to-try" id="toc-other-things-to-try" class="nav-link" data-scroll-target="#other-things-to-try"><span class="header-section-number">5.8</span> Other things to try</a></li>
   </ul>
@@ -502,35 +502,8 @@ ul.task-list li input[type="checkbox"] {
 <li><label><input type="checkbox">Feel free to search the site for other projects</label></li>
 </ul>
 </section>
-<section id="adventure-segment-geospatial-samgeo" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="adventure-segment-geospatial-samgeo"><span class="header-section-number">5.5</span> Adventure: <a href="https://samgeo.gishub.org/">Segment-Geospatial</a> (samgeo)</h2>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Requires local installation (Python library), or can be run in a hosted notebook environment (JupyterLab, Google Collab, etc).</p>
-<p>See <a href="https://samgeo.gishub.org/installation/">Installation notes</a>.</p>
-</div>
-</div>
-</div>
-<p>This is an open source tool that you can either install locally or run in JupyterLab (or Google colab).</p>
-<p>First check out the online <a href="https://segment-anything.com/demo">Segment Anything Model (SAM) demo</a>. SAM was developed by Meta AI. It is trained as a generalized segmentation model that is able to segment (but not label) arbitrary objects in an image. It is designed as a <em>promptable</em> tool, which means a user can provide initial point(s) or box(es) that roughly localize an object within an image, and SAM will try to fully segment that object. Alternatively, it can automatically segment an entier image, effectively by self-promtping with a complete grid of points, and then intelligently merging the corresponding segments.</p>
-<p>Today, SAM is used by numerous image annotation tools to provide interactive, AI-assisted segmentation capabilities.</p>
-<p>One such tool is the <a href="https://samgeo.gishub.org/">segment-geospatial</a> Python package, which provides some base functionality for applying SAM to geospatial data, either programatically or interactively.</p>
-<!-- `sudo apt install libgdal-dev gdal-bin` -->
-<!-- My copy of the [Google Colab notebook](https://drive.google.com/drive/folders/1Q2_nxS8Wwk2m_ouubQ1XRyrtvBhJ5kuw) (related to [this workshop](https://samgeo.gishub.org/workshops/cn_workshop/)) -->
-<p>Note that in addition to using segment-geospatial directly using Python in a notebook or other environment, you can also play with SAM-assisted segmentation in <a href="https://github.com/BjornNyberg/Geometric-Attributes-Toolbox/wiki/User-Guide#segment-anything-model">QGIS</a> and <a href="https://www.arcgis.com/home/item.html?id=9b67b441f29f4ce6810979f5f0667ebe">ArcGIS</a>.</p>
-<p><em><strong>Things to try</strong></em></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Run one or more <a href="https://samgeo.gishub.org/#examples">examples</a></label></li>
-<li><label><input type="checkbox">After running automated segmentation, what do you think about the results?</label></li>
-<li><label><input type="checkbox">When doing interactive segmentation, how does it do, and what do you think about the results?</label></li>
-</ul>
-</section>
-<section id="adventure-iris-intelligently-reinforced-image-segmentation" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="adventure-iris-intelligently-reinforced-image-segmentation"><span class="header-section-number">5.6</span> Adventure: <a href="https://github.com/ESA-PhiLab/iris">IRIS</a> (Intelligently Reinforced Image Segmentation)</h2>
+<section id="adventure-iris-intelligently-reinforced-image-segmentation" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="adventure-iris-intelligently-reinforced-image-segmentation"><span class="header-section-number">5.5</span> Adventure: <a href="https://github.com/ESA-PhiLab/iris">IRIS</a> (Intelligently Reinforced Image Segmentation)</h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -557,6 +530,33 @@ ul.task-list li input[type="checkbox"] {
 <li><label><input type="checkbox">Using the onboard help widgets, figure out how to navigate the interface</label></li>
 <li><label><input type="checkbox">Try iteratively labeling some pixels and running the AI. How does it do?</label></li>
 <li><label><input type="checkbox">Experiment with changing the views. How does that improve your ability to manually distinguish and label features like clouds?</label></li>
+</ul>
+</section>
+<section id="adventure-segment-geospatial-samgeo" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="adventure-segment-geospatial-samgeo"><span class="header-section-number">5.6</span> Adventure: <a href="https://samgeo.gishub.org/">Segment-Geospatial</a> (samgeo)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Requires local installation (Python library), or can be run in a hosted notebook environment (JupyterLab, Google Collab, etc).</p>
+<p>See <a href="https://samgeo.gishub.org/installation/">Installation notes</a>.</p>
+</div>
+</div>
+</div>
+<p>This is an open source tool that you can either install locally or run in JupyterLab (or Google colab).</p>
+<p>First check out the online <a href="https://segment-anything.com/demo">Segment Anything Model (SAM) demo</a>. SAM was developed by Meta AI. It is trained as a generalized segmentation model that is able to segment (but not label) arbitrary objects in an image. It is designed as a <em>promptable</em> tool, which means a user can provide initial point(s) or box(es) that roughly localize an object within an image, and SAM will try to fully segment that object. Alternatively, it can automatically segment an entier image, effectively by self-promtping with a complete grid of points, and then intelligently merging the corresponding segments.</p>
+<p>Today, SAM is used by numerous image annotation tools to provide interactive, AI-assisted segmentation capabilities.</p>
+<p>One such tool is the <a href="https://samgeo.gishub.org/">segment-geospatial</a> Python package, which provides some base functionality for applying SAM to geospatial data, either programatically or interactively.</p>
+<!-- `sudo apt install libgdal-dev gdal-bin` -->
+<!-- My copy of the [Google Colab notebook](https://drive.google.com/drive/folders/1Q2_nxS8Wwk2m_ouubQ1XRyrtvBhJ5kuw) (related to [this workshop](https://samgeo.gishub.org/workshops/cn_workshop/)) -->
+<p>Note that in addition to using segment-geospatial directly using Python in a notebook or other environment, you can also play with SAM-assisted segmentation in <a href="https://github.com/BjornNyberg/Geometric-Attributes-Toolbox/wiki/User-Guide#segment-anything-model">QGIS</a> and <a href="https://www.arcgis.com/home/item.html?id=9b67b441f29f4ce6810979f5f0667ebe">ArcGIS</a>.</p>
+<p><em><strong>Things to try</strong></em></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Run one or more <a href="https://samgeo.gishub.org/#examples">examples</a></label></li>
+<li><label><input type="checkbox">After running <a href="https://samgeo.gishub.org/examples/automatic_mask_generator/">automated segmentation</a>, what do you think about the results?</label></li>
+<li><label><input type="checkbox">When doing <a href="https://samgeo.gishub.org/examples/input_prompts/">interactive segmentation</a>, how does it do, and what do you think about the results?</label></li>
 </ul>
 </section>
 <section id="adventure-label-studio" class="level2" data-number="5.7">
@@ -1025,7 +1025,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
