@@ -12,7 +12,7 @@ This session provides an understanding of 'AI-ready data' in Arctic science and 
 ::: {.callout-tip}
 ## What is AI-Ready Data?
 
-Data that are **accessible**, preferably **open**, **well-documented**, making them easily **interpretable** for **reuse** and analysis.
+Data that are **accessible**, preferably **open**, and **well-documented**, making them easily **interpretable** for **reuse** and analysis.
 :::
 
 This is really a variant on Analysis Ready Data (ARD), or, more recently, "Analysis Ready, Cloud Optimized (ARCO)" data.
@@ -85,7 +85,9 @@ In beginning to define AI-Ready data for NOAA, [Christensen et al. 2020](https:/
 
 Preservation and open data access are the foundation of Analysis-Ready and AI-ready data. While all modeling and analysis requires access to data, the ability for AI to encompass massive swaths of information and combine disparate data streams makes open data incredibly valuable. And while the open data movement has seen massive growth and adoption, it's an unfortunate fact that most research data collected today are still not published and accessible, and challenges to the realization of open data outlined by Reichman et al. (2011) are still prominent today [@reichman_challenges_2011]. 
 
-**Arctic Data Center.** Nevertheless, progress has been made. The National Science Foundation [Office of Polar Programs Data, Code, and Sample Management Policy (DCL 22-106)](https://www.nsf.gov/pubs/2022/nsf22106/nsf22106.jsp) embraces the need to preserve, document, and share the data and results from NSF-funded research, and since 2016 has funded the Arctic Data Center to provide services supporting reseach community data needs. The center provides [data submission guidelines](https://arcticdata.io/submit/) and data curation support to create well-documented, understandable, and reusable data from the myriad projects funded by NSF and globally each year. In short, the Arctic Data Center provides a long-term home for over 7000 open, Arctic datasets that are AI-Ready. Researchers increasingly deposit large datasets from remote sensing campaigns using unmanned aerial vehicles (UAV), field expeditions, and observing networks, all of which are prime content for AI.
+### Arctic Data Center
+
+Nevertheless, progress has been made. The National Science Foundation [Office of Polar Programs Data, Code, and Sample Management Policy (DCL 22-106)](https://www.nsf.gov/pubs/2022/nsf22106/nsf22106.jsp) embraces the need to preserve, document, and share the data and results from NSF-funded research, and since 2016 has funded the Arctic Data Center to provide services supporting reseach community data needs. The center provides [data submission guidelines](https://arcticdata.io/submit/) and data curation support to create well-documented, understandable, and reusable data from the myriad projects funded by NSF and globally each year. In short, the Arctic Data Center provides a long-term home for over 7000 open, Arctic datasets that are AI-Ready. Researchers increasingly deposit large datasets from remote sensing campaigns using unmanned aerial vehicles (UAV), field expeditions, and observing networks, all of which are prime content for AI.
 
 ::: {.column-margin}
 ![](../images/ai-ready/arctic-data-center.png)
@@ -103,11 +105,24 @@ In addition to raw observational data and remote sensing imagery, the ADC also s
 
 ![DARTS retrogressive thaw slump dataset [doi:10.18739/A2RR1PP44](https://doi.org/10.18739/A2RR1PP44) ](../images/ai-ready/darts-dataset.png)
 
-**DataONE.**
+While this and other valuable data for cross-cutting analysis are available from the Arctic Data Center, there are many other repositories that hold relevant data as well. Regardless of which repository a researher has chosen to share their data, the important thing to remember is to do so -- data on your laptop or a University web server are rarely accessible and ready for reuse.
 
-Graph of Arctic Data across DataONE
+### DataONE
 
-Data Documentation for reuse
+DataONE is a network designed to connect over 60 (and growing) global data repositories to improve the discoverability and accessiblilty of data from across the  world. DataONE provides global data search and discovery by harmonizing myriad metadata standards used across the world, and providing an interoperability API across repositories to make datasets **findable** and programatically **accessible** regardless of where they live.
+
+![](../images/ai-ready/dataone-network.png)
+
+For example, a query across DataONE in 2024 revealed over 4500 datasets held by 16 different repositories, most of which are not specifically tied to Greenland research, per se.
+
+![](../images/ai-ready/dataone-greenland-datasets.png)
+
+
+![Graph of Arctic Data across DataONE](../images/ai-ready/dataone-arctic-datasets.png)
+
+DataONE portals
+
+Data Documentation for reuse; capturing measurement semantics; adhering to global standards such as EML and ISO-19115
 
 FAIR and CARE
 
