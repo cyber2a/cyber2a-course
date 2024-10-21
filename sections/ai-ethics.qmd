@@ -12,7 +12,7 @@ Review FAIR and CARE Principles, and their relevance to data ethics. Examine how
 
 **FAST stands for Fairness, Accountability, Sustainability, and Transparency.** The FAST principles aim to guide the ethical development of AI projects from their inception to deployment. The continuous involvement and commitment of software developers, domain experts, technical leads, project managers, rightsholders, and collaborators involved in the AI project is crucial to implement these principles successfully. The following is a brief overview of each of the FAST principles, we greatly encourage you to read through the Alan Turing Institute guide to learn more!
 
-![Leslie, 2019](/images/ai-ethics/FAST-principles.png)
+![Leslie, 2019](/images/ai-ethics/FAST-principles.png){.lightbox width=90%}
 
 ## Fairness 
 
@@ -30,7 +30,7 @@ Bias can enter at any point of a research project, from data collection and  pre
 
 The following figure [@mcgovern_why_2022] shows coverage of the national Doppler weather network (green and yellow circles) over a demographic map of the Black population in the southeast US. This would be an example of an **issue in data fairness, since radar coverage does not represent the population uniformly, leaving out  areas with higher Black population**. Problems with outcome fairness could ensue if this non-representative biases an AI model to under-predict weather impacts in such populations.
 
-![McGovern et al., 2022 by courtesy of Jack Sillin (CC BY 4.0).](/images/ai-ethics/are-black-americans-underserved-by-radar.png)
+![McGovern et al., 2022 by courtesy of Jack Sillin (CC BY 4.0).](/images/ai-ethics/are-black-americans-underserved-by-radar.png){.lightbox width=100%}
 :::
 
 ## Accountability
@@ -49,7 +49,7 @@ Accountability and the ability to audit AI methods can be crucial when model out
 In 2021, a New York Times investigation [@fink_this_2019]] covered a private company's premature release of outputs about neighborhoods most affected by potential earthquakes in Seattle. 
 While the initial release erroneously did not show threats for non-residential areas, ensuing updated versions showed non-compatible predictions again. Although the company acknowledged that its AI models would not replace the first responder's judgment, the lack of audibility and opacity in the model development hindered accountability for any party, ultimately eroding the public confidence in the tools and leading to a loss of public resources. 
 
-![](/images/ai-ethics/first-responders-from-surrounding-cities-conduct-search-9d90e0.jpg)
+![](/images/ai-ethics/first-responders-from-surrounding-cities-conduct-search-9d90e0.jpg){.lightbox width=100%}
 :::
 
 ## Sustainability
@@ -61,7 +61,7 @@ While the initial release erroneously did not show threats for non-residential a
 
 The SpaceCows project [@shepherd_indigenous_2021; @csiro_spacecows_nodate] in northern Australia is a collaboration between scientists, industry leaders, and local indigenous communities developing AI centered platforms to analyze GPS tracking data collected from feral cows alongside satellite imagery and weather data. Indigenous knowledge and traditional land owners have been at the center of the development, providing guidance and ultimately benefiting from the AI tools to protect their land and cultural sites.
 
-![Important indigenous cultural sites can be damaged by feral cattle. Image from CSIRO, [SpaceCows: Using AI to tackle feral herds in the Top End.](https://www.csiro.au/en/news/all/news/2021/september/spacecows-using-ai-to-tackle-feral-herds-in-the-top-end)](/images/ai-ethics/Feral-herds-can-damage-important-rock-art.jpg)
+![Important indigenous cultural sites can be damaged by feral cattle. Image from CSIRO, [SpaceCows: Using AI to tackle feral herds in the Top End.](https://www.csiro.au/en/news/all/news/2021/september/spacecows-using-ai-to-tackle-feral-herds-in-the-top-end)](/images/ai-ethics/Feral-herds-can-damage-important-rock-art.jpg){.lightbox width=100%}
 
 
 Videos with more information on SpaceCows: 
@@ -87,7 +87,7 @@ The concern for transparency in using personal data is an active space for debat
 In 2018, the French government passed a law to protect citizens' privacy, establishing the citizen's "right to an explanation" regarding, among other things, how an algorithm contributed to decisions on their persona and which data was processed [@edwards_enslaving_2018; @lo_piano_ethical_2020]. 
 Overall, this legislation aims to create a fairer and more transparent digital environment where everyone can enjoy equal opportunities.
 
-![ Photo by [Google DeepMind](https://unsplash.com/@googledeepmind?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)](/images/ai-ethics/google-deepmind-x-jiPtOms98-unsplash%20copy.jpg)
+![ Photo by [Google DeepMind](https://unsplash.com/@googledeepmind?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)](/images/ai-ethics/google-deepmind-x-jiPtOms98-unsplash%20copy.jpg){.lightbox width=100%}
 :::
 
 ## Conclusion
