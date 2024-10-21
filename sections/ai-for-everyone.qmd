@@ -11,9 +11,7 @@ from: markdown+emoji
 
 This session introduces AI to a non-specialist audience, ensuring participants can understand essential concepts. The focus is on key terminology and principles of machine learning (ML), deep learning (DL), and neural networks (NN). By the end of this session, participants will have foundational knowledge of AI concepts to engage with more advanced topics.
 
-/n
-[**Slides Link**](https://github.com/cyber2a/cyber2a-course/blob/main/slides/ai_for_everyone.pdf):
-/n
+[Slides Link](https://github.com/cyber2a/cyber2a-course/blob/main/slides/ai_for_everyone.pdf):
 
 ## Table of Contents
 1. What is AI? History and Challenges
