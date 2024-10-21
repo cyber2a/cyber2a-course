@@ -318,8 +318,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#adventure-cvat" id="toc-adventure-cvat" class="nav-link" data-scroll-target="#adventure-cvat"><span class="header-section-number">5.3</span> Adventure: CVAT</a></li>
   <li><a href="#adventure-zooniverse" id="toc-adventure-zooniverse" class="nav-link" data-scroll-target="#adventure-zooniverse"><span class="header-section-number">5.4</span> Adventure: Zooniverse</a></li>
   <li><a href="#adventure-segment-geospatial-samgeo" id="toc-adventure-segment-geospatial-samgeo" class="nav-link" data-scroll-target="#adventure-segment-geospatial-samgeo"><span class="header-section-number">5.5</span> Adventure: Segment-Geospatial (samgeo)</a></li>
-  <li><a href="#adventure-label-studio" id="toc-adventure-label-studio" class="nav-link" data-scroll-target="#adventure-label-studio"><span class="header-section-number">5.6</span> Adventure: Label Studio</a></li>
-  <li><a href="#adventure-iris-intelligently-reinforced-image-segmentation" id="toc-adventure-iris-intelligently-reinforced-image-segmentation" class="nav-link" data-scroll-target="#adventure-iris-intelligently-reinforced-image-segmentation"><span class="header-section-number">5.7</span> Adventure: IRIS (Intelligently Reinforced Image Segmentation)</a></li>
+  <li><a href="#adventure-iris-intelligently-reinforced-image-segmentation" id="toc-adventure-iris-intelligently-reinforced-image-segmentation" class="nav-link" data-scroll-target="#adventure-iris-intelligently-reinforced-image-segmentation"><span class="header-section-number">5.6</span> Adventure: IRIS (Intelligently Reinforced Image Segmentation)</a></li>
+  <li><a href="#adventure-label-studio" id="toc-adventure-label-studio" class="nav-link" data-scroll-target="#adventure-label-studio"><span class="header-section-number">5.7</span> Adventure: Label Studio</a></li>
   <li><a href="#other-things-to-try" id="toc-other-things-to-try" class="nav-link" data-scroll-target="#other-things-to-try"><span class="header-section-number">5.8</span> Other things to try</a></li>
   </ul>
 </nav>
@@ -370,6 +370,16 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="adventure-make-sense" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="adventure-make-sense"><span class="header-section-number">5.1</span> Adventure: <a href="https://www.makesense.ai/">Make Sense</a></h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Web-based app, no setup or account required</p>
+</div>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/data-annotation/tool-makesense.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="."><img src="../images/data-annotation/tool-makesense.jpg" class="img-fluid figure-img" style="width:80.0%" alt="."></a></p>
@@ -383,7 +393,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Offers model-based semi-automated annotation with an accept/reject interface</li>
 <li>If you prefer, you can also grab the <a href="https://github.com/SkalskiP/make-sense">source code</a> and run it locally using npm or Docker</li>
 </ul>
-<p><strong>Things to try</strong></p>
+<p><em><strong>Things to try</strong></em></p>
 <ul class="task-list">
 <li><label><input type="checkbox">Upload one or more images</label></li>
 <li><label><input type="checkbox">Play around with manually creating various annotations of various classes. What is the experience?</label></li>
@@ -391,10 +401,21 @@ ul.task-list li input[type="checkbox"] {
 <li><label><input type="checkbox">Use Actions to export annotations. What formats are offered?</label></li>
 <li><label><input type="checkbox">Try exporting polygon annotations in both VGG and COCO format. How do they compare?</label></li>
 <li><label><input type="checkbox">Use Actions to run the COCO SSD model locally to suggest boxes. How well does it work?</label></li>
+<li><label><input type="checkbox">When you’re done: Evaluate this tool with respect to the software considerations in <a href="data-annotation.html#sec-software" class="quarto-xref"><span>Section 4.3.1</span></a></label></li>
 </ul>
 </section>
 <section id="adventure-roboflow" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="adventure-roboflow"><span class="header-section-number">5.2</span> Adventure: <a href="https://app.roboflow.com/">Roboflow</a></h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Web-based app, requires (free) account signup</p>
+</div>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/data-annotation/tool-roboflow.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="."><img src="../images/data-annotation/tool-roboflow.jpg" class="img-fluid figure-img" style="width:60.0%" alt="."></a></p>
@@ -406,7 +427,7 @@ ul.task-list li input[type="checkbox"] {
 <li>They offer a limited free tier, which does not offer any privacy (project and images are automatically public)</li>
 <li>Nice interface for doing annotations, managing artifacts, managing team</li>
 </ul>
-<p><strong>Things to try</strong></p>
+<p><em><strong>Things to try</strong></em></p>
 <ul class="task-list">
 <li><label><input type="checkbox">Create an account and test project</label></li>
 <li><label><input type="checkbox">Upload one or more images</label></li>
@@ -417,6 +438,16 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="adventure-cvat" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="adventure-cvat"><span class="header-section-number">5.3</span> Adventure: <a href="https://www.cvat.ai/">CVAT</a></h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Web-based app, requires (free) account signup</p>
+</div>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/data-annotation/tool-cvat.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="."><img src="../images/data-annotation/tool-cvat.jpg" class="img-fluid figure-img" style="width:60.0%" alt="."></a></p>
@@ -428,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
 <li>However, for today, consider creating your own (free) account for annotating using their <a href="https://app.cvat.ai/auth/login">hosted platform</a></li>
 <li>The V7 <a href="https://www.v7labs.com/blog/cvat-guide">cvat guide</a> might be helpful</li>
 </ul>
-<p><strong>Things to try</strong></p>
+<p><em><strong>Things to try</strong></em></p>
 <ul class="task-list">
 <li><label><input type="checkbox">Create a free account</label></li>
 <li><label><input type="checkbox">Log in and create a test Project. At this stage, you’ll need to define at least one relevant label under the Constructor tab (you can edit these later)</label></li>
@@ -443,6 +474,16 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="adventure-zooniverse" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="adventure-zooniverse"><span class="header-section-number">5.4</span> Adventure: <a href="https://www.zooniverse.org">Zooniverse</a></h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Web-based app, no setup or account required</p>
+</div>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/data-annotation/tool-zooniverse.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="."><img src="../images/data-annotation/tool-zooniverse.jpg" class="img-fluid figure-img" style="width:60.0%" alt="."></a></p>
@@ -450,7 +491,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>Zooniverse is a cool community crowdsourcing platform on the web, for data annotation and digitization.</p>
-<p><strong>Things to try</strong></p>
+<p><em><strong>Things to try</strong></em></p>
 <ul class="task-list">
 <li><label><input type="checkbox">Check out the <a href="https://www.zooniverse.org/projects/penguintom79/penguin-watch">Penguin Watch</a> project.</label>
 <ul class="task-list">
@@ -463,50 +504,79 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="adventure-segment-geospatial-samgeo" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="adventure-segment-geospatial-samgeo"><span class="header-section-number">5.5</span> Adventure: <a href="https://samgeo.gishub.org/">Segment-Geospatial</a> (samgeo)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Requires local installation (Python library), or can be run in a hosted notebook environment (JupyterLab, Google Collab, etc).</p>
+<p>See <a href="https://samgeo.gishub.org/installation/">Installation notes</a>.</p>
+</div>
+</div>
+</div>
 <p>This is an open source tool that you can either install locally or run in JupyterLab (or Google colab).</p>
 <p>First check out the online <a href="https://segment-anything.com/demo">Segment Anything Model (SAM) demo</a>. SAM was developed by Meta AI. It is trained as a generalized segmentation model that is able to segment (but not label) arbitrary objects in an image. It is designed as a <em>promptable</em> tool, which means a user can provide initial point(s) or box(es) that roughly localize an object within an image, and SAM will try to fully segment that object. Alternatively, it can automatically segment an entier image, effectively by self-promtping with a complete grid of points, and then intelligently merging the corresponding segments.</p>
 <p>Today, SAM is used by numerous image annotation tools to provide interactive, AI-assisted segmentation capabilities.</p>
 <p>One such tool is the <a href="https://samgeo.gishub.org/">segment-geospatial</a> Python package, which provides some base functionality for applying SAM to geospatial data, either programatically or interactively.</p>
-<ul>
-<li><code>sudo apt install libgdal-dev gdal-bin</code></li>
-<li>My copy of the <a href="https://drive.google.com/drive/folders/1Q2_nxS8Wwk2m_ouubQ1XRyrtvBhJ5kuw">Google Colab notebook</a> (related to <a href="https://samgeo.gishub.org/workshops/cn_workshop/">this workshop</a>)</li>
-</ul>
+<!-- `sudo apt install libgdal-dev gdal-bin` -->
+<!-- My copy of the [Google Colab notebook](https://drive.google.com/drive/folders/1Q2_nxS8Wwk2m_ouubQ1XRyrtvBhJ5kuw) (related to [this workshop](https://samgeo.gishub.org/workshops/cn_workshop/)) -->
 <p>Note that in addition to using segment-geospatial directly using Python in a notebook or other environment, you can also play with SAM-assisted segmentation in <a href="https://github.com/BjornNyberg/Geometric-Attributes-Toolbox/wiki/User-Guide#segment-anything-model">QGIS</a> and <a href="https://www.arcgis.com/home/item.html?id=9b67b441f29f4ce6810979f5f0667ebe">ArcGIS</a>.</p>
-</section>
-<section id="adventure-label-studio" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="adventure-label-studio"><span class="header-section-number">5.6</span> Adventure: <a href="https://labelstud.io/guide/labeling">Label Studio</a></h2>
-<ul>
-<li>Multi-type data labeling and annotation tool with standardized output format</li>
-<li>Works on various data types (text, image, audio)</li>
-<li>Has both <a href="https://github.com/HumanSignal/label-studio">open source option</a> and <a href="https://humansignal.com/goenterprise/">paid cloud service</a></li>
-<li>See online <a href="https://labelstud.io/playground/">playground</a></li>
+<p><em><strong>Things to try</strong></em></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Run one or more <a href="https://samgeo.gishub.org/#examples">examples</a></label></li>
+<li><label><input type="checkbox">After running automated segmentation, what do you think about the results?</label></li>
+<li><label><input type="checkbox">When doing interactive segmentation, how does it do, and what do you think about the results?</label></li>
 </ul>
 </section>
-<section id="adventure-iris-intelligently-reinforced-image-segmentation" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="adventure-iris-intelligently-reinforced-image-segmentation"><span class="header-section-number">5.7</span> Adventure: <a href="https://github.com/ESA-PhiLab/iris">IRIS</a> (Intelligently Reinforced Image Segmentation)</h2>
+<section id="adventure-iris-intelligently-reinforced-image-segmentation" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="adventure-iris-intelligently-reinforced-image-segmentation"><span class="header-section-number">5.6</span> Adventure: <a href="https://github.com/ESA-PhiLab/iris">IRIS</a> (Intelligently Reinforced Image Segmentation)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Requires local installation (Python + JavaScript application).</p>
+<p>See <a href="https://github.com/ESA-PhiLab/iris?tab=readme-ov-file#installation">Installation instructions</a> with for setting IRIS up locally with Python/pip.</p>
+</div>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/data-annotation/tool-iris.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="."><img src="../images/data-annotation/tool-iris.jpg" class="img-fluid figure-img" style="width:60.0%" alt="."></a></p>
 <figcaption>.</figcaption>
 </figure>
 </div>
+<p>IRIS is a tool for doing semi-automated image segmentation of satellite imagery (or images in general), with a goal of accelerating the creation of ML training datasets for Earth Observation. The user interface provides configurable simultaneous views of the same image for multispectral imagery, along with interactive AI-assisted segmentation.</p>
+<p>Unlike much of the ML we’ll encounter this week, the backend model in this case is a gradient boosted decision tree. The reason this works sufficiently well is that IRIS is geared toward segmenting multispectral imagery into a small number of classes, training from scratch on each image; the model is able to learn the correlation structure between features and labels by leveraging multiple features per pixel after the human-in-the-loop manually segments and labels pixels.</p>
+<p>For more information, check out the <a href="https://www.youtube.com/watch?v=ERJA2-fTW6k">YouTube video</a> with the main creator Alistar Francis.</p>
+<p><em><strong>Things to try</strong></em></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Run the IRIS demo that comes with the code</label></li>
+<li><label><input type="checkbox">Using the onboard help widgets, figure out how to navigate the interface</label></li>
+<li><label><input type="checkbox">Try iteratively labeling some pixels and running the AI. How does it do?</label></li>
+<li><label><input type="checkbox">Experiment with changing the views. How does that improve your ability to manually distinguish and label features like clouds?</label></li>
+</ul>
+</section>
+<section id="adventure-label-studio" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="adventure-label-studio"><span class="header-section-number">5.7</span> Adventure: <a href="https://labelstud.io/guide/labeling">Label Studio</a></h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Python app must be installed and run locally (unless you pay for an Enterprise cloud account)</p>
+<p>See <a href="https://labelstud.io/guide/quick_start%5D">Quick start document</a> with instructions for installing with <code>pip</code> and running locally in a web browser.</p>
+</div>
+</div>
+</div>
 <ul>
-<li>Tool for manual image segmentation of satellite imagery (or images in general).</li>
-<li><em>Semi-automated annotation for image segmentation</em></li>
-<li>See <a href="https://www.youtube.com/watch?v=ERJA2-fTW6k">YouTube video</a> with the main creator Alistar Francis</li>
-<li>Main premise:
-<ul>
-<li>In each image, there is a lot of correlation between the pixels</li>
-<li>In one scene, might only be a few types of pixels</li>
-</ul></li>
-<li>Runs as a JS application on the frontend with Python in the backend</li>
-<li>Designed to accelerate the creation of ML training datasets for Earth Observation.</li>
-<li>Flask app which can be run locally</li>
-<li>Support by AI (gradient boosted decision tree) when doing image segmentation</li>
-<li>Multiple and configurable views for multispectral imagery</li>
-<li>Simple setup with pip and one configuration file</li>
-<li>Platform independent app (runs on Linux, Windows and Mac OS)</li>
-<li>Multi-user support: work in a team on your dataset and merge the results</li>
+<li>Multi-type data labeling and annotation tool with standardized output format</li>
+<li>Works on various data types (text, image, audio)</li>
+<li>Has both <a href="https://github.com/HumanSignal/label-studio">open source option</a> and <a href="https://humansignal.com/goenterprise/">paid cloud service</a></li>
+<li>See online <a href="https://labelstud.io/playground/">playground</a></li>
 </ul>
 </section>
 <section id="other-things-to-try" class="level2" data-number="5.8">
@@ -515,10 +585,6 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://www.robots.ox.ac.uk/~vgg/software/via/">VGG Image Annotator (VIA)</a>
 <ul>
 <li>Try local installation?</li>
-</ul></li>
-<li><a href="https://segment-anything.com/demo#">SAM demo</a> for understanding how this can be used for interactive segmentation
-<ul>
-<li>two-polar-bears.jpg</li>
 </ul></li>
 </ul>
 
@@ -959,7 +1025,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
