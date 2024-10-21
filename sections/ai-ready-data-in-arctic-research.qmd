@@ -131,6 +131,41 @@ DataONE harmonizes these standards by cross-walking them conceptually and making
 
 ![A sub-Arctic salmon-related dataset [@game_salmon_2018], showing annotations for each of the measured variables in the dataset. Each annotation is to a precisely defined concept or term from a controlled vocabulary, allowing subtle differences in methodology to be distinguished, which helps with both data discovery and proper reuse. The underlying metadata model is machine-readable, allowing search systems, and amchine learning harvesters to make use of this structured label data.](../images/ai-ready/dataone-annotation-salmon.png)
 
+### Croissant metadata for machine learning
+
+While domain-specific metadata dialects continue to proliferate, an increasing number of data repositories support **[schema.org](https://schema.org)** as a *lingua franca* to describe datasets on the web for discoverability. The [Science on Schema.org (SOSO)](https://science-on-schema.org) project provides interoperability guidelines for using schema.org metadata in dataset landing pages, and DataONE supports search across repositories that produce schema.org. That said, the dialect is fairly lightweight, somewhat lossely defined, and therefore permits some ambiguity in usage. But it has the major advantage that, as a graph-based metadata dialect, it can be easily extended to support new terms and use cases.
+
+The **Croissant specification** [@benjelloun_croissant_2024] extends schema.org with more precise and structured metadata to enable machine-interpretation and use of datasets across multiple tools. While the vocabulary is not as rich as, for example, the ISO 19115 metadata for geospatial metadata, it does provide a more strict structural definition of data types and contents that plain schema.org. A quote from the specification illustrates its intended scope [@benjelloun_croissant_2024]:
+
+> The Croissant metadata format simplifies how data is used by ML models. It provides a vocabulary for dataset attributes, streamlining how data is loaded across ML  frameworks such as PyTorch, TensorFlow or JAX. In doing so, Croissant enables the interchange of datasets between ML frameworks and beyond, tackling a variety of discoverability, portability, reproducibility, and responsible AI (RAI) challenges.
+
+Croissant has also explicitly defined [metadata to meet the needs of machine-learning tools and algorithms](https://docs.mlcommons.org/croissant/docs/croissant-spec.html#ml-specific-features). For example,  Crosissant supports the definition of categorical values, data splits for training, testing, and prediction, labels/annotations, specification of bounding boxes and segmentation masks.
+
+**Label Data.** As an example, Crioissant has specific metadata fields designed to capture which fields with the data contain critical label data, which are used by supervised learning workflows. The Croissant metadata class `cr:Label` can be used in a `RecordSet` to indicate that a specific field contians labels that apply to the that record.
+
+```json
+{
+  "@type": "cr:RecordSet",
+  "@id": "images",
+  "field": [
+    {
+      "@type": "cr:Field",
+      "@id": "images/image"
+    },
+    {
+      "@type": "cr:Field",
+      "@id": "images/label",
+      "dataType": ["sc:Text", "cr:Label"]
+    }
+  ]
+}
+```
+
+The intention is that multiple tools, all supporting the Crosissant metadata model, will be able to exchange ML-related data seamlessly. A number of ML tools support Croissant out-of-the-box, but only a tiny fraction of the datasets available today use this nascent vocabulary. In addition, it lacks the sophistication of Analysis Ready, Cloud Optimized (ARCO) data standards like Zarr that permit seamless access to massive data with minimal overhead. But it has a lot of promise for streamlining AI-Ready data, and can be used on top of exiting standards like Zarr. 
+
+![Common ML data providers like Hugging Face and Kaggle can use Croissant to produce ML-optimized datasets, which in turn can be seamlessly loaded and used with compatible ML libraries such as TensorFlow and PyTorch. Image credit: [@benjelloun_croissant_2024]](../images/ai-ready/criossant-cross-product.png)
+
+
 ## Data Quality
 
 MetaDIG
@@ -150,14 +185,6 @@ https://learning.nceas.ucsb.edu/2024-02-arctic/session_07.html
 - Data Documentation
 - Data Access
 
-## Croissant
-
-Schema.org as *lingua franca*
-
-
-Croissant specifiction [@benjelloun_croissant_2024]
-
-Croissant Responsible AI (RAI) specification and use cases
 
 
 ## Exercise
