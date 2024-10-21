@@ -85,7 +85,7 @@ In beginning to define AI-Ready data for NOAA, [Christensen et al. 2020](https:/
 
 Preservation and open data access are the foundation of Analysis-Ready and AI-ready data. While all modeling and analysis requires access to data, the ability for AI to encompass massive swaths of information and combine disparate data streams makes open data incredibly valuable. And while the open data movement has seen massive growth and adoption, it's an unfortunate fact that most research data collected today are still not published and accessible, and challenges to the realization of open data outlined by Reichman et al. (2011) are still prominent today [@reichman_challenges_2011]. 
 
-### Arctic Data Center
+## Arctic Data Center
 
 Nevertheless, progress has been made. The National Science Foundation [Office of Polar Programs Data, Code, and Sample Management Policy (DCL 22-106)](https://www.nsf.gov/pubs/2022/nsf22106/nsf22106.jsp) embraces the need to preserve, document, and share the data and results from NSF-funded research, and since 2016 has funded the Arctic Data Center to provide services supporting reseach community data needs. The center provides [data submission guidelines](https://arcticdata.io/submit/) and data curation support to create well-documented, understandable, and reusable data from the myriad projects funded by NSF and globally each year. In short, the Arctic Data Center provides a long-term home for over 7000 open, Arctic datasets that are AI-Ready. Researchers increasingly deposit large datasets from remote sensing campaigns using unmanned aerial vehicles (UAV), field expeditions, and observing networks, all of which are prime content for AI.
 
@@ -107,7 +107,7 @@ In addition to raw observational data and remote sensing imagery, the ADC also s
 
 While this and other valuable data for cross-cutting analysis are available from the Arctic Data Center, there are many other repositories that hold relevant data as well. Regardless of which repository a researher has chosen to share their data, the important thing to remember is to do so -- data on your laptop or a University web server are rarely accessible and ready for reuse.
 
-### DataONE
+## DataONE
 
 [DataONE](https://dataone.org) is a network designed to connect over [60 global data repositories](https://www.dataone.org/network/) (and growing) to improve the discoverability and accessiblilty of data from across the  world. DataONE provides global data search and discovery by harmonizing myriad metadata standards used across the world, and providing an interoperability API across repositories to make datasets **findable** and programatically **accessible** regardless of where they live.
 
@@ -121,7 +121,7 @@ Looking across the whole of the Arctic, we found over 98,000 datasets from 39 da
 
 ![Graph of Arctic Data across DataONE](../images/ai-ready/dataone-arctic-datasets.png)
 
-### Metadata harmonization
+## Metadata harmonization
 
 One of the main roles of DataONE is to promote interoperability and improve the quality and discoverability of global data holdings -- all of direct benefit to AI Ready data. DataONE promotes the use of detailed, discipline-specific metadata standards that enable researchers to comprehensively document the structure, contents, context, and protocols used when collecting data. For example, a good metadata record records not only the bibliographic information about the Dataset creators, but also documents the spatial and temporal extent of the data, the methods used to collect it, the types of measured properties that were observed or modeled, and other details that are fundamental to the proper interpretation and reuse of the data. Different disciplines focus on different standards: in ecology and environmental science, where biological metadata on taxonomy are important, the [Ecological Metadata Language (EML)](https://eml.ecoinformatics.org) is used extensively, whereas in geospatial science where time and space are critical, the emphasis is on the ISO 19115 family of metadata standards. Overall, DataONE supports more than a dozen metadata variants, and can be extended to support more. Across the Arctic, we find datasets that use many different metadata approaches.
 
@@ -131,7 +131,7 @@ DataONE harmonizes these standards by cross-walking them conceptually and making
 
 ![A sub-Arctic salmon-related dataset [@game_salmon_2018], showing annotations for each of the measured variables in the dataset. Each annotation is to a precisely defined concept or term from a controlled vocabulary, allowing subtle differences in methodology to be distinguished, which helps with both data discovery and proper reuse. The underlying metadata model is machine-readable, allowing search systems, and amchine learning harvesters to make use of this structured label data.](../images/ai-ready/dataone-annotation-salmon.png)
 
-### Croissant metadata for machine learning
+## Croissant metadata for machine learning
 
 While domain-specific metadata dialects continue to proliferate, an increasing number of data repositories support **[schema.org](https://schema.org)** as a *lingua franca* to describe datasets on the web for discoverability. The [Science on Schema.org (SOSO)](https://science-on-schema.org) project provides interoperability guidelines for using schema.org metadata in dataset landing pages, and DataONE supports search across repositories that produce schema.org. That said, the dialect is fairly lightweight, somewhat lossely defined, and therefore permits some ambiguity in usage. But it has the major advantage that, as a graph-based metadata dialect, it can be easily extended to support new terms and use cases.
 
@@ -184,7 +184,9 @@ Many of these issues are encompassed by the **FAIR Principles**, which are inten
 
 DataONE is one such group that has operationalized FAIR Assessment [@peng_harmonizing_2024]. Within the DataONE network, all compatible datasets are evaluated using an automated FAIR rubric which rates the dataset on 52 FAIR checks [@jones_quantifying_2019; @jones_metadig_2016]. Each of these checks is atomic, and looks at a small facet of the dataset quality, but combined they give a powerful assessment of dataset readiness for various analytical purposes. And these suites of checks are extensible, so different groups can create suites of automated quality assessment checks that match their needs and recommendations as a community.
 
+::: {.column-page-right}
 ![DataONE FAIR assessment](../images/ai-ready/metadig-report.png)
+:::
 
 We see a marked improvement in dataset quality across the FAIR axes as datasets go through our curation process at the Arctic Data Center. 
 
