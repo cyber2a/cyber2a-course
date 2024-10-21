@@ -48,7 +48,7 @@ Here's a few examples of foundation models and their parameter count:
 
 ![Fig : Growth in compute power. (Source: GPT-3 paper [@DBLP:journals/corr/abs-1810-04805])](../images/foundation-models/compute-power-training.png)
 
-### Types of foundation models
+## Types of foundation models
 
 Foundation models can be classified on the basis of its modality and its underlying architecture.
 
@@ -58,9 +58,9 @@ Foundation models can be classified on the basis of its modality and its underly
 | Vision Models | Generative Models     |
 | Multimodal Models    | Diffusion Models    |
 
-#### Types of foundation models (Modality)
+### Types of foundation models (Modality)
 
-##### Language models
+#### Language models
 
 Language models are trained for natural language processing tasks. The primary training objective for LLMs is often next-token prediction, where the model learns to predict the next word in a sequence given the preceding context. This is achieved through a vast amount of text data, enabling the model to learn grammar, facts, and even some reasoning patterns. LLMs tend to be good at various NLP related tasks, like translation, conversational AI, sentiment analysis, content summarization etc., to name a few.
 
@@ -70,7 +70,7 @@ Here's some examples of language models:
 * GPT-4
 * Llama 3.2 [@dubey2024llama3herdmodels]
 
-##### Vision models
+#### Vision models
 
 Vision models are trained for computer vision tasks. The primary training objective of vision models is to effectively learn representations that enable accurate predictions or useful transformations based on visual data. Vision models tend to be good at tasks like object detection, segmentation, facial recognition, etc.
 
@@ -81,7 +81,7 @@ Here's some examples of vision models:
 * CLIP [@dubey2024llama3herdmodels]
 * Swin-transformer [@liu2021swintransformerhierarchicalvision]
 
-##### Multimodal models
+#### Multimodal models
 
 Multimodal models are designed to process and understand multiple types of data modalities, such as text, images, audio, and more. These models can handle various data types simultaneously, allowing them to learn relationships and correlations between different forms of information (e.g., associating text descriptions with images). By training on datasets that include multiple modalities, multimodal foundation models learn to create a unified representation space where different types of data can be compared and processed together. This often involves shared architectures for encoding different modalities. These models can often perform well on tasks they haven’t been specifically trained on, thanks to their ability to leverage learned relationships across modalities. This makes them versatile for applications in various domains. Many multimodal models, like CLIP and DALL-E, use contrastive learning to improve their understanding of how different modalities relate. They aim to maximize similarity between paired data (e.g., an image and its caption) while minimizing similarity between unrelated pairs. These models can often perform well on tasks they haven’t been specifically trained on, thanks to their ability to leverage learned relationships across modalities. This makes them versatile for applications in various domains. Multimodal foundation models are used in diverse areas such as image and video captioning, visual question answering, cross-modal retrieval, and interactive AI systems that require understanding and generating multiple types of content.
 
@@ -94,23 +94,23 @@ Here's some examples of multimodal foundation models:
 * [Gemini](https://gemini.google.com/?utm_source=google&utm_medium=cpc&utm_campaign=2024enUS_gemfeb&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfDvtujFotV-ds_t1TWtUmwbeNFLVcdbE8zSQEN08FPlAC8im4lhpNcaAlwaEALw_wcB&gclsrc=aw.ds) [@geminiteam2024geminifamilyhighlycapable]
 
 
-#### Types of foundation models (Architecture)
+### Types of foundation models (Architecture)
 
-##### Transformer models
+#### Transformer models
 Introduced in 2017 by the paper "Attention is all you need" [@DBLP:journals/corr/VaswaniSPUJGKP17], the transformer architecture revolutionized NLP by enabling models to efficiently capture complex relationships in data without the limitations of recurrence. This architecture is known for its ability to handle sequential data efficiently. Its parallel processing capabilities and scalability have made it a foundational model for many state-of-the-art systems in various domains, including image processing and speech recognition.
 Checkout "The Illustrated Transformer" (blog post)[https://jalammar.github.io/illustrated-transformer/] for a detailed overview of the transformer architecture.
 
 ![Fig : Transformer architecture](../images/foundation-models/transformer-architecture.png)
 
 
-###### Attention Mechanism
+##### Attention Mechanism
 Attention is, to some extent, motivated by how we pay visual attention to different regions of an image or correlate words in one sentence [@weng2018attention]. we can explain the relationship between words in one sentence or close context. When we see “eating”, we expect to encounter a food word very soon. The color term describes the food, but probably not so much with “eating” directly.
 
 ![Fig : One word attends to other words in the same sentence differently](../images/foundation-models/human-attention.png)
 
 Check out Lilian Weng's blog post [@weng2018attention] on detailed overview of attention mechanism.
 
-###### Key components of transformer architecture:
+##### Key components of transformer architecture:
 1. Self-Attention Mechanism:
 
 * Purpose: Allows the model to weigh the importance of different words in a sequence relative to each other, capturing dependencies regardless of their distance.
@@ -158,27 +158,28 @@ There are more than 50 major transformer models [@amatriain2024transformermodels
 
 GPT-3 and CLIP models utilize transformers as the underlying architecture.
 
-##### Generative-Adversarial models
+#### Generative-Adversarial models
 
 Introduced in 2014, Generative Adversarial Networks (GANs) [@goodfellow2014generativeadversarialnetworks] involves two neural networks (generator-discriminator network pair) contest with each other in the form of a zero-sum game, where one agent's gain is another agent's loss. Given a training set, this technique learns to generate new data with the same statistics as the training set. For example, a GAN trained on photographs can generate new photographs that look at least superficially authentic to human observers, having many realistic characteristics.
 
-![Fig : GAN](../images/foundation-models/gan.png)
+![Fig : GAN basic architecture](../images/foundation-models/gan.png)
 
 In a GAN,
+
 * the generator learns to generate plausible data. The generated instances become negative training examples for the discriminator.
 * The discriminator learns to distinguish the generator's fake data from real data. The discriminator penalizes the generator for producing implausible results.
 
 When training begins, the generator produces obviously fake data, and the discriminator quickly learns to tell that it's fake:
 
-![Fig : Gan training - early phase. Image source: Google developers [blog](https://developers.google.com/machine-learning/gan/gan_structure)](../images/foundation-models/gan1.png)
+![Fig : GAN training - early phase. Image source: Google developers [blog](https://developers.google.com/machine-learning/gan/gan_structure)](../images/foundation-models/gan1.png)
 
 As training progresses, the generator gets closer to producing output that can fool the discriminator:
 
-![Fig : Gan training - mid phase](../images/foundation-models/gan2.png)
+![Fig : GAN training - mid phase](../images/foundation-models/gan2.png)
 
 Finally, if generator training goes well, the discriminator gets worse at telling the difference between real and fake. It starts to classify fake data as real, and its accuracy decreases. The training procedure for generator is to maximise the probability of discriminator making a mistake.
 
-![Fig : Gan training complete](../images/foundation-models/gan3.png)
+![Fig : GAN training complete](../images/foundation-models/gan3.png)
 
 Here's a picture of the whole system:
 
@@ -187,11 +188,11 @@ Here's a picture of the whole system:
 A disadvantage of GAN is potentially unstable training and less diversity in generation due to their adversarial training nature. StyleGAN [@DBLP:journals/corr/abs-1812-04948] and BigGAN [@DBLP:journals/corr/abs-1809-11096] are example of models that utilize GAN as the underlying architecture.
 
 
-##### Diffusion models
+#### Diffusion models
 
 Diffusion models, introduced in 2020 [@DBLP:journals/corr/abs-2006-11239], are inspired by non-equilibrium thermodynamics. They define a Markov chain of diffusion steps to slowly add random noise to data and then learn to reverse the diffusion process to construct desired data samples from the noise [@weng2021diffusion].
 
-###### Key components of diffusion models
+##### Key components of diffusion models
 
 1. Forward Diffusion Process:
 * The forward process gradually adds Gaussian noise to the training data over a series of time steps. This process effectively transforms the original data into pure noise.
@@ -211,3 +212,4 @@ Diffusion models, introduced in 2020 [@DBLP:journals/corr/abs-2006-11239], are i
 Diffusion models can generate high-resolution and diverse images, often outperforming GANs in certain tasks. They are generally more stable to train compared to GANs, as they do not rely on adversarial training dynamics.
 
 Stable-diffusion [@DBLP:journals/corr/abs-2112-10752], DALL-E [@DBLP:journals/corr/abs-2102-12092], [Sora](https://openai.com/research/video-generation-models-as-world-simulators) are some of the most common models utilizing diffusion architecture.
+
