@@ -108,6 +108,27 @@ _**Things to try**_
 - [ ] Also check out the [Arctic Bears](https://www.zooniverse.org/projects/douglas-clark/the-arctic-bears-project) image classification and interpretation project
 - [ ] Feel free to search the site for other projects
 
+## Adventure: [IRIS](https://github.com/ESA-PhiLab/iris) (Intelligently Reinforced Image Segmentation)
+::: {.callout-note appearance="simple" icon="false"}
+Requires local installation (Python + JavaScript application).
+
+See [Installation instructions](https://github.com/ESA-PhiLab/iris?tab=readme-ov-file#installation) with for setting IRIS up locally with Python/pip.
+:::
+![.](/images/data-annotation/tool-iris.jpg){.lightbox width=60%}
+
+IRIS is a tool for doing semi-automated image segmentation of satellite imagery (or images in general), with a goal of accelerating the creation of ML training datasets for Earth Observation. The user interface provides configurable simultaneous views of the same image for multispectral imagery, along with interactive AI-assisted segmentation.
+
+Unlike much of the ML we'll encounter this week, the backend model in this case is a gradient boosted decision tree. The reason this works sufficiently well is that IRIS is geared toward segmenting multispectral imagery into a small number of classes, training from scratch on each image; the model is able to learn the correlation structure between features and labels by leveraging multiple features per pixel after the human-in-the-loop manually segments and labels pixels.
+
+For more information, check out the [YouTube video](https://www.youtube.com/watch?v=ERJA2-fTW6k) with the main creator Alistar Francis.
+
+_**Things to try**_
+
+- [ ] Run the IRIS demo that comes with the code
+- [ ] Using the onboard help widgets, figure out how to navigate the interface
+- [ ] Try iteratively labeling some pixels and running the AI. How does it do?
+- [ ] Experiment with changing the views. How does that improve your ability to manually distinguish and label features like clouds?
+
 ## Adventure: [Segment-Geospatial](https://samgeo.gishub.org/) (samgeo)
 ::: {.callout-note appearance="simple" icon="false"}
 Requires local installation (Python library), or can be run in a hosted notebook environment (JupyterLab, Google Collab, etc).
@@ -131,29 +152,8 @@ Note that in addition to using segment-geospatial directly using Python in a not
 _**Things to try**_
 
 - [ ] Run one or more [examples](https://samgeo.gishub.org/#examples)
-- [ ] After running automated segmentation, what do you think about the results?
-- [ ] When doing interactive segmentation, how does it do, and what do you think about the results?
-
-## Adventure: [IRIS](https://github.com/ESA-PhiLab/iris) (Intelligently Reinforced Image Segmentation)
-::: {.callout-note appearance="simple" icon="false"}
-Requires local installation (Python + JavaScript application).
-
-See [Installation instructions](https://github.com/ESA-PhiLab/iris?tab=readme-ov-file#installation) with for setting IRIS up locally with Python/pip.
-:::
-![.](/images/data-annotation/tool-iris.jpg){.lightbox width=60%}
-
-IRIS is a tool for doing semi-automated image segmentation of satellite imagery (or images in general), with a goal of accelerating the creation of ML training datasets for Earth Observation. The user interface provides configurable simultaneous views of the same image for multispectral imagery, along with interactive AI-assisted segmentation.
-
-Unlike much of the ML we'll encounter this week, the backend model in this case is a gradient boosted decision tree. The reason this works sufficiently well is that IRIS is geared toward segmenting multispectral imagery into a small number of classes, training from scratch on each image; the model is able to learn the correlation structure between features and labels by leveraging multiple features per pixel after the human-in-the-loop manually segments and labels pixels.
-
-For more information, check out the [YouTube video](https://www.youtube.com/watch?v=ERJA2-fTW6k) with the main creator Alistar Francis.
-
-_**Things to try**_
-
-- [ ] Run the IRIS demo that comes with the code
-- [ ] Using the onboard help widgets, figure out how to navigate the interface
-- [ ] Try iteratively labeling some pixels and running the AI. How does it do?
-- [ ] Experiment with changing the views. How does that improve your ability to manually distinguish and label features like clouds?
+- [ ] After running [automated segmentation](https://samgeo.gishub.org/examples/automatic_mask_generator/), what do you think about the results?
+- [ ] When doing [interactive segmentation](https://samgeo.gishub.org/examples/input_prompts/), how does it do, and what do you think about the results?
 
 ## Adventure: [Label Studio](https://labelstud.io/guide/labeling)
 ::: {.callout-note appearance="simple" icon="false"}
