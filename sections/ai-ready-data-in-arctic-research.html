@@ -96,6 +96,9 @@ div.csl-indent {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -417,7 +420,7 @@ What is AI-Ready Data?
 <p>This is really a variant on Analysis Ready Data (ARD), or, more recently, “Analysis Ready, Cloud Optimized (ARCO)” data.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/ai-ready/mahecha_data_cube.png" class="img-fluid figure-img"></p>
+<p><a href="../images/ai-ready/mahecha_data_cube.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Mahecha et al.&nbsp;2020. [@mahecha_earth_2020] Visualization of the implemented Earth system data cube. The figure shows from the top left to bottom right the variables sensible heat (H), latent heat (LE), gross primary production (GPP), surface moisture (SM), land surface temperature (LST), air temperature (Tair), cloudiness (C), precipitation (P), and water vapour (V). The resolution in space is 0.25° and 8 d in time, and we are inspecting the time from May 2008 to May 2010; the spatial range is from 15° S to 60° N, and 10° E to 65° W."><img src="../images/ai-ready/mahecha_data_cube.png" class="img-fluid figure-img" style="width:90.0%" alt="Mahecha et al.&nbsp;2020. [1] Visualization of the implemented Earth system data cube. The figure shows from the top left to bottom right the variables sensible heat (H), latent heat (LE), gross primary production (GPP), surface moisture (SM), land surface temperature (LST), air temperature (Tair), cloudiness (C), precipitation (P), and water vapour (V). The resolution in space is 0.25° and 8 d in time, and we are inspecting the time from May 2008 to May 2010; the spatial range is from 15° S to 60° N, and 10° E to 65° W."></a></p>
 <figcaption>Mahecha et al.&nbsp;2020. <span class="citation" data-cites="mahecha_earth_2020"><a href="../references.html#ref-mahecha_earth_2020" role="doc-biblioref">[1]</a></span> Visualization of the implemented Earth system data cube. The figure shows from the top left to bottom right the variables sensible heat (H), latent heat (LE), gross primary production (GPP), surface moisture (SM), land surface temperature (LST), air temperature (Tair), cloudiness (C), precipitation (P), and water vapour (V). The resolution in space is 0.25° and 8 d in time, and we are inspecting the time from May 2008 to May 2010; the spatial range is from 15° S to 60° N, and 10° E to 65° W.</figcaption>
 </figure>
 </div>
@@ -431,14 +434,14 @@ What is AI-Ready Data?
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    storage_options<span class="op">=</span><span class="bu">dict</span>(token<span class="op">=</span><span class="st">'anon'</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="../images/ai-ready/era5-zarr-arco.png" class="img-fluid"></p>
+<p><a href="../images/ai-ready/era5-zarr-arco.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/ai-ready/era5-zarr-arco.png" class="img-fluid" style="width:100.0%"></a></p>
 <p>With one line of code, we accessed 273 climate variables (e.g., <code>2m_temperature</code>, <code>evaporation</code>, <code>forecast_albedo</code>) spanning 8 decades at hourly time scales. And while this dataset is massive, we can explore it from the comfort of our laptop (not all at once, for which we would need a bigger machine!).</p>
 <p>So, there’s nothing really special about AI-Ready data, in that a lot of the core requirements for Analysis Ready Data are exactly what are needed for AI modeling as well. Labeling is probably the main difference. Neverthless, many groups have gotten motivated by the promise of AI, and particularly machine learning, across disciplines. For example, the federal government has been ramping up readiness for AI across many agencies. In 2019, the White House Office of Science Technology and Policy (OSTP) started an AI-Readiness matrix, which was followed shortly by the National AI Initiative Act in 2020 <span class="citation" data-cites="long_ai-ready_2023"><a href="../references.html#ref-long_ai-ready_2023" role="doc-biblioref">[3]</a></span>.</p>
-<p><img src="https://bipartisan-policy-center.imgix.net/wp-content/uploads/2023/02/AI-Ready-Open-Data.jpg?auto=compress,format&amp;q=90&amp;ixlib=imgixjs-3.4.2&amp;w=4088" class="img-fluid"></p>
+<p><a href="https://bipartisan-policy-center.imgix.net/wp-content/uploads/2023/02/AI-Ready-Open-Data.jpg?auto=compress,format&amp;q=90&amp;ixlib=imgixjs-3.4.2&amp;w=4088" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="https://bipartisan-policy-center.imgix.net/wp-content/uploads/2023/02/AI-Ready-Open-Data.jpg?auto=compress,format&amp;q=90&amp;ixlib=imgixjs-3.4.2&amp;w=4088" class="img-fluid" style="width:100.0%"></a></p>
 <p>For example, management agencies have started entire new programs to prepare data and staff for the introduction of AI and machine learning into their processes. One such program with a focus on AI-Ready data is NOAA’s Center for Artificial Intelligence (NCAI).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/ai-ready/noaa-ncai.png" class="img-fluid figure-img"></p>
+<p><a href="../images/ai-ready/noaa-ncai.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="NOAA NCAI"><img src="../images/ai-ready/noaa-ncai.png" class="img-fluid figure-img" style="width:100.0%" alt="NOAA NCAI"></a></p>
 <figcaption><a href="https://www.noaa.gov/ai">NOAA NCAI</a></figcaption>
 </figure>
 </div>
@@ -524,7 +527,7 @@ Data Documentation
 </div></div><div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="../images/ai-ready/adc-catalog.png" class="img-fluid figure-img column-page-right"></p>
+<p class="page-columns page-full"><a href="../images/ai-ready/adc-catalog.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-5" title="Arctic Data Center Catalog"><img src="../images/ai-ready/adc-catalog.png" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Arctic Data Center Catalog"></a></p>
 <figcaption>Arctic Data Center Catalog</figcaption>
 </figure>
 </div>
@@ -532,10 +535,10 @@ Data Documentation
 <p>In addition to raw observational data and remote sensing imagery, the ADC also stores and distributes model output, labeled training data, and other derived data products. A recent example comes from the Permafrost Discovery Gateway project, in which Neitze et al.&nbsp;used machine learning on multispectral PlanetScope imagery to extract high-resolution geospatial footprints for retrogressive thaw slumps (RTS) and active layer detachment (ALD) slides across the circum-Arctic permafrost region <span class="citation" data-cites="nitze_darts_2024"><a href="../references.html#ref-nitze_darts_2024" role="doc-biblioref">[5]</a></span>. In addition, the dataset includes human-generated training labels, processing code, and model checkpoints – just what is needed for further advances in this critical field of climate research.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p><img src="../images/ai-ready/rts-feature.png" class="img-fluid"></p>
+<p><a href="../images/ai-ready/rts-feature.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images/ai-ready/rts-feature.png" class="img-fluid" style="width:100.0%"></a></p>
 </div></div><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/ai-ready/darts-dataset.png" class="img-fluid figure-img"></p>
+<p><a href="../images/ai-ready/darts-dataset.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="DARTS retrogressive thaw slump dataset doi:10.18739/A2RR1PP44"><img src="../images/ai-ready/darts-dataset.png" class="img-fluid figure-img" style="width:100.0%" alt="DARTS retrogressive thaw slump dataset doi:10.18739/A2RR1PP44"></a></p>
 <figcaption>DARTS retrogressive thaw slump dataset <a href="https://doi.org/10.18739/A2RR1PP44">doi:10.18739/A2RR1PP44</a></figcaption>
 </figure>
 </div>
@@ -544,13 +547,13 @@ Data Documentation
 <section id="dataone" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="dataone"><span class="header-section-number">3.4</span> DataONE</h2>
 <p><a href="https://dataone.org">DataONE</a> is a network designed to connect over <a href="https://www.dataone.org/network/">60 global data repositories</a> (and growing) to improve the discoverability and accessiblilty of data from across the world. DataONE provides global data search and discovery by harmonizing myriad metadata standards used across the world, and providing an interoperability API across repositories to make datasets <strong>findable</strong> and programatically <strong>accessible</strong> regardless of where they live.</p>
-<p><img src="../images/ai-ready/dataone-network.png" class="img-fluid"></p>
+<p><a href="../images/ai-ready/dataone-network.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="../images/ai-ready/dataone-network.png" class="img-fluid" style="width:100.0%"></a></p>
 <p>For example, a query across DataONE in 2024 revealed over 4500 datasets held by 16 different repositories, most of which are not specifically tied to Greenland research, per se.</p>
-<p><img src="../images/ai-ready/dataone-greenland-datasets.png" class="img-fluid"></p>
+<p><a href="../images/ai-ready/dataone-greenland-datasets.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="../images/ai-ready/dataone-greenland-datasets.png" class="img-fluid" style="width:100.0%"></a></p>
 <p>Looking across the whole of the Arctic, we found over 98,000 datasets from 39 data repositories. It is notable that only 6 of those repositories are focused on Arctic research (like the Arctic Data Center), while the rest are either general repositories or discipline specific repositories. For example, <a href="https://www.pangaea.de/">Pangaea</a> as a generalist repository has the most datasets with over 10,000, but there are also significant and important data sets on archeology (<a href="https://www.tdar.org/">TDAR</a>), hydrology (<a href="https://www.hydroshare.org/">HydroShare</a>) and geochemistry (<a href="https://www.earthchem.org/">EarthChem</a>).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/ai-ready/dataone-arctic-datasets.png" class="img-fluid figure-img"></p>
+<p><a href="../images/ai-ready/dataone-arctic-datasets.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Graph of Arctic Data across DataONE"><img src="../images/ai-ready/dataone-arctic-datasets.png" class="img-fluid figure-img" style="width:100.0%" alt="Graph of Arctic Data across DataONE"></a></p>
 <figcaption>Graph of Arctic Data across DataONE</figcaption>
 </figure>
 </div>
@@ -558,11 +561,11 @@ Data Documentation
 <section id="metadata-harmonization" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="metadata-harmonization"><span class="header-section-number">3.5</span> Metadata harmonization</h2>
 <p>One of the main roles of DataONE is to promote interoperability and improve the quality and discoverability of global data holdings – all of direct benefit to AI Ready data. DataONE promotes the use of detailed, discipline-specific metadata standards that enable researchers to comprehensively document the structure, contents, context, and protocols used when collecting data. For example, a good metadata record records not only the bibliographic information about the Dataset creators, but also documents the spatial and temporal extent of the data, the methods used to collect it, the types of measured properties that were observed or modeled, and other details that are fundamental to the proper interpretation and reuse of the data. Different disciplines focus on different standards: in ecology and environmental science, where biological metadata on taxonomy are important, the <a href="https://eml.ecoinformatics.org">Ecological Metadata Language (EML)</a> is used extensively, whereas in geospatial science where time and space are critical, the emphasis is on the ISO 19115 family of metadata standards. Overall, DataONE supports more than a dozen metadata variants, and can be extended to support more. Across the Arctic, we find datasets that use many different metadata approaches.</p>
-<p><img src="../images/ai-ready/dataone-arctic-metadata.png" class="img-fluid"></p>
+<p><a href="../images/ai-ready/dataone-arctic-metadata.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/ai-ready/dataone-arctic-metadata.png" class="img-fluid" style="width:100.0%"></a></p>
 <p>DataONE harmonizes these standards by cross-walking them conceptually and making the data available for search through an integrated discovery portal and API. And DataONE promotes semantic labeling of the data as well, particularly for measurement types (e.g., <code>fork length</code> for fish length meeasurements) and dataset classification <span class="citation" data-cites="chong_enhancing_2024"><a href="../references.html#ref-chong_enhancing_2024" role="doc-biblioref">[6]</a></span>. These annotations are indexed against controlled, ontologically-precise term labels that are stored in queryable systems. For example, the <a href="https://bioportal.bioontology.org/ontologies/ECSO/">Ecosystem Ontology (ECSO</a>, the <a href="https://sites.google.com/site/environmentontology/about-envo">Environment Ontology (ENVO)</a>, and many others contain precisely defined terms that are useful for precise dataset labeling to differentiate subtly different terms and concepts.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/ai-ready/dataone-annotation-salmon.png" class="img-fluid figure-img"></p>
+<p><a href="../images/ai-ready/dataone-annotation-salmon.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="A sub-Arctic salmon-related dataset [@game_salmon_2018], showing annotations for each of the measured variables in the dataset. Each annotation is to a precisely defined concept or term from a controlled vocabulary, allowing subtle differences in methodology to be distinguished, which helps with both data discovery and proper reuse. The underlying metadata model is machine-readable, allowing search systems, and amchine learning harvesters to make use of this structured label data."><img src="../images/ai-ready/dataone-annotation-salmon.png" class="img-fluid figure-img" style="width:100.0%" alt="A sub-Arctic salmon-related dataset [7], showing annotations for each of the measured variables in the dataset. Each annotation is to a precisely defined concept or term from a controlled vocabulary, allowing subtle differences in methodology to be distinguished, which helps with both data discovery and proper reuse. The underlying metadata model is machine-readable, allowing search systems, and amchine learning harvesters to make use of this structured label data."></a></p>
 <figcaption>A sub-Arctic salmon-related dataset <span class="citation" data-cites="game_salmon_2018"><a href="../references.html#ref-game_salmon_2018" role="doc-biblioref">[7]</a></span>, showing annotations for each of the measured variables in the dataset. Each annotation is to a precisely defined concept or term from a controlled vocabulary, allowing subtle differences in methodology to be distinguished, which helps with both data discovery and proper reuse. The underlying metadata model is machine-readable, allowing search systems, and amchine learning harvesters to make use of this structured label data.</figcaption>
 </figure>
 </div>
@@ -594,7 +597,7 @@ Data Documentation
 <p>The intention is that multiple tools, all supporting the Crosissant metadata model, will be able to exchange ML-related data seamlessly. A number of ML tools support Croissant out-of-the-box, but only a tiny fraction of the datasets available today use this nascent vocabulary. In addition, it lacks the sophistication of Analysis Ready, Cloud Optimized (ARCO) data standards like Zarr that permit seamless access to massive data with minimal overhead. But it has a lot of promise for streamlining AI-Ready data, and can be used on top of exiting standards like Zarr.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/ai-ready/criossant-cross-product.png" class="img-fluid figure-img"></p>
+<p><a href="../images/ai-ready/criossant-cross-product.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Common ML data providers like Hugging Face and Kaggle could use Croissant to produce ML-optimized datasets, which in turn can be seamlessly loaded and used with compatible ML libraries such as TensorFlow and PyTorch. Image credit: [@benjelloun_croissant_2024]"><img src="../images/ai-ready/criossant-cross-product.png" class="img-fluid figure-img" style="width:100.0%" alt="Common ML data providers like Hugging Face and Kaggle could use Croissant to produce ML-optimized datasets, which in turn can be seamlessly loaded and used with compatible ML libraries such as TensorFlow and PyTorch. Image credit: [8]"></a></p>
 <figcaption>Common ML data providers like <a href="https://huggingface.co/">Hugging Face</a> and <a href="https://www.kaggle.com/">Kaggle</a> could use Croissant to produce ML-optimized datasets, which in turn can be seamlessly loaded and used with compatible ML libraries such as TensorFlow and PyTorch. Image credit: <span class="citation" data-cites="benjelloun_croissant_2024"><a href="../references.html#ref-benjelloun_croissant_2024" role="doc-biblioref">[8]</a></span></figcaption>
 </figure>
 </div>
@@ -611,13 +614,13 @@ Data Documentation
 <li>Are geospatial data accessibly structured, with sufficient metadata (e.g., about the Coordinate Reference System)?</li>
 <li>…</li>
 </ul>
-<p><img src="../images/ai-ready/quality-bullseye.png" class="img-fluid"></p>
+<p><a href="../images/ai-ready/quality-bullseye.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="../images/ai-ready/quality-bullseye.png" class="img-fluid" style="width:100.0%"></a></p>
 <p>Many of these issues are encompassed by the <strong>FAIR Principles</strong>, which are intended to ensure that published data are Finadable, Accessible, Interoperable, and Reusable <span class="citation" data-cites="wilkinson_fair_2016 wilkinson_design_2018"><a href="../references.html#ref-wilkinson_fair_2016" role="doc-biblioref">[9]</a>, <a href="../references.html#ref-wilkinson_design_2018" role="doc-biblioref">[10]</a></span>. While there are a huge variety of methods to assess data quality in use across disciplines, some groups have started to harmonize rubrics for data quality and how to represent data quality results in metadata records (see <span class="citation" data-cites="peng_harmonizing_2024"><a href="../references.html#ref-peng_harmonizing_2024" role="doc-biblioref">[11]</a></span>).</p>
 <p>DataONE is one such group that has operationalized FAIR Assessment <span class="citation" data-cites="peng_harmonizing_2024"><a href="../references.html#ref-peng_harmonizing_2024" role="doc-biblioref">[11]</a></span>. Within the DataONE network, all compatible datasets are evaluated using an automated FAIR rubric which rates the dataset on 52 FAIR checks <span class="citation" data-cites="jones_quantifying_2019 jones_metadig_2016"><a href="../references.html#ref-jones_quantifying_2019" role="doc-biblioref">[12]</a>, <a href="../references.html#ref-jones_metadig_2016" role="doc-biblioref">[13]</a></span>. Each of these checks is atomic, and looks at a small facet of the dataset quality, but combined they give a powerful assessment of dataset readiness for various analytical purposes. And these suites of checks are extensible, so different groups can create suites of automated quality assessment checks that match their needs and recommendations as a community.</p>
 <div class="page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="../images/ai-ready/metadig-report.png" class="img-fluid figure-img column-page-right"></p>
+<p class="page-columns page-full"><a href="../images/ai-ready/metadig-report.png" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-15" title="DataONE FAIR assessment"><img src="../images/ai-ready/metadig-report.png" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="DataONE FAIR assessment"></a></p>
 <figcaption>DataONE FAIR assessment</figcaption>
 </figure>
 </div>
@@ -700,7 +703,7 @@ Exercise: Assess Dataset Readiness
 <p>Questions to consider as you are doing the assessment: - How much time would it take for you to do a true assessment? - How useful would this assessment be to you if it were available for most datasets? - Is there a correct answer to the checklist questions?</p>
 </div>
 </div>
-<p><img src="../images/ai-ready/iwp-pdg.png" class="img-fluid"></p>
+<p><a href="../images/ai-ready/iwp-pdg.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="../images/ai-ready/iwp-pdg.png" class="img-fluid" style="width:100.0%"></a></p>
 
 
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
@@ -1183,6 +1186,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
