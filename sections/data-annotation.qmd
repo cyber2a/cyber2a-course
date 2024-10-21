@@ -1,7 +1,734 @@
 # Data Annotation: The Foundation of Deep Learning Models
 
-## Goal {.unnumbered}
+**>>>>THIS SECTION IS UNDER DEVELOPMENT<<<<**
+
+---
+title: "Data Annotation: The Foundation of Deep Learning Models"
+toc: true
+number-sections: true
+from: markdown+emoji
+---
+
+<style>
+figcaption {
+  font-size: 0.5em;
+}
+.column-margin {
+  figcaption {
+    font-size: 0.5em;
+  }
+}
+</style>
+
+
+## Goals {.unnumbered}
 This session explores the critical role of training data in deep learning, focusing on data annotation methods, tools, and strategies for acquiring high-quality data. Participants will learn how well-annotated data supports effective deep learning models, understanding the challenges and best practices in data annotation. By the end, participants will be equipped to prepare their datasets for deep learning.
 
 ## Key Elements {.unnumbered}
 Training data's role, annotation methods/tools, annotated data's importance, annotation challenges, annotation best practices, dataset preparation
+
+## Annotation Fundamentals
+
+::: {.callout-tip appearance="simple" icon="false"}
+### Highlights
+- Reiterate ideas related to __*supervised learning*__, and the core idea of __*learning from examples*__
+- Discuss key role of labeling/annotation in general for generating examples to learn from
+- Take a quick tour of label/annotation examples across various ML applications (structured data, text, audio, image, video, etc)
+- Talk about some general challenges of procuring/producing labeled data for Machine Learning
+:::
+
+### Fueling intelligence: It’s All About the Data!
+
+The modern AI renaissance is driven by the synergistic combination of _**Computing advances**_, __*more & better data for training*__, and __*Algorithmic innovations*__.
+
+![Source: [OECD.ai](https://oecd.ai/en/compute)](/images/data-annotation/ai-enablers.png){.lightbox width=60%}
+
+Each of these is critical, but you really can't overstate the importance of massively upscaling _training and validation data_. Indeed, to a large extent, the most important advances in algorithms and compute are indeed the ones that are allowing us to efficiently use the large amount of data. **The more data available, the better the model can learn.**
+
+Remember that in Machine Learning:
+
+1. You are building a model to produce some __*desired output*__ for a __*given input*__. Imagine handing a model an aerial photo that contains a water body, or a camera trap video that contains a bear, or an audio recording that captures a the song of a particular bird species. In each case, you want the model to correctly detect, recognize, and report the relevant feature.
+2. To achieve this, you do _not_ build this model by instructing the computer _how_ to detect the water body or the bear or the bird species. Instead, you assemble many (often many, many!) good _examples_ of the phenomena of interest, and feed them to an algorithm that allows the model to adaptively learn from these examples. Now, in practice there may be rule-based guardrails, but we can talk about that separately later in the course.
+
+![.](/images/data-annotation/learning-bears.jpg){.lightbox width=60%}
+
+Much of this course is about understanding what kinds of model structures and learning algorithms allow this seemingly magical learning to happen inside the computer, and what the end-to-end process looks like. But for the sake of these next couple of sections, what is important is that this core concept makes sense to you:
+
+_For any given project, you will quite likely be pulling a generic AI tool off the shelf that has basically no particular knowledge of your particular application area, and the way you will adapt it to apply to your project is not by hand-tweaking parameters or choosing functional forms or anything like that, but rather by (again) exposing the algorithm to many examples._
+
+Bottom line, much like vehicles without fuel, even the best training algorithms in the world will just sit and gather dust if they don't have sufficient data to learn from!
+
+![Source: [Walking Dead Fandom](https://walkingdead.fandom.com/wiki/Gas_Station_%28Season_1%29?file=S1GasStation.PNG)](/images/data-annotation/walking-dead-no-gas.webp){.lightbox width=60%}
+
+Therefore although a lot of this week is about the models and how to operationalize them on compute platforms, your success in applying AI (especially if you are training and/or fine-tuning models, not simply applying pre-trained models) will depend on having a robust and effective _data pipeline_, from data collection methods to data annotation to data curation.
+
+::: {.column-margin}
+![Source: [DZone](https://dzone.com/articles/an-introduction-to-data-labeling-in-artificial-int)](/images/data-annotation/ml-time-allocation.webp){.lightbox width=60%}
+:::
+
+In this module, we focus on _data annotation_.
+
+### What is annotation?
+
+Data annotation is the process of labeling or marking up data with information that is not already explicit in the data itself.
+
+In general, we do this to provide important and relevant context or meaning to the data. As humans, especially in knowledge work, we do this all the time for the purpose of sharing information with others.
+
+![Source: [PowerPoint Tricks](https://www.youtube.com/watch?app=desktop&v=HP6Rb6mCQQM)](/images/data-annotation/labels-and-highlights.jpg){.lightbox width=60%}
+
+In the context of Machine Learning and AI, our objective is to teach a model how to create accurate and useful annotations itself when it encounters new, unannotated data. In order to do this, we need to provide the model with annotated examples that it can train on.
+
+To put it a different way, annotation is the process of taking some data just like the kind of data you will eventually feed into the model, and attaching to it the correct answer to whatever question you will be asking the model about that data.
+
+Simply put, annotation refers to labeling data with information that a model needs to learn, and is not already inherently present in the data.
+
+- **Note:** The term "_annotation_" is synonymous with "_labeling_"
+
+#### Examples
+
+<!-- set.seed(10); iris %>% sample_n(10) %>% kableExtra::kbl() %>% kableExtra::kable_styling(c("striped", "hold_position"), full_width = FALSE) -->
+::: {.callout-note collapse="true" icon="false"
+     title="Tabular Data Annotation"}
+![](/images/data-annotation/iris-table.jpg){.lightbox width=80%}
+
+- Label (aka Target) column: _Species_
+
+When working with tabular data, we don't usually talk about "annotating" the data. Nevertheless, the concept of labeling for supervised learning tasks (such as classification and regression) still applies, and indeed it's common practice to refer to the data used for classification and regression model training as "_**labeled data**_". Labeled tabular data contains a column designated as the _target_ for learning, i.e. the column containing the value that a model learns to predict. Depending on the context (and background of the writer/speaker), you might also hear this referred to as the _label_, _outcome variable_, _dependent variable_, or even just _y variable_. If this is not already inherently present in the dataset, it must be added by an annotator before proceeding with modeling.
+:::
+::: {.callout-note collapse="true" icon="false"
+     title="Text Annotation"}
+![](/images/data-annotation/muir-quote.jpg){.lightbox width=80%}
+
+- Sentiment: _Positive_
+- Parts of speech: _most_::adv,  _beautiful_::adj
+- Named entity: _Alaska_
+:::
+::: {.callout-note collapse="true" icon="false"
+     title="Audio Annotation"}
+![](/images/data-annotation/canyon-wren-song.png){.lightbox width=80%}
+
+- Voice recognition
+- Speech to text
+:::
+::: {.callout-note collapse="true" icon="false"
+     title="Image Annotation"}
+- ... our focus today and this week! See details below.
+:::
+::: {.callout-note collapse="true" icon="false"
+     title="Video Annotation"}
+![](/images/data-annotation/annotated-video.gif){.lightbox width=80%}
+
+Like image annotation, but with many frames! The focus is often on tracking movement of objects, detecting change, and recognizing activities.
+:::
+
+### Why is annotation so important?
+
+We've already talked about the critical role of data overall in enabling _supervised learning_, and the role of annotation in explicitly adding or revealing the information in the data.
+
+More specifically, the annotated data will be used at _training time_, when a specific learning algorithm will use the information in your annotated data to update internal parameters to yield a specific parameterized (aka "trained") version of the model that can do a sufficiently good job at getting the right answer when exposed to new data that it hasn't seen before, and doesn't have labels.
+
+The overall _volume_ and _quality_ of the annotations will have a huge impact on the following characteristics of a model trained on those data:
+
+- **Accuracy**
+- **Precision**
+- **Generalizability**
+
+Obviously there is a bit of tension here! The point of training the model is do something for you. But in order for the AI to be able to do this, you have to first teach it how, which means doing the very thing that you want it to do.
+
+Think of it like hiring a large team of interns. Yes, it takes extra time up front to get them trained up. But once you do that, you're able to scale up operations far beyond what you could do on your own.
+
+This raises a few questions that we'll touch on as we proceed through the course:
+
+- _Is there a model out there that already knows at least something about what I'm trying to do, so I'm not training it from scratch?_ Maybe yes! This is a benefit that foundation models (and more generally, transfer learning) offer. To build on the human intern analogy, if you can hire undergrad researchers studying in a field relevant to the task, you're likely to move much faster than if you hired a 1st grader!
+- _How much annotated data do I need?_ Unfortunately, there is no simple answer. It depends on complexity of task, the clarity of the information, etc. So as we'll discuss, best practice is to proceed iteratively.
+
+### Annotation challenges
+
+By now it should be clear that your goal in the data annotation phase is to _quickly_ and _correctly_ annotate a _large enough corpus of inputs_ that collectively provide an _adequate representation_ of information you want the model to learn.
+
+Here are some of the key challenges to this activity:
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Scalability"}
+Simply put, annotating large datasets can be time-consuming!
+
+This is especially the case for more complex annotation tasks. Identifying a penguin standing on a rock is one thing, but comprehensively identifying and label all land cover types present in a satellite image is much more time-consuming. Multiply this task by hundreds or thousands, and you've quite a scaling challenge!
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Cost"}
+Costs become important in conjunction with the scalability challenge.
+
+You may find you need to pay for:
+
+- **Annotators' time**, whether they are directly employed or used via a service
+- **Annotation software or services**, if you go with a commercial tool vendor
+- **Data storage**, if you are leveraging your own hardware and/or cloud providers like AWS to store large amounts of data
+- **CPU/GPU cycles**, if you are leveraging your own hardware or cloud services to run annotation software, especially if you are using AI-assisted annotation capabilities
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Quality control"}
+Annotation is not always straightforward and easy, but as we've discussed, effective model training depends on producing sufficiently high quality annotations of sufficiently high quality training data.
+
+Some factors to consider:
+
+- **Source data quality**. Is the information signal clear in the data? And does the input dataset include a sufficiently diverse set of examples that are representive of what the model will encountered when deployed?
+- **Annotation consistency**. Do the annotations capture information in the same way across images? This becomes an even bigger factors when multiple annotators are involved. Clear annotation guidelines and tracking various consistency metrics can help here.
+- **Annotation quality**. Are the annotations _accurate_, _precise_, and _complete_? Have annotators introduced bias?
+
+In the end, you will likely need to strike balance between speed and quality. Determining the right goalposts for "_good enough_" will require experimentation and iterative model training/testing.
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Subjectivity"}
+In some applications, there is no clear correct answer! In that case, especially without clear guidelines and training, different annotators can interpret data differently. This can leading to inconsistent labels, which in turn will negatively impact model training and lead to degraded model performance.
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Data and annotation management"}
+On a practical front, effectively managing a large-scale annotation activity also requires managing and organizing all associated annotation artifacts, including both **the input data** and **the generated annotations**.
+
+If you are performing annotation across a team of people, and now you also need to likely need to keep track of multiple annotations per data object (performed across multiple annotators), metadata associated with those annotations (e.g., how long the annotator took to complete the task), and various metrics for monitoring annotation and annotator performance over time.
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Data privacy & security"}
+This is especially important if you use a cloud-based tool for annotation. What is their data privacy and security policy, and is it sufficient to meet your needs?
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Bias & Ethics"}
+Managing bias and ethics is not an annotation-specific problem, and we'll discuss this later in the cousre. However, bear in mind that annotation can be a major factor, because it is a step in the modeling process when some specific human knowledge (i.e., what the annotators know) is attached to the input data, and will very directly exposed to the model during training. This creates an opportunity for injecting bias, exposing sensitive or private information, among other things.
+:::
+
+::: {.callout-caution appearance="simple" icon="false"
+     title="Callout: Annotating satellite imagery"}
+
+![](/images/data-annotation/satellite-haze.jpg){.lightbox width=80%}
+
+Labeling of satellite imagery brings its own specific challenges. Consider:
+
+- Scenes are often highly complex and rich in detail
+- Geographic distortion: Angle of sensor
+- Atmospheric distortion: Haze, fog, clouds
+- Variability over time:
+  - What time of day? Angle of the sun affects visible characteristics
+  - What time of year? Many features change seasonality (e.g. deciduous forest, grasslands in seasonally arid environments, snow cover, etc)
+  - Features change! Forests are cut, etc. Be mindful of the difference between labeling an image and labeling a patch of the earth's surface.
+- It's often desirable to maintain the correspondence between pixels and their geospatial location, for cross-reference with maps and/or other imagery
+:::
+
+### Annotation best practices
+
+::: {.callout-note collapse="true" icon="false"
+     title="Develop a thorough annotation protocol"}
+Create and maintain clear labeling instructions.
+:::
+
+::: {.callout-note collapse="true" icon="false"
+     title="Provide annotator training"}
+- Work with annotators to make sure they understand the domain, use cases, and overall purpose of the project.
+- Provide specific guidance about what to do in ambiguous or difficult cases, in order to help standardize annotations.
+- Consider having new annotators apply annotations on a set of sample inputs, assess those annotations, and provide clear feedback with reference to what they could or should do better.
+:::
+
+::: {.callout-note collapse="true" icon="false"
+     title="Have a quality control process"}
+To ensure sufficient quality, plan on doing regular checks, running cross-validations, and having feedback loops.
+
+First, periodically conduct manual annotation reviews to ensure compliance with instructions. This might include having a recognized expert on the team randomly selecting a subset of annotated images to assess.
+
+Second, identify and calculate quality metrics on an ongoing basis, targeting each of the following:
+
+**Consensus**. To measure the degree to which different annotators on the team are providing similar annotations, have multiple annotors annotate some of the same images, and calculate a _consensus_ measure like **Inter-annotator agreement (IAA)**. Several flavors of this metric exist, such as Cohen's kappa (to compare 2 labelers) and Fleiss' kappa (to compare >2 labelers).
+
+**Accuracy**. In cases where there's a known "correct" answer, either for all images or some subset thereof, calculate annotation performance metrics. Here are a couple of examples:
+  - For bounding boxes, calculate a metric like **Intersection over union (IoU)**: Take the area of overlap between the ground truth box and the annotated box, and divide by total area of the (unioned) boxes.
+  - For detected objects overall, calculate standard metrics like **precision** (proportion of labeled objects that are correctly labeled) and **recall** (proportion of all objects that were correctly labeled)
+
+**Completeness**. Keep track of annotation completeness overall. For example, when doing bounding box annotation for an object detection task, ensure that all drawn boxes are associated with a valid label.
+:::
+
+::: {.callout-note collapse="true" icon="false"
+     title="Proceed iteratively!"}
+In a nutshell: Start small, refine, and scale gradually.
+:::
+
+## Image Annotation Methodology
+
+::: {.callout-tip appearance="simple" icon="false"}
+### Highlights
+- Discuss the primary types of image annotations
+- Discuss the common image-related AI/ML tasks requiring annotation
+- Discuss different methods for annotating images
+- Describe a high level annotation workflow
+:::
+
+It's important to understand and recognize the difference between image annotation _types_, _tasks_, and _methods_. Note that this isn't universal or standardized terminology, but it's pretty widespread.
+
+In this context:
+
+- An annotation _type_ describes the specific format or structure of the annotation used to convey information about the data critical for supporting the task.
+- An annotation _task_ is the specific objective that the annotations are meant to support, i.e. the job you want your AI application to do. In the computer vision context, this typically means identifying or understanding something about an image, and conveying that information in some specific form.
+- An annotation _method_ refers to the process or approach used to create the annotations.
+
+### Image Annotation Types
+
+The type of annotation you apply will depend partly on the task (see next section), as different annotation types are naturally suited for different tasks. However, the decision will also be driven in part by time, cost, and accuracy considerations.
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Image tags"}
+**Tags** are categorical labels, words, or phrases associated with the image as a whole, without explicit linkage to any localized portion of the image.
+![](/images/data-annotation/santa-rosa-beach.jpg){.lightbox width=80%}
+
+- Label: __*beach*__
+- Caption: "__*Embracing the serenity of the shore, where the sky meets the ocean #outdoor #beachlife #nature*__"
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Bounding boxes"}
+**Bounding boxes** are rectangles drawn around objects to localize them within an image.
+![](/images/data-annotation/building-bbox.jpg){.lightbox width=80%}
+
+Typically they are _axis-aligned_, meaning two sides are parallel with the image top/bottom, and two sides are parallel with the image sides, but sometimes rotation is supported.
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Polygons"}
+Generalizing the bounding box concept, **polygons** are a series of 3 or more connected line segments (each with definable end coordinates) that form a closed shape (i.e. the end of the last segment is the beginning of the first segment), used to more precisely localize objects or areas by outlining their shape.
+![](/images/data-annotation/building-polygon.jpg){.lightbox width=80%}
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Segmentations"}
+**Segmentations** involve assigning a class label to individual pixels (or collectively, to regions of individual pixels) in an image. Segmentation may be done either fully for all pixels, or partially only for pixels associated with phenomena of interest.
+
+In practice, pixel segmentations can be produced either by drawing a polygon or using a brush tool.
+
+![](/images/data-annotation/building-segmentation.jpg){.lightbox width=80%}
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Keypoints"}
+**Keypoints** are simply points, used for denoting specific landmarks or features (e.g., skeletal points in human pose estimation).
+![](/images/data-annotation/buildings-points.jpg){.lightbox width=80%}
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="Polylines"}
+**Polylines** are conceptually similar to polygons, but they do not form a closed shape. Instead, the lines are used to mark linear features such as roads, rivers, powerlines, or boundaries.
+![](/images/data-annotation/road-lines.jpg){.lightbox width=80%}
+:::
+
+::: {.callout-caution collapse="true" icon="false"
+     title="3D Cuboids"}
+**3D cuboids** are bounding boxes extended to three dimensions. These are often used in LiDAR data which is represented as a 3-dimensional point cloud, but can also be used to indicate depth of field in a 2D image when the modeling task involves understanding position in three dimensions.
+![](/images/data-annotation/bear-3dcuboid.jpg){.lightbox width=80%}
+:::
+
+### Image Annotation Tasks
+
+The task you choose will depend on the type of information you want the model to extract from the images. Here are the key types of annotation tasks in computer vision:
+
+::: {.callout-note collapse="true" icon="false"
+     title="Image Classification"}
+**Image classification** is the task of assigning an entire image to a category.
+
+The classification typically refers to some singular dominant object or feature (e.g., "Polar bear") within the image, or some defining characteristic of the image (e.g., "Grassland"), but the details depend on the specific use case motivating the modeling exercise.
+:::
+
+::: {.callout-note collapse="true" icon="false"
+    title="Image Captioning"}
+**Image captioning** is the task of generating textual descriptions of the image. It is conceptually similar to image classification, but involves producing freeform text for each image rather than assigning the image to one of a set of pre-defined categorical classifications.
+:::
+
+::: {.callout-note collapse="true" icon="false"
+     title="Object Detection"}
+
+**Object detection** is the task of identifying one or more objects or discrete entities within an image.
+
+Note that object detection involves two distinct sub-tasks:
+
+- _**Localization**_: Where is the object within the image?
+- _**Classification**_: What is the localized object?
+:::
+
+::: {.callout-note collapse="true" icon="false"
+     title="Image Segmentation"}
+**Segmentation** is the task of associating individual pixels annotation for detailed image analysis (e.g., land-use segmentation). In some sense, you can think of it as object detection reported at the pixel level.
+
+There are three distinct kinds of segmentation, illustrated below for the following image:
+![](/images/data-annotation/4bears-image.jpg){.lightbox width=60%}
+
+**Semantic Segmentation** assigns a class label to each pixel in the image, without differentiating individual instances of that class. It is best for amorphous and uncountable "stuff". In the image below, notice the segmentation and separation of the foreground grass from the background trees from the water in the middle. Also notice that the bears are all lumped together in one segment.
+
+![](/images/data-annotation/4bears-sem-seg.jpg){.lightbox width=60%}
+
+**Instance Segmentation** separately detects and segments each object instance. It's therefore similar to semantic segmentation, but _identifies the existence, location, shape, and count of objects_. It is best for distinct and countable "things". Notice the separately identified four bears in the image below:
+
+![](/images/data-annotation/4bears-instance-seg.jpg){.lightbox width=60%}
+
+**Panoptic Segmentation**) combines semantic segmentation + instance segmentation by labeling all pixels, including differentiation of discrete and separately objects within categories. Notice the complete segmentation in the image below, including both the various background types as well as the four distinct bears.
+
+![](/images/data-annotation/4bears-pan-seg.jpg){.lightbox width=60%}
+
+For more on [Panoptic Segmentation](https://ai.meta.com/research/publications/panoptic-segmentation/), check out the [research publication](https://arxiv.org/abs/1801.00868).
+:::
+
+::: {.callout-note collapse="true" icon="false"
+    title="Temporal Annotation"}
+**Temporal annotation** is the task of labeling satellite images over time to track changes in environmental features.
+:::
+
+### Image Annotation Methods
+
+The annotation _method_ largely boils down to whether annotations are done manually versus with some level of supporting automation. Ultimately, the choice involves project-specific determination of the cost, speed, and quality of human annotation relative to what can be achieved with available AI assistance.
+
+::: {.callout-tip collapse="true" icon="false"
+     title="Manual Annotation"}
+With **purely manual annotation**, all labeling is done by human annotators.
+
+Note that good tooling may help make this process easier and more efficient, but ultimately it is up to the human annotator to fully apply the annotation to an unlabeled input.
+:::
+
+::: {.callout-tip collapse="true" icon="false"
+     title="Semi-Automated Annotation"}
+With **semi-automated annotation**, machines assist humans in generating annotations, but humans are still heavily involved in real time with labeling decisions, ranging from actually applying the annotations to refining AI-generated annotations.
+
+Note that this can take many forms. For example:
+
+- __Model-based filtering__: A model is trained to recognize images with _any_ candidate objects (as compared to empty scenes), and is used to reduce the number of images passed to the human annotator.
+- __Model-suggested labels__: A pre-trained model provides hints, e.g. multiple options of likely object classes, and the human makes the decision.
+- __Model-assisted labeling__: A pre-trained model generates a candidate annotation, which the human can accept, reject, or modify in some way (e.g., size, position, category).
+- __Active Learning__: A model is learning how to annotate the images alongside the human, and actively decides which images the human should label to accelarate model training the fastest.
+:::
+
+::: {.callout-tip collapse="true" icon="false"
+     title="Automated Annotation with Human Validation"}
+At the level of **automated annotation with human validation**, AI models generate most annotations autonomously. Humans only review the results after the fact, typically checking accuracy metrics at a high level and perhaps inspecting a random sample of annotations, rather than reviewing every annotation.
+
+Example: A pre-trained model processes satellite images and automatically labels roads, rivers, and forests across thousands of images. A human reviewer then inspects a small percentage of these results to confirm the annotations are accurate, fixing any errors and perhaps fine-tuning the model before the dataset is finalized.
+
+At first glance, it might seem illogical that this scenario could exist! If you already have a model that can do the annotation, then don't you already have a model to do the actual task you want to do?
+
+In practice, however, there are some cases where this might be applicable:
+
+- One scenario involves _model distillation_. Imagine there exists a big, expensive, and/or proprietary (i.e., hidden behind an API) model that does the task you want, and perhaps a lot more. You can use this model to generate labels for a dataset that you use to train your own more compact model or economical model that you control. In the end, you have effectively distilled the source model's capability into your own model, through the annotated training data set.
+- A second scenario is when your goal is not simply to train a model that can annotate data, but to _use_ that model to annotate vasts amounts of data that you then use as inputs to some other machine learning or analysis pipeline. Indeed, in research settings, this is usually the objective! In that case, arguably the application of the trained annotator model will be carried out as automated annotation with human validation.
+:::
+
+::: {.callout-tip collapse="true" icon="false"
+     title="Fully Automated Annotation"}
+Rare in practice! Under **fully automated annotation**, trained models generate annotations with no human involvement, and the quality is deemed sufficient without review.
+
+This is typically only relevant in very specific settings, namely in environments where the image data is very highly controlled. For example, consider images that were produced in a lab setting where the composition of the images is highly controlled, or images that were generated synthetically by some known computational agent (e.g., in video games). A related approach with synthetic data involves using trained AI models to generate _both_ the images and their corresponding annotations, in which case the annotation ground truth for each image.
+:::
+
+### Data Annotation Workflow
+
+::: {.callout-important collapse="true" icon="false"
+     title="1 - Data collection"}
+First step: Get a sufficiently large and diverse set of data to annotate and subsequently train on.
+
+You may already have a set of images from your own research, e.g. from a set of camera traps or aerial flights. Or perhaps you already have a clear use case around detecting features in a particular satellite dataset, and have already procured the imagery. If so, great.
+
+If you don't have your own imagery -- and maybe even if you do -- you may want to consider augmenting it with additional images if you don't have enough diversity or content in your own imagery. Depending on your use cases, you may want to poke around public mage datasets like ImageNet.
+
+![.](/images/data-annotation/imagenet-sample.jpg){.lightbox width=80%}
+:::
+
+::: {.callout-important collapse="true" icon="false"
+     title="2 - Tool Selection"}
+Time to choose your annotation tool/platform!
+
+There are many options, and lots of factors to consider. See the next section for plenty more detail.
+
+![.](/images/data-annotation/toolbox-wide.jpg){.lightbox width=80%}
+:::
+
+::: {.callout-important collapse="true" icon="false"
+     title="3 - Data preprocessing"}
+
+Before proceeding, it's almost always useful (some sometimes essential) to apply various preprocessing tasks to your data to make it easeir to annotatate and/or eventually train on.
+
+![Source: [Medium](https://medium.com/@ramdinesh/sql-data-cleaning-part-10-0074f568354c)](/images/data-annotation/data-cleansing.jpg){.lightbox width=80%}
+
+Here are some categories of common preprocessing tasks:
+
+**Reformatting.**
+If relevant, you may need to convert your source images into a better file format for your task. Beyond this, it may be useful to rotate, crop, rescale, and/or reproject your images to get them into a consistent structural format.
+
+**Basic data cleaning.**
+- For example, with satellite or aerial imagery, you may find it useful to apply pre-processing stesp such as filtering to removing noise, correcting for atmospheric conditions, correcting other distortion, adjusting brightness/contrast/color.
+
+**Feature enhancement.**
+Other context-specific transformations may be useful for "bringing out" information for the model (and human annotators) to use, leading to faster and/or better model outcomes. As an example, you can [hear about](https://www.youtube.com/watch?v=8jwin-l_96A) how careful transformations of Sentinel 2 imagery provided a huge boost in the detection of field boundaries as part of the [UKFields project](https://github.com/Spiruel/UKFields).
+:::
+
+::: {.callout-important collapse="true" icon="false"
+     title="4 - Guideline Development"}
+As we discussed earlier, before you begin in earnest, it's critical that you develop specific guidelines for annotators to follow when doing the annotation using the selected tool.
+
+Note: These should be written down! Some annotation platforms provide a way to document instructions within the tool, but if yours doesn't (and probably even if it does), you should create and maintain your own written documentation
+
+
+![Source: [Acquiro](https://acquirosolutions.com/blog/Business/details/199/Difference-Between-A-Manual-and-A-Guide)](/images/data-annotation/guidelines.jpg){.lightbox width=80%}
+
+Often this will be based on a combination of **prior knowledge** and **task familiarity**. To the extent that nobody on the project has extensive experience with the task at hand, it's often helpful to do some prototyping to inform development of the guidelines.
+:::
+
+::: {.callout-important collapse="true" icon="false"
+     title="5 - Annotation"}
+It's time to annotate!
+
+![Source: [shaip](https://zh-cn.shaip.com/blog/what-is-data-labeling-everything-a-beginner-needs-to-know/)](/images/data-annotation/annotator.jpg){.lightbox width=80%}
+
+Keep in mind the following image annotation best practices. They may not _always_ hold, but in general:
+
+- Keeping bounding boxes and polygons "tight" to the object:
+- For occluded objects, annotate as if the entire object were in view
+- In general, label partial objects cut off at the edge
+- Label _all_ relevant objects in the image. Otherwise, "negative" labels will hamper model learning.
+
+Above all else, remember, _**consistency is critical!**_
+:::
+
+::: {.callout-important collapse="true" icon="false"
+     title="6 - Quality Assurance"}
+Review the annotations for quality, and if needed, refine by returning to an earlier step in the workflow.
+
+![](/images/data-annotation/quality-assurance.jpg){.lightbox width=80%}
+
+Note that although QA is identified here as a discrete stage in the workflow, in practice quality is achieved through deliberate attention at multiple stages in the process, including:
+
+- Initial annotator workforce training before any annotation is done
+- Continuous monitoring during the annotation process
+- Final post-annotation review
+:::
+
+::: {.callout-important collapse="true" icon="false"
+     title="7 - Data Export"}
+Finalize and output the annotated data for model training.
+
+![](/images/data-annotation/coco-json.jpg){.lightbox width=80%}
+
+Typically you will need to get the data into some particular format before proceeding with model training. If your annotation tool can export in this format, you're all set. If not, you'll need to export in some other format and then use a conversion tool that you either find or create yourself.
+:::
+
+From here, presumably you'll move on to model training!
+
+**Remember this key best practice**: Iterate! You will almost certain not proceed through the annotation workflow in one straight shot. Plan to do some annotations, train, test, fix annotations, figure out whether/how to do more and/or better annotations, refine your annotation approaches, etc.
+
+## Annotation Tools & Platforms
+
+::: {.callout-tip appearance="simple" icon="false"}
+### Highlights
+- Get a sense of what kind of tools are out there today!
+- Discuss high level considerations for choosing a tool
+- Review some specific tools out there today
+- Highlight how fast things are changing!
+:::
+
+### High level considerations
+
+Here are some questions you should be asking...
+
+::: {.callout-tip collapse="false" icon="false"
+     title="What annotation types are supported?"}
+Does the tooling allow you do create the kinds of annotations necessary for your task? This probably the first and most fundamental question you should be asking!
+:::
+
+::: {.callout-tip collapse="false" icon="false"
+     title="What import image formats are supported?"}
+Can the tool read images in the right format?
+
+Fortunately, most tools can automatically take a wide range standard image formats including JPG, PNG, BMP, and TIF, and more.
+
+However, if you are working with spatial imagery, including GeoTIFFs, most tools will _not_ natively read in your data. You will need to convert between formats, or choose a tool that is explicitly designed to handle that kind of data.
+:::
+
+::: {.callout-tip collapse="false" icon="false"
+     title="What output annotation formats are supported?"}
+While image formats are reasonably standardized, image _annotation_ formats are more diverse. In general, the format you need will be dictated by the constraints of whatever modeling tasks and tooling you will be using to train and validate a model with your annotated data.
+
+Some annotation software, especially the major players and cloud-based offerings, support a diverse set of output formats, whereas others output only a limited number of formats -- or even just their own idiosyncratic format! In that case, you may need to do a conversion to get your annotations in the right format. Fortunately, there's a good chance that somebody else has already been down this path, and if you search around, you may find a script or package that can do it for you.
+
+**Example formats** (not exhaustive!):
+
+- Various JSON formats
+  - COCO JSON
+  - VGG Image Annotator JSON
+  - LabelMe JSON
+- YOLO TXT
+- Pascal VOC XML
+- TensorFlow TFRecord
+- ... and lots more ...
+
+See this [great page](https://roboflow.com/formats) for exploring many different formats.
+:::
+
+::: {.callout-tip collapse="false" icon="false"
+     title="Who will be doing the annotation?"}
+- **In-house**: You and your team.
+- **Crowdsource**: The broader community.
+- **Outsource**: External people with whom you contract, either directly or through a 3rd party annotation services company. Yes, these do exist!
+:::
+
+::: {.callout-tip collapse="false" icon="false"
+     title="How can I assess annotation quality?"}
+We've discussed the importance of having high quality annotations, and briefly covered various types of quality assessment. Some tools leave it entirely up to you to handle this, but others have features that help in this area. This can include:
+
+- Automatic calculation of various quality metrics
+- Configurable mechanisms for distributing images among annotators, and choosing how many annotators will see each image
+- Various other forms of annotation process metadata and analytics
+:::
+
+::: {.callout-tip collapse="false" icon="false"
+     title="Is the tool easy to use?"}
+As with any category of software, some options will be easier to use than others. For image annotation, where you are likely going to want to scale up to a large number of images, small speed-ups in the annotation process will really start to add up over time.
+
+Consider:
+
+- Is the software easy to navigate in general?
+- Does the annotation interface have responsive, reliable, and easy-to-use UI elements for creating, modifying, and deleting image annotations?
+- Are there effective keyboard shortcuts to help speed up manual annotations?
+- Does the tool offer effective model-assisted or other "smart" annotation capabilities?
+- Are there well-designed features for managing your images, annotations, and ovearll workflow?
+- Is there any useful API support to enable programmatic upload, download, or other automation?
+:::
+
+::: {.callout-tip collapse="false" icon="false"
+     title="How much am I willing to pay for tooling?"}
+In short, some software options are free, wherease others are commercial offerings with varying costs and prices tiers. As you compare features, consider what you're willing (and able) to pay for.
+:::
+
+::: {.callout-tip collapse="false" icon="false"
+     title="How is the software licensed?"}
+Some annotation software apps and libraries are open source, whereas others are proprietary. You may want to lean toward the open source options if you want to be able to review the source code and understand how it works, and/or (perhaps more importantly) have the option of modifying it to better meet your needs. Of course, general speaking, the open source options will typically also be free, whereas proprietary software is more likely to come with costs.
+:::
+
+::: {.callout-tip collapse="false" icon="false"
+     title="Where does the software run?"}
+Do you care if the software runs on your local computer? Do you want it to be something that you deploy and run on your own managed server, either locally or on a VM hosted in a public cloud? Or would you prefer to use a pure cloud-based annotation platform (i.e., a SaaS offering) that somebody else maintains and you access via a browser and/or API?
+
+As with any software decision, there are pros and cons to each option.
+
+Bear in mind that with image annotation, any cloud-based offering raises security and privacy considerations, as your images and annotations will reside on somebody else's server. Consider whether this is a concern for you.
+:::
+
+::: {.callout-tip collapse="false" icon="false"
+     title="What collaboration features are there?"}
+- What collaborative features are offered?
+:::
+
+### Tools & services galore
+
+Note that for geospatial image data annotation in particular, historically there's been a divide between these two approaches:
+
+- **Mature GIS platforms** (QGIS, ArcGIS, etc) -
+  - First-class geospatial data and imagery support
+  - Native capabilities for drawing and editing features like points, lines, and polygons
+  - But all of menus and heavyweight UI around robust spatial feature management can impede fast & efficient annotation
+  - Limited or no support for the broader annotation workflow and lifecycle
+- **Image annotation software and platforms** (LabelBox, RoboFlow)
+  - Really nice and constantly improving
+  - Mostly generic with respect to supporting annotation for Computer Vision tasks, not full-featured around environmental research applications, especially with respect to Remote Sensing imagery with spatial component, multispectral bands, etc
+
+In between, you'll find a few dedicated software packages for environmental and/or spatial image annotation. However, because this is a small niche, you'll find that they're often rough around the edges, and likely have a very focused (i.e., limited) set of features addressing only the specific use cases of relevance to the development team. On the plus side, usually they are developed as open source projects, so if you're up for the investment, you may want to consider contributing or extending these tools to meet your needs.
+
+#### Open-Source Tools for Image Annotation
+
+- [**LabelImg**](https://pypi.org/project/labelImg/)
+  - High level: An open-source tool for creating bounding boxes.
+  - Used for object detection mainly, maybe??
+  - Only supports _bounding boxes_ for annotation
+  - "Graphical image annotation tool and label object bounding boxes in images"
+  - It is written in Python and uses Qt for its graphical interface.
+  - Annotations are saved as XML files in PASCAL VOC format, the format used by [ImageNet](http://www.image-net.org/). Besides, it also supports YOLO and CreateML formats
+  - See this third-party [video tutorial](https://www.youtube.com/watch?v=EGQyDla8JNU)
+- [**VGG Image Annotator (VIA)**](https://www.robots.ox.ac.uk/~vgg/software/via/)
+  - High level: A flexible (but manual) tool for image, video, and audio annotation.
+  - Serverless web application, runs locally and self-contained in a browser, with no network connection required
+  - Released in 2016, still maintained, based out of Oxford
+  - See [demo](https://www.robots.ox.ac.uk/~vgg/software/via/via_demo.html)
+- [LabelMe](https://github.com/labelmeai/labelme)
+  - Originally built as an online annotation tool, now distributed
+  - Now distributed as a [deployable web application](https://github.com/CSAILVision/LabelMeAnnotationTool) that you can ran on a local web server
+  - Not to be confused with this independent Python/QT port of [labelme](https://github.com/labelmeai/labelme)
+  - Wait and what about this [labelme](https://github.com/wkentaro/labelme) GitHub repo??
+- [**IRIS**](https://github.com/ESA-PhiLab/iris) (Intelligently Reinforced Image Segmentation)
+  - Provides semi-automated annotation for image segmentation, geared toward multi-band satellite imagery
+
+#### GIS platforms with annotation plugins
+- **QGIS**
+- **ArcGIS**
+
+#### Hybrid solutions with both desktop and hosted options
+
+- [CVAT](https://docs.cvat.ai/docs/) (Computer Vision Annotation Tool):
+  - Open-source tool for video and image annotation, widely used in computer vision projects.
+  - Uses pre-trained models to assist annotation?
+  - See [GitHub repository](https://github.com/cvat-ai/cvat)
+  - Also has [cloud-based offering](http://app.cvat.ai/) and offers [annotation services](https://www.cvat.ai/annotation-service)
+  - Supports:
+    - labeling images
+    - drawing bounding boxes
+    - model assisted labeling using models like [YOLO](https://pjreddie.com/darknet/yolo/) 
+    - manual semantic segmentation 
+    - automatic semantic segmentation with [SAM](https://segment-anything.com/) 
+- :fire: [Label Studio](https://labelstud.io/guide/labeling)
+  - Multi-type data labeling and annotation tool with standardized output format
+  - Works on various data types (text, image, audio)
+  - Has both [open source option](https://github.com/HumanSignal/label-studio) and [paid cloud service](https://humansignal.com/goenterprise/)
+  - See online [playground](https://labelstud.io/playground/)
+- [Microsoft's Spatial imagely labeling toolkit](https://github.com/microsoft/satellite-imagery-labeling-tool)
+- [imglab](https://github.com/NaturalIntelligence/imglab)
+
+#### Commercial apps
+- [RectLabel](https://rectlabel.com)
+  - Offline image annotation tool for object detection and segmentation
+  - Has regular and Pro version
+  - Built for Mac
+  - See [support page](https://github.com/ryouchinsa/Rectlabel-support)
+
+#### Commercial services
+- [Labelbox](https://docs.labelbox.com/docs/annotate-overview)
+  - Cloud-based commercial platform, albeit with possible free options for academic researchers
+- [Roboflow annotate](https://roboflow.com/annotate)
+  - Online platform, with limited free tier
+  - Free tier does not offer any privacy
+- [SuperAnnotate](https://www.superannotate.com/)
+  - High level: Full-featured collaborative annotation and modeling platform
+  - [Commercial offering](https://www.superannotate.com/pricing) with free tier
+- [MakeSense.ai](https://www.makesense.ai/)
+  - Includes AI models!
+  - [GitHub](https://github.com/SkalskiP/make-sense)0
+- [Supervise.ly](https://supervisely.com/labeling-toolbox/images/) (commercial with free version)
+- [Labelerr](https://www.labellerr.com/image-annotation-platform) (commercial with free researcher tier)
+- [RMSI](https://www.rmsi.com/Annotation-and-Labeling/platform.html) annotation tools & services
+- [Kili](https://kili-technology.com/platform/label-annotate/geospatial-annotation-tool) annotation platform (see [geoannotation docs](https://docs.kili-technology.com/docs/geospatialtiled-imagery))
+- [Segments.ai](https://segments.ai/) labeling platform
+- [Sama](https://www.sama.com/2d-image-annotation-services)
+- [ScaleAI](https://scale.com/data-engine)
+- [Diffgram](https://www.diffgram.com/) (see [tech docs](https://diffgram.readme.io/) and [GiHub](https://github.com/diffgram/diffgram)) -- commercial but locally installed? Hard to tell!
+- [DarkLabel](https://github.com/darkpgmr/DarkLabel)
+- [Groundwork](https://element84.com/groundwork/data-labeling) professional labeling services
+
+#### Fully managed AI & annotation services
+- [Alegion](https://alegion.com/about-us/)
+- [Manthano](https://manthano.ai)
+
+#### Other platforms
+- [Zooniverse](https://www.zooniverse.org/projects)? Crowd-sourcing annotation platform
+  - E.g. [The Arctic Bears Project](https://www.zooniverse.org/projects/douglas-clark/the-arctic-bears-project)
+
+- [DeepForest](https://deepforest.readthedocs.io/en/v1.3.3/landing.html)
+  - From the Weecology lab
+  - Python package for training and predicting ecological objects in airborne imagery
+  - Comes with a tree crown object detection model and a bird detection model
+  - See [GitHub repo](https://github.com/weecology/DeepForest)
+
+### Miscellaneous links
+- [Satellite image deep learning](https://github.com/satellite-image-deep-learning/annotation) (Robin Cole's site)
+- [Open Source Data Annotation & Labeling Tools](https://github.com/zenml-io/awesome-open-data-annotation)
