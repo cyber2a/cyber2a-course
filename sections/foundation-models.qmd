@@ -213,3 +213,18 @@ Diffusion models can generate high-resolution and diverse images, often outperfo
 
 Stable-diffusion [@DBLP:journals/corr/abs-2112-10752], DALL-E [@DBLP:journals/corr/abs-2102-12092], [Sora](https://openai.com/research/video-generation-models-as-world-simulators) are some of the most common models utilizing diffusion architecture.
 
+
+### Foundaiton Models - Applications
+
+Having explored the foundational principles and capabilities of foundation models, we can now delve into specific applications that leverage their power. Two prominent techniques that build upon the capabilities of these models are Segment Anything Model (SAM) and Retrieval-Augmented Generation (RAG).
+
+
+### Segment Anything Model
+
+
+
+### Retrieval-Augmented Generation (RAG)
+
+
+
+
