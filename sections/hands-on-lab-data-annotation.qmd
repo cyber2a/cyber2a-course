@@ -1,7 +1,5 @@
 # Hands-On Lab: Data Annotation
 
-**>>>>THIS SECTION IS UNDER DEVELOPMENT<<<<**
-
 ---
 title: "Hands-On Lab: Data Annotation"
 toc: true
