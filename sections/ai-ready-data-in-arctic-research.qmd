@@ -44,7 +44,7 @@ So, there's nothing really special about AI-Ready data, in that a lot of the cor
 
 ![](https://bipartisan-policy-center.imgix.net/wp-content/uploads/2023/02/AI-Ready-Open-Data.jpg?auto=compress,format&q=90&ixlib=imgixjs-3.4.2&w=4088)
 
-For example, management agencies have started entire new programs to prepare data and staff for the introcution of AI and machine learning into their processes. One such program with a focus on AI-Ready data is NOAA's Center for Artificial Intelligence (NCAI).
+For example, management agencies have started entire new programs to prepare data and staff for the introduction of AI and machine learning into their processes. One such program with a focus on AI-Ready data is NOAA's Center for Artificial Intelligence (NCAI).
 
 ![[NOAA NCAI](https://www.noaa.gov/ai)](../images/ai-ready/noaa-ncai.png)
 
