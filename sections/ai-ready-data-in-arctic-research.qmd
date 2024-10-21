@@ -83,15 +83,27 @@ In beginning to define AI-Ready data for NOAA, [Christensen et al. 2020](https:/
 
 ## Open Data Foundations
 
-AI requires data access. And while the open data movement has seen massive growth and adoption, it's an unfortunate fact that most research data collected today are still not published and accessible. 
+Preservation and open data access are the foundation of Analysis-Ready and AI-ready data. While all modeling and analysis requires access to data, the ability for AI to encompass massive swaths of information and combine disparate data streams makes open data incredibly valuable. And while the open data movement has seen massive growth and adoption, it's an unfortunate fact that most research data collected today are still not published and accessible, and challenges to the realization of open data outlined by Reichman et al. (2011) are still prominent today [@reichman_challenges_2011]. 
 
-Arctic Data Center and Data Repositories
+**Arctic Data Center.** Nevertheless, progress has been made. The National Science Foundation [Office of Polar Programs Data, Code, and Sample Management Policy (DCL 22-106)](https://www.nsf.gov/pubs/2022/nsf22106/nsf22106.jsp) embraces the need to preserve, document, and share the data and results from NSF-funded research, and since 2016 has funded the Arctic Data Center to provide services supporting reseach community data needs. The center provides [data submission guidelines](https://arcticdata.io/submit/) and data curation support to create well-documented, understandable, and reusable data from the myriad projects funded by NSF and globally each year. In short, the Arctic Data Center provides a long-term home for over 7000 open, Arctic datasets that are AI-Ready. Researchers increasingly deposit large datasets from remote sensing campaigns using unmanned aerial vehicles (UAV), field expeditions, and observing networks, all of which are prime content for AI.
 
+::: {.column-margin}
+![](../images/ai-ready/arctic-data-center.png)
+:::
+
+::: {.column-page-right}
 ![Arctic Data Center Catalog](../images/ai-ready/adc-catalog.png)
+:::
+
+In addition to raw observational data and remote sensing imagery, the ADC also stores and distributes model output, labeled training data, and other derived data products. A recent example comes from the Permafrost Discovery Gateway project, in which Neitze et al. used machine learning on multispectral PlanetScope imagery to extract high-resolution geospatial footprints for retrogressive thaw slumps (RTS) and active layer detachment (ALD) slides across the circum-Arctic permafrost region [@nitze_darts_2024]. In addition, the dataset includes human-generated training labels, processing code, and model checkpoints -- just what is needed for further advances in this critical field of climate research.
+
+::: {.column-margin}
+![](../images/ai-ready/rts-feature.png)
+:::
 
 ![DARTS retrogressive thaw slump dataset [doi:10.18739/A2RR1PP44](https://doi.org/10.18739/A2RR1PP44) ](../images/ai-ready/darts-dataset.png)
 
-DataONE
+**DataONE.**
 
 Graph of Arctic Data across DataONE
 
