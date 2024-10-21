@@ -16,7 +16,7 @@ The sections presented here fit into a one-week workshop as follows, but the mod
 
 ::: {.column-page-right}
 
-![](https://cyber2a.github.io/workshop/cyber2Aschedule.png)
+![](https://cyber2a.github.io/workshop/cyber2Aschedule.png){.lightbox width=100%}
 
 :::
 
