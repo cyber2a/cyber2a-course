@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Annotation: The Foundation of Deep Learning Models – Cyber2A: AI for Arctic Research</title>
+<title>4&nbsp; Data Annotation: The Foundation of Deep Learning Models – Cyber2A: AI for Arctic Research</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -341,7 +341,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/breaking-the-ice-with-ai-in-arctic-science.html"><b>Day 1: Introduction to AI and Arctic Science</b></a></li><li class="breadcrumb-item"><a href="../sections/data-annotation.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Annotation: The Foundation of Deep Learning Models</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Data Annotation: The Foundation of Deep Learning Models</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Annotation: The Foundation of Deep Learning Models</span></h1>
 </div>
 
 
@@ -358,10 +358,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>&gt;&gt;&gt;&gt;THIS SECTION IS UNDER DEVELOPMENT&lt;&lt;&lt;&lt;</strong></p>
 <style>
 figcaption {
   font-size: 0.5em;
+}
+.tiny.figcaption {
+    font-size: 0.1em;
 }
 .column-margin {
   figcaption {
@@ -399,14 +401,14 @@ Highlights
 </div>
 <section id="fueling-intelligence-its-all-about-the-data" class="level3 page-columns page-full" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="fueling-intelligence-its-all-about-the-data"><span class="header-section-number">4.1.1</span> Fueling intelligence: It’s All About the Data!</h3>
-<p>The modern AI renaissance is driven by the synergistic combination of <em><strong>Computing advances</strong></em>, <strong><em>more &amp; better data for training</em></strong>, and <strong><em>Algorithmic innovations</em></strong>.</p>
+<p>The modern AI renaissance is driven by the synergistic combination of <em><strong>Computing advances</strong></em>, <strong><em>more &amp; better data for training</em></strong>, and <strong><em>algorithmic innovations</em></strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/data-annotation/ai-enablers.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Source: OECD.ai"><img src="../images/data-annotation/ai-enablers.png" class="img-fluid figure-img" style="width:60.0%" alt="Source: OECD.ai"></a></p>
 <figcaption>Source: <a href="https://oecd.ai/en/compute">OECD.ai</a></figcaption>
 </figure>
 </div>
-<p>Each of these is critical, but you really can’t overstate the importance of massively upscaling <em>training and validation data</em>. Indeed, to a large extent, the most important advances in algorithms and compute are indeed the ones that are allowing us to efficiently use the large amount of data. <strong>The more data available, the better the model can learn.</strong></p>
+<p>Each of these is critical, but you really can’t overstate the importance of massively upscaling <em>training and validation data</em>. Indeed, to a large extent, the most important recent advances in algorithms and compute have been those that allow us to efficiently use huge amounts of data. <strong>The more data available, the better the model can learn.</strong></p>
 <p>Remember that in Machine Learning:</p>
 <ol type="1">
 <li>You are building a model to produce some <strong><em>desired output</em></strong> for a <strong><em>given input</em></strong>. Imagine handing a model an aerial photo that contains a water body, or a camera trap video that contains a bear, or an audio recording that captures a the song of a particular bird species. In each case, you want the model to correctly detect, recognize, and report the relevant feature.</li>
@@ -418,8 +420,8 @@ Highlights
 <figcaption>.</figcaption>
 </figure>
 </div>
-<p>Much of this course is about understanding what kinds of model structures and learning algorithms allow this seemingly magical learning to happen inside the computer, and what the end-to-end process looks like. But for the sake of these next couple of sections, what is important is that this core concept makes sense to you:</p>
-<p><em>For any given project, you will quite likely be pulling a generic AI tool off the shelf that has basically no particular knowledge of your particular application area, and the way you will adapt it to apply to your project is not by hand-tweaking parameters or choosing functional forms or anything like that, but rather by (again) exposing the algorithm to many examples.</em></p>
+<p>Much of this course is about understanding what kinds of model structures and learning algorithms allow this seemingly magical learning to happen inside the computer, and what the end-to-end process looks like. But for now, we are going to focus on the input data. And as we embark, it is essential is that this core concept makes sense to you:</p>
+<p><em>For any project involving development of an AI model, you will quite likely be starting with a generic algorithm that has limited or even zero specific knowledge of your particular application area. Unlike with “classical” modeling, the way you will adapt it to apply to your project is not by hand-tweaking parameters or choosing functional forms describing your phenomenon of interest, but rather by exposing this generalized algorithm to many relevant examples to learn from.</em></p>
 <p>Bottom line, much like vehicles without fuel, even the best training algorithms in the world will just sit and gather dust if they don’t have sufficient data to learn from!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -427,7 +429,7 @@ Highlights
 <figcaption>Source: <a href="https://walkingdead.fandom.com/wiki/Gas_Station_%28Season_1%29?file=S1GasStation.PNG">Walking Dead Fandom</a></figcaption>
 </figure>
 </div>
-<p>Therefore although a lot of this week is about the models and how to operationalize them on compute platforms, your success in applying AI (especially if you are training and/or fine-tuning models, not simply applying pre-trained models) will depend on having a robust and effective <em>data pipeline</em>, from data collection methods to data annotation to data curation.</p>
+<p>Ultimately, although you will need to have an understanding of algorithmic and models, and learn how to operationalize them on compute platforms, your success in applying AI (especially if you are training and/or fine-tuning models, not simply applying pre-trained models) will depend on your ability to implement a robust and effective <em>data pipeline</em>, from data collection methods to data annotation to data curation.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
@@ -448,12 +450,19 @@ Highlights
 <figcaption>Source: <a href="https://www.youtube.com/watch?app=desktop&amp;v=HP6Rb6mCQQM">PowerPoint Tricks</a></figcaption>
 </figure>
 </div>
-<p>In the context of Machine Learning and AI, our objective is to teach a model how to create accurate and useful annotations itself when it encounters new, unannotated data. In order to do this, we need to provide the model with annotated examples that it can train on.</p>
+<p>In the context of Machine Learning and AI, our objective is to teach a model how to create accurate and useful annotations itself when it encounters new, unannotated data in the future. In order to do this, we need to provide the model with annotated examples that it can train on.</p>
 <p>To put it a different way, annotation is the process of taking some data just like the kind of data you will eventually feed into the model, and attaching to it the correct answer to whatever question you will be asking the model about that data.</p>
 <p>Simply put, annotation refers to labeling data with information that a model needs to learn, and is not already inherently present in the data.</p>
-<ul>
-<li><strong>Note:</strong> The term “<em>annotation</em>” is synonymous with “<em>labeling</em>”</li>
-</ul>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The term “<em>annotation</em>” is synonymous with “<em>labeling</em>”</p>
+</div>
+</div>
+</div>
 <section id="examples" class="level4" data-number="4.1.2.1">
 <h4 data-number="4.1.2.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">4.1.2.1</span> Examples</h4>
 <!-- set.seed(10); iris %>% sample_n(10) %>% kableExtra::kbl() %>% kableExtra::kable_styling(c("striped", "hold_position"), full_width = FALSE) -->
@@ -558,6 +567,7 @@ Video Annotation
 <section id="why-is-annotation-so-important" class="level3" data-number="4.1.3">
 <h3 data-number="4.1.3" class="anchored" data-anchor-id="why-is-annotation-so-important"><span class="header-section-number">4.1.3</span> Why is annotation so important?</h3>
 <p>We’ve already talked about the critical role of data overall in enabling <em>supervised learning</em>, and the role of annotation in explicitly adding or revealing the information in the data.</p>
+<p><a href="../images/data-annotation/teaching-ai.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="../images/data-annotation/teaching-ai.jpg" class="img-fluid" style="width:80.0%"></a></p>
 <p>More specifically, the annotated data will be used at <em>training time</em>, when a specific learning algorithm will use the information in your annotated data to update internal parameters to yield a specific parameterized (aka “trained”) version of the model that can do a sufficiently good job at getting the right answer when exposed to new data that it hasn’t seen before, and doesn’t have labels.</p>
 <p>The overall <em>volume</em> and <em>quality</em> of the annotations will have a huge impact on the following characteristics of a model trained on those data:</p>
 <ul>
@@ -573,7 +583,7 @@ Video Annotation
 <li><em>How much annotated data do I need?</em> Unfortunately, there is no simple answer. It depends on complexity of task, the clarity of the information, etc. So as we’ll discuss, best practice is to proceed iteratively.</li>
 </ul>
 </section>
-<section id="annotation-challenges" class="level3" data-number="4.1.4">
+<section id="annotation-challenges" class="level3 page-columns page-full" data-number="4.1.4">
 <h3 data-number="4.1.4" class="anchored" data-anchor-id="annotation-challenges"><span class="header-section-number">4.1.4</span> Annotation challenges</h3>
 <p>By now it should be clear that your goal in the data annotation phase is to <em>quickly</em> and <em>correctly</em> annotate a <em>large enough corpus of inputs</em> that collectively provide an <em>adequate representation</em> of information you want the model to learn.</p>
 <p>Here are some of the key challenges to this activity:</p>
@@ -591,10 +601,18 @@ Scalability
 <div class="callout-body-container callout-body">
 <p>Simply put, annotating large datasets can be time-consuming!</p>
 <p>This is especially the case for more complex annotation tasks. Identifying a penguin standing on a rock is one thing, but comprehensively identifying and label all land cover types present in a satellite image is much more time-consuming. Multiply this task by hundreds or thousands, and you’ve quite a scaling challenge!</p>
+
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled" title="Cost">
+<div class="no-row-height column-margin column-container"><div class="callout-7-contents callout-collapse collapse callout-margin-content">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="../images/data-annotation/noun-scalability-7188273.png" class="tiny img-fluid figure-img" style="width:50.0%"></p>
+<figcaption><a href="https://thenounproject.com">Noun Project</a> (CC BY 3.0)</figcaption>
+</figure>
+</div>
+</div></div><div class="callout callout-style-default callout-caution no-icon callout-titled" title="Cost">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -614,10 +632,18 @@ Cost
 <li><strong>Data storage</strong>, if you are leveraging your own hardware and/or cloud providers like AWS to store large amounts of data</li>
 <li><strong>CPU/GPU cycles</strong>, if you are leveraging your own hardware or cloud services to run annotation software, especially if you are using AI-assisted annotation capabilities</li>
 </ul>
+
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled" title="Quality control">
+<div class="no-row-height column-margin column-container"><div class="callout-8-contents callout-collapse collapse callout-margin-content">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="../images/data-annotation/noun-cost-7268871.png" class="tiny img-fluid figure-img" style="width:50.0%"></p>
+<figcaption><a href="https://thenounproject.com">Noun Project</a> (CC BY 3.0)</figcaption>
+</figure>
+</div>
+</div></div><div class="callout callout-style-default callout-caution no-icon callout-titled" title="Quality control">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -633,14 +659,22 @@ Quality control
 <p>Some factors to consider:</p>
 <ul>
 <li><strong>Source data quality</strong>. Is the information signal clear in the data? And does the input dataset include a sufficiently diverse set of examples that are representive of what the model will encountered when deployed?</li>
-<li><strong>Annotation consistency</strong>. Do the annotations capture information in the same way across images? This becomes an even bigger factors when multiple annotators are involved. Clear annotation guidelines and tracking various consistency metrics can help here.</li>
+<li><strong>Annotation consistency</strong>. Do the annotations capture information in the same way across images? This becomes an even bigger factor when multiple annotators are involved. Clear annotation guidelines and tracking various consistency metrics can help here.</li>
 <li><strong>Annotation quality</strong>. Are the annotations <em>accurate</em>, <em>precise</em>, and <em>complete</em>? Have annotators introduced bias?</li>
 </ul>
 <p>In the end, you will likely need to strike balance between speed and quality. Determining the right goalposts for “<em>good enough</em>” will require experimentation and iterative model training/testing.</p>
+
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled" title="Subjectivity">
+<div class="no-row-height column-margin column-container"><div class="callout-9-contents callout-collapse collapse callout-margin-content">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="../images/data-annotation/noun-quality-control-7306418.png" class="tiny img-fluid figure-img" style="width:50.0%"></p>
+<figcaption><a href="https://thenounproject.com">Noun Project</a> (CC BY 3.0)</figcaption>
+</figure>
+</div>
+</div></div><div class="callout callout-style-default callout-caution no-icon callout-titled" title="Subjectivity">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -653,10 +687,18 @@ Subjectivity
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In some applications, there is no clear correct answer! In that case, especially without clear guidelines and training, different annotators can interpret data differently. This can leading to inconsistent labels, which in turn will negatively impact model training and lead to degraded model performance.</p>
+
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled" title="Data and annotation management">
+<div class="no-row-height column-margin column-container"><div class="callout-10-contents callout-collapse collapse callout-margin-content">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="../images/data-annotation/noun-opinion-6458309.png" class="tiny img-fluid figure-img" style="width:50.0%"></p>
+<figcaption><a href="https://thenounproject.com">Noun Project</a> (CC BY 3.0)</figcaption>
+</figure>
+</div>
+</div></div><div class="callout callout-style-default callout-caution no-icon callout-titled" title="Data and annotation management">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -669,11 +711,19 @@ Data and annotation management
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>On a practical front, effectively managing a large-scale annotation activity also requires managing and organizing all associated annotation artifacts, including both <strong>the input data</strong> and <strong>the generated annotations</strong>.</p>
-<p>If you are performing annotation across a team of people, and now you also need to likely need to keep track of multiple annotations per data object (performed across multiple annotators), metadata associated with those annotations (e.g., how long the annotator took to complete the task), and various metrics for monitoring annotation and annotator performance over time.</p>
+<p>If you are performing annotation across a team of people, you also need to likely need to keep track of multiple annotations per data object (performed across multiple annotators), metadata associated with those annotations (e.g., how long each annotator took to complete the task), and various metrics for monitoring annotation and annotator performance over time.</p>
+
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled" title="Data privacy &amp; security">
+<div class="no-row-height column-margin column-container"><div class="callout-11-contents callout-collapse collapse callout-margin-content">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="../images/data-annotation/noun-organization-6757467.png" class="tiny img-fluid figure-img" style="width:50.0%"></p>
+<figcaption><a href="https://thenounproject.com">Noun Project</a> (CC BY 3.0)</figcaption>
+</figure>
+</div>
+</div></div><div class="callout callout-style-default callout-caution no-icon callout-titled" title="Data privacy &amp; security">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -685,11 +735,20 @@ Data privacy &amp; security
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This is especially important if you use a cloud-based tool for annotation. What is their data privacy and security policy, and is it sufficient to meet your needs?</p>
+<p>This is especially important if you use a cloud-based tool for annotation.</p>
+<p>Ask yourself: What is their data privacy and security policy, and is it sufficient to meet your needs?</p>
+
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled" title="Bias &amp; Ethics">
+<div class="no-row-height column-margin column-container"><div class="callout-12-contents callout-collapse collapse callout-margin-content">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="../images/data-annotation/noun-privacy-7216208.png" class="tiny img-fluid figure-img" style="width:50.0%"></p>
+<figcaption><a href="https://thenounproject.com">Noun Project</a> (CC BY 3.0)</figcaption>
+</figure>
+</div>
+</div></div><div class="callout callout-style-default callout-caution no-icon callout-titled" title="Bias &amp; Ethics">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -702,10 +761,18 @@ Bias &amp; Ethics
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Managing bias and ethics is not an annotation-specific problem, and we’ll discuss this later in the cousre. However, bear in mind that annotation can be a major factor, because it is a step in the modeling process when some specific human knowledge (i.e., what the annotators know) is attached to the input data, and will very directly exposed to the model during training. This creates an opportunity for injecting bias, exposing sensitive or private information, among other things.</p>
+
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Callout: Annotating satellite imagery">
+<div class="no-row-height column-margin column-container"><div class="callout-13-contents callout-collapse collapse callout-margin-content">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="../images/data-annotation/noun-ethical-4351477.png" class="tiny img-fluid figure-img" style="width:60.0%"></p>
+<figcaption><a href="https://thenounproject.com">Noun Project</a> (CC BY 3.0)</figcaption>
+</figure>
+</div>
+</div></div><div class="callout callout-style-simple callout-caution no-icon callout-titled" title="Callout: Annotating satellite imagery">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -715,7 +782,7 @@ Callout: Annotating satellite imagery
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="../images/data-annotation/satellite-haze.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="../images/data-annotation/satellite-haze.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p><a href="../images/data-annotation/satellite-haze.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/data-annotation/satellite-haze.jpg" class="img-fluid" style="width:80.0%"></a></p>
 <p>Labeling of satellite imagery brings its own specific challenges. Consider:</p>
 <ul>
 <li>Scenes are often highly complex and rich in detail</li>
@@ -724,7 +791,7 @@ Callout: Annotating satellite imagery
 <li>Variability over time:
 <ul>
 <li>What time of day? Angle of the sun affects visible characteristics</li>
-<li>What time of year? Many features change seasonality (e.g.&nbsp;deciduous forest, grasslands in seasonally arid environments, snow cover, etc)</li>
+<li>What time of year? Many features change seasonally (e.g.&nbsp;deciduous forest, grasslands in seasonally arid environments, snow cover, etc)</li>
 <li>Features change! Forests are cut, etc. Be mindful of the difference between labeling an image and labeling a patch of the earth’s surface.</li>
 </ul></li>
 <li>It’s often desirable to maintain the correspondence between pixels and their geospatial location, for cross-reference with maps and/or other imagery</li>
@@ -734,6 +801,7 @@ Callout: Annotating satellite imagery
 </section>
 <section id="annotation-best-practices" class="level3" data-number="4.1.5">
 <h3 data-number="4.1.5" class="anchored" data-anchor-id="annotation-best-practices"><span class="header-section-number">4.1.5</span> Annotation best practices</h3>
+<p>This list could certainly be longer, but if you remember and apply these practices, you’ll start off on a good foot.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Develop a thorough annotation protocol">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -803,7 +871,12 @@ Proceed iteratively!
 </div>
 <div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>In a nutshell: Start small, refine, and scale gradually.</p>
+<p>In a nutshell:</p>
+<ol type="1">
+<li>Start small</li>
+<li>Refine and improve as you go</li>
+<li>Scale gradually</li>
+</ol>
 </div>
 </div>
 </div>
@@ -851,7 +924,7 @@ Image tags
 </div>
 <div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Tags</strong> are categorical labels, words, or phrases associated with the image as a whole, without explicit linkage to any localized portion of the image. <a href="../images/data-annotation/santa-rosa-beach.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="../images/data-annotation/santa-rosa-beach.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p><strong>Tags</strong> are categorical labels, words, or phrases associated with the image as a whole, without explicit linkage to any localized portion of the image. <a href="../images/data-annotation/santa-rosa-beach.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="../images/data-annotation/santa-rosa-beach.jpg" class="img-fluid" style="width:80.0%"></a></p>
 <ul>
 <li>Label: <strong><em>beach</em></strong></li>
 <li>Caption: “<strong><em>Embracing the serenity of the shore, where the sky meets the ocean #outdoor #beachlife #nature</em></strong>”</li>
@@ -871,7 +944,7 @@ Bounding boxes
 </div>
 <div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Bounding boxes</strong> are rectangles drawn around objects to localize them within an image. <a href="../images/data-annotation/building-bbox.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="../images/data-annotation/building-bbox.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p><strong>Bounding boxes</strong> are rectangles drawn around objects to localize them within an image. <a href="../images/data-annotation/building-bbox.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="../images/data-annotation/building-bbox.jpg" class="img-fluid" style="width:80.0%"></a></p>
 <p>Typically they are <em>axis-aligned</em>, meaning two sides are parallel with the image top/bottom, and two sides are parallel with the image sides, but sometimes rotation is supported.</p>
 </div>
 </div>
@@ -888,7 +961,7 @@ Polygons
 </div>
 <div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Generalizing the bounding box concept, <strong>polygons</strong> are a series of 3 or more connected line segments (each with definable end coordinates) that form a closed shape (i.e.&nbsp;the end of the last segment is the beginning of the first segment), used to more precisely localize objects or areas by outlining their shape. <a href="../images/data-annotation/building-polygon.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="../images/data-annotation/building-polygon.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p>Generalizing the bounding box concept, <strong>polygons</strong> are a series of 3 or more connected line segments (each with definable end coordinates) that form a closed shape (i.e.&nbsp;the end of the last segment is the beginning of the first segment), used to more precisely localize objects or areas by outlining their shape. <a href="../images/data-annotation/building-polygon.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="../images/data-annotation/building-polygon.jpg" class="img-fluid" style="width:80.0%"></a></p>
 </div>
 </div>
 </div>
@@ -905,8 +978,8 @@ Segmentations
 <div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Segmentations</strong> involve assigning a class label to individual pixels (or collectively, to regions of individual pixels) in an image. Segmentation may be done either fully for all pixels, or partially only for pixels associated with phenomena of interest.</p>
-<p>In practice, pixel segmentations can be produced either by drawing a polygon or using a brush tool.</p>
-<p><a href="../images/data-annotation/building-segmentation.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="../images/data-annotation/building-segmentation.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p>In practice, segmentations are produced either by drawing a polygon to circumscribe relevant pixels, or using a brush tool to select them in entire swaths at a time</p>
+<p><a href="../images/data-annotation/building-segmentation.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="../images/data-annotation/building-segmentation.jpg" class="img-fluid" style="width:80.0%"></a></p>
 </div>
 </div>
 </div>
@@ -922,7 +995,7 @@ Keypoints
 </div>
 <div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Keypoints</strong> are simply points, used for denoting specific landmarks or features (e.g., skeletal points in human pose estimation). <a href="../images/data-annotation/buildings-points.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="../images/data-annotation/buildings-points.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p><strong>Keypoints</strong> are simply points, used for denoting specific landmarks or features (e.g., skeletal points in human pose estimation). <a href="../images/data-annotation/buildings-points.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="../images/data-annotation/buildings-points.jpg" class="img-fluid" style="width:80.0%"></a></p>
 </div>
 </div>
 </div>
@@ -938,7 +1011,7 @@ Polylines
 </div>
 <div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Polylines</strong> are conceptually similar to polygons, but they do not form a closed shape. Instead, the lines are used to mark linear features such as roads, rivers, powerlines, or boundaries. <a href="../images/data-annotation/road-lines.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="../images/data-annotation/road-lines.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p><strong>Polylines</strong> are conceptually similar to polygons, but they do not form a closed shape. Instead, the lines are used to mark linear features such as roads, rivers, powerlines, or boundaries. <a href="../images/data-annotation/road-lines.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="../images/data-annotation/road-lines.jpg" class="img-fluid" style="width:80.0%"></a></p>
 </div>
 </div>
 </div>
@@ -954,7 +1027,7 @@ Polylines
 </div>
 <div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>3D cuboids</strong> are bounding boxes extended to three dimensions. These are often used in LiDAR data which is represented as a 3-dimensional point cloud, but can also be used to indicate depth of field in a 2D image when the modeling task involves understanding position in three dimensions. <a href="../images/data-annotation/bear-3dcuboid.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="../images/data-annotation/bear-3dcuboid.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p><strong>3D cuboids</strong> are bounding boxes extended to three dimensions. These are often used in LiDAR data which is represented as a 3-dimensional point cloud, but can also be used to indicate depth of field in a 2D image when the modeling task involves understanding position in three dimensions. <a href="../images/data-annotation/bear-3dcuboid.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="../images/data-annotation/bear-3dcuboid.jpg" class="img-fluid" style="width:80.0%"></a></p>
 </div>
 </div>
 </div>
@@ -1028,14 +1101,15 @@ Image Segmentation
 </div>
 <div id="callout-30" class="callout-30-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Segmentation</strong> is the task of associating individual pixels annotation for detailed image analysis (e.g., land-use segmentation). In some sense, you can think of it as object detection reported at the pixel level.</p>
-<p>There are three distinct kinds of segmentation, illustrated below for the following image: <a href="../images/data-annotation/4bears-image.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="../images/data-annotation/4bears-image.jpg" class="img-fluid" style="width:60.0%"></a></p>
+<p><strong>Segmentation</strong> is the task of associating individual pixels with labels for purpose of enabling detailed image analysis (e.g., land-use segmentation). In some sense, you can think of it as object detection reported at the pixel level.</p>
+<p>There are three distinct kinds of segmentation, illustrated below for the following image:</p>
+<p><a href="../images/data-annotation/4bears-image.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="../images/data-annotation/4bears-image.jpg" class="img-fluid" style="width:60.0%"></a></p>
 <p><strong>Semantic Segmentation</strong> assigns a class label to each pixel in the image, without differentiating individual instances of that class. It is best for amorphous and uncountable “stuff”. In the image below, notice the segmentation and separation of the foreground grass from the background trees from the water in the middle. Also notice that the bears are all lumped together in one segment.</p>
-<p><a href="../images/data-annotation/4bears-sem-seg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="../images/data-annotation/4bears-sem-seg.jpg" class="img-fluid" style="width:60.0%"></a></p>
+<p><a href="../images/data-annotation/4bears-sem-seg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="../images/data-annotation/4bears-sem-seg.jpg" class="img-fluid" style="width:60.0%"></a></p>
 <p><strong>Instance Segmentation</strong> separately detects and segments each object instance. It’s therefore similar to semantic segmentation, but <em>identifies the existence, location, shape, and count of objects</em>. It is best for distinct and countable “things”. Notice the separately identified four bears in the image below:</p>
-<p><a href="../images/data-annotation/4bears-instance-seg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="../images/data-annotation/4bears-instance-seg.jpg" class="img-fluid" style="width:60.0%"></a></p>
+<p><a href="../images/data-annotation/4bears-instance-seg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="../images/data-annotation/4bears-instance-seg.jpg" class="img-fluid" style="width:60.0%"></a></p>
 <p><strong>Panoptic Segmentation</strong>) combines semantic segmentation + instance segmentation by labeling all pixels, including differentiation of discrete and separately objects within categories. Notice the complete segmentation in the image below, including both the various background types as well as the four distinct bears.</p>
-<p><a href="../images/data-annotation/4bears-pan-seg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="../images/data-annotation/4bears-pan-seg.jpg" class="img-fluid" style="width:60.0%"></a></p>
+<p><a href="../images/data-annotation/4bears-pan-seg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="../images/data-annotation/4bears-pan-seg.jpg" class="img-fluid" style="width:60.0%"></a></p>
 <p>For more on <a href="https://ai.meta.com/research/publications/panoptic-segmentation/">Panoptic Segmentation</a>, check out the <a href="https://arxiv.org/abs/1801.00868">research publication</a>.</p>
 </div>
 </div>
@@ -1073,7 +1147,7 @@ Manual Annotation
 <div id="callout-32" class="callout-32-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>With <strong>purely manual annotation</strong>, all labeling is done by human annotators.</p>
-<p>Note that good tooling may help make this process easier and more efficient, but ultimately it is up to the human annotator to fully apply the annotation to an unlabeled input.</p>
+<p>Note that good tooling may help make this process easier and more efficient, but ultimately it is up to the human annotator to fully apply annotations to unlabeled inputs.</p>
 </div>
 </div>
 </div>
@@ -1090,12 +1164,11 @@ Semi-Automated Annotation
 <div id="callout-33" class="callout-33-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>With <strong>semi-automated annotation</strong>, machines assist humans in generating annotations, but humans are still heavily involved in real time with labeling decisions, ranging from actually applying the annotations to refining AI-generated annotations.</p>
-<p>Note that this can take many forms. For example:</p>
+<p>This can take a few different forms. For example:</p>
 <ul>
 <li><strong>Model-based filtering</strong>: A model is trained to recognize images with <em>any</em> candidate objects (as compared to empty scenes), and is used to reduce the number of images passed to the human annotator.</li>
-<li><strong>Model-suggested labels</strong>: A pre-trained model provides hints, e.g.&nbsp;multiple options of likely object classes, and the human makes the decision.</li>
 <li><strong>Model-assisted labeling</strong>: A pre-trained model generates a candidate annotation, which the human can accept, reject, or modify in some way (e.g., size, position, category).</li>
-<li><strong>Active Learning</strong>: A model is learning how to annotate the images alongside the human, and actively decides which images the human should label to accelarate model training the fastest.</li>
+<li><strong>Active Learning</strong>: A model is learning how to annotate the images alongside the human, and actively decides which images the human should label to accelerate model training the fastest.</li>
 </ul>
 </div>
 </div>
@@ -1117,8 +1190,8 @@ Automated Annotation with Human Validation
 <p>At first glance, it might seem illogical that this scenario could exist! If you already have a model that can do the annotation, then don’t you already have a model to do the actual task you want to do?</p>
 <p>In practice, however, there are some cases where this might be applicable:</p>
 <ul>
-<li>One scenario involves <em>model distillation</em>. Imagine there exists a big, expensive, and/or proprietary (i.e., hidden behind an API) model that does the task you want, and perhaps a lot more. You can use this model to generate labels for a dataset that you use to train your own more compact model or economical model that you control. In the end, you have effectively distilled the source model’s capability into your own model, through the annotated training data set.</li>
-<li>A second scenario is when your goal is not simply to train a model that can annotate data, but to <em>use</em> that model to annotate vasts amounts of data that you then use as inputs to some other machine learning or analysis pipeline. Indeed, in research settings, this is usually the objective! In that case, arguably the application of the trained annotator model will be carried out as automated annotation with human validation.</li>
+<li>One scenario involves <em>model distillation</em>. Imagine there exists a big, expensive, and/or proprietary (i.e., hidden behind an API) model that does the task you want, and perhaps a lot more. You can use this model to annotate a dataset that you use to train a more compact or economical model that you own and control. In the end, you have effectively distilled the source model’s capability into your own model, through the annotated training data set.</li>
+<li>A second scenario is when you <em>do</em> indeed already have a trained model to perform annotations, whether your own or someone else’s, and are now <em>using</em> it to automatically annotate vasts amounts of data that will serve as inputs to some other machine learning or analysis pipeline. Indeed, in research settings, this is usually the end objective! When you reach this point in the process, you will effectively be doing automated annotation with human validation to ensure that the results are reasonable in aggregate.</li>
 </ul>
 </div>
 </div>
@@ -1160,7 +1233,7 @@ Fully Automated Annotation
 <p>If you don’t have your own imagery – and maybe even if you do – you may want to consider augmenting it with additional images if you don’t have enough diversity or content in your own imagery. Depending on your use cases, you may want to poke around public mage datasets like ImageNet.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/data-annotation/imagenet-sample.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="."><img src="../images/data-annotation/imagenet-sample.jpg" class="img-fluid figure-img" style="width:80.0%" alt="."></a></p>
+<p><a href="../images/data-annotation/imagenet-sample.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="."><img src="../images/data-annotation/imagenet-sample.jpg" class="img-fluid figure-img" style="width:80.0%" alt="."></a></p>
 <figcaption>.</figcaption>
 </figure>
 </div>
@@ -1183,7 +1256,7 @@ Fully Automated Annotation
 <p>There are many options, and lots of factors to consider. See the next section for plenty more detail.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/data-annotation/toolbox-wide.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="."><img src="../images/data-annotation/toolbox-wide.jpg" class="img-fluid figure-img" style="width:80.0%" alt="."></a></p>
+<p><a href="../images/data-annotation/toolbox-wide.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="."><img src="../images/data-annotation/toolbox-wide.jpg" class="img-fluid figure-img" style="width:80.0%" alt="."></a></p>
 <figcaption>.</figcaption>
 </figure>
 </div>
@@ -1205,14 +1278,14 @@ Fully Automated Annotation
 <p>Before proceeding, it’s almost always useful (some sometimes essential) to apply various preprocessing tasks to your data to make it easeir to annotatate and/or eventually train on.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/data-annotation/data-cleansing.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Source: Medium"><img src="../images/data-annotation/data-cleansing.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Source: Medium"></a></p>
+<p><a href="../images/data-annotation/data-cleansing.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Source: Medium"><img src="../images/data-annotation/data-cleansing.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Source: Medium"></a></p>
 <figcaption>Source: <a href="https://medium.com/@ramdinesh/sql-data-cleaning-part-10-0074f568354c">Medium</a></figcaption>
 </figure>
 </div>
 <p>Here are some categories of common preprocessing tasks:</p>
 <p><strong>Reformatting.</strong> If relevant, you may need to convert your source images into a better file format for your task. Beyond this, it may be useful to rotate, crop, rescale, and/or reproject your images to get them into a consistent structural format.</p>
 <p><strong>Basic data cleaning.</strong> - For example, with satellite or aerial imagery, you may find it useful to apply pre-processing stesp such as filtering to removing noise, correcting for atmospheric conditions, correcting other distortion, adjusting brightness/contrast/color.</p>
-<p><strong>Feature enhancement.</strong> Other context-specific transformations may be useful for “bringing out” information for the model (and human annotators) to use, leading to faster and/or better model outcomes. As an example, you can <a href="https://www.youtube.com/watch?v=8jwin-l_96A">hear about</a> how careful transformations of Sentinel 2 imagery provided a huge boost in the detection of field boundaries as part of the <a href="https://github.com/Spiruel/UKFields">UKFields project</a>.</p>
+<p><strong>Feature enhancement.</strong> Other context-specific transformations may be useful for “bringing out” information for the model (and human annotators) to use, leading to faster and/or better model outcomes. For an example, <a href="https://www.youtube.com/watch?v=8jwin-l_96A">list to this story</a> about how careful transformations of Sentinel 2 imagery provided a huge boost in the detection of field boundaries as part of the <a href="https://github.com/Spiruel/UKFields">UKFields project</a>.</p>
 </div>
 </div>
 </div>
@@ -1232,7 +1305,7 @@ Fully Automated Annotation
 <p>Note: These should be written down! Some annotation platforms provide a way to document instructions within the tool, but if yours doesn’t (and probably even if it does), you should create and maintain your own written documentation</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/data-annotation/guidelines.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Source: Acquiro"><img src="../images/data-annotation/guidelines.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Source: Acquiro"></a></p>
+<p><a href="../images/data-annotation/guidelines.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Source: Acquiro"><img src="../images/data-annotation/guidelines.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Source: Acquiro"></a></p>
 <figcaption>Source: <a href="https://acquirosolutions.com/blog/Business/details/199/Difference-Between-A-Manual-and-A-Guide">Acquiro</a></figcaption>
 </figure>
 </div>
@@ -1255,7 +1328,7 @@ Fully Automated Annotation
 <p>It’s time to annotate!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/data-annotation/annotator.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Source: shaip"><img src="../images/data-annotation/annotator.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Source: shaip"></a></p>
+<p><a href="../images/data-annotation/annotator.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Source: shaip"><img src="../images/data-annotation/annotator.jpg" class="img-fluid figure-img" style="width:80.0%" alt="Source: shaip"></a></p>
 <figcaption>Source: <a href="https://zh-cn.shaip.com/blog/what-is-data-labeling-everything-a-beginner-needs-to-know/">shaip</a></figcaption>
 </figure>
 </div>
@@ -1283,7 +1356,7 @@ Fully Automated Annotation
 <div id="callout-41" class="callout-41-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Review the annotations for quality, and if needed, refine by returning to an earlier step in the workflow.</p>
-<p><a href="../images/data-annotation/quality-assurance.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="../images/data-annotation/quality-assurance.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p><a href="../images/data-annotation/quality-assurance.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="../images/data-annotation/quality-assurance.jpg" class="img-fluid" style="width:80.0%"></a></p>
 <p>Note that although QA is identified here as a discrete stage in the workflow, in practice quality is achieved through deliberate attention at multiple stages in the process, including:</p>
 <ul>
 <li>Initial annotator workforce training before any annotation is done</li>
@@ -1306,7 +1379,7 @@ Fully Automated Annotation
 <div id="callout-42" class="callout-42-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Finalize and output the annotated data for model training.</p>
-<p><a href="../images/data-annotation/coco-json.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="../images/data-annotation/coco-json.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p><a href="../images/data-annotation/coco-json.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="../images/data-annotation/coco-json.jpg" class="img-fluid" style="width:80.0%"></a></p>
 <p>Typically you will need to get the data into some particular format before proceeding with model training. If your annotation tool can export in this format, you’re all set. If not, you’ll need to export in some other format and then use a conversion tool that you either find or create yourself.</p>
 </div>
 </div>
@@ -1339,7 +1412,7 @@ Highlights
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="high-level-considerations"><span class="header-section-number">4.3.1</span> High level considerations</h3>
 <p>Here are some questions you should be asking…</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="What annotation types are supported?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1348,14 +1421,14 @@ What annotation types are supported?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-44" class="callout-44-contents callout-collapse collapse show">
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Does the tooling allow you do create the kinds of annotations necessary for your task? This probably the first and most fundamental question you should be asking!</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="What import image formats are supported?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1364,7 +1437,7 @@ What import image formats are supported?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-45" class="callout-45-contents callout-collapse collapse show">
+<div id="callout-45" class="callout-45-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Can the tool read images in the right format?</p>
 <p>Fortunately, most tools can automatically take a wide range standard image formats including JPG, PNG, BMP, and TIF, and more.</p>
@@ -1373,7 +1446,7 @@ What import image formats are supported?
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="What output annotation formats are supported?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1382,7 +1455,7 @@ What output annotation formats are supported?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-46" class="callout-46-contents callout-collapse collapse show">
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>While image formats are reasonably standardized, image <em>annotation</em> formats are more diverse. In general, the format you need will be dictated by the constraints of whatever modeling tasks and tooling you will be using to train and validate a model with your annotated data.</p>
 <p>Some annotation software, especially the major players and cloud-based offerings, support a diverse set of output formats, whereas others output only a limited number of formats – or even just their own idiosyncratic format! In that case, you may need to do a conversion to get your annotations in the right format. Fortunately, there’s a good chance that somebody else has already been down this path, and if you search around, you may find a script or package that can do it for you.</p>
@@ -1404,7 +1477,7 @@ What output annotation formats are supported?
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Who will be doing the annotation?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1413,7 +1486,7 @@ Who will be doing the annotation?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-47" class="callout-47-contents callout-collapse collapse show">
+<div id="callout-47" class="callout-47-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><strong>In-house</strong>: You and your team.</li>
@@ -1424,7 +1497,7 @@ Who will be doing the annotation?
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="How can I assess annotation quality?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1433,7 +1506,7 @@ How can I assess annotation quality?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-48" class="callout-48-contents callout-collapse collapse show">
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We’ve discussed the importance of having high quality annotations, and briefly covered various types of quality assessment. Some tools leave it entirely up to you to handle this, but others have features that help in this area. This can include:</p>
 <ul>
@@ -1445,7 +1518,7 @@ How can I assess annotation quality?
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Is the tool easy to use?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1454,7 +1527,7 @@ Is the tool easy to use?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-49" class="callout-49-contents callout-collapse collapse show">
+<div id="callout-49" class="callout-49-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>As with any category of software, some options will be easier to use than others. For image annotation, where you are likely going to want to scale up to a large number of images, small speed-ups in the annotation process will really start to add up over time.</p>
 <p>Consider:</p>
@@ -1470,7 +1543,7 @@ Is the tool easy to use?
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="How much am I willing to pay for tooling?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1479,14 +1552,14 @@ How much am I willing to pay for tooling?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-50" class="callout-50-contents callout-collapse collapse show">
+<div id="callout-50" class="callout-50-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In short, some software options are free, wherease others are commercial offerings with varying costs and prices tiers. As you compare features, consider what you’re willing (and able) to pay for.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="How is the software licensed?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1495,14 +1568,14 @@ How is the software licensed?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-51" class="callout-51-contents callout-collapse collapse show">
+<div id="callout-51" class="callout-51-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Some annotation software apps and libraries are open source, whereas others are proprietary. You may want to lean toward the open source options if you want to be able to review the source code and understand how it works, and/or (perhaps more importantly) have the option of modifying it to better meet your needs. Of course, general speaking, the open source options will typically also be free, whereas proprietary software is more likely to come with costs.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Where does the software run?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1511,7 +1584,7 @@ Where does the software run?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-52" class="callout-52-contents callout-collapse collapse show">
+<div id="callout-52" class="callout-52-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Do you care if the software runs on your local computer? Do you want it to be something that you deploy and run on your own managed server, either locally or on a VM hosted in a public cloud? Or would you prefer to use a pure cloud-based annotation platform (i.e., a SaaS offering) that somebody else maintains and you access via a browser and/or API?</p>
 <p>As with any software decision, there are pros and cons to each option.</p>
@@ -1520,7 +1593,7 @@ Where does the software run?
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="What collaboration features are there?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1529,7 +1602,7 @@ What collaboration features are there?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-53" class="callout-53-contents callout-collapse collapse show">
+<div id="callout-53" class="callout-53-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>What collaborative features are offered?</li>
@@ -2140,7 +2213,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
