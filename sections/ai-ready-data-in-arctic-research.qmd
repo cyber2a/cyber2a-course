@@ -17,7 +17,7 @@ Data that are **accessible**, preferably **open**, and **well-documented**, maki
 
 This is really a variant on Analysis Ready Data (ARD), or, more recently, "Analysis Ready, Cloud Optimized (ARCO)" data.
 
-![Mahecha et al. 2020. [@mahecha_earth_2020] Visualization of the implemented Earth system data cube. The figure shows from the top left to bottom right the variables sensible heat (H), latent heat (LE), gross primary production (GPP), surface moisture (SM), land surface temperature (LST), air temperature (Tair), cloudiness (C), precipitation (P), and water vapour (V). The resolution in space is 0.25° and 8 d in time, and we are inspecting the time from May 2008 to May 2010; the spatial range is from 15° S to 60° N, and 10° E to 65° W.](../images/ai-ready/mahecha_data_cube.png)
+![Mahecha et al. 2020. [@mahecha_earth_2020] Visualization of the implemented Earth system data cube. The figure shows from the top left to bottom right the variables sensible heat (H), latent heat (LE), gross primary production (GPP), surface moisture (SM), land surface temperature (LST), air temperature (Tair), cloudiness (C), precipitation (P), and water vapour (V). The resolution in space is 0.25° and 8 d in time, and we are inspecting the time from May 2008 to May 2010; the spatial range is from 15° S to 60° N, and 10° E to 65° W.](../images/ai-ready/mahecha_data_cube.png){.lightbox width=90%}
 
 Working with `xarray` and `zarr`, one can access many multi-petabyte earth systems datasets like CMIP6 (Coupled Model Intercomparison Project Phase 6) and ERA5 (Earth Re). For an overview of Zarr, see the Arctic Data Center Scalable Computing course [chapter on Zarr](https://learning.nceas.ucsb.edu/2024-03-arctic/sections/zarr.html).
 
@@ -36,17 +36,17 @@ ds = xarray.open_zarr(
 ds
 ```
 
-![](../images/ai-ready/era5-zarr-arco.png)
+![](../images/ai-ready/era5-zarr-arco.png){.lightbox width=100%}
 
 With one line of code, we accessed 273 climate variables (e.g., `2m_temperature`, `evaporation`, `forecast_albedo`) spanning 8 decades at hourly time scales. And while this dataset is massive, we can explore it from the comfort of our laptop (not all at once, for which we would need a bigger machine!).
 
 So, there's nothing really special about AI-Ready data, in that a lot of the core requirements for Analysis Ready Data are exactly what are needed for AI modeling as well. Labeling is probably the main difference. Neverthless, many groups have gotten motivated by the promise of AI, and particularly machine learning, across disciplines. For example, the federal government has been ramping up readiness for AI across many agencies. In 2019, the White House Office of Science Technology and Policy (OSTP) started an AI-Readiness matrix, which was followed shortly by the National AI Initiative Act in 2020 [@long_ai-ready_2023].
 
-![](https://bipartisan-policy-center.imgix.net/wp-content/uploads/2023/02/AI-Ready-Open-Data.jpg?auto=compress,format&q=90&ixlib=imgixjs-3.4.2&w=4088)
+![](https://bipartisan-policy-center.imgix.net/wp-content/uploads/2023/02/AI-Ready-Open-Data.jpg?auto=compress,format&q=90&ixlib=imgixjs-3.4.2&w=4088){.lightbox width=100%}
 
 For example, management agencies have started entire new programs to prepare data and staff for the introduction of AI and machine learning into their processes. One such program with a focus on AI-Ready data is NOAA's Center for Artificial Intelligence (NCAI).
 
-![[NOAA NCAI](https://www.noaa.gov/ai)](../images/ai-ready/noaa-ncai.png)
+![[NOAA NCAI](https://www.noaa.gov/ai)](../images/ai-ready/noaa-ncai.png){.lightbox width=100%}
 
 In beginning to define AI-Ready data for NOAA, [Christensen et al. 2020](https://www.star.nesdis.noaa.gov/star/documents/meetings/2020AI/presentations/202010/20201022_Christensen.pdf) defined several axes for evaluation, including data quality, data acess, and data documentation. We'll be dinving into many of these today and over the course of the week.
 
@@ -94,16 +94,16 @@ Nevertheless, progress has been made. The National Science Foundation [Office of
 :::
 
 ::: {.column-page-right}
-![Arctic Data Center Catalog](../images/ai-ready/adc-catalog.png)
+![Arctic Data Center Catalog](../images/ai-ready/adc-catalog.png){.lightbox width=100%}
 :::
 
 In addition to raw observational data and remote sensing imagery, the ADC also stores and distributes model output, labeled training data, and other derived data products. A recent example comes from the Permafrost Discovery Gateway project, in which Neitze et al. used machine learning on multispectral PlanetScope imagery to extract high-resolution geospatial footprints for retrogressive thaw slumps (RTS) and active layer detachment (ALD) slides across the circum-Arctic permafrost region [@nitze_darts_2024]. In addition, the dataset includes human-generated training labels, processing code, and model checkpoints -- just what is needed for further advances in this critical field of climate research.
 
 ::: {.column-margin}
-![](../images/ai-ready/rts-feature.png)
+![](../images/ai-ready/rts-feature.png){.lightbox width=100%}
 :::
 
-![DARTS retrogressive thaw slump dataset [doi:10.18739/A2RR1PP44](https://doi.org/10.18739/A2RR1PP44) ](../images/ai-ready/darts-dataset.png)
+![DARTS retrogressive thaw slump dataset [doi:10.18739/A2RR1PP44](https://doi.org/10.18739/A2RR1PP44) ](../images/ai-ready/darts-dataset.png){.lightbox width=100%}
 
 While this and other valuable data for cross-cutting analysis are available from the Arctic Data Center, there are many other repositories that hold relevant data as well. Regardless of which repository a researher has chosen to share their data, the important thing to remember is to do so -- data on your laptop or a University web server are rarely accessible and ready for reuse.
 
@@ -111,25 +111,25 @@ While this and other valuable data for cross-cutting analysis are available from
 
 [DataONE](https://dataone.org) is a network designed to connect over [60 global data repositories](https://www.dataone.org/network/) (and growing) to improve the discoverability and accessiblilty of data from across the  world. DataONE provides global data search and discovery by harmonizing myriad metadata standards used across the world, and providing an interoperability API across repositories to make datasets **findable** and programatically **accessible** regardless of where they live.
 
-![](../images/ai-ready/dataone-network.png)
+![](../images/ai-ready/dataone-network.png){.lightbox width=100%}
 
 For example, a query across DataONE in 2024 revealed over 4500 datasets held by 16 different repositories, most of which are not specifically tied to Greenland research, per se.
 
-![](../images/ai-ready/dataone-greenland-datasets.png)
+![](../images/ai-ready/dataone-greenland-datasets.png){.lightbox width=100%}
 
 Looking across the whole of the Arctic, we found over 98,000 datasets from 39 data repositories. It is notable that only 6 of those repositories are focused on Arctic research (like the Arctic Data Center), while the rest are either general repositories or discipline specific repositories. For example, [Pangaea](https://www.pangaea.de/) as a generalist repository has the most datasets with over 10,000, but there are also significant and important data sets on archeology ([TDAR](https://www.tdar.org/)), hydrology ([HydroShare](https://www.hydroshare.org/)) and geochemistry ([EarthChem](https://www.earthchem.org/)).
 
-![Graph of Arctic Data across DataONE](../images/ai-ready/dataone-arctic-datasets.png)
+![Graph of Arctic Data across DataONE](../images/ai-ready/dataone-arctic-datasets.png){.lightbox width=100%}
 
 ## Metadata harmonization
 
 One of the main roles of DataONE is to promote interoperability and improve the quality and discoverability of global data holdings -- all of direct benefit to AI Ready data. DataONE promotes the use of detailed, discipline-specific metadata standards that enable researchers to comprehensively document the structure, contents, context, and protocols used when collecting data. For example, a good metadata record records not only the bibliographic information about the Dataset creators, but also documents the spatial and temporal extent of the data, the methods used to collect it, the types of measured properties that were observed or modeled, and other details that are fundamental to the proper interpretation and reuse of the data. Different disciplines focus on different standards: in ecology and environmental science, where biological metadata on taxonomy are important, the [Ecological Metadata Language (EML)](https://eml.ecoinformatics.org) is used extensively, whereas in geospatial science where time and space are critical, the emphasis is on the ISO 19115 family of metadata standards. Overall, DataONE supports more than a dozen metadata variants, and can be extended to support more. Across the Arctic, we find datasets that use many different metadata approaches.
 
-![](../images/ai-ready/dataone-arctic-metadata.png)
+![](../images/ai-ready/dataone-arctic-metadata.png){.lightbox width=100%}
 
 DataONE harmonizes these standards by cross-walking them conceptually and making the data available for search through an integrated discovery portal and API. And DataONE promotes semantic labeling of the data as well, particularly for measurement types (e.g., `fork length` for fish length meeasurements) and dataset classification [@chong_enhancing_2024]. These annotations are indexed against controlled, ontologically-precise term labels that are stored in queryable systems. For example, the [Ecosystem Ontology (ECSO](https://bioportal.bioontology.org/ontologies/ECSO/), the [Environment Ontology (ENVO)](https://sites.google.com/site/environmentontology/about-envo), and many others contain precisely defined terms that are useful for precise dataset labeling to differentiate subtly different terms and concepts. 
 
-![A sub-Arctic salmon-related dataset [@game_salmon_2018], showing annotations for each of the measured variables in the dataset. Each annotation is to a precisely defined concept or term from a controlled vocabulary, allowing subtle differences in methodology to be distinguished, which helps with both data discovery and proper reuse. The underlying metadata model is machine-readable, allowing search systems, and amchine learning harvesters to make use of this structured label data.](../images/ai-ready/dataone-annotation-salmon.png)
+![A sub-Arctic salmon-related dataset [@game_salmon_2018], showing annotations for each of the measured variables in the dataset. Each annotation is to a precisely defined concept or term from a controlled vocabulary, allowing subtle differences in methodology to be distinguished, which helps with both data discovery and proper reuse. The underlying metadata model is machine-readable, allowing search systems, and amchine learning harvesters to make use of this structured label data.](../images/ai-ready/dataone-annotation-salmon.png){.lightbox width=100%}
 
 ## Croissant metadata for machine learning
 
@@ -163,7 +163,7 @@ Croissant has also explicitly defined [metadata to meet the needs of machine-lea
 
 The intention is that multiple tools, all supporting the Crosissant metadata model, will be able to exchange ML-related data seamlessly. A number of ML tools support Croissant out-of-the-box, but only a tiny fraction of the datasets available today use this nascent vocabulary. In addition, it lacks the sophistication of Analysis Ready, Cloud Optimized (ARCO) data standards like Zarr that permit seamless access to massive data with minimal overhead. But it has a lot of promise for streamlining AI-Ready data, and can be used on top of exiting standards like Zarr. 
 
-![Common ML data providers like [Hugging Face](https://huggingface.co/) and [Kaggle](https://www.kaggle.com/) could use Croissant to produce ML-optimized datasets, which in turn can be seamlessly loaded and used with compatible ML libraries such as TensorFlow and PyTorch. Image credit: [@benjelloun_croissant_2024]](../images/ai-ready/criossant-cross-product.png)
+![Common ML data providers like [Hugging Face](https://huggingface.co/) and [Kaggle](https://www.kaggle.com/) could use Croissant to produce ML-optimized datasets, which in turn can be seamlessly loaded and used with compatible ML libraries such as TensorFlow and PyTorch. Image credit: [@benjelloun_croissant_2024]](../images/ai-ready/criossant-cross-product.png){.lightbox width=100%}
 
 
 ## Data Quality
@@ -178,14 +178,14 @@ One of the primary determinants of AI-Ready data is whether the data are of suff
 - Are geospatial data accessibly structured, with sufficient metadata (e.g., about the Coordinate Reference System)?
 - ...
 
-![](../images/ai-ready/quality-bullseye.png)
+![](../images/ai-ready/quality-bullseye.png){.lightbox width=100%}
 
 Many of these issues are encompassed by the **FAIR Principles**, which are intended to ensure that published data are Finadable, Accessible, Interoperable, and Reusable [@wilkinson_fair_2016; @wilkinson_design_2018]. While there are a huge variety of methods to assess data quality in use across disciplines, some groups have started to harmonize rubrics for data quality and how to represent data quality results in metadata records (see [@peng_harmonizing_2024]).
 
 DataONE is one such group that has operationalized FAIR Assessment [@peng_harmonizing_2024]. Within the DataONE network, all compatible datasets are evaluated using an automated FAIR rubric which rates the dataset on 52 FAIR checks [@jones_quantifying_2019; @jones_metadig_2016]. Each of these checks is atomic, and looks at a small facet of the dataset quality, but combined they give a powerful assessment of dataset readiness for various analytical purposes. And these suites of checks are extensible, so different groups can create suites of automated quality assessment checks that match their needs and recommendations as a community.
 
 ::: {.column-page-right}
-![DataONE FAIR assessment](../images/ai-ready/metadig-report.png)
+![DataONE FAIR assessment](../images/ai-ready/metadig-report.png){.lightbox width=100%}
 :::
 
 We see a marked improvement in dataset quality across the FAIR axes as datasets go through our curation process at the Arctic Data Center. 
@@ -244,4 +244,4 @@ Questions to consider as you are doing the assessment:
 
 :::
 
-![](../images/ai-ready/iwp-pdg.png)
+![](../images/ai-ready/iwp-pdg.png){.lightbox width=100%}
