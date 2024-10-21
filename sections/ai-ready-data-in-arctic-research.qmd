@@ -205,17 +205,41 @@ The Arctic Data Center team is currently working to extend this quality assessme
 
 ## ESIP AI-Readiness Checklist
 
-[@noauthor_checklist_2022]
+To round out our survey of AI-Readiness in data, let's look at the [AI-Readiness Checklist](https://esip.figshare.com/articles/online_resource/Checklist_to_Examine_AI-readiness_for_Open_Environmental_Datasets/19983722/1?file=35578457) that has been developed by an inter-agency collaboration at the Earth Science Information Partners (ESIP) [@noauthor_checklist_2022]. This checklist was designed as a way to evaluate the readiness of a data product for use in specific AI workflows, but it is general enough to apply to a wide variety of datasets. In general, the checklist asks questions about four major areas of readiness:
 
 - Data Preparation
 - Data Quality
 - Data Documentation
 - Data Access
 
+The challenge with this checklist and others is that readiness is truly in the eye of the beholder. Each project has unique data needs, and what is a fine dataset for one analytical purpose (e.g., a regional model) may be entirely inadequate for another (e.g., a pan-Arctic model).
 
-## Exercise
+::: {.callout-note}
 
-Documenting data
+## Exercise: Assess Dataset Readiness
 
-## Key Elements {.unnumbered}
-AI-ready data definition, data suitability importance, metadata management, data repository organization, data preparation practices, raw data transformation
+There are a huge variety of datasets available from DataONE and the Arctic Data Center, and many other repositories. In this exercise we will do a quick assessment of AI Readiness for the ice wedge polygon permafrost dataset from the Permafrost Discovery Gateway project [[@nitze_darts_2024]], using the ESIP AI-Readiness Checklist.
+
+Link to dataset: 
+- [doi:10.18739/A2KW57K57](https://doi.org/110.18739/A2KW57K57)
+- Visualize [Permafrost Ice Wedge Polygon data](https://arcticdata.io/catalog/portals/permafrost?lt=69.73643449765498&ln=-162.22533942712903&ht=1666.4585052745265&hd=313.1881417811606&p=-37.45517854691816&r=359.9984565878772&el=iwp%2Cosm%2Cahri) on PDG: 
+
+We're going to break into groups, and each group will work on a portion of the evaluation for the dataset. The groups are: 
+
+- Group A (Preparation)
+- Group B (Data Quality)
+- Group C (Data Documentation)
+- Group D (Data Access)
+
+Instructions:
+- Make a copy of the [AI-Readiness Checklist spreadsheet](https://docs.google.com/spreadsheets/d/1Kvxt7pUBkr4zdewoOXDHozRrtv9PITpbf625Ri6cqTc/edit?gid=1655512527#gid=1655512527)
+- Split into 4 groups and try to quickly answer the questions (we won't really have time, so don't get too bogged down)
+
+Questions to consider as you are doing the assessment:
+- How much time would it take for you to do a true assessment?
+- How useful would this assessment be to you if it were available for most datasets?
+- Is there a correct answer to the checklist questions?
+
+:::
+
+![](../images/ai-ready/iwp-pdg.png)
