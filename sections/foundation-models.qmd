@@ -2,25 +2,212 @@
 
 ## Overview
 
-Foundation models (FM) are deep learning models trained on massive raw unlabelled datasets usually through self-supervised learning. FMs enable today’s data scientists to use them as the base and fine-tune using domain specific data to obtain models that can handle a wide range of tasks [1, 6, 7]. In this talk, we provide an introduction to FMs, its history, evolution, and go through its key features and categories, and a few examples. We also briefly discuss how foundation models work. This talk will be a precursor to the hands-on session that follows on the same topic.
+Foundation models (FM) are deep learning models trained on massive raw unlabelled datasets usually through self-supervised learning. FMs enable today’s data scientists to use them as the base and fine-tune using domain specific data to obtain models that can handle a wide range of tasks (language, vision, reasoning etc.). In this chapter, we provide an introduction to FMs, its history, evolution, and go through its key features and categories, and a few examples. We also briefly discuss how foundation models work. This chapter will be a precursor to the hands-on session that follows on the same topic.
 
-![](https://cyber2a.github.io/workshop/preview/images/foundation-models.png)
-Image source: 2021 paper on foundation models by Stanford researchers [1].
+![Fig : Image source- 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](../images/foundation-models/foundation_models.png)
+
 
 In this session, we take a closer look at what constitutes a foundation model, a few examples, and some basic principles around how it works.
 
-## Outline 
-1. Introduction to foundation models, its history and evolution
-2. Key features of foundation models
-3. Types of foundation models: Language, Vision, Generative, and Multimodal
-4. Examples of foundation models: BERT [3], GPT [4], YOLO [2], SAM [5], DALLE-2
-5. How do foundation models work?
+## Outline
+1. Overview of foundation models
+2. Types of foundation models
+3. Architecture
+3. Segment Anything Model (SAM 2)
+4. Retrieval Augmented Generation
 
-## Reference 
-1. [On the opportunities and risk of Foundation models](https://arxiv.org/abs/2108.07258) 
-2. [You Only Look Once](https://arxiv.org/abs/1506.02640) 
-3. [BERT](https://arxiv.org/abs/1810.04805)
-4. [GPT3](https://arxiv.org/abs/2005.14165)
-5. [Segment Anything Model](https://segment-anything.com/)
-6. [NVIDIA blog post on foundation models](https://blogs.nvidia.com/blog/what-are-foundation-models/)
-7. [What are Foundation Models? - Generative AI](https://aws.amazon.com/what-is/foundation-models/)
+
+## Introduction
+
+### Traditional ML vs Deep Learning vs Foundation Models
+
+**Traditional machine learning** involves algorithms that learn patterns from structured data. Techniques like decision trees, support vector machines, and linear regression fall under this category. These methods often require feature engineering, where domain knowledge is used to select and transform input features to improve model performance. Traditional machine learning excels in scenarios with limited data and interpretable results.
+
+**Deep learning** is a subset of machine learning that employs neural networks with multiple layers (hence "deep"). These models automatically learn features from raw data, making them particularly powerful for complex tasks like image and speech recognition. Deep learning excels with large datasets and can capture intricate patterns but often requires significant computational resources and can be harder to interpret compared to traditional methods.
+
+**Foundation models**, such as GPT and BERT, represent a new paradigm in AI. These large-scale models are pre-trained on vast amounts of data and can be fine-tuned for specific tasks with minimal additional training. Earlier neural networks were narrowly tuned for specific tasks. With a little fine-tuning, foundation models can handle jobs from translating text to analyzing medical images. Foundation models generally learn from unlabeled datasets, saving the time and expense of manually describing each item in massive collections. Foundation models leverage transfer learning, allowing them to generalize across different tasks more effectively than traditional machine learning and deep learning models.
+
+
+## Foundation Models
+
+Foundation models, introduced in 2021 by Standford Researchers [@Bommasani2021FoundationModels], are characterized by their enormous neural networks trained on vast datasets through self-supervised learning. These models serves as a "foundation" on which many task-specific models can be built by adaptation. Their capabilities improves with more data, requiring substantial computational power for training. These models can be adapted to various downstream tasks and are designed for reuse, leveraging transfer learning to enhance performance across different applications.
+
+::: {.column-margin}
+![Fig : 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](../images/foundation-models/foundation_models_paper.png)
+:::
+
+With the start of availability of big data for training, evidence showed that performance improves with size. The field came to the conclusion that scale matters, and with the right model architecture, intelligence comes with large-scale data.
+
+Here's a few examples of foundation models and their parameter count:
+
+* CLIP [@DBLP:journals/corr/abs-2103-00020] - 63 million parameters
+* BERT [@DBLP:journals/corr/abs-1810-04805] - 345 million parameters
+* GPT-3 [@DBLP:journals/corr/abs-1810-04805] - 175 billion parameters
+    * Wikipedia consists of only 3% of its training data
+* GPT-4 [@openai2024gpt4technicalreport] - 1.8 trillion parameters
+
+![Fig : Growth in compute power. (Source: GPT-3 paper [@DBLP:journals/corr/abs-1810-04805])](../images/foundation-models/compute-power-training.png)
+
+### Types of foundation models
+
+Foundation models can be classified on the basis of its modality and its underlying architecture.
+
+| Criteria: Modality    | Criteria: Architecture |
+| -------- | ------- |
+| Language Models  | Transformer Models   |
+| Vision Models | Generative Models     |
+| Multimodal Models    | Diffusion Models    |
+
+#### Types of foundation models (Modality)
+
+##### Language models
+
+Language models are trained for natural language processing tasks. The primary training objective for LLMs is often next-token prediction, where the model learns to predict the next word in a sequence given the preceding context. This is achieved through a vast amount of text data, enabling the model to learn grammar, facts, and even some reasoning patterns. LLMs tend to be good at various NLP related tasks, like translation, conversational AI, sentiment analysis, content summarization etc., to name a few.
+
+Here's some examples of language models:
+
+* GPT-3
+* GPT-4
+* Llama 3.2 [@dubey2024llama3herdmodels]
+
+##### Vision models
+
+Vision models are trained for computer vision tasks. The primary training objective of vision models is to effectively learn representations that enable accurate predictions or useful transformations based on visual data. Vision models tend to be good at tasks like object detection, segmentation, facial recognition, etc.
+
+Here's some examples of vision models:
+
+* [GPT-4-turbo](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4)
+* SAM [@kirillov2023segment]
+* CLIP [@dubey2024llama3herdmodels]
+* Swin-transformer [@liu2021swintransformerhierarchicalvision]
+
+##### Multimodal models
+
+Multimodal models are designed to process and understand multiple types of data modalities, such as text, images, audio, and more. These models can handle various data types simultaneously, allowing them to learn relationships and correlations between different forms of information (e.g., associating text descriptions with images). By training on datasets that include multiple modalities, multimodal foundation models learn to create a unified representation space where different types of data can be compared and processed together. This often involves shared architectures for encoding different modalities. These models can often perform well on tasks they haven’t been specifically trained on, thanks to their ability to leverage learned relationships across modalities. This makes them versatile for applications in various domains. Many multimodal models, like CLIP and DALL-E, use contrastive learning to improve their understanding of how different modalities relate. They aim to maximize similarity between paired data (e.g., an image and its caption) while minimizing similarity between unrelated pairs. These models can often perform well on tasks they haven’t been specifically trained on, thanks to their ability to leverage learned relationships across modalities. This makes them versatile for applications in various domains. Multimodal foundation models are used in diverse areas such as image and video captioning, visual question answering, cross-modal retrieval, and interactive AI systems that require understanding and generating multiple types of content.
+
+Here's some examples of multimodal foundation models:
+
+* [GPT-4o](https://openai.com/index/hello-gpt-4o/)
+* DALL-E [@DBLP:journals/corr/abs-2102-12092]
+* CLIP [@dubey2024llama3herdmodels]
+* [Sora](https://openai.com/index/sora/) [@liu2024sorareviewbackgroundtechnology]
+* [Gemini](https://gemini.google.com/?utm_source=google&utm_medium=cpc&utm_campaign=2024enUS_gemfeb&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfDvtujFotV-ds_t1TWtUmwbeNFLVcdbE8zSQEN08FPlAC8im4lhpNcaAlwaEALw_wcB&gclsrc=aw.ds) [@geminiteam2024geminifamilyhighlycapable]
+
+
+#### Types of foundation models (Architecture)
+
+##### Transformer models
+Introduced in 2017 by the paper "Attention is all you need" [@DBLP:journals/corr/VaswaniSPUJGKP17], the transformer architecture revolutionized NLP by enabling models to efficiently capture complex relationships in data without the limitations of recurrence. This architecture is known for its ability to handle sequential data efficiently. Its parallel processing capabilities and scalability have made it a foundational model for many state-of-the-art systems in various domains, including image processing and speech recognition.
+Checkout "The Illustrated Transformer" (blog post)[https://jalammar.github.io/illustrated-transformer/] for a detailed overview of the transformer architecture.
+
+![Fig : Transformer architecture](../images/foundation-models/transformer-architecture.png)
+
+
+###### Attention Mechanism
+Attention is, to some extent, motivated by how we pay visual attention to different regions of an image or correlate words in one sentence [@weng2018attention]. we can explain the relationship between words in one sentence or close context. When we see “eating”, we expect to encounter a food word very soon. The color term describes the food, but probably not so much with “eating” directly.
+
+![Fig : One word attends to other words in the same sentence differently](../images/foundation-models/human-attention.png)
+
+Check out Lilian Weng's blog post [@weng2018attention] on detailed overview of attention mechanism.
+
+###### Key components of transformer architecture:
+1. Self-Attention Mechanism:
+
+* Purpose: Allows the model to weigh the importance of different words in a sequence relative to each other, capturing dependencies regardless of their distance.
+* Function: For each input token, self-attention computes a set of attention scores that determine how much focus to place on other tokens. This is done using three vectors: Query (Q), Key (K), and Value (V).
+* Calculation: The attention score is computed as a dot product of Q and K, followed by a softmax operation to normalize it. The output is a weighted sum of the V vectors based on these scores.
+
+In the example below, the self-attention mechanism enables us to learn the correlation between the current words and the previous part of the sentence.
+
+![Fig : The current word is in red and the size of the blue shade indicates the activation level [@DBLP:journals/corr/ChengDL16]](../images/foundation-models/self-attention.png)
+
+2. Positional Encoding:
+
+* Purpose: Since transformers do not have a built-in notion of sequential order, positional encodings are added to the input embeddings to provide information about the position of tokens in the sequence.
+* Implementation: Positional encodings use sine and cosine functions of different frequencies to generate unique values for each position.
+
+3. Multi-Head Attention:
+
+* Function: Instead of having a single set of attention weights, the transformer employs multiple attention heads, each learning different aspects of the relationships between tokens.
+* Process: The input is split into multiple sub-vectors, and self-attention is applied in parallel. The outputs of each head are concatenated and linearly transformed.
+
+4. Feed-Forward Networks:
+
+* Purpose: After the multi-head attention step, each token's representation is passed through a feed-forward neural network, which applies transformations independently to each position.
+* Structure: Typically consists of two linear transformations with a ReLU activation in between.
+
+5. Layer Normalization and Residual Connections:
+
+* Layer Normalization: Applied to stabilize and speed up training by normalizing the outputs of each layer.
+* Residual Connections: Shortcuts are added around sub-layers (e.g., attention and feed-forward) to facilitate the flow of gradients during training, helping to mitigate the vanishing gradient problem.
+
+6. Stacking Layers:
+
+* Transformers consist of multiple layers of multi-head attention and feed-forward networks, allowing for deep representations of the input data.
+
+7. Output Layer:
+
+* For tasks like language modeling or translation, the final layer typically uses a linear transformation followed by a softmax activation to predict the next token or class.
+
+There are more than 50 major transformer models [@amatriain2024transformermodelsintroductioncatalog]. The transformer architecture is versatile and can be configured in different ways. The transformer architecture can support both auto-regressive and non-auto-regressive configurations depending on how the self-attention mechanism is applied and how the model is trained.
+
+* Auto-Regressive Models: In an auto-regressive setup, like the original GPT (Generative Pre-trained Transformer), the model generates text one token at a time. During training, it predicts the next token in a sequence based on the previously generated tokens, conditioning on all prior context. This means that at each step, the model only attends to the tokens that come before the current position, ensuring that future tokens do not influence the prediction.
+
+* Non-Auto-Regressive Models: Other models, like BERT (Bidirectional Encoder Representations from Transformers) [@DBLP:journals/corr/abs-1810-04805], are designed to be non-auto-regressive. BERT processes the entire input sequence simultaneously and is trained using masked language modeling, where some tokens in the input are masked, and the model learns to predict them based on the surrounding context.
+
+
+GPT-3 and CLIP models utilize transformers as the underlying architecture.
+
+##### Generative-Adversarial models
+
+Introduced in 2014, Generative Adversarial Networks (GANs) [@goodfellow2014generativeadversarialnetworks] involves two neural networks (generator-discriminator network pair) contest with each other in the form of a zero-sum game, where one agent's gain is another agent's loss. Given a training set, this technique learns to generate new data with the same statistics as the training set. For example, a GAN trained on photographs can generate new photographs that look at least superficially authentic to human observers, having many realistic characteristics.
+
+![Fig : GAN](../images/foundation-models/gan.png)
+
+In a GAN,
+* the generator learns to generate plausible data. The generated instances become negative training examples for the discriminator.
+* The discriminator learns to distinguish the generator's fake data from real data. The discriminator penalizes the generator for producing implausible results.
+
+When training begins, the generator produces obviously fake data, and the discriminator quickly learns to tell that it's fake:
+
+![Fig : Gan training - early phase. Image source: Google developers [blog](https://developers.google.com/machine-learning/gan/gan_structure)](../images/foundation-models/gan1.png)
+
+As training progresses, the generator gets closer to producing output that can fool the discriminator:
+
+![Fig : Gan training - mid phase](../images/foundation-models/gan2.png)
+
+Finally, if generator training goes well, the discriminator gets worse at telling the difference between real and fake. It starts to classify fake data as real, and its accuracy decreases. The training procedure for generator is to maximise the probability of discriminator making a mistake.
+
+![Fig : Gan training complete](../images/foundation-models/gan3.png)
+
+Here's a picture of the whole system:
+
+![Fig : GAN architecture](../images/foundation-models/GAN-architecture.png)
+
+A disadvantage of GAN is potentially unstable training and less diversity in generation due to their adversarial training nature. StyleGAN [@DBLP:journals/corr/abs-1812-04948] and BigGAN [@DBLP:journals/corr/abs-1809-11096] are example of models that utilize GAN as the underlying architecture.
+
+
+##### Diffusion models
+
+Diffusion models, introduced in 2020 [@DBLP:journals/corr/abs-2006-11239], are inspired by non-equilibrium thermodynamics. They define a Markov chain of diffusion steps to slowly add random noise to data and then learn to reverse the diffusion process to construct desired data samples from the noise [@weng2021diffusion].
+
+###### Key components of diffusion models
+
+1. Forward Diffusion Process:
+* The forward process gradually adds Gaussian noise to the training data over a series of time steps. This process effectively transforms the original data into pure noise.
+
+2. Reverse Diffusion Process:
+* The reverse process aims to denoise the noisy data back into a sample from the data distribution. This process is learned through a neural network.
+* At each time step, the model predicts the mean and variance of the distribution of the previous step conditioned on the current noisy data. The network outputs parameters that help in gradually removing the noise.
+
+3. Training Objective:
+* The model is trained to minimize the difference between the predicted clean data and the actual data at each step of the diffusion process. This is often done using a mean squared error (MSE) loss between the predicted noise and the actual noise added during the forward process.
+
+4. Sampling:
+* To generate new samples, the process starts with pure noise and applies the learned reverse diffusion process iteratively. Over multiple time steps, the model denoises the input until it resembles a sample from the training distribution.
+
+![Fig : Training a diffusion model. Image source : Lilweng's [blog](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)](../images/foundation-models/diffusion-training.png)
+
+Diffusion models can generate high-resolution and diverse images, often outperforming GANs in certain tasks. They are generally more stable to train compared to GANs, as they do not rely on adversarial training dynamics.
+
+Stable-diffusion [@DBLP:journals/corr/abs-2112-10752], DALL-E [@DBLP:journals/corr/abs-2102-12092], [Sora](https://openai.com/research/video-generation-models-as-world-simulators) are some of the most common models utilizing diffusion architecture.
