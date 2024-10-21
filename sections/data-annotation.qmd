@@ -150,7 +150,6 @@ Here are some of the key challenges to this activity:
 
 ::: {.callout-caution collapse="true" icon="false"
      title="Scalability"}
-
 Simply put, annotating large datasets can be time-consuming!
 
 This is especially the case for more complex annotation tasks. Identifying a penguin standing on a rock is one thing, but comprehensively identifying and label all land cover types present in a satellite image is much more time-consuming. Multiply this task by hundreds or thousands, and you've quite a scaling challenge!
@@ -170,9 +169,15 @@ You may find you need to pay for:
 
 ::: {.callout-caution collapse="true" icon="false"
      title="Quality control"}
-* **Quality Control**: Balancing speed and accuracy.
-  - Strategies to improve quality (e.g., annotation guidelines, quality checks).
-  - Dealing with source data quality: Overlapping objects, distortion, other visual artifacts
+Annotation is not always straightforward and easy, but as we've discussed, effective model training depends on producing sufficiently high quality annotations of sufficiently high quality training data.
+
+Some factors to consider:
+
+- **Source data quality**. Is the information signal clear in the data? And does the input dataset include a sufficiently diverse set of examples that are representive of what the model will encountered when deployed?
+- **Annotation consistency**. Do the annotations capture information in the same way across images? This becomes an even bigger factors when multiple annotators are involved. Clear annotation guidelines and tracking various consistency metrics can help here.
+- **Annotation quality**. Are the annotations _accurate_, _precise_, and _complete_? Have annotators introduced bias?
+
+In the end, you will likely need to strike balance between speed and quality. Determining the right goalposts for "_good enough_" will require experimentation and iterative model training/testing.
 :::
 
 ::: {.callout-caution collapse="true" icon="false"
@@ -218,37 +223,36 @@ Labeling of satellite imagery brings its own specific challenges. Consider:
 
 ::: {.callout-note collapse="true" icon="false"
      title="Develop a thorough annotation protocol"}
+Create and maintain clear labeling instructions.
 :::
 
 ::: {.callout-note collapse="true" icon="false"
      title="Provide annotator training"}
-- Ensure annotators understand the domain and use cases.
-- Labeling Instructions
-- Guidelines to standardize annotations.
+- Work with annotators to make sure they understand the domain, use cases, and overall purpose of the project.
+- Provide specific guidance about what to do in ambiguous or difficult cases, in order to help standardize annotations.
+- Consider having new annotators apply annotations on a set of sample inputs, assess those annotations, and provide clear feedback with reference to what they could or should do better.
 :::
 
 ::: {.callout-note collapse="true" icon="false"
      title="Have a quality control process"}
-At this basic level, you should conduct reviews to ensure compliance with instructions.
+To ensure sufficient quality, plan on doing regular checks, running cross-validations, and having feedback loops.
 
-Regular checks, cross-validation, and feedback loops.
-  * Consensus mechanisms: have more than one person annotate each item, and measure consistency
-  * Four ways of measuring quality:
-    1. Gold standard: When there's a know correct answer, ask whether the provided annotation is correct or not
-    2. Sample review: Randomly sample some, and measure based on correct vs incorrect
-    3. Consensus: Multiple annotators, treat most common answer as correct
-    4. Intersection over union (IoU): For bounding boxes, divide area over overlap by total area of the (unioned) boxes
+First, periodically conduct manual annotation reviews to ensure compliance with instructions. This might include having a recognized expert on the team randomly selecting a subset of annotated images to assess.
 
-- **Inter-annotator agreement (IAA)** is a _consensus_ metric that measures the degree to which different annotators provide similar annotations.
-  - Cohen's kappa (to compare 2 labelers)
-  - Fleiss' kappa (to compare >2 labelers)
-  - Krippendorf's alpha
-- F1 score
+Second, identify and calculate quality metrics on an ongoing basis, targeting each of the following:
+
+**Consensus**. To measure the degree to which different annotators on the team are providing similar annotations, have multiple annotors annotate some of the same images, and calculate a _consensus_ measure like **Inter-annotator agreement (IAA)**. Several flavors of this metric exist, such as Cohen's kappa (to compare 2 labelers) and Fleiss' kappa (to compare >2 labelers).
+
+**Accuracy**. In cases where there's a known "correct" answer, either for all images or some subset thereof, calculate annotation performance metrics. Here are a couple of examples:
+  - For bounding boxes, calculate a metric like **Intersection over union (IoU)**: Take the area of overlap between the ground truth box and the annotated box, and divide by total area of the (unioned) boxes.
+  - For detected objects overall, calculate standard metrics like **precision** (proportion of labeled objects that are correctly labeled) and **recall** (proportion of all objects that were correctly labeled)
+
+**Completeness**. Keep track of annotation completeness overall. For example, when doing bounding box annotation for an object detection task, ensure that all drawn boxes are associated with a valid label.
 :::
 
 ::: {.callout-note collapse="true" icon="false"
      title="Proceed iteratively!"}
-Start small, refine, and scale gradually.
+In a nutshell: Start small, refine, and scale gradually.
 :::
 
 ## Image Annotation Methodology
@@ -425,18 +429,32 @@ This is typically only relevant in very specific settings, namely in environment
 
 ::: {.callout-important collapse="true" icon="false"
      title="1 - Data collection"}
-Get a sufficiently large and diverse set of data
+First step: Get a sufficiently large and diverse set of data to annotate and subsequently train on.
+
+You may already have a set of images from your own research, e.g. from a set of camera traps or aerial flights. Or perhaps you already have a clear use case around detecting features in a particular satellite dataset, and have already procured the imagery. If so, great.
+
+If you don't have your own imagery -- and maybe even if you do -- you may want to consider augmenting it with additional images if you don't have enough diversity or content in your own imagery. Depending on your use cases, you may want to poke around public mage datasets like ImageNet.
+
+![.](/images/data-annotation/imagenet-sample.jpg){.lightbox width=80%}
 :::
 
 ::: {.callout-important collapse="true" icon="false"
      title="2 - Tool Selection"}
-Time to choose your annotation tool/platform! See next section...
+Time to choose your annotation tool/platform!
+
+There are many options, and lots of factors to consider. See the next section for plenty more detail.
+
+![.](/images/data-annotation/toolbox-wide.jpg){.lightbox width=80%}
 :::
 
 ::: {.callout-important collapse="true" icon="false"
      title="3 - Data preprocessing"}
 
-This step can include various activities. Here are some illustrative tasks:
+Before proceeding, it's almost always useful (some sometimes essential) to apply various preprocessing tasks to your data to make it easeir to annotatate and/or eventually train on.
+
+![Source: [Medium](https://medium.com/@ramdinesh/sql-data-cleaning-part-10-0074f568354c)](/images/data-annotation/data-cleansing.jpg){.lightbox width=80%}
+
+Here are some categories of common preprocessing tasks:
 
 **Reformatting.**
 If relevant, you may need to convert your source images into a better file format for your task. Beyond this, it may be useful to rotate, crop, rescale, and/or reproject your images to get them into a consistent structural format.
@@ -452,17 +470,35 @@ Other context-specific transformations may be useful for "bringing out" informat
      title="4 - Guideline Development"}
 As we discussed earlier, before you begin in earnest, it's critical that you develop specific guidelines for annotators to follow when doing the annotation using the selected tool.
 
+Note: These should be written down! Some annotation platforms provide a way to document instructions within the tool, but if yours doesn't (and probably even if it does), you should create and maintain your own written documentation
+
+
+![Source: [Acquiro](https://acquirosolutions.com/blog/Business/details/199/Difference-Between-A-Manual-and-A-Guide)](/images/data-annotation/guidelines.jpg){.lightbox width=80%}
+
 Often this will be based on a combination of **prior knowledge** and **task familiarity**. To the extent that nobody on the project has extensive experience with the task at hand, it's often helpful to do some prototyping to inform development of the guidelines.
 :::
 
 ::: {.callout-important collapse="true" icon="false"
      title="5 - Annotation"}
-Annotate the data!
+It's time to annotate!
+
+![Source: [shaip](https://zh-cn.shaip.com/blog/what-is-data-labeling-everything-a-beginner-needs-to-know/)](/images/data-annotation/annotator.jpg){.lightbox width=80%}
+
+Keep in mind the following image annotation best practices. They may not _always_ hold, but in general:
+
+- Keeping bounding boxes and polygons "tight" to the object:
+- For occluded objects, annotate as if the entire object were in view
+- In general, label partial objects cut off at the edge
+- Label _all_ relevant objects in the image. Otherwise, "negative" labels will hamper model learning.
+
+Above all else, remember, _**consistency is critical!**_
 :::
 
 ::: {.callout-important collapse="true" icon="false"
      title="6 - Quality Assurance"}
-Review and refine the annotations
+Review the annotations for quality, and if needed, refine by returning to an earlier step in the workflow.
+
+![](/images/data-annotation/quality-assurance.jpg){.lightbox width=80%}
 
 Note that although QA is identified here as a discrete stage in the workflow, in practice quality is achieved through deliberate attention at multiple stages in the process, including:
 
@@ -473,12 +509,16 @@ Note that although QA is identified here as a discrete stage in the workflow, in
 
 ::: {.callout-important collapse="true" icon="false"
      title="7 - Data Export"}
-Prepare the annotated data for model training. Depending on the situation, this may include converting the annotations into a format compatible with modeling framework, if not supported directly by the annotation tool.
+Finalize and output the annotated data for model training.
+
+![](/images/data-annotation/coco-json.jpg){.lightbox width=80%}
+
+Typically you will need to get the data into some particular format before proceeding with model training. If your annotation tool can export in this format, you're all set. If not, you'll need to export in some other format and then use a conversion tool that you either find or create yourself.
 :::
 
 From here, presumably you'll move on to model training!
 
-**Remember this key best practice**: Iterate! Annotate, train, test, fix annotations, figure out whether/how to do more and/or better annotations, refine your annotation approaches, etc.
+**Remember this key best practice**: Iterate! You will almost certain not proceed through the annotation workflow in one straight shot. Plan to do some annotations, train, test, fix annotations, figure out whether/how to do more and/or better annotations, refine your annotation approaches, etc.
 
 ## Annotation Tools & Platforms
 
@@ -496,7 +536,7 @@ Here are some questions you should be asking...
 
 ::: {.callout-tip collapse="false" icon="false"
      title="What annotation types are supported?"}
-Does the tooling allow you do create the kinds of annotations necessary for your task?
+Does the tooling allow you do create the kinds of annotations necessary for your task? This probably the first and most fundamental question you should be asking!
 :::
 
 ::: {.callout-tip collapse="false" icon="false"
@@ -524,6 +564,8 @@ Some annotation software, especially the major players and cloud-based offerings
 - Pascal VOC XML
 - TensorFlow TFRecord
 - ... and lots more ...
+
+See this [great page](https://roboflow.com/formats) for exploring many different formats.
 :::
 
 ::: {.callout-tip collapse="false" icon="false"
@@ -535,38 +577,44 @@ Some annotation software, especially the major players and cloud-based offerings
 
 ::: {.callout-tip collapse="false" icon="false"
      title="How can I assess annotation quality?"}
-We've discussed the importance of having high quality annotations. Some tools leave it entirely up to you to figure out how to measure this, but others have assessment capabilities built into the tool.
+We've discussed the importance of having high quality annotations, and briefly covered various types of quality assessment. Some tools leave it entirely up to you to handle this, but others have features that help in this area. This can include:
 
-Firstly this may include calculation of various annotation quality metrics:
-
-This may include features such as:
-- Providing configurable mechanisms for
-
-- Reliability / accuracy -- for assisted tools (AI, crowdsource, outsource)
+- Automatic calculation of various quality metrics
+- Configurable mechanisms for distributing images among annotators, and choosing how many annotators will see each image
+- Various other forms of annotation process metadata and analytics
 :::
 
 ::: {.callout-tip collapse="false" icon="false"
      title="Is the tool easy to use?"}
-- Ease of use!
-  - Effective UI
-  - Support for keyboard shortcuts
+As with any category of software, some options will be easier to use than others. For image annotation, where you are likely going to want to scale up to a large number of images, small speed-ups in the annotation process will really start to add up over time.
+
+Consider:
+
+- Is the software easy to navigate in general?
+- Does the annotation interface have responsive, reliable, and easy-to-use UI elements for creating, modifying, and deleting image annotations?
+- Are there effective keyboard shortcuts to help speed up manual annotations?
+- Does the tool offer effective model-assisted or other "smart" annotation capabilities?
+- Are there well-designed features for managing your images, annotations, and ovearll workflow?
+- Is there any useful API support to enable programmatic upload, download, or other automation?
 :::
 
 ::: {.callout-tip collapse="false" icon="false"
      title="How much am I willing to pay for tooling?"}
-- Free or Commercial?
+In short, some software options are free, wherease others are commercial offerings with varying costs and prices tiers. As you compare features, consider what you're willing (and able) to pay for.
 :::
 
 ::: {.callout-tip collapse="false" icon="false"
      title="How is the software licensed?"}
-- Open source or Proprietary?
+Some annotation software apps and libraries are open source, whereas others are proprietary. You may want to lean toward the open source options if you want to be able to review the source code and understand how it works, and/or (perhaps more importantly) have the option of modifying it to better meet your needs. Of course, general speaking, the open source options will typically also be free, whereas proprietary software is more likely to come with costs.
 :::
 
 ::: {.callout-tip collapse="false" icon="false"
      title="Where does the software run?"}
-Desktop or Self-hosted or Cloud?
+Do you care if the software runs on your local computer? Do you want it to be something that you deploy and run on your own managed server, either locally or on a VM hosted in a public cloud? Or would you prefer to use a pure cloud-based annotation platform (i.e., a SaaS offering) that somebody else maintains and you access via a browser and/or API?
 
-Security/privacy considerations
+As with any software decision, there are pros and cons to each option.
+
+Bear in mind that with image annotation, any cloud-based offering raises security and privacy considerations, as your images and annotations will reside on somebody else's server. Consider whether this is a concern for you.
 :::
 
 ::: {.callout-tip collapse="false" icon="false"
