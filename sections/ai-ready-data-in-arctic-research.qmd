@@ -12,7 +12,7 @@ This session dives into the concept of 'AI-ready data' in Arctic science and geo
 ::: {.callout-tip}
 ## What is AI-Ready Data?
 
-Data that are **accessible**, preferably **open**, and **well-documented**, making them easily **interpretable** for **reuse** and analysis.
+Data that are **accessible**, preferably **open**, and **well-documented**, making them easily **interpretable** and **machine-readable** to simplify **reuse**.
 :::
 
 This is really a variant on Analysis Ready Data (ARD), or, more recently, "Analysis Ready, Cloud Optimized (ARCO)" data.
@@ -127,7 +127,7 @@ One of the main roles of DataONE is to promote interoperability and improve the 
 
 ![](../images/ai-ready/dataone-arctic-metadata.png)
 
-DataONE harmonizes these standards by cross-walking them conceptually and making the data available for search through an integrated discovery portal and API. And DataONE promotes semantic labeling of the data as well, particularly for measurement types (e.g., `fork length` for fish length meeasurements) and dataset classification. These annotations are indexed against controlled, ontologically-precise term labels that are stored in queryable systems. For example, the [Ecosystem Ontology (ECSO](https://bioportal.bioontology.org/ontologies/ECSO/), the [Environment Ontology (ENVO)](https://sites.google.com/site/environmentontology/about-envo), and many others contain precisely defined terms that are useful for precise dataset labeling to differentiate subtly different terms and concepts. 
+DataONE harmonizes these standards by cross-walking them conceptually and making the data available for search through an integrated discovery portal and API. And DataONE promotes semantic labeling of the data as well, particularly for measurement types (e.g., `fork length` for fish length meeasurements) and dataset classification [@chong_enhancing_2024]. These annotations are indexed against controlled, ontologically-precise term labels that are stored in queryable systems. For example, the [Ecosystem Ontology (ECSO](https://bioportal.bioontology.org/ontologies/ECSO/), the [Environment Ontology (ENVO)](https://sites.google.com/site/environmentontology/about-envo), and many others contain precisely defined terms that are useful for precise dataset labeling to differentiate subtly different terms and concepts. 
 
 ![A sub-Arctic salmon-related dataset [@game_salmon_2018], showing annotations for each of the measured variables in the dataset. Each annotation is to a precisely defined concept or term from a controlled vocabulary, allowing subtle differences in methodology to be distinguished, which helps with both data discovery and proper reuse. The underlying metadata model is machine-readable, allowing search systems, and amchine learning harvesters to make use of this structured label data.](../images/ai-ready/dataone-annotation-salmon.png)
 
@@ -163,18 +163,45 @@ Croissant has also explicitly defined [metadata to meet the needs of machine-lea
 
 The intention is that multiple tools, all supporting the Crosissant metadata model, will be able to exchange ML-related data seamlessly. A number of ML tools support Croissant out-of-the-box, but only a tiny fraction of the datasets available today use this nascent vocabulary. In addition, it lacks the sophistication of Analysis Ready, Cloud Optimized (ARCO) data standards like Zarr that permit seamless access to massive data with minimal overhead. But it has a lot of promise for streamlining AI-Ready data, and can be used on top of exiting standards like Zarr. 
 
-![Common ML data providers like Hugging Face and Kaggle can use Croissant to produce ML-optimized datasets, which in turn can be seamlessly loaded and used with compatible ML libraries such as TensorFlow and PyTorch. Image credit: [@benjelloun_croissant_2024]](../images/ai-ready/criossant-cross-product.png)
+![Common ML data providers like [Hugging Face](https://huggingface.co/) and [Kaggle](https://www.kaggle.com/) could use Croissant to produce ML-optimized datasets, which in turn can be seamlessly loaded and used with compatible ML libraries such as TensorFlow and PyTorch. Image credit: [@benjelloun_croissant_2024]](../images/ai-ready/criossant-cross-product.png)
 
 
 ## Data Quality
 
-MetaDIG
+One of the primary determinants of AI-Ready data is whether the data are of sufficient quality for the intended purpose. While the quality of a dataset may have been high for the iniital hypothesis for which it was generated, it might be quite low (e.g., due to biased or selective sampling) at the scales at which machine learning might operate. Consequently, it is fundamentally important to assess the quality of datasets during the planning and execution of an AI project. Questions such as the following would be of prime interest:
 
-![Data Quality assessment](../images/ai-ready/metadig-report.png)
+- Does the dataset represent the complete population of interest?
+- Does training data reflect an unbiased sample of that population?
+- Are the data well-documented, enabling methodological interpretation?
+- Did data collection procedures follow standards for responsible AI and ethical reseatch practices?
+- Are the data **Tidy** (normalized) and structured (see [Tidy Data lesson](https://learning.nceas.ucsb.edu/2024-02-arctic/session_07.html))?
+- Are geospatial data accessibly structured, with sufficient metadata (e.g., about the Coordinate Reference System)?
+- ...
 
-## Tidy data
+![](../images/ai-ready/quality-bullseye.png)
 
-https://learning.nceas.ucsb.edu/2024-02-arctic/session_07.html
+Many of these issues are encompassed by the **FAIR Principles**, which are intended to ensure that published data are Finadable, Accessible, Interoperable, and Reusable [@wilkinson_fair_2016; @wilkinson_design_2018]. While there are a huge variety of methods to assess data quality in use across disciplines, some groups have started to harmonize rubrics for data quality and how to represent data quality results in metadata records (see [@peng_harmonizing_2024]).
+
+DataONE is one such group that has operationalized FAIR Assessment [@peng_harmonizing_2024]. Within the DataONE network, all compatible datasets are evaluated using an automated FAIR rubric which rates the dataset on 52 FAIR checks [@jones_quantifying_2019; @jones_metadig_2016]. Each of these checks is atomic, and looks at a small facet of the dataset quality, but combined they give a powerful assessment of dataset readiness for various analytical purposes. And these suites of checks are extensible, so different groups can create suites of automated quality assessment checks that match their needs and recommendations as a community.
+
+![DataONE FAIR assessment](../images/ai-ready/metadig-report.png)
+
+We see a marked improvement in dataset quality across the FAIR axes as datasets go through our curation process at the Arctic Data Center. 
+
+The Arctic Data Center team is currently working to extend this quality assessment suite to deeper data quality checks. Most of the current checks are based on metadata, mainly because these are accessible through the centralized DataONE network, whereas data are distributed throughout the network, and are much larger. The ADC data quality suite will assess generic quality checks and domain-specific quality checks to produce both dataset-level and project-level quality reports. Some of the key types of checks that are posisble with the system include:
+
+| Generic Checks | Domain/Discipline Checks |
+|----------------|--------------------------|
+| Domain and range values | Tree diameters don’t get smaller |
+| Data type conformance | Unit and measurement semantics |
+| Data model normal | Species taxonomy consistent |
+| Checksum matches metadata | Outlier flagging |
+| Malware scans | Allometric relations among variables |
+| Characters match encoding | Calibration and Validation conformance |
+| Primary keys unique | Temporal autocorrelation |
+| Foreign keys valid | Data / model agreement |
+
+: {.striped .hover .primary}
 
 ## ESIP AI-Readiness Checklist
 
@@ -184,7 +211,6 @@ https://learning.nceas.ucsb.edu/2024-02-arctic/session_07.html
 - Data Quality
 - Data Documentation
 - Data Access
-
 
 
 ## Exercise
