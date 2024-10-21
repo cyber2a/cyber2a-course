@@ -2,10 +2,10 @@
 execute:
   freeze: true
 ---
-# AI-Ready Data in Arctic Research: Principles and Practices
+# AI-Ready Data in Arctic Research
 
 ## Goal {.unnumbered}
-This session provides an understanding of 'AI-ready data' in Arctic science and geoscience, highlighting the importance of suitable data for AI applications. Participants will learn about creating and managing metadata and organizing data repositories. We'll discuss best practices for data preparation and structuring for AI processing. By the end, participants will clearly understand AI-ready data characteristics and the steps to transform raw data for AI applications.
+This session dives into the concept of 'AI-ready data' in Arctic science and geoscience, highlighting the importance of suitable data for AI applications. Participants will learn about creating and managing metadata and organizing data repositories. We'll discuss best practices for data preparation and structuring for AI processing. By the end, participants will clearly understand AI-ready data characteristics and the steps to transform raw data for AI applications.
 
 ## Are we ready for AI?
 
@@ -109,7 +109,7 @@ While this and other valuable data for cross-cutting analysis are available from
 
 ### DataONE
 
-DataONE is a network designed to connect over 60 (and growing) global data repositories to improve the discoverability and accessiblilty of data from across the  world. DataONE provides global data search and discovery by harmonizing myriad metadata standards used across the world, and providing an interoperability API across repositories to make datasets **findable** and programatically **accessible** regardless of where they live.
+[DataONE](https://dataone.org) is a network designed to connect over [60 global data repositories](https://www.dataone.org/network/) (and growing) to improve the discoverability and accessiblilty of data from across the  world. DataONE provides global data search and discovery by harmonizing myriad metadata standards used across the world, and providing an interoperability API across repositories to make datasets **findable** and programatically **accessible** regardless of where they live.
 
 ![](../images/ai-ready/dataone-network.png)
 
@@ -117,14 +117,19 @@ For example, a query across DataONE in 2024 revealed over 4500 datasets held by 
 
 ![](../images/ai-ready/dataone-greenland-datasets.png)
 
+Looking across the whole of the Arctic, we found over 98,000 datasets from 39 data repositories. It is notable that only 6 of those repositories are focused on Arctic research (like the Arctic Data Center), while the rest are either general repositories or discipline specific repositories. For example, [Pangaea](https://www.pangaea.de/) as a generalist repository has the most datasets with over 10,000, but there are also significant and important data sets on archeology ([TDAR](https://www.tdar.org/)), hydrology ([HydroShare](https://www.hydroshare.org/)) and geochemistry ([EarthChem](https://www.earthchem.org/)).
 
 ![Graph of Arctic Data across DataONE](../images/ai-ready/dataone-arctic-datasets.png)
 
-DataONE portals
+### Metadata harmonization
 
-Data Documentation for reuse; capturing measurement semantics; adhering to global standards such as EML and ISO-19115
+One of the main roles of DataONE is to promote interoperability and improve the quality and discoverability of global data holdings -- all of direct benefit to AI Ready data. DataONE promotes the use of detailed, discipline-specific metadata standards that enable researchers to comprehensively document the structure, contents, context, and protocols used when collecting data. For example, a good metadata record records not only the bibliographic information about the Dataset creators, but also documents the spatial and temporal extent of the data, the methods used to collect it, the types of measured properties that were observed or modeled, and other details that are fundamental to the proper interpretation and reuse of the data. Different disciplines focus on different standards: in ecology and environmental science, where biological metadata on taxonomy are important, the [Ecological Metadata Language (EML)](https://eml.ecoinformatics.org) is used extensively, whereas in geospatial science where time and space are critical, the emphasis is on the ISO 19115 family of metadata standards. Overall, DataONE supports more than a dozen metadata variants, and can be extended to support more. Across the Arctic, we find datasets that use many different metadata approaches.
 
-FAIR and CARE
+![](../images/ai-ready/dataone-arctic-metadata.png)
+
+DataONE harmonizes these standards by cross-walking them conceptually and making the data available for search through an integrated discovery portal and API. And DataONE promotes semantic labeling of the data as well, particularly for measurement types (e.g., `fork length` for fish length meeasurements) and dataset classification. These annotations are indexed against controlled, ontologically-precise term labels that are stored in queryable systems. For example, the [Ecosystem Ontology (ECSO](https://bioportal.bioontology.org/ontologies/ECSO/), the [Environment Ontology (ENVO)](https://sites.google.com/site/environmentontology/about-envo), and many others contain precisely defined terms that are useful for precise dataset labeling to differentiate subtly different terms and concepts. 
+
+![A sub-Arctic salmon-related dataset [@game_salmon_2018], showing annotations for each of the measured variables in the dataset. Each annotation is to a precisely defined concept or term from a controlled vocabulary, allowing subtle differences in methodology to be distinguished, which helps with both data discovery and proper reuse. The underlying metadata model is machine-readable, allowing search systems, and amchine learning harvesters to make use of this structured label data.](../images/ai-ready/dataone-annotation-salmon.png)
 
 ## Data Quality
 
@@ -132,9 +137,9 @@ MetaDIG
 
 ![Data Quality assessment](../images/ai-ready/metadig-report.png)
 
-## Analysis Ready Data
+## Tidy data
 
-## AI Ready Data
+https://learning.nceas.ucsb.edu/2024-02-arctic/session_07.html
 
 ## ESIP AI-Readiness Checklist
 
