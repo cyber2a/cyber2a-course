@@ -238,6 +238,8 @@ generalization capabilities. This model-in-the-loop self-supervised training cre
 1 billion segmentation masks from about 11M privacy preserving images and SA-V dataset containing 642.6K masklets
 (spatio-temporal segmentation masks) from 50.9K videos.
 
+![SAM 2 Architecture. Image source: [@ravi2024sam2]](../images/foundation-models/sam2-architecture.png){#fig-sam2-architecture}
+
 ## Retrieval-Augmented Generation (RAG)
 
 Large pre-trained Language Models (LLMs) have revolutionized natural language processing, but they come with inherent limitations that necessitate the development of techniques like Retrieval-Augmented Generation (RAG). This chapter explores the motivations behind RAG by examining the constraints of traditional LLMs.
