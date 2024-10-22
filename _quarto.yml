@@ -17,7 +17,7 @@ book:
         name: Woodwell Climate
         ror: https://ror.org/04cvvej54
   - name: Matthew B. Jones
-    orcid: https://orcid.org/0000-0003-0077-4738
+    orcid: 0000-0003-0077-4738
     affiliation:
       - id: nceas
         name: University of California Santa Barbara
@@ -44,11 +44,12 @@ book:
     affiliation:
       - id: ncsa
         name: National Center for Supercomputing Applications
-        ror: https://ror.org/03g9ch715
+        ror: https://ror.org/03r10zj06
   - name: Minu Mathew
     affiliation:
       - ref: ncsa
-  - name: Sandeep Satheesan
+  - name: Sandeep Puthanveetil Satheesan
+    orcid: 0000-0001-9075-3740
     affiliation:
       - ref: ncsa
   - name: Nicole Greco

@@ -2,3 +2,7 @@
 
 _book/
 .Rproj.user
+
+.idea/
+
+**/*.DS_Store

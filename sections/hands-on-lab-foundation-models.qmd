@@ -10,3 +10,9 @@ The hands-on lab on foundation models will focus on building and applying small-
 ## References
 1. [Segment Anything](https://segment-anything.com/)
 2. [Segment Anything Notebook](https://github.com/facebookresearch/segment-anything/tree/main/notebooks)
+
+
+## SAM
+
+## RAG
+

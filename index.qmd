@@ -43,7 +43,7 @@ The course has been designed with several guiding principals in mind.
 
 Citation:
 
-> Wenwen Li, Anna Liljedahl, Matthew B. Jones, Chia-Yu Hsu, Alyona Kosobokova, Jim Regetz, Chandi Witharana, Yili Yang, Ben Galewsky, Minu Mathew, Sandeep Satheesan, Nicole Greco, Kenton McHenry, Carmen Galaz García, Kate Holman Billmeier. 2024. **AI for Arctic Research.** Arctic Data Center. [doi:10.18739/A2222R77V](https://doi.org/10.18739/A2222R77V)
+> Wenwen Li, Anna Liljedahl, Matthew B. Jones, Chia-Yu Hsu, Alyona Kosobokova, Jim Regetz, Chandi Witharana, Yili Yang, Ben Galewsky, Minu Mathew, Sandeep Puthanveetil Satheesan, Nicole Greco, Kenton McHenry, Carmen Galaz García, Kate Holman Billmeier. 2024. **AI for Arctic Research.** Arctic Data Center. [doi:10.18739/A2222R77V](https://doi.org/10.18739/A2222R77V)
 
 The materials in this book are [licensed](#license) for reuse, and are available from the [cyber2a-course github repository](https://github.com/cyber2a/cyber2a-course). The book is written in [Quarto](https://quarto.org/), a cross platform markdown-based platform for writing books and technical materials that works with Python, R, and other languages.
 
