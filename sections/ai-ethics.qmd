@@ -1,10 +1,77 @@
 # AI Ethics
 
 ## Goal {.unnumbered}
-Review FAIR and CARE Principles, and their relevance to data ethics. Examine how ethical considerations are shared and considered at the Arctic Data Center. Discuss ethical considerations in machine learning. 
+Review FAIR and CARE Principles, and their relevance to data ethics. Examine how ethical considerations are shared and considered at the Arctic Data Center. Discuss ethical considerations in AI and machine learning. 
+
+## Intro to Data Ethics
+
+**The Arctic Data Center is an openly-accessible data repository.** The data published through it is open for anyone to reuse, subject to one of two license: [CC-0 Public Domain](https://creativecommons.org/public-domain/cc0/) and [CC-By Attribution 4.0](https://creativecommons.org/licenses/by/4.0/deed.en). As an open access repository, we prioritize long-term preservation and embrace  principles from the data stewardship community, which established a set of best practices for open data management. n adherence, two principles adopted by the Arctic Data Center are **FAIR Principles** (Findable, Accessible, Interoperable, and Reproducible) and **CARE Principles for Indigenous Governance** (Collective Benefit, Authority to Control, Responsibility, Ethics). Both of which serve as frameworks in how to consider data ethics. 
+ 
+**The FAIR Principles** 
+
+FAIR speaks to how metadata is managed, stored, and shared. 
+
+![](../images/ai-ethics/fair.png){.lightbox width=100%}
+
+What is the difference between FAIR principles and open science?
+
+FAIR principles and open science are overlapping concepts, but are distinctive from one another. Open science supports a culture of sharing research outputs and data, and FAIR focuses on how to prepare the data. **The FAIR principles place emphasis on machine readability, “distinct from peer initiatives that focus on the human scholar” (Wilkinson et al 2016) and as such, do not fully engage with sensitive data considerations and with Indigenous rights and interests (Research Data Alliance International Indigenous Data Sovereignty Interest Group, 2019).**  Metadata can be FAIR but not open. For example, sensitive data (data that contains personal information) may not be appropriate to share, however sharing the anonymized metadata that is easily understandable will reduce research redundancy. 
+
+![](../images/ai-ethics/fair_care.png){.lightbox width=100%}
+
+Research has historically perpetuated colonialism and represented extractive practices, meaning that the research results were not mutually beneficial. These issues also related to how data was owned, shared, and used. **To address issues like these, the Global Indigenous Data Alliance (GIDA) introduced CARE Principles for Indigenous Data Governance to support Indigenous data sovereignty.** CARE Principles speak directly to how the data is stored and shared in the context of Indigenous data sovereignty. CARE Principles (Carroll et al. 2020) stand for: 
+
+* *Collective Benefit* - Data ecosystems shall be designed and function in ways that enable Indigenous Peoples to derive benefit from the data
+
+* *Authority to Control* - Indigenous Peoples’ rights and interests in Indigenous data must be recognized and their authority to control such data be empowered. Indigenous data governance enables Indigenous Peoples and governing bodies to determine how Indigenous Peoples, as well as Indigenous lands, territories, resources, knowledges and geographical indicators, are represented and identified within data.
+* *Responsibility* - Those working with Indigenous data have a responsibility to share how those data are used to support Indigenous Peoples’ self-determination and collective benefit. Accountability requires meaningful and openly available evidence of these efforts and the benefits accruing to Indigenous Peoples.
+* *Ethics* - Indigenous Peoples’ rights and wellbeing should be the primary concern at all stages of the data life cycle and across the data ecosystem.
+
+To many, the FAIR and CARE principles are viewed by many as complementary: CARE aligns with FAIR by outlining guidelines for publishing data that contributes to open-science and at the same time, accounts for Indigenous’ Peoples rights and interests (Carroll et al. 2020).
 
 
-## Introduction 
+In Arctic-based research, there is a paradigm shift to include more local Indigenous Peoples, their concerns, and knowledge throughout the research process (Loseto 2020). At the 2019 ArcticNet Annual Scientific Meeting (ASM), a 4-hour workshop was held between Indigenous and non-Indigenous participants to address the challenge of peer-reviewed publications arising when there is a lack of co-production and co-management in the research process between both groups. In the context of peer review, involving Indigenous People and Indigenous Knowledge (IK) not only can increase the validity of research findings, but also ensure the research is meaningful to those most impacted by it. Moreover,  it gives power back to the appropriate people to decide who can be knowledge holders of Indigenous knowledge (Loseto et al. 2020). This example underscores the advocacy CARE framework for Indigenous sovereignty, emphasizing the essential integration of people and purpose in the peer review publication stage. Failure to do so perpetuates power imbalances between science institutions and Indigenous communities. Hence, an equitable framework would adhere to the idea ‘Not about us without us’.  As an Arctic research community, it is important to reflect on ways we can continue to engage and incorporate Indigenous communities and if there are gaps to address. However, it is important there is no ‘one size fits all’ approach. 
+
+
+## Ethics at the Arctic Data Center
+
+**Transparency in data ethics is a vital part of open science.** Regardless of discipline, various ethical concerns are always present, including professional ethics such as plagiarism, false authorship, or falsification of data, to ethics regarding the handling of animals, to concerns relevant to human subjects research. As the primary repository for the Arctic program of the National Science Foundation, the Arctic Data Center accepts Arctic data from all disciplines. Recently, a new submission feature was released which asks researchers to describe the ethical considerations that are apparent in their research. This question is asked to all researchers, regardless of disciplines.
+
+Sharing ethical practices openly, similar in the way that data is shared, enables deeper discussion about data management practices, data reuse, sensitivity, sovereignty and other considerations. Further, such transparency promotes awareness and adoption of ethical practices. 
+
+![](../images/ai-ethics/sensitivity.png){.lightbox width=100%}
+![](../images/ai-ethics/erp-methods.png){.lightbox width=100%}
+
+Inspired by CARE Principles for Indigenous Data Governance (Collective Benefit, Authority to Control, Responsibility, Ethics) and FAIR Principles (Findable, Accessible, Interoperable, Reproducible), we include a space in the data submission process for researchers to describe their ethical research practices. These statements are published with each dataset, and the purpose of these statements is to promote greater transparency in data collection and to guide other researchers. For more information about the ethical research practices statement, [check out this blog](https://arcticdata.io/all/blog/2022/04/applying-care-documenting-ethical-data-procedures-and-sensitive-data-at-the-arctic-data-center/).
+
+
+To help guide researchers as they write their ethical research statements, we have listed the following ethical considerations that are available on our website. The concerns are organized first by concerns that should be addressed by all researchers, and then by discipline. 
+
+Consider the following ethical considerations that are relevant for your field of research.
+
+### Ethical Considerations for all Arctic Researchers
+
+![](../images/ai-ethics/all-researchers-logos.png)
+
+**Research Planning**
+
+1. Were any permits required for your research?
+2. Was there a code of conduct for the research team decided upon prior to beginning data collection?
+3. Was institutional or local permission required for sampling?
+4. What impact will your research have on local communities or nearby communities (meaning the nearest community within a 100 mile radius)?
+
+**Data Collection**
+
+5. Were any local community members involved at any point of the research process, including study site identification, sampling, camp setup, consultation or synthesis?
+6. Were the sample sites near or on Indigenous land or communities?
+
+**Data Sharing and Publication**
+
+7. How were the following concerns accounted for: misrepresentation of results, misrepresentation of experience, plagiarism, improper authorship, or the falsification or data?
+8. If this data is intended for publication, are authorship expectations clear for everyone involved?
+Other professional ethics can be found here
+
+## AI Ethics
 
 **Artificial Intelligence (AI)** can be thought of as the development of computer systems that can perform tasks we usually think require human intelligence, such as image recognition, language translation, or autonomous movement. The rapid development and adoption of AI tools in the past years, particularly machine learning algorithms, has revolutionized how big datasets are analyzed, transforming decision-making in all sectors of society. However, **frameworks to examine the ethical considerations of AI are just emerging**, and careful consideration of how to best develop and apply AI systems is essential to the responsible use of these new, rapidly changing tools. In this section, we will give an overview of the FAST Principles put forward by the Alan Turing Institute in their guide for the responsible design and implementation of AI systems [@leslie_understanding_2019].  
 
@@ -88,6 +155,22 @@ In 2018, the French government passed a law to protect citizens' privacy, establ
 Overall, this legislation aims to create a fairer and more transparent digital environment where everyone can enjoy equal opportunities.
 
 ![ Photo by [Google DeepMind](https://unsplash.com/@googledeepmind?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)](/images/ai-ethics/google-deepmind-x-jiPtOms98-unsplash%20copy.jpg){.lightbox width=100%}
+:::
+
+## Discussion Activity
+
+Given the discussion of the CARE priciples and the FAST principles, let's discuss what responsible AI considerations might exist in the context of Arctic research, particularly with respect to Indigneous peoples of the Arctic. Geospatial data spanning the Arctic typically includes the traditional lands and waters of Arctic Indigenous peoples, and often intersects with current local communities distributed throughout the Arctic. Recent work by projects like [Abundant Intelligences](https://www.indigenous-ai.net/abundant/]) are starting to explore the intersection of Indigineous Knowledge systems, Artifical Intelligence models, and how to guide the "development of AI \[to support\] a more humane future".
+
+Let's take, for example, a researcher that wants to run an machine learning model to detect changes in environmental features at a large regional or Arctic scale. We've seen several of these so far, including 1) AI predictions of the distribution of permafrost ice wedges and retrogressive thaw slumps across the Arctic; 2) use of AI to detect changes in surface water extent and lake drainage events across the Arctic; 3) use of AI in a mechanistic process models that helps understand the global source/sink tradeoff of permafrost loss and its impact on climate.
+
+::: {.callout-tip}
+## Discussion questions
+
+Divide into 5 groups of 4, find a comfortable place to sit, and pick a large-scale AI application that is of interest to the group. Let's discuss some of the following questions, and more...
+
+1. Thinking of CARE, does that model provide Collective Benefit to Indigenous populations that it might impact?
+2. Thinking of FAST, what would researchers need to do to ensure that their research process could meet the goals of the four categories of Fairness (Outcome Fairness, Data Fairness, Design Fairness, and Implementation Fairness) for Indigenous people in their research area?
+
 :::
 
 ## Conclusion
