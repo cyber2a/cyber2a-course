@@ -232,10 +232,10 @@ The latest version of SAM, SAM 2, can segment images and videos and uses a unifi
 It is designed to handle complex scenes with multiple objects and can generate high-quality segmentations with minimal user input.
 The model can be used for various applications, including image editing, object detection, and video analysis.
 
-Since large-scale datasets for segmentation are unavailable, in developing SAM, the research team used a data engine to
-generate segmentation masks, which were then manually annotated. The model was trained on diverse images to improve its
-generalization capabilities. This model-in-the-loop self-supervised training created two datasets: SA-1B containing
-1 billion segmentation masks from about 11M privacy preserving images and SA-V dataset containing 642.6K masklets
+Since large-scale datasets for segmentation are unavailable, the research team created a data engine to generate
+segmentation masks, which were then manually annotated when developing SAM. The model was trained on diverse images to
+improve its generalization capabilities. This model-in-the-loop self-supervised training created two datasets: SA-1B
+containing 1B segmentation masks from about 11M privacy preserving images and SA-V dataset containing 642.6K masklets
 (spatio-temporal segmentation masks) from 50.9K videos.
 
 ![SAM 2 Architecture. Image source: [@ravi2024sam2]](../images/foundation-models/sam2-architecture.png){#fig-sam2-architecture}
