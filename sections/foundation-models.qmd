@@ -214,14 +214,31 @@ Diffusion models can generate high-resolution and diverse images, often outperfo
 Stable-diffusion [@DBLP:journals/corr/abs-2112-10752], DALL-E [@DBLP:journals/corr/abs-2102-12092], [Sora](https://openai.com/research/video-generation-models-as-world-simulators) are some of the most common models utilizing diffusion architecture.
 
 
-## Foundaiton Models - Applications
+### Foundation Models - Applications
 
 Having explored the foundational principles and capabilities of foundation models, we can now delve into specific applications that leverage their power. Two prominent techniques that build upon the capabilities of these models are Segment Anything Model (SAM) and Retrieval-Augmented Generation (RAG).
 
 
 ## Segment Anything Model
 
+Segment Anything Model (SAM) is a foundation model for the Promptable Visual Segmentation (PVS) task.
+PVS inspired from prompt engineering in NLP that user prompts can be a powerful tool for pre-training foundation models
+and downstream tasks. It is developed by the Fundamental AI Research (FAIR) team at Meta [@kirillov2023segment].
+SAM is a simple and flexible framework that can segment any object in an image by providing a combination of one or more
+prompts - namely points, bounding boxes, or other segmentation masks. SAM is based on the transformer architecture and
+is trained on a large-scale dataset of images and their corresponding segmentation masks.
 
+The latest version of SAM, SAM 2, can segment images and videos and uses a unified architecture for both tasks [@ravi2024sam2].
+It is designed to handle complex scenes with multiple objects and can generate high-quality segmentations with minimal user input.
+The model can be used for various applications, including image editing, object detection, and video analysis.
+
+Since large-scale datasets for segmentation are unavailable, the research team created a data engine to generate
+segmentation masks, which were then manually annotated when developing SAM. The model was trained on diverse images to
+improve its generalization capabilities. This model-in-the-loop self-supervised training created two datasets: SA-1B
+containing 1B segmentation masks from about 11M privacy preserving images and SA-V dataset containing 642.6K masklets
+(spatio-temporal segmentation masks) from 50.9K videos.
+
+![SAM 2 Architecture. Image source: [@ravi2024sam2]](../images/foundation-models/sam2-architecture.png){#fig-sam2-architecture}
 
 ## Retrieval-Augmented Generation (RAG)
 
