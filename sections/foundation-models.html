@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -73,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -309,12 +329,31 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">17.1</span> Overview</a></li>
   <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline"><span class="header-section-number">17.2</span> Outline</a></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">17.3</span> Reference</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">17.3</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#traditional-ml-vs-deep-learning-vs-foundation-models" id="toc-traditional-ml-vs-deep-learning-vs-foundation-models" class="nav-link" data-scroll-target="#traditional-ml-vs-deep-learning-vs-foundation-models"><span class="header-section-number">17.3.1</span> Traditional ML vs Deep Learning vs Foundation Models</a></li>
+  </ul></li>
+  <li><a href="#foundation-models" id="toc-foundation-models" class="nav-link" data-scroll-target="#foundation-models"><span class="header-section-number">17.4</span> Foundation Models</a></li>
+  <li><a href="#types-of-foundation-models" id="toc-types-of-foundation-models" class="nav-link" data-scroll-target="#types-of-foundation-models"><span class="header-section-number">17.5</span> Types of foundation models</a>
+  <ul class="collapse">
+  <li><a href="#types-of-foundation-models-modality" id="toc-types-of-foundation-models-modality" class="nav-link" data-scroll-target="#types-of-foundation-models-modality"><span class="header-section-number">17.5.1</span> Types of foundation models (Modality)</a></li>
+  <li><a href="#types-of-foundation-models-architecture" id="toc-types-of-foundation-models-architecture" class="nav-link" data-scroll-target="#types-of-foundation-models-architecture"><span class="header-section-number">17.5.2</span> Types of foundation models (Architecture)</a></li>
+  <li><a href="#foundation-models---applications" id="toc-foundation-models---applications" class="nav-link" data-scroll-target="#foundation-models---applications"><span class="header-section-number">17.5.3</span> Foundation Models - Applications</a></li>
+  </ul></li>
+  <li><a href="#segment-anything-model" id="toc-segment-anything-model" class="nav-link" data-scroll-target="#segment-anything-model"><span class="header-section-number">17.6</span> Segment Anything Model</a></li>
+  <li><a href="#retrieval-augmented-generation-rag" id="toc-retrieval-augmented-generation-rag" class="nav-link" data-scroll-target="#retrieval-augmented-generation-rag"><span class="header-section-number">17.7</span> Retrieval-Augmented Generation (RAG)</a>
+  <ul class="collapse">
+  <li><a href="#limitations-of-large-language-models" id="toc-limitations-of-large-language-models" class="nav-link" data-scroll-target="#limitations-of-large-language-models"><span class="header-section-number">17.7.1</span> Limitations of Large Language Models</a></li>
+  <li><a href="#introduction-to-rag" id="toc-introduction-to-rag" class="nav-link" data-scroll-target="#introduction-to-rag"><span class="header-section-number">17.7.2</span> Introduction to RAG</a></li>
+  <li><a href="#rag---retrieval-augmented-generation" id="toc-rag---retrieval-augmented-generation" class="nav-link" data-scroll-target="#rag---retrieval-augmented-generation"><span class="header-section-number">17.7.3</span> RAG - <em>Retrieval</em>-Augmented Generation</a></li>
+  <li><a href="#rag---retrieval-augmented-generation-1" id="toc-rag---retrieval-augmented-generation-1" class="nav-link" data-scroll-target="#rag---retrieval-augmented-generation-1"><span class="header-section-number">17.7.4</span> RAG - Retrieval-Augmented <em>Generation</em></a></li>
+  <li><a href="#rag-system" id="toc-rag-system" class="nav-link" data-scroll-target="#rag-system"><span class="header-section-number">17.7.5</span> RAG System</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/ai-workflows-and-mlops.html"><b>Day 4: Workflows and Foundation Models</b></a></li><li class="breadcrumb-item"><a href="../sections/foundation-models.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Foundation Models: The Cornerstones of Modern AI</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -337,33 +376,655 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2" data-number="17.1">
 <h2 data-number="17.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">17.1</span> Overview</h2>
-<p>Foundation models (FM) are deep learning models trained on massive raw unlabelled datasets usually through self-supervised learning. FMs enable today’s data scientists to use them as the base and fine-tune using domain specific data to obtain models that can handle a wide range of tasks [1, 6, 7]. In this talk, we provide an introduction to FMs, its history, evolution, and go through its key features and categories, and a few examples. We also briefly discuss how foundation models work. This talk will be a precursor to the hands-on session that follows on the same topic.</p>
-<p><img src="https://cyber2a.github.io/workshop/preview/images/foundation-models.png" class="img-fluid"> Image source: 2021 paper on foundation models by Stanford researchers [1].</p>
+<p>Foundation models (FM) are deep learning models trained on massive raw unlabelled datasets usually through self-supervised learning. FMs enable today’s data scientists to use them as the base and fine-tune using domain specific data to obtain models that can handle a wide range of tasks (language, vision, reasoning etc.). In this chapter, we provide an introduction to FMs, its history, evolution, and go through its key features and categories, and a few examples. We also briefly discuss how foundation models work. This chapter will be a precursor to the hands-on session that follows on the same topic.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/foundation_models.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : Image source- 2021 paper on foundation models by Stanford researchers <span class="citation" data-cites="Bommasani2021FoundationModels"><a href="../references.html#ref-Bommasani2021FoundationModels" role="doc-biblioref">[1]</a></span></figcaption>
+</figure>
+</div>
 <p>In this session, we take a closer look at what constitutes a foundation model, a few examples, and some basic principles around how it works.</p>
 </section>
 <section id="outline" class="level2" data-number="17.2">
 <h2 data-number="17.2" class="anchored" data-anchor-id="outline"><span class="header-section-number">17.2</span> Outline</h2>
 <ol type="1">
-<li>Introduction to foundation models, its history and evolution</li>
-<li>Key features of foundation models</li>
-<li>Types of foundation models: Language, Vision, Generative, and Multimodal</li>
-<li>Examples of foundation models: BERT [3], GPT [4], YOLO [2], SAM [5], DALLE-2</li>
-<li>How do foundation models work?</li>
+<li>Overview of foundation models</li>
+<li>Types of foundation models</li>
+<li>Architecture</li>
+<li>Segment Anything Model (SAM 2)</li>
+<li>Retrieval Augmented Generation</li>
 </ol>
 </section>
-<section id="reference" class="level2" data-number="17.3">
-<h2 data-number="17.3" class="anchored" data-anchor-id="reference"><span class="header-section-number">17.3</span> Reference</h2>
+<section id="introduction" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="introduction"><span class="header-section-number">17.3</span> Introduction</h2>
+<section id="traditional-ml-vs-deep-learning-vs-foundation-models" class="level3" data-number="17.3.1">
+<h3 data-number="17.3.1" class="anchored" data-anchor-id="traditional-ml-vs-deep-learning-vs-foundation-models"><span class="header-section-number">17.3.1</span> Traditional ML vs Deep Learning vs Foundation Models</h3>
+<p><strong>Traditional machine learning</strong> involves algorithms that learn patterns from structured data. Techniques like decision trees, support vector machines, and linear regression fall under this category. These methods often require feature engineering, where domain knowledge is used to select and transform input features to improve model performance. Traditional machine learning excels in scenarios with limited data and interpretable results.</p>
+<p><strong>Deep learning</strong> is a subset of machine learning that employs neural networks with multiple layers (hence “deep”). These models automatically learn features from raw data, making them particularly powerful for complex tasks like image and speech recognition. Deep learning excels with large datasets and can capture intricate patterns but often requires significant computational resources and can be harder to interpret compared to traditional methods.</p>
+<p><strong>Foundation models</strong>, such as GPT and BERT, represent a new paradigm in AI. These large-scale models are pre-trained on vast amounts of data and can be fine-tuned for specific tasks with minimal additional training. Earlier neural networks were narrowly tuned for specific tasks. With a little fine-tuning, foundation models can handle jobs from translating text to analyzing medical images. Foundation models generally learn from unlabeled datasets, saving the time and expense of manually describing each item in massive collections. Foundation models leverage transfer learning, allowing them to generalize across different tasks more effectively than traditional machine learning and deep learning models.</p>
+</section>
+</section>
+<section id="foundation-models" class="level2 page-columns page-full" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="foundation-models"><span class="header-section-number">17.4</span> Foundation Models</h2>
+<p>Foundation models, introduced in 2021 by Standford Researchers <span class="citation" data-cites="Bommasani2021FoundationModels"><a href="../references.html#ref-Bommasani2021FoundationModels" role="doc-biblioref">[1]</a></span>, are characterized by their enormous neural networks trained on vast datasets through self-supervised learning. These models serves as a “foundation” on which many task-specific models can be built by adaptation. Their capabilities improves with more data, requiring substantial computational power for training. These models can be adapted to various downstream tasks and are designed for reuse, leveraging transfer learning to enhance performance across different applications.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/foundation_models_paper.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : 2021 paper on foundation models by Stanford researchers <span class="citation" data-cites="Bommasani2021FoundationModels"><a href="../references.html#ref-Bommasani2021FoundationModels" role="doc-biblioref">[1]</a></span></figcaption>
+</figure>
+</div>
+</div></div><p>With the start of availability of big data for training, evidence showed that performance improves with size. The field came to the conclusion that scale matters, and with the right model architecture, intelligence comes with large-scale data.</p>
+<p>Here’s a few examples of foundation models and their parameter count:</p>
+<ul>
+<li>CLIP <span class="citation" data-cites="DBLP:journals/corr/abs-2103-00020"><a href="../references.html#ref-DBLP:journals/corr/abs-2103-00020" role="doc-biblioref">[2]</a></span> - 63 million parameters</li>
+<li>BERT <span class="citation" data-cites="DBLP:journals/corr/abs-1810-04805"><a href="../references.html#ref-DBLP:journals/corr/abs-1810-04805" role="doc-biblioref">[3]</a></span> - 345 million parameters</li>
+<li>GPT-3 <span class="citation" data-cites="DBLP:journals/corr/abs-1810-04805"><a href="../references.html#ref-DBLP:journals/corr/abs-1810-04805" role="doc-biblioref">[3]</a></span> - 175 billion parameters
+<ul>
+<li>Wikipedia consists of only 3% of its training data</li>
+</ul></li>
+<li>GPT-4 <span class="citation" data-cites="openai2024gpt4technicalreport"><a href="../references.html#ref-openai2024gpt4technicalreport" role="doc-biblioref">[4]</a></span> - 1.8 trillion parameters</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/compute-power-training.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : Growth in compute power. (Source: GPT-3 paper <span class="citation" data-cites="DBLP:journals/corr/abs-1810-04805"><a href="../references.html#ref-DBLP:journals/corr/abs-1810-04805" role="doc-biblioref">[3]</a></span>)</figcaption>
+</figure>
+</div>
+</section>
+<section id="types-of-foundation-models" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="types-of-foundation-models"><span class="header-section-number">17.5</span> Types of foundation models</h2>
+<p>Foundation models can be classified on the basis of its modality and its underlying architecture.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Criteria: Modality</th>
+<th>Criteria: Architecture</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Language Models</td>
+<td>Transformer Models</td>
+</tr>
+<tr class="even">
+<td>Vision Models</td>
+<td>Generative Models</td>
+</tr>
+<tr class="odd">
+<td>Multimodal Models</td>
+<td>Diffusion Models</td>
+</tr>
+</tbody>
+</table>
+<section id="types-of-foundation-models-modality" class="level3" data-number="17.5.1">
+<h3 data-number="17.5.1" class="anchored" data-anchor-id="types-of-foundation-models-modality"><span class="header-section-number">17.5.1</span> Types of foundation models (Modality)</h3>
+<section id="language-models" class="level4" data-number="17.5.1.1">
+<h4 data-number="17.5.1.1" class="anchored" data-anchor-id="language-models"><span class="header-section-number">17.5.1.1</span> Language models</h4>
+<p>Language models are trained for natural language processing tasks. The primary training objective for LLMs is often next-token prediction, where the model learns to predict the next word in a sequence given the preceding context. This is achieved through a vast amount of text data, enabling the model to learn grammar, facts, and even some reasoning patterns. LLMs tend to be good at various NLP related tasks, like translation, conversational AI, sentiment analysis, content summarization etc., to name a few.</p>
+<p>Here’s some examples of language models:</p>
+<ul>
+<li>GPT-3</li>
+<li>GPT-4</li>
+<li>Llama 3.2 <span class="citation" data-cites="dubey2024llama3herdmodels"><a href="../references.html#ref-dubey2024llama3herdmodels" role="doc-biblioref">[5]</a></span></li>
+</ul>
+</section>
+<section id="vision-models" class="level4" data-number="17.5.1.2">
+<h4 data-number="17.5.1.2" class="anchored" data-anchor-id="vision-models"><span class="header-section-number">17.5.1.2</span> Vision models</h4>
+<p>Vision models are trained for computer vision tasks. The primary training objective of vision models is to effectively learn representations that enable accurate predictions or useful transformations based on visual data. Vision models tend to be good at tasks like object detection, segmentation, facial recognition, etc.</p>
+<p>Here’s some examples of vision models:</p>
+<ul>
+<li><a href="https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4">GPT-4-turbo</a></li>
+<li>SAM <span class="citation" data-cites="kirillov2023segment"><a href="../references.html#ref-kirillov2023segment" role="doc-biblioref">[6]</a></span></li>
+<li>CLIP <span class="citation" data-cites="dubey2024llama3herdmodels"><a href="../references.html#ref-dubey2024llama3herdmodels" role="doc-biblioref">[5]</a></span></li>
+<li>Swin-transformer <span class="citation" data-cites="liu2021swintransformerhierarchicalvision"><a href="../references.html#ref-liu2021swintransformerhierarchicalvision" role="doc-biblioref">[7]</a></span></li>
+</ul>
+</section>
+<section id="multimodal-models" class="level4" data-number="17.5.1.3">
+<h4 data-number="17.5.1.3" class="anchored" data-anchor-id="multimodal-models"><span class="header-section-number">17.5.1.3</span> Multimodal models</h4>
+<p>Multimodal models are designed to process and understand multiple types of data modalities, such as text, images, audio, and more. These models can handle various data types simultaneously, allowing them to learn relationships and correlations between different forms of information (e.g., associating text descriptions with images). By training on datasets that include multiple modalities, multimodal foundation models learn to create a unified representation space where different types of data can be compared and processed together. This often involves shared architectures for encoding different modalities. These models can often perform well on tasks they haven’t been specifically trained on, thanks to their ability to leverage learned relationships across modalities. This makes them versatile for applications in various domains. Many multimodal models, like CLIP and DALL-E, use contrastive learning to improve their understanding of how different modalities relate. They aim to maximize similarity between paired data (e.g., an image and its caption) while minimizing similarity between unrelated pairs. These models can often perform well on tasks they haven’t been specifically trained on, thanks to their ability to leverage learned relationships across modalities. This makes them versatile for applications in various domains. Multimodal foundation models are used in diverse areas such as image and video captioning, visual question answering, cross-modal retrieval, and interactive AI systems that require understanding and generating multiple types of content.</p>
+<p>Here’s some examples of multimodal foundation models:</p>
+<ul>
+<li><a href="https://openai.com/index/hello-gpt-4o/">GPT-4o</a></li>
+<li>DALL-E <span class="citation" data-cites="DBLP:journals/corr/abs-2102-12092"><a href="../references.html#ref-DBLP:journals/corr/abs-2102-12092" role="doc-biblioref">[8]</a></span></li>
+<li>CLIP <span class="citation" data-cites="dubey2024llama3herdmodels"><a href="../references.html#ref-dubey2024llama3herdmodels" role="doc-biblioref">[5]</a></span></li>
+<li><a href="https://openai.com/index/sora/">Sora</a> <span class="citation" data-cites="liu2024sorareviewbackgroundtechnology"><a href="../references.html#ref-liu2024sorareviewbackgroundtechnology" role="doc-biblioref">[9]</a></span></li>
+<li><a href="https://gemini.google.com/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=2024enUS_gemfeb&amp;gad_source=1&amp;gclid=Cj0KCQjw05i4BhDiARIsAB_2wfDvtujFotV-ds_t1TWtUmwbeNFLVcdbE8zSQEN08FPlAC8im4lhpNcaAlwaEALw_wcB&amp;gclsrc=aw.ds">Gemini</a> <span class="citation" data-cites="geminiteam2024geminifamilyhighlycapable"><a href="../references.html#ref-geminiteam2024geminifamilyhighlycapable" role="doc-biblioref">[10]</a></span></li>
+</ul>
+</section>
+</section>
+<section id="types-of-foundation-models-architecture" class="level3" data-number="17.5.2">
+<h3 data-number="17.5.2" class="anchored" data-anchor-id="types-of-foundation-models-architecture"><span class="header-section-number">17.5.2</span> Types of foundation models (Architecture)</h3>
+<section id="transformer-models" class="level4" data-number="17.5.2.1">
+<h4 data-number="17.5.2.1" class="anchored" data-anchor-id="transformer-models"><span class="header-section-number">17.5.2.1</span> Transformer models</h4>
+<p>Introduced in 2017 by the paper “Attention is all you need” <span class="citation" data-cites="DBLP:journals/corr/VaswaniSPUJGKP17"><a href="../references.html#ref-DBLP:journals/corr/VaswaniSPUJGKP17" role="doc-biblioref">[11]</a></span>, the transformer architecture revolutionized NLP by enabling models to efficiently capture complex relationships in data without the limitations of recurrence. This architecture is known for its ability to handle sequential data efficiently. Its parallel processing capabilities and scalability have made it a foundational model for many state-of-the-art systems in various domains, including image processing and speech recognition. Checkout “The Illustrated Transformer” (blog post)[https://jalammar.github.io/illustrated-transformer/] for a detailed overview of the transformer architecture.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/transformer-architecture.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : Transformer architecture</figcaption>
+</figure>
+</div>
+<section id="attention-mechanism" class="level5" data-number="17.5.2.1.1">
+<h5 data-number="17.5.2.1.1" class="anchored" data-anchor-id="attention-mechanism"><span class="header-section-number">17.5.2.1.1</span> Attention Mechanism</h5>
+<p>Attention is, to some extent, motivated by how we pay visual attention to different regions of an image or correlate words in one sentence <span class="citation" data-cites="weng2018attention"><a href="../references.html#ref-weng2018attention" role="doc-biblioref">[12]</a></span>. we can explain the relationship between words in one sentence or close context. When we see “eating”, we expect to encounter a food word very soon. The color term describes the food, but probably not so much with “eating” directly.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/human-attention.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : One word attends to other words in the same sentence differently</figcaption>
+</figure>
+</div>
+<p>Check out Lilian Weng’s blog post <span class="citation" data-cites="weng2018attention"><a href="../references.html#ref-weng2018attention" role="doc-biblioref">[12]</a></span> on detailed overview of attention mechanism.</p>
+</section>
+<section id="key-components-of-transformer-architecture" class="level5" data-number="17.5.2.1.2">
+<h5 data-number="17.5.2.1.2" class="anchored" data-anchor-id="key-components-of-transformer-architecture"><span class="header-section-number">17.5.2.1.2</span> Key components of transformer architecture:</h5>
 <ol type="1">
-<li><a href="https://arxiv.org/abs/2108.07258">On the opportunities and risk of Foundation models</a></li>
-<li><a href="https://arxiv.org/abs/1506.02640">You Only Look Once</a></li>
-<li><a href="https://arxiv.org/abs/1810.04805">BERT</a></li>
-<li><a href="https://arxiv.org/abs/2005.14165">GPT3</a></li>
-<li><a href="https://segment-anything.com/">Segment Anything Model</a></li>
-<li><a href="https://blogs.nvidia.com/blog/what-are-foundation-models/">NVIDIA blog post on foundation models</a></li>
-<li><a href="https://aws.amazon.com/what-is/foundation-models/">What are Foundation Models? - Generative AI</a></li>
+<li>Self-Attention Mechanism:</li>
+</ol>
+<ul>
+<li>Purpose: Allows the model to weigh the importance of different words in a sequence relative to each other, capturing dependencies regardless of their distance.</li>
+<li>Function: For each input token, self-attention computes a set of attention scores that determine how much focus to place on other tokens. This is done using three vectors: Query (Q), Key (K), and Value (V).</li>
+<li>Calculation: The attention score is computed as a dot product of Q and K, followed by a softmax operation to normalize it. The output is a weighted sum of the V vectors based on these scores.</li>
+</ul>
+<p>In the example below, the self-attention mechanism enables us to learn the correlation between the current words and the previous part of the sentence.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/self-attention.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : The current word is in red and the size of the blue shade indicates the activation level <span class="citation" data-cites="DBLP:journals/corr/ChengDL16"><a href="../references.html#ref-DBLP:journals/corr/ChengDL16" role="doc-biblioref">[13]</a></span></figcaption>
+</figure>
+</div>
+<ol start="2" type="1">
+<li>Positional Encoding:</li>
+</ol>
+<ul>
+<li>Purpose: Since transformers do not have a built-in notion of sequential order, positional encodings are added to the input embeddings to provide information about the position of tokens in the sequence.</li>
+<li>Implementation: Positional encodings use sine and cosine functions of different frequencies to generate unique values for each position.</li>
+</ul>
+<ol start="3" type="1">
+<li>Multi-Head Attention:</li>
+</ol>
+<ul>
+<li>Function: Instead of having a single set of attention weights, the transformer employs multiple attention heads, each learning different aspects of the relationships between tokens.</li>
+<li>Process: The input is split into multiple sub-vectors, and self-attention is applied in parallel. The outputs of each head are concatenated and linearly transformed.</li>
+</ul>
+<ol start="4" type="1">
+<li>Feed-Forward Networks:</li>
+</ol>
+<ul>
+<li>Purpose: After the multi-head attention step, each token’s representation is passed through a feed-forward neural network, which applies transformations independently to each position.</li>
+<li>Structure: Typically consists of two linear transformations with a ReLU activation in between.</li>
+</ul>
+<ol start="5" type="1">
+<li>Layer Normalization and Residual Connections:</li>
+</ol>
+<ul>
+<li>Layer Normalization: Applied to stabilize and speed up training by normalizing the outputs of each layer.</li>
+<li>Residual Connections: Shortcuts are added around sub-layers (e.g., attention and feed-forward) to facilitate the flow of gradients during training, helping to mitigate the vanishing gradient problem.</li>
+</ul>
+<ol start="6" type="1">
+<li>Stacking Layers:</li>
+</ol>
+<ul>
+<li>Transformers consist of multiple layers of multi-head attention and feed-forward networks, allowing for deep representations of the input data.</li>
+</ul>
+<ol start="7" type="1">
+<li>Output Layer:</li>
+</ol>
+<ul>
+<li>For tasks like language modeling or translation, the final layer typically uses a linear transformation followed by a softmax activation to predict the next token or class.</li>
+</ul>
+<p>There are more than 50 major transformer models <span class="citation" data-cites="amatriain2024transformermodelsintroductioncatalog"><a href="../references.html#ref-amatriain2024transformermodelsintroductioncatalog" role="doc-biblioref">[14]</a></span>. The transformer architecture is versatile and can be configured in different ways. The transformer architecture can support both auto-regressive and non-auto-regressive configurations depending on how the self-attention mechanism is applied and how the model is trained.</p>
+<ul>
+<li><p>Auto-Regressive Models: In an auto-regressive setup, like the original GPT (Generative Pre-trained Transformer), the model generates text one token at a time. During training, it predicts the next token in a sequence based on the previously generated tokens, conditioning on all prior context. This means that at each step, the model only attends to the tokens that come before the current position, ensuring that future tokens do not influence the prediction.</p></li>
+<li><p>Non-Auto-Regressive Models: Other models, like BERT (Bidirectional Encoder Representations from Transformers) <span class="citation" data-cites="DBLP:journals/corr/abs-1810-04805"><a href="../references.html#ref-DBLP:journals/corr/abs-1810-04805" role="doc-biblioref">[3]</a></span>, are designed to be non-auto-regressive. BERT processes the entire input sequence simultaneously and is trained using masked language modeling, where some tokens in the input are masked, and the model learns to predict them based on the surrounding context.</p></li>
+</ul>
+<p>GPT-3 and CLIP models utilize transformers as the underlying architecture.</p>
+</section>
+</section>
+<section id="generative-adversarial-models" class="level4" data-number="17.5.2.2">
+<h4 data-number="17.5.2.2" class="anchored" data-anchor-id="generative-adversarial-models"><span class="header-section-number">17.5.2.2</span> Generative-Adversarial models</h4>
+<p>Introduced in 2014, Generative Adversarial Networks (GANs) <span class="citation" data-cites="goodfellow2014generativeadversarialnetworks"><a href="../references.html#ref-goodfellow2014generativeadversarialnetworks" role="doc-biblioref">[15]</a></span> involves two neural networks (generator-discriminator network pair) contest with each other in the form of a zero-sum game, where one agent’s gain is another agent’s loss. Given a training set, this technique learns to generate new data with the same statistics as the training set. For example, a GAN trained on photographs can generate new photographs that look at least superficially authentic to human observers, having many realistic characteristics.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/gan.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : GAN basic architecture</figcaption>
+</figure>
+</div>
+<p>In a GAN,</p>
+<ul>
+<li>the generator learns to generate plausible data. The generated instances become negative training examples for the discriminator.</li>
+<li>The discriminator learns to distinguish the generator’s fake data from real data. The discriminator penalizes the generator for producing implausible results.</li>
+</ul>
+<p>When training begins, the generator produces obviously fake data, and the discriminator quickly learns to tell that it’s fake:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/gan1.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : GAN training - early phase. Image source: Google developers <a href="https://developers.google.com/machine-learning/gan/gan_structure">blog</a></figcaption>
+</figure>
+</div>
+<p>As training progresses, the generator gets closer to producing output that can fool the discriminator:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/gan2.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : GAN training - mid phase</figcaption>
+</figure>
+</div>
+<p>Finally, if generator training goes well, the discriminator gets worse at telling the difference between real and fake. It starts to classify fake data as real, and its accuracy decreases. The training procedure for generator is to maximise the probability of discriminator making a mistake.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/gan3.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : GAN training complete</figcaption>
+</figure>
+</div>
+<p>Here’s a picture of the whole system:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/GAN-architecture.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : GAN architecture</figcaption>
+</figure>
+</div>
+<p>A disadvantage of GAN is potentially unstable training and less diversity in generation due to their adversarial training nature. StyleGAN <span class="citation" data-cites="DBLP:journals/corr/abs-1812-04948"><a href="../references.html#ref-DBLP:journals/corr/abs-1812-04948" role="doc-biblioref">[16]</a></span> and BigGAN <span class="citation" data-cites="DBLP:journals/corr/abs-1809-11096"><a href="../references.html#ref-DBLP:journals/corr/abs-1809-11096" role="doc-biblioref">[17]</a></span> are example of models that utilize GAN as the underlying architecture.</p>
+</section>
+<section id="diffusion-models" class="level4" data-number="17.5.2.3">
+<h4 data-number="17.5.2.3" class="anchored" data-anchor-id="diffusion-models"><span class="header-section-number">17.5.2.3</span> Diffusion models</h4>
+<p>Diffusion models, introduced in 2020 <span class="citation" data-cites="DBLP:journals/corr/abs-2006-11239"><a href="../references.html#ref-DBLP:journals/corr/abs-2006-11239" role="doc-biblioref">[18]</a></span>, are inspired by non-equilibrium thermodynamics. They define a Markov chain of diffusion steps to slowly add random noise to data and then learn to reverse the diffusion process to construct desired data samples from the noise <span class="citation" data-cites="weng2021diffusion"><a href="../references.html#ref-weng2021diffusion" role="doc-biblioref">[19]</a></span>.</p>
+<section id="key-components-of-diffusion-models" class="level5" data-number="17.5.2.3.1">
+<h5 data-number="17.5.2.3.1" class="anchored" data-anchor-id="key-components-of-diffusion-models"><span class="header-section-number">17.5.2.3.1</span> Key components of diffusion models</h5>
+<ol type="1">
+<li>Forward Diffusion Process:</li>
+</ol>
+<ul>
+<li>The forward process gradually adds Gaussian noise to the training data over a series of time steps. This process effectively transforms the original data into pure noise.</li>
+</ul>
+<ol start="2" type="1">
+<li>Reverse Diffusion Process:</li>
+</ol>
+<ul>
+<li>The reverse process aims to denoise the noisy data back into a sample from the data distribution. This process is learned through a neural network.</li>
+<li>At each time step, the model predicts the mean and variance of the distribution of the previous step conditioned on the current noisy data. The network outputs parameters that help in gradually removing the noise.</li>
+</ul>
+<ol start="3" type="1">
+<li>Training Objective:</li>
+</ol>
+<ul>
+<li>The model is trained to minimize the difference between the predicted clean data and the actual data at each step of the diffusion process. This is often done using a mean squared error (MSE) loss between the predicted noise and the actual noise added during the forward process.</li>
+</ul>
+<ol start="4" type="1">
+<li>Sampling:</li>
+</ol>
+<ul>
+<li>To generate new samples, the process starts with pure noise and applies the learned reverse diffusion process iteratively. Over multiple time steps, the model denoises the input until it resembles a sample from the training distribution.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/diffusion-training.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : Training a diffusion model. Image source : Lilweng’s <a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">blog</a></figcaption>
+</figure>
+</div>
+<p>Diffusion models can generate high-resolution and diverse images, often outperforming GANs in certain tasks. They are generally more stable to train compared to GANs, as they do not rely on adversarial training dynamics.</p>
+<p>Stable-diffusion <span class="citation" data-cites="DBLP:journals/corr/abs-2112-10752"><a href="../references.html#ref-DBLP:journals/corr/abs-2112-10752" role="doc-biblioref">[20]</a></span>, DALL-E <span class="citation" data-cites="DBLP:journals/corr/abs-2102-12092"><a href="../references.html#ref-DBLP:journals/corr/abs-2102-12092" role="doc-biblioref">[8]</a></span>, <a href="https://openai.com/research/video-generation-models-as-world-simulators">Sora</a> are some of the most common models utilizing diffusion architecture.</p>
+</section>
+</section>
+</section>
+<section id="foundation-models---applications" class="level3" data-number="17.5.3">
+<h3 data-number="17.5.3" class="anchored" data-anchor-id="foundation-models---applications"><span class="header-section-number">17.5.3</span> Foundation Models - Applications</h3>
+<p>Having explored the foundational principles and capabilities of foundation models, we can now delve into specific applications that leverage their power. Two prominent techniques that build upon the capabilities of these models are Segment Anything Model (SAM) and Retrieval-Augmented Generation (RAG).</p>
+</section>
+</section>
+<section id="segment-anything-model" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="segment-anything-model"><span class="header-section-number">17.6</span> Segment Anything Model</h2>
+<p>Segment Anything Model (SAM) is a foundation model for the Promptable Visual Segmentation (PVS) task. PVS inspired from prompt engineering in NLP that user prompts can be a powerful tool for pre-training foundation models and downstream tasks. It is developed by the Fundamental AI Research (FAIR) team at Meta <span class="citation" data-cites="kirillov2023segment"><a href="../references.html#ref-kirillov2023segment" role="doc-biblioref">[6]</a></span>. SAM is a simple and flexible framework that can segment any object in an image by providing a combination of one or more prompts - namely points, bounding boxes, or other segmentation masks. SAM is based on the transformer architecture and is trained on a large-scale dataset of images and their corresponding segmentation masks.</p>
+<p>The latest version of SAM, SAM 2, can segment images and videos and uses a unified architecture for both tasks <span class="citation" data-cites="ravi2024sam2"><a href="../references.html#ref-ravi2024sam2" role="doc-biblioref">[21]</a></span>. It is designed to handle complex scenes with multiple objects and can generate high-quality segmentations with minimal user input. The model can be used for various applications, including image editing, object detection, and video analysis.</p>
+<p>Since large-scale datasets for segmentation are unavailable, the research team created a data engine to generate segmentation masks, which were then manually annotated when developing SAM. The model was trained on diverse images to improve its generalization capabilities. This model-in-the-loop self-supervised training created two datasets: SA-1B containing 1B segmentation masks from about 11M privacy preserving images and SA-V dataset containing 642.6K masklets (spatio-temporal segmentation masks) from 50.9K videos.</p>
+<div id="fig-sam2-architecture" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sam2-architecture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/foundation-models/sam2-architecture.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sam2-architecture-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.1: SAM 2 Architecture. Image source: <span class="citation" data-cites="ravi2024sam2"><a href="../references.html#ref-ravi2024sam2" role="doc-biblioref">[21]</a></span>
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="retrieval-augmented-generation-rag" class="level2 page-columns page-full" data-number="17.7">
+<h2 data-number="17.7" class="anchored" data-anchor-id="retrieval-augmented-generation-rag"><span class="header-section-number">17.7</span> Retrieval-Augmented Generation (RAG)</h2>
+<p>Large pre-trained Language Models (LLMs) have revolutionized natural language processing, but they come with inherent limitations that necessitate the development of techniques like Retrieval-Augmented Generation (RAG). This chapter explores the motivations behind RAG by examining the constraints of traditional LLMs.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/userllm.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : A typical user interaction with LLM</figcaption>
+</figure>
+</div>
+</div></div><section id="limitations-of-large-language-models" class="level3 page-columns page-full" data-number="17.7.1">
+<h3 data-number="17.7.1" class="anchored" data-anchor-id="limitations-of-large-language-models"><span class="header-section-number">17.7.1</span> Limitations of Large Language Models</h3>
+<ol type="1">
+<li>Lack of Specific Knowledge Access</li>
+</ol>
+<p>LLMs, despite their vast training data, cannot access specific knowledge bases or datasets that weren’t part of their original training. This limitation becomes apparent when dealing with specialized domains or recent information.</p>
+<ol start="2" type="1">
+<li>Absence of User-Specific Data</li>
+</ol>
+<p>LLM has not seen “your” data - the unique, often proprietary information that organizations and individuals possess. This gap can lead to generic responses that lack the nuance and specificity required in many real-world applications.</p>
+<ol start="3" type="1">
+<li>Domain-Specific Knowledge Challenges</li>
+</ol>
+<p>When specific domain knowledge is required, the traditional approach has been to fine-tune the LLM. However, this process can be resource-intensive and may not always yield optimal results, especially for niche or rapidly evolving fields.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/llmfinetuning.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : Fine-tuning LLMs. Image source : <a href="https://www.datacamp.com/tutorial/boost-llm-accuracy-retrieval-augmented-generation-rag-reranking">datacamp blong</a></figcaption>
+</figure>
+</div>
+</div></div><ol start="4" type="1">
+<li>Lack of Source Attribution</li>
+</ol>
+<p>LLMs generate responses based on patterns learned during training, but they don’t provide sources for their information. This lack of attribution can be problematic in contexts where verifiability and credibility are crucial.</p>
+<ol start="5" type="1">
+<li>Hallucinations</li>
+</ol>
+<p>One of the most significant issues with LLMs is their tendency to produce “hallucinations” - plausible-sounding but factually incorrect or nonsensical information. This phenomenon can undermine the reliability of the model’s outputs. See Lilweng’s blog post <span class="citation" data-cites="weng2024hallucination"><a href="../references.html#ref-weng2024hallucination" role="doc-biblioref">[22]</a></span> on hallucinations for detailed information.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><img src="../images/foundation-models/llmhallucination1.png" class="img-fluid"></p>
+</div><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/llmhallucination2.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : LLM Hallucination examples</figcaption>
+</figure>
+</div>
+</div></div>
+<ol start="6" type="1">
+<li>Outdated Information</li>
+</ol>
+<p>The knowledge of an LLM is static, frozen at the time of its training. This leads to the problem of outdated information, where the model cannot account for recent events, discoveries, or changes in the world.</p>
+<p>Retrieval-Augmented Generation emerges as a solution to these limitations. By combining the generative capabilities of LLMs with the ability to retrieve and incorporate external, up-to-date information, RAG offers a path to more accurate, current, and verifiable AI-generated content. In the following sections, we will explore how RAG works, its advantages, and its potential applications in various domains.</p>
+</section>
+<section id="introduction-to-rag" class="level3" data-number="17.7.2">
+<h3 data-number="17.7.2" class="anchored" data-anchor-id="introduction-to-rag"><span class="header-section-number">17.7.2</span> Introduction to RAG</h3>
+<p>Introduced in 2020 <span class="citation" data-cites="DBLP:journals/corr/abs-2005-11401"><a href="../references.html#ref-DBLP:journals/corr/abs-2005-11401" role="doc-biblioref">[23]</a></span>, RAG framework can be thought of as combining two techniques -</p>
+<ul>
+<li>Generation
+<ul>
+<li>Done by LLMs.</li>
+<li>LLM models used are typically tuned for question-answering</li>
+<li>LLM responds to a user query.</li>
+</ul></li>
+<li>Retrieval-Augmented
+<ul>
+<li>Use an external database to store specific knowledge</li>
+<li>Retrieve the required information from the provided knowledge base</li>
+<li>Provide this retrieved information to the LLMs as context to answer user question.</li>
+</ul></li>
+</ul>
+<p>Let’s now compare the traditional LLM and RAG approaches</p>
+<section id="traditional-llm-approach" class="level4" data-number="17.7.2.1">
+<h4 data-number="17.7.2.1" class="anchored" data-anchor-id="traditional-llm-approach"><span class="header-section-number">17.7.2.1</span> Traditional LLM approach</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/promptframework.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : Traditional LLM approach</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li>User Input: The process begins with the user submitting a question.</li>
+<li>Prompt Engineering: The user’s question is combined with a pre-defined prompt.</li>
+<li>LLM Processing: The combined prompt and question are fed into the LLM.</li>
+<li>Response Generation: The LLM generates and returns a response based on its training.</li>
+</ol>
+</section>
+<section id="rag-approach" class="level4" data-number="17.7.2.2">
+<h4 data-number="17.7.2.2" class="anchored" data-anchor-id="rag-approach"><span class="header-section-number">17.7.2.2</span> RAG approach</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/ragpromptframework.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : RAG approach</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li>User Input: As before, the user submits a question.</li>
+<li>Knowledge Base Query: The question is used to query a knowledge base.</li>
+<li>Document Retrieval: Relevant documents are retrieved from the knowledge base.</li>
+<li>Prompt Construction: A prompt is constructed using:
+<ul>
+<li>The original question</li>
+<li>Retrieved relevant documents</li>
+<li>Any additional context or instructions</li>
+</ul></li>
+<li>LLM Processing: The comprehensive prompt is fed into the LLM.</li>
+<li>Response Generation: The LLM generates a response based on both its pre-trained knowledge and the provided context.</li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 53%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Without RAG</th>
+<th>With RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No ability to access a specific knowledge/domain</td>
+<td>Point to a knowledge base</td>
+</tr>
+<tr class="even">
+<td>No sources</td>
+<td>Sources cited in LLM response</td>
+</tr>
+<tr class="odd">
+<td>Hallucinations</td>
+<td>LLM response is grounded by relevant information from knowledge base</td>
+</tr>
+<tr class="even">
+<td>Out-of-date information</td>
+<td>Update the knowledge base with new information</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="rag---retrieval-augmented-generation" class="level3 page-columns page-full" data-number="17.7.3">
+<h3 data-number="17.7.3" class="anchored" data-anchor-id="rag---retrieval-augmented-generation"><span class="header-section-number">17.7.3</span> RAG - <em>Retrieval</em>-Augmented Generation</h3>
+<p>We will focus on the “retrieval” part of RAG for this section.</p>
+<section id="knowledge-database" class="level4 page-columns page-full" data-number="17.7.3.1">
+<h4 data-number="17.7.3.1" class="anchored" data-anchor-id="knowledge-database"><span class="header-section-number">17.7.3.1</span> Knowledge database</h4>
+<p>In the age of burgeoning data complexity and high-dimensional information, traditional databases often fall short when it comes to efficiently handling and extracting meaning from intricate datasets. Enter vector databases, a technological innovation that has emerged as a solution to the challenges posed by the ever-expanding landscape of data. (Source: beginner’s <a href="https://medium.com/data-and-beyond/vector-databases-a-beginners-guide-b050cbbe9ca0">blog post</a> on vector DB)</p>
+<section id="vector-database" class="level5 page-columns page-full" data-number="17.7.3.1.1">
+<h5 data-number="17.7.3.1.1" class="anchored" data-anchor-id="vector-database"><span class="header-section-number">17.7.3.1.1</span> Vector database</h5>
+<p>Vector databases have gained significant importance in various fields due to their unique ability to efficiently store, index, and search high-dimensional data points, often referred to as vectors. These databases are designed to handle data where each entry is represented as a vector in a multi-dimensional space. The vectors can represent a wide range of information, such as numerical features, embeddings from text or images, and even complex data like molecular structures.</p>
+<p>At the heart of vector databases lies the concept of vector embeddings. These are mathematical representations of data points in a high-dimensional space. In the context of natural language processing:</p>
+<ol type="1">
+<li>Word Embeddings: Individual words are represented as real-valued vectors in a multi-dimensional space.</li>
+<li>Semantic Capture: These embeddings capture the semantic meaning and relationships of the text.</li>
+<li>Similarity Principle: Words with similar meanings tend to have similar vector representations.</li>
+</ol>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/vectorDB-vectors.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : Vectors</figcaption>
+</figure>
+</div>
+</div></div><section id="how-vector-databases-work" class="level6" data-number="17.7.3.1.1.1">
+<h6 data-number="17.7.3.1.1.1" class="anchored" data-anchor-id="how-vector-databases-work"><span class="header-section-number">17.7.3.1.1.1</span> How vector databases work</h6>
+<p>Let’s start with a simple example of dealing with an LLM such as ChatGPT. The model has large volumes of data with a lot of content, and they provide us with the ChatGPT application.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/vectorDB.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : VectorDB within RAG. Source: KDnuggets <a href="https://www.kdnuggets.com/2023/06/vector-databases-important-llms.html">blog post</a></figcaption>
+</figure>
+</div>
+<p>So let’s go through the steps.</p>
+<ol type="1">
+<li>As the user, you will input your query into the application.</li>
+<li>Your query is then inserted into the embedding model which creates vector embeddings based on the content we want to index.</li>
+<li>The vector embedding then moves into the vector database, regarding the content that the embedding was made from.</li>
+<li>The vector database produces an output and sends it back to the user as a query result.</li>
+</ol>
+<p>When the user continues to make queries, it will go through the same embedding model to create embeddings to query that database for similar vector embeddings. The similarities between the vector embeddings are based on the original content, in which the embedding was created.</p>
+<p>Now lets see how it works in the vector database.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/vectordb-working.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : VectorDB pipeline. Source: pinecone <a href="https://www.pinecone.io/learn/vector-database/">blog post</a></figcaption>
+</figure>
+</div>
+<p>The three main stages that a vector database query goes through are:</p>
+<ol type="1">
+<li>Indexing</li>
+</ol>
+<p>As explained in the example above, once the vector embedding moves into the vector database, it then uses a variety of algorithms to map the vector embedding to data structures for faster searching.</p>
+<ol start="2" type="1">
+<li>Querying</li>
+</ol>
+<p>Once it has gone through its search, the vector database compares the queried vector to indexed vectors, applying the similarity metric to find the nearest neighbor.</p>
+<ol start="3" type="1">
+<li>Post Processing</li>
+</ol>
+<p>Depending on the vector database you use, the vector database will post-process the final nearest neighbor to produce a final output to the query. As well as possibly re-ranking the nearest neighbors for future reference.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="rag---retrieval-augmented-generation-1" class="level3" data-number="17.7.4">
+<h3 data-number="17.7.4" class="anchored" data-anchor-id="rag---retrieval-augmented-generation-1"><span class="header-section-number">17.7.4</span> RAG - Retrieval-Augmented <em>Generation</em></h3>
+<p>We will focus on the “generation” part of RAG for this section. Here most of the heavy-lifting is done by the LLMs. Let’s see how best to communicate/prompt these LLM models for RAG.</p>
+<section id="prompting" class="level4" data-number="17.7.4.1">
+<h4 data-number="17.7.4.1" class="anchored" data-anchor-id="prompting"><span class="header-section-number">17.7.4.1</span> Prompting</h4>
+<p>Prompting is a crucial technique in effectively communicating with Large Language Models (LLMs) to achieve desired outcomes without modifying the underlying model. As LLMs become more sophisticated, the art of crafting effective prompts has emerged as a key skill in natural language processing and AI applications. Checkout LilianWeng blog post <span class="citation" data-cites="weng2023prompt"><a href="../references.html#ref-weng2023prompt" role="doc-biblioref">[24]</a></span>, medium <a href="https://medium.com/thedeephub/llm-prompt-engineering-for-beginners-what-it-is-and-how-to-get-started-0c1b483d5d4f#:~:text=In%20essence%2C%20a%20prompt%20is,you%20want%20it%20to%20do">blog post</a> on prompt engineering.</p>
+<p>Prompting is often an iterative process. It typically requires multiple trial-and-error attempts to achieve the desired effect. Each iteration can provide insights into how the model interprets and responds to different input structures.</p>
+<section id="key-elements-of-effective-prompting" class="level5" data-number="17.7.4.1.1">
+<h5 data-number="17.7.4.1.1" class="anchored" data-anchor-id="key-elements-of-effective-prompting"><span class="header-section-number">17.7.4.1.1</span> Key Elements of Effective Prompting</h5>
+<ol type="1">
+<li>Defining a Persona</li>
+</ol>
+<p>Assigning the LLM a specific role or behavior can significantly influence its responses. By giving it a defined persona, the model will attempt to respond in a manner that aligns with that role. This can improve the quality and relevance of its answers.</p>
+<p>Example: “You are a helpful research assistant”</p>
+<p>This prompt frames the model’s responses to be in line with the behavior expected of a research assistant, such as providing accurate information and being resourceful.</p>
+<ol start="2" type="1">
+<li>Setting Guardrails</li>
+</ol>
+<p>Guardrails provide boundaries or conditions within which the model should operate. This is particularly useful to avoid misleading or incorrect information. You can ask the model to refrain from answering if it’s unsure of the response.</p>
+<p>Example: “If you don’t know the final answer, just say ‘I don’t know’.”</p>
+<p>This instructs the LLM to admit uncertainty instead of generating a potentially incorrect answer, thereby increasing reliability.</p>
+<ol start="3" type="1">
+<li>Providing Clear Instructions</li>
+</ol>
+<p>Giving the LLM specific actions to perform before generating responses ensures that it processes the necessary information correctly. This is important when dealing with tasks like reviewing files or using external data.</p>
+<p>Example: “Read the data file before answering any questions.”</p>
+<p>This directs the LLM to review relevant materials, improving the quality of the subsequent answers.</p>
+<ol start="4" type="1">
+<li>Specifying Response Formats</li>
+</ol>
+<p>You can enhance the usefulness of responses by specifying the desired output format. By doing this, you ensure the model delivers information in a form that aligns with your needs.</p>
+<p>Example: “Respond using markdowns.”</p>
+<p>This ensures the LLM outputs text in Markdown format, which can be helpful for structured documents or technical writing.</p>
+</section>
+</section>
+</section>
+<section id="rag-system" class="level3" data-number="17.7.5">
+<h3 data-number="17.7.5" class="anchored" data-anchor-id="rag-system"><span class="header-section-number">17.7.5</span> RAG System</h3>
+<p>Let’s bring it all together</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/RAGsystem.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : RAG system. Image source : <a href="https://blog.demir.io/hands-on-with-rag-step-by-step-guide-to-integrating-retrieval-augmented-generation-in-llms-ac3cb075ab6f">blog.demir</a></figcaption>
+</figure>
+</div>
+<ol type="1">
+<li>User Submits Query: The user inputs a query into the system. This is the initial step where the user’s request is captured.</li>
+<li>RAG System Query Relevant Documents: The RAG system processes the user’s query and searches for relevant documents.</li>
+<li>Document Database Returns Documents: The document database receives the request for relevant documents and returns the documents it finds to the RAG system.</li>
+<li>Combine The Query &amp; The Documents: The RAG system takes the documents provided by the document database and combines them with the original query.</li>
+<li>LLM Returns Answer: The combined query and documents are sent to a Large Language Model (LLM), which generates an answer based on the information provided.</li>
+<li>RAG System Return Answer to User: Finally, the answer generated by the LLM is sent back through the RAG system.</li>
 </ol>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Bommasani2021FoundationModels" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">R. Bommasani <em>et al.</em>, <span>“On the opportunities and risks of foundation models,”</span> <em>ArXiv</em>, 2021, Available: <a href="https://crfm.stanford.edu/assets/report.pdf">https://crfm.stanford.edu/assets/report.pdf</a></div>
+</div>
+<div id="ref-DBLP:journals/corr/abs-2103-00020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">A. Radford <em>et al.</em>, <span>“Learning transferable visual models from natural language supervision,”</span> <em>CoRR</em>, vol. abs/2103.00020, 2021, Available: <a href="https://arxiv.org/abs/2103.00020">https://arxiv.org/abs/2103.00020</a></div>
+</div>
+<div id="ref-DBLP:journals/corr/abs-1810-04805" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">J. Devlin, M.-W. Chang, K. Lee, and K. Toutanova, <span>“<span>BERT:</span> Pre-training of deep bidirectional transformers for language understanding,”</span> <em>CoRR</em>, vol. abs/1810.04805, 2018, Available: <a href="http://arxiv.org/abs/1810.04805">http://arxiv.org/abs/1810.04805</a></div>
+</div>
+<div id="ref-openai2024gpt4technicalreport" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">OpenAI <em>et al.</em>, <span>“GPT-4 technical report.”</span> 2024. Available: <a href="https://arxiv.org/abs/2303.08774">https://arxiv.org/abs/2303.08774</a></div>
+</div>
+<div id="ref-dubey2024llama3herdmodels" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">A. Dubey <em>et al.</em>, <span>“The llama 3 herd of models.”</span> 2024. Available: <a href="https://arxiv.org/abs/2407.21783">https://arxiv.org/abs/2407.21783</a></div>
+</div>
+<div id="ref-kirillov2023segment" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">A. Kirillov <em>et al.</em>, <span>“Segment anything.”</span> 2023. Available: <a href="https://arxiv.org/abs/2304.02643">https://arxiv.org/abs/2304.02643</a></div>
+</div>
+<div id="ref-liu2021swintransformerhierarchicalvision" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">Z. Liu <em>et al.</em>, <span>“Swin transformer: Hierarchical vision transformer using shifted windows.”</span> 2021. Available: <a href="https://arxiv.org/abs/2103.14030">https://arxiv.org/abs/2103.14030</a></div>
+</div>
+<div id="ref-DBLP:journals/corr/abs-2102-12092" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">A. Ramesh <em>et al.</em>, <span>“Zero-shot text-to-image generation,”</span> <em>CoRR</em>, vol. abs/2102.12092, 2021, Available: <a href="https://arxiv.org/abs/2102.12092">https://arxiv.org/abs/2102.12092</a></div>
+</div>
+<div id="ref-liu2024sorareviewbackgroundtechnology" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">Y. Liu <em>et al.</em>, <span>“Sora: A review on background, technology, limitations, and opportunities of large vision models.”</span> 2024. Available: <a href="https://arxiv.org/abs/2402.17177">https://arxiv.org/abs/2402.17177</a></div>
+</div>
+<div id="ref-geminiteam2024geminifamilyhighlycapable" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">G. Team <em>et al.</em>, <span>“Gemini: A family of highly capable multimodal models.”</span> 2024. Available: <a href="https://arxiv.org/abs/2312.11805">https://arxiv.org/abs/2312.11805</a></div>
+</div>
+<div id="ref-DBLP:journals/corr/VaswaniSPUJGKP17" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">A. Vaswani <em>et al.</em>, <span>“Attention is all you need,”</span> <em>CoRR</em>, vol. abs/1706.03762, 2017, Available: <a href="http://arxiv.org/abs/1706.03762">http://arxiv.org/abs/1706.03762</a></div>
+</div>
+<div id="ref-weng2018attention" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">L. Weng, <span>“Attention? attention!”</span> <em>lilianweng.github.io</em>, 2018, Available: <a href="https://lilianweng.github.io/posts/2018-06-24-attention/">https://lilianweng.github.io/posts/2018-06-24-attention/</a></div>
+</div>
+<div id="ref-DBLP:journals/corr/ChengDL16" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">J. Cheng, L. Dong, and M. Lapata, <span>“Long short-term memory-networks for machine reading,”</span> <em>CoRR</em>, vol. abs/1601.06733, 2016, Available: <a href="http://arxiv.org/abs/1601.06733">http://arxiv.org/abs/1601.06733</a></div>
+</div>
+<div id="ref-amatriain2024transformermodelsintroductioncatalog" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">X. Amatriain, A. Sankar, J. Bing, P. K. Bodigutla, T. J. Hazen, and M. Kazi, <span>“Transformer models: An introduction and catalog.”</span> 2024. Available: <a href="https://arxiv.org/abs/2302.07730">https://arxiv.org/abs/2302.07730</a></div>
+</div>
+<div id="ref-goodfellow2014generativeadversarialnetworks" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">I. J. Goodfellow <em>et al.</em>, <span>“Generative adversarial networks.”</span> 2014. Available: <a href="https://arxiv.org/abs/1406.2661">https://arxiv.org/abs/1406.2661</a></div>
+</div>
+<div id="ref-DBLP:journals/corr/abs-1812-04948" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">T. Karras, S. Laine, and T. Aila, <span>“A style-based generator architecture for generative adversarial networks,”</span> <em>CoRR</em>, vol. abs/1812.04948, 2018, Available: <a href="http://arxiv.org/abs/1812.04948">http://arxiv.org/abs/1812.04948</a></div>
+</div>
+<div id="ref-DBLP:journals/corr/abs-1809-11096" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">A. Brock, J. Donahue, and K. Simonyan, <span>“Large scale <span>GAN</span> training for high fidelity natural image synthesis,”</span> <em>CoRR</em>, vol. abs/1809.11096, 2018, Available: <a href="http://arxiv.org/abs/1809.11096">http://arxiv.org/abs/1809.11096</a></div>
+</div>
+<div id="ref-DBLP:journals/corr/abs-2006-11239" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">J. Ho, A. Jain, and P. Abbeel, <span>“Denoising diffusion probabilistic models,”</span> <em>CoRR</em>, vol. abs/2006.11239, 2020, Available: <a href="https://arxiv.org/abs/2006.11239">https://arxiv.org/abs/2006.11239</a></div>
+</div>
+<div id="ref-weng2021diffusion" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[19] </div><div class="csl-right-inline">L. Weng, <span>“What are diffusion models?”</span> <em>lilianweng.github.io</em>, Jul. 2021, Available: <a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">https://lilianweng.github.io/posts/2021-07-11-diffusion-models/</a></div>
+</div>
+<div id="ref-DBLP:journals/corr/abs-2112-10752" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[20] </div><div class="csl-right-inline">R. Rombach, A. Blattmann, D. Lorenz, P. Esser, and B. Ommer, <span>“High-resolution image synthesis with latent diffusion models,”</span> <em>CoRR</em>, vol. abs/2112.10752, 2021, Available: <a href="https://arxiv.org/abs/2112.10752">https://arxiv.org/abs/2112.10752</a></div>
+</div>
+<div id="ref-ravi2024sam2" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[21] </div><div class="csl-right-inline">N. Ravi <em>et al.</em>, <span>“SAM 2: Segment anything in images and videos,”</span> <em>arXiv preprint arXiv:2408.00714</em>, 2024, Available: <a href="https://arxiv.org/abs/2408.00714">https://arxiv.org/abs/2408.00714</a></div>
+</div>
+<div id="ref-weng2024hallucination" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[22] </div><div class="csl-right-inline">L. Weng, <span>“Extrinsic hallucinations in LLMs.”</span> <em>lilianweng.github.io</em>, Jul. 2024, Available: <a href="https://lilianweng.github.io/posts/2024-07-07-hallucination/">https://lilianweng.github.io/posts/2024-07-07-hallucination/</a></div>
+</div>
+<div id="ref-DBLP:journals/corr/abs-2005-11401" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[23] </div><div class="csl-right-inline">P. S. H. Lewis <em>et al.</em>, <span>“Retrieval-augmented generation for knowledge-intensive <span>NLP</span> tasks,”</span> <em>CoRR</em>, vol. abs/2005.11401, 2020, Available: <a href="https://arxiv.org/abs/2005.11401">https://arxiv.org/abs/2005.11401</a></div>
+</div>
+<div id="ref-weng2023prompt" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[24] </div><div class="csl-right-inline">L. Weng, <span>“Prompt engineering,”</span> <em>lilianweng.github.io</em>, Mar. 2023, Available: <a href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/">https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/</a></div>
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
