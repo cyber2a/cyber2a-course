@@ -331,14 +331,20 @@ div.csl-indent {
    
   <ul>
   <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal">Goal</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">10.1</span> Introduction</a></li>
-  <li><a href="#the-fast-principles" id="toc-the-fast-principles" class="nav-link" data-scroll-target="#the-fast-principles"><span class="header-section-number">10.2</span> The FAST Principles</a></li>
-  <li><a href="#fairness" id="toc-fairness" class="nav-link" data-scroll-target="#fairness"><span class="header-section-number">10.3</span> Fairness</a></li>
-  <li><a href="#accountability" id="toc-accountability" class="nav-link" data-scroll-target="#accountability"><span class="header-section-number">10.4</span> Accountability</a></li>
-  <li><a href="#sustainability" id="toc-sustainability" class="nav-link" data-scroll-target="#sustainability"><span class="header-section-number">10.5</span> Sustainability</a></li>
-  <li><a href="#transparency" id="toc-transparency" class="nav-link" data-scroll-target="#transparency"><span class="header-section-number">10.6</span> Transparency</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">10.7</span> Conclusion</a></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">10.8</span> Further Reading</a></li>
+  <li><a href="#intro-to-data-ethics" id="toc-intro-to-data-ethics" class="nav-link" data-scroll-target="#intro-to-data-ethics"><span class="header-section-number">10.1</span> Intro to Data Ethics</a></li>
+  <li><a href="#ethics-at-the-arctic-data-center" id="toc-ethics-at-the-arctic-data-center" class="nav-link" data-scroll-target="#ethics-at-the-arctic-data-center"><span class="header-section-number">10.2</span> Ethics at the Arctic Data Center</a>
+  <ul class="collapse">
+  <li><a href="#ethical-considerations-for-all-arctic-researchers" id="toc-ethical-considerations-for-all-arctic-researchers" class="nav-link" data-scroll-target="#ethical-considerations-for-all-arctic-researchers"><span class="header-section-number">10.2.1</span> Ethical Considerations for all Arctic Researchers</a></li>
+  </ul></li>
+  <li><a href="#ai-ethics" id="toc-ai-ethics" class="nav-link" data-scroll-target="#ai-ethics"><span class="header-section-number">10.3</span> AI Ethics</a></li>
+  <li><a href="#the-fast-principles" id="toc-the-fast-principles" class="nav-link" data-scroll-target="#the-fast-principles"><span class="header-section-number">10.4</span> The FAST Principles</a></li>
+  <li><a href="#fairness" id="toc-fairness" class="nav-link" data-scroll-target="#fairness"><span class="header-section-number">10.5</span> Fairness</a></li>
+  <li><a href="#accountability" id="toc-accountability" class="nav-link" data-scroll-target="#accountability"><span class="header-section-number">10.6</span> Accountability</a></li>
+  <li><a href="#sustainability" id="toc-sustainability" class="nav-link" data-scroll-target="#sustainability"><span class="header-section-number">10.7</span> Sustainability</a></li>
+  <li><a href="#transparency" id="toc-transparency" class="nav-link" data-scroll-target="#transparency"><span class="header-section-number">10.8</span> Transparency</a></li>
+  <li><a href="#discussion-activity" id="toc-discussion-activity" class="nav-link" data-scroll-target="#discussion-activity"><span class="header-section-number">10.9</span> Discussion Activity</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">10.10</span> Conclusion</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">10.11</span> Further Reading</a></li>
   </ul>
 </nav>
     </div>
@@ -366,24 +372,73 @@ div.csl-indent {
 
 <section id="goal" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="goal">Goal</h2>
-<p>Review FAIR and CARE Principles, and their relevance to data ethics. Examine how ethical considerations are shared and considered at the Arctic Data Center. Discuss ethical considerations in machine learning.</p>
+<p>Review FAIR and CARE Principles, and their relevance to data ethics. Examine how ethical considerations are shared and considered at the Arctic Data Center. Discuss ethical considerations in AI and machine learning.</p>
 </section>
-<section id="introduction" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">10.1</span> Introduction</h2>
+<section id="intro-to-data-ethics" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="intro-to-data-ethics"><span class="header-section-number">10.1</span> Intro to Data Ethics</h2>
+<p><strong>The Arctic Data Center is an openly-accessible data repository.</strong> The data published through it is open for anyone to reuse, subject to one of two license: <a href="https://creativecommons.org/public-domain/cc0/">CC-0 Public Domain</a> and <a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC-By Attribution 4.0</a>. As an open access repository, we prioritize long-term preservation and embrace principles from the data stewardship community, which established a set of best practices for open data management. n adherence, two principles adopted by the Arctic Data Center are <strong>FAIR Principles</strong> (Findable, Accessible, Interoperable, and Reproducible) and <strong>CARE Principles for Indigenous Governance</strong> (Collective Benefit, Authority to Control, Responsibility, Ethics). Both of which serve as frameworks in how to consider data ethics.</p>
+<p><strong>The FAIR Principles</strong></p>
+<p>FAIR speaks to how metadata is managed, stored, and shared.</p>
+<p><a href="../images/ai-ethics/fair.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/ai-ethics/fair.png" class="img-fluid" style="width:100.0%"></a></p>
+<p>What is the difference between FAIR principles and open science?</p>
+<p>FAIR principles and open science are overlapping concepts, but are distinctive from one another. Open science supports a culture of sharing research outputs and data, and FAIR focuses on how to prepare the data. <strong>The FAIR principles place emphasis on machine readability, “distinct from peer initiatives that focus on the human scholar” (Wilkinson et al 2016) and as such, do not fully engage with sensitive data considerations and with Indigenous rights and interests (Research Data Alliance International Indigenous Data Sovereignty Interest Group, 2019).</strong> Metadata can be FAIR but not open. For example, sensitive data (data that contains personal information) may not be appropriate to share, however sharing the anonymized metadata that is easily understandable will reduce research redundancy.</p>
+<p><a href="../images/ai-ethics/fair_care.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/ai-ethics/fair_care.png" class="img-fluid" style="width:100.0%"></a></p>
+<p>Research has historically perpetuated colonialism and represented extractive practices, meaning that the research results were not mutually beneficial. These issues also related to how data was owned, shared, and used. <strong>To address issues like these, the Global Indigenous Data Alliance (GIDA) introduced CARE Principles for Indigenous Data Governance to support Indigenous data sovereignty.</strong> CARE Principles speak directly to how the data is stored and shared in the context of Indigenous data sovereignty. CARE Principles (Carroll et al.&nbsp;2020) stand for:</p>
+<ul>
+<li><p><em>Collective Benefit</em> - Data ecosystems shall be designed and function in ways that enable Indigenous Peoples to derive benefit from the data</p></li>
+<li><p><em>Authority to Control</em> - Indigenous Peoples’ rights and interests in Indigenous data must be recognized and their authority to control such data be empowered. Indigenous data governance enables Indigenous Peoples and governing bodies to determine how Indigenous Peoples, as well as Indigenous lands, territories, resources, knowledges and geographical indicators, are represented and identified within data.</p></li>
+<li><p><em>Responsibility</em> - Those working with Indigenous data have a responsibility to share how those data are used to support Indigenous Peoples’ self-determination and collective benefit. Accountability requires meaningful and openly available evidence of these efforts and the benefits accruing to Indigenous Peoples.</p></li>
+<li><p><em>Ethics</em> - Indigenous Peoples’ rights and wellbeing should be the primary concern at all stages of the data life cycle and across the data ecosystem.</p></li>
+</ul>
+<p>To many, the FAIR and CARE principles are viewed by many as complementary: CARE aligns with FAIR by outlining guidelines for publishing data that contributes to open-science and at the same time, accounts for Indigenous’ Peoples rights and interests (Carroll et al.&nbsp;2020).</p>
+<p>In Arctic-based research, there is a paradigm shift to include more local Indigenous Peoples, their concerns, and knowledge throughout the research process (Loseto 2020). At the 2019 ArcticNet Annual Scientific Meeting (ASM), a 4-hour workshop was held between Indigenous and non-Indigenous participants to address the challenge of peer-reviewed publications arising when there is a lack of co-production and co-management in the research process between both groups. In the context of peer review, involving Indigenous People and Indigenous Knowledge (IK) not only can increase the validity of research findings, but also ensure the research is meaningful to those most impacted by it. Moreover, it gives power back to the appropriate people to decide who can be knowledge holders of Indigenous knowledge (Loseto et al.&nbsp;2020). This example underscores the advocacy CARE framework for Indigenous sovereignty, emphasizing the essential integration of people and purpose in the peer review publication stage. Failure to do so perpetuates power imbalances between science institutions and Indigenous communities. Hence, an equitable framework would adhere to the idea ‘Not about us without us’. As an Arctic research community, it is important to reflect on ways we can continue to engage and incorporate Indigenous communities and if there are gaps to address. However, it is important there is no ‘one size fits all’ approach.</p>
+</section>
+<section id="ethics-at-the-arctic-data-center" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="ethics-at-the-arctic-data-center"><span class="header-section-number">10.2</span> Ethics at the Arctic Data Center</h2>
+<p><strong>Transparency in data ethics is a vital part of open science.</strong> Regardless of discipline, various ethical concerns are always present, including professional ethics such as plagiarism, false authorship, or falsification of data, to ethics regarding the handling of animals, to concerns relevant to human subjects research. As the primary repository for the Arctic program of the National Science Foundation, the Arctic Data Center accepts Arctic data from all disciplines. Recently, a new submission feature was released which asks researchers to describe the ethical considerations that are apparent in their research. This question is asked to all researchers, regardless of disciplines.</p>
+<p>Sharing ethical practices openly, similar in the way that data is shared, enables deeper discussion about data management practices, data reuse, sensitivity, sovereignty and other considerations. Further, such transparency promotes awareness and adoption of ethical practices.</p>
+<p><a href="../images/ai-ethics/sensitivity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images/ai-ethics/sensitivity.png" class="img-fluid" style="width:100.0%"></a> <a href="../images/ai-ethics/erp-methods.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images/ai-ethics/erp-methods.png" class="img-fluid" style="width:100.0%"></a></p>
+<p>Inspired by CARE Principles for Indigenous Data Governance (Collective Benefit, Authority to Control, Responsibility, Ethics) and FAIR Principles (Findable, Accessible, Interoperable, Reproducible), we include a space in the data submission process for researchers to describe their ethical research practices. These statements are published with each dataset, and the purpose of these statements is to promote greater transparency in data collection and to guide other researchers. For more information about the ethical research practices statement, <a href="https://arcticdata.io/all/blog/2022/04/applying-care-documenting-ethical-data-procedures-and-sensitive-data-at-the-arctic-data-center/">check out this blog</a>.</p>
+<p>To help guide researchers as they write their ethical research statements, we have listed the following ethical considerations that are available on our website. The concerns are organized first by concerns that should be addressed by all researchers, and then by discipline.</p>
+<p>Consider the following ethical considerations that are relevant for your field of research.</p>
+<section id="ethical-considerations-for-all-arctic-researchers" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="ethical-considerations-for-all-arctic-researchers"><span class="header-section-number">10.2.1</span> Ethical Considerations for all Arctic Researchers</h3>
+<p><img src="../images/ai-ethics/all-researchers-logos.png" class="img-fluid"></p>
+<p><strong>Research Planning</strong></p>
+<ol type="1">
+<li>Were any permits required for your research?</li>
+<li>Was there a code of conduct for the research team decided upon prior to beginning data collection?</li>
+<li>Was institutional or local permission required for sampling?</li>
+<li>What impact will your research have on local communities or nearby communities (meaning the nearest community within a 100 mile radius)?</li>
+</ol>
+<p><strong>Data Collection</strong></p>
+<ol start="5" type="1">
+<li>Were any local community members involved at any point of the research process, including study site identification, sampling, camp setup, consultation or synthesis?</li>
+<li>Were the sample sites near or on Indigenous land or communities?</li>
+</ol>
+<p><strong>Data Sharing and Publication</strong></p>
+<ol start="7" type="1">
+<li>How were the following concerns accounted for: misrepresentation of results, misrepresentation of experience, plagiarism, improper authorship, or the falsification or data?</li>
+<li>If this data is intended for publication, are authorship expectations clear for everyone involved? Other professional ethics can be found here</li>
+</ol>
+</section>
+</section>
+<section id="ai-ethics" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="ai-ethics"><span class="header-section-number">10.3</span> AI Ethics</h2>
 <p><strong>Artificial Intelligence (AI)</strong> can be thought of as the development of computer systems that can perform tasks we usually think require human intelligence, such as image recognition, language translation, or autonomous movement. The rapid development and adoption of AI tools in the past years, particularly machine learning algorithms, has revolutionized how big datasets are analyzed, transforming decision-making in all sectors of society. However, <strong>frameworks to examine the ethical considerations of AI are just emerging</strong>, and careful consideration of how to best develop and apply AI systems is essential to the responsible use of these new, rapidly changing tools. In this section, we will give an overview of the FAST Principles put forward by the Alan Turing Institute in their guide for the responsible design and implementation of AI systems <span class="citation" data-cites="leslie_understanding_2019"><a href="../references.html#ref-leslie_understanding_2019" role="doc-biblioref">[1]</a></span>.</p>
 </section>
-<section id="the-fast-principles" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="the-fast-principles"><span class="header-section-number">10.2</span> The FAST Principles</h2>
+<section id="the-fast-principles" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="the-fast-principles"><span class="header-section-number">10.4</span> The FAST Principles</h2>
 <p><strong>FAST stands for Fairness, Accountability, Sustainability, and Transparency.</strong> The FAST principles aim to guide the ethical development of AI projects from their inception to deployment. The continuous involvement and commitment of software developers, domain experts, technical leads, project managers, rightsholders, and collaborators involved in the AI project is crucial to implement these principles successfully. The following is a brief overview of each of the FAST principles, we greatly encourage you to read through the Alan Turing Institute guide to learn more!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-ethics/FAST-principles.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Leslie, 2019"><img src="../images/ai-ethics/FAST-principles.png" class="img-fluid figure-img" style="width:90.0%" alt="Leslie, 2019"></a></p>
+<p><a href="../images/ai-ethics/FAST-principles.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Leslie, 2019"><img src="../images/ai-ethics/FAST-principles.png" class="img-fluid figure-img" style="width:90.0%" alt="Leslie, 2019"></a></p>
 <figcaption>Leslie, 2019</figcaption>
 </figure>
 </div>
 </section>
-<section id="fairness" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="fairness"><span class="header-section-number">10.3</span> Fairness</h2>
+<section id="fairness" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="fairness"><span class="header-section-number">10.5</span> Fairness</h2>
 <p>Bias can enter at any point of a research project, from data collection and preprocessing, to model design and implementation. This is because AI projects, as any other, are created by human beings who (even with the best of intentions) can introduce error, prejudice, or misjudgement into a system. <strong>Fairness refers to the active minimization of bias and commitment to not harm others through the outcomes of an AI system.</strong> The FAST principles <span class="citation" data-cites="leslie_understanding_2019"><a href="../references.html#ref-leslie_understanding_2019" role="doc-biblioref">[1]</a></span> suggest the following baseline for fairness:</p>
 <blockquote class="blockquote">
 <p>The designers and users of AI systems ensure that the decisions and behaviours of their models do not generate discriminatory or inequitable impacts on affected individuals and communities. This entails that these designers and users ensure that the AI systems they are developing and deploying:</p>
@@ -409,7 +464,7 @@ Real-life Example : Insufficient Radar Network
 <p>The following figure <span class="citation" data-cites="mcgovern_why_2022"><a href="../references.html#ref-mcgovern_why_2022" role="doc-biblioref">[2]</a></span> shows coverage of the national Doppler weather network (green and yellow circles) over a demographic map of the Black population in the southeast US. This would be an example of an <strong>issue in data fairness, since radar coverage does not represent the population uniformly, leaving out areas with higher Black population</strong>. Problems with outcome fairness could ensue if this non-representative biases an AI model to under-predict weather impacts in such populations.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-ethics/are-black-americans-underserved-by-radar.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="McGovern et al., 2022 by courtesy of Jack Sillin (CC BY 4.0)."><img src="../images/ai-ethics/are-black-americans-underserved-by-radar.png" class="img-fluid figure-img" style="width:100.0%" alt="McGovern et al., 2022 by courtesy of Jack Sillin (CC BY 4.0)."></a></p>
+<p><a href="../images/ai-ethics/are-black-americans-underserved-by-radar.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="McGovern et al., 2022 by courtesy of Jack Sillin (CC BY 4.0)."><img src="../images/ai-ethics/are-black-americans-underserved-by-radar.png" class="img-fluid figure-img" style="width:100.0%" alt="McGovern et al., 2022 by courtesy of Jack Sillin (CC BY 4.0)."></a></p>
 <figcaption>McGovern et al., 2022 by courtesy of Jack Sillin (CC BY 4.0).</figcaption>
 </figure>
 </div>
@@ -417,8 +472,8 @@ Real-life Example : Insufficient Radar Network
 </div>
 </div>
 </section>
-<section id="accountability" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="accountability"><span class="header-section-number">10.4</span> Accountability</h2>
+<section id="accountability" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="accountability"><span class="header-section-number">10.6</span> Accountability</h2>
 <p>Accountability in AI projects stems from the shared view that isolated AI models used to automate decisions are not morally responsible in the same way as a decision-making human. As outputs from AI models are increasingly used to make decisions that affect the environment and human lives, <strong>there is a critical need for competent human authorities to offer explanations and justifications for the development process, outputs, and ensuing decisions made by AI systems</strong>. Such answerability assignments can be challenging, as AI implementations are often the product of big development teams where the responsibility to answer for a project’s outcome may not be delineated, creating an issue known as “the problem of many hands.” The FAST principles encourage the following accountability implementation:</p>
 <p><strong>Accountability by Design:</strong> All AI systems must be designed to facilitate end-to-end answerability and auditability. This requires both responsible <em>humans-in-the-loop</em> across the entire design and implementation chain as well as <em>activity monitoring protocols</em> that enable end-to-end oversight and review.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
@@ -434,13 +489,13 @@ Real-life Example: AI for natural disasters response
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>Accountability and the ability to audit AI methods can be crucial when model outputs support critical decision-making, such as in natural disasters. In 2021, a New York Times investigation <span class="citation" data-cites="fink_this_2019"><a href="../references.html#ref-fink_this_2019" role="doc-biblioref">[3]</a></span>] covered a private company’s premature release of outputs about neighborhoods most affected by potential earthquakes in Seattle. While the initial release erroneously did not show threats for non-residential areas, ensuing updated versions showed non-compatible predictions again. Although the company acknowledged that its AI models would not replace the first responder’s judgment, the lack of audibility and opacity in the model development hindered accountability for any party, ultimately eroding the public confidence in the tools and leading to a loss of public resources.</p>
-<p><a href="../images/ai-ethics/first-responders-from-surrounding-cities-conduct-search-9d90e0.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images/ai-ethics/first-responders-from-surrounding-cities-conduct-search-9d90e0.jpg" class="img-fluid" style="width:100.0%"></a></p>
+<p><a href="../images/ai-ethics/first-responders-from-surrounding-cities-conduct-search-9d90e0.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="../images/ai-ethics/first-responders-from-surrounding-cities-conduct-search-9d90e0.jpg" class="img-fluid" style="width:100.0%"></a></p>
 </div>
 </div>
 </div>
 </section>
-<section id="sustainability" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="sustainability"><span class="header-section-number">10.5</span> Sustainability</h2>
+<section id="sustainability" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="sustainability"><span class="header-section-number">10.7</span> Sustainability</h2>
 <p><strong>Sustainability in the FAST principles includes continuous assessment of the social impacts of an AI system and technical sustainability of the AI model</strong>. In the first consideration, the FAST principles advocate for performing a Stakeholder Impact Assessment (SIA) at different stages to help build confidence in the project and uncover unexpected risks or biases, among other benefits. The Alan Turing Institute guide shares a prototype of an SIA <span class="citation" data-cites="leslie_understanding_2019"><a href="../references.html#ref-leslie_understanding_2019" role="doc-biblioref">[1]</a></span>. The core of technical sustainability is creating safe, accurate, reliable, secure, and robust AI systems. To achieve these technical goals, teams must implement thorough testing, performance metrics, uncertainty quantification, and be aware of changes to the underlying distribution of data, among other essential practices.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
@@ -457,7 +512,7 @@ Real-life Example: SpaceCows
 <p>The SpaceCows project <span class="citation" data-cites="shepherd_indigenous_2021 csiro_spacecows_nodate"><a href="../references.html#ref-shepherd_indigenous_2021" role="doc-biblioref">[4]</a>, <a href="../references.html#ref-csiro_spacecows_nodate" role="doc-biblioref">[5]</a></span> in northern Australia is a collaboration between scientists, industry leaders, and local indigenous communities developing AI centered platforms to analyze GPS tracking data collected from feral cows alongside satellite imagery and weather data. Indigenous knowledge and traditional land owners have been at the center of the development, providing guidance and ultimately benefiting from the AI tools to protect their land and cultural sites.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-ethics/Feral-herds-can-damage-important-rock-art.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Important indigenous cultural sites can be damaged by feral cattle. Image from CSIRO, SpaceCows: Using AI to tackle feral herds in the Top End."><img src="../images/ai-ethics/Feral-herds-can-damage-important-rock-art.jpg" class="img-fluid figure-img" style="width:100.0%" alt="Important indigenous cultural sites can be damaged by feral cattle. Image from CSIRO, SpaceCows: Using AI to tackle feral herds in the Top End."></a></p>
+<p><a href="../images/ai-ethics/Feral-herds-can-damage-important-rock-art.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Important indigenous cultural sites can be damaged by feral cattle. Image from CSIRO, SpaceCows: Using AI to tackle feral herds in the Top End."><img src="../images/ai-ethics/Feral-herds-can-damage-important-rock-art.jpg" class="img-fluid figure-img" style="width:100.0%" alt="Important indigenous cultural sites can be damaged by feral cattle. Image from CSIRO, SpaceCows: Using AI to tackle feral herds in the Top End."></a></p>
 <figcaption>Important indigenous cultural sites can be damaged by feral cattle. Image from CSIRO, <a href="https://www.csiro.au/en/news/all/news/2021/september/spacecows-using-ai-to-tackle-feral-herds-in-the-top-end">SpaceCows: Using AI to tackle feral herds in the Top End.</a></figcaption>
 </figure>
 </div>
@@ -468,8 +523,8 @@ Real-life Example: SpaceCows
 </div>
 </div>
 </section>
-<section id="transparency" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="transparency"><span class="header-section-number">10.6</span> Transparency</h2>
+<section id="transparency" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="transparency"><span class="header-section-number">10.8</span> Transparency</h2>
 <p>Under the FAST principles, transparency in AI projects refers to transparency about how an AI project was designed and implemented and the content and justification of the outcome produced by the AI model. To ensure process transparency, the project should <strong>show how the design and implementation included ethical, safety, and fairness considerations throughout the project</strong>. To clarify the content and explain the outcomes of an AI system, <strong>the project should offer plain language, non-technical explanations accessible to non-specialists that convey how and why a model performed the way it did</strong>. In this direction, it is essential to avoid a ‘mathematical glass box’ where the code and mathematics behind the algorithm are openly available, but there is a lack of rationale about how or why the model goes from input to output. Finally, the explanations about how the outcomes were produced should become the basis to justify the outcomes in terms of ethical permissibility, fairness, and trustworthiness. A careful consideration of the balance between the sustainability and transparency principles is necessary when dealing with protected or private data.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
@@ -486,7 +541,7 @@ Real-life Example: France’s Digital Republic Act
 <p>The concern for transparency in using personal data is an active space for debate. In 2018, the French government passed a law to protect citizens’ privacy, establishing the citizen’s “right to an explanation” regarding, among other things, how an algorithm contributed to decisions on their persona and which data was processed <span class="citation" data-cites="edwards_enslaving_2018 lo_piano_ethical_2020"><a href="../references.html#ref-edwards_enslaving_2018" role="doc-biblioref">[6]</a>, <a href="../references.html#ref-lo_piano_ethical_2020" role="doc-biblioref">[7]</a></span>. Overall, this legislation aims to create a fairer and more transparent digital environment where everyone can enjoy equal opportunities.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-ethics/google-deepmind-x-jiPtOms98-unsplash copy.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Photo by Google DeepMind"><img src="../images/ai-ethics/google-deepmind-x-jiPtOms98-unsplash copy.jpg" class="img-fluid figure-img" style="width:100.0%" alt="Photo by Google DeepMind"></a></p>
+<p><a href="../images/ai-ethics/google-deepmind-x-jiPtOms98-unsplash copy.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Photo by Google DeepMind"><img src="../images/ai-ethics/google-deepmind-x-jiPtOms98-unsplash copy.jpg" class="img-fluid figure-img" style="width:100.0%" alt="Photo by Google DeepMind"></a></p>
 <figcaption>Photo by <a href="https://unsplash.com/@googledeepmind?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Google DeepMind</a></figcaption>
 </figure>
 </div>
@@ -494,12 +549,34 @@ Real-life Example: France’s Digital Republic Act
 </div>
 </div>
 </section>
-<section id="conclusion" class="level2" data-number="10.7">
-<h2 data-number="10.7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">10.7</span> Conclusion</h2>
+<section id="discussion-activity" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="discussion-activity"><span class="header-section-number">10.9</span> Discussion Activity</h2>
+<p>Given the discussion of the CARE priciples and the FAST principles, let’s discuss what responsible AI considerations might exist in the context of Arctic research, particularly with respect to Indigneous peoples of the Arctic. Geospatial data spanning the Arctic typically includes the traditional lands and waters of Arctic Indigenous peoples, and often intersects with current local communities distributed throughout the Arctic. Recent work by projects like <a href="https://www.indigenous-ai.net/abundant/%5D">Abundant Intelligences</a> are starting to explore the intersection of Indigineous Knowledge systems, Artifical Intelligence models, and how to guide the “development of AI [to support] a more humane future”.</p>
+<p>Let’s take, for example, a researcher that wants to run an machine learning model to detect changes in environmental features at a large regional or Arctic scale. We’ve seen several of these so far, including 1) AI predictions of the distribution of permafrost ice wedges and retrogressive thaw slumps across the Arctic; 2) use of AI to detect changes in surface water extent and lake drainage events across the Arctic; 3) use of AI in a mechanistic process models that helps understand the global source/sink tradeoff of permafrost loss and its impact on climate.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Discussion questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Divide into 5 groups of 4, find a comfortable place to sit, and pick a large-scale AI application that is of interest to the group. Let’s discuss some of the following questions, and more…</p>
+<ol type="1">
+<li>Thinking of CARE, does that model provide Collective Benefit to Indigenous populations that it might impact?</li>
+<li>Thinking of FAST, what would researchers need to do to ensure that their research process could meet the goals of the four categories of Fairness (Outcome Fairness, Data Fairness, Design Fairness, and Implementation Fairness) for Indigenous people in their research area?</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">10.10</span> Conclusion</h2>
 <p>As new AI developments and applications rapidly emerge and transform everyday life, we need to pause and ensure these technologies are fair, sustainable, and transparent. We must acknowledge human responsibility in designing and implementing AI systems to use these novel tools fairly and with accountability. Finally, we acknowledge that the information covered here is a lightning introduction to AI’s ethical considerations and implications. <strong>Whether you are a researcher interested in using AI for the first time or a seasoned ML practitioner, we urge you to dive into the necessary and ever-expanding AI ethics work to learn how to best incorporate these concepts into your work.</strong></p>
 </section>
-<section id="further-reading" class="level2" data-number="10.8">
-<h2 data-number="10.8" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">10.8</span> Further Reading</h2>
+<section id="further-reading" class="level2" data-number="10.11">
+<h2 data-number="10.11" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">10.11</span> Further Reading</h2>
 <p>Academic Data Science Alliance (ADSA) (2024) The Data Sciene Ethos https://ethos.academicdatascience.org <span class="citation" data-cites="adsa_data_ethos_2024"><a href="../references.html#ref-adsa_data_ethos_2024" role="doc-biblioref">[8]</a></span></p>
 <p>Chen, W., &amp; Quan-Haase, A. (2020) Big Data Ethics and Politics: Towards New Understandings. Social Science Computer Review. <span class="citation" data-cites="chen_big_2020"><a href="../references.html#ref-chen_big_2020" role="doc-biblioref">[9]</a></span></p>
 <p>Crawford, K., &amp; Paglen, T. (2019) <a href="https://excavating.ai/">Excavating AI: The Politics of Training Sets for Machine Learning.</a> <span class="citation" data-cites="noauthor_excavating_2024"><a href="../references.html#ref-noauthor_excavating_2024" role="doc-biblioref">[10]</a></span></p>
@@ -977,7 +1054,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
