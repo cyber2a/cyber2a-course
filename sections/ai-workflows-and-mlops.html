@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -310,7 +344,35 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#instructors" id="toc-instructors" class="nav-link active" data-scroll-target="#instructors"><span class="header-section-number">15.1</span> Instructors</a></li>
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">15.2</span> Overview</a></li>
   <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline"><span class="header-section-number">15.3</span> Outline</a></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">15.4</span> Reference</a></li>
+  <li><a href="#three-challenges-for-ml-in-research" id="toc-three-challenges-for-ml-in-research" class="nav-link" data-scroll-target="#three-challenges-for-ml-in-research"><span class="header-section-number">15.4</span> Three Challenges for ML in Research</a></li>
+  <li><a href="#introcution-to-mlops" id="toc-introcution-to-mlops" class="nav-link" data-scroll-target="#introcution-to-mlops"><span class="header-section-number">15.5</span> Introcution to MLOps</a></li>
+  <li><a href="#why-researchers-need-mlops" id="toc-why-researchers-need-mlops" class="nav-link" data-scroll-target="#why-researchers-need-mlops"><span class="header-section-number">15.6</span> Why Researchers Need MLOps</a>
+  <ul class="collapse">
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility"><span class="header-section-number">15.6.1</span> 1. Reproducibility</a></li>
+  <li><a href="#automation" id="toc-automation" class="nav-link" data-scroll-target="#automation"><span class="header-section-number">15.6.2</span> 2. Automation</a></li>
+  <li><a href="#production-monitoring" id="toc-production-monitoring" class="nav-link" data-scroll-target="#production-monitoring"><span class="header-section-number">15.6.3</span> 3. Production Monitoring</a></li>
+  <li><a href="#governance" id="toc-governance" class="nav-link" data-scroll-target="#governance"><span class="header-section-number">15.6.4</span> 4. Governance</a></li>
+  </ul></li>
+  <li><a href="#mlflow-a-comprehensive-platform-for-the-ml-lifecycle" id="toc-mlflow-a-comprehensive-platform-for-the-ml-lifecycle" class="nav-link" data-scroll-target="#mlflow-a-comprehensive-platform-for-the-ml-lifecycle"><span class="header-section-number">16</span> MLflow: A Comprehensive Platform for the ML Lifecycle</a>
+  <ul class="collapse">
+  <li><a href="#what-is-mlflow" id="toc-what-is-mlflow" class="nav-link" data-scroll-target="#what-is-mlflow"><span class="header-section-number">16.1</span> What is MLflow?</a></li>
+  <li><a href="#the-pdg-mlflow-tracking-server" id="toc-the-pdg-mlflow-tracking-server" class="nav-link" data-scroll-target="#the-pdg-mlflow-tracking-server"><span class="header-section-number">16.2</span> The PDG MLFlow Tracking Server</a></li>
+  <li><a href="#key-components-of-mlflow" id="toc-key-components-of-mlflow" class="nav-link" data-scroll-target="#key-components-of-mlflow"><span class="header-section-number">16.3</span> Key Components of MLflow</a></li>
+  <li><a href="#scaling-up-training-with-mlflow-slurm" id="toc-scaling-up-training-with-mlflow-slurm" class="nav-link" data-scroll-target="#scaling-up-training-with-mlflow-slurm"><span class="header-section-number">16.4</span> Scaling Up Training With MLFlow-Slurm</a></li>
+  <li><a href="#how-mlflow-solves-common-mlops-challenges" id="toc-how-mlflow-solves-common-mlops-challenges" class="nav-link" data-scroll-target="#how-mlflow-solves-common-mlops-challenges"><span class="header-section-number">16.5</span> How MLflow Solves Common MLOps Challenges</a>
+  <ul class="collapse">
+  <li><a href="#training-productivity" id="toc-training-productivity" class="nav-link" data-scroll-target="#training-productivity"><span class="header-section-number">16.5.1</span> Training productivity</a></li>
+  <li><a href="#training-reproducibility" id="toc-training-reproducibility" class="nav-link" data-scroll-target="#training-reproducibility"><span class="header-section-number">16.5.2</span> Training reproducibility</a></li>
+  <li><a href="#model-citeability" id="toc-model-citeability" class="nav-link" data-scroll-target="#model-citeability"><span class="header-section-number">16.5.3</span> Model citeability</a></li>
+  </ul></li>
+  <li><a href="#hands-on-tutorial" id="toc-hands-on-tutorial" class="nav-link" data-scroll-target="#hands-on-tutorial"><span class="header-section-number">16.6</span> Hands-On Tutorial</a></li>
+  <li><a href="#sharing-models" id="toc-sharing-models" class="nav-link" data-scroll-target="#sharing-models"><span class="header-section-number">16.7</span> Sharing Models</a>
+  <ul class="collapse">
+  <li><a href="#mlflow-model-repository" id="toc-mlflow-model-repository" class="nav-link" data-scroll-target="#mlflow-model-repository"><span class="header-section-number">16.7.1</span> MLFlow Model Repository</a></li>
+  <li><a href="#models-as-citable-objects" id="toc-models-as-citable-objects" class="nav-link" data-scroll-target="#models-as-citable-objects"><span class="header-section-number">16.7.2</span> Models as Citable Objects</a></li>
+  </ul></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">16.8</span> Reference</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -355,14 +417,278 @@ ul.task-list li input[type="checkbox"] {
 <li>Publishing models with Garden</li>
 </ul>
 </section>
-<section id="reference" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="reference"><span class="header-section-number">15.4</span> Reference</h2>
+<section id="three-challenges-for-ml-in-research" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="three-challenges-for-ml-in-research"><span class="header-section-number">15.4</span> Three Challenges for ML in Research</h2>
+<ul>
+<li>Training productivity</li>
+<li>Training reproducibility</li>
+<li>Model citability</li>
+</ul>
+</section>
+<section id="introcution-to-mlops" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="introcution-to-mlops"><span class="header-section-number">15.5</span> Introcution to MLOps</h2>
+<p>Machine Learning Operations (MLOps) is a set of practices that combines Machine Learning, DevOps, and Data Engineering to reliably and efficiently deploy and maintain ML models in production. Just as DevOps revolutionized software development by streamlining the bridge between development and operations, MLOps brings similar principles to machine learning systems.</p>
+<p>Think of MLOps as the infrastructure and practices that transform ML projects from experimental notebooks into robust, production-ready systems that deliver real reproducible scientific value.</p>
+</section>
+<section id="why-researchers-need-mlops" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="why-researchers-need-mlops"><span class="header-section-number">15.6</span> Why Researchers Need MLOps</h2>
+<p>As a researcher, you’ve likely experienced the following challenges:</p>
+<ul>
+<li>Inability to harness computing resources to robustly search hyperparameter space</li>
+<li>Difficulty reproducing results from six months ago</li>
+<li>Retraining is too painful to consider creating better models after new data becomes available</li>
+<li>Tracking experiments becomes unwieldy as projects grow</li>
+<li>Collaboration among researchers in your group is difficult</li>
+<li>Advisors have little visibility into students’ work</li>
+</ul>
+<p>MLOps addresses these pain points by providing:</p>
+<section id="reproducibility" class="level3" data-number="15.6.1">
+<h3 data-number="15.6.1" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">15.6.1</span> 1. Reproducibility</h3>
+<ul>
+<li>Version control for data, code, and models</li>
+<li>Automated documentation of experiments</li>
+<li>Containerization for consistent environments</li>
+</ul>
+</section>
+<section id="automation" class="level3" data-number="15.6.2">
+<h3 data-number="15.6.2" class="anchored" data-anchor-id="automation"><span class="header-section-number">15.6.2</span> 2. Automation</h3>
+<ul>
+<li>Automated training pipelines</li>
+<li>Continuous integration and deployment (CI/CD)</li>
+<li>Automated testing and validation</li>
+</ul>
+</section>
+<section id="production-monitoring" class="level3" data-number="15.6.3">
+<h3 data-number="15.6.3" class="anchored" data-anchor-id="production-monitoring"><span class="header-section-number">15.6.3</span> 3. Production Monitoring</h3>
+<ul>
+<li>Real-time performance monitoring</li>
+<li>Data drift detection</li>
+<li>Automated model retraining triggers</li>
+</ul>
+</section>
+<section id="governance" class="level3" data-number="15.6.4">
+<h3 data-number="15.6.4" class="anchored" data-anchor-id="governance"><span class="header-section-number">15.6.4</span> 4. Governance</h3>
+<ul>
+<li>Model lineage tracking</li>
+</ul>
+<hr>
+<p>MLOps isn’t just another buzzword—it’s a crucial evolution in how we develop and deploy ML systems. As models become more complex and requirements for reliability increase, MLOps practices become essential for successful ML implementations.</p>
+</section>
+</section>
+<section id="mlflow-a-comprehensive-platform-for-the-ml-lifecycle" class="level1" data-number="16">
+<h1 data-number="16"><span class="header-section-number">16</span> MLflow: A Comprehensive Platform for the ML Lifecycle</h1>
+<section id="what-is-mlflow" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="what-is-mlflow"><span class="header-section-number">16.1</span> What is MLflow?</h2>
+<p>MLflow is an open-source platform designed to manage the end-to-end machine learning lifecycle. Created by Databricks, it provides a unified set of tools that address the core challenges in developing, training, and deploying machine learning models. MLflow is language-agnostic and can work with any ML library, algorithm, or deployment tool.</p>
+</section>
+<section id="the-pdg-mlflow-tracking-server" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="the-pdg-mlflow-tracking-server"><span class="header-section-number">16.2</span> The PDG MLFlow Tracking Server</h2>
+<p>The Permafrost Discovery Gateway project has a shared MLFlow instance that you can use for your arctic research:</p>
+<p><a href="https://pdg.mflow.software.ncsa.illinois.edu">https://pdg.mflow.software.ncsa.illinois.edu</a></p>
+</section>
+<section id="key-components-of-mlflow" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="key-components-of-mlflow"><span class="header-section-number">16.3</span> Key Components of MLflow</h2>
+<p>MLFlow consists of three main components:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="Tracking">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tracking
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The tracking server of MLFlow allows researchers to log and compare model parameters, metrics, and artifacts across multiple runs. With MLFlow’s tracking features, users can record hyperparameters, evaluation metrics, model versions, and even source code, making it easier to reproduce results and collaborate with team members. The platform provides a user-friendly interface to visualize and compare different experiments, helping practitioners identify the most promising models and configurations. Additionally, MLFlow’s tracking capabilities integrate seamlessly with popular ML frameworks, enabling users to incorporate experiment logging into their existing workflows with minimal code changes. This comprehensive approach to tracking enhances model development efficiency and facilitates better decision-making throughout the machine learning process.</p>
+<section id="key-concepts-in-tracking" class="level3" data-number="16.3.1">
+<h3 data-number="16.3.1" class="anchored" data-anchor-id="key-concepts-in-tracking"><span class="header-section-number">16.3.1</span> Key Concepts in Tracking:</h3>
+<ul>
+<li><strong>Parameters</strong>: key-value inputs to your code</li>
+<li><strong>Metrics</strong>: numeric values (can update over time)</li>
+<li><strong>Artifacts</strong>: arbitrary files, including data, models and plots</li>
+<li><strong>Source</strong>: training code that ran</li>
+<li><strong>Version</strong>: version of the training code</li>
+<li><strong>Tags and Notes</strong>: any additional information</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mlflow</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> mlflow.start_run():</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    mlflow.log_param(<span class="st">"learning_rate"</span>, <span class="fl">0.01</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    mlflow.log_metric(<span class="st">"accuracy"</span>, <span class="fl">0.85</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    mlflow.log_artifact(<span class="st">"model.pkl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="Projects">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Projects
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>MLFlow Projects provide a standardized format for packaging and organizing machine learning code to make it reproducible and reusable across different environments. A Project in MLFlow is essentially a directory containing code, dependencies, and an MLProject file that specifies the project’s entry points and environment requirements. This structure enables data scientists to share their work with teammates who can reliably execute the same code, regardless of their local setup. The MLProject file can define multiple entry points, each specifying its parameters and command to run, making it flexible for different use cases within the same project. MLFlow supports various environments for project execution, including conda environments, Docker containers, and system environments, ensuring consistency across different platforms. This standardization not only improves collaboration but also simplifies the deployment process, as projects can be easily versioned and moved between development and production environments.</p>
+<section id="key-concepts-in-projects" class="level3" data-number="16.3.2">
+<h3 data-number="16.3.2" class="anchored" data-anchor-id="key-concepts-in-projects"><span class="header-section-number">16.3.2</span> Key Concepts in Projects</h3>
+<ul>
+<li>Packaging format for reproducible ML runs
+<ul>
+<li>Any code folder or GitHub repository</li>
+<li>Optional MLproject file with project configuration</li>
+</ul></li>
+<li>Defines dependencies for reproducibility
+<ul>
+<li>Conda (+ R, Docker, …) dependencies can be specified in MLproject</li>
+<li>Reproducible in (almost) any environment</li>
+</ul></li>
+<li>Execution API for running projects
+<ul>
+<li>CLI / Python / R / Java</li>
+<li>Supports local and remote execution</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> myproject</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">python_env</span><span class="kw">:</span><span class="at"> python_env.yaml</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">entry_points</span><span class="kw">:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">main</span><span class="kw">:</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">parameters</span><span class="kw">:</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">learning_rate</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span><span class="fu">type</span><span class="kw">:</span><span class="at"> float</span><span class="kw">,</span><span class="at"> </span><span class="fu">default</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.01</span><span class="kw">}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">command</span><span class="kw">:</span><span class="at"> </span><span class="st">"python train.py --lr {learning_rate}"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="Models">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Models
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Models component of MLFlow provides a standardized way to package and deploy machine learning models across different platforms and serving environments. MLFlow’s model format includes all the code and dependencies required to run the model, making it highly portable and easy to share. The platform supports a variety of popular ML frameworks like scikit-learn, TensorFlow, and PyTorch, allowing models to be saved in a framework-agnostic format using the MLFlow Model Registry. This registry acts as a centralized repository where teams can version their models, transition them through different stages (like staging and production), and maintain a clear lineage of model iterations. MLFlow also provides built-in deployment capabilities to various serving platforms such as Kubernetes, Amazon SageMaker, and Azure ML, streamlining the process of moving models from experimentation to production. Additionally, MLFlow’s model serving feature allows for quick local deployment of models as REST endpoints, enabling easy testing and integration with other applications.</p>
+<section id="key-concepts-in-models" class="level3" data-number="16.3.3">
+<h3 data-number="16.3.3" class="anchored" data-anchor-id="key-concepts-in-models"><span class="header-section-number">16.3.3</span> Key Concepts in Models</h3>
+<ul>
+<li>Packaging format for ML Models
+<ul>
+<li>Any directory with MLmodel file</li>
+</ul></li>
+<li>Defines dependencies for reproducibility
+<ul>
+<li>Conda environment can be specified in MLmodel configuration</li>
+</ul></li>
+<li>Model creation utilities
+<ul>
+<li>Save models from any framework in MLflow format</li>
+</ul></li>
+<li>Deployment APIs
+<ul>
+<li>CLI / Python / R / Java</li>
+</ul></li>
+<li>Model Versioning and Lifecycle -Model repository</li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="scaling-up-training-with-mlflow-slurm" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="scaling-up-training-with-mlflow-slurm"><span class="header-section-number">16.4</span> Scaling Up Training With MLFlow-Slurm</h2>
+<p>With your project defined in MLProject file, it’s easy to scale up your workflows by launching them onto a cluster.</p>
+<p>There is a plugin for MLFlow developed by NCSA called <a href="https://github.com/ncsa/mlflow-slurm/blob/main/README.md">mlflow-slurm</a></p>
+<p>To use, you have to create a json file that tells the plugin how to configure slurm jobs.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"partition"</span><span class="fu">:</span> <span class="st">"cpu"</span><span class="fu">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"account"</span><span class="fu">:</span> <span class="st">"bbmi-delta-cpu"</span><span class="fu">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"mem"</span><span class="fu">:</span> <span class="st">"16g"</span><span class="fu">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"modules"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"anaconda3_cpu"</span><span class="ot">]</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>With this in place you can launch a training run on your cluster with the command</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mlflow</span> run <span class="at">--backend</span> slurm <span class="dt">\</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">--backend-config</span> slurm_config.json <span class="dt">\</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>          examples/sklearn_elasticnet_wine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="how-mlflow-solves-common-mlops-challenges" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="how-mlflow-solves-common-mlops-challenges"><span class="header-section-number">16.5</span> How MLflow Solves Common MLOps Challenges</h2>
+<section id="training-productivity" class="level3" data-number="16.5.1">
+<h3 data-number="16.5.1" class="anchored" data-anchor-id="training-productivity"><span class="header-section-number">16.5.1</span> Training productivity</h3>
+<ul>
+<li>Track impact of hyperparameter and code changes on model quality</li>
+<li>Run hyperparameter sweeps and find best run</li>
+<li>Switch between desktop to supercomputer</li>
+</ul>
+</section>
+<section id="training-reproducibility" class="level3" data-number="16.5.2">
+<h3 data-number="16.5.2" class="anchored" data-anchor-id="training-reproducibility"><span class="header-section-number">16.5.2</span> Training reproducibility</h3>
+<ul>
+<li>Enforced use of reproducible runtime environments</li>
+<li>Trace models back to specific runs</li>
+</ul>
+</section>
+<section id="model-citeability" class="level3" data-number="16.5.3">
+<h3 data-number="16.5.3" class="anchored" data-anchor-id="model-citeability"><span class="header-section-number">16.5.3</span> Model citeability</h3>
+<ul>
+<li>Publish models to repository</li>
+<li>Versioning and lifecycle events</li>
+</ul>
+</section>
+</section>
+<section id="hands-on-tutorial" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="hands-on-tutorial"><span class="header-section-number">16.6</span> Hands-On Tutorial</h2>
+<p>We will be using a GPU powered JuypterHub provided by NCSA. Connection instructions will be provided in the classroom.</p>
+<p>The example code is in the <a href="https://github.com/cyber2a/Cyber2A-RTS-ToyModel">Cyber2A-RTS-ToyModel repo</a>. It has a notebook along with some libraries to keep the notebook focused on the MLOps aspects of the code.</p>
+</section>
+<section id="sharing-models" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="sharing-models"><span class="header-section-number">16.7</span> Sharing Models</h2>
+<p>Now that we have trained and validated a model we will want to first of all, share it with other members of our research group.</p>
+<section id="mlflow-model-repository" class="level3" data-number="16.7.1">
+<h3 data-number="16.7.1" class="anchored" data-anchor-id="mlflow-model-repository"><span class="header-section-number">16.7.1</span> MLFlow Model Repository</h3>
+<p>Expert users within our research group will have access to the MLFlow tracking server and model repository. You can test the model as an artifact from an existing run. Once you are satisfied with its performance, you can publish it to the MLFlow model repository with the <em>Register Model</em> button on the tracking server.</p>
+<p>Published models are given sequential version numbers so colleauges can rely on a stable model for their research. Models in the repository can also follow a lifecycle with MLFlow model <em>aliases</em>. Members of the research group who are not activly involved in model development may just want to use the current <em>best</em> model. The researcher who is training the model can decide which version others should use. MLFlow allows you to pull down the model symbolically.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mlflow.pyfunc.load_model(<span class="st">"models:/rts@prod"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="models-as-citable-objects" class="level3" data-number="16.7.2">
+<h3 data-number="16.7.2" class="anchored" data-anchor-id="models-as-citable-objects"><span class="header-section-number">16.7.2</span> Models as Citable Objects</h3>
+<p>Publishing your MLProject and training code to a Git repo and making the data publicly readable through a data repository is a way for others to reproduce your models. However, to make your work truly reusable it is better to publish the weights of your trained model in a way that is findable, citable, and usable.</p>
+<p>At a minimum, you should publish your model on <a href="https://huggingface.co/models">Hugging Face</a>. You can include a README and an notebook demonstrating how to use the model. HuggingFace allows you to mint a DOI that you can cite in your publications.</p>
+<p>Here’s an example with the RTS model:</p>
+<blockquote class="blockquote">
+<p><a href="https://huggingface.co/bengal1/RTS/tree/main">https://huggingface.co/bengal1/RTS/tree/main</a></p>
+</blockquote>
+<p>A new facility called <a href="https://thegardens.ai">Garden</a> takes this a step further. Your model is hosted as an <em>endpoint</em> which is a hosted function-as-a-service which allows anyone to perform inference with your model without needing to install anything.</p>
+<p>Our example model is hosted at <a href="https://thegardens.ai/#/garden/10.26311%2F5fb6-f950">10.26311/5fb6-f950</a></p>
+<p>You can run a remote inference:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> garden_ai <span class="im">import</span> GardenClient</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>garden_client <span class="op">=</span> GardenClient()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>rts_garden <span class="op">=</span> garden_client.get_garden(<span class="st">'10.26311/5fb6-f950'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>image_url<span class="op">=</span><span class="st">"https://github.com/cyber2a/Cyber2A-RTS-ToyModel/blob/main/data/images/valtest_yg_055.jpg?raw=true"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> rts_garden.identify_rts(image_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="reference" class="level2" data-number="16.8">
+<h2 data-number="16.8" class="anchored" data-anchor-id="reference"><span class="header-section-number">16.8</span> Reference</h2>
 <ul>
 <li><a href="https://mlflow.org/">MLflow</a></li>
 <li><a href="https://thegardens.ai/">Garden</a></li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
