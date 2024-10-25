@@ -4,7 +4,7 @@
 
 Foundation models (FM) are deep learning models trained on massive raw unlabelled datasets usually through self-supervised learning. FMs enable today’s data scientists to use them as the base and fine-tune using domain specific data to obtain models that can handle a wide range of tasks (language, vision, reasoning etc.). In this chapter, we provide an introduction to FMs, its history, evolution, and go through its key features and categories, and a few examples. We also briefly discuss how foundation models work. This chapter will be a precursor to the hands-on session that follows on the same topic.
 
-![Fig : Image source- 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](../images/foundation-models/foundation_models.png)
+![Image source- 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](../images/foundation-models/foundation_models.png){#fig-fm-adaptation}
 
 
 In this session, we take a closer look at what constitutes a foundation model, a few examples, and some basic principles around how it works.
@@ -33,7 +33,7 @@ In this session, we take a closer look at what constitutes a foundation model, a
 Foundation models, introduced in 2021 by Standford Researchers [@Bommasani2021FoundationModels], are characterized by their enormous neural networks trained on vast datasets through self-supervised learning. These models serves as a "foundation" on which many task-specific models can be built by adaptation. Their capabilities improves with more data, requiring substantial computational power for training. These models can be adapted to various downstream tasks and are designed for reuse, leveraging transfer learning to enhance performance across different applications.
 
 ::: {.column-margin}
-![Fig : 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](../images/foundation-models/foundation_models_paper.png)
+![First page screenshot of the 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](../images/foundation-models/foundation_models_paper.png){#fig-fm-2021-paper}
 :::
 
 With the start of availability of big data for training, evidence showed that performance improves with size. The field came to the conclusion that scale matters, and with the right model architecture, intelligence comes with large-scale data.
@@ -46,7 +46,7 @@ Here's a few examples of foundation models and their parameter count:
     * Wikipedia consists of only 3% of its training data
 * GPT-4 [@openai2024gpt4technicalreport] - 1.8 trillion parameters
 
-![Fig : Growth in compute power. (Source: GPT-3 paper [@DBLP:journals/corr/abs-1810-04805])](../images/foundation-models/compute-power-training.png)
+![Growth in compute power. (Source: GPT-3 paper [@DBLP:journals/corr/abs-1810-04805])](../images/foundation-models/compute-power-training.png){#fig-gpt-3-compute-power}
 
 ## Types of foundation models
 
@@ -100,13 +100,13 @@ Here's some examples of multimodal foundation models:
 Introduced in 2017 by the paper "Attention is all you need" [@DBLP:journals/corr/VaswaniSPUJGKP17], the transformer architecture revolutionized NLP by enabling models to efficiently capture complex relationships in data without the limitations of recurrence. This architecture is known for its ability to handle sequential data efficiently. Its parallel processing capabilities and scalability have made it a foundational model for many state-of-the-art systems in various domains, including image processing and speech recognition.
 Checkout "The Illustrated Transformer" (blog post)[https://jalammar.github.io/illustrated-transformer/] for a detailed overview of the transformer architecture.
 
-![Fig : Transformer architecture](../images/foundation-models/transformer-architecture.png)
+![Transformer architecture](../images/foundation-models/transformer-architecture.png){#fig-transformer-architecture}
 
 
 ##### Attention Mechanism
 Attention is, to some extent, motivated by how we pay visual attention to different regions of an image or correlate words in one sentence [@weng2018attention]. we can explain the relationship between words in one sentence or close context. When we see “eating”, we expect to encounter a food word very soon. The color term describes the food, but probably not so much with “eating” directly.
 
-![Fig : One word attends to other words in the same sentence differently](../images/foundation-models/human-attention.png)
+![One word attends to other words in the same sentence differently](../images/foundation-models/human-attention.png){#fig-transformer-attention}
 
 Check out Lilian Weng's blog post [@weng2018attention] on detailed overview of attention mechanism.
 
@@ -119,7 +119,7 @@ Check out Lilian Weng's blog post [@weng2018attention] on detailed overview of a
 
 In the example below, the self-attention mechanism enables us to learn the correlation between the current words and the previous part of the sentence.
 
-![Fig : The current word is in red and the size of the blue shade indicates the activation level [@DBLP:journals/corr/ChengDL16]](../images/foundation-models/self-attention.png)
+![The current word is in red and the size of the blue shade indicates the activation level [@DBLP:journals/corr/ChengDL16]](../images/foundation-models/self-attention.png){#fig-transformer-self-attention}
 
 2. Positional Encoding:
 
@@ -162,7 +162,7 @@ GPT-3 and CLIP models utilize transformers as the underlying architecture.
 
 Introduced in 2014, Generative Adversarial Networks (GANs) [@goodfellow2014generativeadversarialnetworks] involves two neural networks (generator-discriminator network pair) contest with each other in the form of a zero-sum game, where one agent's gain is another agent's loss. Given a training set, this technique learns to generate new data with the same statistics as the training set. For example, a GAN trained on photographs can generate new photographs that look at least superficially authentic to human observers, having many realistic characteristics.
 
-![Fig : GAN basic architecture](../images/foundation-models/gan.png)
+![GAN basic architecture](../images/foundation-models/gan.png){#fig-gan-architecture}
 
 In a GAN,
 
@@ -171,19 +171,19 @@ In a GAN,
 
 When training begins, the generator produces obviously fake data, and the discriminator quickly learns to tell that it's fake:
 
-![Fig : GAN training - early phase. Image source: Google developers [blog](https://developers.google.com/machine-learning/gan/gan_structure)](../images/foundation-models/gan1.png)
+![GAN training - early phase. Image source: Google developers [blog](https://developers.google.com/machine-learning/gan/gan_structure)](../images/foundation-models/gan1.png){#fig-gan-training}
 
 As training progresses, the generator gets closer to producing output that can fool the discriminator:
 
-![Fig : GAN training - mid phase](../images/foundation-models/gan2.png)
+![GAN training - mid phase](../images/foundation-models/gan2.png){#fig-gan-training-mid-phase}
 
 Finally, if generator training goes well, the discriminator gets worse at telling the difference between real and fake. It starts to classify fake data as real, and its accuracy decreases. The training procedure for generator is to maximise the probability of discriminator making a mistake.
 
-![Fig : GAN training complete](../images/foundation-models/gan3.png)
+![GAN training complete](../images/foundation-models/gan3.png){#fig-gan-training-complete}
 
 Here's a picture of the whole system:
 
-![Fig : GAN architecture](../images/foundation-models/GAN-architecture.png)
+![GAN architecture](../images/foundation-models/GAN-architecture.png){#fig-gan-architecture-2}
 
 A disadvantage of GAN is potentially unstable training and less diversity in generation due to their adversarial training nature. StyleGAN [@DBLP:journals/corr/abs-1812-04948] and BigGAN [@DBLP:journals/corr/abs-1809-11096] are example of models that utilize GAN as the underlying architecture.
 
@@ -207,7 +207,7 @@ Diffusion models, introduced in 2020 [@DBLP:journals/corr/abs-2006-11239], are i
 4. Sampling:
 * To generate new samples, the process starts with pure noise and applies the learned reverse diffusion process iteratively. Over multiple time steps, the model denoises the input until it resembles a sample from the training distribution.
 
-![Fig : Training a diffusion model. Image source : Lilweng's [blog](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)](../images/foundation-models/diffusion-training.png)
+![Training a diffusion model. Image source: Lilweng's [blog](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)](../images/foundation-models/diffusion-training.png){#fig-diffusion-training}
 
 Diffusion models can generate high-resolution and diverse images, often outperforming GANs in certain tasks. They are generally more stable to train compared to GANs, as they do not rely on adversarial training dynamics.
 
@@ -245,7 +245,7 @@ containing 1B segmentation masks from about 11M privacy preserving images and SA
 Large pre-trained Language Models (LLMs) have revolutionized natural language processing, but they come with inherent limitations that necessitate the development of techniques like Retrieval-Augmented Generation (RAG). This chapter explores the motivations behind RAG by examining the constraints of traditional LLMs.
 
 ::: {.column-margin}
-![Fig : A typical user interaction with LLM](../images/foundation-models/userllm.png)
+![A typical user interaction with LLM](../images/foundation-models/userllm.png){#fig-user-llm}
 :::
 
 ### Limitations of Large Language Models
@@ -263,7 +263,7 @@ LLM has not seen "your" data - the unique, often proprietary information that or
 When specific domain knowledge is required, the traditional approach has been to fine-tune the LLM. However, this process can be resource-intensive and may not always yield optimal results, especially for niche or rapidly evolving fields.
 
 ::: {.column-margin}
-![Fig : Fine-tuning LLMs. Image source : [datacamp blong](https://www.datacamp.com/tutorial/boost-llm-accuracy-retrieval-augmented-generation-rag-reranking)](../images/foundation-models/llmfinetuning.png)
+![Fine-tuning LLMs. Image source: [datacamp blong](https://www.datacamp.com/tutorial/boost-llm-accuracy-retrieval-augmented-generation-rag-reranking)](../images/foundation-models/llmfinetuning.png){#fig-llm-finetuning}
 :::
 
 4. Lack of Source Attribution
@@ -275,11 +275,11 @@ LLMs generate responses based on patterns learned during training, but they don'
 One of the most significant issues with LLMs is their tendency to produce "hallucinations" - plausible-sounding but factually incorrect or nonsensical information. This phenomenon can undermine the reliability of the model's outputs. See Lilweng's blog post [@weng2024hallucination] on hallucinations for detailed information.
 
 ::: {.column-margin}
-![](../images/foundation-models/llmhallucination1.png)
+![](../images/foundation-models/llmhallucination1.png){#fig-llm-hallucination}
 :::
 
 ::: {.column-margin}
-![Fig : LLM Hallucination examples](../images/foundation-models/llmhallucination2.png)
+![LLM Hallucination examples](../images/foundation-models/llmhallucination2.png){#fig-llm-hallucination2}
 :::
 
 6. Outdated Information
@@ -308,7 +308,7 @@ Let's now compare the traditional LLM and RAG approaches
 
 #### Traditional LLM approach
 
-![Fig : Traditional LLM approach](../images/foundation-models/promptframework.png)
+![Traditional LLM approach](../images/foundation-models/promptframework.png){#fig-llm-prompt-framework}
 
 1. User Input: The process begins with the user submitting a question.
 2. Prompt Engineering: The user's question is combined with a pre-defined prompt.
@@ -317,7 +317,7 @@ Let's now compare the traditional LLM and RAG approaches
 
 #### RAG approach
 
-![Fig : RAG approach](../images/foundation-models/ragpromptframework.png)
+![RAG approach](../images/foundation-models/ragpromptframework.png){#fig-rag-prompt-framework}
 
 1. User Input: As before, the user submits a question.
 2. Knowledge Base Query: The question is used to query a knowledge base.
@@ -355,13 +355,13 @@ At the heart of vector databases lies the concept of vector embeddings. These ar
 3. Similarity Principle: Words with similar meanings tend to have similar vector representations.
 
 ::: {.column-margin}
-![Fig : Vectors](../images/foundation-models/vectorDB-vectors.png)
+![Vectors](../images/foundation-models/vectorDB-vectors.png){#fig-vectors}
 :::
 
 ###### How vector databases work
 Let’s start with a simple example of dealing with an LLM such as ChatGPT. The model has large volumes of data with a lot of content, and they provide us with the ChatGPT application.
 
-![Fig : VectorDB within RAG. Source: KDnuggets [blog post](https://www.kdnuggets.com/2023/06/vector-databases-important-llms.html)](../images/foundation-models/vectorDB.png)
+![VectorDB within RAG. Source: KDnuggets [blog post](https://www.kdnuggets.com/2023/06/vector-databases-important-llms.html)](../images/foundation-models/vectorDB.png){#fig-vectordb}
 
 So let’s go through the steps.
 
@@ -374,7 +374,7 @@ When the user continues to make queries, it will go through the same embedding m
 
 Now lets see how it works in the vector database.
 
-![Fig : VectorDB pipeline. Source: pinecone [blog post](https://www.pinecone.io/learn/vector-database/)](../images/foundation-models/vectordb-working.png)
+![VectorDB pipeline. Source: pinecone [blog post](https://www.pinecone.io/learn/vector-database/)](../images/foundation-models/vectordb-working.png){#fig-vectordb-working}
 
 The three main stages that a vector database query goes through are:
 
@@ -442,7 +442,7 @@ This ensures the LLM outputs text in Markdown format, which can be helpful for s
 
 Let's bring it all together
 
-![Fig : RAG system. Image source : [blog.demir](https://blog.demir.io/hands-on-with-rag-step-by-step-guide-to-integrating-retrieval-augmented-generation-in-llms-ac3cb075ab6f) ](../images/foundation-models/RAGsystem.png)
+![RAG system. Image source: [blog.demir](https://blog.demir.io/hands-on-with-rag-step-by-step-guide-to-integrating-retrieval-augmented-generation-in-llms-ac3cb075ab6f) ](../images/foundation-models/RAGsystem.png){#fig-rag-system}
 
 1. User Submits Query: The user inputs a query into the system. This is the initial step where the user’s request is captured.
 2. RAG System Query Relevant Documents: The RAG system processes the user’s query and searches for relevant documents.
