@@ -29,6 +29,8 @@ Session hands-on code in [github.com/ncsa/cyber2a-workshop](github.com/ncsa/cybe
 
 Session technical details in course book : [cyber2a.github.io/cyber2a-course/sections/foundation-models.html](https://cyber2a.github.io/cyber2a-course/sections/foundation-models.html)
 
+In this section, we will try to build a chatbot using RAG sytem, ie., a chatbot that has access to your specific knowledge base and can answer questions related to that knowledge base.
+
 ## Recap 
 
 | Without RAG    | With RAG  |
@@ -47,9 +49,271 @@ where the Generation is augmented / improved by the retrieval step.
 
 The retrieval is typically done by a specialized database and the generation part is typically done by an LLM.
 
+## Hands-on environment setup
+
+1. LLM
+For the hands-on session on RAG, we will be using OpenAI GPT-4o-mini and a Llama3.2:8b model that is hosted using an Ollama instance. To access the OpenAI models, you will need an OpenAI API key. To access the Llama model, you will need to set up an Ollama instance and have an API key associated with that instance.
+Details on setting up an Ollama instance is available here. Users are also free to download a Llama model on their local machine and run this hands-on code without an Ollama instance. However, we recommend using an Ollama instance as this would enable api calls (curl requests) to access the LLM.
+
+2. Compute requirements 
+There are no GPU requirements for this hands-on. However, we recommend some amount of memory on your local system as we will be using your device's local memory for a small database.
+We recommend testing out the code for this hands-on session in jupyter notebook. For instructions on launching a jupyter notebook, see here.
+
+3. Code
+The code is available at [github.com/ncsa/cyber2a](https://github.com/ncsa/cyber2a-workshop). Feel free to clone this repo / download this repo directly from github.
+Steps to clone the repo.
+    1. Open your terminal
+    2. Type `git clone https://github.com/ncsa/cyber2a-workshop` 
+
+4. Data requirements
+A data directory will be created if you clone/download the repo. Feel free to upload your favourite documents, be it txt, pdf, csv or docx files, to the data/docs directory. We will be inserting these documents into our specialized database.
+
+5. Environment variables
+In the github repo, you will find an `env.txt` file. This will give you all the list of environment variables required for this course. Add your OpenAI API key, Ollama API key, your data folder (currently data/docs) and a data collection name (eg: data-collection).
+The OpenAI API key will be used to access the OpenAI models. Ollama API key will be used to access your Ollama instance. The collection name is a way to recognize a collection/table in the specialized database, that we will be setting up soon.
+Edit the `env.txt` file to contain your values and save the file.
+
+Lets start by loading some basic python packages.
+
+```python
+# basic imports
+import os
+import json
+import logging
+import sys
+import pandas as pd
+
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
+# create and configure logger
+logging.basicConfig(level=logging.INFO, datefmt='%Y-%m-%dT%H:%M:%S',
+                    format='%(asctime)-15s.%(msecs)03dZ %(levelname)-7s : %(name)s - %(message)s',
+                    handlers=[logging.StreamHandler(sys.stdout)]
+                    )
+# create log object with current module name
+log = logging.getLogger(__name__)
+```
+
 ## RAG - *Retrieval*-Augmented Generation
 
 We will focus on the "retrieval" part of RAG for this section.
+
+**RAG - Retrieval Steps**
+
+1. Prepare data 
+2. Create a database and insert data
+3. Search the database and retrieve relevant documents
+
+As mentioned earlier, RAG system gives the LLM access to our knowledge base which has specific information for our use-case. Lets consider our knowlegebase to have textual data. 
+
+### Data preparation
+
+Lets consider our knowlegebase to contain only textual data. The data present in the github repo contains proceedings from [Arctic data symposium 2023](https://arcticdata.io/catalog/portals/pisymposium2023)
+
+#### Load data
+
+Since we have different file types, we will need different types of data loaders to read these different data formats.
+- Langchain provides different data loaders for different file types
+- Data loaded in Langchain Document class format [document class](https://api.python.langchain.com/en/latest/documents/langchain_core.documents.base.Document.html)
+    - The  `Document` class has `page_content` and `metadata` attributes. 
+    - The `page_content` is the texutal content parsed from the document files. 
+    - The `metadata` can be user-defined and default (class defined) key-value pairs. These key-value pairs can be used for filtering the documents retrieved from the database.
+    - Filtering methods are not shown in this course. These methods will be well-documented in the database tool that you choose (explained later in the vectorDB section).
+
+![Langchain document class](../images/foundation-models/langchain-document-class.png "Langchain document class")
+
+- For details on langchain packages, please refer to their documentation and source-code.
+- If using an IDE (PyCharm, VSCode, etc), Ctrl click, or Command click on the package and it should open-up its source code.
+
+Now lets load some data.
+
+```python
+# data loaders
+from langchain_community.document_loaders import CSVLoader, DataFrameLoader, PyPDFLoader, Docx2txtLoader, UnstructuredRSTLoader, DirectoryLoader
+
+# Defining a class for data loaders. All data loaders are defined in this class
+class DataLoaders:
+    """
+    various data loaders
+    """
+    def __init__(self, data_dir_path):
+        self.data_dir_path = data_dir_path
+    
+    def csv_loader(self):
+        csv_loader_kwargs = {
+                            "csv_args":{
+                                "delimiter": ",",
+                                "quotechar": '"',
+                                },
+                            }
+        dir_csv_loader = DirectoryLoader(self.data_dir_path, glob="**/*.csv", use_multithreading=True,
+                                    loader_cls=CSVLoader, 
+                                    loader_kwargs=csv_loader_kwargs,
+                                    )
+        return dir_csv_loader
+    
+    def pdf_loader(self):
+        dir_pdf_loader = DirectoryLoader(self.data_dir_path, glob="**/*.pdf",
+                                    loader_cls=PyPDFLoader,
+                                    )
+        return dir_pdf_loader
+    
+    def word_loader(self):
+        dir_word_loader = DirectoryLoader(self.data_dir_path, glob="**/*.docx",
+                                    loader_cls=Docx2txtLoader,
+                                    )
+        return dir_word_loader
+    
+    def rst_loader(self):
+        rst_loader_kwargs = {
+                        "mode":"single"
+                        }
+        dir_rst_loader = DirectoryLoader(self.data_dir_path, glob="**/*.rst",
+                                    loader_cls=UnstructuredRSTLoader, 
+                                    loader_kwargs=rst_loader_kwargs
+                                    )
+        return dir_rst_loader
+```
+
+Load the data
+
+```python
+# load data
+data_dir_path = os.getenv('DATA_DIR_PATH', "data/docs")
+data_loader = DataLoaders(data_dir_path=data_dir_path)
+log.info("Loading files from directory %s", data_dir_path)
+# instantiate loaders
+dir_csv_loader = data_loader.csv_loader()
+dir_word_loader = data_loader.word_loader()
+dir_pdf_loader = data_loader.pdf_loader()
+dir_rst_loader = data_loader.rst_loader()
+# call load method
+csv_data = dir_csv_loader.load()
+word_data = dir_word_loader.load()
+pdf_data = dir_pdf_loader.load()
+rst_data = dir_rst_loader.load()
+```
+
+Since our test data only has pdf documents, only the `pdf_data` will have values. Lets see how the first document looks like :
+
+```python
+# only printing the first document in pdf_data
+for doc in pdf_data:
+    print(doc)
+    break
+```
+This will display the first document. The `page_content` will be the text content from the document and `metadata` gives you the page number and source file. The metadata field currently has default values, set by the class the document is loaded from (in this case PDFLoader class). For other classes, metadata would differ. For example, if loading a CSV file using CSVLoader, the `metadata` will have row number instead of page number. Users have the option to customize metadata as required by simple code changes.
+
+As seen from the `page_content` and `metadata` value, the first document only has the text data from the first page. Langchain PDFLoader loads pdf documents in pages. Each document will be one pdf page.
+
+#### Format the data
+
+As seen from the previous code block, each document is in a `Document` class with attributes `page_content` and `metadata`. We only need the textual content (page_content) to be accessed by the LLM. So lets reformat the documents accordingly. We still need `metadata` as it is useful for filtering purposes.
+
+Users could also customize `metadata` to have similar key-value pairs across different documents. This would be helpful if several types of documents are inserted into one database and the metadata is used to filter across them.
+
+Steps implemented in the below code block:
+- Convert data to a list of texts and metadata 
+- Custom metadata is set so that metadata is same for all different data sources.
+
+```python
+# get text and metadata from the data
+def get_text_metadatas(csv_data=None, pdf_data=None, word_data=None, rst_data=None):
+    """
+    Each document class has page_content and metadata properties
+    Separate text and metadata content from Document class
+    Have custom metadata if needed
+    """
+    csv_texts = [doc.page_content for doc in csv_data]
+    # custom metadata
+    csv_metadatas = [{'source': doc.metadata['source'], 'row_page': doc.metadata['row']} for doc in csv_data]   # metadata={'source': 'filename.csv', 'row': 0}
+    pdf_texts = [doc.page_content for doc in pdf_data]
+    pdf_metadatas = [{'source': doc.metadata['source'], 'row_page': doc.metadata['page']} for doc in pdf_data]  # metadata={'source': 'data/filename.pdf', 'page': 8}
+    word_texts = [doc.page_content for doc in word_data]
+    word_metadatas = [{'source': doc.metadata['source'], 'row_page': ''} for doc in word_data] 
+    rst_texts = [doc.page_content for doc in rst_data]
+    rst_metadatas = [{'source': doc.metadata['source'], 'row_page': ''} for doc in rst_data]         # metadata={'source': 'docs/images/architecture/index.rst'}
+
+    texts = csv_texts + pdf_texts + word_texts + rst_texts
+    metadatas = csv_metadatas + pdf_metadatas + word_metadatas + rst_metadatas
+    return texts, metadatas
+
+texts , metadatas = get_text_metadatas(csv_data, pdf_data, word_data, rst_data)
+```
+
+#### Chunking
+
+Chunking involves breaking large amounts of data into smaller, more manageable pieces. LLMs have limited context window and can't take in the entire dataset at once. For example, GPT-4 has a token limit of 128k. 
+Langchain document class also does chunking by page for pdf documents. However, we will need to make sure that all the content fit into the LLM token limit of 128k. So we will try splitting the documents meaningfuly. 
+We first split by pages, then by sections, then by paragraphs, then by new lines, then by sentences, by words and lastly by characters (eg. what if theres a word with more than 128k characters!). This is just making sure that no content is lost.
+
+![Chunking](../images/foundation-models/chunking.png "Chunking")
+
+```python
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.schema import Document
+from typing import List
+
+text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
+        chunk_size=1000,
+        chunk_overlap=200,
+        separators=[
+            "\n\n", "\n", ". ", " ", ""
+        ]  # try to split on paragraphs... fallback to sentences, then chars, ensure we always fit in context window
+    )
+
+docs: List[Document] = text_splitter.create_documents(texts=texts, metadatas=metadatas)
+```
+
+Now lets see if the first document changed and how many documents are there after chunking.
+
+```python
+print(docs[0])
+print("Number of documents: ", len(docs))
+```
+
+#### Vector embeddings
+
+Neural networks does not understand characters/texts. However, they understand numbers and are really good at numerical computation. Hence textual data is converted to vectors of real valued numbers.
+
+::: {.column-margin}
+![Word vectors](../images/foundation-models/word-vectors.png)
+:::
+
+Vector embeddings are mathematical representations of data points in a high-dimensional space. In the context of natural language processing:
+
+1. Word Embeddings: Individual words are represented as real-valued vectors in a multi-dimensional space.
+2. Semantic Capture: These embeddings capture the semantic meaning and relationships of the text.
+3. Similarity Principle: Words with similar meanings tend to have similar vector representations. 
+
+::: {.callout-tip collapse="false"}
+Throughout this course, "word embeddings", "vector embeddings" and "embeddings" would be used interchangably.
+:::
+
+![Vectors](../images/foundation-models/vectorDB-vectors.png)
+
+In the above example of vectors, "King" and "Queen" has the same relationship as "man" and "women". "King" is in at a similar distance from "man" and "queen" from "woman".
+
+These word embeddings are learned by feeding a model vast amounts of texts. Models specialized in generating these text embeddings are called embedding models. Word2Vec is one of the first (very basic) embedding model. GloVE model (from Google) was one of the more popular models that had learned word embeddings, ie., one of the first models that was trained as a word embedding model. 
+We will be using `text-embedding-ada-002` model for embeddings, which has a maximum token limit of 8191 according to OpenAI documentation. However, there are many open-source embedding models, eg., Llama embedding model. Checkout the HuggingFace [Embedding models leaderboard](https://huggingface.co/spaces/mteb/leaderboard) for comparison of different embedding models.
+
+```python
+# embeddings 
+from langchain_openai import OpenAIEmbeddings
+
+embeddings = OpenAIEmbeddings()
+```
+
+And now, we have completed step 1 of RAG
+**RAG - Retrieval Steps**
+
+~~1. Prepare data~~
+
+2. Create a knowledge base and insert data
+
+3. Search the knowledge base and retrieve relevant documents
+
 
 ### Knowledge database
 
@@ -59,20 +323,12 @@ In the age of burgeoning data complexity and high-dimensional information, tradi
 
 Vector databases have gained significant importance in various fields due to their unique ability to efficiently store, index, and search high-dimensional data points, often referred to as vectors. These databases are designed to handle data where each entry is represented as a vector in a multi-dimensional space. The vectors can represent a wide range of information, such as numerical features, embeddings from text or images, and even complex data like molecular structures.
 
-At the heart of vector databases lies the concept of vector embeddings. These are mathematical representations of data points in a high-dimensional space. In the context of natural language processing:
-
-1. Word Embeddings: Individual words are represented as real-valued vectors in a multi-dimensional space.
-2. Semantic Capture: These embeddings capture the semantic meaning and relationships of the text.
-3. Similarity Principle: Words with similar meanings tend to have similar vector representations.
-
-::: {.column-margin}
-![Fig : Vectors](../images/foundation-models/vectorDB-vectors.png)
-:::
+Vector databases store data as vector embeddings and are optimized for fast retrieval and similarity search. Vector database records are vectors and the distance between these vectors correspond to whether the vectors are similar or not. Vectors that are closer are more similar than vectors that are farther apart.  
 
 ##### How vector databases work
 Let’s start with a simple example of dealing with an LLM such as ChatGPT. The model has large volumes of data with a lot of content, and they provide us with the ChatGPT application.
 
-![Fig : VectorDB within RAG. Source: KDnuggets [blog post](https://www.kdnuggets.com/2023/06/vector-databases-important-llms.html)](../images/foundation-models/vectorDB.png)
+![VectorDB within RAG. Source: KDnuggets [blog post](https://www.kdnuggets.com/2023/06/vector-databases-important-llms.html)](../images/foundation-models/vectorDB.png)
 
 So let’s go through the steps.
 
@@ -85,7 +341,7 @@ When the user continues to make queries, it will go through the same embedding m
 
 Now lets see how it works in the vector database.
 
-![Fig : VectorDB pipeline. Source: pinecone [blog post](https://www.pinecone.io/learn/vector-database/)](../images/foundation-models/vectordb-working.png)
+![VectorDB pipeline. Source: pinecone [blog post](https://www.pinecone.io/learn/vector-database/)](../images/foundation-models/vectordb-working.png)
 
 The three main stages that a vector database query goes through are:
 
@@ -100,6 +356,43 @@ Once it has gone through its search, the vector database compares the queried ve
 3. Post Processing 
 
 Depending on the vector database you use, the vector database will post-process the final nearest neighbor to produce a final output to the query. As well as possibly re-ranking the nearest neighbors for future reference. 
+
+
+##### Inserting documents into VectorDB
+
+![Inserting into VectorDB. Source : [Blog.demir](https://blog.demir.io/hands-on-with-rag-step-by-step-guide-to-integrating-retrieval-augmented-generation-in-llms-ac3cb075ab6f)](../images/foundation-models/inserting-db.png)
+
+
+##### Vector store
+
+- We will use [Qdrant](https://qdrant.tech/) vector store for this example
+- For today we will use local memory as the vector store
+- Qdrant has a docker image that can be used to create a vector store and hosted remotely
+- One can configure a Qdrant docker image to run locally and have a Qdrant client which makes API request.
+- Qdrant creates a collection from the inserted documents (similar to a table in SQL databases)
+- Blog post on vector stores [link](https://medium.com/google-cloud/vector-databases-are-all-the-rage-872c888fa348)
+
+
+Lets create a Qdrant vector store in local memory
+
+```python
+# creating a qdrant vector store in local memory
+
+from langchain_community.vectorstores import Qdrant
+
+# qdrant collection name
+collection_name = os.getenv('QDRANT_COLLECTION_NAME', "data-collection")
+
+# create vector store in local memory
+vectorstore = Qdrant.from_documents(
+    documents=docs, # pass in the chunked docs
+    embedding=embeddings,  # use this embedding model
+    location=":memory:",  # Local mode with in-memory storage only
+    collection_name=collection_name,  # give a collection name
+    )
+```
+
+
 
 
 

@@ -104,11 +104,11 @@ Checkout "The Illustrated Transformer" (blog post)[https://jalammar.github.io/il
 
 
 ##### Attention Mechanism
-Attention is, to some extent, motivated by how we pay visual attention to different regions of an image or correlate words in one sentence [@weng2018attention]. we can explain the relationship between words in one sentence or close context. When we see “eating”, we expect to encounter a food word very soon. The color term describes the food, but probably not so much with “eating” directly.
+Attention is, to some extent, motivated by how we pay visual attention to different regions of an image or correlate words in one sentence [@weng2018attention]. We can explain the relationship between words in one sentence or close context. When we see “eating”, we expect to encounter a food word very soon. The color term describes the food, but probably not so much with “eating” directly.
 
 ![Fig : One word attends to other words in the same sentence differently](../images/foundation-models/human-attention.png)
 
-Check out Lilian Weng's blog post [@weng2018attention] on detailed overview of attention mechanism.
+Check out Lilian Weng's blog post [@weng2018attention] and MIT class on [deep learning](https://www.youtube.com/watch?v=ySEx_Bqxvvo) for detailed overview of attention mechanism.
 
 ##### Key components of transformer architecture:
 1. Self-Attention Mechanism:
@@ -260,7 +260,7 @@ LLM has not seen "your" data - the unique, often proprietary information that or
 
 3. Domain-Specific Knowledge Challenges
 
-When specific domain knowledge is required, the traditional approach has been to fine-tune the LLM. However, this process can be resource-intensive and may not always yield optimal results, especially for niche or rapidly evolving fields.
+When specific domain knowledge is required, the traditional approach has been to fine-tune the LLM. However, this process can be resource-intensive and may not always yield optimal results, especially for niche or rapidly evolving fields. For example, an LLM fine-tuned on chemistry domain might not be suitable for a researcher in a physics lab. Hence a particle-physics scientist will have to fine-tune a model on the lab-specific data, which might not be useful for a quantum physics lab.
 
 ::: {.column-margin}
 ![Fig : Fine-tuning LLMs. Image source : [datacamp blong](https://www.datacamp.com/tutorial/boost-llm-accuracy-retrieval-augmented-generation-rag-reranking)](../images/foundation-models/llmfinetuning.png)
@@ -336,4 +336,7 @@ Let's now compare the traditional LLM and RAG approaches
 | Hallucinations   | LLM response is grounded by relevant information from knowledge base   |
 | Out-of-date information | Update the knowledge base with new information  |
 
+RAG has multiple use-cases. One of the most common usecase is a chatbot that can answer specific questions. For example, lets say we have a chatbot that has the knowledge base of documentation on supercomputers. This chatbot could help users write scripts/jobs(SLURM scripts) to be submitted to supercomputers, can help guide users to specific section in the documentation if they are stuck, and might even help in debugging errors once their script runs on a supercomputer. If a new SLURM package is introduced, the supercomputer maintainers just need to update the SLURM documentation, which gets pulled into the knowledge base. Hence the chatbot will always have access to the latest information.
+
+More detailed information about RAG and its implementation will be discussed in detail in the hands-on part.
 
