@@ -272,13 +272,15 @@ One example of RL is the Actor-Critic model, which divides the learning process 
 
  ![Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. [@norvig2004ai]](../images/ai-for-all/llm.png){.lightbox width=70%}
 
+ **Transformers**, introduced in 2017, revolutionized NLP by introducing a mechanism called self-attention. Unlike previous models like Recurrent Neural Networks (RNNs) that processed language sequentially, Transformers use self-attention to assess relationships between all words in a sentence simultaneously. This allows them to dynamically focus on different parts of the input text and weigh the importance of each word in relation to others. This allows them to understand context and meaning with much better accuracy.
+
+ ![Figure 2.10: Evolution of Natural Languge Processing. Source[@norvig2004ai] ](../images/ai-for-all/llm2.png){.lightbox width=80%}
+
+
  The success of LLMs has driven AI’s recent surge in popularity and research. Between 2010 and 2022, the volume of AI-related publications nearly tripled, climbing from about 88,000 in 2010 to over 240,000 by 2022. Likewise, AI patent filings have skyrocketed, increasing from roughly 3,500 in 2010 to over 190,000 in 2022. In the first half of 2024 alone, AI and machine learning companies in the United States attracted $38.6 billion in investment out of a total of $93.4 billion. [@pitchbook2024aiml]
 
-![Figure 2.10: Evolution of Natural Languge Processing. Source[@norvig2004ai] ](../images/ai-for-all/llm2.png){.lightbox width=70%}
-
-**Transformers**, introduced in 2017, revolutionized NLP by introducing a mechanism called self-attention. Unlike previous models like Recurrent Neural Networks (RNNs) that processed language sequentially, Transformers use self-attention to assess relationships between all words in a sentence simultaneously. This allows them to dynamically focus on different parts of the input text and weigh the importance of each word in relation to others. This allows them to understand context and meaning with much better accuracy.
-
 :::
+
 
 
 ## AI Beyond Machine Learning
