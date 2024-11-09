@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -412,13 +432,13 @@ What is ML?
 </section>
 <section id="neural-networks" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="neural-networks"><span class="header-section-number">2.3</span> Neural Networks</h2>
-<p>NNs are loosely inspired by the structure of the human brain and consist of interconnected nodes, or neurons, that process information. The principle “neurons that fire together, wire together” <span class="citation" data-cites="hebb1949"><a href="../references.html#ref-hebb1949" role="doc-biblioref"><strong>hebb1949?</strong></a></span> captures the idea that the strength of their connections, known as weights, adjusts based on experience.</p>
+<p>NNs are loosely inspired by the structure of the human brain and consist of interconnected nodes, or neurons, that process information. The principle “neurons that fire together, wire together” <span class="citation" data-cites="hebb1949"><a href="../references.html#ref-hebb1949" role="doc-biblioref">[1]</a></span> captures the idea that the strength of their connections, known as weights, adjusts based on experience.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/neural_network1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 2.1: Source [@norvig2004ai] The parts of neuron: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses."><img src="../images/ai-for-all/neural_network1.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.1: Source norvig2004ai? The parts of neuron: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses."></a></p>
-<figcaption>Figure 2.1: Source <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref"><strong>norvig2004ai?</strong></a></span> <strong>The parts of neuron</strong>: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses.</figcaption>
+<p><a href="../images/ai-for-all/neural_network1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 2.1: Source [@norvig2004ai] The parts of neuron: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses."><img src="../images/ai-for-all/neural_network1.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.1: Source [2] The parts of neuron: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses."></a></p>
+<figcaption>Figure 2.1: Source <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span> <strong>The parts of neuron</strong>: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses.</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
@@ -443,7 +463,7 @@ What is NN?
 <p><strong>Neural Network (NN)</strong> is a foundational technique within the field of machine learning. NNs are designed to simulate the way the human brain processes information by using a series of connected layers, or neurons, that transform and interpret input data.</p>
 </div>
 </div>
-<p>The Perceptron <span class="citation" data-cites="rosenblatt1958perceptron"><a href="../references.html#ref-rosenblatt1958perceptron" role="doc-biblioref"><strong>rosenblatt1958perceptron?</strong></a></span>, one of the earliest neural network models, was invented in 1957 by psychologist Frank Rosenblatt, who unfortunately did not live long enough to witness the far-reaching impact of his work. Rosenblatt’s Perceptron was a physical machine with retina-like sensors as inputs, wires acting as the hidden layers, and a binary output system. This invention marked the early stages of artificial intelligence, laying the groundwork for the powerful neural networks we use today.</p>
+<p>The Perceptron <span class="citation" data-cites="rosenblatt1958perceptron"><a href="../references.html#ref-rosenblatt1958perceptron" role="doc-biblioref">[3]</a></span>, one of the earliest neural network models, was invented in 1957 by psychologist Frank Rosenblatt, who unfortunately did not live long enough to witness the far-reaching impact of his work. Rosenblatt’s Perceptron was a physical machine with retina-like sensors as inputs, wires acting as the hidden layers, and a binary output system. This invention marked the early stages of artificial intelligence, laying the groundwork for the powerful neural networks we use today.</p>
 <p><a href="../images/ai-for-all/frank_rosenblatt.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images/ai-for-all/frank_rosenblatt.png" class="img-fluid" style="width:100.0%"></a></p>
 </section>
 <section id="exercise-nn-playground" class="level2" data-number="2.4">
@@ -582,8 +602,8 @@ Deep Learning
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/deep_learning2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 2.5: Source: Artificial Intelligence - A modern approach. [@norvig2004ai]"><img src="../images/ai-for-all/deep_learning2.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.5: Source: Artificial Intelligence - A modern approach. norvig2004ai?"></a></p>
-<figcaption>Figure 2.5: Source: Artificial Intelligence - A modern approach. <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref"><strong>norvig2004ai?</strong></a></span></figcaption>
+<p><a href="../images/ai-for-all/deep_learning2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 2.5: Source: Artificial Intelligence - A modern approach. [@norvig2004ai]"><img src="../images/ai-for-all/deep_learning2.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.5: Source: Artificial Intelligence - A modern approach. [2]"></a></p>
+<figcaption>Figure 2.5: Source: Artificial Intelligence - A modern approach. <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></figcaption>
 </figure>
 </div>
 <div class="caption-text">
@@ -599,7 +619,7 @@ Deep Learning
 <figcaption>Figure 2.6: Organogram of AI algorithms.</figcaption>
 </figure>
 </div>
-<p>Despite advances in backpropagation, deep learning, computing power, and optimization, neural networks still face the problem known as <em>catastrophic forgetting</em> — losing old knowledge when trained on new tasks. Current AI models are often “frozen” and specialized, needing complete retraining for updates, unlike even simple animals that can continuously learn without forgetting <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref"><strong>bennett2023history?</strong></a></span>. This limitation is one of the reason that led to the development of specialized deep learning models, each with unique architectures tailored to specific tasks. Let’s explore how each of these models can be applied in scientific research!</p>
+<p>Despite advances in backpropagation, deep learning, computing power, and optimization, neural networks still face the problem known as <em>catastrophic forgetting</em> — losing old knowledge when trained on new tasks. Current AI models are often “frozen” and specialized, needing complete retraining for updates, unlike even simple animals that can continuously learn without forgetting <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref">[4]</a></span>. This limitation is one of the reason that led to the development of specialized deep learning models, each with unique architectures tailored to specific tasks. Let’s explore how each of these models can be applied in scientific research!</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Convolutional Neural Networks">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -617,12 +637,12 @@ Convolutional Neural Networks
 <p><strong>Application</strong>: CNNs are highly effective for image-related tasks, making them ideal for analyzing satellite or drone imagery in ecology, identifying structures in biomedical imaging, and classifying galaxies in astrophysics.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/cnn.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure 2.7: Source (Bennett, 2023) [@bennett2023history] Convolutional Neural Networks"><img src="../images/ai-for-all/cnn.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.7: Source (Bennett, 2023) bennett2023history? Convolutional Neural Networks"></a></p>
-<figcaption>Figure 2.7: Source (Bennett, 2023) <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref"><strong>bennett2023history?</strong></a></span> Convolutional Neural Networks</figcaption>
+<p><a href="../images/ai-for-all/cnn.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure 2.7: Source (Bennett, 2023) [@bennett2023history] Convolutional Neural Networks"><img src="../images/ai-for-all/cnn.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.7: Source (Bennett, 2023) [4] Convolutional Neural Networks"></a></p>
+<figcaption>Figure 2.7: Source (Bennett, 2023) <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref">[4]</a></span> Convolutional Neural Networks</figcaption>
 </figure>
 </div>
 <p><strong>Limitations of CNNs</strong></p>
-<p>Ironically, though CNNs were inspired by the mammalian visual system, they struggle with tasks that even simpler animals like fish handle easily. CNNs have trouble with rotated or differently angled objects. Current work around it is to have variations of object images in training data with all kinds of different angles <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref"><strong>bennett2023history?</strong></a></span>.</p>
+<p>Ironically, though CNNs were inspired by the mammalian visual system, they struggle with tasks that even simpler animals like fish handle easily. CNNs have trouble with rotated or differently angled objects. Current work around it is to have variations of object images in training data with all kinds of different angles <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref">[4]</a></span>.</p>
 <p>While CNNs follow a layered structure, recent research reveals that the brain’s visual processing is more flexible and not as hierarchical as once believed. Our visual system can “skip” layers or process information in parallel, allowing simultaneous handling of different types of visual input across various brain regions.</p>
 </div>
 </div>
@@ -663,7 +683,7 @@ Reinforcement Learning
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Reinforcement Learning (RL)</strong> is a learning technique in which an agent interacts with the environment and periodically receives rewards (reinforcements) or penalties to achieve a goal.</p>
-<p>With supervised learning, an agent learns by passively observing example input/output pairs provided by a “teacher.” Reinforcement Learning is one of the attempts to solve the <em>catastrophic forgetting</em> problem and introduce <em>AI agents</em> that can actively learn from their own experience in a given environment.<span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref"><strong>norvig2004ai?</strong></a></span></p>
+<p>With supervised learning, an agent learns by passively observing example input/output pairs provided by a “teacher.” Reinforcement Learning is one of the attempts to solve the <em>catastrophic forgetting</em> problem and introduce <em>AI agents</em> that can actively learn from their own experience in a given environment.<span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/ai-for-all/rl.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 2.8: Reinforcement Learning"><img src="../images/ai-for-all/rl.png" class="float-right img-fluid figure-img" style="width:50.0%" alt="Figure 2.8: Reinforcement Learning"></a></p>
@@ -671,7 +691,7 @@ Reinforcement Learning
 </figure>
 </div>
 <p><strong>Applications</strong>: RL is applied in robotics and can also assist with experiment simulation in science, environmental monitoring, autonomous driving, and creating AI opponents in gaming.</p>
-<p>One example of RL is the Actor-Critic model, which divides the learning process into two roles: the Actor, who explores the environment and makes decisions, and the Critic, who evaluates these actions. The Critic provides feedback on the quality of each action, helping the Actor balance exploration (trying new actions) with exploitation (choosing actions with known rewards). Recent research has explored various algorithms to model curiosity in artificial agents <span class="citation" data-cites="curiosityalgorithm2022"><a href="../references.html#ref-curiosityalgorithm2022" role="doc-biblioref"><strong>curiosityalgorithm2022?</strong></a></span> <span class="citation" data-cites="wang2024curiosity"><a href="../references.html#ref-wang2024curiosity" role="doc-biblioref"><strong>wang2024curiosity?</strong></a></span>.</p>
+<p>One example of RL is the Actor-Critic model, which divides the learning process into two roles: the Actor, who explores the environment and makes decisions, and the Critic, who evaluates these actions. The Critic provides feedback on the quality of each action, helping the Actor balance exploration (trying new actions) with exploitation (choosing actions with known rewards). Recent research has explored various algorithms to model curiosity in artificial agents <span class="citation" data-cites="curiosityalgorithm2022"><a href="../references.html#ref-curiosityalgorithm2022" role="doc-biblioref">[5]</a></span> <span class="citation" data-cites="wang2024curiosity"><a href="../references.html#ref-wang2024curiosity" role="doc-biblioref">[6]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -690,15 +710,15 @@ LLMs: Transformers
 <p><strong>Large Language Models (LLM)</strong> are a type of neural network that has revolutionized natural language processing (NLP). Trained on massive datasets, these models can generate human-like text, translate languages, create various forms of content, and answer questions informatively (e.g., GPT-3, Gemini, Llama).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/llm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. [@norvig2004ai]"><img src="../images/ai-for-all/llm.png" class="img-fluid figure-img" style="width:70.0%" alt="Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. norvig2004ai?"></a></p>
-<figcaption>Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref"><strong>norvig2004ai?</strong></a></span></figcaption>
+<p><a href="../images/ai-for-all/llm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. [@norvig2004ai]"><img src="../images/ai-for-all/llm.png" class="img-fluid figure-img" style="width:70.0%" alt="Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. [2]"></a></p>
+<figcaption>Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></figcaption>
 </figure>
 </div>
-<p>The success of LLMs has driven AI’s recent surge in popularity and research. Between 2010 and 2022, the volume of AI-related publications nearly tripled, climbing from about 88,000 in 2010 to over 240,000 by 2022. Likewise, AI patent filings have skyrocketed, increasing from roughly 3,500 in 2010 to over 190,000 in 2022. In the first half of 2024 alone, AI and machine learning companies in the United States attracted $38.6 billion in investment out of a total of $93.4 billion. <span class="citation" data-cites="pitchbook2024aiml"><a href="../references.html#ref-pitchbook2024aiml" role="doc-biblioref"><strong>pitchbook2024aiml?</strong></a></span></p>
+<p>The success of LLMs has driven AI’s recent surge in popularity and research. Between 2010 and 2022, the volume of AI-related publications nearly tripled, climbing from about 88,000 in 2010 to over 240,000 by 2022. Likewise, AI patent filings have skyrocketed, increasing from roughly 3,500 in 2010 to over 190,000 in 2022. In the first half of 2024 alone, AI and machine learning companies in the United States attracted $38.6 billion in investment out of a total of $93.4 billion. <span class="citation" data-cites="pitchbook2024aiml"><a href="../references.html#ref-pitchbook2024aiml" role="doc-biblioref">[7]</a></span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/llm2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 2.10: Evolution of Natural Languge Processing. Source[@norvig2004ai]"><img src="../images/ai-for-all/llm2.png" class="img-fluid figure-img" style="width:70.0%" alt="Figure 2.10: Evolution of Natural Languge Processing. Sourcenorvig2004ai?"></a></p>
-<figcaption>Figure 2.10: Evolution of Natural Languge Processing. Source<span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref"><strong>norvig2004ai?</strong></a></span></figcaption>
+<p><a href="../images/ai-for-all/llm2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 2.10: Evolution of Natural Languge Processing. Source[@norvig2004ai]"><img src="../images/ai-for-all/llm2.png" class="img-fluid figure-img" style="width:70.0%" alt="Figure 2.10: Evolution of Natural Languge Processing. Source[2]"></a></p>
+<figcaption>Figure 2.10: Evolution of Natural Languge Processing. Source<span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></figcaption>
 </figure>
 </div>
 <p><strong>Transformers</strong>, introduced in 2017, revolutionized NLP by introducing a mechanism called self-attention. Unlike previous models like Recurrent Neural Networks (RNNs) that processed language sequentially, Transformers use self-attention to assess relationships between all words in a sentence simultaneously. This allows them to dynamically focus on different parts of the input text and weigh the importance of each word in relation to others. This allows them to understand context and meaning with much better accuracy.</p>
@@ -770,6 +790,29 @@ LLMs: Transformers
 <p><strong>YouTube:</strong> <a href="https://youtube.com/@dorkmattergirl">Dork Matter Girl</a></p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-hebb1949" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">D. O. Hebb, <em>The organization of behavior: A neuropsychological theory</em>. New York: Wiley, 1949. Available: <a href="https://en.wikipedia.org/wiki/The_Organization_of_Behavior">https://en.wikipedia.org/wiki/The_Organization_of_Behavior</a></div>
+</div>
+<div id="ref-norvig2004ai" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">P. Norvig and S. J. Russell, <em>Artificial intelligence: A modern approach</em>, 3rd ed. Pearson, 2004. Available: <a href="https://books.google.com/books/about/Artificial_Intelligence.html?id=8jZBksh-bUMC">https://books.google.com/books/about/Artificial_Intelligence.html?id=8jZBksh-bUMC</a></div>
+</div>
+<div id="ref-rosenblatt1958perceptron" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">F. Rosenblatt, <span>“The perceptron: A probabilistic model for information storage and organization in the brain,”</span> <em>Psychological Review</em>, vol. 65, no. 6, pp. 386–408, 1958, doi: <a href="https://doi.org/10.1037/H0042519">10.1037/H0042519</a>.</div>
+</div>
+<div id="ref-bennett2023history" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">M. Bennett, <em>A brief history of intelligence: Evolution, AI, and the five breakthroughs that made our brains</em>, Hardcover. Harper, 2023.</div>
+</div>
+<div id="ref-curiosityalgorithm2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">D. Kawahara, S. Ozeki, and I. Mizuuchi, <span>“A curiosity algorithm for robots based on the free energy principle,”</span> pp. 53–59, 2022, doi: <a href="https://doi.org/10.1109/SII52469.2022.9708819">10.1109/SII52469.2022.9708819</a>.</div>
+</div>
+<div id="ref-wang2024curiosity" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">T. Wang, F. Wang, Z. Xie, and F. Qin, <span>“Curiosity model policy optimization for robotic manipulator tracking control with input saturation in uncertain environment,”</span> <em>Frontiers in Neurorobotics</em>, vol. 18, 2024, doi: <a href="https://doi.org/10.3389/fnbot.2024.1376215">10.3389/fnbot.2024.1376215</a>.</div>
+</div>
+<div id="ref-pitchbook2024aiml" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">Inc. PitchBook Data, <span>“Artificial intelligence &amp; machine learning report, Q2 2024,”</span> PitchBook, 2024. Available: <a href="https://pitchbook.com/news/reports/q2-2024-artificial-intelligence-machine-learning-report">https://pitchbook.com/news/reports/q2-2024-artificial-intelligence-machine-learning-report</a></div>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1206,7 +1249,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
