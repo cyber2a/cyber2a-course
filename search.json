@@ -128,64 +128,86 @@
   {
     "objectID": "sections/ai-for-everyone.html",
     "href": "sections/ai-for-everyone.html",
-    "title": "2  AI for Everyone",
+    "title": "2  AI for Everyone: An Introductory Overview",
     "section": "",
-    "text": "2.1 Learning Objectives\nThis session introduces AI to a non-specialist audience, ensuring participants can understand essential concepts. The focus is on key terminology and principles of machine learning (ML), deep learning (DL), and neural networks (NN). By the end of this session, participants will have foundational knowledge of AI concepts to engage with more advanced topics.\nSlides Link:",
+    "text": "Goals\nThis session aims to introduce AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions.",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
     ]
   },
   {
-    "objectID": "sections/ai-for-everyone.html#table-of-contents",
-    "href": "sections/ai-for-everyone.html#table-of-contents",
-    "title": "2  AI for Everyone",
-    "section": "2.2 Table of Contents",
-    "text": "2.2 Table of Contents\n\nWhat is AI? History and Challenges\nTypes and Techniques\nWorking with Data\nThe Role of AI in Modern Research\nThe Future of AI & Science\nHands-On: Setting up the Coding Environment",
+    "objectID": "sections/ai-for-everyone.html#the-foundations-of-ai",
+    "href": "sections/ai-for-everyone.html#the-foundations-of-ai",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "2.1 The Foundations of AI",
+    "text": "2.1 The Foundations of AI\nBefore reading the definition, take a moment: What do you think AI is? How would you define it?\n\n\n\n\n\n\nWhat is AI?\n\n\n\nArtificial Intelligence (AI) refers to the development of computer systems capable of performing tasks that typically require cognitive functions associated with human intelligence, such as recognizing patterns, learning from data, and making predictions.\n\n\nBut… there is a minor issue with this definition. What exactly is human intelligence?\nRecognizing patterns, learning, and making predictions are all functions of intelligence, but what lies at the core of a “conscious human”? Why is self-awareness important in cognition, and what evolutionary function does subjective, conscious experience serve?\nIn the philosophy of mind, this phenomenon is referred to as qualia, and there is still no definitive scientific answer to why qualia exist—at least, not yet (see theories of consciousness for more information).\nBut today, let’s focus on a simpler question. How do humans think?\nHistorically, before the 1950s–1960s, scientists believed humans think through a series of if/else statements (e.g., “If I drink more coffee, I’ll be jittery,” or “If a seagull spots my pizza, it’ll try to snatch a bite”). Geoffrey Hinton, a cognitive psychologist and computer scientist, was one of the advocates for an opposing idea: that humans think more experientially or probabilistically. For instance, based on the cloud cover today and similar past experiences, there’s a high probability of rain, so I’ll grab an umbrella. This idea laid the foundation for probabilistic algorithms and, ultimately, the field of Machine Learning.",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
     ]
   },
   {
-    "objectID": "sections/ai-for-everyone.html#what-is-ai",
-    "href": "sections/ai-for-everyone.html#what-is-ai",
-    "title": "2  AI for Everyone",
-    "section": "2.3 What is AI?",
-    "text": "2.3 What is AI?\nArtificial Intelligence (AI) refers to computer systems capable of performing tasks requiring cognitive functions, such as recognizing patterns, learning from data, and making predictions.\nBut what is human intelligence? Well, we don’t really know…\nLet’s focus on a simpler question. \nWe think experientially or in other words, probabilistically.",
+    "objectID": "sections/ai-for-everyone.html#machine-learning",
+    "href": "sections/ai-for-everyone.html#machine-learning",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "2.2 Machine Learning",
+    "text": "2.2 Machine Learning\nTo quickly recap, AI is a broad term encompassing efforts to replicate aspects of human cognition. Machine Learning is a subset of AI that focuses on algorithms enabling computers to learn from data and build probabilistic models.\n\n\n\n\n\n\nWhat is ML?\n\n\n\nMachine Learning (ML) is a subset of AI that specifically focuses on algorithms that allow computers to learn from data and create probabilistic models.\n\n\n\n\n\nSource: Original comic by sandserif\n\n\nMachine Learning includes various types and techniques, but in this workshop we’ll primarily focus on Neural Networks (NNs).",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
     ]
   },
   {
-    "objectID": "sections/ai-for-everyone.html#ai-types-and-techniques",
-    "href": "sections/ai-for-everyone.html#ai-types-and-techniques",
-    "title": "2  AI for Everyone",
-    "section": "2.4 AI Types and Techniques",
-    "text": "2.4 AI Types and Techniques\n\n2.4.1 Machine Learning (ML)\n\n\nSupervised Learning: Training on labeled data.\nUnsupervised Learning: Discovering patterns within unlabeled data.\nSemi-Supervised: Training on autogenerated labeles.\nReinforcement Learning (RL): An agent learns by interacting with an environment, commonly used in robotics.\n\n\n\n2.4.2 Neural Networks (NN)\nNeural Networks are loosely inspired by the brain’s structure, NNs consist of interconnected nodes (neurons) that process information. NN Playground:\n   \n\n\n2.4.3 Deep Learning\n   \n\nConvolutional Neural Networks (CNN) are specialized for processing structured data, like images.\nLarge Language Models (LLM) are neural networks that understand and generate human language (e.g., GPT-3).\nRecurrent Neural Networks (RNN) handle sequential data by remembering previous inputs,. They are used for tasks like speech recognition and time series.",
+    "objectID": "sections/ai-for-everyone.html#neural-networks",
+    "href": "sections/ai-for-everyone.html#neural-networks",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "2.3 Neural Networks",
+    "text": "2.3 Neural Networks\nNNs are loosely inspired by the structure of the human brain and consist of interconnected nodes, or neurons, that process information. The principle “neurons that fire together, wire together” hebb1949? captures the idea that the strength of their connections, known as weights, adjusts based on experience.\n\n\n\n\n\nFigure 2.1: Source norvig2004ai? The parts of neuron: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses.\n\n\n\n\n\n\nFigure 2.2: Structure of a neural network: Ramón y Cajal’s drawing of the cells of the chick cerebellum, from Estructura de los centros nerviosos de las aves, Madrid, 1905\n\n\n\n\n\n\n\n\n\n\nWhat is NN?\n\n\n\nNeural Network (NN) is a foundational technique within the field of machine learning. NNs are designed to simulate the way the human brain processes information by using a series of connected layers, or neurons, that transform and interpret input data.\n\n\nThe Perceptron rosenblatt1958perceptron?, one of the earliest neural network models, was invented in 1957 by psychologist Frank Rosenblatt, who unfortunately did not live long enough to witness the far-reaching impact of his work. Rosenblatt’s Perceptron was a physical machine with retina-like sensors as inputs, wires acting as the hidden layers, and a binary output system. This invention marked the early stages of artificial intelligence, laying the groundwork for the powerful neural networks we use today.",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
     ]
   },
   {
-    "objectID": "sections/ai-for-everyone.html#data",
-    "href": "sections/ai-for-everyone.html#data",
-    "title": "2  AI for Everyone",
-    "section": "2.5 Data",
-    "text": "2.5 Data\n“Garbage in, garbage out”, or quality data leads to accurate models.\n\nStructured Data: Clearly defined types (e.g., temperature readings).\nUnstructured Data: Complex formats (e.g., satellite imagery), requiring preprocessing.\n\nKey takeaway: Data is the foundation for accurate predictions and insights in AI.",
+    "objectID": "sections/ai-for-everyone.html#exercise-nn-playground",
+    "href": "sections/ai-for-everyone.html#exercise-nn-playground",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "2.4 Exercise: NN Playground",
+    "text": "2.4 Exercise: NN Playground\n\n\n\n\n\n\nWeb-based app, no setup or account required: playground.tensorflow.org\n\n\n\n\n\n\n.\n\n\nLevel 1: Browse around\n\nSwitch between different choices of datasets (on the left). See if anything changes.\nAdjust the ratio of training to test data. Does the quality of the output vary?\nExperiment with noise and batch size parameters. How does the output change?\n\nOrange indicates negative values, while blue represents positive values. Typically, an 80/20 split for training and testing data is used. Smaller datasets may need a 90% training portion for more examples, while larger datasets can reduce training data to increase test samples. Background colors illustrate the network’s predictions, with more intense colors representing higher confidence in its prediction. Adding noise during training helps the model generalize by recognizing true patterns, enhancing robustness and stability with real-world noisy data.\nLevel 2: Things to try\n\nAdd or remove hidden layers. Notice how it affects the neural network’s performance?\n\n\n\n\n\n\n\nHidden Layers\n\n\n\nHidden Layers are the layers that are neither input nor output. You can think of the values computed at each layer of the network as a different representation for the input X. Each layer transforms the representation produced by the preceding layer to produce a new representation.\n\n\n\nChange the number of neurons in the hidden layers. Can you see any impact on model predictions?\n\nStart with one hidden layer and one or two neurons, observing predictions (orange vs. blue background) against actual data points (orange vs. blue dots). With minimal layers and neurons, predictions are often inaccurate. Increasing hidden layers and neurons improves alignment with the actual data, illustrating how added complexity helps the model learn and approximate complex patterns more accurately.\nLevel 3: More things to try!\n\nExperiment with different features to see their impact on predictions.\nManually adjust the weight. You can see that the thickness of the line changed, which represents the strength of the connection.\n\n\n\n\n\n\n\nWeights\n\n\n\nWeights are parameters within the neural network that transform input data as it passes through layers. They determine the strength of connections between neurons, with each weight adjusting how much influence one neuron has on another. During training, the network adjusts these weights to reduce errors in predictions.\n\n\n\nChange the learning rate to observe its effect on training speed and accuracy.\nTry various activation functions to see how they influence model performance.\nExperiment with different problem types (e.g., classification vs. regression) and analyze the outcomes.\n\nAs you press the play button, you can see the number of epochs increase. In an Artificial Neural Network, an epoch represents one complete pass through the training dataset.\n\n\n\n\n\n\nLearning rate\n\n\n\nThe learning rate is a key setting or hyperparameter that controls how much a model adjusts its weights during training. A higher rate speeds up learning but risks overshooting the optimal solution, while a lower rate makes learning more precise but slower. It’s one of the most crucial settings when building a neural network.",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
     ]
   },
   {
-    "objectID": "sections/ai-for-everyone.html#rapid-surge-in-ai-talk-why-now",
-    "href": "sections/ai-for-everyone.html#rapid-surge-in-ai-talk-why-now",
-    "title": "2  AI for Everyone",
-    "section": "2.6 Rapid Surge in AI Talk: Why Now?",
-    "text": "2.6 Rapid Surge in AI Talk: Why Now?\n\n2.6.1 Brief History:\n\n1986: Backpropagation was introduced by Geoffrey Hinton and colleagues, revolutionizing neural networks by enabling them to adjust weights and improve through learning. This breakthrough laid the foundation for modern deep learning.\n2017: The Transformer architecture was introduced, which transformed natural language processing (NLP) using an attention mechanism. It allowed models to weigh the importance of words in a sequence and process entire sentences in parallel, significantly improving efficiency and accuracy.\n2018-2020: The combination of backpropagation, advanced computing power (GPUs, cloud technology), and the availability of large datasets led to the rise of Large Language Models (LLMs) like GPT-3, with 175 billion parameters, capable of generating human-like text and answering questions.\n\nKey takeaway: The transformer model paved the way for advanced LLMs like GPT-3, driving the current AI surge. Advancements in computing power allowed these models to process massive datasets quickly, enabling them to generate highly accurate predictions, perform complex tasks, and revolutionize fields such as language processing, automation, and research.",
+    "objectID": "sections/ai-for-everyone.html#backpropagation",
+    "href": "sections/ai-for-everyone.html#backpropagation",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "2.5 Backpropagation",
+    "text": "2.5 Backpropagation\nInitially, neural networks were quite shallow feed-forward networks. Adding more hidden layers made training them difficult. However, in the 1980s—often referred to as the rebirth of AI—the invention of the backpropagation algorithm revolutionized the field. It allowed for efficient error correction and gradient calculation across layers, making it possible to train much deeper networks than before.\n\n\n\n\n\n\nWhat is backpropagation?\n\n\n\nBackpropagation is an algorithm that calculates the error at the output layer of a neural network and then “back propagates” this error through the network, layer by layer. It updates the connections (weights) between neurons to reduce the error, allowing the model to improve its accuracy during training.\n\n\n\n\n\n\n\nFigure 2.3: Backpropagation\n\n\n\n\n\n\nFigure 2.4: Source (3Blue1Brown)\n\n\n\n\nThus, the backpropagation algorithm enabled the training of neural networks with multiple layers, laying the foundation for the field of deep learning.",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#deep-learning",
+    "href": "sections/ai-for-everyone.html#deep-learning",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "2.6 Deep Learning",
+    "text": "2.6 Deep Learning\n\n\n\n\n\n\nDeep Learning\n\n\n\nDeep Learning (DL) is a subset of ML, that uses multilayered neural networks, called deep neural networks.\n\n\n\n\n\nFigure 2.5: Source: Artificial Intelligence - A modern approach. norvig2004ai?\n\n\n\nFigure 2.7: (a) A shallow model, such as linear regression, has short computation paths between inputs and output. (b) A decision list network has some long paths for some possible input values, but most paths are short. (c) A deep learning network has longer computation paths, allowing each variable to interact with all the others.\n\nDeep learning (DL) techniques are typically classified into three categories: supervised, semi-supervised, and unsupervised. Additionally, reinforcement learning (RL) is often considered a partially supervised technique, sometimes overlapping with unsupervised methods.\nSupervised Learning involves learning from labeled data, where models directly learn from input-output pairs. Common examples include Recurrent Neural Networks (RNNs), Convolutional Neural Networks (CNNs), and Transformers. These models are generally simpler in terms of training and achieve high performance.\nSemi-Supervised Learning combines a small amount of labeled data with a large amount of unlabeled data, often using auto-labeling techniques. Examples include Self-training models, where a model iteratively labels data to improve, and Graph Neural Networks (GNNs), which are useful for understanding relationships between data points.\nUnsupervised Learning relies on unlabeled data, focusing on identifying patterns or structures. Popular models include Autoencoders, Generative Adversarial Networks (GANs), and Restricted Boltzmann Machines (RBMs).\n\n\n\nFigure 2.6: Organogram of AI algorithms.\n\n\nDespite advances in backpropagation, deep learning, computing power, and optimization, neural networks still face the problem known as catastrophic forgetting — losing old knowledge when trained on new tasks. Current AI models are often “frozen” and specialized, needing complete retraining for updates, unlike even simple animals that can continuously learn without forgetting bennett2023history?. This limitation is one of the reason that led to the development of specialized deep learning models, each with unique architectures tailored to specific tasks. Let’s explore how each of these models can be applied in scientific research!\n\n\n\n\n\n\nConvolutional Neural Networks\n\n\n\n\n\nConvolutional Neural Networks (CNN) are artificial neural networks designed to process structured data like images. Originally inspired by the mammalian visual cortex, CNNs attempt to mimic how our brains process visual information in layers. First, brains interpret basic shapes like lines and edges and then move to more complex structures, like recognizing a dog ear or the whole animal. This feature, known as “invariance” allows us to recognize objects even if they’re rotated or appear in a different part of our vision.\nCNNs simulate this by using small, repeated filters, or kernels, that scan parts of an image to find basic shapes, edges, and textures, regardless of their location. This scanning process, called convolution, enables early CNN layers to detect simple patterns (like lines) and deeper layers to identify more complex shapes or objects.\nApplication: CNNs are highly effective for image-related tasks, making them ideal for analyzing satellite or drone imagery in ecology, identifying structures in biomedical imaging, and classifying galaxies in astrophysics.\n\n\n\nFigure 2.7: Source (Bennett, 2023) bennett2023history? Convolutional Neural Networks\n\n\nLimitations of CNNs\nIronically, though CNNs were inspired by the mammalian visual system, they struggle with tasks that even simpler animals like fish handle easily. CNNs have trouble with rotated or differently angled objects. Current work around it is to have variations of object images in training data with all kinds of different angles bennett2023history?.\nWhile CNNs follow a layered structure, recent research reveals that the brain’s visual processing is more flexible and not as hierarchical as once believed. Our visual system can “skip” layers or process information in parallel, allowing simultaneous handling of different types of visual input across various brain regions.\n\n\n\n\n\n\n\n\n\nRecurrent Neural Networks\n\n\n\n\n\nRecurrent Neural Networks (RNN) are artificial neural networks designed to process sequential data. By incorporating cycles in their computation graph, RNNs can “remember” previous inputs, making them especially useful for tasks where context is important.\nApplication: These models are commonly used for time series data, such as weather forecasting, monitoring ecological changes over time, and analyzing temporal patterns in genomic data.\n\n\n\nFigure 2.8: Recurrent Neural Network. Source: dataaspirant.com\n\n\n\n\n\n\n\n\n\n\n\nReinforcement Learning\n\n\n\n\n\nReinforcement Learning (RL) is a learning technique in which an agent interacts with the environment and periodically receives rewards (reinforcements) or penalties to achieve a goal.\nWith supervised learning, an agent learns by passively observing example input/output pairs provided by a “teacher.” Reinforcement Learning is one of the attempts to solve the catastrophic forgetting problem and introduce AI agents that can actively learn from their own experience in a given environment.norvig2004ai?\n\n\n\nFigure 2.8: Reinforcement Learning\n\n\nApplications: RL is applied in robotics and can also assist with experiment simulation in science, environmental monitoring, autonomous driving, and creating AI opponents in gaming.\nOne example of RL is the Actor-Critic model, which divides the learning process into two roles: the Actor, who explores the environment and makes decisions, and the Critic, who evaluates these actions. The Critic provides feedback on the quality of each action, helping the Actor balance exploration (trying new actions) with exploitation (choosing actions with known rewards). Recent research has explored various algorithms to model curiosity in artificial agents curiosityalgorithm2022? wang2024curiosity?.\n\n\n\n\n\n\n\n\n\nLLMs: Transformers\n\n\n\n\n\nLarge Language Models (LLM) are a type of neural network that has revolutionized natural language processing (NLP). Trained on massive datasets, these models can generate human-like text, translate languages, create various forms of content, and answer questions informatively (e.g., GPT-3, Gemini, Llama).\n\n\n\nFigure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. norvig2004ai?\n\n\nThe success of LLMs has driven AI’s recent surge in popularity and research. Between 2010 and 2022, the volume of AI-related publications nearly tripled, climbing from about 88,000 in 2010 to over 240,000 by 2022. Likewise, AI patent filings have skyrocketed, increasing from roughly 3,500 in 2010 to over 190,000 in 2022. In the first half of 2024 alone, AI and machine learning companies in the United States attracted $38.6 billion in investment out of a total of $93.4 billion. pitchbook2024aiml?\n\n\n\nFigure 2.10: Evolution of Natural Languge Processing. Sourcenorvig2004ai?\n\n\nTransformers, introduced in 2017, revolutionized NLP by introducing a mechanism called self-attention. Unlike previous models like Recurrent Neural Networks (RNNs) that processed language sequentially, Transformers use self-attention to assess relationships between all words in a sentence simultaneously. This allows them to dynamically focus on different parts of the input text and weigh the importance of each word in relation to others. This allows them to understand context and meaning with much better accuracy.",
+    "crumbs": [
+      "<b>Day 1: Introduction to AI and Arctic Science</b>",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
+    ]
+  },
+  {
+    "objectID": "sections/ai-for-everyone.html#ai-beyond-machine-learning",
+    "href": "sections/ai-for-everyone.html#ai-beyond-machine-learning",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "2.7 AI Beyond Machine Learning",
+    "text": "2.7 AI Beyond Machine Learning\nWithin the field of AI, there are many techniques that don’t rely on ML principles.\n\n\n\n\n\n\n\nTechnique\nDescription\n\n\n\n\nIf/Else or Rule-Based Systems\nCollections of predefined rules or conditions (if statements) to make decisions.\n\n\nSymbolic AI (Logic-Based AI)\nLogical rules and symbols to represent knowledge, focusing on reasoning through deductive logic.\n\n\nGenetic Algorithms (Evolutionary Algorithms)\nOptimization algorithms inspired by natural selection.\n\n\nFuzzy Logic\nA form of logic that works with “degrees of truth”, making it useful for uncertain or ambiguous scenarios.\n\n\nKnowledge Representation and Reasoning (KR&R)\nTechniques for structuring and processing information, often using ontologies and semantic networks.\n\n\nBayesian Networks\nProbabilistic graphical models that represent relationships between variables.\n\n\n\nRecent research increasingly combines various AI paradigms, such as symbolic AI and Knowledge Representation and Reasoning (KR&R), with Machine Learning (ML) to achieve a higher level of effectiveness tailored to specific tasks.",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
@@ -194,20 +216,9 @@
   {
     "objectID": "sections/ai-for-everyone.html#the-future-of-ai-in-science",
     "href": "sections/ai-for-everyone.html#the-future-of-ai-in-science",
-    "title": "2  AI for Everyone",
-    "section": "2.7 The Future of AI in Science",
-    "text": "2.7 The Future of AI in Science\n\nScientific Method and AI:\n\nObservation: AI aids data collection (e.g., computer vision).\nHypothesis: Unsupervised learning clusters data.\nExperiment: Reinforcement learning simulates environments.\nConclusion: AI can analyze data and validate hypotheses. AI helps identify patterns in data and can support every step of the scientific method, from observation to conclusion.",
-    "crumbs": [
-      "<b>Day 1: Introduction to AI and Arctic Science</b>",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
-    ]
-  },
-  {
-    "objectID": "sections/ai-for-everyone.html#additional-resources",
-    "href": "sections/ai-for-everyone.html#additional-resources",
-    "title": "2  AI for Everyone",
-    "section": "2.8 Additional Resources",
-    "text": "2.8 Additional Resources\nBooks: - Ray Kurzweil, How to Create a Mind (2012) - Max Bennett, A Brief History of Intelligence (2023)    Videos: - 3Blue1Brown’s Neural Networks Playlist\nPapers: - Jakob Uszkoreit, The Transformer (2017)",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "2.8 The Future of AI in Science",
+    "text": "2.8 The Future of AI in Science\nAI is transforming the scientific method by supporting each step of scientific discovery. Let’s consider how various AI techniques can be applied at each stage of the scientific process:\n\nObservation: Using computer vision for data collection.\nHypothesis: Clustering data with unsupervised learning.\nExperiment: Simulating environments through reinforcement learning.\nData Analysis: Simplifying data with PCA and classifying insights using neural networks or SVMs.\nConclusion: Combining LLMs with KR&R to generate complex findings and insights.\n\n\nIn conclusion, regardless of model type, high-quality data is essential for accurate AI predictions and insights. In the next sessions, we’ll explore practical tips for working with well-prepared, high-quality data.",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
@@ -216,9 +227,9 @@
   {
     "objectID": "sections/ai-for-everyone.html#do-you-have-any-questions",
     "href": "sections/ai-for-everyone.html#do-you-have-any-questions",
-    "title": "2  AI for Everyone",
-    "section": "2.9 Do You Have Any Questions?",
-    "text": "2.9 Do You Have Any Questions?\nFeel free to reach out! /n - Email: alyonak@nceas.ucsb.edu - Website: alonakosobokova.com - YouTube: Dork Matter Girl",
+    "title": "2  AI for Everyone: An Introductory Overview",
+    "section": "Do You Have Any Questions?",
+    "text": "Do You Have Any Questions?\nFeel free to reach out!\nEmail: alyonak@nceas.ucsb.edu\nWebsite: alonakosobokova.com\nYouTube: Dork Matter Girl",
     "crumbs": [
       "<b>Day 1: Introduction to AI and Arctic Science</b>",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>AI for Everyone</span>"
