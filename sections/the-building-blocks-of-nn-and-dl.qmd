@@ -1,24 +1,23 @@
 #  The Building Blocks of Neural Networks and Deep Learning
 
 ## Goal {.unnumbered}
-This introductory session is designed to familiarize participants with the essential building blocks of deep learning. It serves as a foundational course, setting the stage for future exploration. We will cover the basics, focusing on the core components of deep learning such as **data** and **model** structures. Additionally, we'll touch on the fundamentals of training, emphasizing **loss functions** and **optimization algorithms.** By the end of this session, participants will have a clear understanding of key concepts to guide further study and practical applications.
+This introductory session is designed to familiarize participants with the essential building blocks of deep learning. It serves as a foundational course, setting the stage for future exploration. We will cover the basics, focusing on the core components of deep learning such as **data** and **models**. Additionally, we'll touch on the fundamentals of training, emphasizing **loss functions** and **optimization algorithms.** By the end of this session, participants will have a clear understanding of key concepts to guide further study and practical applications.
 
 ## Introduction
 At first glance, we can think of **deep learning** as a car—**a tool to help us achieve goals and solve problems.** Just as you start driving by learning the basics (without diving into all the complex mechanics), your journey into deep learning begins with understanding its essential components. 
 
 ![Created by ChatGPT image generator](../images/dl-pytorch/dl-car.png)
 
-However, beyond this initial step, there's much more to explore and discover.
-
 ### What does this tool (deep learning) do?
+> *Finding a function automatically that maps given inputs to desired outputs [^0].* 
 
-*Teaching machines to find functions that map some inputs to some outputs.*
+[^0]: [https://speech.ee.ntu.edu.tw/~hylee/ml/ml2023-course-data/ML%20basic%20(v8).pdf](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2023-course-data/ML%20basic%20(v8).pdf)
 
 For example:
 
 | Inputs | Outputs | Functions |
 | --- | --- | --- |
-| A sentence | The next word | ChatGPT [^1] |
+| A sentence or prompt | Text completion | LLM (e.g., ChatGPT [^1]) |
 | A caption/description | The image | DALL-E [^2] |
 | Weather data | 10-day prediction | GraphCast [^3] |
 : {.striped}
@@ -33,19 +32,19 @@ What is a real-world problem you would like to solve using deep learning? What w
 :::
 
 ### Key questions and building blocks of deep learning
-To build deep learning applications, we can break the process into four key questions:  
+To find the right function by using deep learning, we can break the process into four key questions:
 
 1. **What are the inputs and outputs?** This relates to the **data** we use.  
-2. **What are the possible function sets?** These correspond to **models** that define the mapping.  
+2. **What are the possible function sets?** These correspond to the **models** that define the mapping.  
 3. **How do we evaluate the function?** This involves defining appropriate **loss functions**.  
 4. **How do we find the best function?** This is achieved through **optimization algorithms**.  
 
-Together, these questions correspond to the fundamental components of deep learning. Additionally, two more components — **training and inference** — connect these building blocks and operationalize the models.  
+Together, these questions correspond to the fundamental components of deep learning. Additionally, two more components — **training and inference** — connect these building blocks and operationalize the models.
 
 ![Deep learning building blocks](../images/dl-pytorch/dl-blocks.png)
 
 ::: {.callout-note}
-The building blocks are not isolated; they interact and influence each other. There are trade-offs and considerations at each stage.
+The building blocks are not isolated; they interact and influence each other. There are trade-offs and considerations at each block. 
 :::
 
 **Let’s begin our exploration into the building blocks of deep learning.**
@@ -53,18 +52,23 @@ The building blocks are not isolated; they interact and influence each other. Th
 ## Data
 *Data is the start point of deep learning, forming the **inputs** and **outputs** that define the function we aim to learn.*
 
+::: {.callout-note}
+Please refer to the [AI-ready Data](./ai-ready-data-in-arctic-research.qmd) section for discussions on data for Arctic research.
+:::
+
 ### Inputs
-To build a deep learning application, the first step is to define and prepare the input data that feeds into the function we aim to learn. Before diving into the details, consider the unique characteristics and requirements of your problem. Reflect on the following questions:
+To build a deep learning application, the first step is to define and prepare the data that feeds into the function we aim to learn. Before diving into the details, consider the unique characteristics and requirements of your problem. Reflect on the following questions:
 
 * What is the nature of the data? (e.g., images, text, audio)?
-* Are there potential biases or imbalances?
-* How much data is available and is required for the task? 
+* How much data is available, and is it representative of the real-world scenarios?
+* Are there any task-specific considerations, e.g., granularity, temporal consistency, or spatial coverage?
+* Is the data clean and usable, e.g., missing values, outliers, or noise?
 
 Here are some key steps and pratical tips when preparing input data:
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## Collection 
-*Gathering raw data from various sources.*
+*Gather raw data from various sources.*
 
 * Ensure data diversity to cover the range of scenarios the application may encounter [^4].
 * Verify data quality by addressing issues like inconsistencies, duplicates, or noise [^5].
@@ -78,27 +82,26 @@ Here are some key steps and pratical tips when preparing input data:
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## Preprocessing
-*Cleaning and preparing data for model training.*
+*Clean and prepare data for model training.*
 
-* Handling missing values by imputation or removal [^8] [^9] [^10].
-* Detecting and removing outliers, if they could mislead the model [^11] [^12].
-* Normalizing or standardizing data to ensure consistent scales across features and improve model convergence [^13].
+* Handle missing values by imputation or removal [^8] [^9].
+* Detect and remove outliers, if they could mislead the model [^11] [^12].
+* Normalize or standardize data to ensure consistent scales across features and improve model convergence [^13].
 :::
 
 [^8]: [https://www.mastersindatascience.org/learning/how-to-deal-with-missing-data/](https://www.mastersindatascience.org/learning/how-to-deal-with-missing-data/)
 [^9]: [https://www.geeksforgeeks.org/ml-handling-missing-values/](https://www.geeksforgeeks.org/ml-handling-missing-values/)
-[^10]: [Andersson, T. R., Hosking, J. S., Pérez-Ortiz, M., Paige, B., Elliott, A., Russell, C., ... & Shuckburgh, E. (2021). Seasonal Arctic sea ice forecasting with probabilistic deep learning. Nature communications, 12(1), 5124.](https://www.nature.com/articles/s41467-021-25257-4)
 [^11]: [https://www.freecodecamp.org/news/how-to-detect-outliers-in-machine-learning/](https://www.freecodecamp.org/news/how-to-detect-outliers-in-machine-learning/)
 [^12]: [https://www.geeksforgeeks.org/detect-and-remove-the-outliers-using-python/](https://www.geeksforgeeks.org/detect-and-remove-the-outliers-using-python/)
 [^13]: [https://developers.google.com/machine-learning/crash-course/numerical-data/normalization](https://developers.google.com/machine-learning/crash-course/numerical-data/normalization)
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## Data splitting
-*Dividing data into training, validation, and testing sets.*
+*Divide data into training, validation, and testing sets.*
 
-* Ensuring the test set is representative of the real-world data distribution, avoiding data leakage [^14].
-* Using stratified sampling for imbalanced datasets to maintain class distribution in training and testing sets [^15] [^16].
-* Considering the nature of the task (e.g., time-series, spatial data) when splitting the data [^17], e.g.:
+* Ensure the test set is representative of the real-world data distribution, avoiding data leakage [^14].
+* Use stratified sampling for imbalanced datasets to maintain class distribution in training and testing sets [^15] [^16].
+* Consider the nature of the task (e.g., time-series, spatial data) when splitting the data [^17], e.g.:
     - Time-based splits for temporal data.
     - Location-based splits for geospatial data.
 :::
@@ -110,11 +113,11 @@ Here are some key steps and pratical tips when preparing input data:
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## Data augmentation
-*Increasing data diversity for better model generalization.*
+*Increase data diversity for better model generalization.*
 
-* Applying augmentations consistent with the data type (e.g., rotation, flipping for images but not for text) [^18] [^19].
-* Using augmentation techniques sparingly to avoid introducing unrealistic patterns [^20].
-* Exploring domain-specific augmentation techniques for specialized tasks (e.g., medical imaging, satellite imagery) [^21].
+* Apply augmentations consistent with the data type (e.g., rotation, flipping for images but not for text) [^18] [^19].
+* Use augmentation techniques sparingly to avoid introducing unrealistic patterns [^20].
+* Explore domain-specific augmentation techniques for specialized tasks (e.g., medical imaging, satellite imagery) [^21].
 :::
 
 [^18]: [https://anushsom.medium.com/image-augmentation-for-creating-datasets-using-pytorch-for-dummies-by-a-dummy-a7c2b08c5bcb](https://anushsom.medium.com/image-augmentation-for-creating-datasets-using-pytorch-for-dummies-by-a-dummy-a7c2b08c5bcb)
@@ -125,7 +128,7 @@ Here are some key steps and pratical tips when preparing input data:
 ### Outputs
 Defining the outputs is as important as preparing the inputs. The outputs represent the structure of the predictions the model generates and play a key role in determining how the model is trained. Before diving into details, consider these guiding questions:
 
-* What type of predictions does the model need to generate (e.g., classification, regression, segmentation)?
+* What type of predictions does the model need to generate (e.g., a value, a class label, or a structured output)?
 * How do the outputs align with the problem/task's requirements?
 * What level of accuracy or granularity is necessary?
 
@@ -133,17 +136,13 @@ Here are some key steps and practical tips when preparing output data:
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## Output structure
-*Defining the format and structure of the model's predictions.*
+*Define the format and structure of the model's predictions.*
 
-* Selecting an appropriate output format based on the task requirements. Common formats include:
-    - Classification tasks: A fixed-size vector of class probabilities.
-    - Regression tasks: A continuous value or a vector of continuous values.
-    - Obeject detection: Bounding boxes with coordinates (e.g., x, y, width, height), class labels, and confidence scores [^22] [^23].
-* Designing a custom output format if no existing format fits the task requirements:
-    - Identify the exact information the model needs to predict.  
-    - Specify a structured format that consistently represents the required information—whether as outputs or intermediate representations—across all samples.
-    - Ensure the custom format integrates well with the loss function and evaluation metrics.
-* Balancing the output granularity with the model's complexity, available data, and computational resources.
+* Select an appropriate output format based on the task requirements. Common formats include:
+    - **Classification tasks:** A fixed-size vector of class probabilities.
+    - **Regression tasks:** A continuous value or a vector of continuous values.
+    - **Mixed tasks:** A combination of class labels and continuous values, e.g., object detection tasks with bounding boxes (regression) and class labels (classification) [^22] [^23].
+* Balancing the output granularity with the model's complexity, available data, and computational resources, e.g., predicting fine-grained sea ice concetrations (0-100%) versus classifying them into categories such as low (<15%) and high (>85%) concentrations.
 :::
 
 [^22]: [https://pyimagesearch.com/2020/10/05/object-detection-bounding-box-regression-with-keras-tensorflow-and-deep-learning/](https://pyimagesearch.com/2020/10/05/object-detection-bounding-box-regression-with-keras-tensorflow-and-deep-learning/)
@@ -151,23 +150,35 @@ Here are some key steps and practical tips when preparing output data:
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## Data annotation
-*Labeling the data to provide ground truth for model training.*
+*Label the data to provide ground truth for model training.*
 
 * Please refer to the [Data annotation](./data-annotation.qmd) section for more details.
+
+* The alignment between the data annotation and the task requirements determines the training approach:
+    - **Supervised learning:** Your annotations directly represent the desired outputs of the model.  
+    - **Semi-supervised learning:** Only a subset of the data is annotated, while the rest remains unlabeled due to cost or resource constraints. Semi-supervised learning combines labeled and unlabeled data to train the model [^24] [^25].
+    - **Weakly-supervised learning:** Annotations provide high-level information but are not directly tied to the desired model outputs [^26]. 
+    - **Unsupervised learning:** No annotations are provided, and the model learns patterns and structures from the data itself [^27].  
+    - **Self-supervised learning:** Annotations are generated from the data itself, such as predicting missing parts of an image or text [^28].  
 :::
+
+[^24]: [Geiß, C., Pelizari, P. A., Tunçbilek, O., & Taubenböck, H. (2023). Semi-supervised learning with constrained virtual support vector machines for classification of remote sensing image data. International Journal of Applied Earth Observation and Geoinformation, 125, 103571.](https://www.sciencedirect.com/science/article/pii/S1569843223003953)
+[^25]: [Pirvu, M., Marcu, A., Dobrescu, M. A., Belbachir, A. N., & Leordeanu, M. (2023). Multi-Task Hypergraphs for Semi-supervised Learning using Earth Observations. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 3404-3414).](https://openaccess.thecvf.com/content/ICCV2023W/VCL/html/Pirvu_Multi-Task_Hypergraphs_for_Semi-Supervised_Learning_Using_Earth_Observations_ICCVW_2023_paper.html)
+[^26]: [Wang, S., Chen, W., Xie, S. M., Azzari, G., & Lobell, D. B. (2020). Weakly supervised deep learning for segmentation of remote sensing imagery. Remote Sensing, 12(2), 207.](https://www.mdpi.com/2072-4292/12/2/207)
+[^27]: [Langford, Z. L., Kumar, J., Hoffman, F. M., Breen, A. L., & Iversen, C. M. (2019). Arctic vegetation mapping using unsupervised training datasets and convolutional neural networks. Remote Sensing, 11(1), 69.](https://www.mdpi.com/2072-4292/11/1/69)
+[^28]: [Szwarcman, D., Roy, S., Fraccaro, P., Gíslason, Þ. E., Blumenstiel, B., Ghosal, R., ... & Moreno, J. B. (2024). Prithvi-EO-2.0: A Versatile Multi-Temporal Foundation Model for Earth Observation Applications. arXiv preprint arXiv:2412.02732.](https://arxiv.org/abs/2412.02732)
 
 ### Quantity and quality
 ::: {.callout-caution icon="false" collapse="true"}
 ## Quantity: *Does more data always mean better results?*
 ![Hoﬀmann et al., (2022)](../images/dl-pytorch/dl-data-quantity.png)
 
-While large datasets often improve performance, they are not a guarantee of success. Referencing research like Hoffmann et al. (2022)[^24] reminds us that *training compute-optimal models* is about balancing data size, model complexity, and computational power.
+While large datasets often improve performance, they are not a guarantee of success. Referencing research like Hoffmann et al. (2022)[^29] reminds us that *training compute-optimal models* is about balancing data size, model complexity, and computational power.
 
 > For various model sizes, we choose the number of training tokens such that the final FLOPs is a constant. The cosine cycle length is set to match the target FLOP count. We find a clear valley in loss, meaning that for a given FLOP budget there is an optimal model to train
-
-
 :::
-[^24]: [Hoffmann, J., Borgeaud, S., Mensch, A., Buchatskaya, E., Cai, T., Rutherford, E., ... & Sifre, L. (2022). Training compute-optimal large language models. arXiv preprint arXiv:2203.15556.](https://arxiv.org/abs/2203.15556)
+
+[^29]: [Hoffmann, J., Borgeaud, S., Mensch, A., Buchatskaya, E., Cai, T., Rutherford, E., ... & Sifre, L. (2022). Training compute-optimal large language models. arXiv preprint arXiv:2203.15556.](https://arxiv.org/abs/2203.15556)
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## Quality: *What does it mean to have high-quality data?*
@@ -179,182 +190,592 @@ Quality is as important, if not more so, than quantity. Common issues include:
 
 Research highlights the impact of prioritizing data quality:
 
-- Rae et al. (2021) [^25].
+- Rae et al. (2021) [^30].
 
 > Our data pipeline (Section A.1.1) includes text quality filtering, removal of repetitious text, deduplication of similar documents, and removal of documents with significant test-set overlap. We find that successive stages of this pipeline improve language model downstream performance (Section A.3.2), emphasising the importance of dataset quality.
 
-- Hoffmann et al., (2022) [^26].
+- Hoffmann et al., (2022) [^31].
 
 > Nonetheless, large language models face several challenges, including their overwhelming computational requirements (the cost of training and inference increase with model size) (Rae et al., 2021; Thoppilan et al., 2022) and the need for acquiring more high-quality training data. In fact, in this work we find that larger, high quality datasets will play a key role in any further scaling of language models.
 
 :::
-[^25]: [Rae, J. W., Borgeaud, S., Cai, T., Millican, K., Hoffmann, J., Song, F., ... & Irving, G. (2021). Scaling language models: Methods, analysis & insights from training gopher. arXiv preprint arXiv:2112.11446.](https://arxiv.org/abs/2112.11446)
-[^26]: [Hoffmann, J., Borgeaud, S., Mensch, A., Buchatskaya, E., Cai, T., Rutherford, E., ... & Sifre, L. (2022). Training compute-optimal large language models. arXiv preprint arXiv:2203.15556.](https://arxiv.org/abs/2203.15556)
-
-
+[^30]: [Rae, J. W., Borgeaud, S., Cai, T., Millican, K., Hoffmann, J., Song, F., ... & Irving, G. (2021). Scaling language models: Methods, analysis & insights from training gopher. arXiv preprint arXiv:2112.11446.](https://arxiv.org/abs/2112.11446)
+[^31]: [Hoffmann, J., Borgeaud, S., Mensch, A., Buchatskaya, E., Cai, T., Rutherford, E., ... & Sifre, L. (2022). Training compute-optimal large language models. arXiv preprint arXiv:2203.15556.](https://arxiv.org/abs/2203.15556)
 
 ## Models
 *Models lie at the core of deep learning. They serve as the **function sets** that map inputs to outputs.*
 
-### Types of Models
-Deep learning encompasses various model architectures, each suited for specific tasks:
+The specific function is determined by choosing a model architecture and training it to obtain a unique set of parameters. 
 
-- **Convolutional Neural Networks (CNNs)**: Best for image-related tasks.
-- **Recurrent Neural Networks (RNNs)**: Designed for sequential data like time series or text.
-- **Transformers**: The backbone of modern natural language processing and vision models.
+### Layers
+Deep learning models are composed of layers. A layer is like a sub-function that processes the input data and passes it to the next layer. Different types of layers serve specific purposes. Here are some examples: 
 
-In comparison, traditional machine learning often relies on models like support vector machines (SVMs) or decision trees. These lack the hierarchical representation capabilities of deep networks.
+::: {.callout-note}
+To get started, don't get overwhelmed by the details of each layer type. Just get a sense of their functions and focus on applying entire models in practical senarios. You can always revisit and explore individual layers more thoroughly later.
+:::
 
-### Key Considerations for Models
-**Model Size**
-Larger models often perform better but come with increased computational costs. Studies, such as Hoffmann et al. (2022), highlight the need for balancing model size, data, and compute.
+::: {.callout-caution icon="false" collapse="true"}
+## Fully-connected (dense) layer
+*A fully-connected layer connects every input to every output through learnable weights, allowing the network to combine features and make predictions.*
 
-**Number of Layers**
-The optimal number of layers depends on the task and data. For many applications, leveraging **pre-trained models** can bypass the need for extensive experimentation, enabling:
+![Fully-connected layer](../images/dl-pytorch/fc-layer.png){.lightbox width=30%}
 
-- **Transfer Learning**: Faster training and better performance.
-- **Customization**: Adapting pre-trained models by adding new layers or modifying existing ones.
+$$
+y_i = \sum_{j=1}^{n} w_{ij}x_j + b_i
+$$
+where $x_j$ is the input, $y_i$ is the output, $w_{ij}$ is the weight connecting input $x_j$ to output $y_i$, and $b_i$ is the bias term.
 
-**Model Adaptation**
+* **Fully-connected layers** are commonly used in deep learning models when the goal is to process and transform high-level features into outputs. They are helpful for tasks like:  
+  - Adjusting the size of the data (dimensionality).  
+  - Combining learned features to make decisions, e.g., class probabilities or numerical values.
 
-- **Input Adaptation**: Prepares data for the model (e.g., resizing images).
-- **Feature Extraction**: Encodes data into informative representations.
-- **Output Adaptation**: Converts extracted features into usable results (e.g., predictions or classifications).
+* **Advantages** of fully-connected layers:  
+  - They effectively learn global patterns and relationships between features.
+  - They are easy to implement and integrate into the network architecture.
 
-### Fundamental Layers
-**Fully-Connected Layers**
+* **Challenges** of fully-connected layers:  
+  - High computational cost and memory usage due to the dense connections.  
+  - Lack of spatial awareness, making them less suitable for tasks involving structured or spatial data (e.g., images or sequences).  
 
-- Each neuron connects to every neuron in the previous layer.
-- Commonly used for dense data representations.
-- Example: Flattening an image into a 1D vector for input.
+* Try an **interactive demo** of fully-connected layers at the [TensorFlow Playground](https://playground.tensorflow.org/).  
+:::
 
-**Convolutional Layers**
+::: {.callout-caution icon="false" collapse="true"}
+## Convolutional layer
+*A convolutional layer processes input data by applying filters that detect patterns like edges, textures, and shapes, helping the model understand spatial features in images.*
 
-- Detect patterns like edges, textures, and shapes in images.
-- Features:
-  - **Local Connectivity**: Focuses on small regions of the input.
-  - **Parameter Sharing**: Reuses parameters across different parts of the input.
-- Applications: Image analysis, scientific data, remote sensing.
-- For an interactive understanding of convolutional layers, explore this [CS231N demo](https://cs231n.github.io/assets/conv-demo/index.html).
+* **Convolutional layers** are essential for image analysis and other tasks that require understanding spatial relationships. They are characterized by:
+  - **Local Connectivity:** Focusing on small regions of the input.
+  - **Parameter Sharing:** Reusing weights across different parts of the input, enhancing computational efficiency and generalization by reducing parameters.
 
-**Attention Layers**
+* **Advantages** of convolutional layers:
+  - They capture spatial patterns and relationships in the data.
+  - They reduce the number of parameters by sharing weights, making them computationally efficient.
 
-- Compute relationships between elements in data.
-- Key for sequence and image analysis.
-- Example: Representing an image as 16x16 "words" for processing.
+* **Challenges** of convolutional layers:
+  - They require tuning of hyperparameters like filter size and stride.
+  - They may struggle with capturing global patterns in the data, often addressed by pooling layers or large receptive fields.
+:::
 
-**Supporting Layers**
+::: {.callout-caution icon="false" collapse="true"}
+## Pooling layer
+*A pooling layer reduces the size of feature maps by summarizing regions (e.g., taking the maximum or average value), helping to retain important information while reducing computational complexity.*
 
-- **Activation Layers**: Introduce non-linearity (e.g., ReLU, sigmoid).
-- **Pooling Layers**: Reduce spatial dimensions to prevent overfitting.
-- **Residual Connections**: Enable deeper networks by mitigating vanishing gradients.
-- **Batch Normalization**: Stabilizes training by normalizing inputs within layers.
+* **Pooling layers** are commonly used in convolutional neural networks to:
+  - Reduce spatial dimensions, which helps prevent overfitting. 
+  - Capture invariant features by summarizing local information, allowing the model to recognize patterns regardless of their exact location.
+
+* **Types of pooling**:
+  - **Max Pooling**: Selects the maximum value from a region.
+  - **Average Pooling**: Computes the average value in a region.
+  - **Global Pooling**: Aggregates information across the entire feature map, often used to reduce each feature map to a single value.
+
+* **Advantages** of pooling layers:
+  - They reduce the spatial dimensions of the data, making the model more robust by focusing on key features.
+  - They help the model focus on important features while discarding irrelevant details.
+
+* **Challenges** of pooling layers:
+  - They may lead to information loss by summarizing data.
+  - They can reduce the spatial resolution of the data, potentially affecting performance in tasks requiring fine-grained details.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Activation layer
+*An activation layer applies a mathematical function to introduce non-linearity into the model, allowing the model to learn more complex patterns.*
+
+* **Activation layers** are crucial for deep learning models to:
+  - Introduce non-linearity, enabling the model to learn complex relationships in the data.
+
+* **Common activation functions**:
+  - **ReLU (Rectified Linear Unit)**: $f(x) = \max(0, x)$ - commonly used due to its simplicity and efficiency.
+  - **Sigmoid**: $f(x) = \frac{1}{1 + e^{-x}}$ - useful for binary classification but can suffer from vanishing gradients.
+  - **Tanh**: $f(x) = \frac{e^{2x} - 1}{e^{2x} + 1}$ - similar to sigmoid but outputs values between -1 and 1, often preferred over sigmoid for hidden layers.
+
+* **Advantages** of activation layers:
+  - They enable the model to learn complex patterns by introducing non-linearity.
+
+* **Challenges** of activation layers:
+  - They may introduce issues like vanishing or exploding gradients, affecting model training.
+  - Choosing the right activation function is crucial for model performance and stability.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Batch normalization layer
+*A batch normalization layer normalizes the inputs by adjusting the mean and variance, helping to speed up training and improve stability.*
+
+* **Batch normalization layers** are used to:
+  - Stabilize training by normalizing inputs within layers.
+  - Accelerate convergence by reducing internal covariate shift, making the model more robust to hyperparameter choices.
+
+* **Advantages** of batch normalization layers:
+  - They stabilize training by reducing internal covariate shift.
+  - They enable faster convergence and better generalization by normalizing inputs within layers.
+
+* **Challenges** of batch normalization layers:
+  - They introduce additional hyperparameters like momentum and epsilon.
+  - They may affect model performance in tasks where the data distribution changes significantly during training, such as non-stationary environments or when batch sizes are very small.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Dropout layer
+*A dropout layer randomly disables a fraction of neurons during training, helping to prevent overfitting by making the model less reliant on specific pathways.* 
+
+* **Dropout layers** are used to:
+  - Prevent overfitting by reducing the model's reliance on specific pathways through random neuron deactivation.
+  - Improve model generalization by introducing noise during training, which forces the model to learn more robust and diversified representations.
+
+* **Advantages** of dropout layers:
+  - They prevent overfitting by introducing noise and reducing reliance on specific pathways, enabling the model to develop a more generalized understanding of the data.
+  - They improve model generalization by encouraging the model to learn more robust features that are not dependent on particular neuron activations.
+
+* **Challenges** of dropout layers:
+  - They may slow down training due to the random deactivation of neurons, which can increase the number of epochs needed to reach convergence.
+  - They require careful tuning of the dropout rate to balance regularization and model performance, as too high a dropout rate can lead to underfitting.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Residual connection layer
+*A residual connection layer adds the input of a layer directly to its output, helping to prevent vanishing gradients and enabling deeper networks.*
+
+* **Residual connections** are used to:
+  - Enable the training of deeper networks by mitigating vanishing gradients.
+  - Improve model convergence by providing a direct path for gradient flow, making it easier for the model to learn complex patterns.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Recurrent layer
+*A recurrent layer processes sequences of data by maintaining a hidden state that captures information from previous steps, allowing the network to learn patterns in temporal or sequential data.*
+
+* **Recurrent layers** are essential for tasks involving sequential data like time series, text, or audio. They are characterized by:
+  - **Temporal Connectivity:** Capturing dependencies between elements in a sequence.
+  - **Hidden State:** Maintaining a memory of past inputs to inform future predictions.
+
+* **Advantages** of recurrent layers:
+  - They capture temporal dependencies in sequential data, making them suitable for tasks like time series forecasting, language modeling, and speech recognition.
+  - They enable the model to learn long-term dependencies by maintaining a hidden state that captures information from previous steps.
+
+* **Challenges** of recurrent layers:
+  - They may struggle with capturing long-term dependencies due to vanishing or exploding gradients.
+  - They can be computationally expensive and slow to train, especially for long sequences.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Attention layer
+*An attention layer computes relationships between elements in the data, enabling the model to focus on specific parts of the input.*
+
+* **Attention layers** are crucial for tasks that require capturing complex relationships between elements in the data. They are characterized by:
+  - **Contextual Information:** Capturing relationships between elements in the data.
+  - **Selective Focus:** Allowing the model to focus on relevant parts of the input.
+
+* **Advantages** of attention layers:
+  - They enable the model to focus on specific parts of the input, improving performance in tasks like machine translation, image captioning, and question answering.
+  - They capture complex relationships between elements in the data, making them suitable for tasks that require understanding context and dependencies.
+
+* **Challenges** of attention layers:
+  - They introduce additional complexity to the model architecture, requiring careful tuning of hyperparameters.
+  - They may increase computational costs and memory usage, especially for large-scale models.
+:::
+
+### Models
+Deep learning models are architectures composed of layers. Each model architecture has unique characteristics and is suited for particular tasks. Here are some examples:
+
+::: {.callout-caution icon="false" collapse="true"}
+## Convolutional Neural Networks (CNNs)
+*Best for image-related tasks.*
+
+* **Convolutional Neural Networks (CNNs)** are designed to process and analyze images. They are characterized by:
+  - **Convolutional Layers:** Detecting patterns like edges, textures, and shapes.
+  - **Pooling Layers:** Reducing spatial dimensions to prevent overfitting.
+  - **Fully-Connected Layers:** Combining features for predictions.
+
+* **Applications** of CNNs:
+  - Image classification, object detection, and segmentation.
+  - Medical imaging analysis.
+  - Remote sensing and satellite image processing.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Long Short-Term Memory Networks (LSTMs)
+*Designed for sequential data like time series or text.*
+
+* **Long Short-Term Memory Networks (LSTMs)** are recurrent neural networks that maintain a hidden state to capture temporal dependencies. They are characterized by:
+  - **Memory Cells:** Capturing long-term dependencies in sequential data.
+  - **Gates:** Regulating the flow of information to prevent vanishing gradients.
+  - **Hidden State:** Maintaining a memory of past inputs to inform future predictions.
+
+* **Applications** of LSTMs:
+  - Time series forecasting.
+  - Natural language processing tasks like language modeling and machine translation.
+  - Speech recognition and synthesis.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Transformers
+*The backbone of modern natural language processing and vision models.*
+
+* **Transformers** are models that process sequences of data using self-attention mechanisms. They are characterized by:
+  - **Self-Attention:** Computing relationships between elements in the data.
+  - **Multi-Head Attention:** Capturing different types of relationships in the data.
+  - **Positional Encoding:** Incorporating positional information into the model.
+
+* **Applications** of Transformers:
+  - Natural language processing tasks like machine translation, text generation, and sentiment analysis.
+  - Image analysis and computer vision tasks like object detection and image captioning.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Graph Neural Networks (GNNs)
+*Designed for graph-structured data like social networks, molecular structures, and knowledge graphs.*
+
+* **Graph Neural Networks (GNNs)** are specialized models for processing graph-structured data. They are characterized by:
+  - **Graph Convolutional Layers:** Propagating information between nodes in the graph.
+  - **Node Embeddings:** Learning representations for nodes in the graph.
+  - **Graph Pooling:** Aggregating information from subgraphs.
+
+* **Applications** of GNNs:
+  - Social network analysis and link prediction.
+  - Drug discovery and molecular property prediction.
+  - Knowledge graph completion and recommendation systems.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Autoencoders
+*Used for unsupervised learning and dimensionality reduction.*
+
+* **Autoencoders** are neural networks that learn to encode and decode data, enabling tasks like:
+  - **Dimensionality Reduction:** Learning compact representations of data.
+  - **Anomaly Detection:** Identifying outliers or unusual patterns in the data.
+  - **Generative Modeling:** Generating new data samples similar to the input.
+
+* **Variants** of autoencoders include:
+  - **Variational Autoencoders (VAEs):** Learn probabilistic encodings for generative modeling.
+  - **Denoising Autoencoders:** Train on noisy data to learn robust representations.
+  - **Sparse Autoencoders:** Encourage sparsity in the learned representations.
+
+* **Applications** of autoencoders:
+  - Image denoising and reconstruction.
+  - Anomaly detection in cybersecurity and fraud detection.
+  - Generative modeling for data augmentation and synthesis.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Generative Adversarial Networks (GANs)
+*Used for generative modeling and image synthesis.*
+
+* **Generative Adversarial Networks (GANs)** are composed of two networks, a generator and a discriminator, that compete in a game setting. GANs are used for:
+  - **Generative Modeling:** Creating new data samples similar to the training data.
+  - **Image Synthesis:** Generating realistic images from random noise.
+  - **Style Transfer:** Combining the content of one image with the style of another.
+
+* **Components** of GANs:
+  - **Generator:** Learns to generate realistic data samples.
+  - **Discriminator:** Learns to distinguish between real and generated samples.
+  - **Adversarial Loss:** Guides the training process by pitting the generator against the discriminator.
+
+* **Applications** of GANs:
+  - Image generation and super-resolution.
+  - Deepfake detection and generation.
+  - Artistic style transfer and image-to-image translation.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Diffusion Models
+*Used for generative modeling and image synthesis.*
+
+* **Diffusion Models** are generative models that learn to model the data distribution by iteratively diffusing noise. They are characterized by:
+  - **Diffusion Process:** Modeling the data distribution by iteratively diffusing noise.
+  - **Invertible Networks:** Learning to reverse the diffusion process to generate samples.
+  - **Score-Based Training:** Training the model by estimating the score function of the data distribution.
+
+* **Applications** of Diffusion Models:
+  - Image generation and super-resolution.
+  - Video prediction and synthesis.
+  - Anomaly detection and data completion.
+
+* **Variants** of Diffusion Models include:
+  - **Denoising Diffusion Probabilistic Models (DDPM):** Learn to denoise images by modeling the diffusion process.
+  - **Diffusion Probabilistic Models (DPM):** Model the data distribution by diffusing noise through a series of steps.
+  - **Score-Based Generative Models:** Train the model by estimating the score function of the data distribution.
+:::
+
+### Pre-trained models and transfer learning
+
+::: {.callout-note}
+In the realm of deep learning, building models from scratch can be both time-consuming and resource-intensive. Fortunately, pre-trained models and transfer learning offer a pratical solution to these challenges. They enables scientists to leverage existing models and achieve better performance with minimal efforts.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Pre-trained models
+**Pre-trained models** are deep learning models that have been previously trained on extensive datasets. These models can serve as a solid foundation for solving similar tasks in different domains. By utilizing the knowledge captured in pre-trained models, you can achieve faster training times and often better performance.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Transfer learning
+**Transfer learning** is a technique where a model developed for a particular task is reused as the starting point for a model on a second task. This approach is particularly beneficial when the second task has limited data. Instead of training a new model from scratch, you can adapt an existing model that has already learned useful features from a large dataset.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Benefits of using pre-trained models 
+- **Faster Training:** Pre-trained models provide a head start by leveraging knowledge from previous tasks, reducing the time and resources needed for training.
+- **Improved Performance:** Transfer learning allows you to benefit from the generalization capabilities of pre-trained models, often leading to better performance on new tasks.
+- **Domain Adaptation:** Pre-trained models can be fine-tuned on domain-specific data to adapt to new environments or tasks.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## How to implement transfer learning
+1. **Select a Pre-trained Model:** Choose a pre-trained model that is well-suited for your task. It depends on the nature of the data and the target task.
+2. **Customize the Model:** Adapt the pre-trained model to your specific task. The customization may occur at various stages: 
+    - **Input adaptation:** Adjust the model to handle different types of input data. This might involve changing the input layer to accommodate data with more channels, such as multispectral images, or adapting it for temporal data like time series.
+    - **Output adaptation:** Modify the output layers to match your task requirements. This could mean changing the number of output classes for classification tasks. You can also use the pre-trained model as a backbone and build additional task-specific modules on top of it, such as object detection heads for image segmentation tasks.
+3. **Fine-tune the Model:** Train the adapted model on your dataset. You can choose to freeze some of the earlier layers to preserve the learned features, while tuning the later layers to adapt to your task.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Practical applications
+- **Image Classification:** Use pre-trained models like ResNet or Swin Transformer for classifying images into different categories.
+- **Object Detection:** Utilize pre-trained models like Faster R-CNN, YOLO, or RetinaNet for object detection tasks.
+- **Natural Language Processing:** Apply pre-trained models like BERT, GPT, or RoBERTa for text classification, sentiment analysis, or question answering.
+:::
+
+### Model customization
+![](../images/dl-pytorch/models.png)
+In deep learning, models can be thought of as consisting of three core components: input adaptation, a feature extractor, and output adaptation. Understanding and customizing these components is crucial for effectively applying pre-trained models to new tasks.
+
+:::{.callout-caution icon="false" collapse="true"}
+## Feature extractor
+The **feature extractor** is the heart of the model, transforming data into informative representations that highlight essential patterns relevant to the task. Pre-trained models often excel in this role, as they have already learned rich feature sets from large datasets. By using a pre-trained model as a feature extractor, you can leverage existing knowledge and focus on adapting it to your specific needs.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Input adaptation
+**Input adaptation** involves transforming your data into a format that the feature extractor can process. This might mean:
+
+* Adjusting the input layer to accommodate different data types, such as adding channels for multispectral images or handling temporal sequences for time series data.
+* Preprocessing data to match the scale or format expected by the pre-trained model.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Output adaptation
+**Output adaptation** transforms the extracted features into usable outputs for your specific task. This often involves:
+
+* Modifying the output layer to match the number of classes in your classification task.
+* Adding specialized layers, such as segmentation heads for image segmentation tasks, or regression layers for predicting continuous values.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Considerations for model customization
+* **Task Similarity**: The extent of adaptation needed depends on how closely the pre-trained model’s original task aligns with your target task. More divergent tasks may require extensive customization and additional data for fine-tuning. Therefore, selecting a pre-trained model that closely resembles your task can simplify the adaptation process.
+:::
 
 ## Loss functions
-*A loss function quantify the difference between the predicted outputs and the actual target values, providing feedback to guide optimization.*
+*A loss function quantifies the difference between the predicted outputs and the actual target values, providing essential feedback for optimization.*
 
 For example, consider a classification task using a softmax output layer:
 
-- **Predicted Output**: `[0.6, 0.2, 0.2]`
-- **Target Output**: `[1, 0, 0]`
+* **Predicted Output**: `[0.6, 0.2, 0.2]`
+* **Target Output**: `[1, 0, 0]`
 
-The loss function calculates the error between these values, guiding the model to adjust its parameters.
+Using the **Cross-Entropy loss function**, the loss value is calculated as:
 
-Choose a common loss function like Cross-Entropy or MSE and calculate it for a simple dataset. How does the value change when predictions are closer to or further from the target?
+$$
+\text{Cross-Entropy Loss} = -\sum_{i} y_i \log(p_i) = -\log(0.6) = 0.51
+$$
 
-### Types of loss functions
-#### Task-Specific Loss Functions
-- **Regression**: Measure error for continuous outputs.
-  - Mean Squared Error (MSE)
-  - Mean Absolute Error (MAE)
-- **Classification**: Evaluate probability distributions.
-  - Cross-Entropy Loss
-- **Sequence Prediction**: Handle variable-length outputs.
-  - Connectionist Temporal Classification (CTC)
+where $y_i$ is the target output and $p_i$ is the predicted output.
 
-#### Purpose-Specific Loss Functions
-- **Imbalanced Data**: Focal Loss reduces the impact of class imbalance. See [Lin et al., 2017](https://arxiv.org/abs/1708.02002) for more details.
-- **Multi-Objective Tasks**: Combine multiple loss functions, often using weighting factors, to balance competing objectives.
+**Mean Absolute Error (MAE)** can also be used to evaluate the prediction:
 
-### Training and validation losses 
-The comparison of **training loss** and **validation loss** is essential to monitor model generalization:
+$$
+\text{MAE} = \frac{1}{n} \sum_{i} |y_i - p_i| = \frac{|1 - 0.6| + |0 - 0.2| + |0 - 0.2|}{3} = \frac{0.4 + 0.2 + 0.2}{3} = 0.27
+$$
 
-- **Good Generalization**: Small and similar losses.
-- **Overfitting**: A low training loss but a high validation loss, often caused by:
-  - Distribution shift between datasets.
-  - Model memorizing noise or specific patterns in the training data.
+:::{.callout-tip}
+## Quick Thought
+In the example above, both Cross-Entropy and MAE can evaluate the prediction's accuracy. Consider these questions:
 
-### Preventing overfitting
-Strategies to ensure better generalization:
+* How do the values of the two loss functions change when predictions are closer to or further from the target?
+* What is the impact of each loss function on the model training process?
+:::
 
-- **Simplify the Model**: Reduce complexity, though this may increase the training loss.
-- **Data Augmentation**: Increase diversity in the training set to improve robustness ([Shorten et al., 2019](https://arxiv.org/pdf/2012.07177)).
-- **Regularization**: Add penalties (e.g., L1/L2 regularization) to the loss function to discourage overly complex models.
-- **Dropout**: Randomly deactivate neurons during training to prevent reliance on specific pathways.
+### Types of Loss Functions
+Selecting the right loss function is essential for optimizing model performance across various tasks. Here are some common types of loss functions:
 
-## Optimization algorithms
+:::{.callout-caution icon="false" collapse="true"}
+## Task-Specific Loss Functions
+* **Regression**: Measure error for continuous outputs.
+  - **Mean Squared Error (MSE)**: Computes the average squared difference between predictions and targets.
+  - **Mean Absolute Error (MAE)**: Calculates the average absolute difference between predictions and targets.
+  - **Huber Loss**: Combines MSE and MAE, less sensitive to outliers than MSE.
+
+* **Classification**: Evaluate probability distributions.
+  - **Cross-Entropy Loss**: Measures the difference between predicted and target distributions, used with softmax outputs.
+  - **Binary Cross-Entropy**: Specifically for binary classification tasks.
+  - **Hinge Loss**: Used for "maximum-margin" classification, mainly with support vector machines.
+
+* **Sequence Prediction**: Handle variable-length outputs.
+  - **Connectionist Temporal Classification (CTC)**: Aligns input and output sequences, used in tasks like speech recognition.
+  - **Sequence-to-Sequence Loss**: Often combines cross-entropy with attention mechanisms.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Purpose-Specific Loss Functions
+* **Imbalanced Data**:
+  - **Focal Loss**: Mitigates class imbalance by focusing on hard-to-classify examples.
+  - **Weighted Cross-Entropy**: Assigns different weights to classes to balance their impact.
+
+* **Multi-Objective Tasks**:
+  - **Multi-Task Loss**: Combines multiple loss functions with weighting factors to optimize for several objectives simultaneously.
+  
+* **Robustness to Outliers**:
+  - **Log-Cosh Loss**: Similar to MSE but less sensitive to outliers, using the hyperbolic cosine of prediction errors.
+
+* **Image Processing**:
+  - **Dice Loss**: Used for image segmentation tasks to measure overlap between predicted and target areas.
+  - **IoU Loss (Intersection over Union)**: Measures the overlap between predicted and actual bounding boxes, often used in object detection.
+:::
+
+
+### Training and validation loss
+Training and validation loss are metrics used to evaluate and fine-tune the performance of machine learning models. They provide insights into how well a model is learning and can indicate potential issues like overfitting or underfitting.
+
+* **Training Loss**: This is the error calculated on the training dataset after each iteration. It reflects how well the model is learning the training data.
+  
+* **Validation Loss**: This is the error calculated on a separate validation dataset that the model has not seen during training. It provides an indication of how well the model generalizes to unseen data.
+
+:::{.callout-caution icon="false" collapse="true"}
+## Interpreting training and validation loss
+The relationship between training and validation loss can reveal important information about the model's performance:
+
+* **Both losses decrease:** If both training and validation losses decrease and stabilize at a low value, it suggests that the model is learning well and generalizing effectively to the validation set.
+* **Training loss decreases, validation loss increases**: This pattern indicates overfitting. The model is learning the training data too well, including its noise, and is not generalizing effectively to new data. Regularization techniques or a simpler model might be needed.
+* **Both losses are high**: If both losses remain high, it may indicate underfitting. The model is not complex enough to capture the underlying patterns in the data. Consider increasing model capacity or improving feature engineering.
+* **Training loss stable, validation loss fluctuates**: Fluctuating validation loss with stable training loss may suggest that the model is sensitive to the specific validation data. This could be due to a small validation set size or data noise.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Strategies to manage training and validation loss
+To address common issues related to training and validation loss, consider the following strategies:
+
+* **Regularization**: Techniques like L1/L2 regularization, dropout, and early stopping can help mitigate overfitting.
+* **Data Augmentation**: Increasing the diversity of the training data can improve model generalization.
+* **Cross-Validation**: Using k-fold cross-validation provides a more reliable estimate of model performance on unseen data.
+:::
+
+## Optimization Algorithms
 *Optimization algorithms adjust model parameters to minimize the loss function, guiding the model towards better performance.*
 
-### Gradient Descent
-The core optimization algorithm in deep learning:
+### Introduction to gradient descent
+**Gradient Descent** is the foundational algorithm used in deep learning for optimization:
 
-- **Objective**: Find the minimum of a function by iteratively adjusting parameters.
-- **Gradient**: Direction of steepest ascent.
-- **Learning Rate**: Controls the step size in the gradient descent process.
+* **Objective**: The aim is to find the minimum of a function by iteratively adjusting parameters.
+* **Gradient**: Represents the direction of the steepest ascent. In optimization, we move in the opposite direction to find the minimum.
+* **Learning rate**: A crucial hyperparameter that controls the size of the steps taken towards the minimum. 
 
-### Variants of Gradient Descent
-- **Stochastic Gradient Descent (SGD)**: Update parameters using a single training example.
-- **Mini-Batch Gradient Descent**: Update parameters using a subset of the training data.
-- **Momentum**: Accelerate convergence by considering past gradients.
-- **Adam**: Adaptive moment estimation that combines momentum and RMSprop.
+### Variants of gradient descent
+To enhance the efficiency and performance of gradient descent, several variants have been developed:
 
-### Hyperparameters
-- **Learning Rate**: Balance between convergence speed and stability.
-- **Batch Size**: Number of samples used in each iteration.
-- **Momentum Rate**: Weight of past gradients in the update.
-- **Regularization Strength**: Penalty factor for complex models.
+:::{.callout-caution icon="false" collapse="true"}
+## Stochastic gradient descent (SGD)
+Update parameters using a single training example per iteration, leading to faster but noisier convergence.
+:::
 
-### Learning Rate Scheduling
-- **Fixed Scheduling**: Maintain a constant learning rate.
-- **Step Decay**: Reduce the learning rate at fixed intervals.
-- **Exponential Decay**: Decrease the learning rate exponentially.
-- **Cyclical Learning Rates**: Vary the learning rate cyclically to explore different regions of the loss landscape.
+:::{.callout-caution icon="false" collapse="true"}
+## Mini-batch gradient descent
+It strikes a balance between batch and stochastic gradient descent by updating parameters using a small subset (mini-batch) of the training data, improving convergence stability and speed.
+:::
 
-### Adaptive Learning Rates
-- **Adam**: Adaptive moment estimation that adjusts learning rates for each parameter.
-- **RMSprop**: Root Mean Square Propagation that divides the learning rate by a running average of the squared gradient.
+:::{.callout-caution icon="false" collapse="true"}
+## Momentum
+This method accelerates convergence by considering past gradients, helping the algorithm navigate through ravines and avoid oscillations.
+:::
 
-### Regularization Techniques
-- **L1/L2 Regularization**: Add penalties to the loss function to prevent overfitting.
-- **Dropout**: Randomly deactivate neurons during training to prevent overreliance on specific pathways.
-- **Batch Normalization**: Normalize inputs within layers to stabilize training.
+:::{.callout-caution icon="false" collapse="true"}
+## Adam (Adaptive moment estimation)
+Adam combines the benefits of momentum and RMSprop, adjusting learning rates for each parameter based on historical gradients, making it one of the most popular optimization methods.
+:::
 
-## Training and inference
-*Training and inference operationalize the models, enabling them to learn from data and make predictions.*
+### Key Hyperparameters
+Optimization algorithms rely on hyperparameters that need to be carefully tuned for optimal performance:
+
+:::{.callout-caution icon="false" collapse="true"}
+## Learning rate
+The learning rate determines how quickly or slowly the model learns. It needs to be carefully selected to balance convergence speed and stability.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Batch size
+The batch size refers to the number of training samples used in one iteration. Smaller batch sizes can lead to faster convergence but noisier updates, while larger batch sizes provide smoother updates but require more computational resources.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Momentum rate
+The momentum rate determines the influence of past gradients on the current update, helping to smooth the optimization path.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Regularization strength
+A factor used to prevent overfitting by penalizing complex models, ensuring simpler and more generalizable solutions.
+:::
+
+### Learning rate scheduling
+Adjusting the learning rate over time can impact model performance:
+
+:::{.callout-caution icon="false" collapse="true"}
+## Fixed scheduling
+Maintains a constant learning rate throughout training, simplifying the optimization process.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Step decay
+Reduces the learning rate at regular intervals, allowing the model to refine its parameters as it approaches convergence.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Exponential decay
+Gradually decreases the learning rate exponentially, enabling fine-tuning of the model as training progresses.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## Cyclical learning rates
+Vary the learning rate cyclically, encouraging exploration of different regions of the loss landscape for potentially better minima.
+:::
+
+### Adaptive learning rates
+These methods automatically adjust the learning rate during training:
+
+:::{.callout-caution icon="false" collapse="true"}
+## Adam
+Adaptive moment estimation that combines momentum and RMSprop, providing an efficient and effective optimization approach.
+:::
+
+:::{.callout-caution icon="false" collapse="true"}
+## RMSprop (Root Mean Square Propagation)
+Divides the learning rate by a moving average of the squared gradients, adapting the learning rate for each parameter dynamically.
+:::
+
+## Training and Inference
+*Training and inference are the key processes that integrate the essential components for deep learning applications: data, models, loss functions, and optimization algorithms.*
 
 ### Training
-- **Objective**: Optimize model parameters to minimize the loss function.
-- **Steps**:
-  - Forward Pass: Compute predictions using input data.
-  - Loss Calculation: Measure the error between predictions and targets.
-  - Backward Pass: Compute gradients to adjust model parameters.
-  - Parameter Update: Adjust model weights using optimization algorithms.
+Training is the phase where the model learns from the data by optimizing its parameters to minimize the loss function.
+
+:::{.callout-caution icon="false" collapse="true"}
+## Steps
+1. **Data preparation**: Gather and preprocess data into a suitable format for the model.
+2. **Forward pass**: The model processes the input data to generate predictions.
+3. **Loss calculation**: The predictions are compared against the target outputs using a loss function to quantify the error.
+4. **Backward pass**: Compute gradients of the loss with respect to the model parameters using backpropagation.
+5. **Parameter ppdate**: Utilize optimization algorithms (e.g., Gradient Descent, Adam) to update the model's weights based on the computed gradients, iteratively improving the model's performance.
+:::
 
 ### Inference
-- **Objective**: Use trained models to make predictions on new data.
-- **Steps**:
-  - Forward Pass: Compute predictions using input data.
-  - Output Generation: Convert model predictions into usable results.
-  - Post-Processing: Apply additional steps like thresholding or filtering.
-  - Result Interpretation: Analyze model outputs to make decisions.
+Inference is the phase where the trained model is used to make predictions on new, unseen data.
 
-### Deployment
-- **Objective**: Integrate models into real-world applications.
-- **Considerations**:
-  - **Scalability**: Ensure models can handle varying workloads.
-  - **Latency**: Optimize model performance for real-time applications.
-  - **Resource Management**: Monitor and manage model resources efficiently.
-
-
-
-
+:::{.callout-caution icon="false" collapse="true"}
+## Steps
+1. **Data preparation**: Prepare new data in the same way as the training data for consistency.
+2. **Forward pass**: The model processes the input data to generate predictions, leveraging the learned parameters.
+3. **Output generation**: Convert raw model outputs into interpretable results, such as class labels or continuous values.
+4. **Post-processing**: Apply additional processing steps like thresholding for binary classification or filtering to refine results.
+5. **Result interpretation**: Analyze the model's outputs to make informed decisions, often integrating domain-specific knowledge or business logic.
+:::
