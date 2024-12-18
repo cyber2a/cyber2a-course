@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Exploring Advanced Neural Networks: Semantic Segmentation – Cyber2A: AI for Arctic Research</title>
+<title>12&nbsp; Exploring Advanced Neural Networks: Instance Segmentation – Cyber2A: AI for Arctic Research</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -38,10 +72,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-78faf54a06e50be45dc6d83ab59297a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/guest-lecture-yili-arts-dataset.html"><b>Day 3: Advanced AI Workflows and Models</b></a></li><li class="breadcrumb-item"><a href="../sections/exploring-advanced-neural-networks.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exploring Advanced Neural Networks: Semantic Segmentation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/guest-lecture-yili-arts-dataset.html"><b>Day 3: Advanced AI Workflows and Models</b></a></li><li class="breadcrumb-item"><a href="../sections/exploring-advanced-neural-networks.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exploring Advanced Neural Networks: Instance Segmentation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -216,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sections/exploring-advanced-neural-networks.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exploring Advanced Neural Networks: Semantic Segmentation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exploring Advanced Neural Networks: Instance Segmentation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -307,18 +341,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">12.1</span> Overview</a></li>
-  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline"><span class="header-section-number">12.2</span> Outline</a></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">12.3</span> Reference</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#what-is-instance-segmentation" id="toc-what-is-instance-segmentation" class="nav-link" data-scroll-target="#what-is-instance-segmentation"><span class="header-section-number">12.1</span> What is instance segmentation?</a></li>
+  <li><a href="#importance-and-applications" id="toc-importance-and-applications" class="nav-link" data-scroll-target="#importance-and-applications"><span class="header-section-number">12.2</span> Importance and applications</a></li>
+  <li><a href="#comparison-of-classification-networks-and-instance-segmentation-networks" id="toc-comparison-of-classification-networks-and-instance-segmentation-networks" class="nav-link" data-scroll-target="#comparison-of-classification-networks-and-instance-segmentation-networks"><span class="header-section-number">12.3</span> Comparison of classification networks and instance segmentation networks</a></li>
+  <li><a href="#a-step-by-step-guide-to-instance-segmentation" id="toc-a-step-by-step-guide-to-instance-segmentation" class="nav-link" data-scroll-target="#a-step-by-step-guide-to-instance-segmentation"><span class="header-section-number">12.4</span> A step-by-step guide to instance segmentation</a>
+  <ul class="collapse">
+  <li><a href="#the-first-step-r-cnn" id="toc-the-first-step-r-cnn" class="nav-link" data-scroll-target="#the-first-step-r-cnn"><span class="header-section-number">12.4.1</span> The First Step: R-CNN</a></li>
+  <li><a href="#evolution-to-fast-r-cnn" id="toc-evolution-to-fast-r-cnn" class="nav-link" data-scroll-target="#evolution-to-fast-r-cnn"><span class="header-section-number">12.4.2</span> Evolution to Fast R-CNN</a></li>
+  <li><a href="#introducing-faster-r-cnn" id="toc-introducing-faster-r-cnn" class="nav-link" data-scroll-target="#introducing-faster-r-cnn"><span class="header-section-number">12.4.3</span> Introducing Faster R-CNN</a></li>
+  </ul></li>
+  <li><a href="#transition-to-instance-segmentation-mask-r-cnn" id="toc-transition-to-instance-segmentation-mask-r-cnn" class="nav-link" data-scroll-target="#transition-to-instance-segmentation-mask-r-cnn"><span class="header-section-number">12.5</span> Transition to Instance Segmentation: Mask R-CNN</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">12.6</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/guest-lecture-yili-arts-dataset.html"><b>Day 3: Advanced AI Workflows and Models</b></a></li><li class="breadcrumb-item"><a href="../sections/exploring-advanced-neural-networks.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exploring Advanced Neural Networks: Semantic Segmentation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/guest-lecture-yili-arts-dataset.html"><b>Day 3: Advanced AI Workflows and Models</b></a></li><li class="breadcrumb-item"><a href="../sections/exploring-advanced-neural-networks.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exploring Advanced Neural Networks: Instance Segmentation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exploring Advanced Neural Networks: Semantic Segmentation</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exploring Advanced Neural Networks: Instance Segmentation</span></h1>
 </div>
 
 
@@ -335,28 +378,300 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">12.1</span> Overview</h2>
-<p>This session focuses on advanced neural networks, specifically targeting semantic segmentation. Participants will delve into models such as Fully Convolutional Networks (FCNs) and U-Net, learning how these networks are structured, how they function, and how they can be applied to accurately segment and label each pixel of an image according to the object it represents. The goal is to deepen participants’ understanding of the technical foundations and practical applications of semantic segmentation, equipping them with the skills needed for hands-on implementation and exploration of its real-world utility, particularly in the context of Arctic research.</p>
+<section id="overview" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="overview">Overview</h2>
+<p>In this section, we delve into the evolution of Faster R-CNN, a pivotal model in object detection, and explore its transformation into Mask R-CNN for instance segmentation tasks. Participants will learn how to extend the network architecture to generate both class labels and precise object masks, enabling the identification and delineation of individual objects within an image. By building on their existing knowledge of modifying classification networks, this section provides practical insights into adapting neural networks for advanced computer vision applications like instance segmentation.</p>
 </section>
-<section id="outline" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="outline"><span class="header-section-number">12.2</span> Outline</h2>
+<section id="what-is-instance-segmentation" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="what-is-instance-segmentation"><span class="header-section-number">12.1</span> What is instance segmentation?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dl-pytorch/ins-seg.png" class="img-fluid figure-img"></p>
+<figcaption>Source: https://manipulation.csail.mit.edu/segmentation.html</figcaption>
+</figure>
+</div>
 <ul>
-<li>Introduction to semantic segmentation</li>
-<li>Overview of key models: Fully Convolutional Networks (FCNs) and U-Net</li>
-<li>Detailed architecture and functionality</li>
-<li>Applications in Arctic research: case studies</li>
-<li>Conclusion and Q&amp;A</li>
+<li><strong>Image recognition</strong>: Indentifies the presence of objects in an image and provides a list of class probabilities.</li>
+<li><strong>Semantic segmentation</strong>: Classifies each pixel in an image into a category, but not distinguish between different instances of the same class.</li>
+<li><strong>Object detection</strong>: Detects objects by drawing bounding boxes around them, distinguishing individual entities but not providing pixel-level details.</li>
+<li><strong>Instance segmentation</strong>: Combines object detection and semantic segmentation to identify and delineate individual objects at the pixel level.</li>
 </ul>
 </section>
-<section id="reference" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="reference"><span class="header-section-number">12.3</span> Reference</h2>
+<section id="importance-and-applications" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="importance-and-applications"><span class="header-section-number">12.2</span> Importance and applications</h2>
+<p>Instance segmentation is a fundamental task in computer vision with:</p>
 <ul>
-<li>Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. “U-net: Convolutional networks for biomedical image segmentation.” Medical image computing and computer-assisted intervention–MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18. Springer International Publishing, 2015. https://arxiv.org/abs/1505.04597</li>
-<li>Minaee, Shervin, et al.&nbsp;“Image segmentation using deep learning: A survey.” IEEE transactions on pattern analysis and machine intelligence 44.7 (2021): 3523-3542. http://www.arxiv.org/abs/2001.05566</li>
+<li><strong>Wide-ranging applications</strong>: Robotics <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, medical imaging <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, and more.</li>
+<li><strong>Foundation for advanced tasks</strong>: Object tracking, pose estimation, and action recognition.</li>
 </ul>
+</section>
+<section id="comparison-of-classification-networks-and-instance-segmentation-networks" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="comparison-of-classification-networks-and-instance-segmentation-networks"><span class="header-section-number">12.3</span> Comparison of classification networks and instance segmentation networks</h2>
+<p><img src="../images/dl-pytorch/models.png" class="img-fluid"> In the previous section, we discussed how deep learning models consist of three core components: <strong>input adaptation</strong>, <strong>feature extractor</strong>, and <strong>output adaptation</strong>.</p>
+<p>Using a ResNet-50 model as an example, let’s examine the structure of a classification network:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code snippet to load a pre-trained ResNet-50 model
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.models <span class="im">as</span> models</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the pre-trained ResNet-50 model</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> models.resnet50(pretrained<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify the output layer to predict 10 classes</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>model.fc <span class="op">=</span> nn.Linear(<span class="dv">2048</span>, <span class="dv">10</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model architecture</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>The output of the code snippet above provides the architecture of the ResNet-50 model:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Output: Classification network architecture
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ResNet(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">3</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>(maxpool): MaxPool2d(kernel_size<span class="op">=</span><span class="dv">3</span>, stride<span class="op">=</span><span class="dv">2</span>, padding<span class="op">=</span><span class="dv">1</span>, dilation<span class="op">=</span><span class="dv">1</span>, ceil_mode<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>(layer1): Sequential(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>(layer2): Sequential(</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">64</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">128</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>(downsample): Sequential(</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): Conv2d(<span class="dv">64</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">128</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">128</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>(layer3): Sequential(</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">128</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">256</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>(downsample): Sequential(</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): Conv2d(<span class="dv">128</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">256</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">256</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>(layer4): Sequential(</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">256</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">512</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>(downsample): Sequential(</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): Conv2d(<span class="dv">256</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">512</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">512</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>(avgpool): AdaptiveAvgPool2d(output_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>(fc): Linear(in_features<span class="op">=</span><span class="dv">512</span>, out_features<span class="op">=</span><span class="dv">10</span>, bias<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>The output above is a liitle verbose, so let’s summarize the key components of the ResNet-50 model:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Summary: Classification network architecture
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ResNet(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">3</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>(maxpool): MaxPool2d(kernel_size<span class="op">=</span><span class="dv">3</span>, stride<span class="op">=</span><span class="dv">2</span>, padding<span class="op">=</span><span class="dv">1</span>, dilation<span class="op">=</span><span class="dv">1</span>, ceil_mode<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>(layer1): Sequential()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>(layer2): Sequential()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>(layer3): Sequential()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>(layer4): Sequential()</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>(avgpool): AdaptiveAvgPool2d(output_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>(fc): Linear(in_features<span class="op">=</span><span class="dv">512</span>, out_features<span class="op">=</span><span class="dv">10</span>, bias<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Where <code>layerx</code> represents the convolutional blocks in the network.</p>
+</div>
+</div>
+</div>
+<p>Now, let’s check what modifications we made to the ResNet-50 model:</p>
+<ul>
+<li><strong>Input Adaptation</strong>: No changes needed, as ResNet-50 accepts images as input.</li>
+<li><strong>Feature Extractor</strong>: Utilizes the pre-trained ResNet-50 model to extract features from images.</li>
+<li><strong>Output Adaptation</strong>: Modified the output layer to predict 10 classes instead of the original 1000.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question: Instance segmentation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using the ResNet-50 model as a base, how would you modify each component to perform instance segmentation?</p>
+</div>
+</div>
+<p>For instance segmentation, one possible adjustment is as follows:</p>
+<ul>
+<li><strong>Input Adaptation</strong>: Remains unchanged as input is still an image.</li>
+<li><strong>Feature Extractor</strong>: Utilizes the pre-trained ResNet-50 model.</li>
+<li><strong>Output Adaptation</strong>: Must be modified to predict both class labels and object masks.</li>
+</ul>
+</section>
+<section id="a-step-by-step-guide-to-instance-segmentation" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="a-step-by-step-guide-to-instance-segmentation"><span class="header-section-number">12.4</span> A step-by-step guide to instance segmentation</h2>
+<p>To achieve instance segmentation, let’s begin from object detection and progress to instance segmentation:</p>
+<section id="the-first-step-r-cnn" class="level3" data-number="12.4.1">
+<h3 data-number="12.4.1" class="anchored" data-anchor-id="the-first-step-r-cnn"><span class="header-section-number">12.4.1</span> The First Step: R-CNN</h3>
+<p>Our journey starts with Region-based Convolutional Neural Networks (R-CNN). This model laid the groundwork for object detection by introducing a structured approach:</p>
+<ol type="1">
+<li><strong>Region Proposal</strong>: Uses the Selective Search algorithm to generate potential object regions.</li>
+<li><strong>Feature Extraction</strong>: Applies a pre-trained CNN to each region to extract features.</li>
+<li><strong>Classification</strong>: Employs a linear SVM to classify these regions.</li>
+<li><strong>Bounding Box Regression</strong>: Refines the coordinates using a linear regression model.</li>
+</ol>
+<p><strong>Limitations of R-CNN</strong></p>
+<ul>
+<li><strong>Slow Inference</strong>: Processes each region independently, leading to inefficiency.</li>
+<li><strong>Complex Training</strong>: Requires multiple models and stages.</li>
+<li><strong>Inefficient Feature Extraction</strong>: Redundant computations for overlapping regions.</li>
+</ul>
+</section>
+<section id="evolution-to-fast-r-cnn" class="level3" data-number="12.4.2">
+<h3 data-number="12.4.2" class="anchored" data-anchor-id="evolution-to-fast-r-cnn"><span class="header-section-number">12.4.2</span> Evolution to Fast R-CNN</h3>
+<p>To address R-CNN’s limitations, Fast R-CNN was developed, enhancing speed and efficiency:</p>
+<ol type="1">
+<li><strong>Region Proposal</strong>: Continues using Selective Search for generating proposals.</li>
+<li><strong>Feature Extraction</strong>: Extracts features from the entire image in a single pass.</li>
+<li><strong>RoI Pooling</strong>: Efficiently crops and resizes features for each region.</li>
+<li><strong>Classification and Bounding Box Regression</strong>: Utilizes fully connected layers for tasks.</li>
+</ol>
+<p><strong>Advantages of Fast R-CNN</strong></p>
+<ul>
+<li><strong>Single-Stage Inference</strong>: Processes the whole image once, enhancing speed.</li>
+<li><strong>End-to-End Training</strong>: Trains the entire network in a unified stage.</li>
+<li><strong>Efficient Feature Extraction</strong>: Avoids redundant calculations.</li>
+</ul>
+</section>
+<section id="introducing-faster-r-cnn" class="level3" data-number="12.4.3">
+<h3 data-number="12.4.3" class="anchored" data-anchor-id="introducing-faster-r-cnn"><span class="header-section-number">12.4.3</span> Introducing Faster R-CNN</h3>
+<p>Faster R-CNN further revolutionizes object detection by integrating a Region Proposal Network (RPN):</p>
+<ol type="1">
+<li><strong>Feature Extraction</strong>: Continues with a pre-trained CNN for the entire image.</li>
+<li><strong>Region Proposal Network (RPN)</strong>: Uses anchor boxes for generating proposals.</li>
+<li><strong>RoI Pooling</strong>: Maintains efficient cropping and resizing.</li>
+<li><strong>Classification and Bounding Box Regression</strong>: Achieves higher accuracy with shared layers.</li>
+</ol>
+<p><strong>Advantages of Faster R-CNN</strong></p>
+<ul>
+<li><strong>Unified Architecture</strong>: Merges feature extraction and region proposal steps.</li>
+<li><strong>Improved Speed</strong>: Faster due to shared computation.</li>
+<li><strong>Enhanced Accuracy</strong>: Produces better region proposals and detection results.</li>
+</ul>
+</section>
+</section>
+<section id="transition-to-instance-segmentation-mask-r-cnn" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="transition-to-instance-segmentation-mask-r-cnn"><span class="header-section-number">12.5</span> Transition to Instance Segmentation: Mask R-CNN</h2>
+<p>Building on Faster R-CNN, Mask R-CNN introduces instance segmentation by adding a mask prediction branch:</p>
+<ol type="1">
+<li><strong>Feature Extraction</strong>: Utilizes a pre-trained CNN for comprehensive feature maps.</li>
+<li><strong>Region Proposal Network (RPN)</strong>: Continues generating proposals with anchors.</li>
+<li><strong>RoI Pooling</strong>: Efficiently processes each region.</li>
+<li><strong>Classification and Bounding Box Regression</strong>: Refines object localization and classification.</li>
+<li><strong>Mask Prediction</strong>: Adds a convolutional branch to predict precise object masks.</li>
+</ol>
+<p><strong>Advantages of Mask R-CNN</strong></p>
+<ul>
+<li><strong>Instance Segmentation</strong>: Delivers pixel-level delineation of individual objects.</li>
+<li><strong>Unified Architecture</strong>: Seamlessly combines detection and segmentation tasks.</li>
+<li><strong>Enhanced Accuracy</strong>: Provides more precise object masks.</li>
+</ul>
+</section>
+<section id="conclusion" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">12.6</span> Conclusion</h2>
+<p>We’ve explored the evolution from R-CNN to Mask R-CNN, showing how each step builds on the last to improve performance. This process demonstrates how you can apply similar improvements to tackle a wide range of advanced tasks, not just instance segmentation. By understanding these developments, you’re equipped to enhance existing models and create innovative solutions for various challenges in computer vision.</p>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://www.youtube.com/watch?v=tNLtXb04i3w">https://www.youtube.com/watch?v=tNLtXb04i3w</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://www.linkedin.com/pulse/medical-image-diagnosis-roles-object-detection-segmentation-egvcc">https://www.linkedin.com/pulse/medical-image-diagnosis-roles-object-detection-segmentation-egvcc</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -442,8 +757,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -554,7 +867,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

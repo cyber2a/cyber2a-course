@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -38,10 +38,13 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-78faf54a06e50be45dc6d83ab59297a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,6 +73,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -216,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../sections/exploring-advanced-neural-networks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exploring Advanced Neural Networks: Semantic Segmentation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exploring Advanced Neural Networks: Instance Segmentation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -307,9 +339,43 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">6.1</span> Overview</a></li>
-  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline"><span class="header-section-number">6.2</span> Outline</a></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">6.3</span> Reference</a></li>
+  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal">Goal</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">6.1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#what-does-this-tool-deep-learning-do" id="toc-what-does-this-tool-deep-learning-do" class="nav-link" data-scroll-target="#what-does-this-tool-deep-learning-do"><span class="header-section-number">6.1.1</span> What does this tool (deep learning) do?</a></li>
+  <li><a href="#key-questions-and-building-blocks-of-deep-learning" id="toc-key-questions-and-building-blocks-of-deep-learning" class="nav-link" data-scroll-target="#key-questions-and-building-blocks-of-deep-learning"><span class="header-section-number">6.1.2</span> Key questions and building blocks of deep learning</a></li>
+  </ul></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">6.2</span> Data</a>
+  <ul class="collapse">
+  <li><a href="#inputs" id="toc-inputs" class="nav-link" data-scroll-target="#inputs"><span class="header-section-number">6.2.1</span> Inputs</a></li>
+  <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs"><span class="header-section-number">6.2.2</span> Outputs</a></li>
+  <li><a href="#quantity-and-quality" id="toc-quantity-and-quality" class="nav-link" data-scroll-target="#quantity-and-quality"><span class="header-section-number">6.2.3</span> Quantity and quality</a></li>
+  </ul></li>
+  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models"><span class="header-section-number">6.3</span> Models</a>
+  <ul class="collapse">
+  <li><a href="#layers" id="toc-layers" class="nav-link" data-scroll-target="#layers"><span class="header-section-number">6.3.1</span> Layers</a></li>
+  <li><a href="#models-1" id="toc-models-1" class="nav-link" data-scroll-target="#models-1"><span class="header-section-number">6.3.2</span> Models</a></li>
+  <li><a href="#pre-trained-models-and-transfer-learning" id="toc-pre-trained-models-and-transfer-learning" class="nav-link" data-scroll-target="#pre-trained-models-and-transfer-learning"><span class="header-section-number">6.3.3</span> Pre-trained models and transfer learning</a></li>
+  <li><a href="#model-customization" id="toc-model-customization" class="nav-link" data-scroll-target="#model-customization"><span class="header-section-number">6.3.4</span> Model customization</a></li>
+  </ul></li>
+  <li><a href="#loss-functions" id="toc-loss-functions" class="nav-link" data-scroll-target="#loss-functions"><span class="header-section-number">6.4</span> Loss functions</a>
+  <ul class="collapse">
+  <li><a href="#types-of-loss-functions" id="toc-types-of-loss-functions" class="nav-link" data-scroll-target="#types-of-loss-functions"><span class="header-section-number">6.4.1</span> Types of Loss Functions</a></li>
+  <li><a href="#training-and-validation-loss" id="toc-training-and-validation-loss" class="nav-link" data-scroll-target="#training-and-validation-loss"><span class="header-section-number">6.4.2</span> Training and validation loss</a></li>
+  </ul></li>
+  <li><a href="#optimization-algorithms" id="toc-optimization-algorithms" class="nav-link" data-scroll-target="#optimization-algorithms"><span class="header-section-number">6.5</span> Optimization Algorithms</a>
+  <ul class="collapse">
+  <li><a href="#introduction-to-gradient-descent" id="toc-introduction-to-gradient-descent" class="nav-link" data-scroll-target="#introduction-to-gradient-descent"><span class="header-section-number">6.5.1</span> Introduction to gradient descent</a></li>
+  <li><a href="#variants-of-gradient-descent" id="toc-variants-of-gradient-descent" class="nav-link" data-scroll-target="#variants-of-gradient-descent"><span class="header-section-number">6.5.2</span> Variants of gradient descent</a></li>
+  <li><a href="#key-hyperparameters" id="toc-key-hyperparameters" class="nav-link" data-scroll-target="#key-hyperparameters"><span class="header-section-number">6.5.3</span> Key Hyperparameters</a></li>
+  <li><a href="#learning-rate-scheduling" id="toc-learning-rate-scheduling" class="nav-link" data-scroll-target="#learning-rate-scheduling"><span class="header-section-number">6.5.4</span> Learning rate scheduling</a></li>
+  <li><a href="#adaptive-learning-rates" id="toc-adaptive-learning-rates" class="nav-link" data-scroll-target="#adaptive-learning-rates"><span class="header-section-number">6.5.5</span> Adaptive learning rates</a></li>
+  </ul></li>
+  <li><a href="#training-and-inference" id="toc-training-and-inference" class="nav-link" data-scroll-target="#training-and-inference"><span class="header-section-number">6.6</span> Training and Inference</a>
+  <ul class="collapse">
+  <li><a href="#training" id="toc-training" class="nav-link" data-scroll-target="#training"><span class="header-section-number">6.6.1</span> Training</a></li>
+  <li><a href="#inference" id="toc-inference" class="nav-link" data-scroll-target="#inference"><span class="header-section-number">6.6.2</span> Inference</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -335,27 +401,1601 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">6.1</span> Overview</h2>
-<p>This session aims to provide a comprehensive introduction to the fundamental components of neural networks and deep learning. Participants will explore the architecture of neural networks, including layers, neurons, weights, and activation functions, as well as the principles behind training models, such as loss functions and optimizers. The goal is to equip participants with a solid understanding of how neural networks are constructed and how they learn, paving the way for deeper dives into specific neural network models and applications in future sessions.</p>
+<section id="goal" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="goal">Goal</h2>
+<p>This introductory session is designed to familiarize participants with the essential building blocks of deep learning. It serves as a foundational course, setting the stage for future exploration. We will cover the basics, focusing on the core components of deep learning such as <strong>data</strong> and <strong>models</strong>. Additionally, we’ll touch on the fundamentals of training, emphasizing <strong>loss functions</strong> and <strong>optimization algorithms.</strong> By the end of this session, participants will have a clear understanding of key concepts to guide further study and practical applications.</p>
 </section>
-<section id="outline" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="outline"><span class="header-section-number">6.2</span> Outline</h2>
+<section id="introduction" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.1</span> Introduction</h2>
+<p>At first glance, we can think of <strong>deep learning</strong> as a car—<strong>a tool to help us achieve goals and solve problems.</strong> Just as you start driving by learning the basics (without diving into all the complex mechanics), your journey into deep learning begins with understanding its essential components.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dl-pytorch/dl-car.png" class="img-fluid figure-img"></p>
+<figcaption>Created by ChatGPT image generator</figcaption>
+</figure>
+</div>
+<section id="what-does-this-tool-deep-learning-do" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="what-does-this-tool-deep-learning-do"><span class="header-section-number">6.1.1</span> What does this tool (deep learning) do?</h3>
+<blockquote class="blockquote">
+<p><em>Finding a function automatically that maps given inputs to desired outputs <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</em></p>
+</blockquote>
+<p>For example:</p>
+<table class="table-striped caption-top table">
+<thead>
+<tr class="header">
+<th>Inputs</th>
+<th>Outputs</th>
+<th>Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A sentence or prompt</td>
+<td>Text completion</td>
+<td>LLM (e.g., ChatGPT <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>)</td>
+</tr>
+<tr class="even">
+<td>A caption/description</td>
+<td>The image</td>
+<td>DALL-E <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></td>
+</tr>
+<tr class="odd">
+<td>Weather data</td>
+<td>10-day prediction</td>
+<td>GraphCast <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is a real-world problem you would like to solve using deep learning? What will your function look like?</p>
+</div>
+</div>
+</section>
+<section id="key-questions-and-building-blocks-of-deep-learning" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="key-questions-and-building-blocks-of-deep-learning"><span class="header-section-number">6.1.2</span> Key questions and building blocks of deep learning</h3>
+<p>To find the right function by using deep learning, we can break the process into four key questions:</p>
+<ol type="1">
+<li><strong>What are the inputs and outputs?</strong> This relates to the <strong>data</strong> we use.<br>
+</li>
+<li><strong>What are the possible function sets?</strong> These correspond to the <strong>models</strong> that define the mapping.<br>
+</li>
+<li><strong>How do we evaluate the function?</strong> This involves defining appropriate <strong>loss functions</strong>.<br>
+</li>
+<li><strong>How do we find the best function?</strong> This is achieved through <strong>optimization algorithms</strong>.</li>
+</ol>
+<p>Together, these questions correspond to the fundamental components of deep learning. Additionally, two more components — <strong>training and inference</strong> — connect these building blocks and operationalize the models.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dl-pytorch/dl-blocks.png" class="img-fluid figure-img"></p>
+<figcaption>Deep learning building blocks</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The building blocks are not isolated; they interact and influence each other. There are trade-offs and considerations at each block.</p>
+</div>
+</div>
+<p><strong>Let’s begin our exploration into the building blocks of deep learning.</strong></p>
+</section>
+</section>
+<section id="data" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="data"><span class="header-section-number">6.2</span> Data</h2>
+<p><em>Data is the start point of deep learning, forming the <strong>inputs</strong> and <strong>outputs</strong> that define the function we aim to learn.</em></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please refer to the <a href="../sections/ai-ready-data-in-arctic-research.html">AI-ready Data</a> section for discussions on data for Arctic research.</p>
+</div>
+</div>
+<section id="inputs" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="inputs"><span class="header-section-number">6.2.1</span> Inputs</h3>
+<p>To build a deep learning application, the first step is to define and prepare the data that feeds into the function we aim to learn. Before diving into the details, consider the unique characteristics and requirements of your problem. Reflect on the following questions:</p>
 <ul>
-<li>Fundamentals of neural network: history and evolution</li>
-<li>Core components: neurons, layers, and weights</li>
-<li>Architecture of neural networks: layers and activation functions</li>
-<li>Training neural networks: loss functions and optimizers</li>
-<li>Conclusion and Q&amp;A</li>
+<li>What is the nature of the data? (e.g., images, text, audio)?</li>
+<li>How much data is available, and is it representative of the real-world scenarios?</li>
+<li>Are there any task-specific considerations, e.g., granularity, temporal consistency, or spatial coverage?</li>
+<li>Is the data clean and usable, e.g., missing values, outliers, or noise?</li>
+</ul>
+<p>Here are some key steps and pratical tips when preparing input data:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Collection
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Gather raw data from various sources.</em></p>
+<ul>
+<li>Ensure data diversity to cover the range of scenarios the application may encounter <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</li>
+<li>Verify data quality by addressing issues like inconsistencies, duplicates, or noise <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</li>
+<li>Use publicly available datasets or domain-specific repositories for a starting point <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Preprocessing
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Clean and prepare data for model training.</em></p>
+<ul>
+<li>Handle missing values by imputation or removal <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> <a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>.</li>
+<li>Detect and remove outliers, if they could mislead the model <a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> <a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>.</li>
+<li>Normalize or standardize data to ensure consistent scales across features and improve model convergence <a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data splitting
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Divide data into training, validation, and testing sets.</em></p>
+<ul>
+<li>Ensure the test set is representative of the real-world data distribution, avoiding data leakage <a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a>.</li>
+<li>Use stratified sampling for imbalanced datasets to maintain class distribution in training and testing sets <a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a> <a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a>.</li>
+<li>Consider the nature of the task (e.g., time-series, spatial data) when splitting the data <a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a>, e.g.:
+<ul>
+<li>Time-based splits for temporal data.</li>
+<li>Location-based splits for geospatial data.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data augmentation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Increase data diversity for better model generalization.</em></p>
+<ul>
+<li>Apply augmentations consistent with the data type (e.g., rotation, flipping for images but not for text) <a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a> <a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a>.</li>
+<li>Use augmentation techniques sparingly to avoid introducing unrealistic patterns <a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a>.</li>
+<li>Explore domain-specific augmentation techniques for specialized tasks (e.g., medical imaging, satellite imagery) <a href="#fn21" class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="outputs" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="outputs"><span class="header-section-number">6.2.2</span> Outputs</h3>
+<p>Defining the outputs is as important as preparing the inputs. The outputs represent the structure of the predictions the model generates and play a key role in determining how the model is trained. Before diving into details, consider these guiding questions:</p>
+<ul>
+<li>What type of predictions does the model need to generate (e.g., a value, a class label, or a structured output)?</li>
+<li>How do the outputs align with the problem/task’s requirements?</li>
+<li>What level of accuracy or granularity is necessary?</li>
+</ul>
+<p>Here are some key steps and practical tips when preparing output data:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Output structure
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Define the format and structure of the model’s predictions.</em></p>
+<ul>
+<li>Select an appropriate output format based on the task requirements. Common formats include:
+<ul>
+<li><strong>Classification tasks:</strong> A fixed-size vector of class probabilities.</li>
+<li><strong>Regression tasks:</strong> A continuous value or a vector of continuous values.</li>
+<li><strong>Mixed tasks:</strong> A combination of class labels and continuous values, e.g., object detection tasks with bounding boxes (regression) and class labels (classification) <a href="#fn22" class="footnote-ref" id="fnref22" role="doc-noteref"><sup>22</sup></a> <a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a>.</li>
+</ul></li>
+<li>Balancing the output granularity with the model’s complexity, available data, and computational resources, e.g., predicting fine-grained sea ice concetrations (0-100%) versus classifying them into categories such as low (&lt;15%) and high (&gt;85%) concentrations.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data annotation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Label the data to provide ground truth for model training.</em></p>
+<ul>
+<li><p>Please refer to the <a href="../sections/data-annotation.html">Data annotation</a> section for more details.</p></li>
+<li><p>The alignment between the data annotation and the task requirements determines the training approach:</p>
+<ul>
+<li><strong>Supervised learning:</strong> Your annotations directly represent the desired outputs of the model.<br>
+</li>
+<li><strong>Semi-supervised learning:</strong> Only a subset of the data is annotated, while the rest remains unlabeled due to cost or resource constraints. Semi-supervised learning combines labeled and unlabeled data to train the model <a href="#fn24" class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a> <a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a>.</li>
+<li><strong>Weakly-supervised learning:</strong> Annotations provide high-level information but are not directly tied to the desired model outputs <a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a>.</li>
+<li><strong>Unsupervised learning:</strong> No annotations are provided, and the model learns patterns and structures from the data itself <a href="#fn27" class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a>.<br>
+</li>
+<li><strong>Self-supervised learning:</strong> Annotations are generated from the data itself, such as predicting missing parts of an image or text <a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a>.<br>
+</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="quantity-and-quality" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="quantity-and-quality"><span class="header-section-number">6.2.3</span> Quantity and quality</h3>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quantity: <em>Does more data always mean better results?</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dl-pytorch/dl-data-quantity.png" class="img-fluid figure-img"></p>
+<figcaption>Hoﬀmann et al., (2022)</figcaption>
+</figure>
+</div>
+<p>While large datasets often improve performance, they are not a guarantee of success. Referencing research like Hoffmann et al.&nbsp;(2022)<a href="#fn29" class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a> reminds us that <em>training compute-optimal models</em> is about balancing data size, model complexity, and computational power.</p>
+<blockquote class="blockquote">
+<p>For various model sizes, we choose the number of training tokens such that the final FLOPs is a constant. The cosine cycle length is set to match the target FLOP count. We find a clear valley in loss, meaning that for a given FLOP budget there is an optimal model to train</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quality: <em>What does it mean to have high-quality data?</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Quality is as important, if not more so, than quantity. Common issues include:</p>
+<ul>
+<li>Label errors or inconsistencies.</li>
+<li>Noise and irrelevant information.</li>
+<li>Improperly filtered datasets.</li>
+</ul>
+<p>Research highlights the impact of prioritizing data quality:</p>
+<ul>
+<li>Rae et al.&nbsp;(2021) <a href="#fn30" class="footnote-ref" id="fnref30" role="doc-noteref"><sup>30</sup></a>.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Our data pipeline (Section A.1.1) includes text quality filtering, removal of repetitious text, deduplication of similar documents, and removal of documents with significant test-set overlap. We find that successive stages of this pipeline improve language model downstream performance (Section A.3.2), emphasising the importance of dataset quality.</p>
+</blockquote>
+<ul>
+<li>Hoffmann et al., (2022) <a href="#fn31" class="footnote-ref" id="fnref31" role="doc-noteref"><sup>31</sup></a>.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Nonetheless, large language models face several challenges, including their overwhelming computational requirements (the cost of training and inference increase with model size) (Rae et al., 2021; Thoppilan et al., 2022) and the need for acquiring more high-quality training data. In fact, in this work we find that larger, high quality datasets will play a key role in any further scaling of language models.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="models" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="models"><span class="header-section-number">6.3</span> Models</h2>
+<p><em>Models lie at the core of deep learning. They serve as the <strong>function sets</strong> that map inputs to outputs.</em></p>
+<p>The specific function is determined by choosing a model architecture and training it to obtain a unique set of parameters.</p>
+<section id="layers" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="layers"><span class="header-section-number">6.3.1</span> Layers</h3>
+<p>Deep learning models are composed of layers. A layer is like a sub-function that processes the input data and passes it to the next layer. Different types of layers serve specific purposes. Here are some examples:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To get started, don’t get overwhelmed by the details of each layer type. Just get a sense of their functions and focus on applying entire models in practical senarios. You can always revisit and explore individual layers more thoroughly later.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fully-connected (dense) layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>A fully-connected layer connects every input to every output through learnable weights, allowing the network to combine features and make predictions.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/dl-pytorch/fc-layer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Fully-connected layer"><img src="../images/dl-pytorch/fc-layer.png" class="img-fluid figure-img" style="width:30.0%" alt="Fully-connected layer"></a></p>
+<figcaption>Fully-connected layer</figcaption>
+</figure>
+</div>
+<p><span class="math display">\[
+y_i = \sum_{j=1}^{n} w_{ij}x_j + b_i
+\]</span> where <span class="math inline">\(x_j\)</span> is the input, <span class="math inline">\(y_i\)</span> is the output, <span class="math inline">\(w_{ij}\)</span> is the weight connecting input <span class="math inline">\(x_j\)</span> to output <span class="math inline">\(y_i\)</span>, and <span class="math inline">\(b_i\)</span> is the bias term.</p>
+<ul>
+<li><strong>Fully-connected layers</strong> are commonly used in deep learning models when the goal is to process and transform high-level features into outputs. They are helpful for tasks like:
+<ul>
+<li>Adjusting the size of the data (dimensionality).<br>
+</li>
+<li>Combining learned features to make decisions, e.g., class probabilities or numerical values.</li>
+</ul></li>
+<li><strong>Advantages</strong> of fully-connected layers:
+<ul>
+<li>They effectively learn global patterns and relationships between features.</li>
+<li>They are easy to implement and integrate into the network architecture.</li>
+</ul></li>
+<li><strong>Challenges</strong> of fully-connected layers:
+<ul>
+<li>High computational cost and memory usage due to the dense connections.<br>
+</li>
+<li>Lack of spatial awareness, making them less suitable for tasks involving structured or spatial data (e.g., images or sequences).</li>
+</ul></li>
+<li>Try an <strong>interactive demo</strong> of fully-connected layers at the <a href="https://playground.tensorflow.org/">TensorFlow Playground</a>.<br>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Convolutional layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>A convolutional layer processes input data by applying filters that detect patterns like edges, textures, and shapes, helping the model understand spatial features in images.</em></p>
+<ul>
+<li><strong>Convolutional layers</strong> are essential for image analysis and other tasks that require understanding spatial relationships. They are characterized by:
+<ul>
+<li><strong>Local Connectivity:</strong> Focusing on small regions of the input.</li>
+<li><strong>Parameter Sharing:</strong> Reusing weights across different parts of the input, enhancing computational efficiency and generalization by reducing parameters.</li>
+</ul></li>
+<li><strong>Advantages</strong> of convolutional layers:
+<ul>
+<li>They capture spatial patterns and relationships in the data.</li>
+<li>They reduce the number of parameters by sharing weights, making them computationally efficient.</li>
+</ul></li>
+<li><strong>Challenges</strong> of convolutional layers:
+<ul>
+<li>They require tuning of hyperparameters like filter size and stride.</li>
+<li>They may struggle with capturing global patterns in the data, often addressed by pooling layers or large receptive fields.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pooling layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>A pooling layer reduces the size of feature maps by summarizing regions (e.g., taking the maximum or average value), helping to retain important information while reducing computational complexity.</em></p>
+<ul>
+<li><strong>Pooling layers</strong> are commonly used in convolutional neural networks to:
+<ul>
+<li>Reduce spatial dimensions, which helps prevent overfitting.</li>
+<li>Capture invariant features by summarizing local information, allowing the model to recognize patterns regardless of their exact location.</li>
+</ul></li>
+<li><strong>Types of pooling</strong>:
+<ul>
+<li><strong>Max Pooling</strong>: Selects the maximum value from a region.</li>
+<li><strong>Average Pooling</strong>: Computes the average value in a region.</li>
+<li><strong>Global Pooling</strong>: Aggregates information across the entire feature map, often used to reduce each feature map to a single value.</li>
+</ul></li>
+<li><strong>Advantages</strong> of pooling layers:
+<ul>
+<li>They reduce the spatial dimensions of the data, making the model more robust by focusing on key features.</li>
+<li>They help the model focus on important features while discarding irrelevant details.</li>
+</ul></li>
+<li><strong>Challenges</strong> of pooling layers:
+<ul>
+<li>They may lead to information loss by summarizing data.</li>
+<li>They can reduce the spatial resolution of the data, potentially affecting performance in tasks requiring fine-grained details.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Activation layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>An activation layer applies a mathematical function to introduce non-linearity into the model, allowing the model to learn more complex patterns.</em></p>
+<ul>
+<li><strong>Activation layers</strong> are crucial for deep learning models to:
+<ul>
+<li>Introduce non-linearity, enabling the model to learn complex relationships in the data.</li>
+</ul></li>
+<li><strong>Common activation functions</strong>:
+<ul>
+<li><strong>ReLU (Rectified Linear Unit)</strong>: <span class="math inline">\(f(x) = \max(0, x)\)</span> - commonly used due to its simplicity and efficiency.</li>
+<li><strong>Sigmoid</strong>: <span class="math inline">\(f(x) = \frac{1}{1 + e^{-x}}\)</span> - useful for binary classification but can suffer from vanishing gradients.</li>
+<li><strong>Tanh</strong>: <span class="math inline">\(f(x) = \frac{e^{2x} - 1}{e^{2x} + 1}\)</span> - similar to sigmoid but outputs values between -1 and 1, often preferred over sigmoid for hidden layers.</li>
+</ul></li>
+<li><strong>Advantages</strong> of activation layers:
+<ul>
+<li>They enable the model to learn complex patterns by introducing non-linearity.</li>
+</ul></li>
+<li><strong>Challenges</strong> of activation layers:
+<ul>
+<li>They may introduce issues like vanishing or exploding gradients, affecting model training.</li>
+<li>Choosing the right activation function is crucial for model performance and stability.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Batch normalization layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>A batch normalization layer normalizes the inputs by adjusting the mean and variance, helping to speed up training and improve stability.</em></p>
+<ul>
+<li><strong>Batch normalization layers</strong> are used to:
+<ul>
+<li>Stabilize training by normalizing inputs within layers.</li>
+<li>Accelerate convergence by reducing internal covariate shift, making the model more robust to hyperparameter choices.</li>
+</ul></li>
+<li><strong>Advantages</strong> of batch normalization layers:
+<ul>
+<li>They stabilize training by reducing internal covariate shift.</li>
+<li>They enable faster convergence and better generalization by normalizing inputs within layers.</li>
+</ul></li>
+<li><strong>Challenges</strong> of batch normalization layers:
+<ul>
+<li>They introduce additional hyperparameters like momentum and epsilon.</li>
+<li>They may affect model performance in tasks where the data distribution changes significantly during training, such as non-stationary environments or when batch sizes are very small.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dropout layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>A dropout layer randomly disables a fraction of neurons during training, helping to prevent overfitting by making the model less reliant on specific pathways.</em></p>
+<ul>
+<li><strong>Dropout layers</strong> are used to:
+<ul>
+<li>Prevent overfitting by reducing the model’s reliance on specific pathways through random neuron deactivation.</li>
+<li>Improve model generalization by introducing noise during training, which forces the model to learn more robust and diversified representations.</li>
+</ul></li>
+<li><strong>Advantages</strong> of dropout layers:
+<ul>
+<li>They prevent overfitting by introducing noise and reducing reliance on specific pathways, enabling the model to develop a more generalized understanding of the data.</li>
+<li>They improve model generalization by encouraging the model to learn more robust features that are not dependent on particular neuron activations.</li>
+</ul></li>
+<li><strong>Challenges</strong> of dropout layers:
+<ul>
+<li>They may slow down training due to the random deactivation of neurons, which can increase the number of epochs needed to reach convergence.</li>
+<li>They require careful tuning of the dropout rate to balance regularization and model performance, as too high a dropout rate can lead to underfitting.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Residual connection layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>A residual connection layer adds the input of a layer directly to its output, helping to prevent vanishing gradients and enabling deeper networks.</em></p>
+<ul>
+<li><strong>Residual connections</strong> are used to:
+<ul>
+<li>Enable the training of deeper networks by mitigating vanishing gradients.</li>
+<li>Improve model convergence by providing a direct path for gradient flow, making it easier for the model to learn complex patterns.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recurrent layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>A recurrent layer processes sequences of data by maintaining a hidden state that captures information from previous steps, allowing the network to learn patterns in temporal or sequential data.</em></p>
+<ul>
+<li><strong>Recurrent layers</strong> are essential for tasks involving sequential data like time series, text, or audio. They are characterized by:
+<ul>
+<li><strong>Temporal Connectivity:</strong> Capturing dependencies between elements in a sequence.</li>
+<li><strong>Hidden State:</strong> Maintaining a memory of past inputs to inform future predictions.</li>
+</ul></li>
+<li><strong>Advantages</strong> of recurrent layers:
+<ul>
+<li>They capture temporal dependencies in sequential data, making them suitable for tasks like time series forecasting, language modeling, and speech recognition.</li>
+<li>They enable the model to learn long-term dependencies by maintaining a hidden state that captures information from previous steps.</li>
+</ul></li>
+<li><strong>Challenges</strong> of recurrent layers:
+<ul>
+<li>They may struggle with capturing long-term dependencies due to vanishing or exploding gradients.</li>
+<li>They can be computationally expensive and slow to train, especially for long sequences.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Attention layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>An attention layer computes relationships between elements in the data, enabling the model to focus on specific parts of the input.</em></p>
+<ul>
+<li><strong>Attention layers</strong> are crucial for tasks that require capturing complex relationships between elements in the data. They are characterized by:
+<ul>
+<li><strong>Contextual Information:</strong> Capturing relationships between elements in the data.</li>
+<li><strong>Selective Focus:</strong> Allowing the model to focus on relevant parts of the input.</li>
+</ul></li>
+<li><strong>Advantages</strong> of attention layers:
+<ul>
+<li>They enable the model to focus on specific parts of the input, improving performance in tasks like machine translation, image captioning, and question answering.</li>
+<li>They capture complex relationships between elements in the data, making them suitable for tasks that require understanding context and dependencies.</li>
+</ul></li>
+<li><strong>Challenges</strong> of attention layers:
+<ul>
+<li>They introduce additional complexity to the model architecture, requiring careful tuning of hyperparameters.</li>
+<li>They may increase computational costs and memory usage, especially for large-scale models.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="models-1" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="models-1"><span class="header-section-number">6.3.2</span> Models</h3>
+<p>Deep learning models are architectures composed of layers. Each model architecture has unique characteristics and is suited for particular tasks. Here are some examples:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Convolutional Neural Networks (CNNs)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Best for image-related tasks.</em></p>
+<ul>
+<li><strong>Convolutional Neural Networks (CNNs)</strong> are designed to process and analyze images. They are characterized by:
+<ul>
+<li><strong>Convolutional Layers:</strong> Detecting patterns like edges, textures, and shapes.</li>
+<li><strong>Pooling Layers:</strong> Reducing spatial dimensions to prevent overfitting.</li>
+<li><strong>Fully-Connected Layers:</strong> Combining features for predictions.</li>
+</ul></li>
+<li><strong>Applications</strong> of CNNs:
+<ul>
+<li>Image classification, object detection, and segmentation.</li>
+<li>Medical imaging analysis.</li>
+<li>Remote sensing and satellite image processing.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Long Short-Term Memory Networks (LSTMs)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Designed for sequential data like time series or text.</em></p>
+<ul>
+<li><strong>Long Short-Term Memory Networks (LSTMs)</strong> are recurrent neural networks that maintain a hidden state to capture temporal dependencies. They are characterized by:
+<ul>
+<li><strong>Memory Cells:</strong> Capturing long-term dependencies in sequential data.</li>
+<li><strong>Gates:</strong> Regulating the flow of information to prevent vanishing gradients.</li>
+<li><strong>Hidden State:</strong> Maintaining a memory of past inputs to inform future predictions.</li>
+</ul></li>
+<li><strong>Applications</strong> of LSTMs:
+<ul>
+<li>Time series forecasting.</li>
+<li>Natural language processing tasks like language modeling and machine translation.</li>
+<li>Speech recognition and synthesis.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Transformers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>The backbone of modern natural language processing and vision models.</em></p>
+<ul>
+<li><strong>Transformers</strong> are models that process sequences of data using self-attention mechanisms. They are characterized by:
+<ul>
+<li><strong>Self-Attention:</strong> Computing relationships between elements in the data.</li>
+<li><strong>Multi-Head Attention:</strong> Capturing different types of relationships in the data.</li>
+<li><strong>Positional Encoding:</strong> Incorporating positional information into the model.</li>
+</ul></li>
+<li><strong>Applications</strong> of Transformers:
+<ul>
+<li>Natural language processing tasks like machine translation, text generation, and sentiment analysis.</li>
+<li>Image analysis and computer vision tasks like object detection and image captioning.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Graph Neural Networks (GNNs)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Designed for graph-structured data like social networks, molecular structures, and knowledge graphs.</em></p>
+<ul>
+<li><strong>Graph Neural Networks (GNNs)</strong> are specialized models for processing graph-structured data. They are characterized by:
+<ul>
+<li><strong>Graph Convolutional Layers:</strong> Propagating information between nodes in the graph.</li>
+<li><strong>Node Embeddings:</strong> Learning representations for nodes in the graph.</li>
+<li><strong>Graph Pooling:</strong> Aggregating information from subgraphs.</li>
+</ul></li>
+<li><strong>Applications</strong> of GNNs:
+<ul>
+<li>Social network analysis and link prediction.</li>
+<li>Drug discovery and molecular property prediction.</li>
+<li>Knowledge graph completion and recommendation systems.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Autoencoders
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Used for unsupervised learning and dimensionality reduction.</em></p>
+<ul>
+<li><strong>Autoencoders</strong> are neural networks that learn to encode and decode data, enabling tasks like:
+<ul>
+<li><strong>Dimensionality Reduction:</strong> Learning compact representations of data.</li>
+<li><strong>Anomaly Detection:</strong> Identifying outliers or unusual patterns in the data.</li>
+<li><strong>Generative Modeling:</strong> Generating new data samples similar to the input.</li>
+</ul></li>
+<li><strong>Variants</strong> of autoencoders include:
+<ul>
+<li><strong>Variational Autoencoders (VAEs):</strong> Learn probabilistic encodings for generative modeling.</li>
+<li><strong>Denoising Autoencoders:</strong> Train on noisy data to learn robust representations.</li>
+<li><strong>Sparse Autoencoders:</strong> Encourage sparsity in the learned representations.</li>
+</ul></li>
+<li><strong>Applications</strong> of autoencoders:
+<ul>
+<li>Image denoising and reconstruction.</li>
+<li>Anomaly detection in cybersecurity and fraud detection.</li>
+<li>Generative modeling for data augmentation and synthesis.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Generative Adversarial Networks (GANs)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Used for generative modeling and image synthesis.</em></p>
+<ul>
+<li><strong>Generative Adversarial Networks (GANs)</strong> are composed of two networks, a generator and a discriminator, that compete in a game setting. GANs are used for:
+<ul>
+<li><strong>Generative Modeling:</strong> Creating new data samples similar to the training data.</li>
+<li><strong>Image Synthesis:</strong> Generating realistic images from random noise.</li>
+<li><strong>Style Transfer:</strong> Combining the content of one image with the style of another.</li>
+</ul></li>
+<li><strong>Components</strong> of GANs:
+<ul>
+<li><strong>Generator:</strong> Learns to generate realistic data samples.</li>
+<li><strong>Discriminator:</strong> Learns to distinguish between real and generated samples.</li>
+<li><strong>Adversarial Loss:</strong> Guides the training process by pitting the generator against the discriminator.</li>
+</ul></li>
+<li><strong>Applications</strong> of GANs:
+<ul>
+<li>Image generation and super-resolution.</li>
+<li>Deepfake detection and generation.</li>
+<li>Artistic style transfer and image-to-image translation.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Diffusion Models
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>Used for generative modeling and image synthesis.</em></p>
+<ul>
+<li><strong>Diffusion Models</strong> are generative models that learn to model the data distribution by iteratively diffusing noise. They are characterized by:
+<ul>
+<li><strong>Diffusion Process:</strong> Modeling the data distribution by iteratively diffusing noise.</li>
+<li><strong>Invertible Networks:</strong> Learning to reverse the diffusion process to generate samples.</li>
+<li><strong>Score-Based Training:</strong> Training the model by estimating the score function of the data distribution.</li>
+</ul></li>
+<li><strong>Applications</strong> of Diffusion Models:
+<ul>
+<li>Image generation and super-resolution.</li>
+<li>Video prediction and synthesis.</li>
+<li>Anomaly detection and data completion.</li>
+</ul></li>
+<li><strong>Variants</strong> of Diffusion Models include:
+<ul>
+<li><strong>Denoising Diffusion Probabilistic Models (DDPM):</strong> Learn to denoise images by modeling the diffusion process.</li>
+<li><strong>Diffusion Probabilistic Models (DPM):</strong> Model the data distribution by diffusing noise through a series of steps.</li>
+<li><strong>Score-Based Generative Models:</strong> Train the model by estimating the score function of the data distribution.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="pre-trained-models-and-transfer-learning" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="pre-trained-models-and-transfer-learning"><span class="header-section-number">6.3.3</span> Pre-trained models and transfer learning</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the realm of deep learning, building models from scratch can be both time-consuming and resource-intensive. Fortunately, pre-trained models and transfer learning offer a pratical solution to these challenges. They enables scientists to leverage existing models and achieve better performance with minimal efforts.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pre-trained models
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Pre-trained models</strong> are deep learning models that have been previously trained on extensive datasets. These models can serve as a solid foundation for solving similar tasks in different domains. By utilizing the knowledge captured in pre-trained models, you can achieve faster training times and often better performance.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Transfer learning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Transfer learning</strong> is a technique where a model developed for a particular task is reused as the starting point for a model on a second task. This approach is particularly beneficial when the second task has limited data. Instead of training a new model from scratch, you can adapt an existing model that has already learned useful features from a large dataset.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Benefits of using pre-trained models
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Faster Training:</strong> Pre-trained models provide a head start by leveraging knowledge from previous tasks, reducing the time and resources needed for training.</li>
+<li><strong>Improved Performance:</strong> Transfer learning allows you to benefit from the generalization capabilities of pre-trained models, often leading to better performance on new tasks.</li>
+<li><strong>Domain Adaptation:</strong> Pre-trained models can be fine-tuned on domain-specific data to adapt to new environments or tasks.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to implement transfer learning
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Select a Pre-trained Model:</strong> Choose a pre-trained model that is well-suited for your task. It depends on the nature of the data and the target task.</li>
+<li><strong>Customize the Model:</strong> Adapt the pre-trained model to your specific task. The customization may occur at various stages:
+<ul>
+<li><strong>Input adaptation:</strong> Adjust the model to handle different types of input data. This might involve changing the input layer to accommodate data with more channels, such as multispectral images, or adapting it for temporal data like time series.</li>
+<li><strong>Output adaptation:</strong> Modify the output layers to match your task requirements. This could mean changing the number of output classes for classification tasks. You can also use the pre-trained model as a backbone and build additional task-specific modules on top of it, such as object detection heads for image segmentation tasks.</li>
+</ul></li>
+<li><strong>Fine-tune the Model:</strong> Train the adapted model on your dataset. You can choose to freeze some of the earlier layers to preserve the learned features, while tuning the later layers to adapt to your task.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Practical applications
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Image Classification:</strong> Use pre-trained models like ResNet or Swin Transformer for classifying images into different categories.</li>
+<li><strong>Object Detection:</strong> Utilize pre-trained models like Faster R-CNN, YOLO, or RetinaNet for object detection tasks.</li>
+<li><strong>Natural Language Processing:</strong> Apply pre-trained models like BERT, GPT, or RoBERTa for text classification, sentiment analysis, or question answering.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="model-customization" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="model-customization"><span class="header-section-number">6.3.4</span> Model customization</h3>
+<p><img src="../images/dl-pytorch/models.png" class="img-fluid"> In deep learning, models can be thought of as consisting of three core components: input adaptation, a feature extractor, and output adaptation. Understanding and customizing these components is crucial for effectively applying pre-trained models to new tasks.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Feature extractor
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <strong>feature extractor</strong> is the heart of the model, transforming data into informative representations that highlight essential patterns relevant to the task. Pre-trained models often excel in this role, as they have already learned rich feature sets from large datasets. By using a pre-trained model as a feature extractor, you can leverage existing knowledge and focus on adapting it to your specific needs.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Input adaptation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Input adaptation</strong> involves transforming your data into a format that the feature extractor can process. This might mean:</p>
+<ul>
+<li>Adjusting the input layer to accommodate different data types, such as adding channels for multispectral images or handling temporal sequences for time series data.</li>
+<li>Preprocessing data to match the scale or format expected by the pre-trained model.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Output adaptation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Output adaptation</strong> transforms the extracted features into usable outputs for your specific task. This often involves:</p>
+<ul>
+<li>Modifying the output layer to match the number of classes in your classification task.</li>
+<li>Adding specialized layers, such as segmentation heads for image segmentation tasks, or regression layers for predicting continuous values.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Considerations for model customization
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Task Similarity</strong>: The extent of adaptation needed depends on how closely the pre-trained model’s original task aligns with your target task. More divergent tasks may require extensive customization and additional data for fine-tuning. Therefore, selecting a pre-trained model that closely resembles your task can simplify the adaptation process.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="loss-functions" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="loss-functions"><span class="header-section-number">6.4</span> Loss functions</h2>
+<p><em>A loss function quantifies the difference between the predicted outputs and the actual target values, providing essential feedback for optimization.</em></p>
+<p>For example, consider a classification task using a softmax output layer:</p>
+<ul>
+<li><strong>Predicted Output</strong>: <code>[0.6, 0.2, 0.2]</code></li>
+<li><strong>Target Output</strong>: <code>[1, 0, 0]</code></li>
+</ul>
+<p>Using the <strong>Cross-Entropy loss function</strong>, the loss value is calculated as:</p>
+<p><span class="math display">\[
+\text{Cross-Entropy Loss} = -\sum_{i} y_i \log(p_i) = -\log(0.6) = 0.51
+\]</span></p>
+<p>where <span class="math inline">\(y_i\)</span> is the target output and <span class="math inline">\(p_i\)</span> is the predicted output.</p>
+<p><strong>Mean Absolute Error (MAE)</strong> can also be used to evaluate the prediction:</p>
+<p><span class="math display">\[
+\text{MAE} = \frac{1}{n} \sum_{i} |y_i - p_i| = \frac{|1 - 0.6| + |0 - 0.2| + |0 - 0.2|}{3} = \frac{0.4 + 0.2 + 0.2}{3} = 0.27
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the example above, both Cross-Entropy and MAE can evaluate the prediction’s accuracy. Consider these questions:</p>
+<ul>
+<li>How do the values of the two loss functions change when predictions are closer to or further from the target?</li>
+<li>What is the impact of each loss function on the model training process?</li>
+</ul>
+</div>
+</div>
+<section id="types-of-loss-functions" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="types-of-loss-functions"><span class="header-section-number">6.4.1</span> Types of Loss Functions</h3>
+<p>Selecting the right loss function is essential for optimizing model performance across various tasks. Here are some common types of loss functions:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task-Specific Loss Functions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Regression</strong>: Measure error for continuous outputs.
+<ul>
+<li><strong>Mean Squared Error (MSE)</strong>: Computes the average squared difference between predictions and targets.</li>
+<li><strong>Mean Absolute Error (MAE)</strong>: Calculates the average absolute difference between predictions and targets.</li>
+<li><strong>Huber Loss</strong>: Combines MSE and MAE, less sensitive to outliers than MSE.</li>
+</ul></li>
+<li><strong>Classification</strong>: Evaluate probability distributions.
+<ul>
+<li><strong>Cross-Entropy Loss</strong>: Measures the difference between predicted and target distributions, used with softmax outputs.</li>
+<li><strong>Binary Cross-Entropy</strong>: Specifically for binary classification tasks.</li>
+<li><strong>Hinge Loss</strong>: Used for “maximum-margin” classification, mainly with support vector machines.</li>
+</ul></li>
+<li><strong>Sequence Prediction</strong>: Handle variable-length outputs.
+<ul>
+<li><strong>Connectionist Temporal Classification (CTC)</strong>: Aligns input and output sequences, used in tasks like speech recognition.</li>
+<li><strong>Sequence-to-Sequence Loss</strong>: Often combines cross-entropy with attention mechanisms.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Purpose-Specific Loss Functions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Imbalanced Data</strong>:
+<ul>
+<li><strong>Focal Loss</strong>: Mitigates class imbalance by focusing on hard-to-classify examples.</li>
+<li><strong>Weighted Cross-Entropy</strong>: Assigns different weights to classes to balance their impact.</li>
+</ul></li>
+<li><strong>Multi-Objective Tasks</strong>:
+<ul>
+<li><strong>Multi-Task Loss</strong>: Combines multiple loss functions with weighting factors to optimize for several objectives simultaneously.</li>
+</ul></li>
+<li><strong>Robustness to Outliers</strong>:
+<ul>
+<li><strong>Log-Cosh Loss</strong>: Similar to MSE but less sensitive to outliers, using the hyperbolic cosine of prediction errors.</li>
+</ul></li>
+<li><strong>Image Processing</strong>:
+<ul>
+<li><strong>Dice Loss</strong>: Used for image segmentation tasks to measure overlap between predicted and target areas.</li>
+<li><strong>IoU Loss (Intersection over Union)</strong>: Measures the overlap between predicted and actual bounding boxes, often used in object detection.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="training-and-validation-loss" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="training-and-validation-loss"><span class="header-section-number">6.4.2</span> Training and validation loss</h3>
+<p>Training and validation loss are metrics used to evaluate and fine-tune the performance of machine learning models. They provide insights into how well a model is learning and can indicate potential issues like overfitting or underfitting.</p>
+<ul>
+<li><p><strong>Training Loss</strong>: This is the error calculated on the training dataset after each iteration. It reflects how well the model is learning the training data.</p></li>
+<li><p><strong>Validation Loss</strong>: This is the error calculated on a separate validation dataset that the model has not seen during training. It provides an indication of how well the model generalizes to unseen data.</p></li>
+</ul>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpreting training and validation loss
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The relationship between training and validation loss can reveal important information about the model’s performance:</p>
+<ul>
+<li><strong>Both losses decrease:</strong> If both training and validation losses decrease and stabilize at a low value, it suggests that the model is learning well and generalizing effectively to the validation set.</li>
+<li><strong>Training loss decreases, validation loss increases</strong>: This pattern indicates overfitting. The model is learning the training data too well, including its noise, and is not generalizing effectively to new data. Regularization techniques or a simpler model might be needed.</li>
+<li><strong>Both losses are high</strong>: If both losses remain high, it may indicate underfitting. The model is not complex enough to capture the underlying patterns in the data. Consider increasing model capacity or improving feature engineering.</li>
+<li><strong>Training loss stable, validation loss fluctuates</strong>: Fluctuating validation loss with stable training loss may suggest that the model is sensitive to the specific validation data. This could be due to a small validation set size or data noise.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Strategies to manage training and validation loss
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To address common issues related to training and validation loss, consider the following strategies:</p>
+<ul>
+<li><strong>Regularization</strong>: Techniques like L1/L2 regularization, dropout, and early stopping can help mitigate overfitting.</li>
+<li><strong>Data Augmentation</strong>: Increasing the diversity of the training data can improve model generalization.</li>
+<li><strong>Cross-Validation</strong>: Using k-fold cross-validation provides a more reliable estimate of model performance on unseen data.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="optimization-algorithms" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="optimization-algorithms"><span class="header-section-number">6.5</span> Optimization Algorithms</h2>
+<p><em>Optimization algorithms adjust model parameters to minimize the loss function, guiding the model towards better performance.</em></p>
+<section id="introduction-to-gradient-descent" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="introduction-to-gradient-descent"><span class="header-section-number">6.5.1</span> Introduction to gradient descent</h3>
+<p><strong>Gradient Descent</strong> is the foundational algorithm used in deep learning for optimization:</p>
+<ul>
+<li><strong>Objective</strong>: The aim is to find the minimum of a function by iteratively adjusting parameters.</li>
+<li><strong>Gradient</strong>: Represents the direction of the steepest ascent. In optimization, we move in the opposite direction to find the minimum.</li>
+<li><strong>Learning rate</strong>: A crucial hyperparameter that controls the size of the steps taken towards the minimum.</li>
 </ul>
 </section>
-<section id="reference" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="reference"><span class="header-section-number">6.3</span> Reference</h2>
-<ul>
-<li><a href="https://cs231n.stanford.edu">https://cs231n.stanford.edu</a></li>
-</ul>
+<section id="variants-of-gradient-descent" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="variants-of-gradient-descent"><span class="header-section-number">6.5.2</span> Variants of gradient descent</h3>
+<p>To enhance the efficiency and performance of gradient descent, several variants have been developed:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stochastic gradient descent (SGD)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Update parameters using a single training example per iteration, leading to faster but noisier convergence.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mini-batch gradient descent
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-45" class="callout-45-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It strikes a balance between batch and stochastic gradient descent by updating parameters using a small subset (mini-batch) of the training data, improving convergence stability and speed.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Momentum
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This method accelerates convergence by considering past gradients, helping the algorithm navigate through ravines and avoid oscillations.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Adam (Adaptive moment estimation)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-47" class="callout-47-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Adam combines the benefits of momentum and RMSprop, adjusting learning rates for each parameter based on historical gradients, making it one of the most popular optimization methods.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="key-hyperparameters" class="level3" data-number="6.5.3">
+<h3 data-number="6.5.3" class="anchored" data-anchor-id="key-hyperparameters"><span class="header-section-number">6.5.3</span> Key Hyperparameters</h3>
+<p>Optimization algorithms rely on hyperparameters that need to be carefully tuned for optimal performance:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Learning rate
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The learning rate determines how quickly or slowly the model learns. It needs to be carefully selected to balance convergence speed and stability.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Batch size
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-49" class="callout-49-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The batch size refers to the number of training samples used in one iteration. Smaller batch sizes can lead to faster convergence but noisier updates, while larger batch sizes provide smoother updates but require more computational resources.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Momentum rate
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-50" class="callout-50-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The momentum rate determines the influence of past gradients on the current update, helping to smooth the optimization path.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Regularization strength
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-51" class="callout-51-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A factor used to prevent overfitting by penalizing complex models, ensuring simpler and more generalizable solutions.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="learning-rate-scheduling" class="level3" data-number="6.5.4">
+<h3 data-number="6.5.4" class="anchored" data-anchor-id="learning-rate-scheduling"><span class="header-section-number">6.5.4</span> Learning rate scheduling</h3>
+<p>Adjusting the learning rate over time can impact model performance:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fixed scheduling
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-52" class="callout-52-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Maintains a constant learning rate throughout training, simplifying the optimization process.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step decay
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-53" class="callout-53-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Reduces the learning rate at regular intervals, allowing the model to refine its parameters as it approaches convergence.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exponential decay
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-54" class="callout-54-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Gradually decreases the learning rate exponentially, enabling fine-tuning of the model as training progresses.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cyclical learning rates
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-55" class="callout-55-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Vary the learning rate cyclically, encouraging exploration of different regions of the loss landscape for potentially better minima.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="adaptive-learning-rates" class="level3" data-number="6.5.5">
+<h3 data-number="6.5.5" class="anchored" data-anchor-id="adaptive-learning-rates"><span class="header-section-number">6.5.5</span> Adaptive learning rates</h3>
+<p>These methods automatically adjust the learning rate during training:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-56-contents" aria-controls="callout-56" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Adam
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-56" class="callout-56-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Adaptive moment estimation that combines momentum and RMSprop, providing an efficient and effective optimization approach.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-57-contents" aria-controls="callout-57" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+RMSprop (Root Mean Square Propagation)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-57" class="callout-57-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Divides the learning rate by a moving average of the squared gradients, adapting the learning rate for each parameter dynamically.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="training-and-inference" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="training-and-inference"><span class="header-section-number">6.6</span> Training and Inference</h2>
+<p><em>Training and inference are the key processes that integrate the essential components for deep learning applications: data, models, loss functions, and optimization algorithms.</em></p>
+<section id="training" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="training"><span class="header-section-number">6.6.1</span> Training</h3>
+<p>Training is the phase where the model learns from the data by optimizing its parameters to minimize the loss function.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-58-contents" aria-controls="callout-58" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Steps
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-58" class="callout-58-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Data preparation</strong>: Gather and preprocess data into a suitable format for the model.</li>
+<li><strong>Forward pass</strong>: The model processes the input data to generate predictions.</li>
+<li><strong>Loss calculation</strong>: The predictions are compared against the target outputs using a loss function to quantify the error.</li>
+<li><strong>Backward pass</strong>: Compute gradients of the loss with respect to the model parameters using backpropagation.</li>
+<li><strong>Parameter ppdate</strong>: Utilize optimization algorithms (e.g., Gradient Descent, Adam) to update the model’s weights based on the computed gradients, iteratively improving the model’s performance.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="inference" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="inference"><span class="header-section-number">6.6.2</span> Inference</h3>
+<p>Inference is the phase where the trained model is used to make predictions on new, unseen data.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-59-contents" aria-controls="callout-59" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Steps
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-59" class="callout-59-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Data preparation</strong>: Prepare new data in the same way as the training data for consistency.</li>
+<li><strong>Forward pass</strong>: The model processes the input data to generate predictions, leveraging the learned parameters.</li>
+<li><strong>Output generation</strong>: Convert raw model outputs into interpretable results, such as class labels or continuous values.</li>
+<li><strong>Post-processing</strong>: Apply additional processing steps like thresholding for binary classification or filtering to refine results.</li>
+<li><strong>Result interpretation</strong>: Analyze the model’s outputs to make informed decisions, often integrating domain-specific knowledge or business logic.</li>
+</ol>
+</div>
+</div>
+</div>
 
 
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://speech.ee.ntu.edu.tw/~hylee/ml/ml2023-course-data/ML%20basic%20(v8).pdf">https://speech.ee.ntu.edu.tw/~hylee/ml/ml2023-course-data/ML%20basic%20(v8).pdf</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://openai.com/chatgpt/overview/">https://openai.com/chatgpt/overview/</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://openai.com/index/dall-e/">https://openai.com/index/dall-e/</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/">https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://www.snowflake.com/en/blog/five-steps-data-diversity-for-smarter-ai-models/">https://www.snowflake.com/en/blog/five-steps-data-diversity-for-smarter-ai-models/</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><a href="https://www.markovml.com/blog/data-quality-validation">https://www.markovml.com/blog/data-quality-validation</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p><a href="https://arcticdata.io/">https://arcticdata.io/</a><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p><a href="https://arctic.noaa.gov/data/">https://arctic.noaa.gov/data/</a><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><a href="https://www.mastersindatascience.org/learning/how-to-deal-with-missing-data/">https://www.mastersindatascience.org/learning/how-to-deal-with-missing-data/</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p><a href="https://www.geeksforgeeks.org/ml-handling-missing-values/">https://www.geeksforgeeks.org/ml-handling-missing-values/</a><a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p><a href="https://www.freecodecamp.org/news/how-to-detect-outliers-in-machine-learning/">https://www.freecodecamp.org/news/how-to-detect-outliers-in-machine-learning/</a><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p><a href="https://www.geeksforgeeks.org/detect-and-remove-the-outliers-using-python/">https://www.geeksforgeeks.org/detect-and-remove-the-outliers-using-python/</a><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p><a href="https://developers.google.com/machine-learning/crash-course/numerical-data/normalization">https://developers.google.com/machine-learning/crash-course/numerical-data/normalization</a><a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p><a href="https://www.alooba.com/skills/concepts/deep-learning/data-splitting/">https://www.alooba.com/skills/concepts/deep-learning/data-splitting/</a><a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p><a href="https://en.wikipedia.org/wiki/Stratified_sampling">https://en.wikipedia.org/wiki/Stratified_sampling</a><a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p><a href="https://www.baeldung.com/cs/ml-stratified-sampling">https://www.baeldung.com/cs/ml-stratified-sampling</a><a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn17"><p><a href="https://datascience.stanford.edu/news/splitting-data-randomly-can-ruin-your-model">https://datascience.stanford.edu/news/splitting-data-randomly-can-ruin-your-model</a><a href="#fnref17" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn18"><p><a href="https://anushsom.medium.com/image-augmentation-for-creating-datasets-using-pytorch-for-dummies-by-a-dummy-a7c2b08c5bcb">https://anushsom.medium.com/image-augmentation-for-creating-datasets-using-pytorch-for-dummies-by-a-dummy-a7c2b08c5bcb</a><a href="#fnref18" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn19"><p><a href="https://www.datacamp.com/tutorial/complete-guide-data-augmentation">https://www.datacamp.com/tutorial/complete-guide-data-augmentation</a><a href="#fnref19" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn20"><p><a href="https://ubiai.tools/what-are-the-advantages-anddisadvantages-of-data-augmentation-2023-update/">https://ubiai.tools/what-are-the-advantages-anddisadvantages-of-data-augmentation-2023-update/</a><a href="#fnref20" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn21"><p><a href="https://proceedings.neurips.cc/paper/2017/hash/f26dab9bf6a137c3b6782e562794c2f2-Abstract.html">Ratner, A. J., Ehrenberg, H., Hussain, Z., Dunnmon, J., &amp; Ré, C. (2017). Learning to compose domain-specific transformations for data augmentation. Advances in neural information processing systems, 30.</a><a href="#fnref21" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn22"><p><a href="https://pyimagesearch.com/2020/10/05/object-detection-bounding-box-regression-with-keras-tensorflow-and-deep-learning/">https://pyimagesearch.com/2020/10/05/object-detection-bounding-box-regression-with-keras-tensorflow-and-deep-learning/</a><a href="#fnref22" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn23"><p><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/object-detection-in-formats.html">https://docs.aws.amazon.com/sagemaker/latest/dg/object-detection-in-formats.html</a><a href="#fnref23" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn24"><p><a href="https://www.sciencedirect.com/science/article/pii/S1569843223003953">Geiß, C., Pelizari, P. A., Tunçbilek, O., &amp; Taubenböck, H. (2023). Semi-supervised learning with constrained virtual support vector machines for classification of remote sensing image data. International Journal of Applied Earth Observation and Geoinformation, 125, 103571.</a><a href="#fnref24" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn25"><p><a href="https://openaccess.thecvf.com/content/ICCV2023W/VCL/html/Pirvu_Multi-Task_Hypergraphs_for_Semi-Supervised_Learning_Using_Earth_Observations_ICCVW_2023_paper.html">Pirvu, M., Marcu, A., Dobrescu, M. A., Belbachir, A. N., &amp; Leordeanu, M. (2023). Multi-Task Hypergraphs for Semi-supervised Learning using Earth Observations. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp.&nbsp;3404-3414).</a><a href="#fnref25" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn26"><p><a href="https://www.mdpi.com/2072-4292/12/2/207">Wang, S., Chen, W., Xie, S. M., Azzari, G., &amp; Lobell, D. B. (2020). Weakly supervised deep learning for segmentation of remote sensing imagery. Remote Sensing, 12(2), 207.</a><a href="#fnref26" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn27"><p><a href="https://www.mdpi.com/2072-4292/11/1/69">Langford, Z. L., Kumar, J., Hoffman, F. M., Breen, A. L., &amp; Iversen, C. M. (2019). Arctic vegetation mapping using unsupervised training datasets and convolutional neural networks. Remote Sensing, 11(1), 69.</a><a href="#fnref27" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn28"><p><a href="https://arxiv.org/abs/2412.02732">Szwarcman, D., Roy, S., Fraccaro, P., Gíslason, Þ. E., Blumenstiel, B., Ghosal, R., … &amp; Moreno, J. B. (2024). Prithvi-EO-2.0: A Versatile Multi-Temporal Foundation Model for Earth Observation Applications. arXiv preprint arXiv:2412.02732.</a><a href="#fnref28" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn29"><p><a href="https://arxiv.org/abs/2203.15556">Hoffmann, J., Borgeaud, S., Mensch, A., Buchatskaya, E., Cai, T., Rutherford, E., … &amp; Sifre, L. (2022). Training compute-optimal large language models. arXiv preprint arXiv:2203.15556.</a><a href="#fnref29" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn30"><p><a href="https://arxiv.org/abs/2112.11446">Rae, J. W., Borgeaud, S., Cai, T., Millican, K., Hoffmann, J., Song, F., … &amp; Irving, G. (2021). Scaling language models: Methods, analysis &amp; insights from training gopher. arXiv preprint arXiv:2112.11446.</a><a href="#fnref30" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn31"><p><a href="https://arxiv.org/abs/2203.15556">Hoffmann, J., Borgeaud, S., Mensch, A., Buchatskaya, E., Cai, T., Rutherford, E., … &amp; Sifre, L. (2022). Training compute-optimal large language models. arXiv preprint arXiv:2203.15556.</a><a href="#fnref31" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -441,8 +2081,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -553,7 +2191,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -792,6 +2429,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
