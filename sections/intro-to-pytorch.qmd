@@ -1,22 +1,823 @@
 # Introduction to PyTorch: Core Functionalities and Advantages
 
-## Goal
+## Goal {.unnumbered}
+This session introduces PyTorch, one of the most popular deep learning frameworks, known for its flexibility and ease of use. Participants will learn the basic operations in PyTorch, go through the building blocks of a deep learning model with PyTorch, and understand some common pitfalls and best practices in PyTorch.
 
-This session introduces PyTorch, one of the most popular deep learning frameworks, known for its flexibility and ease of use. Participants will gain hands-on experience with PyTorch’s core functionalities and apply them to a sample dataset, setting the stage for a subsequent hands-on session. The goal is to arm participants with the essential knowledge and confidence required to begin utilizing PyTorch in their deep learning endeavors, ensuring they’re well-prepared for practical application and further exploration.
+## What is PyTorch?
+*PyTorch is an open-source deep learning framework developed by Meta's AI Research lab (FAIR) [^1]. It is designed to provide flexibility and efficiency in building and deploying machine learning models.* 
 
-## Outline
+[^1]: [https://pytorch.org](https://pytorch.org)
 
-* Introduction to PyTorch
-* Understanding PyTorch’s core functionalities
-* Working with data in PyTorch
-* Building a simple neural network in PyTorch
-* Training a model
-* Evaluating a model
-* Conclusion and preparing for hands-on session
+::: {.callout-tip collapse="true"}
+## A simple example of using PyTorch vs. Numpy to create a convolutional layer 
 
-## Reference
+**Using Numpy:**
 
-* [https://pytorch.org](https://pytorch.org)
-* [https://pytorch.org/tutorials/](https://pytorch.org/tutorials/)
+```python
+import numpy as np
+
+# Input data
+X = np.random.randn(10, 3, 32, 32)
+W = np.random.randn(20, 3, 5, 5)
+b = np.random.randn(20)
+
+# Convolution operation
+out = np.zeros((10, 20, 28, 28))
+for i in range(10):
+    for j in range(20):
+        for k in range(28):
+            for l in range(28):
+                out[i, j, k, l] = np.sum(X[i, :, k:k+5, l:l+5] * W[j]) + b[j]
+```
+
+**Using PyTorch:**
+
+```python
+import torch
+
+# Input data
+X = torch.randn(10, 3, 32, 32)
+
+# Define a convolutional layer
+conv = torch.nn.Conv2d(in_channels=3, out_channels=20, kernel_size=5)
+
+# Convolution operation
+out = conv(X)
+```
+
+This example highlights how PyTorch simplifies deep learning model development. It provides a glimpse of the framework's power and ease of use. We'll explore more of PyTorch's features in the following sections.
+:::
+
+### Key features of PyTorch
+PyTorch offers several key features that make it a popular choice among deep learning practitioners:
+
+::: {.callout-caution icon="false" collapse="true"}
+## Automatic differentiation
+PyTorch provides automatic differentiation, a key feature for training deep learning models. This feature allows users to compute gradients of tensors with respect to a loss function without explicitly defining the backward pass. This simplifies the process of implementing complex neural network architectures and training algorithms.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Strong GPU acceleration
+PyTorch seamlessly integrates with GPUs, enabling accelerated computation for training and inference. This feature is essential for handling large-scale deep learning tasks and achieving faster training times.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Dynamic computation graphs
+PyTorch uses dynamic computation graphs, allowing for more flexibility and intuitive model building. Unlike frameworks with static computation graphs, PyTorch constructs the graph on-the-fly during runtime, making it easier to work with variable input sizes and complex data-dependent control flows.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Pythonic nature
+PyTorch's API is designed to be intuitive and easy to use, closely resembling standard Python code. This makes it easy for Python programmers to learn and adopt PyTorch quickly, leading to faster prototyping and development.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Rich ecosystem
+PyTorch has a rich ecosystem with libraries and tools that support various machine learning and deep learning tasks. This includes TorchVision for computer vision, TorchText for natural language processing, and TorchAudio for audio processing. These libraries provide pre-built components and utilities for common deep learning tasks.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Pre-trained models and extensions
+PyTorch's active community contributes pre-trained models, extensions, and utilities that enhance the framework's capabilities. These resources help users leverage state-of-the-art models and accelerate their deep learning projects.
+:::
+
+## Basic operations in PyTorch
+### Tensors
+**Tensors** are the fundamental data structure in PyTorch, similar to arrays in Numpy. They represent **multi-dimensional arrays** with support for **GPU acceleration** and **automatic differentiation.** They are used to store and manipulate data in PyTorch.
+
+### Basic tensor operations
+::: {.callout-caution icon="false" collapse="true"}
+## Creating tensors
+```python
+import torch
+
+# Create a tensor from a list
+tensor_a = torch.tensor([1, 2, 3, 4, 5])
+
+# Create a tensor from a NumPy array
+import numpy as np
+array = np.array([1, 2, 3, 4, 5])
+tensor_b = torch.tensor(array)
+
+# Create a tensor of zeros
+tensor_zeros = torch.zeros(3, 4)
+
+# Create a tensor of ones
+tensor_ones = torch.ones(2, 3)
+
+# Create a random tensor
+tensor_rand = torch.randn(3, 3)
+```
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Checking tensor properties
+```python
+# Get the shape of a tensor
+print(tensor_a.shape)
+
+# Get the data type of a tensor
+print(tensor_a.dtype)
+
+# Get the device of a tensor
+print(tensor_a.device)
+```
+
+::: {.callout-note}
+* **Shape:** The shape of a tensor represents its dimensions, such as the number of rows and columns.
+* **Data type:** The data type of a tensor indicates the type of values it stores, such as integers or floating-point numbers. Check available data types [here](https://pytorch.org/docs/stable/tensors.html#data-types).
+* **Device:** The device of a tensor indicates whether it is stored on the CPU or GPU.
+:::
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Tensor operations
+```python
+# Element-wise addition
+result = tensor_a + tensor_b
+
+# Element-wise multiplication
+result = tensor_a * tensor_b
+
+# Matrix multiplication
+result = torch.matmul(tensor_a, tensor_b)
+
+# Transpose a tensor
+result = tensor_a.T
+
+# Reshape a tensor
+result = tensor_a.reshape(2, 3)
+
+# Permute dimensions
+result = tensor_a.permute(1, 0) # Swap dimensions 0 and 1
+
+# Concatenate tensors
+result = torch.cat((tensor_a, tensor_b), dim=0)
+
+# Expand a tensor
+result = tensor_a.unsqueeze(0) # Adds a dimension at index 0
+
+## Move a tensor to GPU
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+tensor_a = tensor_a.to(device)
+
+```
+
+::: {.callout-tip}
+## What's the difference?
+* `torch.view()` vs. `torch.reshape()`
+* `torch.cat()` vs. `torch.stack()`
+* `torch.unsqueeze()` vs. `torch.squeeze()`
+* `torch.cuda.FloatTensor` vs. `torch.FloatTensor`
+* `"cpu"` vs. `"cuda"` vs. `"cuda:0"`
+:::
+
+::: {.callout-note}
+You don't need to memorize all these operations. You can always refer to the [PyTorch documentation](https://pytorch.org/docs/stable/tensors.html#tensor-class-reference) for a comprehensive list of tensor operations and functions.
+:::
+:::
 
 
+**In the next sections, we will explore the building blocks of a deep learning application in PyTorch.**
+![Deep learning building blocks](../images/dl-pytorch/dl-blocks.png)
+
+## Data handling in PyTorch
+*PyTorch provides several utilities for handling data, including **datasets**, **data loaders**, and **transformations**. These components help manage input data, preprocess it, and feed it into deep learning models efficiently.*
+
+### Datasets
+**Datasets** in PyTorch represent collections of data samples, typically stored in memory or on disk. They provide an interface to access individual data points and their corresponding labels. 
+
+You can create custom datasets by subclassing the `torch.utils.data.Dataset` class and implementing the `__len__` and `__getitem__` methods. 
+
+* `__len__`: Returns the size of the dataset.
+* `__getitem__`: Returns a data sample and its label given an index.
+
+This structure allows you to handle any type of data, such as images, text, or time series, in a uniform way.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Creating a custom dataset
+```python
+import torch
+from torch.utils.data import Dataset
+
+class CustomDataset(Dataset):
+    def __init__(self, data, labels, transform=None):
+        self.data = data
+        self.labels = labels
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, index):
+        x = self.data[index]
+        y = self.labels[index]
+
+        if self.transform:
+            x = self.transform(x)
+
+        return x, y
+
+    def some_custom_method(self):
+        # You can define custom methods for the dataset
+        pass
+
+# Create a custom dataset
+data = [torch.randn(3, 32, 32) for _ in range(100)] # 100 random tensors
+labels = torch.randint(0, 10, (100,)) # 100 random labels
+custom_dataset = CustomDataset(data, labels)
+
+# Access a data sample
+sample, label = custom_dataset[0]
+```
+:::
+
+:::{.callout-note}
+PyTorch also provides built-in datasets like MNIST, CIFAR-10, and ImageNet, which can be easily loaded and used for training and evaluation. These datasets are available through the `torchvision.datasets` module. Check the [official documentation](https://pytorch.org/vision/0.20/datasets.html) for more details.
+:::
+
+### Data loaders
+While a `Dataset` provides access to individual data samples, a `DataLoader` in PyTorch wraps a dataset and provides an iterable over it. It provides several features to facilitate efficient data loading and processing:
+
+* **Batching:** Groups a set number of samples into a batch, which speeds up training by processing multiple samples in parallel.
+* **Shuffling:** Randomizes the order of samples in each epoch to prevent overfitting and improve generalization.
+* **Parallel data loading:** Uses multiple subprocesses to load data concurrently, reducing the time spent on data I/O operations.
+
+You can create a `DataLoader` by passing a `Dataset` object and specifying batch size, shuffling, and other parameters.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Creating a data loader
+```python
+from torch.utils.data import DataLoader
+
+# Create a DataLoader
+data_loader = DataLoader(custom_dataset, batch_size=32, shuffle=True)
+
+# Iterate over the DataLoader
+for batch in data_loader:
+    inputs, labels = batch
+    # Process the batch
+
+# Access a single batch
+inputs, labels = next(iter(data_loader))
+```
+:::
+
+### Transformations
+**Transformations** in PyTorch are operations applied to data samples during loading or preprocessing. They are commonly used to perform data augmentation, normalization, and other preprocessing steps before feeding the data into a model.
+
+You can define custom transformations using the `torchvision.transforms` module or create a custom transformation class by subclassing `torchvision.transforms.Transform`.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Applying transformations
+```python
+from torchvision import transforms
+
+# Define transformations
+transform = transforms.Compose([
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(10),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
+])
+
+# Apply transformations to a dataset
+transformed_dataset = CustomDataset(data, labels, transform=transform)
+```
+:::
+
+## Model building in PyTorch
+*Building deep learning models in PyTorch is a straightforward process. The `torch.nn` module provides a wide range of neural network layers that can be easily combined to create complex architectures.* 
+
+### Layers
+**Layers** in PyTorch are building blocks for constructing neural networks. They perform specific operations on input data. PyTorch provides a wide range of pre-defined layers, such as `Linear` and `Conv2d`. You can also create custom layers by subclassing `torch.nn.Module` and implementing the `forward` method.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Using pre-defined layers
+```python
+import torch
+import torch.nn as nn
+
+# Input data
+input_data = torch.randn(32, 10)
+
+# Define a fully connected (linear) layer
+linear_layer = nn.Linear(10, 20)
+
+# Apply the layer to input data
+output = linear_layer(input_data)
+```
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Creating custom layers
+```python
+import torch
+import torch.nn as nn
+
+# Define a custom layer
+class CustomLayer(nn.Module):
+    def __init__(self, in_features, out_features):
+        super(CustomLayer, self).__init__()
+        self.linear = nn.Linear(in_features, out_features)
+        self.activation = nn.ReLU()
+
+    def forward(self, x):
+        x = self.linear(x)
+        x = self.activation(x)
+        return x
+
+# Create an instance of the custom layer
+custom_layer = CustomLayer(10, 20)
+
+# Apply the layer to input data
+input_data = torch.randn(32, 10)
+output = custom_layer(input_data)
+```
+
+::: {.callout-note}
+The `backward` method is automatically defined by PyTorch's autograd system, which computes the gradients of the loss with respect to the layer's parameters during backpropagation. You don't need to implement the backward pass manually when using PyTorch's pre-defined layers or custom layers that use PyTorch operations.
+:::
+:::
+
+::: {.callout-note}
+For a comprehensive list of pre-defined layers and modules available in PyTorch, refer to the [official documentation](https://pytorch.org/docs/stable/nn.html).
+:::
+
+### Models
+**Models** in PyTorch are neural network architectures composed of layers and modules. It is similar to defining custom layers. You can create models by subclassing `torch.nn.Module` and defining the network structure in the `forward` method. This method specifies how input data flows through the layers to produce the output.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Defining a model
+```python
+import torch
+import torch.nn as nn
+
+# Define a custom model
+class CustomModel(nn.Module):
+    def __init__(self):
+        super(CustomModel, self).__init__()
+        self.linear1 = nn.Linear(10, 20)
+        self.relu = nn.ReLU()
+        self.linear2 = nn.Linear(20, 10)
+
+    def forward(self, x):
+        x = self.linear1(x)
+        x = self.relu(x)
+        x = self.linear2(x)
+        return x
+
+# Create an instance of the model
+model = CustomModel()
+
+# Apply the model to input data
+input_data = torch.randn(32, 10)
+output = model(input_data)
+```
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Defining a model with another model as a layer
+```python
+import torch
+import torch.nn as nn
+
+# Define a custom model
+class CustomModel2(nn.Module):
+    def __init__(self):
+        super(CustomModel2, self).__init__()
+        self.model1 = CustomModel()
+        self.linear = nn.Linear(10, 5)
+
+    def forward(self, x):
+        x = self.model1(x)
+        x = self.linear(x)
+        return x
+
+# Create an instance of the model
+model2 = CustomModel2()
+
+# Apply the model to input data
+input_data = torch.randn(32, 10)
+output = model2(input_data)
+```
+:::
+
+When defining models, you can nest layers and models within each other to create complex architectures. You can also use `Sequential`, `ModuleList`, and `ModuleDict` to organize layers and modules in a structured way. They 
+
+* `Sequential`: A container that allows you to stack layers sequentially and apply them in order.
+* `ModuleList`: A list-like container that holds layers and modules, allowing for flexible indexing and iteration.
+* `ModuleDict`: A dictionary-like container that maps keys to layers and modules, enabling named access to individual components.
+
+::: {.callout-note}
+`ModuleList` and `ModuleDict` are like Python lists and dictionaries, respectively, but they are designed to work with PyTorch modules. They provide additional functionality for managing layers and modules within a model, e.g., parameter registration and device allocation.
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Using Sequential to define a model
+```python
+import torch
+import torch.nn as nn
+
+# Define a model using Sequential
+class SequentialModel(nn.Module):
+    def __init__(self):
+        super(SequentialModel, self).__init__()
+        self.model = nn.Sequential(
+            nn.Linear(10, 20),
+            nn.ReLU(),
+            nn.Linear(20, 10)
+        )
+
+    def forward(self, x):
+        return self.model(x)
+```
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Using ModuleList to define a model
+```python
+import torch
+import torch.nn as nn
+
+# Define a model using ModuleList
+class ModuleListModel(nn.Module):
+    def __init__(self):
+        super(ModuleListModel, self).__init__()
+        self.layers = nn.ModuleList([
+            nn.Linear(10, 20),
+            nn.ReLU(),
+            nn.Linear(20, 10)
+        ])
+
+    def forward(self, x):
+        for layer in self.layers:
+            x = layer(x)
+        return x
+```
+::: {.callout-note}
+`ModuleList` is useful when the layers are not applied sequentially and require more complex control flow or operations.
+:::
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## Using ModuleDict to define a model
+```python
+import torch
+import torch.nn as nn
+
+# Define a model using ModuleDict
+class ModuleDictModel(nn.Module):
+    def __init__(self):
+        super(ModuleDictModel, self).__init__()
+        self.layers = nn.ModuleDict({
+            'linear1': nn.Linear(10, 20),
+            'relu': nn.ReLU(),
+            'linear2': nn.Linear(20, 10)
+        })
+
+    def forward(self, x):
+        x = self.layers['linear1'](x)
+        x = self.layers['relu'](x)
+        x = self.layers['linear2'](x)
+        return x
+```
+
+::: {.callout-note}
+`ModuleDict` is useful when you want to access layers by name or key, providing a more structured and organized way to define models with named components.
+:::
+:::
+
+::: {.callout-tip}
+### Try it out!
+* Define a custom model with `Sequential`, `ModuleList`, or `ModuleDict`. Initialize the model and use `print(model)` to inspect the differences in the model structure.
+:::
+
+You can check the model's architecture by printing the model object or using `model.parameters()`, `model.named_parameters()`, and `model.children()` to access the model's parameters, named parameters, and child modules, respectively.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Inspecting model parameters
+```python
+import torch
+import torch.nn as nn
+
+# Define a custom model
+class CustomModel(nn.Module):
+    def __init__(self):
+        super(CustomModel, self).__init__()
+        self.linear1 = nn.Linear(10, 20)
+        self.relu = nn.ReLU()
+        self.linear2 = nn.Linear(20, 10)
+
+    def forward(self, x):
+        x = self.linear1(x)
+        x = self.relu(x)
+        x = self.linear2(x)
+        return x
+
+# Create an instance of the model
+model = CustomModel()
+
+# Print the model architecture
+print(model)
+
+# Access model parameters
+for name, param in model.named_parameters():
+    print(name, param.shape)
+
+# Access child modules
+for child in model.children():
+    print(child)
+
+# Access model parameters
+for param in model.parameters():
+    print(param.shape)
+```
+:::
+
+### Pre-trained models
+PyTorch provides a wide range of pre-trained models through the `torchvision.models` module. These models are trained on large-scale datasets like ImageNet and can be used for various tasks such as image classification, object detection, and segmentation.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Loading a pre-trained model
+```python
+import torch
+import torchvision.models as models
+
+# Load a pre-trained ResNet model
+resnet = models.resnet18(pretrained=True)
+
+# Apply the model to input data
+input_data = torch.randn(32, 3, 224, 224)
+output = resnet(input_data)
+
+# Get the predicted class
+_, predicted_class = torch.max(output, 1)
+```
+:::
+
+::: {.callout-note}
+The `pretrained=True` argument loads the pre-trained weights of the model, allowing you to use the model for inference or fine-tuning on your specific tasks. If it is set to `False`, the model will be initialized with random weights.
+:::
+
+### Model customization
+You can customize pre-trained models by modifying their architecture, freezing or fine-tuning specific layers, or replacing parts of the model with custom layers. This allows you to adapt pre-trained models to your specific tasks and datasets.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Customizing a pre-trained model
+```python
+import torch
+import torch.nn as nn
+import torchvision.models as models
+
+# Load a pre-trained ResNet model
+resnet = models.resnet18(pretrained=True)
+
+# Modify the model architecture
+num_classes = 10
+resnet.fc = nn.Linear(resnet.fc.in_features, num_classes)
+
+# Apply the modified model to input data
+input_data = torch.randn(32, 3, 224, 224)
+output = resnet(input_data)
+```
+:::
+
+::: {.callout-note}
+When customizing pre-trained models, you need to ensure that the input dimensions and output dimensions of the modified model match your specific task requirements. You can inspect the model architecture using `print(model)` or `model.parameters()` to understand the structure of the model and its parameters.
+:::
+
+### Freezing model parameters
+**Freezing** a model's parameters means preventing them from being updated during training. It is achieved by setting the `requires_grad` attribute of the parameters to `False`. Freezing specific layers or parameters can be useful when you want to fine-tune only certain parts of a pre-trained model while keeping the rest fixed.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Freezing model parameters
+```python
+import torch
+import torch.nn as nn
+import torchvision.models as models
+
+# Load a pre-trained ResNet model
+resnet = models.resnet18(pretrained=True)
+
+# Freeze the model parameters
+for param in resnet.parameters():
+    param.requires_grad = False
+
+# Modify the model architecture
+num_classes = 10
+resnet.fc = nn.Linear(resnet.fc.in_features, num_classes)
+
+# Apply the modified model to input data
+input_data = torch.randn(32, 3, 224, 224)
+output = resnet(input_data)
+```
+:::
+
+
+## Loss functions in PyTorch
+PyTorch provides a wide range of loss functions through the `torch.nn` module. These functions cover various tasks such as classification, regression, and generative modeling. You can choose the appropriate loss function based on the nature of your task and the type of output your model produces.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Common loss functions
+```python
+import torch
+import torch.nn as nn
+
+# Define predicted outputs and ground truth labels
+outputs = torch.randn(32, 10) # Random predictions
+labels = torch.randint(0, 10, (32,)) # Random labels
+
+# Cross-entropy loss for classification
+criterion = nn.CrossEntropyLoss()
+loss = criterion(outputs, labels)
+
+# Mean squared error loss for regression
+criterion = nn.MSELoss()
+loss = criterion(outputs, labels.float())
+
+# Binary cross-entropy loss for binary classification
+criterion = nn.BCELoss()
+loss = criterion(torch.sigmoid(outputs), labels.float())
+```
+:::
+
+You can also create custom loss functions.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Creating a custom loss function
+```python
+import torch
+import torch.nn as nn
+
+# Define a custom loss function
+def custom_loss(outputs, labels):
+    loss = torch.mean((outputs - labels) ** 2)
+    return loss
+
+# Use the custom loss function
+outputs = torch.randn(32, 10) # Random predictions
+labels = torch.randn(32, 10) # Random labels
+loss = custom_loss(outputs, labels)
+```
+:::
+
+## Optimizers in PyTorch
+Optimizers in PyTorch are used to update the parameters of a model during training. PyTorch provides a wide range of optimizers through the `torch.optim` module, such as SGD, Adam, RMSprop, and more. 
+
+Using an optimizer involves several steps:
+
+1. **`zero_grad()`:** Clear the gradients of the model parameters from the previous iteration (otherwise, gradients accumulate).
+
+   Each parameter in the model has a `grad` attribute that stores the gradient of the loss with respect to that parameter.If you don't set the gradients to zero before backpropagation, the gradients will accumulate across iterations.
+
+2. **Forward pass:** Compute the output of the model given the input data. Refer to [Models building in PyTorch](#model-building-in-pytorch) for more details.
+3. **Compute loss:** Calculate the loss between the predicted output and the ground truth labels. Refer to [Loss functions in PyTorch](#loss-functions-in-pytorch) for more details.
+4. **`backward()`:** Compute the gradients of the loss with respect to the model parameters using backpropagation.
+
+    This step performs backpropagation, a process in which the loss is differentiated with respect to each parameter in the model to compute the gradients. The gradients indicate how much each parameter should be adjusted to minimize the loss.
+
+5. **`step()`:** Update the model parameters using the computed gradients and the optimizer's update rule.
+
+    The optimizer uses the gradients to update the model parameters based on the chosen optimization algorithm (e.g., SGD, Adam, RMSprop). This step is where the actual parameter updates occur.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Using an optimizer
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# Define a model
+model = nn.Linear(10, 1)
+
+# Define an optimizer
+optimizer = optim.SGD(model.parameters(), lr=0.01)
+
+# Update the model parameters
+optimizer.zero_grad() 
+outputs = model(torch.randn(32, 10))
+loss = torch.mean(outputs)
+loss.backward()
+optimizer.step()
+```
+:::
+
+## Training a model in PyTorch
+Training a deep learning model in PyTorch involves combining the building blocks we've discussed so far: data handling, model building, loss computation, and optimization. The basic triaining loop consists of the following steps:
+
+1. **Data loading:** Load the training data using a `DataLoader` and iterate over the batches.
+2. **Forward pass:** Pass the input data through the model to compute the predicted output.
+3. **Compute loss:** Calculate the loss between the predicted output and the ground truth labels.
+4. **Backward pass:** Compute the gradients of the loss with respect to the model parameters using backpropagation.
+5. **Update model parameters:** Update the model parameters using the computed gradients and the optimizer's update rule.
+
+After training the model for a specified number of epochs, you can save the model's parameters with `torch.save()` and use the model for inference on new data.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Basic training loop
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader
+
+# Load the training data
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+
+# Load a pre-trained model
+model = models.resnet18(pretrained=True)
+
+# Define a loss function and optimizer
+criterion = nn.CrossEntropyLoss()
+
+# Use the model's parameters that require gradients
+optimizer = optim.SGD(model.parameters(), lr=0.01)
+
+# Train the model
+num_epochs = 10 # Number of training epochs. One epoch is a complete pass through the training data.
+
+# Training loop
+for epoch in range(num_epochs):
+    model.train() # Set the model to training mode
+    for inputs, labels in train_loader:
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+
+    print(f'Epoch {epoch + 1}/{num_epochs}, Loss: {loss.item()}')
+
+# Save the trained model
+torch.save(model.state_dict(), 'model.pth')
+```
+:::
+
+::: {.callout-note}
+* Always remember to set the model to training mode using `model.train()` before training. This ensures that layers like dropout and batch normalization behave correctly during training.
+* You can customize the training loop by adding additional components such as loss recording, evaluation, learning rate scheduling, early stopping, and model checkpointing to monitor and improve the training process.
+:::
+
+## Evaluation of a model in PyTorch
+Evaluating a deep learning model in PyTorch involves running the model on a validation or test dataset and computing metrics to assess its performance. The evaluation process is similar to the training process but without the gradient computation and parameter updates.
+
+The basic evaluation loop consists of the following steps:
+
+1. **Data loading:** Load the validation or test data using a `DataLoader` and iterate over the batches.
+2. **Forward pass:** Pass the input data through the model to compute the predicted output.
+3. **Compute metrics:** Calculate evaluation metrics such as accuracy, precision, recall, or F1 score based on the predicted output and ground truth labels.
+
+::: {.callout-caution icon="false" collapse="true"}
+## Basic evaluation loop
+```python
+import torch
+import torch.nn as nn
+from torch.utils.data import DataLoader
+
+# Load the validation data
+val_loader = DataLoader(val_dataset, batch_size=32)
+
+# Load the trained model
+model = models.resnet18(pretrained=True)
+model.load_state_dict(torch.load('model.pth'))
+
+# Define a loss function
+criterion = nn.CrossEntropyLoss()
+
+# Evaluate the model
+model.eval() # Set the model to evaluation mode
+total_loss = 0.0
+correct = 0
+total = 0
+
+with torch.no_grad():
+    for inputs, labels in val_loader:
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        total_loss += loss.item()
+        _, predicted = torch.max(outputs, 1)
+        correct += (predicted == labels).sum().item()
+        total += labels.size(0)
+
+accuracy = correct / total
+average_loss = total_loss / len(val_loader)
+
+print(f'Validation Loss: {average_loss}, Accuracy: {accuracy}')
+```
+:::
+
+::: {.callout-note}
+* Always remember to set the model to evaluation mode using `model.eval()` before evaluation. This ensures that layers like dropout and batch normalization behave correctly during evaluation.
+* ` torch.no_grad()` is used to disable gradient computation during evaluation, reducing memory consumption and speeding up the evaluation process.
+* You can integrate the evaluation step into the training loop to monitor the model's performance during training and make decisions based on the evaluation metrics.
+:::
+
+## Common pitfalls and best practices
+While working with PyTorch, you may encounter common errors that can be challenging to debug. Here are some common pitfalls and best practices to help you avoid these errors:
+
+1. **Incorrect tensor shapes:** Ensure that the input data and model parameters have compatible shapes. Mismatched tensor shapes can lead to errors during forward and backward passes.
+2. **Missing `.to(device)`:** If you're using a GPU, make sure to move tensors and models to the appropriate device (CPU or GPU) using `.to(device)`. Forgetting this step can result in runtime errors.
+3. **Data on different devices:** Ensure that all data (inputs, labels, and model parameters) are on the same device (CPU or GPU) to avoid compatibility issues.
+4. **Mismatched data types:** Some operations require specific data types (e.g., float or integer). Make sure that the data types of tensors are compatible with the operations you're performing.
+5. **Cuda out of memory:** When working with large models or datasets on a GPU, you may encounter out-of-memory errors. Reduce the batch size, use gradient accumulation, freeze unnecessary layers, or use a smaller model to address this issue.
