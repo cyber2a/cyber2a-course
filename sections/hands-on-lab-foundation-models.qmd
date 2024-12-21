@@ -1,16 +1,30 @@
 # Hands-On Lab: Foundation Models
 
 ## Overview
-The hands-on lab on foundation models will focus on building and applying foundation models for some example use cases. The main goal of this 1-hour session is to get more familiarized with foundation models and in interacting with them.
+The hands-on lab on foundation models will focus on building and applying foundation models for some example use cases. The main goal of this session is to get more familiarized with foundation models and in interacting with them.
 
 ## Outline
-1. Image Segmentation using Segment Anything Model (SAM)
+1. Image Segmentation using Segment Anything Model-2 (SAM-2)
 2. Chatbot using LLMs + RAG
 
+## SAM-2
 
+Image segmentation is a fundamental computer vision technique of dividing an image into one or more regions or objects [@noauthor_what_2023].
+Promotable Visual Segmentation (PVS) is a new type of segmentation that combines the flexibility of prompts with the power of computer vision models to enable users to segment images interactively based on prompts.
 
+For this section of the hands-on session, we will use [Segment Anything Model-2 (SAM-2)](https://ai.meta.com/sam2/).
+SAM-2 is a foundation model for the PVS task trained on large-scale generic data that can predict object segmentation masks based on input prompts.
+These prompts can be points, bounding boxes (e.g., rectangles), masks, or combinations of these.
+The model converts the image into an image embedding (a dense vector representation of the image), which it then uses to predict segmentation masks based on a user prompt.
 
-## SAM
+One of the main classes the SAM-2 source code provides is `SAM2ImagePredictor`, which provides an easy interface to the model.
+Users can attach an input image to the model using its `set_image` method, which calculates the image embeddings.
+Then, the users can use the `predict` method to share prompts (user inputs) that help with the segmentation mask prediction.
+
+::: {.callout-note}
+The Jupyter Notebook for this hands-on session is available at https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb. You can clone or download this repository directly from GitHub.
+:::
+
 
 ### References
 1. [Segment Anything](https://segment-anything.com/)
