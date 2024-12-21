@@ -1,18 +1,242 @@
-# Exploring Advanced Neural Networks: Semantic Segmentation
+# Exploring Advanced Neural Networks: Instance Segmentation
 
-## Overview
+## Overview {.unnumbered}
+In this section, we delve into the evolution of Faster R-CNN, a pivotal model in object detection, and explore its transformation into Mask R-CNN for instance segmentation tasks. Participants will learn how to extend the network architecture to generate both class labels and precise object masks, enabling the identification and delineation of individual objects within an image. By building on their existing knowledge of modifying classification networks, this section provides practical insights into adapting neural networks for advanced computer vision applications like instance segmentation.
 
-This session focuses on advanced neural networks, specifically targeting semantic segmentation. Participants will delve into models such as Fully Convolutional Networks (FCNs) and U-Net, learning how these networks are structured, how they function, and how they can be applied to accurately segment and label each pixel of an image according to the object it represents. The goal is to deepen participants’ understanding of the technical foundations and practical applications of semantic segmentation, equipping them with the skills needed for hands-on implementation and exploration of its real-world utility, particularly in the context of Arctic research.
+## What is instance segmentation?
+![Source: https://manipulation.csail.mit.edu/segmentation.html](../images/dl-pytorch/ins-seg.png)
 
-## Outline
+* **Image recognition**: Indentifies the presence of objects in an image and provides a list of class probabilities.
+* **Semantic segmentation**: Classifies each pixel in an image into a category, but not distinguish between different instances of the same class.
+* **Object detection**: Detects objects by drawing bounding boxes around them, distinguishing individual entities but not providing pixel-level details.
+* **Instance segmentation**: Combines object detection and semantic segmentation to identify and delineate individual objects at the pixel level.
 
-* Introduction to semantic segmentation
-* Overview of key models: Fully Convolutional Networks (FCNs) and U-Net
-* Detailed architecture and functionality
-* Applications in Arctic research: case studies
-* Conclusion and Q&A
+## Importance and applications
+Instance segmentation is a fundamental task in computer vision with:
 
-## Reference
+* **Wide-ranging applications**: Robotics [^1], medical imaging [^2], and more.
+* **Foundation for advanced tasks**: Object tracking, pose estimation, and action recognition.
 
-* Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. “U-net: Convolutional networks for biomedical image segmentation.” Medical image computing and computer-assisted intervention–MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18. Springer International Publishing, 2015. https://arxiv.org/abs/1505.04597
-* Minaee, Shervin, et al. “Image segmentation using deep learning: A survey.” IEEE transactions on pattern analysis and machine intelligence 44.7 (2021): 3523-3542. http://www.arxiv.org/abs/2001.05566
+[^1]: [https://www.youtube.com/watch?v=tNLtXb04i3w](https://www.youtube.com/watch?v=tNLtXb04i3w)
+[^2]: [https://www.linkedin.com/pulse/medical-image-diagnosis-roles-object-detection-segmentation-egvcc](https://www.linkedin.com/pulse/medical-image-diagnosis-roles-object-detection-segmentation-egvcc)
+
+## Comparison of classification networks and instance segmentation networks
+![](../images/dl-pytorch/models.png)
+In the previous section, we discussed how deep learning models consist of three core components: **input adaptation**, **feature extractor**, and **output adaptation**.
+
+Using a ResNet-50 model as an example, let's examine the structure of a classification network:
+
+:::{.callout-caution icon="false" collapse="true"}
+## Code snippet to load a pre-trained ResNet-50 model
+```python
+import torch
+import torch.nn as nn
+import torchvision.models as models
+
+# Load the pre-trained ResNet-50 model
+model = models.resnet50(pretrained=True)
+
+# Modify the output layer to predict 10 classes
+model.fc = nn.Linear(2048, 10)
+
+# Print the model architecture
+print(model)
+```
+:::
+
+The output of the code snippet above provides the architecture of the ResNet-50 model:
+
+:::{.callout-caution icon="false" collapse="true"}
+## Output: Classification network architecture
+```python
+ResNet(
+(conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+(bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+(layer1): Sequential(
+(0): BasicBlock(
+(conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+)
+(1): BasicBlock(
+(conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+)
+)
+(layer2): Sequential(
+(0): BasicBlock(
+(conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+(bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(downsample): Sequential(
+(0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+(1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+)
+)
+(1): BasicBlock(
+(conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+)
+(layer3): Sequential(
+(0): BasicBlock(
+(conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+(bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(downsample): Sequential(
+(0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+(1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+)
+)
+(1): BasicBlock(
+(conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+)
+)
+(layer4): Sequential(
+(0): BasicBlock(
+(conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+(bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(downsample): Sequential(
+(0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+(1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+)
+)
+(1): BasicBlock(
+(conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+(bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+)
+)
+(avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+(fc): Linear(in_features=512, out_features=10, bias=True)
+)
+)
+```
+:::
+
+The output above is a liitle verbose, so let's summarize the key components of the ResNet-50 model:
+
+:::{.callout-caution icon="false" collapse="true"}
+## Summary: Classification network architecture
+```python
+ResNet(
+(conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+(bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+(relu): ReLU(inplace=True)
+(maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+(layer1): Sequential()
+(layer2): Sequential()
+(layer3): Sequential()
+(layer4): Sequential()
+(avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+(fc): Linear(in_features=512, out_features=10, bias=True)
+)
+```
+Where `layerx` represents the convolutional blocks in the network.
+:::
+
+Now, let's check what modifications we made to the ResNet-50 model:
+
+* **Input Adaptation**: No changes needed, as ResNet-50 accepts images as input.
+* **Feature Extractor**: Utilizes the pre-trained ResNet-50 model to extract features from images.
+* **Output Adaptation**: Modified the output layer to predict 10 classes instead of the original 1000.
+
+:::{.callout-tip}
+## Question: Instance segmentation 
+Using the ResNet-50 model as a base, how would you modify each component to perform instance segmentation?
+:::
+
+For instance segmentation, one possible adjustment is as follows:
+
+* **Input Adaptation**: Remains unchanged as input is still an image.
+* **Feature Extractor**: Utilizes the pre-trained ResNet-50 model.
+* **Output Adaptation**: Must be modified to predict both class labels and object masks.
+
+## A step-by-step guide to instance segmentation
+
+To achieve instance segmentation, let's begin from object detection and progress to instance segmentation:
+
+### The First Step: R-CNN
+Our journey starts with Region-based Convolutional Neural Networks (R-CNN). This model laid the groundwork for object detection by introducing a structured approach:
+
+1. **Region Proposal**: Uses the Selective Search algorithm to generate potential object regions.
+2. **Feature Extraction**: Applies a pre-trained CNN to each region to extract features.
+3. **Classification**: Employs a linear SVM to classify these regions.
+4. **Bounding Box Regression**: Refines the coordinates using a linear regression model.
+
+**Limitations of R-CNN**
+
+- **Slow Inference**: Processes each region independently, leading to inefficiency.
+- **Complex Training**: Requires multiple models and stages.
+- **Inefficient Feature Extraction**: Redundant computations for overlapping regions.
+
+### Evolution to Fast R-CNN
+
+To address R-CNN's limitations, Fast R-CNN was developed, enhancing speed and efficiency:
+
+1. **Region Proposal**: Continues using Selective Search for generating proposals.
+2. **Feature Extraction**: Extracts features from the entire image in a single pass.
+3. **RoI Pooling**: Efficiently crops and resizes features for each region.
+4. **Classification and Bounding Box Regression**: Utilizes fully connected layers for tasks.
+
+**Advantages of Fast R-CNN**
+
+- **Single-Stage Inference**: Processes the whole image once, enhancing speed.
+- **End-to-End Training**: Trains the entire network in a unified stage.
+- **Efficient Feature Extraction**: Avoids redundant calculations.
+
+### Introducing Faster R-CNN
+
+Faster R-CNN further revolutionizes object detection by integrating a Region Proposal Network (RPN):
+
+1. **Feature Extraction**: Continues with a pre-trained CNN for the entire image.
+2. **Region Proposal Network (RPN)**: Uses anchor boxes for generating proposals.
+3. **RoI Pooling**: Maintains efficient cropping and resizing.
+4. **Classification and Bounding Box Regression**: Achieves higher accuracy with shared layers.
+
+**Advantages of Faster R-CNN**
+
+- **Unified Architecture**: Merges feature extraction and region proposal steps.
+- **Improved Speed**: Faster due to shared computation.
+- **Enhanced Accuracy**: Produces better region proposals and detection results.
+
+## Transition to Instance Segmentation: Mask R-CNN
+
+Building on Faster R-CNN, Mask R-CNN introduces instance segmentation by adding a mask prediction branch:
+
+1. **Feature Extraction**: Utilizes a pre-trained CNN for comprehensive feature maps.
+2. **Region Proposal Network (RPN)**: Continues generating proposals with anchors.
+3. **RoI Pooling**: Efficiently processes each region.
+4. **Classification and Bounding Box Regression**: Refines object localization and classification.
+5. **Mask Prediction**: Adds a convolutional branch to predict precise object masks.
+
+**Advantages of Mask R-CNN**
+
+- **Instance Segmentation**: Delivers pixel-level delineation of individual objects.
+- **Unified Architecture**: Seamlessly combines detection and segmentation tasks.
+- **Enhanced Accuracy**: Provides more precise object masks.
+
+## Conclusion
+We've explored the evolution from R-CNN to Mask R-CNN, showing how each step builds on the last to improve performance. This process demonstrates how you can apply similar improvements to tackle a wide range of advanced tasks, not just instance segmentation. By understanding these developments, you're equipped to enhance existing models and create innovative solutions for various challenges in computer vision.
