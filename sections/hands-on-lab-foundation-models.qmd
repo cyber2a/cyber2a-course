@@ -1,7 +1,7 @@
 # Hands-On Lab: Foundation Models
 
 ## Overview
-The hands-on lab on foundation models will focus on building and applying foundation models for some example use cases. The main goal of this 1-hour session will be to get more familiarized with foundation models and in interacting with them.
+The hands-on lab on foundation models will focus on building and applying foundation models for some example use cases. The main goal of this 1-hour session is to get more familiarized with foundation models and in interacting with them.
 
 ## Outline
 1. Image Segmentation using Segment Anything Model (SAM)
@@ -17,9 +17,9 @@ The hands-on lab on foundation models will focus on building and applying founda
 2. [Segment Anything Notebook](https://github.com/facebookresearch/segment-anything/tree/main/notebooks)
 
 
-## RAG Hands-On
+## Retrieval Augmented Generation (RAG) Hands-On
 
-Will be using [Langchain framework](https://www.langchain.com/)
+We will use [Langchain framework](https://www.langchain.com/) for this section of the hands-on session. Langchain is a framework that provides a set of tools and libraries to build and deploy AI models. It is built on top of PyTorch and HuggingFace transformers.
 
 Suggested code references:
 - Langchain RAG from scratch [github](https://github.com/langchain-ai/rag-from-scratch/tree/main)
@@ -29,7 +29,7 @@ Session hands-on code in [github.com/ncsa/cyber2a-workshop](https://github.com/n
 
 Session technical details in course book : [cyber2a.github.io/cyber2a-course/sections/foundation-models.html](https://cyber2a.github.io/cyber2a-course/sections/foundation-models.html)
 
-In this section, we will try to build a chatbot using RAG sytem, ie., a chatbot that has access to your specific knowledge base and can answer questions related to that knowledge base.
+In this section, we will try to build a chatbot using RAG system, ie., a chatbot that has access to your specific knowledge base and answer questions related to that knowledge base.
 
 ### RAG Recap 
 
@@ -152,11 +152,11 @@ We will focus on the "retrieval" part of RAG for this section.
 2. Create a database and insert data
 3. Search the database and retrieve relevant documents according to the search query.
 
-As mentioned earlier, RAG system gives the LLM access to our knowledge base which has specific information for our use-case. Lets consider our knowlegebase to have textual data. 
+As mentioned earlier, RAG system gives the LLM access to our knowledge base which has specific information for our use-case. Lets consider our knowledge base to have textual data.
 
 #### Data Preparation
 
-Lets consider our knowlegebase to contain only textual data. The data present in the github repo contains proceedings from [Arctic data symposium 2023](https://arcticdata.io/catalog/portals/pisymposium2023)
+Let's consider that our knowledge base contain only textual data. The data present in the GitHub repo contains proceedings from the [Arctic Data Symposium 2023](https://arcticdata.io/catalog/portals/pisymposium2023)
 
 ##### Load data
 
@@ -165,7 +165,7 @@ Since we have different file types, we will need different types of data loaders
 - Eg: Langchain CSVLoader is essentially a wrapper for Python [csv.DictReader class](https://docs.python.org/3/library/csv.html#csv.DictReader)
 - Data is loaded into Langchain Document object [format](https://api.python.langchain.com/en/latest/documents/langchain_core.documents.base.Document.html)
     - The  `Document` class has `page_content` and `metadata` attributes. 
-    - The `page_content` is the texutal content parsed from the document files. 
+    - The `page_content` is the textual content parsed from the document files.
     - The `metadata` can be user-defined or default (class defined) key-value pairs. These key-value pairs can be used for filtering the documents retrieved from the database.
     - By default, each file type has its own metadata content. Eg: PDF file has `source` and `page`.
     - Filtering methods are not shown in this course. These methods will be well-documented in the database tool that you choose (explained later in the vectorDB section).
@@ -308,7 +308,7 @@ print("Number of PDF metadata: ", len(metadatas))
 
 Chunking involves breaking large amounts of data into smaller, more manageable pieces. 
 LLMs have limited context window and can't take in the entire dataset at once. For example, GPT-4 has a token limit of 128k. 
-Langchain document class also does chunking by page for pdf documents. However, we will need to make sure that all the content fit into the LLM token limit of 128k. So we will try splitting the documents meaningfuly. 
+Langchain document class also does chunking by page for pdf documents. However, we will need to make sure that all the content fit into the LLM token limit of 128k. So we will try splitting the documents meaningfully.
 We first split by pages, then by sections, then by paragraphs, then by new lines, then by sentences, by words and lastly by characters (eg. what if theres a word with more than 128k characters!). This is just making sure that no content is lost.
 
 ![Chunking](../images/foundation-models/chunking.png "Chunking")
@@ -359,7 +359,7 @@ Vector embeddings are mathematical representations of data points in a high-dime
 3. Similarity Principle: Words with similar meanings tend to have similar vector representations. 
 
 ::: {.callout-tip collapse="false"}
-Throughout this course, "word embeddings", "vector embeddings" and "embeddings" would be used interchangably.
+Throughout this course, "word embeddings", "vector embeddings" and "embeddings" would be used interchangeably.
 :::
 
 ![Vectors](../images/foundation-models/vectorDB-vectors.png)
@@ -409,7 +409,7 @@ Let’s start with a simple example of dealing with an LLM such as ChatGPT. The 
 
 So let’s go through the steps of retrieval using vectorDB.
 
-1. We first partition the data (to be used in the knowlegebase) into chunks
+1. We first partition the data (to be used in the knowledge base) into chunks
 2. Use embedding model to create vector embeddings for the data (create indexes)
 3. Insert data vector embeddings into the database, with some reference to the original content (metadata).
 4. User query is converted to vector embeddings using the same embedding model used for data.
@@ -567,7 +567,7 @@ This ensures the LLM outputs text in Markdown format, which can be helpful for s
 ```python
 qa_prompt_template = """Use the following pieces of context to answer the question at the end. Please follow the following rules:
     1. If the question has some initial findings, use that as context.
-    2. If you don't know the answer, don't try to make up an answer. Just say **I can't find the final answer but you may want to check the following sourcess** and add the source documents as a list.
+    2. If you don't know the answer, don't try to make up an answer. Just say **I can't find the final answer but you may want to check the following sources** and add the source documents as a list.
     3. If you find the answer, write the answer in a concise way and add the list of sources that are **directly** used to derive the answer. Exclude the sources that are irrelevant to the final answer.
 
     {context}
@@ -765,7 +765,7 @@ openai_rag_chain_with_source.invoke("Why is tundra restoration and rehabilitatio
 ```
 
 ```python
-openai_rag_chain_with_source.invoke("Who is Brenadette Adams?")
+openai_rag_chain_with_source.invoke("Who is Bernadette Adams?")
 ```
 
 
