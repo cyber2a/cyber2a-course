@@ -28,7 +28,7 @@ Then, the users can use the `predict` method to share prompts (user inputs) that
 ::: {.callout-note}
 ## Disclaimer
 This notebook reuses some code segments (e.g., helper methods, imports, loading the model, etc.) from the [image predictor example](https://github.com/facebookresearch/sam2/blob/main/notebooks/image_predictor_example.ipynb) initially published in the SAM 2 source code repository.
-SAM 2 source code is released under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0), and Meta Platforms, Inc. and affiliates hold the copyright for the `image_predictor_example.ipynb` notebook.
+SAM 2 source code is released under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0), and `Meta Platforms, Inc. and affiliates` hold the copyright for the `image_predictor_example.ipynb` notebook.
 We have adapted and modified the image predictor example notebook to use data files from Arctic datasets and included specific activities for the Cyber2A Workshop.
 :::
 
