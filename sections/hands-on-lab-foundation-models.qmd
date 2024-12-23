@@ -35,7 +35,7 @@ We have adapted and modified the image predictor example notebook to use data fi
 Images used in this hands-on lab section are from the LeConte Glacier Unmanned Aerial Vehicle (UAV) imagery dataset [@amundson_leconte_2019].
 Specifically, we use a low-resolution version (640 x 427) of images with IDs `20180917-112527` and `20180917-115018` from the zip file located at this [URL](https://arcticdata.io/catalog/view/doi%3A10.18739%2FA2445HC19#urn%3Auuid%3Af426289f-43cb-4c74-97ed-e7fc04951fc0).
 
-Before continuing with the rest of the sections, open the segmentation.ipynb notebook from the running Jupyter Notebook server.
+Before continuing with the rest of the sections, open the `segmentation.ipynb` notebook from the running Jupyter Notebook server.
 
 ### Environment Setup
 
