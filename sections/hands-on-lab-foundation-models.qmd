@@ -4,48 +4,201 @@
 The hands-on lab on foundation models will focus on building and applying foundation models for some example use cases. The main goal of this session is to get more familiarized with foundation models and in interacting with them.
 
 ## Outline
-1. Image Segmentation using Segment Anything Model-2 (SAM-2)
+1. Image Segmentation using Segment Anything Model-2 (SAM 2)
 2. Chatbot using LLMs + RAG
 
 ## Source Code and Setup
 Visit [https://github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop) and follow the instructions in the README file to set up and run the Jupyter Notebooks used in this hands-on lab.
 
-### Image Segmentation using Segment Anything Model-2 (SAM-2)
+## Image Segmentation using Segment Anything Model 2 (SAM 2)
 
 Image segmentation is a fundamental computer vision technique of dividing an image into one or more regions or objects [@ibm_what_2023].
 Promptable Visual Segmentation (PVS) is a new type of segmentation that combines the flexibility of prompts with the power of computer vision models to enable users to segment images interactively based on prompts.
 
 For this section of the foundational model hands-on session, we will use the [@ravi_sam_2024].
-SAM-2 is a foundation model for the PVS task trained on large-scale generic data that can predict object segmentation masks based on input prompts.
+SAM 2 is a foundation model for the PVS task trained on large-scale generic data that can predict object segmentation masks based on input prompts.
 These prompts can be points, bounding boxes (e.g., rectangles), masks, or combinations of these.
 The model converts the image into an image embedding (a dense vector representation of the image), which it then uses to predict segmentation masks based on a user prompt.
 
-One of the prominent classes the SAM-2 source code provides is `SAM2ImagePredictor`, which provides an easy interface to the model.
+One of the prominent classes the SAM 2 source code provides is `SAM2ImagePredictor`, which provides an easy interface to the model.
 Users can attach an input image to the model using its `set_image` method, which calculates the image embeddings.
 Then, the users can use the `predict` method to share prompts (user inputs) that help with the segmentation mask prediction.
 
 ::: {.callout-note}
 The Jupyter Notebook for this hands-on session is available within the [https://github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop) repository [here](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb). You can clone or download this repository directly from GitHub.
+This notebook reuses some code segments (e.g., helper methods, imports, loading the model, etc.) from the [image predictor example](https://github.com/facebookresearch/sam2/blob/main/notebooks/image_predictor_example.ipynb) originally published in the SAM 2 repository.
+We have modified the example notebook to use data files from Arctic datasets and included specific activities for the Cyber2A Workshop.
 :::
 
-#### Data
+### Data
 
 Images used in this section of the hands-on lab are from the LeConte Glacier Unmanned Aerial Vehicle (UAV) imagery dataset [@amundson_leconte_2019].
 Specifically, we use a low resolution version (640 x 427) of images with IDs `20180917-112527` and `20180917-115018` from the zip file located at this [URL](https://arcticdata.io/catalog/view/doi%3A10.18739%2FA2445HC19#urn%3Auuid%3Af426289f-43cb-4c74-97ed-e7fc04951fc0).
 
 Before continuing with the rest of the sections, open the segmentation.ipynb notebook from the running Jupyter Notebook server.
 
-#### Environment Setup
+### Environment Setup
 
-First, we import the necessary packages and model checkpoints.
+First, we import the necessary packages, download SAM 2 model checkpoints, and define methods for visualizing the results. Here, model checkpoints are files that contain model weights and architecture and which are saved after a certain number of iterations of model training.
+These checkpoints are used to load the model and make predictions. You can use code snippets in the `Set-Up` section of the segmentation.ipynb notebook to set up the environment.
+
+<!--
+TODO: Remove the below code blocks.
+-->
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+import os
+# if using Apple MPS, fall back to CPU for unsupported ops
+os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
+import numpy as np
+import torch
+import matplotlib.pyplot as plt
+from PIL import Image
+```
+</details>
+
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+os.chdir("SAM_checkpoints")
+!sh download_checkpoints.sh
+os.chdir("..")
+```
+</details>
+
+Now, we use the code to select the device for computation. Depending on the machine where you are running the segmentation notebook,
+you could choose between a CPU, GPU, or Metal Performance Shaders (MPS) for computation. The code snippet below shows how to select the device for computation.
+
+<details>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# Select the device for computation. We will be using CUDA to run this notebook. Other options are provided for running this notebook in different environments.
+if torch.cuda.is_available():
+    device = torch.device("cuda")
+elif torch.backends.mps.is_available():
+    device = torch.device("mps")
+else:
+    device = torch.device("cpu")
+print(f"using device: {device}")
+
+if device.type == "cuda":
+    # use bfloat16 for the entire notebook
+    torch.autocast("cuda", dtype=torch.bfloat16).__enter__()
+    # turn on tfloat32 for Ampere GPUs (https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices)
+    if torch.cuda.get_device_properties(0).major >= 8:
+        torch.backends.cuda.matmul.allow_tf32 = True
+        torch.backends.cudnn.allow_tf32 = True
+elif device.type == "mps":
+    print(
+        "\nSupport for MPS devices is preliminary. SAM 2 is trained with CUDA and might "
+        "give numerically different outputs and sometimes degraded performance on MPS. "
+        "See e.g. https://github.com/pytorch/pytorch/issues/84936 for a discussion."
+    )
+```
+</details>
+
+Next, we use the code to define methods for visualizing the results. The `show_mask` method displays a single segmentation mask, the `show_points` method displays the points, the `show_box` method displays the bounding box, and the `show_masks` method displays the image with the segmentation masks, points, and bounding boxes.
+
+<details>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+np.random.seed(3)
+
+def show_mask(mask, ax, random_color=False, borders = True):
+    if random_color:
+        color = np.concatenate([np.random.random(3), np.array([0.6])], axis=0)
+    else:
+        color = np.array([30/255, 144/255, 255/255, 0.6])
+    h, w = mask.shape[-2:]
+    mask = mask.astype(np.uint8)
+    mask_image =  mask.reshape(h, w, 1) * color.reshape(1, 1, -1)
+    if borders:
+        import cv2
+        contours, _ = cv2.findContours(mask,cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        # Try to smooth contours
+        contours = [cv2.approxPolyDP(contour, epsilon=0.01, closed=True) for contour in contours]
+        mask_image = cv2.drawContours(mask_image, contours, -1, (1, 1, 1, 0.5), thickness=2)
+    ax.imshow(mask_image)
+
+def show_points(coords, labels, ax, marker_size=375):
+    pos_points = coords[labels==1]
+    neg_points = coords[labels==0]
+    ax.scatter(pos_points[:, 0], pos_points[:, 1], color='green', marker='*', s=marker_size, edgecolor='white', linewidth=1.25)
+    ax.scatter(neg_points[:, 0], neg_points[:, 1], color='red', marker='*', s=marker_size, edgecolor='white', linewidth=1.25)
+
+def show_box(box, ax):
+    x0, y0 = box[0], box[1]
+    w, h = box[2] - box[0], box[3] - box[1]
+    ax.add_patch(plt.Rectangle((x0, y0), w, h, edgecolor='green', facecolor=(0, 0, 0, 0), lw=2))
+
+def show_masks(image, masks, scores, point_coords=None, box_coords=None, input_labels=None, borders=True):
+    for i, (mask, score) in enumerate(zip(masks, scores)):
+        plt.figure(figsize=(10, 10))
+        plt.imshow(image)
+        show_mask(mask, plt.gca(), borders=borders)
+        if point_coords is not None:
+            assert input_labels is not None
+            show_points(point_coords, input_labels, plt.gca())
+        if box_coords is not None:
+            # boxes
+            show_box(box_coords, plt.gca())
+        if len(scores) > 1:
+            plt.title(f"Mask {i+1}, Score: {score:.3f}", fontsize=18)
+        plt.axis('off')
+        plt.show()
+```
+</details>
 
 
+### Example 1
 
+Now, we read the first example image (`data/images/20180917-112527-reduced.jpg`), create an object, and display it with grid for estimating point and box coordinates.
 
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+image = Image.open('data/images/20180917-112527-reduced.jpg')
+image = np.array(image.convert("RGB"))
+plt.figure(figsize=(10, 10))
+plt.imshow(image)
+plt.grid(visible=True)
+plt.axis('on')
+plt.show()
+```
 
+Output:
+![Example 1](../images/foundation-models/sam-2-example-1.png)
 
+</details>
 
+Let's now load the SAM 2 model and configuration file. The model is loaded from the `SAM_checkpoints` directory, and the configuration file is loaded from the `configs` directory.
+We use the `sam2.1_hiera_large` model checkpoint and the `sam2.1_hiera_l.yaml` configuration file. Other model versions and their corresponding configuration files can be used as needed.
 
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+from sam2.build_sam import build_sam2
+from sam2.sam2_image_predictor import SAM2ImagePredictor
+
+sam2_checkpoint = "SAM_checkpoints/sam2.1_hiera_large.pt"
+model_cfg = "configs/sam2.1/sam2.1_hiera_l.yaml"
+
+sam2_model = build_sam2(model_cfg, sam2_checkpoint, device=device)
+predictor = SAM2ImagePredictor(sam2_model)
+```
+
+Now, we process the image to produce an image embedding by calling the `SAM2ImagePredictor.set_image` method.
+`SAM2ImagePredictor` object stores this embedding and will use it for subsequent mask prediction.
+
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+predictor.set_image(image)
+```
+</details>
 
 ### References
 1. [Segment Anything](https://segment-anything.com/)
