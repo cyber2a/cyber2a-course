@@ -3,11 +3,7 @@
 ## Overview
 The hands-on lab on foundation models will focus on building and applying foundation models for some example use cases. The main goal of this session is to get more familiarized with foundation models and in interacting with them.
 
-## Outline
-1. Image Segmentation using Segment Anything Model-2 (SAM 2)
-2. Chatbot using LLMs + RAG
-
-## Source Code and Setup
+## Source Code
 Visit [https://github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop) and follow the instructions in the README file to set up and run the Jupyter Notebooks used in this hands-on lab.
 
 ## Image Segmentation using Segment Anything Model 2 (SAM 2)
@@ -26,15 +22,12 @@ Users can attach an input image to the model using its `set_image` method, which
 Then, the users can use the `predict` method to share prompts (user inputs) that help with the segmentation mask prediction.
 
 ::: {.callout-note}
-## Disclaimer
+The Jupyter Notebook for this hands-on session is available within the [https://github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop) repository [here](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb).
+You can clone or download this repository directly from GitHub.
+
 This notebook reuses some code segments (e.g., helper methods, imports, loading the model, etc.) from the [image predictor example](https://github.com/facebookresearch/sam2/blob/main/notebooks/image_predictor_example.ipynb) initially published in the SAM 2 source code repository.
 SAM 2 source code is released under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0), and `Meta Platforms, Inc. and affiliates` hold the copyright for the `image_predictor_example.ipynb` notebook.
 We have adapted and modified the image predictor example notebook to use data files from Arctic datasets and included specific activities for the Cyber2A Workshop.
-:::
-
-::: {.callout-note}
-The Jupyter Notebook for this hands-on session is available within the [https://github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop) repository [here](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb).
-You can clone or download this repository directly from GitHub.
 :::
 
 ### Data
@@ -409,20 +402,10 @@ The model has predicted the glacial discharge region based on the bounding box i
 
 We have provided three optional activities for you to try out in the [segmentation notebook](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb), including one that does automatic segment generation without prompts. Feel free to experiment with different prompts and see how the model responds.
 
-### Conclusion
-In this section of the hands-on lab on Foundation Models, we learned how to use the Segment Anything Model 2 (SAM 2) for image segmentation tasks.
-We explored the PVS task, which combines the flexibility of prompts with the power of computer vision models to enable users to segment images interactively based on prompts.
-We used SAM 2 to predict object segmentation masks based on input prompts, such as points, bounding boxes, and masks, and how to guide the model to predict accurate segmentation masks.
-We hope this section of the hands-on lab has provided you with a better understanding of foundation models and how to interact with them.
-
-### References
-1. [Segment Anything](https://segment-anything.com/)
-2. [Segment Anything Notebook](https://github.com/facebookresearch/segment-anything/tree/main/notebooks)
-
-
 ## Retrieval Augmented Generation (RAG) Hands-On
 
-We will use [Langchain framework](https://www.langchain.com/) for this section of the hands-on session. Langchain is a framework that provides a set of tools and libraries to build and deploy AI models. It is built on top of PyTorch and HuggingFace transformers.
+We will use [Langchain framework](https://www.langchain.com/) for this section of the hands-on session.
+Langchain is a framework that provides tools and libraries for building and deploying AI models. It is built on top of PyTorch and HuggingFace transformers.
 
 Suggested code references:
 - Langchain RAG from scratch [github](https://github.com/langchain-ai/rag-from-scratch/tree/main)
@@ -432,7 +415,7 @@ Session hands-on code in [github.com/ncsa/cyber2a-workshop](https://github.com/n
 
 Session technical details in course book : [cyber2a.github.io/cyber2a-course/sections/foundation-models.html](https://cyber2a.github.io/cyber2a-course/sections/foundation-models.html)
 
-In this section, we will try to build a chatbot using RAG system, ie., a chatbot that has access to your specific knowledge base and answer questions related to that knowledge base.
+In this section, we will build a chatbot using the RAG system, i.e., a chatbot that has access to your specific knowledge base and answers questions related to that knowledge base.
 
 ### RAG Recap 
 
@@ -446,12 +429,12 @@ In this section, we will try to build a chatbot using RAG system, ie., a chatbot
 ![RAG approach](../images/foundation-models/ragpromptframework.png)
 
 ### RAG 
-RAG system can be thought of as combining two techniques:
+We can think of the RAG system as combining two techniques:
 1. Retrieval
 2. Generation
-where the Generation is augmented / improved by the retrieval step.
+, where the Generation step is augmented or improved by the Retrieval step.
 
-The retrieval is typically done by a specialized database and the generation part is typically done by an LLM.
+A specialized database typically retrieves the data; an LLM normally does the generation part.
 
 1. Retrieval
 - Setup a knowledge base 
@@ -464,27 +447,28 @@ The retrieval is typically done by a specialized database and the generation par
 ### Hands-on Environment Setup
 
 1. LLM
-For the hands-on session on RAG, we will be using OpenAI GPT-4o-mini and a Llama3.2:8b model that is hosted using an Ollama instance. To access the OpenAI models, you will need an OpenAI API key. 
-To access the Llama model, you will need to set up an Ollama instance and have an API key associated with that instance. Details on setting up an Ollama instance is available [here](https://ollama.com/). 
-Users are also free to download a Llama model on their local machine and run this hands-on code without an Ollama instance. However, we recommend using an Ollama instance as this would enable [api calls](https://github.com/ollama/ollama/blob/main/docs/api.md) (curl requests) to access the LLM.
+For the hands-on session on RAG, we will use OpenAI GPT-4o-mini and a Llama3.2:8b model hosted on an Ollama instance. You will need an OpenAI API key to access the OpenAI models.
+To access the Llama model, you must set up an Ollama instance and have an API key associated with that instance. Details on setting up an Ollama instance are available [here](https://ollama.com/).
+Users can also download a Llama model on their local machine and run this hands-on code without an Ollama instance. However, we recommend using an Ollama instance as this would enable [api calls](https://github.com/ollama/ollama/blob/main/docs/api.md) (curl requests) to access the LLM.
 
 2. Compute requirements 
-There are no GPU requirements for this hands-on. However, we recommend some amount of memory on your local system as we will be using your device's local memory for a small database.
-We recommend testing out the code for this hands-on session in jupyter notebook. For instructions on launching a jupyter notebook, see [here](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/).
+There are no GPU requirements for this hands-on. However, we recommend some memory on your local system, as we will be using your device's local memory for a small database.
+We recommend testing out the code for this hands-on session in a Jupyter notebook. For instructions on launching a Jupyter notebook, see [here](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/).
 
 3. Code
-The code is available at [github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/rag.ipynb). Feel free to clone this repo / download this repo directly from github.
-Steps to clone the repo.
-    1. Open your terminal
-    2. Type `git clone https://github.com/ncsa/cyber2a-workshop` 
+The code is available at [github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/rag.ipynb). Feel free to clone or download this repo directly from GitHub.
+Steps to clone the repo and access the rag.ipynb file:
+    1. Open a terminal
+    2. Run command: `git clone https://github.com/ncsa/cyber2a-workshop`
+    3. Navigate to the `foundation_models/hands_on` directory in the cloned repo.
 
 4. Data requirements
-A data directory will be created if you clone/download the repo. Feel free to put your favourite documents, be it txt, pdf, csv or docx files, to the data/docs directory. We will be inserting these documents into our specialized database.
+If you clone or download the repo, a data directory will be created. Feel free to add your favorite documents, such as TXT, PDF, CSV, or docx files, to the data/docs directory. We will insert these documents into our specialized database.
 
 5. Environment variables
-In the github repo, you will find an `env.example` file. This will give you all the list of environment variables required for this course. Add your OpenAI API key, Ollama API key, your data folder (currently data/docs) and a data collection name (eg: data-collection).
+You will find an `env.example` file in the GitHub repo. This file will provide you with the environment variables required for this course. Add your OpenAI API key, Ollama API key, your data folder (currently data/docs), and a data collection name (e.g., data-collection).
 The OpenAI API key will be used to access the OpenAI models. Ollama API key will be used to access your Ollama instance. The collection name is a way to recognize a collection/table in the specialized database, that we will be setting up soon.
-Edit the `env.example` file to contain your values and save the file. Rename `env.example` to `env.txt`
+Edit the `env.example` file to contain your values and save the file. Rename `env.example` to `env.txt`.
 
 6. Package requirements
 This tutorial will require the following list of packages. 
@@ -507,10 +491,11 @@ pypandoc==1.14
 unstructured==0.16
 ```
 Instructions for installing the required packages:
+
 1. Create a virtual environment with python version not less than 3.10.
     - Use conda/miniconda to set up a virtual environment. If you have a virtual environment with python>=3.10 with a jupyter kernel, use that env/kernel and skip the below steps.
       - a. Download the latest Miniconda3 installer from the [Miniconda](https://docs.conda.io/en/latest/miniconda.html) web page.
-      - b. From the Terminal (Mac/Linux) or Command Prompt (Windows) add [conda-forge](https://conda-forge.org/) package repository/channel to your environment:  
+      - b. From the Terminal (Mac/Linux) or Command Prompt (Windows) add [conda-forge](https://conda-forge.org/) package repository/channel to your environment:
       ```python
       conda config --add channels conda-forge
       ```
@@ -523,9 +508,11 @@ Instructions for installing the required packages:
 2. Create a `requirements.txt` file and copy-paste the above packages as-is. You could also use the `requirements.txt` file from the cloned Github repository `cyber2a-workshop`
 3. Type `pip install -r requirements.txt`
 
-Lets start by importing some basic python packages.
+Let's start by importing some basic python packages.
 
-```python
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
 # basic imports
 import os
 import json
@@ -544,6 +531,7 @@ logging.basicConfig(level=logging.INFO, datefmt='%Y-%m-%dT%H:%M:%S',
 # create log object with current module name
 log = logging.getLogger(__name__)
 ```
+</details>
 
 ### RAG - *Retrieval*-Augmented Generation
 
@@ -555,7 +543,7 @@ We will focus on the "retrieval" part of RAG for this section.
 2. Create a database and insert data
 3. Search the database and retrieve relevant documents according to the search query.
 
-As mentioned earlier, RAG system gives the LLM access to our knowledge base which has specific information for our use-case. Lets consider our knowledge base to have textual data.
+As mentioned earlier, the RAG system gives the LLM access to our knowledge base, which has specific information for our use case.
 
 #### Data Preparation
 
@@ -580,9 +568,11 @@ Since we have different file types, we will need different types of data loaders
 - If using an IDE (PyCharm, VSCode, etc), Ctrl+click, or Command+click on the package and it should open-up its source code.
 :::
 
-Now lets load some data. This code loads all files in a directory. For now, we have only PDF files.
+Now, let's load some data. This code loads all files in a directory. For now, we have only PDF files.
 
-```python
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
 # data loaders
 from langchain_community.document_loaders import CSVLoader, DataFrameLoader, PyPDFLoader, Docx2txtLoader, UnstructuredRSTLoader, DirectoryLoader
 
@@ -629,10 +619,13 @@ class DataLoaders:
                                     )
         return dir_rst_loader
 ```
+</details>
 
 Load the data
 
-```python
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
 # load data
 data_dir_path = os.getenv('DATA_DIR_PATH', "data/docs")
 data_loader = DataLoaders(data_dir_path=data_dir_path)
@@ -648,8 +641,9 @@ word_data = dir_word_loader.load()
 pdf_data = dir_pdf_loader.load()
 rst_data = dir_rst_loader.load()
 ```
+</details>
 
-Since our test data only has pdf documents, only the `pdf_data` will have values. Lets see how the first document looks like :
+Since our test data only has pdf documents, only the `pdf_data` will have values. Let's see how the first document looks like :
 
 ```python
 # only printing the first document in pdf_data
@@ -657,7 +651,7 @@ for doc in pdf_data:
     print(doc)
     break
 ```
-This will display the first document. 
+The above code will display the first document.
 The `page_content` will be the text content from the document and `metadata` gives you the page number and source file. 
 The metadata field currently has default values, set by the class the document is loaded from (in this case PDFLoader class). 
 For other classes, metadata would differ. For example, if loading a CSV file using CSVLoader, the `metadata` will have row number instead of page number. 
@@ -668,7 +662,7 @@ Langchain PDFLoader loads pdf documents in pages. Each document will be one pdf 
 
 ##### Format the data
 
-As seen from the previous code block, each document is in a `Document` class with attributes `page_content` and `metadata`. We only need the textual content (page_content) to be accessed by the LLM. So lets reformat the documents accordingly. We still need `metadata` as it is useful for filtering purposes.
+As the previous code block shows, each document is in a `Document` class with attributes `page_content` and `metadata`. The LLM can only access the textual content (page_content), so let's reformat the documents accordingly. However, we still need `metadata`, which is helpful for filtering purposes.
 
 Users could also customize `metadata` to have similar key-value pairs across different documents. This would be helpful if several types of documents are inserted into one database and the metadata is used to filter across them.
 
@@ -676,7 +670,9 @@ Steps implemented in the below code block:
 - Convert data to a list of texts and metadata 
 - Custom metadata is set so that metadata is same for all different data sources.
 
-```python
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
 # get text and metadata from the data
 def get_text_metadatas(csv_data=None, pdf_data=None, word_data=None, rst_data=None):
     """
@@ -700,8 +696,9 @@ def get_text_metadatas(csv_data=None, pdf_data=None, word_data=None, rst_data=No
 
 texts , metadatas = get_text_metadatas(csv_data, pdf_data, word_data, rst_data)
 ```
+</details>
 
-Lets print the number of texts and metadata
+Let's print the number of texts and metadata
 ```python
 print("Number of PDF texts: ", len(texts))
 print("Number of PDF metadata: ", len(metadatas))
@@ -710,20 +707,22 @@ print("Number of PDF metadata: ", len(metadatas))
 ##### Chunking
 
 Chunking involves breaking large amounts of data into smaller, more manageable pieces. 
-LLMs have limited context window and can't take in the entire dataset at once. For example, GPT-4 has a token limit of 128k. 
-Langchain document class also does chunking by page for pdf documents. However, we will need to make sure that all the content fit into the LLM token limit of 128k. So we will try splitting the documents meaningfully.
-We first split by pages, then by sections, then by paragraphs, then by new lines, then by sentences, by words and lastly by characters (eg. what if theres a word with more than 128k characters!). This is just making sure that no content is lost.
+LLMs have a limited context window and cannot take in the entire dataset at once. For example, GPT-4 has a token limit of 128k.
+The Langchain document class also chunks PDF documents by page. However, we will need to make sure that all the content fits within the LLM token limit of 128k, so we will try splitting the documents meaningfully.
+We first split by pages, then by sections, then by paragraphs, then by new lines, then by sentences, by words, and lastly by characters (e.g., what if there's a word with more than 128k characters!). This is just to ensure that no content is lost.
 
 ![Chunking](../images/foundation-models/chunking.png "Chunking")
 
 Steps implemented in the below code block:
 - Split texts into chunks
 - Return a list of document chunks (list of langchain [document class](https://api.python.langchain.com/en/latest/documents/langchain_core.documents.base.Document.html))
-- Here we select a chunk size of 1000 and an overlap of 200 tokens. There is no set-rule for this choice. However, this is a recommended pattern.
-- Chunk sizes determine the granularity of information being searched for. 
-- If very granular pieces of information is required, the chunk size should be smaller. If the chunk size is larger, a more overall content of the documents are returned.
+- Here, we select a chunk size of 1000 and an overlap of 200 tokens. There is no set rule for this choice. However, this is a recommended pattern.
+- Chunk sizes determine the granularity of information being searched for.
+- The chunk size should be smaller if very granular information is required. If the chunk size is larger, the overall content of the documents is returned.
 
-```python
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
 from typing import List
@@ -738,8 +737,9 @@ text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
 
 docs: List[Document] = text_splitter.create_documents(texts=texts, metadatas=metadatas)
 ```
+</details>
 
-Now lets see if the first document changed and how many documents are there after chunking.
+Now, let's see if the first document changed and how many documents are available after chunking.
 
 ```python
 print(docs[0])
@@ -748,7 +748,7 @@ print("Number of documents: ", len(docs))
 
 ##### Vector embeddings
 
-Neural networks does not understand characters/texts. However, they understand numbers and are really good at numerical computation. Hence textual data is converted to vectors of real valued numbers.
+Neural networks do not understand characters or texts. However, they understand numbers and are really good at numerical computation. Hence, textual data is converted to vectors of real-valued numbers.
 
 ::: {.column-margin}
 ![Word vectors](../images/foundation-models/word-vectors.png)
@@ -762,17 +762,17 @@ Vector embeddings are mathematical representations of data points in a high-dime
 3. Similarity Principle: Words with similar meanings tend to have similar vector representations. 
 
 ::: {.callout-tip collapse="false"}
-Throughout this course, "word embeddings", "vector embeddings" and "embeddings" would be used interchangeably.
+The words 'word embeddings', 'vector embeddings', and 'embeddings' will be used interchangeably throughout this course.
 :::
 
 ![Vectors](../images/foundation-models/vectorDB-vectors.png)
 
-In the above example of vectors, "King" and "Queen" has the same relationship as "man" and "women". "King" is in at a similar distance from "man" and "queen" from "woman".
+In the above vector example, "King" and "Queen" have the same relationship as "man" and "woman." The "King" is at a similar distance from "man" and "queen" from "woman."
 
-These word embeddings are learned by feeding a model vast amounts of texts. Models specialized in generating these text embeddings are called embedding models. 
-Word2Vec is one of the first (very basic) embedding model. [GloVE](https://nlp.stanford.edu/projects/glove/) model was one of the more popular models that had learned word embeddings, ie., one of the first models that was trained as a word embedding model. 
-There are many open-source embedding models, eg. [Text embedding models](https://huggingface.co/docs/chat-ui/en/configuration/embeddings) from HuggingFace. Checkout the HuggingFace [Embedding models leaderboard](https://huggingface.co/spaces/mteb/leaderboard) for comparison of different embedding models.
-We will be using [OpenAI text embedding model](https://platform.openai.com/docs/guides/embeddings/embedding-models), which has a maximum token limit of 8191 according to OpenAI documentation. 
+These word embeddings are learned by feeding a model vast amounts of text. Models specialized in generating these text embeddings are called embedding models.
+Word2Vec is one of the first (very basic) embedding models. The [GloVE](https://nlp.stanford.edu/projects/glove/) model was one of the more popular models that learned word embeddings, i.e., one of the first models that was trained as a word embedding model.
+There are many open-source embedding models, e.g., [Text embedding models](https://huggingface.co/docs/chat-ui/en/configuration/embeddings) from HuggingFace. Check out the HuggingFace [Embedding models leaderboard](https://huggingface.co/spaces/mteb/leaderboard) to compare different embedding models.
+We will be using the [OpenAI text embedding model](https://platform.openai.com/docs/guides/embeddings/embedding-models), which, according to OpenAI documentation, has a maximum token limit of 8191.
 
 ```python
 # embeddings 
@@ -793,16 +793,16 @@ And now, we have completed step 1 of RAG
 
 #### Knowledge Database
 
-In the age of burgeoning data complexity and high-dimensional information, traditional databases often fall short when it comes to efficiently handling and extracting meaning from intricate datasets. 
-Enter vector databases, a technological innovation that has emerged as a solution to the challenges posed by the ever-expanding landscape of data. 
+In the age of burgeoning data complexity and high-dimensional information, traditional databases often fail to efficiently handle and extract meaning from intricate datasets.
+Enter vector databases, a technological innovation that has emerged as a solution to the challenges posed by the ever-expanding data landscape.
 (Source: beginner's [blog post](https://medium.com/data-and-beyond/vector-databases-a-beginners-guide-b050cbbe9ca0) on vector DB)
 
 ##### Vector database
 
-Vector databases have gained significant importance in various fields due to their unique ability to efficiently store, index, and search high-dimensional data points, often referred to as vectors. These databases are designed to handle data where each entry is represented as a vector in a multi-dimensional space. The vectors can represent a wide range of information, such as numerical features, embeddings from text or images, and even complex data like molecular structures.
+Vector databases have gained significant importance in various fields due to their unique ability to efficiently store, index, and search high-dimensional data points, often referred to as vectors. These databases are designed to handle data where each entry is represented as a vector in a multidimensional space. Vectors can represent a wide range of information, such as numerical features, embeddings from text or images, and even complex data like molecular structures.
 
-Vector databases store data as vector embeddings and are optimized for fast retrieval and similarity search. 
-Vector database records are vectors and the distance between these vectors correspond to whether the vectors are similar or not. Vectors that are closer are more similar than vectors that are farther apart.
+Vector databases store data as vector embeddings and are optimized for fast retrieval and similarity search.
+Vector database records are vectors, and the distance between them corresponds to whether the vectors are similar or not. Vectors that are closer are more similar than vectors that are farther apart.
 ![VectorDB comparison](../images/foundation-models/vectorDB-comparison.png)
 
 ###### How vector databases work
@@ -819,7 +819,7 @@ So let’s go through the steps of retrieval using vectorDB.
 5. VectorDB searches the knowledgebase for vector embeddings similar to the user query.
 6. VectorDB returns similar document chunks and sends it back to the user. 
 
-Now lets see how it works in the vector database.
+Now, let's see how it works in the vector database.
 
 ![VectorDB pipeline. Source: pinecone [blog post](https://www.pinecone.io/learn/vector-database/)](../images/foundation-models/vectordb-working.png)
 
@@ -835,7 +835,7 @@ Once it has gone through its search, the vector database compares the queried ve
 
 3. Post Processing 
 
-Depending on the vector database you use, the vector database will post-process the final nearest neighbor to produce a final output to the query. As well as possibly re-ranking the nearest neighbors for future reference. 
+Depending on the vector database you use, the vector database will post-process the final nearest neighbor to produce a final output to the query. We could also possibly re-rank the nearest neighbors for future reference.
 
 
 ###### Inserting documents into VectorDB
@@ -846,17 +846,19 @@ Depending on the vector database you use, the vector database will post-process 
 ##### Vector Store
 
 - We will use [Qdrant](https://qdrant.tech/) vector store for this example
-- For this tutorial we will utilize local memory for storage
+- For this tutorial, we will utilize local memory for storage
 - Qdrant has a docker image that can be used to create a vector store and hosted remotely
-- One can configure a Qdrant docker image to run locally and have a Qdrant client which makes API request.
+- One can configure a Qdrant docker image to run locally and have a Qdrant client that makes API requests.
 - Qdrant creates a collection from the inserted documents (similar to a table in SQL databases)
 - Blog post on vector stores [link](https://medium.com/google-cloud/vector-databases-are-all-the-rage-872c888fa348)
 
 
-Lets create a Qdrant vector store in local memory
+Let's create a Qdrant vector store in local memory
 
-```python
-# creating a qdrant vector store in local memory
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+# creating a Qdrant vector store in local memory
 
 from langchain_community.vectorstores import Qdrant
 
@@ -871,6 +873,7 @@ vectorstore = Qdrant.from_documents(
     collection_name=collection_name,  # give a collection name
     )
 ```
+</details>
 
 And now, we have completed step 2 of RAG retrieval
 **RAG - Retrieval Steps**
@@ -900,20 +903,19 @@ And now, we have completed all 3 steps of RAG retrieval
 
 ### RAG - Retrieval-Augmented *Generation*
 
-We will now move onto to the "generation" part of RAG for this section. Here most of the heavy-lifting is done by the LLMs.
+We will now move on to the "Generation" part of RAG. Here, the LLMs do most of the heavy lifting.
 
 #### LLM
 - LLMs are pre-trained large language models 
 - Trained to predict the next word (token), given some input text.
 - Open-source models - HuggingFace [leaderboard](https://huggingface.co/collections/open-llm-leaderboard/llm-leaderboard-best-models-652d6c7965a4619fb5c27a03)
-
-- For this HandsOn, we will use OpenAI GPT-4o-mini, and Ollama Llama3.2:3.2B model hosted by NCSA.
+- For this HandsOn, we will use OpenAI GPT-4o-mini and the Ollama Llama3.2:3.2B model hosted by NCSA.
 
 Let's see how best to communicate/prompt these LLM models for RAG.
 
 #### Prompting
 Prompting is a crucial technique in effectively communicating with Large Language Models (LLMs) to achieve desired outcomes without modifying the underlying model. 
-As LLMs become more sophisticated, the art of crafting effective prompts has emerged as a key skill in natural language processing and AI applications. Checkout LilianWeng blog post [@weng2023prompt], medium [blog post](https://medium.com/thedeephub/llm-prompt-engineering-for-beginners-what-it-is-and-how-to-get-started-0c1b483d5d4f#:~:text=In%20essence%2C%20a%20prompt%20is,you%20want%20it%20to%20do) on prompt engineering.
+As LLMs become more sophisticated, the art of crafting effective prompts has emerged as a key skill in natural language processing and AI applications. Check out LilianWeng's blog post [@weng2023prompt], medium [blog post](https://medium.com/thedeephub/llm-prompt-engineering-for-beginners-what-it-is-and-how-to-get-started-0c1b483d5d4f#:~:text=In%20essence%2C%20a%20prompt%20is,you%20want%20it%20to%20do) on prompt engineering.
 
 Prompting is often an iterative process. It typically requires multiple trial-and-error attempts to achieve the desired effect. Each iteration can provide insights into how the model interprets and responds to different input structures.
 
@@ -924,7 +926,7 @@ Prompting is often an iterative process. It typically requires multiple trial-an
 Assigning the LLM a specific role or behavior can significantly influence its responses. By giving it a defined persona, the model will attempt to respond in a manner that aligns with that role. This can improve the quality and relevance of its answers.
 
 Example:
-“You are a helpful research assistant”
+"You are a helpful research assistant."
 
 This prompt frames the model's responses to be in line with the behavior expected of a research assistant, such as providing accurate information and being resourceful.
 
@@ -933,7 +935,7 @@ This prompt frames the model's responses to be in line with the behavior expecte
 Guardrails provide boundaries or conditions within which the model should operate. This is particularly useful to avoid misleading or incorrect information. You can ask the model to refrain from answering if it's unsure of the response.
 
 Example:
-“If you don’t know the final answer, just say ‘I don’t know’.”
+"If you don't know the final answer, just say 'I don't know'."
 
 This instructs the LLM to admit uncertainty instead of generating a potentially incorrect answer, thereby increasing reliability.
 
@@ -942,7 +944,7 @@ This instructs the LLM to admit uncertainty instead of generating a potentially 
 Giving the LLM specific actions to perform before generating responses ensures that it processes the necessary information correctly. This is important when dealing with tasks like reviewing files or using external data.
 
 Example:
-“Read the data file before answering any questions.”
+"Read the data file before answering any questions."
 
 This directs the LLM to review relevant materials, improving the quality of the subsequent answers.
 
@@ -951,7 +953,7 @@ This directs the LLM to review relevant materials, improving the quality of the 
 You can enhance the usefulness of responses by specifying the desired output format. By doing this, you ensure the model delivers information in a form that aligns with your needs.
 
 Example:
-“Respond using markdowns.”
+"Respond using markdowns."
 
 This ensures the LLM outputs text in Markdown format, which can be helpful for structured documents or technical writing.
 
@@ -1006,7 +1008,9 @@ def format_docs(docs):
 
 ##### Call LLM - without RAG
 
-```python
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
 # call open ai GPT-4o-mini
 from langchain_openai import ChatOpenAI
 
@@ -1017,6 +1021,7 @@ llm: ChatOpenAI = ChatOpenAI(
             max_retries=500,
         )
 ```
+</details>
 
 ```python
 # call GPT4o-mini. 
@@ -1027,7 +1032,9 @@ llm.invoke("What is the capital of the world?")
 # Notice the OpenAI LLM response format: content , metadata
 ```
 
-```python
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
 # call ollama llama3:latest
 
 from langchain_community.llms import Ollama
@@ -1043,6 +1050,7 @@ ollamallm: Ollama = Ollama(
     headers=ollama_headers
     )
 ```
+</details>
 
 ```python
 # call llama3 model
@@ -1069,7 +1077,9 @@ Let's bring it all together
 
 Let's code the RAG chain with OpenAI LLM
 
-```python
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
 # rag chain
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -1081,6 +1091,7 @@ openai_rag_chain = (
     | StrOutputParser()
 )
 ```
+</details>
 
 The above code implements the RAG system
 - Context is the retrieved docs from the retriever/vector db
@@ -1108,7 +1119,9 @@ Feel free to try out other queries and test out other prompts.
 #### RAG chain with Llama model
 Let's code the RAG chain with Llama 
 
-```python
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
 # ollama rag chain
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
@@ -1120,6 +1133,7 @@ ollama_rag_chain = (
     | StrOutputParser()
 )
 ```
+</details>
 
 ```python
 # call ollama rag chain
@@ -1134,13 +1148,13 @@ ollama_rag_chain.invoke("Who is the president of USA?")
 GPT models are generally good at following instructions. OpenAI had an "InstructGPT" model which was specifically trained to follow instructions
 :::
 
-
 #### Adding sources to RAG
 
-Now that we have used RAG to control hallucinations and ground the LLM responses, lets add source citations to the LLM generated response.
+Now that we have used RAG to control hallucinations and ground the LLM responses, let's add source citations to the LLM generated response.
 
-
-```python
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
 ## adding sources to openai rag chain
 
 from langchain_core.runnables import RunnableParallel
@@ -1156,6 +1170,7 @@ openai_rag_chain_with_source = RunnableParallel(
     {"context": retriever, "question": RunnablePassthrough()}
 ).assign(answer=openai_rag_chain_from_docs)
 ```
+</details>
 
 ```python
 # call openai rag chain with source
@@ -1171,7 +1186,6 @@ openai_rag_chain_with_source.invoke("Why is tundra restoration and rehabilitatio
 openai_rag_chain_with_source.invoke("Who is Bernadette Adams?")
 ```
 
-
 #### RAG Steps
 
 That concludes the RAG implementation. We have completed all the steps for Retrieval-Augmented Generation (RAG)
@@ -1181,3 +1195,8 @@ That concludes the RAG implementation. We have completed all the steps for Retri
 3. Search the vector store and retrieve relevant documents
 4. Call LLM with the user query and the retrieved documents
 5. Return the LLM response to the user
+
+## Conclusion
+In this hands-on lab on Foundation Models, we learned how to set up and use the Segment Anything Model 2 (SAM 2) for image segmentation tasks and implement a chatbot using the RAG system.
+We delved into many details related to both use cases and learned how to interact with the foundation models used in them.
+We hope this hands-on lab has given you a practical understanding of foundation models and how to interact with them.
