@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -73,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -308,15 +362,36 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">18.1</span> Overview</a></li>
-  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline"><span class="header-section-number">18.2</span> Outline</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">18.3</span> References</a></li>
-  <li><a href="#sam" id="toc-sam" class="nav-link" data-scroll-target="#sam"><span class="header-section-number">18.4</span> SAM</a></li>
-  <li><a href="#rag" id="toc-rag" class="nav-link" data-scroll-target="#rag"><span class="header-section-number">18.5</span> RAG</a></li>
+  <li><a href="#source-code" id="toc-source-code" class="nav-link" data-scroll-target="#source-code"><span class="header-section-number">18.2</span> Source Code</a></li>
+  <li><a href="#image-segmentation-using-segment-anything-model-2-sam-2" id="toc-image-segmentation-using-segment-anything-model-2-sam-2" class="nav-link" data-scroll-target="#image-segmentation-using-segment-anything-model-2-sam-2"><span class="header-section-number">18.3</span> Image Segmentation using Segment Anything Model 2 (SAM 2)</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">18.3.1</span> Background</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">18.3.2</span> Data</a></li>
+  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link" data-scroll-target="#environment-setup"><span class="header-section-number">18.3.3</span> Environment Setup</a></li>
+  <li><a href="#example-image-1" id="toc-example-image-1" class="nav-link" data-scroll-target="#example-image-1"><span class="header-section-number">18.3.4</span> Example Image 1</a></li>
+  <li><a href="#loading-the-sam-2-model-and-configuration" id="toc-loading-the-sam-2-model-and-configuration" class="nav-link" data-scroll-target="#loading-the-sam-2-model-and-configuration"><span class="header-section-number">18.3.5</span> Loading the SAM 2 model and configuration</a></li>
+  <li><a href="#specifying-an-object-or-region-using-a-single-point" id="toc-specifying-an-object-or-region-using-a-single-point" class="nav-link" data-scroll-target="#specifying-an-object-or-region-using-a-single-point"><span class="header-section-number">18.3.6</span> Specifying an object or region using a single point</a></li>
+  <li><a href="#predicting-the-segmentation-mask" id="toc-predicting-the-segmentation-mask" class="nav-link" data-scroll-target="#predicting-the-segmentation-mask"><span class="header-section-number">18.3.7</span> Predicting the segmentation mask</a></li>
+  <li><a href="#activity-1-specifying-an-object-or-region-using-multiple-points" id="toc-activity-1-specifying-an-object-or-region-using-multiple-points" class="nav-link" data-scroll-target="#activity-1-specifying-an-object-or-region-using-multiple-points"><span class="header-section-number">18.3.8</span> Activity 1: Specifying an object or region using multiple points</a></li>
+  <li><a href="#example-image-2" id="toc-example-image-2" class="nav-link" data-scroll-target="#example-image-2"><span class="header-section-number">18.3.9</span> Example Image 2</a></li>
+  <li><a href="#activity-2-specifying-an-object-or-region-using-multiple-points-foreground-and-background" id="toc-activity-2-specifying-an-object-or-region-using-multiple-points-foreground-and-background" class="nav-link" data-scroll-target="#activity-2-specifying-an-object-or-region-using-multiple-points-foreground-and-background"><span class="header-section-number">18.3.10</span> Activity 2: Specifying an object or region using multiple points (foreground and background)</a></li>
+  <li><a href="#activity-3-specifying-a-specific-object-with-a-box" id="toc-activity-3-specifying-a-specific-object-with-a-box" class="nav-link" data-scroll-target="#activity-3-specifying-a-specific-object-with-a-box"><span class="header-section-number">18.3.11</span> Activity 3: Specifying a specific object with a box</a></li>
+  </ul></li>
+  <li><a href="#retrieval-augmented-generation-rag-hands-on" id="toc-retrieval-augmented-generation-rag-hands-on" class="nav-link" data-scroll-target="#retrieval-augmented-generation-rag-hands-on"><span class="header-section-number">18.4</span> Retrieval Augmented Generation (RAG) Hands-On</a>
+  <ul class="collapse">
+  <li><a href="#rag-recap" id="toc-rag-recap" class="nav-link" data-scroll-target="#rag-recap"><span class="header-section-number">18.4.1</span> RAG Recap</a></li>
+  <li><a href="#rag" id="toc-rag" class="nav-link" data-scroll-target="#rag"><span class="header-section-number">18.4.2</span> RAG</a></li>
+  <li><a href="#hands-on-environment-setup" id="toc-hands-on-environment-setup" class="nav-link" data-scroll-target="#hands-on-environment-setup"><span class="header-section-number">18.4.3</span> Hands-on Environment Setup</a></li>
+  <li><a href="#rag---retrieval-augmented-generation" id="toc-rag---retrieval-augmented-generation" class="nav-link" data-scroll-target="#rag---retrieval-augmented-generation"><span class="header-section-number">18.4.4</span> RAG - <em>Retrieval</em>-Augmented Generation</a></li>
+  <li><a href="#rag---retrieval-augmented-generation-1" id="toc-rag---retrieval-augmented-generation-1" class="nav-link" data-scroll-target="#rag---retrieval-augmented-generation-1"><span class="header-section-number">18.4.5</span> RAG - Retrieval-Augmented <em>Generation</em></a></li>
+  <li><a href="#rag-system" id="toc-rag-system" class="nav-link" data-scroll-target="#rag-system"><span class="header-section-number">18.4.6</span> RAG System</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">18.5</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../sections/ai-workflows-and-mlops.html"><b>Day 4: Workflows and Foundation Models</b></a></li><li class="breadcrumb-item"><a href="../sections/hands-on-lab-foundation-models.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Hands-On Lab: Foundation Models</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -339,29 +414,1125 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">18.1</span> Overview</h2>
-<p>The hands-on lab on foundation models will focus on building and applying small-scale foundation models for some example use cases. The main goal of this 1-hour session will be to get more familiarized with foundation models and in interacting with them.</p>
+<p>The hands-on lab on foundation models will focus on building and applying foundation models for some example use cases. The main goal of this session is to get more familiarized with foundation models and in interacting with them.</p>
 </section>
-<section id="outline" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="outline"><span class="header-section-number">18.2</span> Outline</h2>
+<section id="source-code" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="source-code"><span class="header-section-number">18.2</span> Source Code</h2>
+<p>Visit <a href="https://github.com/ncsa/cyber2a-workshop">https://github.com/ncsa/cyber2a-workshop</a> and follow the instructions in the README file to set up and run the Jupyter Notebooks used in this hands-on lab.</p>
+</section>
+<section id="image-segmentation-using-segment-anything-model-2-sam-2" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="image-segmentation-using-segment-anything-model-2-sam-2"><span class="header-section-number">18.3</span> Image Segmentation using Segment Anything Model 2 (SAM 2)</h2>
+<section id="background" class="level3" data-number="18.3.1">
+<h3 data-number="18.3.1" class="anchored" data-anchor-id="background"><span class="header-section-number">18.3.1</span> Background</h3>
+<p>Image segmentation is a fundamental computer vision technique of dividing an image into one or more regions or objects <span class="citation" data-cites="ibm_what_2023"><a href="../references.html#ref-ibm_what_2023" role="doc-biblioref">[1]</a></span>. Promptable Visual Segmentation (PVS) is a new type of segmentation that combines the flexibility of prompts with the power of computer vision models to enable users to segment images interactively based on prompts.</p>
+<p>For this section of the foundational model hands-on session, we will use the <span class="citation" data-cites="ravi_sam_2024"><a href="../references.html#ref-ravi_sam_2024" role="doc-biblioref">[2]</a></span>. SAM 2 is a foundation model for the PVS task trained on large-scale generic data that can predict object segmentation masks based on input prompts. These prompts include points, bounding boxes (e.g., rectangles), masks, or combinations. The model converts the image into an image embedding (a dense vector representation of the image), which it then uses to predict segmentation masks based on a user prompt.</p>
+<p>One prominent class in the SAM 2 source code is <code>SAM2ImagePredictor</code>, which provides an easy interface to the model. Users can attach an input image to the model using its <code>set_image</code> method, which calculates the image embeddings. Then, the users can use the <code>predict</code> method to share prompts (user inputs) that help with the segmentation mask prediction.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Jupyter Notebook for this hands-on session is available within the <a href="https://github.com/ncsa/cyber2a-workshop">https://github.com/ncsa/cyber2a-workshop</a> repository <a href="https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb">here</a>. You can clone or download this repository directly from GitHub.</p>
+<p>This notebook reuses some code segments (e.g., helper methods, imports, loading the model, etc.) from the <a href="https://github.com/facebookresearch/sam2/blob/main/notebooks/image_predictor_example.ipynb">image predictor example</a> initially published in the SAM 2 source code repository. SAM 2 source code is released under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>, and <code>Meta Platforms, Inc. and affiliates</code> hold the copyright for the <code>image_predictor_example.ipynb</code> notebook. We have adapted and modified the image predictor example notebook to use data files from Arctic datasets and included specific activities for the Cyber2A Workshop.</p>
+</div>
+</div>
+</section>
+<section id="data" class="level3" data-number="18.3.2">
+<h3 data-number="18.3.2" class="anchored" data-anchor-id="data"><span class="header-section-number">18.3.2</span> Data</h3>
+<p>Images used in this hands-on lab section are from the LeConte Glacier Unmanned Aerial Vehicle (UAV) imagery dataset <span class="citation" data-cites="amundson_leconte_2019"><a href="../references.html#ref-amundson_leconte_2019" role="doc-biblioref">[3]</a></span>. Specifically, we use a low-resolution version (640 x 427) of images with IDs <code>20180917-112527</code> and <code>20180917-115018</code> from the zip file located at this <a href="https://arcticdata.io/catalog/view/doi%3A10.18739%2FA2445HC19#urn%3Auuid%3Af426289f-43cb-4c74-97ed-e7fc04951fc0">URL</a>.</p>
+<p>Before continuing with the rest of the sections, open the <code>segmentation.ipynb</code> notebook from the running Jupyter Notebook server.</p>
+</section>
+<section id="environment-setup" class="level3" data-number="18.3.3">
+<h3 data-number="18.3.3" class="anchored" data-anchor-id="environment-setup"><span class="header-section-number">18.3.3</span> Environment Setup</h3>
+<p>First, we import the necessary packages, download SAM 2 model checkpoints, and define methods for visualizing the results. Here, model checkpoints are files containing model weights and architecture saved after a certain number of iterations of model training. These checkpoints are used to load the model and make predictions.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># if using Apple MPS, fall back to CPU for unsupported ops</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>os.environ[<span class="st">"PYTORCH_ENABLE_MPS_FALLBACK"</span>] <span class="op">=</span> <span class="st">"1"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> torch</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>os.chdir(<span class="st">"SAM_checkpoints"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="op">!</span>sh download_checkpoints.sh</span>
+<span id="cb2-3"><a href="#cb2-3"></a>os.chdir(<span class="st">".."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Now, we use the code to select the device for computation. Depending on the machine running the segmentation notebook, you could choose between a CPU, GPU, or Metal Performance Shaders (MPS) for computation. The code snippet below shows how to select the device for computation.</p>
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Copyright (c) Meta Platforms, Inc. and affiliates.</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co"># Select the device for computation. We will be using CUDA to run this notebook. Other options are provided for running this notebook in different environments.</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="cf">if</span> torch.cuda.is_available():</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    device <span class="op">=</span> torch.device(<span class="st">"cuda"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="cf">elif</span> torch.backends.mps.is_available():</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    device <span class="op">=</span> torch.device(<span class="st">"mps"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="cf">else</span>:</span>
+<span id="cb3-8"><a href="#cb3-8"></a>    device <span class="op">=</span> torch.device(<span class="st">"cpu"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="bu">print</span>(<span class="ss">f"using device: </span><span class="sc">{</span>device<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="cf">if</span> device.<span class="bu">type</span> <span class="op">==</span> <span class="st">"cuda"</span>:</span>
+<span id="cb3-12"><a href="#cb3-12"></a>    <span class="co"># use bfloat16 for the entire notebook</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>    torch.autocast(<span class="st">"cuda"</span>, dtype<span class="op">=</span>torch.bfloat16).<span class="fu">__enter__</span>()</span>
+<span id="cb3-14"><a href="#cb3-14"></a>    <span class="co"># turn on tfloat32 for Ampere GPUs (https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices)</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>    <span class="cf">if</span> torch.cuda.get_device_properties(<span class="dv">0</span>).major <span class="op">&gt;=</span> <span class="dv">8</span>:</span>
+<span id="cb3-16"><a href="#cb3-16"></a>        torch.backends.cuda.matmul.allow_tf32 <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>        torch.backends.cudnn.allow_tf32 <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="cf">elif</span> device.<span class="bu">type</span> <span class="op">==</span> <span class="st">"mps"</span>:</span>
+<span id="cb3-19"><a href="#cb3-19"></a>    <span class="bu">print</span>(</span>
+<span id="cb3-20"><a href="#cb3-20"></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">Support for MPS devices is preliminary. SAM 2 is trained with CUDA and might "</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a>        <span class="st">"give numerically different outputs and sometimes degraded performance on MPS. "</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>        <span class="st">"See e.g. https://github.com/pytorch/pytorch/issues/84936 for a discussion."</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Next, we use the code to define methods for visualizing the results. The <code>show_mask</code> method displays a single segmentation mask, the <code>show_points</code> method displays the points, the <code>show_box</code> method displays the bounding box, and the <code>show_masks</code> method displays the image with the segmentation masks, points, and bounding boxes.</p>
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Copyright (c) Meta Platforms, Inc. and affiliates.</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>np.random.seed(<span class="dv">3</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">def</span> show_mask(mask, ax, random_color<span class="op">=</span><span class="va">False</span>, borders <span class="op">=</span> <span class="va">True</span>):</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="cf">if</span> random_color:</span>
+<span id="cb4-6"><a href="#cb4-6"></a>        color <span class="op">=</span> np.concatenate([np.random.random(<span class="dv">3</span>), np.array([<span class="fl">0.6</span>])], axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="cf">else</span>:</span>
+<span id="cb4-8"><a href="#cb4-8"></a>        color <span class="op">=</span> np.array([<span class="dv">30</span><span class="op">/</span><span class="dv">255</span>, <span class="dv">144</span><span class="op">/</span><span class="dv">255</span>, <span class="dv">255</span><span class="op">/</span><span class="dv">255</span>, <span class="fl">0.6</span>])</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    h, w <span class="op">=</span> mask.shape[<span class="op">-</span><span class="dv">2</span>:]</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    mask <span class="op">=</span> mask.astype(np.uint8)</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    mask_image <span class="op">=</span>  mask.reshape(h, w, <span class="dv">1</span>) <span class="op">*</span> color.reshape(<span class="dv">1</span>, <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb4-12"><a href="#cb4-12"></a>    <span class="cf">if</span> borders:</span>
+<span id="cb4-13"><a href="#cb4-13"></a>        <span class="im">import</span> cv2</span>
+<span id="cb4-14"><a href="#cb4-14"></a>        contours, _ <span class="op">=</span> cv2.findContours(mask,cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)</span>
+<span id="cb4-15"><a href="#cb4-15"></a>        <span class="co"># Try to smooth contours</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>        contours <span class="op">=</span> [cv2.approxPolyDP(contour, epsilon<span class="op">=</span><span class="fl">0.01</span>, closed<span class="op">=</span><span class="va">True</span>) <span class="cf">for</span> contour <span class="kw">in</span> contours]</span>
+<span id="cb4-17"><a href="#cb4-17"></a>        mask_image <span class="op">=</span> cv2.drawContours(mask_image, contours, <span class="op">-</span><span class="dv">1</span>, (<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.5</span>), thickness<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-18"><a href="#cb4-18"></a>    ax.imshow(mask_image)</span>
+<span id="cb4-19"><a href="#cb4-19"></a></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="kw">def</span> show_points(coords, labels, ax, marker_size<span class="op">=</span><span class="dv">375</span>):</span>
+<span id="cb4-21"><a href="#cb4-21"></a>    pos_points <span class="op">=</span> coords[labels<span class="op">==</span><span class="dv">1</span>]</span>
+<span id="cb4-22"><a href="#cb4-22"></a>    neg_points <span class="op">=</span> coords[labels<span class="op">==</span><span class="dv">0</span>]</span>
+<span id="cb4-23"><a href="#cb4-23"></a>    ax.scatter(pos_points[:, <span class="dv">0</span>], pos_points[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'green'</span>, marker<span class="op">=</span><span class="st">'*'</span>, s<span class="op">=</span>marker_size, edgecolor<span class="op">=</span><span class="st">'white'</span>, linewidth<span class="op">=</span><span class="fl">1.25</span>)</span>
+<span id="cb4-24"><a href="#cb4-24"></a>    ax.scatter(neg_points[:, <span class="dv">0</span>], neg_points[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'red'</span>, marker<span class="op">=</span><span class="st">'*'</span>, s<span class="op">=</span>marker_size, edgecolor<span class="op">=</span><span class="st">'white'</span>, linewidth<span class="op">=</span><span class="fl">1.25</span>)</span>
+<span id="cb4-25"><a href="#cb4-25"></a></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="kw">def</span> show_box(box, ax):</span>
+<span id="cb4-27"><a href="#cb4-27"></a>    x0, y0 <span class="op">=</span> box[<span class="dv">0</span>], box[<span class="dv">1</span>]</span>
+<span id="cb4-28"><a href="#cb4-28"></a>    w, h <span class="op">=</span> box[<span class="dv">2</span>] <span class="op">-</span> box[<span class="dv">0</span>], box[<span class="dv">3</span>] <span class="op">-</span> box[<span class="dv">1</span>]</span>
+<span id="cb4-29"><a href="#cb4-29"></a>    ax.add_patch(plt.Rectangle((x0, y0), w, h, edgecolor<span class="op">=</span><span class="st">'green'</span>, facecolor<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), lw<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb4-30"><a href="#cb4-30"></a></span>
+<span id="cb4-31"><a href="#cb4-31"></a><span class="kw">def</span> show_masks(image, masks, scores, point_coords<span class="op">=</span><span class="va">None</span>, box_coords<span class="op">=</span><span class="va">None</span>, input_labels<span class="op">=</span><span class="va">None</span>, borders<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb4-32"><a href="#cb4-32"></a>    <span class="cf">for</span> i, (mask, score) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(masks, scores)):</span>
+<span id="cb4-33"><a href="#cb4-33"></a>        plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb4-34"><a href="#cb4-34"></a>        plt.imshow(image)</span>
+<span id="cb4-35"><a href="#cb4-35"></a>        show_mask(mask, plt.gca(), borders<span class="op">=</span>borders)</span>
+<span id="cb4-36"><a href="#cb4-36"></a>        <span class="cf">if</span> point_coords <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb4-37"><a href="#cb4-37"></a>            <span class="cf">assert</span> input_labels <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a>            show_points(point_coords, input_labels, plt.gca())</span>
+<span id="cb4-39"><a href="#cb4-39"></a>        <span class="cf">if</span> box_coords <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb4-40"><a href="#cb4-40"></a>            <span class="co"># boxes</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a>            show_box(box_coords, plt.gca())</span>
+<span id="cb4-42"><a href="#cb4-42"></a>        <span class="cf">if</span> <span class="bu">len</span>(scores) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb4-43"><a href="#cb4-43"></a>            plt.title(<span class="ss">f"Mask </span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">, Score: </span><span class="sc">{</span>score<span class="sc">:.3f}</span><span class="ss">"</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb4-44"><a href="#cb4-44"></a>        plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb4-45"><a href="#cb4-45"></a>        plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+<section id="example-image-1" class="level3" data-number="18.3.4">
+<h3 data-number="18.3.4" class="anchored" data-anchor-id="example-image-1"><span class="header-section-number">18.3.4</span> Example Image 1</h3>
+<p>Now, we read the first example image (<code>data/images/20180917-112527-reduced.jpg</code>), create an object, and display it with a grid for estimating point and box coordinates.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>image <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">'data/images/20180917-112527-reduced.jpg'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>image <span class="op">=</span> np.array(image.convert(<span class="st">"RGB"</span>))</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb5-5"><a href="#cb5-5"></a>plt.imshow(image)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>plt.grid(visible<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>plt.axis(<span class="st">'on'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Output: <img src="../images/foundation-models/sam-2-example-1.png" class="img-fluid" alt="Example 1"></p>
+</details>
+</section>
+<section id="loading-the-sam-2-model-and-configuration" class="level3" data-number="18.3.5">
+<h3 data-number="18.3.5" class="anchored" data-anchor-id="loading-the-sam-2-model-and-configuration"><span class="header-section-number">18.3.5</span> Loading the SAM 2 model and configuration</h3>
+<p>Now, let’s load the SAM 2 model and configuration file. We load the model from the <code>SAM_checkpoints</code> directory and the configuration file from the <code>configs</code> directory. We use the <code>sam2.1_hiera_large</code> model checkpoint and the <code>sam2.1_hiera_l.yaml</code> configuration file. Other model versions and their corresponding configuration files can also be used, but the accuracy of the segmentation outputs may vary.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">from</span> sam2.build_sam <span class="im">import</span> build_sam2</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="im">from</span> sam2.sam2_image_predictor <span class="im">import</span> SAM2ImagePredictor</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a>sam2_checkpoint <span class="op">=</span> <span class="st">"SAM_checkpoints/sam2.1_hiera_large.pt"</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>model_cfg <span class="op">=</span> <span class="st">"configs/sam2.1/sam2.1_hiera_l.yaml"</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a>sam2_model <span class="op">=</span> build_sam2(model_cfg, sam2_checkpoint, device<span class="op">=</span>device)</span>
+<span id="cb6-8"><a href="#cb6-8"></a>predictor <span class="op">=</span> SAM2ImagePredictor(sam2_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Now, we process the image to produce an image embedding by calling the <code>SAM2ImagePredictor.set_image</code> method. The <code>SAM2ImagePredictor</code> object stores this embedding and stores the subsequent mask prediction.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>predictor.set_image(image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+<section id="specifying-an-object-or-region-using-a-single-point" class="level3" data-number="18.3.6">
+<h3 data-number="18.3.6" class="anchored" data-anchor-id="specifying-an-object-or-region-using-a-single-point"><span class="header-section-number">18.3.6</span> Specifying an object or region using a single point</h3>
+<p>In this example image, to prompt for the glacier region, let’s choose a point on it.</p>
+<p>Points are a type of input to the model. They’re represented in <code>(x,y)</code> format and have corresponding labels <code>1</code> or <code>0</code>, which represent the foreground and background, respectively. As we will see later, we can input multiple points, but here, we use only one. The <code>show_points</code> method displays the selected point using a star icon.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>input_point <span class="op">=</span> np.array([[<span class="dv">600</span>, <span class="dv">400</span>]])</span>
+<span id="cb8-2"><a href="#cb8-2"></a>input_label <span class="op">=</span> np.array([<span class="dv">1</span>])</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb8-5"><a href="#cb8-5"></a>plt.imshow(image)</span>
+<span id="cb8-6"><a href="#cb8-6"></a>show_points(input_point, input_label, plt.gca())</span>
+<span id="cb8-7"><a href="#cb8-7"></a>plt.axis(<span class="st">'on'</span>)</span>
+<span id="cb8-8"><a href="#cb8-8"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Output: <img src="../images/foundation-models/sam-2-example-1-selected-point.png" class="img-fluid" alt="Selected point on the glacier region"></p>
+</section>
+<section id="predicting-the-segmentation-mask" class="level3" data-number="18.3.7">
+<h3 data-number="18.3.7" class="anchored" data-anchor-id="predicting-the-segmentation-mask"><span class="header-section-number">18.3.7</span> Predicting the segmentation mask</h3>
+<p>Now, we predict the segmentation mask using the selected point as input. The <code>predict</code> method of the <code>SAM2ImagePredictor</code> object predicts the segmentation mask based on the input point. The <code>show_masks</code> utility method displays the segmentation mask on the image.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>masks, scores, logits <span class="op">=</span> predictor.predict(</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    point_coords<span class="op">=</span>input_point,</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    point_labels<span class="op">=</span>input_label,</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    multimask_output<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb9-5"><a href="#cb9-5"></a>)</span>
+<span id="cb9-6"><a href="#cb9-6"></a>sorted_ind <span class="op">=</span> np.argsort(scores)[::<span class="op">-</span><span class="dv">1</span>] <span class="co"># Sorting the scores in decreasing order</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a>masks <span class="op">=</span> masks[sorted_ind]</span>
+<span id="cb9-8"><a href="#cb9-8"></a>scores <span class="op">=</span> scores[sorted_ind]</span>
+<span id="cb9-9"><a href="#cb9-9"></a>logits <span class="op">=</span> logits[sorted_ind]</span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a>show_masks(image, masks, scores, point_coords<span class="op">=</span>input_point, input_labels<span class="op">=</span>input_label, borders<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Output: <img src="../images/foundation-models/sam-2-example-1-segmentation-1.png" class="img-fluid" alt="Segmentation mask for the glacier region"> <img src="../images/foundation-models/sam-2-example-1-segmentation-2.png" class="img-fluid" alt="Segmentation mask for the glacier region"> <img src="../images/foundation-models/sam-2-example-1-segmentation-3.png" class="img-fluid" alt="Segmentation mask for the glacier region"></p>
+</section>
+<section id="activity-1-specifying-an-object-or-region-using-multiple-points" class="level3" data-number="18.3.8">
+<h3 data-number="18.3.8" class="anchored" data-anchor-id="activity-1-specifying-an-object-or-region-using-multiple-points"><span class="header-section-number">18.3.8</span> Activity 1: Specifying an object or region using multiple points</h3>
+<p>We can see that the single input point can be ambiguous, and the model has returned multiple sub-regions within the glacier image. We can alleviate this by providing multiple points as input. We can also provide a mask from a previous model iteration to help improve the prediction. When specifying a single object with multiple prompts, we can ask the model to generate a single mask by setting <code>multimask_output=False</code>.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># E.g., input format for specifying two points</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co"># input_point = np.array([[x1, y1], [x2, y2]])</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># input_label = np.array([1, 1])</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: In the below piece of code, replace "None" with your two input points. You can specify more points if needed, but please make sure to increase the labels as well.</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7"></a>input_point <span class="op">=</span> np.array([[<span class="dv">600</span>, <span class="dv">400</span>], [<span class="dv">500</span>, <span class="dv">200</span>]])</span>
+<span id="cb10-8"><a href="#cb10-8"></a>input_label <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>For example, we can use <code>[600, 400]</code> and <code>[500, 200]</code> as the two points to specify the glacier region.</p>
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>input_point <span class="op">=</span> np.array([[<span class="dv">600</span>, <span class="dv">400</span>], [<span class="dv">500</span>, <span class="dv">200</span>]])</span>
+<span id="cb11-2"><a href="#cb11-2"></a>input_label <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a>mask_input <span class="op">=</span> logits[np.argmax(scores), :, :]  <span class="co"># Choose the model's best mask from previous iteration</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a></span>
+<span id="cb11-6"><a href="#cb11-6"></a>masks, scores, _ <span class="op">=</span> predictor.predict(</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    point_coords<span class="op">=</span>input_point,</span>
+<span id="cb11-8"><a href="#cb11-8"></a>    point_labels<span class="op">=</span>input_label,</span>
+<span id="cb11-9"><a href="#cb11-9"></a>    mask_input<span class="op">=</span>mask_input[<span class="va">None</span>, :, :],</span>
+<span id="cb11-10"><a href="#cb11-10"></a>    multimask_output<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb11-11"><a href="#cb11-11"></a>)</span>
+<span id="cb11-12"><a href="#cb11-12"></a></span>
+<span id="cb11-13"><a href="#cb11-13"></a>show_masks(image, masks, scores, point_coords<span class="op">=</span>input_point, input_labels<span class="op">=</span>input_label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Output: <img src="../images/foundation-models/sam-2-example-1-segmentation-multiple-points.png" class="img-fluid" alt="Segmentation of the glacier region using multiple points as prompts"></p>
+<p>We can see that providing multiple points as input has helped the model to predict a more accurate segmentation mask for the glacier region.</p>
+</section>
+<section id="example-image-2" class="level3" data-number="18.3.9">
+<h3 data-number="18.3.9" class="anchored" data-anchor-id="example-image-2"><span class="header-section-number">18.3.9</span> Example Image 2</h3>
+<p>Now, let’s read the second example image, create an object, and display it with grid for estimating point and box coordinates.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>image <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">'data/images/20180917-115018-reduced.jpg'</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>image <span class="op">=</span> np.array(image.convert(<span class="st">"RGB"</span>))</span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb12-5"><a href="#cb12-5"></a>plt.imshow(image)</span>
+<span id="cb12-6"><a href="#cb12-6"></a>plt.grid(visible<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-7"><a href="#cb12-7"></a>plt.axis(<span class="st">'on'</span>)</span>
+<span id="cb12-8"><a href="#cb12-8"></a>plt.show()</span>
+<span id="cb12-9"><a href="#cb12-9"></a></span>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="co"># Replace image in the predictor with the new image</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a>predictor.set_image(image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Output: <img src="../images/foundation-models/sam-2-example-2.png" class="img-fluid" alt="Example 2"></p>
+</section>
+<section id="activity-2-specifying-an-object-or-region-using-multiple-points-foreground-and-background" class="level3" data-number="18.3.10">
+<h3 data-number="18.3.10" class="anchored" data-anchor-id="activity-2-specifying-an-object-or-region-using-multiple-points-foreground-and-background"><span class="header-section-number">18.3.10</span> Activity 2: Specifying an object or region using multiple points (foreground and background)</h3>
+<p>A background point (with label 0) can be supplied to exclude the glacier and water surrounding it and just include the glacial discharge.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># E.g., input format for specifying three points</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co"># input_point = np.array([[x1, y1], [x2, y2], [x3, y3]])</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co"># input_label = np.array([1, 1, 0])</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: In the below piece of code, use two or three input points, of which at least one needs to be a background point (water). You can specify more points if needed, but please make sure to increase the labels as well.</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>input_point <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>input_label <span class="op">=</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>For example, we can use <code>[600, 200]</code> and <code>[600, 300]</code> as the foreground points and <code>[600, 250]</code> as the background point to specify the glacial discharge region.</p>
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>input_point <span class="op">=</span> np.array([[<span class="dv">600</span>, <span class="dv">200</span>], [<span class="dv">600</span>, <span class="dv">300</span>], [<span class="dv">600</span>, <span class="dv">250</span>]])</span>
+<span id="cb14-2"><a href="#cb14-2"></a>input_label <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a>mask_input <span class="op">=</span> logits[np.argmax(scores), :, :]  <span class="co"># Choose the model's best mask from previous iteration</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a>masks, scores, _ <span class="op">=</span> predictor.predict(</span>
+<span id="cb14-7"><a href="#cb14-7"></a>    point_coords<span class="op">=</span>input_point,</span>
+<span id="cb14-8"><a href="#cb14-8"></a>    point_labels<span class="op">=</span>input_label,</span>
+<span id="cb14-9"><a href="#cb14-9"></a>    multimask_output<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb14-10"><a href="#cb14-10"></a>)</span>
+<span id="cb14-11"><a href="#cb14-11"></a></span>
+<span id="cb14-12"><a href="#cb14-12"></a>show_masks(image, masks, scores, point_coords<span class="op">=</span>input_point, input_labels<span class="op">=</span>input_label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Output: <img src="../images/foundation-models/sam-2-example-2-segmentation-multiple-points.png" class="img-fluid" alt="Segmentation of the glacial discharge region using multiple points as prompts"></p>
+<p>We can see that with three points, including one background point, the model has predicted a large section of the glacial discharge region. With additional points (foreground and/or background), users can further guide the model to predict more accurate segmentation masks.</p>
+</details></section>
+<section id="activity-3-specifying-a-specific-object-with-a-box" class="level3" data-number="18.3.11">
+<h3 data-number="18.3.11" class="anchored" data-anchor-id="activity-3-specifying-a-specific-object-with-a-box"><span class="header-section-number">18.3.11</span> Activity 3: Specifying a specific object with a box</h3>
+<p>We will specify the glacial discharge region using a bounding box in this activity. The bounding box is represented as <code>[x1, y1, x2, y2]</code>, where <code>(x1, y1)</code> is the top-left corner and <code>(x2, y2)</code> is the bottom-right corner of the box.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># E.g., input format for specifying a box</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="co"># input_box = np.array([x1, y1, x2, y2])</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: In the below piece of code, replace "None" with a box coordinate.</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>input_box <span class="op">=</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For example, we can use <code>[400, 150, 640, 400]</code> as the bounding box to specify the glacial discharge region.</p>
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>input_box <span class="op">=</span> np.array([<span class="dv">400</span>, <span class="dv">150</span>, <span class="dv">640</span>, <span class="dv">400</span>])</span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a>masks, scores, _ <span class="op">=</span> predictor.predict(</span>
+<span id="cb16-4"><a href="#cb16-4"></a>    box_coords<span class="op">=</span>input_box,</span>
+<span id="cb16-5"><a href="#cb16-5"></a>    multimask_output<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb16-6"><a href="#cb16-6"></a>)</span>
+<span id="cb16-7"><a href="#cb16-7"></a></span>
+<span id="cb16-8"><a href="#cb16-8"></a>show_masks(image, masks, scores, box_coords<span class="op">=</span>input_box)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Output: <img src="../images/foundation-models/sam-2-example-2-segmentation-bounding-box.png" class="img-fluid" alt="Segmentation of the glacial discharge region using a bounding box as a prompt"></p>
+<p>The model has predicted the glacial discharge region based on the bounding box input, but the results are not perfect. Additional prompts, along with the bounding box, can improve this.</p>
+<p>We have provided three optional activities for you to try out in the <a href="https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb">segmentation notebook</a>, including one that does automatic segment generation without prompts. Feel free to experiment with different prompts and see how the model responds.</p>
+</details></details></section>
+</section>
+<section id="retrieval-augmented-generation-rag-hands-on" class="level2 page-columns page-full" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="retrieval-augmented-generation-rag-hands-on"><span class="header-section-number">18.4</span> Retrieval Augmented Generation (RAG) Hands-On</h2>
+<p>We will use <a href="https://www.langchain.com/">Langchain framework</a> for this section of the hands-on session. Langchain is a framework that provides tools and libraries for building and deploying AI models. It is built on top of PyTorch and HuggingFace transformers.</p>
+<p>Suggested code references: - Langchain RAG from scratch <a href="https://github.com/langchain-ai/rag-from-scratch/tree/main">github</a> - Langchain <a href="https://python.langchain.com/docs/tutorials/rag/">RAG tutorial</a></p>
+<p>Session hands-on code in <a href="https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/rag.ipynb">github.com/ncsa/cyber2a-workshop</a></p>
+<p>Session technical details in course book : <a href="https://cyber2a.github.io/cyber2a-course/sections/foundation-models.html">cyber2a.github.io/cyber2a-course/sections/foundation-models.html</a></p>
+<p>In this section, we will build a chatbot using the RAG system, i.e., a chatbot that has access to your specific knowledge base and answers questions related to that knowledge base.</p>
+<section id="rag-recap" class="level3" data-number="18.4.1">
+<h3 data-number="18.4.1" class="anchored" data-anchor-id="rag-recap"><span class="header-section-number">18.4.1</span> RAG Recap</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 53%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Without RAG</th>
+<th>With RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>No ability to access a specific knowledge/domain</td>
+<td>Point to a knowledge base</td>
+</tr>
+<tr class="even">
+<td>No sources</td>
+<td>Sources cited in LLM response</td>
+</tr>
+<tr class="odd">
+<td>Hallucinations</td>
+<td>LLM response is grounded by relevant information from knowledge base</td>
+</tr>
+<tr class="even">
+<td>Out-of-date information</td>
+<td>Update the knowledge base with new information</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/ragpromptframework.png" class="img-fluid figure-img"></p>
+<figcaption>RAG approach</figcaption>
+</figure>
+</div>
+</section>
+<section id="rag" class="level3" data-number="18.4.2">
+<h3 data-number="18.4.2" class="anchored" data-anchor-id="rag"><span class="header-section-number">18.4.2</span> RAG</h3>
+<p>We can think of the RAG system as combining two techniques: 1. Retrieval 2. Generation , where the Generation step is augmented or improved by the Retrieval step.</p>
+<p>A specialized database typically retrieves the data; an LLM normally does the generation part.</p>
 <ol type="1">
-<li>Image Segmentation using Segment Anything Model (SAM)</li>
-<li>Chatbot using LLMs + RAG</li>
+<li>Retrieval</li>
+</ol>
+<ul>
+<li>Setup a knowledge base</li>
+<li>Retrieve documents relevant to the user query</li>
+</ul>
+<ol start="2" type="1">
+<li>Generation</li>
+</ol>
+<ul>
+<li>Using LLMs</li>
+<li>Use the retrieved documents as context</li>
+</ul>
+</section>
+<section id="hands-on-environment-setup" class="level3" data-number="18.4.3">
+<h3 data-number="18.4.3" class="anchored" data-anchor-id="hands-on-environment-setup"><span class="header-section-number">18.4.3</span> Hands-on Environment Setup</h3>
+<ol type="1">
+<li><p>LLM For the hands-on session on RAG, we will use OpenAI GPT-4o-mini and a Llama3.2:8b model hosted on an Ollama instance. You will need an OpenAI API key to access the OpenAI models. To access the Llama model, you must set up an Ollama instance and have an API key associated with that instance. Details on setting up an Ollama instance are available <a href="https://ollama.com/">here</a>. Users can also download a Llama model on their local machine and run this hands-on code without an Ollama instance. However, we recommend using an Ollama instance as this would enable <a href="https://github.com/ollama/ollama/blob/main/docs/api.md">api calls</a> (curl requests) to access the LLM.</p></li>
+<li><p>Compute requirements There are no GPU requirements for this hands-on. However, we recommend some memory on your local system, as we will be using your device’s local memory for a small database. We recommend testing out the code for this hands-on session in a Jupyter notebook. For instructions on launching a Jupyter notebook, see <a href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/">here</a>.</p></li>
+<li><p>Code The code is available at <a href="https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/rag.ipynb">github.com/ncsa/cyber2a-workshop</a>. Feel free to clone or download this repo directly from GitHub. Steps to clone the repo and access the rag.ipynb file:</p>
+<ol type="1">
+<li>Open a terminal</li>
+<li>Run command: <code>git clone https://github.com/ncsa/cyber2a-workshop</code></li>
+<li>Navigate to the <code>foundation_models/hands_on</code> directory in the cloned repo.</li>
+</ol></li>
+<li><p>Data requirements If you clone or download the repo, a data directory will be created. Feel free to add your favorite documents, such as TXT, PDF, CSV, or docx files, to the data/docs directory. We will insert these documents into our specialized database.</p></li>
+<li><p>Environment variables You will find an <code>env.example</code> file in the GitHub repo. This file will provide you with the environment variables required for this course. Add your OpenAI API key, Ollama API key, your data folder (currently data/docs), and a data collection name (e.g., data-collection). The OpenAI API key will be used to access the OpenAI models. Ollama API key will be used to access your Ollama instance. The collection name is a way to recognize a collection/table in the specialized database, that we will be setting up soon. Edit the <code>env.example</code> file to contain your values and save the file. Rename <code>env.example</code> to <code>env.txt</code>.</p></li>
+<li><p>Package requirements This tutorial will require the following list of packages.</p></li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>jupyter</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pandas</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>python<span class="op">-</span>dotenv<span class="op">==</span><span class="fl">1.0</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>qdrant<span class="op">-</span>client<span class="op">==</span><span class="fl">1.12</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># langchain</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>langchain<span class="op">==</span><span class="fl">0.3</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>langchain<span class="op">-</span>community<span class="op">==</span><span class="fl">0.3</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>langchain<span class="op">-</span>core<span class="op">==</span><span class="fl">0.3</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>langchain<span class="op">-</span>openai<span class="op">==</span><span class="fl">0.2</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>langchainhub<span class="op">==</span><span class="fl">0.1</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># openai</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>openai<span class="op">==</span><span class="fl">1.54</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># rst file loaders</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co"># pandoc</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>pypandoc<span class="op">==</span><span class="fl">1.14</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>unstructured<span class="op">==</span><span class="fl">0.16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Instructions for installing the required packages:</p>
+<ol type="1">
+<li>Create a virtual environment with python version not less than 3.10.
+<ul>
+<li>Use conda/miniconda to set up a virtual environment. If you have a virtual environment with python&gt;=3.10 with a jupyter kernel, use that env/kernel and skip the below steps.
+<ul>
+<li><ol type="a">
+<li>Download the latest Miniconda3 installer from the <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> web page.</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>From the Terminal (Mac/Linux) or Command Prompt (Windows) add <a href="https://conda-forge.org/">conda-forge</a> package repository/channel to your environment:</li>
+</ol></li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>conda config <span class="op">--</span>add channels conda<span class="op">-</span>forge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><ol start="3" type="a">
+<li>Create the python environment (for this example we choose name rag-python3.9):</li>
+</ol></li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>conda create <span class="op">-</span>n rag<span class="op">-</span>python3<span class="fl">.10</span> python<span class="op">=</span><span class="fl">3.10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><ol start="4" type="a">
+<li>Activate the environment: <code>python conda activate rag-python3.10</code></li>
+</ol></li>
+</ul></li>
+</ul></li>
+<li>Create a <code>requirements.txt</code> file and copy-paste the above packages as-is. You could also use the <code>requirements.txt</code> file from the cloned Github repository <code>cyber2a-workshop</code></li>
+<li>Type <code>pip install -r requirements.txt</code></li>
+</ol>
+<p>Let’s start by importing some basic python packages.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># basic imports</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="im">import</span> os</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="im">import</span> json</span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="im">import</span> logging</span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="im">import</span> sys</span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb20-7"><a href="#cb20-7"></a></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb20-9"><a href="#cb20-9"></a>load_dotenv(<span class="st">'env.txt'</span>, override<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-10"><a href="#cb20-10"></a></span>
+<span id="cb20-11"><a href="#cb20-11"></a><span class="co"># create and configure logger</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a>logging.basicConfig(level<span class="op">=</span>logging.INFO, datefmt<span class="op">=</span><span class="st">'%Y-%m-</span><span class="sc">%d</span><span class="st">T%H:%M:%S'</span>,</span>
+<span id="cb20-13"><a href="#cb20-13"></a>                    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%(asctime)-15s</span><span class="st">.</span><span class="sc">%(msecs)03d</span><span class="st">Z </span><span class="sc">%(levelname)-7s</span><span class="st"> : </span><span class="sc">%(name)s</span><span class="st"> - </span><span class="sc">%(message)s</span><span class="st">'</span>,</span>
+<span id="cb20-14"><a href="#cb20-14"></a>                    handlers<span class="op">=</span>[logging.StreamHandler(sys.stdout)]</span>
+<span id="cb20-15"><a href="#cb20-15"></a>                    )</span>
+<span id="cb20-16"><a href="#cb20-16"></a><span class="co"># create log object with current module name</span></span>
+<span id="cb20-17"><a href="#cb20-17"></a>log <span class="op">=</span> logging.getLogger(<span class="va">__name__</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</section>
+<section id="rag---retrieval-augmented-generation" class="level3 page-columns page-full" data-number="18.4.4">
+<h3 data-number="18.4.4" class="anchored" data-anchor-id="rag---retrieval-augmented-generation"><span class="header-section-number">18.4.4</span> RAG - <em>Retrieval</em>-Augmented Generation</h3>
+<p>We will focus on the “retrieval” part of RAG for this section.</p>
+<p><strong>RAG - Retrieval Steps</strong></p>
+<ol type="1">
+<li>Prepare data</li>
+<li>Create a database and insert data</li>
+<li>Search the database and retrieve relevant documents according to the search query.</li>
+</ol>
+<p>As mentioned earlier, the RAG system gives the LLM access to our knowledge base, which has specific information for our use case.</p>
+<section id="data-preparation" class="level4 page-columns page-full" data-number="18.4.4.1">
+<h4 data-number="18.4.4.1" class="anchored" data-anchor-id="data-preparation"><span class="header-section-number">18.4.4.1</span> Data Preparation</h4>
+<p>Let’s consider that our knowledge base contain only textual data. The data present in the GitHub repo contains proceedings from the <a href="https://arcticdata.io/catalog/portals/pisymposium2023">Arctic Data Symposium 2023</a></p>
+<section id="load-data" class="level5" data-number="18.4.4.1.1">
+<h5 data-number="18.4.4.1.1" class="anchored" data-anchor-id="load-data"><span class="header-section-number">18.4.4.1.1</span> Load data</h5>
+<p>Since we have different file types, we will need different types of data loaders to read these different data formats. - Langchain provides different <a href="https://python.langchain.com/docs/how_to/#document-loaders">data loaders</a> for different file types - Eg: Langchain CSVLoader is essentially a wrapper for Python <a href="https://docs.python.org/3/library/csv.html#csv.DictReader">csv.DictReader class</a> - Data is loaded into Langchain Document object <a href="https://api.python.langchain.com/en/latest/documents/langchain_core.documents.base.Document.html">format</a> - The <code>Document</code> class has <code>page_content</code> and <code>metadata</code> attributes. - The <code>page_content</code> is the textual content parsed from the document files. - The <code>metadata</code> can be user-defined or default (class defined) key-value pairs. These key-value pairs can be used for filtering the documents retrieved from the database. - By default, each file type has its own metadata content. Eg: PDF file has <code>source</code> and <code>page</code>. - Filtering methods are not shown in this course. These methods will be well-documented in the database tool that you choose (explained later in the vectorDB section).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/langchain-document-class.png" title="Langchain document class" class="img-fluid figure-img"></p>
+<figcaption>Langchain document class</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li>For details on langchain packages, please refer to their documentation and source-code.</li>
+<li>If using an IDE (PyCharm, VSCode, etc), Ctrl+click, or Command+click on the package and it should open-up its source code.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Now, let’s load some data. This code loads all files in a directory. For now, we have only PDF files.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># data loaders</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="im">from</span> langchain_community.document_loaders <span class="im">import</span> CSVLoader, DataFrameLoader, PyPDFLoader, Docx2txtLoader, UnstructuredRSTLoader, DirectoryLoader</span>
+<span id="cb21-3"><a href="#cb21-3"></a></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co"># Defining a class for data loaders. All data loaders are defined in this class</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="kw">class</span> DataLoaders:</span>
+<span id="cb21-6"><a href="#cb21-6"></a>    <span class="co">"""</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="co">    various data loaders</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="co">    """</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data_dir_path):</span>
+<span id="cb21-10"><a href="#cb21-10"></a>        <span class="va">self</span>.data_dir_path <span class="op">=</span> data_dir_path</span>
+<span id="cb21-11"><a href="#cb21-11"></a>    </span>
+<span id="cb21-12"><a href="#cb21-12"></a>    <span class="kw">def</span> csv_loader(<span class="va">self</span>):</span>
+<span id="cb21-13"><a href="#cb21-13"></a>        csv_loader_kwargs <span class="op">=</span> {</span>
+<span id="cb21-14"><a href="#cb21-14"></a>                            <span class="st">"csv_args"</span>:{</span>
+<span id="cb21-15"><a href="#cb21-15"></a>                                <span class="st">"delimiter"</span>: <span class="st">","</span>,</span>
+<span id="cb21-16"><a href="#cb21-16"></a>                                <span class="st">"quotechar"</span>: <span class="st">'"'</span>,</span>
+<span id="cb21-17"><a href="#cb21-17"></a>                                },</span>
+<span id="cb21-18"><a href="#cb21-18"></a>                            }</span>
+<span id="cb21-19"><a href="#cb21-19"></a>        dir_csv_loader <span class="op">=</span> DirectoryLoader(<span class="va">self</span>.data_dir_path, glob<span class="op">=</span><span class="st">"**/*.csv"</span>, use_multithreading<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb21-20"><a href="#cb21-20"></a>                                    loader_cls<span class="op">=</span>CSVLoader, </span>
+<span id="cb21-21"><a href="#cb21-21"></a>                                    loader_kwargs<span class="op">=</span>csv_loader_kwargs,</span>
+<span id="cb21-22"><a href="#cb21-22"></a>                                    )</span>
+<span id="cb21-23"><a href="#cb21-23"></a>        <span class="cf">return</span> dir_csv_loader</span>
+<span id="cb21-24"><a href="#cb21-24"></a>    </span>
+<span id="cb21-25"><a href="#cb21-25"></a>    <span class="kw">def</span> pdf_loader(<span class="va">self</span>):</span>
+<span id="cb21-26"><a href="#cb21-26"></a>        dir_pdf_loader <span class="op">=</span> DirectoryLoader(<span class="va">self</span>.data_dir_path, glob<span class="op">=</span><span class="st">"**/*.pdf"</span>,</span>
+<span id="cb21-27"><a href="#cb21-27"></a>                                    loader_cls<span class="op">=</span>PyPDFLoader,</span>
+<span id="cb21-28"><a href="#cb21-28"></a>                                    )</span>
+<span id="cb21-29"><a href="#cb21-29"></a>        <span class="cf">return</span> dir_pdf_loader</span>
+<span id="cb21-30"><a href="#cb21-30"></a>    </span>
+<span id="cb21-31"><a href="#cb21-31"></a>    <span class="kw">def</span> word_loader(<span class="va">self</span>):</span>
+<span id="cb21-32"><a href="#cb21-32"></a>        dir_word_loader <span class="op">=</span> DirectoryLoader(<span class="va">self</span>.data_dir_path, glob<span class="op">=</span><span class="st">"**/*.docx"</span>,</span>
+<span id="cb21-33"><a href="#cb21-33"></a>                                    loader_cls<span class="op">=</span>Docx2txtLoader,</span>
+<span id="cb21-34"><a href="#cb21-34"></a>                                    )</span>
+<span id="cb21-35"><a href="#cb21-35"></a>        <span class="cf">return</span> dir_word_loader</span>
+<span id="cb21-36"><a href="#cb21-36"></a>    </span>
+<span id="cb21-37"><a href="#cb21-37"></a>    <span class="kw">def</span> rst_loader(<span class="va">self</span>):</span>
+<span id="cb21-38"><a href="#cb21-38"></a>        rst_loader_kwargs <span class="op">=</span> {</span>
+<span id="cb21-39"><a href="#cb21-39"></a>                        <span class="st">"mode"</span>:<span class="st">"single"</span></span>
+<span id="cb21-40"><a href="#cb21-40"></a>                        }</span>
+<span id="cb21-41"><a href="#cb21-41"></a>        dir_rst_loader <span class="op">=</span> DirectoryLoader(<span class="va">self</span>.data_dir_path, glob<span class="op">=</span><span class="st">"**/*.rst"</span>,</span>
+<span id="cb21-42"><a href="#cb21-42"></a>                                    loader_cls<span class="op">=</span>UnstructuredRSTLoader, </span>
+<span id="cb21-43"><a href="#cb21-43"></a>                                    loader_kwargs<span class="op">=</span>rst_loader_kwargs</span>
+<span id="cb21-44"><a href="#cb21-44"></a>                                    )</span>
+<span id="cb21-45"><a href="#cb21-45"></a>        <span class="cf">return</span> dir_rst_loader</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Load the data</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># load data</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>data_dir_path <span class="op">=</span> os.getenv(<span class="st">'DATA_DIR_PATH'</span>, <span class="st">"data/docs"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3"></a>data_loader <span class="op">=</span> DataLoaders(data_dir_path<span class="op">=</span>data_dir_path)</span>
+<span id="cb22-4"><a href="#cb22-4"></a>log.info(<span class="st">"Loading files from directory </span><span class="sc">%s</span><span class="st">"</span>, data_dir_path)</span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="co"># instantiate loaders</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a>dir_csv_loader <span class="op">=</span> data_loader.csv_loader()</span>
+<span id="cb22-7"><a href="#cb22-7"></a>dir_word_loader <span class="op">=</span> data_loader.word_loader()</span>
+<span id="cb22-8"><a href="#cb22-8"></a>dir_pdf_loader <span class="op">=</span> data_loader.pdf_loader()</span>
+<span id="cb22-9"><a href="#cb22-9"></a>dir_rst_loader <span class="op">=</span> data_loader.rst_loader()</span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="co"># call load method</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a>csv_data <span class="op">=</span> dir_csv_loader.load()</span>
+<span id="cb22-12"><a href="#cb22-12"></a>word_data <span class="op">=</span> dir_word_loader.load()</span>
+<span id="cb22-13"><a href="#cb22-13"></a>pdf_data <span class="op">=</span> dir_pdf_loader.load()</span>
+<span id="cb22-14"><a href="#cb22-14"></a>rst_data <span class="op">=</span> dir_rst_loader.load()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Since our test data only has pdf documents, only the <code>pdf_data</code> will have values. Let’s see how the first document looks like :</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># only printing the first document in pdf_data</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> doc <span class="kw">in</span> pdf_data:</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(doc)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The above code will display the first document. The <code>page_content</code> will be the text content from the document and <code>metadata</code> gives you the page number and source file. The metadata field currently has default values, set by the class the document is loaded from (in this case PDFLoader class). For other classes, metadata would differ. For example, if loading a CSV file using CSVLoader, the <code>metadata</code> will have row number instead of page number. Users have the option to customize metadata as required by simple code changes.</p>
+<p>As seen from the <code>page_content</code> and <code>metadata</code> value, the first document only has the text data from the first page. Langchain PDFLoader loads pdf documents in pages. Each document will be one pdf page.</p>
+</section>
+<section id="format-the-data" class="level5" data-number="18.4.4.1.2">
+<h5 data-number="18.4.4.1.2" class="anchored" data-anchor-id="format-the-data"><span class="header-section-number">18.4.4.1.2</span> Format the data</h5>
+<p>As the previous code block shows, each document is in a <code>Document</code> class with attributes <code>page_content</code> and <code>metadata</code>. The LLM can only access the textual content (page_content), so let’s reformat the documents accordingly. However, we still need <code>metadata</code>, which is helpful for filtering purposes.</p>
+<p>Users could also customize <code>metadata</code> to have similar key-value pairs across different documents. This would be helpful if several types of documents are inserted into one database and the metadata is used to filter across them.</p>
+<p>Steps implemented in the below code block: - Convert data to a list of texts and metadata - Custom metadata is set so that metadata is same for all different data sources.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># get text and metadata from the data</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="kw">def</span> get_text_metadatas(csv_data<span class="op">=</span><span class="va">None</span>, pdf_data<span class="op">=</span><span class="va">None</span>, word_data<span class="op">=</span><span class="va">None</span>, rst_data<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb24-3"><a href="#cb24-3"></a>    <span class="co">"""</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="co">    Each document class has page_content and metadata properties</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="co">    Separate text and metadata content from Document class</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="co">    Have custom metadata if needed</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="co">    """</span></span>
+<span id="cb24-8"><a href="#cb24-8"></a>    csv_texts <span class="op">=</span> [doc.page_content <span class="cf">for</span> doc <span class="kw">in</span> csv_data]</span>
+<span id="cb24-9"><a href="#cb24-9"></a>    <span class="co"># custom metadata</span></span>
+<span id="cb24-10"><a href="#cb24-10"></a>    csv_metadatas <span class="op">=</span> [{<span class="st">'source'</span>: doc.metadata[<span class="st">'source'</span>], <span class="st">'row_page'</span>: doc.metadata[<span class="st">'row'</span>]} <span class="cf">for</span> doc <span class="kw">in</span> csv_data]   <span class="co"># default metadata={'source': 'filename.csv', 'row': 0}</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a>    pdf_texts <span class="op">=</span> [doc.page_content <span class="cf">for</span> doc <span class="kw">in</span> pdf_data]</span>
+<span id="cb24-12"><a href="#cb24-12"></a>    pdf_metadatas <span class="op">=</span> [{<span class="st">'source'</span>: doc.metadata[<span class="st">'source'</span>], <span class="st">'row_page'</span>: doc.metadata[<span class="st">'page'</span>]} <span class="cf">for</span> doc <span class="kw">in</span> pdf_data]  <span class="co"># default metadata={'source': 'data/filename.pdf', 'page': 8}</span></span>
+<span id="cb24-13"><a href="#cb24-13"></a>    word_texts <span class="op">=</span> [doc.page_content <span class="cf">for</span> doc <span class="kw">in</span> word_data]</span>
+<span id="cb24-14"><a href="#cb24-14"></a>    word_metadatas <span class="op">=</span> [{<span class="st">'source'</span>: doc.metadata[<span class="st">'source'</span>], <span class="st">'row_page'</span>: <span class="st">''</span>} <span class="cf">for</span> doc <span class="kw">in</span> word_data] </span>
+<span id="cb24-15"><a href="#cb24-15"></a>    rst_texts <span class="op">=</span> [doc.page_content <span class="cf">for</span> doc <span class="kw">in</span> rst_data]</span>
+<span id="cb24-16"><a href="#cb24-16"></a>    rst_metadatas <span class="op">=</span> [{<span class="st">'source'</span>: doc.metadata[<span class="st">'source'</span>], <span class="st">'row_page'</span>: <span class="st">''</span>} <span class="cf">for</span> doc <span class="kw">in</span> rst_data]         <span class="co"># default metadata={'source': 'docs/images/architecture/index.rst'}</span></span>
+<span id="cb24-17"><a href="#cb24-17"></a></span>
+<span id="cb24-18"><a href="#cb24-18"></a>    texts <span class="op">=</span> csv_texts <span class="op">+</span> pdf_texts <span class="op">+</span> word_texts <span class="op">+</span> rst_texts</span>
+<span id="cb24-19"><a href="#cb24-19"></a>    metadatas <span class="op">=</span> csv_metadatas <span class="op">+</span> pdf_metadatas <span class="op">+</span> word_metadatas <span class="op">+</span> rst_metadatas</span>
+<span id="cb24-20"><a href="#cb24-20"></a>    <span class="cf">return</span> texts, metadatas</span>
+<span id="cb24-21"><a href="#cb24-21"></a></span>
+<span id="cb24-22"><a href="#cb24-22"></a>texts , metadatas <span class="op">=</span> get_text_metadatas(csv_data, pdf_data, word_data, rst_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Let’s print the number of texts and metadata</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of PDF texts: "</span>, <span class="bu">len</span>(texts))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of PDF metadata: "</span>, <span class="bu">len</span>(metadatas))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="chunking" class="level5" data-number="18.4.4.1.3">
+<h5 data-number="18.4.4.1.3" class="anchored" data-anchor-id="chunking"><span class="header-section-number">18.4.4.1.3</span> Chunking</h5>
+<p>Chunking involves breaking large amounts of data into smaller, more manageable pieces. LLMs have a limited context window and cannot take in the entire dataset at once. For example, GPT-4 has a token limit of 128k. The Langchain document class also chunks PDF documents by page. However, we will need to make sure that all the content fits within the LLM token limit of 128k, so we will try splitting the documents meaningfully. We first split by pages, then by sections, then by paragraphs, then by new lines, then by sentences, by words, and lastly by characters (e.g., what if there’s a word with more than 128k characters!). This is just to ensure that no content is lost.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/chunking.png" title="Chunking" class="img-fluid figure-img"></p>
+<figcaption>Chunking</figcaption>
+</figure>
+</div>
+<p>Steps implemented in the below code block: - Split texts into chunks - Return a list of document chunks (list of langchain <a href="https://api.python.langchain.com/en/latest/documents/langchain_core.documents.base.Document.html">document class</a>) - Here, we select a chunk size of 1000 and an overlap of 200 tokens. There is no set rule for this choice. However, this is a recommended pattern. - Chunk sizes determine the granularity of information being searched for. - The chunk size should be smaller if very granular information is required. If the chunk size is larger, the overall content of the documents is returned.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="im">from</span> langchain.text_splitter <span class="im">import</span> RecursiveCharacterTextSplitter</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="im">from</span> langchain.schema <span class="im">import</span> Document</span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="im">from</span> typing <span class="im">import</span> List</span>
+<span id="cb26-4"><a href="#cb26-4"></a></span>
+<span id="cb26-5"><a href="#cb26-5"></a>text_splitter <span class="op">=</span> RecursiveCharacterTextSplitter.from_tiktoken_encoder(</span>
+<span id="cb26-6"><a href="#cb26-6"></a>        chunk_size<span class="op">=</span><span class="dv">1000</span>,</span>
+<span id="cb26-7"><a href="#cb26-7"></a>        chunk_overlap<span class="op">=</span><span class="dv">200</span>,</span>
+<span id="cb26-8"><a href="#cb26-8"></a>        separators<span class="op">=</span>[</span>
+<span id="cb26-9"><a href="#cb26-9"></a>            <span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">". "</span>, <span class="st">" "</span>, <span class="st">""</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a>        ]  <span class="co"># try to split on paragraphs... fallback to sentences, then chars, ensure we always fit in context window</span></span>
+<span id="cb26-11"><a href="#cb26-11"></a>    )</span>
+<span id="cb26-12"><a href="#cb26-12"></a></span>
+<span id="cb26-13"><a href="#cb26-13"></a>docs: List[Document] <span class="op">=</span> text_splitter.create_documents(texts<span class="op">=</span>texts, metadatas<span class="op">=</span>metadatas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>Now, let’s see if the first document changed and how many documents are available after chunking.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(docs[<span class="dv">0</span>])</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Number of documents: "</span>, <span class="bu">len</span>(docs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="vector-embeddings" class="level5 page-columns page-full" data-number="18.4.4.1.4">
+<h5 data-number="18.4.4.1.4" class="anchored" data-anchor-id="vector-embeddings"><span class="header-section-number">18.4.4.1.4</span> Vector embeddings</h5>
+<p>Neural networks do not understand characters or texts. However, they understand numbers and are really good at numerical computation. Hence, textual data is converted to vectors of real-valued numbers.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><img src="../images/foundation-models/word-vectors.png" class="img-fluid" alt="Word vectors"> Image source: MIT Deep Learning course <a href="https://introtodeeplearning.com/slides/6S191_MIT_DeepLearning_L2.pdf">slides</a></p>
+</div></div><p>Vector embeddings are mathematical representations of data points in a high-dimensional space. In the context of natural language processing:</p>
+<ol type="1">
+<li>Word Embeddings: Individual words are represented as real-valued vectors in a multi-dimensional space.</li>
+<li>Semantic Capture: These embeddings capture the semantic meaning and relationships of the text.</li>
+<li>Similarity Principle: Words with similar meanings tend to have similar vector representations.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>The words ‘word embeddings’, ‘vector embeddings’, and ‘embeddings’ will be used interchangeably throughout this course.</p>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/vectorDB-vectors.png" class="img-fluid figure-img"></p>
+<figcaption>Vectors</figcaption>
+</figure>
+</div>
+<p>In the above vector example, “King” and “Queen” have the same relationship as “man” and “woman.” The “King” is at a similar distance from “man” and “queen” from “woman.”</p>
+<p>These word embeddings are learned by feeding a model vast amounts of text. Models specialized in generating these text embeddings are called embedding models. Word2Vec is one of the first (very basic) embedding models. The <a href="https://nlp.stanford.edu/projects/glove/">GloVE</a> model was one of the more popular models that learned word embeddings, i.e., one of the first models that was trained as a word embedding model. There are many open-source embedding models, e.g., <a href="https://huggingface.co/docs/chat-ui/en/configuration/embeddings">Text embedding models</a> from HuggingFace. Check out the HuggingFace <a href="https://huggingface.co/spaces/mteb/leaderboard">Embedding models leaderboard</a> to compare different embedding models. We will be using the <a href="https://platform.openai.com/docs/guides/embeddings/embedding-models">OpenAI text embedding model</a>, which, according to OpenAI documentation, has a maximum token limit of 8191.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># embeddings </span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai <span class="im">import</span> OpenAIEmbeddings</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>embeddings <span class="op">=</span> OpenAIEmbeddings()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And now, we have completed step 1 of RAG <strong>RAG - Retrieval Steps</strong></p>
+<p><del>1. Prepare data</del></p>
+<ol start="2" type="1">
+<li><p>Create a knowledge base and insert data</p></li>
+<li><p>Search the database and retrieve relevant documents according to the search query.</p></li>
 </ol>
 </section>
-<section id="references" class="level2" data-number="18.3">
-<h2 data-number="18.3" class="anchored" data-anchor-id="references"><span class="header-section-number">18.3</span> References</h2>
+</section>
+<section id="knowledge-database" class="level4" data-number="18.4.4.2">
+<h4 data-number="18.4.4.2" class="anchored" data-anchor-id="knowledge-database"><span class="header-section-number">18.4.4.2</span> Knowledge Database</h4>
+<p>In the age of burgeoning data complexity and high-dimensional information, traditional databases often fail to efficiently handle and extract meaning from intricate datasets. Enter vector databases, a technological innovation that has emerged as a solution to the challenges posed by the ever-expanding data landscape. (Source: beginner’s <a href="https://medium.com/data-and-beyond/vector-databases-a-beginners-guide-b050cbbe9ca0">blog post</a> on vector DB)</p>
+<section id="vector-database" class="level5" data-number="18.4.4.2.1">
+<h5 data-number="18.4.4.2.1" class="anchored" data-anchor-id="vector-database"><span class="header-section-number">18.4.4.2.1</span> Vector database</h5>
+<p>Vector databases have gained significant importance in various fields due to their unique ability to efficiently store, index, and search high-dimensional data points, often referred to as vectors. These databases are designed to handle data where each entry is represented as a vector in a multidimensional space. Vectors can represent a wide range of information, such as numerical features, embeddings from text or images, and even complex data like molecular structures.</p>
+<p>Vector databases store data as vector embeddings and are optimized for fast retrieval and similarity search. Vector database records are vectors, and the distance between them corresponds to whether the vectors are similar or not. Vectors that are closer are more similar than vectors that are farther apart. <img src="../images/foundation-models/vectorDB-comparison.png" class="img-fluid" alt="VectorDB comparison"></p>
+<section id="how-vector-databases-work" class="level6" data-number="18.4.4.2.1.1">
+<h6 data-number="18.4.4.2.1.1" class="anchored" data-anchor-id="how-vector-databases-work"><span class="header-section-number">18.4.4.2.1.1</span> How vector databases work</h6>
+<p>Let’s start with a simple example of dealing with an LLM such as ChatGPT. The model has large volumes of data with a lot of content, and they provide us with the ChatGPT application.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/vectorDB.png" class="img-fluid figure-img"></p>
+<figcaption>VectorDB within RAG. Source: KDnuggets <a href="https://www.kdnuggets.com/2023/06/vector-databases-important-llms.html">blog post</a></figcaption>
+</figure>
+</div>
+<p>So let’s go through the steps of retrieval using vectorDB.</p>
 <ol type="1">
-<li><a href="https://segment-anything.com/">Segment Anything</a></li>
-<li><a href="https://github.com/facebookresearch/segment-anything/tree/main/notebooks">Segment Anything Notebook</a></li>
+<li>We first partition the data (to be used in the knowledge base) into chunks</li>
+<li>Use embedding model to create vector embeddings for the data (create indexes)</li>
+<li>Insert data vector embeddings into the database, with some reference to the original content (metadata).</li>
+<li>User query is converted to vector embeddings using the same embedding model used for data.</li>
+<li>VectorDB searches the knowledgebase for vector embeddings similar to the user query.</li>
+<li>VectorDB returns similar document chunks and sends it back to the user.</li>
+</ol>
+<p>Now, let’s see how it works in the vector database.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/vectordb-working.png" class="img-fluid figure-img"></p>
+<figcaption>VectorDB pipeline. Source: pinecone <a href="https://www.pinecone.io/learn/vector-database/">blog post</a></figcaption>
+</figure>
+</div>
+<p>The three main stages that a vector database query goes through are:</p>
+<ol type="1">
+<li>Indexing</li>
+</ol>
+<p>As explained in the example above, once the data vector embedding moves into the vector database, it then uses a variety of algorithms to map the vector embedding to data structures for faster searching.</p>
+<ol start="2" type="1">
+<li>Querying</li>
+</ol>
+<p>Once it has gone through its search, the vector database compares the queried vector (user query) to indexed vectors, applying a similarity metric to find the nearest neighbor.</p>
+<ol start="3" type="1">
+<li>Post Processing</li>
+</ol>
+<p>Depending on the vector database you use, the vector database will post-process the final nearest neighbor to produce a final output to the query. We could also possibly re-rank the nearest neighbors for future reference.</p>
+</section>
+<section id="inserting-documents-into-vectordb" class="level6" data-number="18.4.4.2.1.2">
+<h6 data-number="18.4.4.2.1.2" class="anchored" data-anchor-id="inserting-documents-into-vectordb"><span class="header-section-number">18.4.4.2.1.2</span> Inserting documents into VectorDB</h6>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/inserting-db.png" class="img-fluid figure-img"></p>
+<figcaption>Inserting into VectorDB. Source : <a href="https://blog.demir.io/hands-on-with-rag-step-by-step-guide-to-integrating-retrieval-augmented-generation-in-llms-ac3cb075ab6f">Blog.demir</a></figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="vector-store" class="level5" data-number="18.4.4.2.2">
+<h5 data-number="18.4.4.2.2" class="anchored" data-anchor-id="vector-store"><span class="header-section-number">18.4.4.2.2</span> Vector Store</h5>
+<ul>
+<li>We will use <a href="https://qdrant.tech/">Qdrant</a> vector store for this example</li>
+<li>For this tutorial, we will utilize local memory for storage</li>
+<li>Qdrant has a docker image that can be used to create a vector store and hosted remotely</li>
+<li>One can configure a Qdrant docker image to run locally and have a Qdrant client that makes API requests.</li>
+<li>Qdrant creates a collection from the inserted documents (similar to a table in SQL databases)</li>
+<li>Blog post on vector stores <a href="https://medium.com/google-cloud/vector-databases-are-all-the-rage-872c888fa348">link</a></li>
+</ul>
+<p>Let’s create a Qdrant vector store in local memory</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># creating a Qdrant vector store in local memory</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="im">from</span> langchain_community.vectorstores <span class="im">import</span> Qdrant</span>
+<span id="cb29-4"><a href="#cb29-4"></a></span>
+<span id="cb29-5"><a href="#cb29-5"></a><span class="co"># qdrant collection name</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a>collection_name <span class="op">=</span> os.getenv(<span class="st">'QDRANT_COLLECTION_NAME'</span>, <span class="st">"data-collection"</span>)</span>
+<span id="cb29-7"><a href="#cb29-7"></a></span>
+<span id="cb29-8"><a href="#cb29-8"></a><span class="co"># create vector store in local memory</span></span>
+<span id="cb29-9"><a href="#cb29-9"></a>vectorstore <span class="op">=</span> Qdrant.from_documents(</span>
+<span id="cb29-10"><a href="#cb29-10"></a>    documents<span class="op">=</span>docs, <span class="co"># pass in the chunked docs</span></span>
+<span id="cb29-11"><a href="#cb29-11"></a>    embedding<span class="op">=</span>embeddings,  <span class="co"># use this embedding model</span></span>
+<span id="cb29-12"><a href="#cb29-12"></a>    location<span class="op">=</span><span class="st">":memory:"</span>,  <span class="co"># Local mode with in-memory storage only</span></span>
+<span id="cb29-13"><a href="#cb29-13"></a>    collection_name<span class="op">=</span>collection_name,  <span class="co"># give a collection name</span></span>
+<span id="cb29-14"><a href="#cb29-14"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>And now, we have completed step 2 of RAG retrieval <strong>RAG - Retrieval Steps</strong></p>
+<p><del>1. Prepare data</del></p>
+<p><del>2. Create a knowledge base and insert data</del></p>
+<ol start="3" type="1">
+<li>Search the database and retrieve relevant documents according to the search query.</li>
 </ol>
 </section>
-<section id="sam" class="level2" data-number="18.4">
-<h2 data-number="18.4" class="anchored" data-anchor-id="sam"><span class="header-section-number">18.4</span> SAM</h2>
 </section>
-<section id="rag" class="level2" data-number="18.5">
-<h2 data-number="18.5" class="anchored" data-anchor-id="rag"><span class="header-section-number">18.5</span> RAG</h2>
+<section id="retrieve-relevant-documents" class="level4" data-number="18.4.4.3">
+<h4 data-number="18.4.4.3" class="anchored" data-anchor-id="retrieve-relevant-documents"><span class="header-section-number">18.4.4.3</span> Retrieve relevant documents</h4>
+<p>Create a retriever from the vector store. This retriever performs similarity search and retrieves similar document chunks from the Qdrant vector store.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retriever to retrieve relevant chunks</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>retriever <span class="op">=</span> vectorstore.as_retriever()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And now, we have completed all 3 steps of RAG retrieval</p>
+<p><del>1. Prepare data</del></p>
+<p><del>2. Create a vector store and insert data</del></p>
+<p><del>3. Search the vector store and retrieve relevant documents</del></p>
+</section>
+</section>
+<section id="rag---retrieval-augmented-generation-1" class="level3" data-number="18.4.5">
+<h3 data-number="18.4.5" class="anchored" data-anchor-id="rag---retrieval-augmented-generation-1"><span class="header-section-number">18.4.5</span> RAG - Retrieval-Augmented <em>Generation</em></h3>
+<p>We will now move on to the “Generation” part of RAG. Here, the LLMs do most of the heavy lifting.</p>
+<section id="llm" class="level4" data-number="18.4.5.1">
+<h4 data-number="18.4.5.1" class="anchored" data-anchor-id="llm"><span class="header-section-number">18.4.5.1</span> LLM</h4>
+<ul>
+<li>LLMs are pre-trained large language models</li>
+<li>Trained to predict the next word (token), given some input text.</li>
+<li>Open-source models - HuggingFace <a href="https://huggingface.co/collections/open-llm-leaderboard/llm-leaderboard-best-models-652d6c7965a4619fb5c27a03">leaderboard</a></li>
+<li>For this HandsOn, we will use OpenAI GPT-4o-mini and the Ollama Llama3.2:3.2B model hosted by NCSA.</li>
+</ul>
+<p>Let’s see how best to communicate/prompt these LLM models for RAG.</p>
+</section>
+<section id="prompting" class="level4" data-number="18.4.5.2">
+<h4 data-number="18.4.5.2" class="anchored" data-anchor-id="prompting"><span class="header-section-number">18.4.5.2</span> Prompting</h4>
+<p>Prompting is a crucial technique in effectively communicating with Large Language Models (LLMs) to achieve desired outcomes without modifying the underlying model. As LLMs become more sophisticated, the art of crafting effective prompts has emerged as a key skill in natural language processing and AI applications. Check out LilianWeng’s blog post <span class="citation" data-cites="weng2023prompt"><a href="../references.html#ref-weng2023prompt" role="doc-biblioref">[4]</a></span>, medium <a href="https://medium.com/thedeephub/llm-prompt-engineering-for-beginners-what-it-is-and-how-to-get-started-0c1b483d5d4f#:~:text=In%20essence%2C%20a%20prompt%20is,you%20want%20it%20to%20do">blog post</a> on prompt engineering.</p>
+<p>Prompting is often an iterative process. It typically requires multiple trial-and-error attempts to achieve the desired effect. Each iteration can provide insights into how the model interprets and responds to different input structures.</p>
+<section id="key-elements-of-effective-prompting" class="level5" data-number="18.4.5.2.1">
+<h5 data-number="18.4.5.2.1" class="anchored" data-anchor-id="key-elements-of-effective-prompting"><span class="header-section-number">18.4.5.2.1</span> Key Elements of Effective Prompting</h5>
+<ol type="1">
+<li>Defining a Persona</li>
+</ol>
+<p>Assigning the LLM a specific role or behavior can significantly influence its responses. By giving it a defined persona, the model will attempt to respond in a manner that aligns with that role. This can improve the quality and relevance of its answers.</p>
+<p>Example: “You are a helpful research assistant.”</p>
+<p>This prompt frames the model’s responses to be in line with the behavior expected of a research assistant, such as providing accurate information and being resourceful.</p>
+<ol start="2" type="1">
+<li>Setting Guardrails</li>
+</ol>
+<p>Guardrails provide boundaries or conditions within which the model should operate. This is particularly useful to avoid misleading or incorrect information. You can ask the model to refrain from answering if it’s unsure of the response.</p>
+<p>Example: “If you don’t know the final answer, just say ‘I don’t know’.”</p>
+<p>This instructs the LLM to admit uncertainty instead of generating a potentially incorrect answer, thereby increasing reliability.</p>
+<ol start="3" type="1">
+<li>Providing Clear Instructions</li>
+</ol>
+<p>Giving the LLM specific actions to perform before generating responses ensures that it processes the necessary information correctly. This is important when dealing with tasks like reviewing files or using external data.</p>
+<p>Example: “Read the data file before answering any questions.”</p>
+<p>This directs the LLM to review relevant materials, improving the quality of the subsequent answers.</p>
+<ol start="4" type="1">
+<li>Specifying Response Formats</li>
+</ol>
+<p>You can enhance the usefulness of responses by specifying the desired output format. By doing this, you ensure the model delivers information in a form that aligns with your needs.</p>
+<p>Example: “Respond using markdowns.”</p>
+<p>This ensures the LLM outputs text in Markdown format, which can be helpful for structured documents or technical writing.</p>
+</section>
+<section id="prompt-template" class="level5" data-number="18.4.5.2.2">
+<h5 data-number="18.4.5.2.2" class="anchored" data-anchor-id="prompt-template"><span class="header-section-number">18.4.5.2.2</span> Prompt template</h5>
+<ul>
+<li>Use <a href="https://smith.langchain.com/hub">Langchain hub</a> to pull prompts
+<ul>
+<li>easy to share and reuse prompts</li>
+<li>can see what are the popular prompts for specific use cases</li>
+<li>Eg: <a href="https://smith.langchain.com/hub/rlm/rag-prompt">rlm/rag-prompt</a> <img src="../images/foundation-models/rlm-rag-prompt.png" title="rlm/rag-prompt" class="img-fluid" alt="RLM RAG prompt"></li>
+</ul></li>
+<li>Use a prompt template <a href="https://api.python.langchain.com/en/latest/prompts/langchain_core.prompts.prompt.PromptTemplate.html">Langchain PromptTemplate</a> to generate custom prompts
+<ul>
+<li>includes input parameters that can be dynamically changed</li>
+<li>can include instructions and other prompting patterns</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>qa_prompt_template <span class="op">=</span> <span class="st">"""Use the following pieces of context to answer the question at the end. Please follow the following rules:</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="st">    1. If the question has some initial findings, use that as context.</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="st">    2. If you don't know the answer, don't try to make up an answer. Just say **I can't find the final answer but you may want to check the following sources** and add the source documents as a list.</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="st">    3. If you find the answer, write the answer in a concise way and add the list of sources that are **directly** used to derive the answer. Exclude the sources that are irrelevant to the final answer.</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="st">    </span><span class="sc">{context}</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="st">    Question: </span><span class="sc">{question}</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="st">    Helpful Answer:"""</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>rag_chain_prompt <span class="op">=</span> PromptTemplate.from_template(qa_prompt_template) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s use the <code>rlm/rag-prompt</code> from Langchain hub.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prompting</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain <span class="im">import</span> hub</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> hub.pull(<span class="st">"rlm/rag-prompt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="call-llm" class="level4" data-number="18.4.5.3">
+<h4 data-number="18.4.5.3" class="anchored" data-anchor-id="call-llm"><span class="header-section-number">18.4.5.3</span> Call LLM</h4>
+<ul>
+<li>We will use
+<ul>
+<li>OpenAI GPT-4o-mini and</li>
+<li>Ollama llama3.2 model (hosted by NCSA)</li>
+</ul></li>
+<li>Each model has its own formats and parameters</li>
+<li>Format the documents as string to pass on to the LLM</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># formatting the documents as a string before calling the LLM</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> format_docs(docs):</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>.join(doc.page_content <span class="cf">for</span> doc <span class="kw">in</span> docs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="call-llm---without-rag" class="level5" data-number="18.4.5.3.1">
+<h5 data-number="18.4.5.3.1" class="anchored" data-anchor-id="call-llm---without-rag"><span class="header-section-number">18.4.5.3.1</span> Call LLM - without RAG</h5>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># call open ai GPT-4o-mini</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="im">from</span> langchain_openai <span class="im">import</span> ChatOpenAI</span>
+<span id="cb34-3"><a href="#cb34-3"></a></span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="co"># create a chat openai model</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a>llm: ChatOpenAI <span class="op">=</span> ChatOpenAI(</span>
+<span id="cb34-6"><a href="#cb34-6"></a>            temperature<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb34-7"><a href="#cb34-7"></a>            model<span class="op">=</span><span class="st">"gpt-4o-mini"</span>,</span>
+<span id="cb34-8"><a href="#cb34-8"></a>            max_retries<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb34-9"><a href="#cb34-9"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call GPT4o-mini. </span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># No RAG. Not giving any instructions/context to the LLM.</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>llm.invoke(<span class="st">"What is the capital of the world?"</span>)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice the OpenAI LLM response format: content , metadata</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># call ollama llama3:latest</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a></span>
+<span id="cb36-3"><a href="#cb36-3"></a><span class="im">from</span> langchain_community.llms <span class="im">import</span> Ollama</span>
+<span id="cb36-4"><a href="#cb36-4"></a></span>
+<span id="cb36-5"><a href="#cb36-5"></a>ollama_api_key <span class="op">=</span> os.getenv(<span class="st">'OLLAMA_API_KEY'</span>)</span>
+<span id="cb36-6"><a href="#cb36-6"></a>ollama_jwt_token <span class="op">=</span> os.getenv(<span class="st">'OLLAMA_JWT_TOKEN'</span>)</span>
+<span id="cb36-7"><a href="#cb36-7"></a>ollama_headers <span class="op">=</span> {<span class="st">"Authorization"</span>: <span class="ss">f"Bearer </span><span class="sc">{</span>ollama_api_key<span class="sc">}</span><span class="ss">"</span>}</span>
+<span id="cb36-8"><a href="#cb36-8"></a></span>
+<span id="cb36-9"><a href="#cb36-9"></a><span class="co"># create a ollama model</span></span>
+<span id="cb36-10"><a href="#cb36-10"></a>ollamallm: Ollama <span class="op">=</span> Ollama(</span>
+<span id="cb36-11"><a href="#cb36-11"></a>    base_url<span class="op">=</span><span class="st">"https://ollama.software.ncsa.illinois.edu/ollama"</span>,</span>
+<span id="cb36-12"><a href="#cb36-12"></a>    model<span class="op">=</span><span class="st">"llama3.2:latest"</span>,</span>
+<span id="cb36-13"><a href="#cb36-13"></a>    headers<span class="op">=</span>ollama_headers</span>
+<span id="cb36-14"><a href="#cb36-14"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call llama3 model</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># No RAG. Not giving any prompt/specific instructions to the LLM</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>ollamallm.invoke(<span class="st">"What is the capital of the world?"</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice the Llama LLM response format: plain text</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="rag-system" class="level3" data-number="18.4.6">
+<h3 data-number="18.4.6" class="anchored" data-anchor-id="rag-system"><span class="header-section-number">18.4.6</span> RAG System</h3>
+<p>Let’s bring it all together</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/foundation-models/RAGsystem.png" class="img-fluid figure-img"></p>
+<figcaption>Fig : RAG system. Image source : <a href="https://blog.demir.io/hands-on-with-rag-step-by-step-guide-to-integrating-retrieval-augmented-generation-in-llms-ac3cb075ab6f">blog.demir</a></figcaption>
+</figure>
+</div>
+<ol type="1">
+<li>User Submits Query: The user inputs a query into the system. This is the initial step where the user’s request is captured.</li>
+<li>RAG System Query Relevant Documents: The RAG system processes the user’s query and searches for relevant documents.</li>
+<li>Document Database Returns Documents: The document database receives the request for relevant documents and returns the documents it finds to the RAG system.</li>
+<li>Combine The Query &amp; The Documents: The RAG system takes the documents provided by the document database and combines them with the original query.</li>
+<li>LLM Returns Answer: The combined query and documents are sent to a Large Language Model (LLM), which generates an answer based on the information provided.</li>
+<li>RAG System Return Answer to User: Finally, the answer generated by the LLM is sent back through the RAG system.</li>
+</ol>
+<section id="rag-chain-with-openai" class="level4" data-number="18.4.6.1">
+<h4 data-number="18.4.6.1" class="anchored" data-anchor-id="rag-chain-with-openai"><span class="header-section-number">18.4.6.1</span> RAG chain with OpenAI</h4>
+<p>Let’s code the RAG chain with OpenAI LLM</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># rag chain</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="im">from</span> langchain_core.output_parsers <span class="im">import</span> StrOutputParser</span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="im">from</span> langchain_core.runnables <span class="im">import</span> RunnablePassthrough</span>
+<span id="cb38-4"><a href="#cb38-4"></a></span>
+<span id="cb38-5"><a href="#cb38-5"></a>openai_rag_chain <span class="op">=</span> (</span>
+<span id="cb38-6"><a href="#cb38-6"></a>    {<span class="st">"context"</span>: retriever <span class="op">|</span> format_docs, <span class="st">"question"</span>: RunnablePassthrough()}</span>
+<span id="cb38-7"><a href="#cb38-7"></a>    <span class="op">|</span> prompt  <span class="co"># change to custom prompt here</span></span>
+<span id="cb38-8"><a href="#cb38-8"></a>    <span class="op">|</span> llm  <span class="co"># change openAI llm model here</span></span>
+<span id="cb38-9"><a href="#cb38-9"></a>    <span class="op">|</span> StrOutputParser()</span>
+<span id="cb38-10"><a href="#cb38-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>The above code implements the RAG system - Context is the retrieved docs from the retriever/vector db - RunnablePassthrough() is used to pass the user query as is to the chain - format_docs is used to format the documents as a string - prompt is the prompt used to call LLM with - llm is used to call the LLM - StrOutputParser() is used to parse the output from the LLM</p>
+<p>Let’s call the OpenAI RAG chain</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call openai rag chain</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>openai_rag_chain.invoke(<span class="st">"What were the goals of the symposium?"</span>)  <span class="co"># change the user query in the text here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call openai rag chain</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This should ideally give "I dont know" - different from the llm.invoke() method where we do not give a custom prompt</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>openai_rag_chain.invoke(<span class="st">"What is the capital of the world?"</span>)  <span class="co"># change the user query in the text here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Feel free to try out other queries and test out other prompts.</p>
+</section>
+<section id="rag-chain-with-llama-model" class="level4" data-number="18.4.6.2">
+<h4 data-number="18.4.6.2" class="anchored" data-anchor-id="rag-chain-with-llama-model"><span class="header-section-number">18.4.6.2</span> RAG chain with Llama model</h4>
+<p>Let’s code the RAG chain with Llama</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># ollama rag chain</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="im">from</span> langchain_core.output_parsers <span class="im">import</span> StrOutputParser</span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="im">from</span> langchain_core.runnables <span class="im">import</span> RunnablePassthrough</span>
+<span id="cb41-4"><a href="#cb41-4"></a></span>
+<span id="cb41-5"><a href="#cb41-5"></a>ollama_rag_chain <span class="op">=</span> (</span>
+<span id="cb41-6"><a href="#cb41-6"></a>    {<span class="st">"context"</span>: retriever <span class="op">|</span> format_docs, <span class="st">"question"</span>: RunnablePassthrough()}</span>
+<span id="cb41-7"><a href="#cb41-7"></a>    <span class="op">|</span> prompt</span>
+<span id="cb41-8"><a href="#cb41-8"></a>    <span class="op">|</span> ollamallm</span>
+<span id="cb41-9"><a href="#cb41-9"></a>    <span class="op">|</span> StrOutputParser()</span>
+<span id="cb41-10"><a href="#cb41-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call ollama rag chain</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>ollama_rag_chain.invoke(<span class="st">"Who is the president of USA?"</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This should ideally give "I dont know" since the question asked is outside of the context in the vector store. </span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># None of the document chunks in the vector store will have good similarity with the user query</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice that Llama model does not give "I dont know" answer. However, it does say that the information is outside of the context provided.</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Removes hallucinations and grounds the answer. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>GPT models are generally good at following instructions. OpenAI had an “InstructGPT” model which was specifically trained to follow instructions</p>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-sources-to-rag" class="level4" data-number="18.4.6.3">
+<h4 data-number="18.4.6.3" class="anchored" data-anchor-id="adding-sources-to-rag"><span class="header-section-number">18.4.6.3</span> Adding sources to RAG</h4>
+<p>Now that we have used RAG to control hallucinations and ground the LLM responses, let’s add source citations to the LLM generated response.</p>
+<details open="">
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource python code-overflow-scroll numberLines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co">## adding sources to openai rag chain</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a></span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="im">from</span> langchain_core.runnables <span class="im">import</span> RunnableParallel</span>
+<span id="cb43-4"><a href="#cb43-4"></a></span>
+<span id="cb43-5"><a href="#cb43-5"></a>openai_rag_chain_from_docs <span class="op">=</span> (</span>
+<span id="cb43-6"><a href="#cb43-6"></a>    RunnablePassthrough.assign(context<span class="op">=</span>(<span class="kw">lambda</span> x: format_docs(x[<span class="st">"context"</span>])))</span>
+<span id="cb43-7"><a href="#cb43-7"></a>    <span class="op">|</span> prompt</span>
+<span id="cb43-8"><a href="#cb43-8"></a>    <span class="op">|</span> llm</span>
+<span id="cb43-9"><a href="#cb43-9"></a>    <span class="op">|</span> StrOutputParser()</span>
+<span id="cb43-10"><a href="#cb43-10"></a>)</span>
+<span id="cb43-11"><a href="#cb43-11"></a></span>
+<span id="cb43-12"><a href="#cb43-12"></a>openai_rag_chain_with_source <span class="op">=</span> RunnableParallel(</span>
+<span id="cb43-13"><a href="#cb43-13"></a>    {<span class="st">"context"</span>: retriever, <span class="st">"question"</span>: RunnablePassthrough()}</span>
+<span id="cb43-14"><a href="#cb43-14"></a>).assign(answer<span class="op">=</span>openai_rag_chain_from_docs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># call openai rag chain with source</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this will return the answer and the sources (context)</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>openai_rag_chain_with_source.invoke(<span class="st">"What were the goals of the symposium?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>openai_rag_chain_with_source.invoke(<span class="st">"Why is tundra restoration and rehabilitation important"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>openai_rag_chain_with_source.invoke(<span class="st">"Who is Bernadette Adams?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="rag-steps" class="level4" data-number="18.4.6.4">
+<h4 data-number="18.4.6.4" class="anchored" data-anchor-id="rag-steps"><span class="header-section-number">18.4.6.4</span> RAG Steps</h4>
+<p>That concludes the RAG implementation. We have completed all the steps for Retrieval-Augmented Generation (RAG)</p>
+<ol type="1">
+<li>Prepare data</li>
+<li>Create a vector store and insert into db</li>
+<li>Search the vector store and retrieve relevant documents</li>
+<li>Call LLM with the user query and the retrieved documents</li>
+<li>Return the LLM response to the user</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">18.5</span> Conclusion</h2>
+<p>In this hands-on lab on Foundation Models, we learned how to set up and use the Segment Anything Model 2 (SAM 2) for image segmentation tasks and implement a chatbot using the RAG system. We delved into many details related to both use cases and learned how to interact with the foundation models used in them. We hope this hands-on lab has given you a practical understanding of foundation models and how to interact with them.</p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-ibm_what_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">IBM, <span>“What <span>Is</span> <span>Image</span> <span>Segmentation</span>? <span></span> <span>IBM</span>.”</span> Sep. 2023. Accessed: Dec. 21, 2024. [Online]. Available: <a href="https://www.ibm.com/think/topics/image-segmentation">https://www.ibm.com/think/topics/image-segmentation</a></div>
+</div>
+<div id="ref-ravi_sam_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">N. Ravi <em>et al.</em>, <span>“<span>SAM</span> 2: <span>Segment</span> <span>Anything</span> in <span>Images</span> and <span>Videos</span>.”</span> arXiv, Oct. 2024. doi: <a href="https://doi.org/10.48550/arXiv.2408.00714">10.48550/arXiv.2408.00714</a>.</div>
+</div>
+<div id="ref-amundson_leconte_2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">J. Amundson, <span>“<span>LeConte</span> <span>Glacier</span> <span>Unmanned</span> <span>Aerial</span> <span>Vehicle</span> (<span>UAV</span>) imagery, <span>LeConte</span> <span>Glacier</span>, <span>Alaska</span>, 2018,”</span> 2019, doi: <a href="https://doi.org/10.18739/A2445HC19">10.18739/A2445HC19</a>.</div>
+</div>
+<div id="ref-weng2023prompt" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">L. Weng, <span>“Prompt engineering,”</span> <em>lilianweng.github.io</em>, Mar. 2023, Available: <a href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/">https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/</a></div>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

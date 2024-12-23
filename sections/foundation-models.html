@@ -345,9 +345,6 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#limitations-of-large-language-models" id="toc-limitations-of-large-language-models" class="nav-link" data-scroll-target="#limitations-of-large-language-models"><span class="header-section-number">17.7.1</span> Limitations of Large Language Models</a></li>
   <li><a href="#introduction-to-rag" id="toc-introduction-to-rag" class="nav-link" data-scroll-target="#introduction-to-rag"><span class="header-section-number">17.7.2</span> Introduction to RAG</a></li>
-  <li><a href="#rag---retrieval-augmented-generation" id="toc-rag---retrieval-augmented-generation" class="nav-link" data-scroll-target="#rag---retrieval-augmented-generation"><span class="header-section-number">17.7.3</span> RAG - <em>Retrieval</em>-Augmented Generation</a></li>
-  <li><a href="#rag---retrieval-augmented-generation-1" id="toc-rag---retrieval-augmented-generation-1" class="nav-link" data-scroll-target="#rag---retrieval-augmented-generation-1"><span class="header-section-number">17.7.4</span> RAG - Retrieval-Augmented <em>Generation</em></a></li>
-  <li><a href="#rag-system" id="toc-rag-system" class="nav-link" data-scroll-target="#rag-system"><span class="header-section-number">17.7.5</span> RAG System</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -507,14 +504,14 @@ div.csl-indent {
 </div>
 <section id="attention-mechanism" class="level5" data-number="17.5.2.1.1">
 <h5 data-number="17.5.2.1.1" class="anchored" data-anchor-id="attention-mechanism"><span class="header-section-number">17.5.2.1.1</span> Attention Mechanism</h5>
-<p>Attention is, to some extent, motivated by how we pay visual attention to different regions of an image or correlate words in one sentence <span class="citation" data-cites="weng2018attention"><a href="../references.html#ref-weng2018attention" role="doc-biblioref">[12]</a></span>. we can explain the relationship between words in one sentence or close context. When we see “eating”, we expect to encounter a food word very soon. The color term describes the food, but probably not so much with “eating” directly.</p>
+<p>Attention is, to some extent, motivated by how we pay visual attention to different regions of an image or correlate words in one sentence <span class="citation" data-cites="weng2018attention"><a href="../references.html#ref-weng2018attention" role="doc-biblioref">[12]</a></span>. We can explain the relationship between words in one sentence or close context. When we see “eating”, we expect to encounter a food word very soon. The color term describes the food, but probably not so much with “eating” directly.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/foundation-models/human-attention.png" class="img-fluid figure-img"></p>
 <figcaption>Fig : One word attends to other words in the same sentence differently</figcaption>
 </figure>
 </div>
-<p>Check out Lilian Weng’s blog post <span class="citation" data-cites="weng2018attention"><a href="../references.html#ref-weng2018attention" role="doc-biblioref">[12]</a></span> on detailed overview of attention mechanism.</p>
+<p>Check out Lilian Weng’s blog post <span class="citation" data-cites="weng2018attention"><a href="../references.html#ref-weng2018attention" role="doc-biblioref">[12]</a></span> and MIT class on <a href="https://www.youtube.com/watch?v=ySEx_Bqxvvo">deep learning</a> for detailed overview of attention mechanism.</p>
 </section>
 <section id="key-components-of-transformer-architecture" class="level5" data-number="17.5.2.1.2">
 <h5 data-number="17.5.2.1.2" class="anchored" data-anchor-id="key-components-of-transformer-architecture"><span class="header-section-number">17.5.2.1.2</span> Key components of transformer architecture:</h5>
@@ -711,7 +708,7 @@ Figure&nbsp;17.1: SAM 2 Architecture. Image source: <span class="citation" data-
 <ol start="3" type="1">
 <li>Domain-Specific Knowledge Challenges</li>
 </ol>
-<p>When specific domain knowledge is required, the traditional approach has been to fine-tune the LLM. However, this process can be resource-intensive and may not always yield optimal results, especially for niche or rapidly evolving fields.</p>
+<p>When specific domain knowledge is required, the traditional approach has been to fine-tune the LLM. However, this process can be resource-intensive and may not always yield optimal results, especially for niche or rapidly evolving fields. For example, an LLM fine-tuned on chemistry domain might not be suitable for a researcher in a physics lab. Hence a particle-physics scientist will have to fine-tune a model on the lab-specific data, which might not be useful for a quantum physics lab.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
@@ -829,125 +826,8 @@ Figure&nbsp;17.1: SAM 2 Architecture. Image source: <span class="citation" data-
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="rag---retrieval-augmented-generation" class="level3 page-columns page-full" data-number="17.7.3">
-<h3 data-number="17.7.3" class="anchored" data-anchor-id="rag---retrieval-augmented-generation"><span class="header-section-number">17.7.3</span> RAG - <em>Retrieval</em>-Augmented Generation</h3>
-<p>We will focus on the “retrieval” part of RAG for this section.</p>
-<section id="knowledge-database" class="level4 page-columns page-full" data-number="17.7.3.1">
-<h4 data-number="17.7.3.1" class="anchored" data-anchor-id="knowledge-database"><span class="header-section-number">17.7.3.1</span> Knowledge database</h4>
-<p>In the age of burgeoning data complexity and high-dimensional information, traditional databases often fall short when it comes to efficiently handling and extracting meaning from intricate datasets. Enter vector databases, a technological innovation that has emerged as a solution to the challenges posed by the ever-expanding landscape of data. (Source: beginner’s <a href="https://medium.com/data-and-beyond/vector-databases-a-beginners-guide-b050cbbe9ca0">blog post</a> on vector DB)</p>
-<section id="vector-database" class="level5 page-columns page-full" data-number="17.7.3.1.1">
-<h5 data-number="17.7.3.1.1" class="anchored" data-anchor-id="vector-database"><span class="header-section-number">17.7.3.1.1</span> Vector database</h5>
-<p>Vector databases have gained significant importance in various fields due to their unique ability to efficiently store, index, and search high-dimensional data points, often referred to as vectors. These databases are designed to handle data where each entry is represented as a vector in a multi-dimensional space. The vectors can represent a wide range of information, such as numerical features, embeddings from text or images, and even complex data like molecular structures.</p>
-<p>At the heart of vector databases lies the concept of vector embeddings. These are mathematical representations of data points in a high-dimensional space. In the context of natural language processing:</p>
-<ol type="1">
-<li>Word Embeddings: Individual words are represented as real-valued vectors in a multi-dimensional space.</li>
-<li>Semantic Capture: These embeddings capture the semantic meaning and relationships of the text.</li>
-<li>Similarity Principle: Words with similar meanings tend to have similar vector representations.</li>
-</ol>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/foundation-models/vectorDB-vectors.png" class="img-fluid figure-img"></p>
-<figcaption>Fig : Vectors</figcaption>
-</figure>
-</div>
-</div></div><section id="how-vector-databases-work" class="level6" data-number="17.7.3.1.1.1">
-<h6 data-number="17.7.3.1.1.1" class="anchored" data-anchor-id="how-vector-databases-work"><span class="header-section-number">17.7.3.1.1.1</span> How vector databases work</h6>
-<p>Let’s start with a simple example of dealing with an LLM such as ChatGPT. The model has large volumes of data with a lot of content, and they provide us with the ChatGPT application.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/foundation-models/vectorDB.png" class="img-fluid figure-img"></p>
-<figcaption>Fig : VectorDB within RAG. Source: KDnuggets <a href="https://www.kdnuggets.com/2023/06/vector-databases-important-llms.html">blog post</a></figcaption>
-</figure>
-</div>
-<p>So let’s go through the steps.</p>
-<ol type="1">
-<li>As the user, you will input your query into the application.</li>
-<li>Your query is then inserted into the embedding model which creates vector embeddings based on the content we want to index.</li>
-<li>The vector embedding then moves into the vector database, regarding the content that the embedding was made from.</li>
-<li>The vector database produces an output and sends it back to the user as a query result.</li>
-</ol>
-<p>When the user continues to make queries, it will go through the same embedding model to create embeddings to query that database for similar vector embeddings. The similarities between the vector embeddings are based on the original content, in which the embedding was created.</p>
-<p>Now lets see how it works in the vector database.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/foundation-models/vectordb-working.png" class="img-fluid figure-img"></p>
-<figcaption>Fig : VectorDB pipeline. Source: pinecone <a href="https://www.pinecone.io/learn/vector-database/">blog post</a></figcaption>
-</figure>
-</div>
-<p>The three main stages that a vector database query goes through are:</p>
-<ol type="1">
-<li>Indexing</li>
-</ol>
-<p>As explained in the example above, once the vector embedding moves into the vector database, it then uses a variety of algorithms to map the vector embedding to data structures for faster searching.</p>
-<ol start="2" type="1">
-<li>Querying</li>
-</ol>
-<p>Once it has gone through its search, the vector database compares the queried vector to indexed vectors, applying the similarity metric to find the nearest neighbor.</p>
-<ol start="3" type="1">
-<li>Post Processing</li>
-</ol>
-<p>Depending on the vector database you use, the vector database will post-process the final nearest neighbor to produce a final output to the query. As well as possibly re-ranking the nearest neighbors for future reference.</p>
-</section>
-</section>
-</section>
-</section>
-<section id="rag---retrieval-augmented-generation-1" class="level3" data-number="17.7.4">
-<h3 data-number="17.7.4" class="anchored" data-anchor-id="rag---retrieval-augmented-generation-1"><span class="header-section-number">17.7.4</span> RAG - Retrieval-Augmented <em>Generation</em></h3>
-<p>We will focus on the “generation” part of RAG for this section. Here most of the heavy-lifting is done by the LLMs. Let’s see how best to communicate/prompt these LLM models for RAG.</p>
-<section id="prompting" class="level4" data-number="17.7.4.1">
-<h4 data-number="17.7.4.1" class="anchored" data-anchor-id="prompting"><span class="header-section-number">17.7.4.1</span> Prompting</h4>
-<p>Prompting is a crucial technique in effectively communicating with Large Language Models (LLMs) to achieve desired outcomes without modifying the underlying model. As LLMs become more sophisticated, the art of crafting effective prompts has emerged as a key skill in natural language processing and AI applications. Checkout LilianWeng blog post <span class="citation" data-cites="weng2023prompt"><a href="../references.html#ref-weng2023prompt" role="doc-biblioref">[24]</a></span>, medium <a href="https://medium.com/thedeephub/llm-prompt-engineering-for-beginners-what-it-is-and-how-to-get-started-0c1b483d5d4f#:~:text=In%20essence%2C%20a%20prompt%20is,you%20want%20it%20to%20do">blog post</a> on prompt engineering.</p>
-<p>Prompting is often an iterative process. It typically requires multiple trial-and-error attempts to achieve the desired effect. Each iteration can provide insights into how the model interprets and responds to different input structures.</p>
-<section id="key-elements-of-effective-prompting" class="level5" data-number="17.7.4.1.1">
-<h5 data-number="17.7.4.1.1" class="anchored" data-anchor-id="key-elements-of-effective-prompting"><span class="header-section-number">17.7.4.1.1</span> Key Elements of Effective Prompting</h5>
-<ol type="1">
-<li>Defining a Persona</li>
-</ol>
-<p>Assigning the LLM a specific role or behavior can significantly influence its responses. By giving it a defined persona, the model will attempt to respond in a manner that aligns with that role. This can improve the quality and relevance of its answers.</p>
-<p>Example: “You are a helpful research assistant”</p>
-<p>This prompt frames the model’s responses to be in line with the behavior expected of a research assistant, such as providing accurate information and being resourceful.</p>
-<ol start="2" type="1">
-<li>Setting Guardrails</li>
-</ol>
-<p>Guardrails provide boundaries or conditions within which the model should operate. This is particularly useful to avoid misleading or incorrect information. You can ask the model to refrain from answering if it’s unsure of the response.</p>
-<p>Example: “If you don’t know the final answer, just say ‘I don’t know’.”</p>
-<p>This instructs the LLM to admit uncertainty instead of generating a potentially incorrect answer, thereby increasing reliability.</p>
-<ol start="3" type="1">
-<li>Providing Clear Instructions</li>
-</ol>
-<p>Giving the LLM specific actions to perform before generating responses ensures that it processes the necessary information correctly. This is important when dealing with tasks like reviewing files or using external data.</p>
-<p>Example: “Read the data file before answering any questions.”</p>
-<p>This directs the LLM to review relevant materials, improving the quality of the subsequent answers.</p>
-<ol start="4" type="1">
-<li>Specifying Response Formats</li>
-</ol>
-<p>You can enhance the usefulness of responses by specifying the desired output format. By doing this, you ensure the model delivers information in a form that aligns with your needs.</p>
-<p>Example: “Respond using markdowns.”</p>
-<p>This ensures the LLM outputs text in Markdown format, which can be helpful for structured documents or technical writing.</p>
-</section>
-</section>
-</section>
-<section id="rag-system" class="level3" data-number="17.7.5">
-<h3 data-number="17.7.5" class="anchored" data-anchor-id="rag-system"><span class="header-section-number">17.7.5</span> RAG System</h3>
-<p>Let’s bring it all together</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/foundation-models/RAGsystem.png" class="img-fluid figure-img"></p>
-<figcaption>Fig : RAG system. Image source : <a href="https://blog.demir.io/hands-on-with-rag-step-by-step-guide-to-integrating-retrieval-augmented-generation-in-llms-ac3cb075ab6f">blog.demir</a></figcaption>
-</figure>
-</div>
-<ol type="1">
-<li>User Submits Query: The user inputs a query into the system. This is the initial step where the user’s request is captured.</li>
-<li>RAG System Query Relevant Documents: The RAG system processes the user’s query and searches for relevant documents.</li>
-<li>Document Database Returns Documents: The document database receives the request for relevant documents and returns the documents it finds to the RAG system.</li>
-<li>Combine The Query &amp; The Documents: The RAG system takes the documents provided by the document database and combines them with the original query.</li>
-<li>LLM Returns Answer: The combined query and documents are sent to a Large Language Model (LLM), which generates an answer based on the information provided.</li>
-<li>RAG System Return Answer to User: Finally, the answer generated by the LLM is sent back through the RAG system.</li>
-</ol>
+<p>RAG has multiple use-cases. One of the most common usecase is a chatbot that can answer specific questions. For example, lets say we have a chatbot that has the knowledge base of documentation on supercomputers. This chatbot could help users write scripts/jobs(SLURM scripts) to be submitted to supercomputers, can help guide users to specific section in the documentation if they are stuck, and might even help in debugging errors once their script runs on a supercomputer. If a new SLURM package is introduced, the supercomputer maintainers just need to update the SLURM documentation, which gets pulled into the knowledge base. Hence the chatbot will always have access to the latest information.</p>
+<p>More detailed information about RAG and its implementation will be discussed in detail in the hands-on part.</p>
 
 
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
@@ -1020,10 +900,8 @@ Figure&nbsp;17.1: SAM 2 Architecture. Image source: <span class="citation" data-
 <div id="ref-DBLP:journals/corr/abs-2005-11401" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[23] </div><div class="csl-right-inline">P. S. H. Lewis <em>et al.</em>, <span>“Retrieval-augmented generation for knowledge-intensive <span>NLP</span> tasks,”</span> <em>CoRR</em>, vol. abs/2005.11401, 2020, Available: <a href="https://arxiv.org/abs/2005.11401">https://arxiv.org/abs/2005.11401</a></div>
 </div>
-<div id="ref-weng2023prompt" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[24] </div><div class="csl-right-inline">L. Weng, <span>“Prompt engineering,”</span> <em>lilianweng.github.io</em>, Mar. 2023, Available: <a href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/">https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/</a></div>
 </div>
-</div>
+</section>
 </section>
 </section>
 
