@@ -12,39 +12,43 @@ Visit [https://github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a
 
 ## Image Segmentation using Segment Anything Model 2 (SAM 2)
 
+### Background
 Image segmentation is a fundamental computer vision technique of dividing an image into one or more regions or objects [@ibm_what_2023].
 Promptable Visual Segmentation (PVS) is a new type of segmentation that combines the flexibility of prompts with the power of computer vision models to enable users to segment images interactively based on prompts.
 
 For this section of the foundational model hands-on session, we will use the [@ravi_sam_2024].
 SAM 2 is a foundation model for the PVS task trained on large-scale generic data that can predict object segmentation masks based on input prompts.
-These prompts can be points, bounding boxes (e.g., rectangles), masks, or combinations of these.
+These prompts include points, bounding boxes (e.g., rectangles), masks, or combinations.
 The model converts the image into an image embedding (a dense vector representation of the image), which it then uses to predict segmentation masks based on a user prompt.
 
-One of the prominent classes the SAM 2 source code provides is `SAM2ImagePredictor`, which provides an easy interface to the model.
+One prominent class in the SAM 2 source code is `SAM2ImagePredictor`, which provides an easy interface to the model.
 Users can attach an input image to the model using its `set_image` method, which calculates the image embeddings.
 Then, the users can use the `predict` method to share prompts (user inputs) that help with the segmentation mask prediction.
 
 ::: {.callout-note}
-The Jupyter Notebook for this hands-on session is available within the [https://github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop) repository [here](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb). You can clone or download this repository directly from GitHub.
-This notebook reuses some code segments (e.g., helper methods, imports, loading the model, etc.) from the [image predictor example](https://github.com/facebookresearch/sam2/blob/main/notebooks/image_predictor_example.ipynb) originally published in the SAM 2 repository.
-We have modified the example notebook to use data files from Arctic datasets and included specific activities for the Cyber2A Workshop.
+## Disclaimer
+This notebook reuses some code segments (e.g., helper methods, imports, loading the model, etc.) from the [image predictor example](https://github.com/facebookresearch/sam2/blob/main/notebooks/image_predictor_example.ipynb) initially published in the SAM 2 source code repository.
+SAM 2 source code is released under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0), and Meta Platforms, Inc. and affiliates hold the copyright for the `image_predictor_example.ipynb` notebook.
+We have adapted and modified the image predictor example notebook to use data files from Arctic datasets and included specific activities for the Cyber2A Workshop.
+:::
+
+::: {.callout-note}
+The Jupyter Notebook for this hands-on session is available within the [https://github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop) repository [here](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb).
+You can clone or download this repository directly from GitHub.
 :::
 
 ### Data
 
-Images used in this section of the hands-on lab are from the LeConte Glacier Unmanned Aerial Vehicle (UAV) imagery dataset [@amundson_leconte_2019].
-Specifically, we use a low resolution version (640 x 427) of images with IDs `20180917-112527` and `20180917-115018` from the zip file located at this [URL](https://arcticdata.io/catalog/view/doi%3A10.18739%2FA2445HC19#urn%3Auuid%3Af426289f-43cb-4c74-97ed-e7fc04951fc0).
+Images used in this hands-on lab section are from the LeConte Glacier Unmanned Aerial Vehicle (UAV) imagery dataset [@amundson_leconte_2019].
+Specifically, we use a low-resolution version (640 x 427) of images with IDs `20180917-112527` and `20180917-115018` from the zip file located at this [URL](https://arcticdata.io/catalog/view/doi%3A10.18739%2FA2445HC19#urn%3Auuid%3Af426289f-43cb-4c74-97ed-e7fc04951fc0).
 
 Before continuing with the rest of the sections, open the segmentation.ipynb notebook from the running Jupyter Notebook server.
 
 ### Environment Setup
 
-First, we import the necessary packages, download SAM 2 model checkpoints, and define methods for visualizing the results. Here, model checkpoints are files that contain model weights and architecture and which are saved after a certain number of iterations of model training.
-These checkpoints are used to load the model and make predictions. You can use code snippets in the `Set-Up` section of the segmentation.ipynb notebook to set up the environment.
+First, we import the necessary packages, download SAM 2 model checkpoints, and define methods for visualizing the results. Here, model checkpoints are files containing model weights and architecture saved after a certain number of iterations of model training.
+These checkpoints are used to load the model and make predictions.
 
-<!--
-TODO: Remove the below code blocks.
--->
 <details open>
 <summary>Show code</summary>
 ```{.python .code-overflow-scroll .numberLines}
@@ -67,7 +71,7 @@ os.chdir("..")
 ```
 </details>
 
-Now, we use the code to select the device for computation. Depending on the machine where you are running the segmentation notebook,
+Now, we use the code to select the device for computation. Depending on the machine running the segmentation notebook,
 you could choose between a CPU, GPU, or Metal Performance Shaders (MPS) for computation. The code snippet below shows how to select the device for computation.
 
 <details>
@@ -153,15 +157,16 @@ def show_masks(image, masks, scores, point_coords=None, box_coords=None, input_l
 </details>
 
 
-### Example 1
+### Example Image 1
 
-Now, we read the first example image (`data/images/20180917-112527-reduced.jpg`), create an object, and display it with grid for estimating point and box coordinates.
+Now, we read the first example image (`data/images/20180917-112527-reduced.jpg`), create an object, and display it with a grid for estimating point and box coordinates.
 
 <details open>
 <summary>Show code</summary>
 ```{.python .code-overflow-scroll .numberLines}
 image = Image.open('data/images/20180917-112527-reduced.jpg')
 image = np.array(image.convert("RGB"))
+
 plt.figure(figsize=(10, 10))
 plt.imshow(image)
 plt.grid(visible=True)
@@ -174,8 +179,10 @@ Output:
 
 </details>
 
-Let's now load the SAM 2 model and configuration file. The model is loaded from the `SAM_checkpoints` directory, and the configuration file is loaded from the `configs` directory.
-We use the `sam2.1_hiera_large` model checkpoint and the `sam2.1_hiera_l.yaml` configuration file. Other model versions and their corresponding configuration files can be used as needed.
+### Loading the SAM 2 model and configuration
+
+Now, let's load the SAM 2 model and configuration file. We load the model from the `SAM_checkpoints` directory and the configuration file from the `configs` directory.
+We use the `sam2.1_hiera_large` model checkpoint and the `sam2.1_hiera_l.yaml` configuration file. Other model versions and their corresponding configuration files can also be used, but the accuracy of the segmentation outputs may vary.
 
 <details open>
 <summary>Show code</summary>
@@ -189,9 +196,10 @@ model_cfg = "configs/sam2.1/sam2.1_hiera_l.yaml"
 sam2_model = build_sam2(model_cfg, sam2_checkpoint, device=device)
 predictor = SAM2ImagePredictor(sam2_model)
 ```
+</details>
 
 Now, we process the image to produce an image embedding by calling the `SAM2ImagePredictor.set_image` method.
-`SAM2ImagePredictor` object stores this embedding and will use it for subsequent mask prediction.
+The `SAM2ImagePredictor` object stores this embedding and stores the subsequent mask prediction.
 
 <details open>
 <summary>Show code</summary>
@@ -199,6 +207,213 @@ Now, we process the image to produce an image embedding by calling the `SAM2Imag
 predictor.set_image(image)
 ```
 </details>
+
+### Specifying an object or region using a single point
+
+In this example image, to prompt for the glacier region, let's choose a point on it.
+
+Points are a type of input to the model. They're represented in `(x,y)` format and have corresponding labels `1` or `0`, which represent the foreground and background, respectively.
+As we will see later, we can input multiple points, but here, we use only one.
+The `show_points` method displays the selected point using a star icon.
+
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+input_point = np.array([[600, 400]])
+input_label = np.array([1])
+
+plt.figure(figsize=(10, 10))
+plt.imshow(image)
+show_points(input_point, input_label, plt.gca())
+plt.axis('on')
+plt.show()
+```
+</details>
+
+Output:
+![Selected point on the glacier region](../images/foundation-models/sam-2-example-1-selected-point.png)
+
+### Predicting the segmentation mask
+
+Now, we predict the segmentation mask using the selected point as input.
+The `predict` method of the `SAM2ImagePredictor` object predicts the segmentation mask based on the input point.
+The `show_masks` utility method displays the segmentation mask on the image.
+
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+masks, scores, logits = predictor.predict(
+    point_coords=input_point,
+    point_labels=input_label,
+    multimask_output=True,
+)
+sorted_ind = np.argsort(scores)[::-1] # Sorting the scores in decreasing order
+masks = masks[sorted_ind]
+scores = scores[sorted_ind]
+logits = logits[sorted_ind]
+
+show_masks(image, masks, scores, point_coords=input_point, input_labels=input_label, borders=True)
+```
+</details>
+
+Output:
+![Segmentation mask for the glacier region](../images/foundation-models/sam-2-example-1-segmentation-1.png)
+![Segmentation mask for the glacier region](../images/foundation-models/sam-2-example-1-segmentation-2.png)
+![Segmentation mask for the glacier region](../images/foundation-models/sam-2-example-1-segmentation-3.png)
+
+### Activity 1: Specifying an object or region using multiple points
+
+We can see that the single input point can be ambiguous, and the model has returned multiple sub-regions within the glacier image.
+We can alleviate this by providing multiple points as input. We can also provide a mask from a previous model iteration to help improve the prediction.
+When specifying a single object with multiple prompts, we can ask the model to generate a single mask by setting `multimask_output=False`.
+
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+# E.g., input format for specifying two points
+# input_point = np.array([[x1, y1], [x2, y2]])
+# input_label = np.array([1, 1])
+
+# TODO: In the below piece of code, replace "None" with your two input points. You can specify more points if needed, but please make sure to increase the labels as well.
+
+input_point = np.array([[600, 400], [500, 200]])
+input_label = np.array([1, 1])
+
+```
+</details>
+
+For example, we can use `[600, 400]` and `[500, 200]` as the two points to specify the glacier region.
+
+<details>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+input_point = np.array([[600, 400], [500, 200]])
+input_label = np.array([1, 1])
+
+mask_input = logits[np.argmax(scores), :, :]  # Choose the model's best mask from previous iteration
+
+masks, scores, _ = predictor.predict(
+    point_coords=input_point,
+    point_labels=input_label,
+    mask_input=mask_input[None, :, :],
+    multimask_output=False,
+)
+
+show_masks(image, masks, scores, point_coords=input_point, input_labels=input_label)
+```
+</details>
+
+Output:
+![Segmentation of the glacier region using multiple points as prompts](../images/foundation-models/sam-2-example-1-segmentation-multiple-points.png)
+
+We can see that providing multiple points as input has helped the model to predict a more accurate segmentation mask for the glacier region.
+
+### Example Image 2
+Now, let's read the second example image, create an object, and display it with grid for estimating point and box coordinates.
+
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+image = Image.open('data/images/20180917-115018-reduced.jpg')
+image = np.array(image.convert("RGB"))
+
+plt.figure(figsize=(10, 10))
+plt.imshow(image)
+plt.grid(visible=True)
+plt.axis('on')
+plt.show()
+
+# Replace image in the predictor with the new image
+predictor.set_image(image)
+```
+</details>
+
+Output:
+![Example 2](../images/foundation-models/sam-2-example-2.png)
+
+### Activity 2: Specifying an object or region using multiple points (foreground and background)
+A background point (with label 0) can be supplied to exclude the glacier and water surrounding it and just include the glacial discharge.
+
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+# E.g., input format for specifying three points
+# input_point = np.array([[x1, y1], [x2, y2], [x3, y3]])
+# input_label = np.array([1, 1, 0])
+
+# TODO: In the below piece of code, use two or three input points, of which at least one needs to be a background point (water). You can specify more points if needed, but please make sure to increase the labels as well.
+input_point = None
+input_label = None
+```
+</details>
+
+For example, we can use `[600, 200]` and `[600, 300]` as the foreground points and `[600, 250]` as the background point to specify the glacial discharge region.
+
+<details>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+input_point = np.array([[600, 200], [600, 300], [600, 250]])
+input_label = np.array([1, 1, 0])
+
+mask_input = logits[np.argmax(scores), :, :]  # Choose the model's best mask from previous iteration
+
+masks, scores, _ = predictor.predict(
+    point_coords=input_point,
+    point_labels=input_label,
+    multimask_output=False,
+)
+
+show_masks(image, masks, scores, point_coords=input_point, input_labels=input_label)
+
+```
+
+Output:
+![Segmentation of the glacial discharge region using multiple points as prompts](../images/foundation-models/sam-2-example-2-segmentation-multiple-points.png)
+
+We can see that with three points, including one background point, the model has predicted a large section of the glacial discharge region.
+With additional points (foreground and/or background), users can further guide the model to predict more accurate segmentation masks.
+
+### Activity 3: Specifying a specific object with a box
+We will specify the glacial discharge region using a bounding box in this activity.
+The bounding box is represented as `[x1, y1, x2, y2]`, where `(x1, y1)` is the top-left corner and `(x2, y2)` is the bottom-right corner of the box.
+
+<details open>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+# E.g., input format for specifying a box
+# input_box = np.array([x1, y1, x2, y2])
+
+# TODO: In the below piece of code, replace "None" with a box coordinate.
+input_box = None
+```
+
+For example, we can use `[400, 150, 640, 400]` as the bounding box to specify the glacial discharge region.
+
+<details>
+<summary>Show code</summary>
+```{.python .code-overflow-scroll .numberLines}
+input_box = np.array([400, 150, 640, 400])
+
+masks, scores, _ = predictor.predict(
+    box_coords=input_box,
+    multimask_output=False,
+)
+
+show_masks(image, masks, scores, box_coords=input_box)
+```
+
+Output:
+![Segmentation of the glacial discharge region using a bounding box as a prompt](../images/foundation-models/sam-2-example-2-segmentation-bounding-box.png)
+
+The model has predicted the glacial discharge region based on the bounding box input, but the results are not perfect. Additional prompts, along with the bounding box, can improve this.
+
+We have provided three optional activities for you to try out in the [segmentation notebook](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb), including one that does automatic segment generation without prompts. Feel free to experiment with different prompts and see how the model responds.
+
+### Conclusion
+In this section of the hands-on lab on Foundation Models, we learned how to use the Segment Anything Model 2 (SAM 2) for image segmentation tasks.
+We explored the PVS task, which combines the flexibility of prompts with the power of computer vision models to enable users to segment images interactively based on prompts.
+We used SAM 2 to predict object segmentation masks based on input prompts, such as points, bounding boxes, and masks, and how to guide the model to predict accurate segmentation masks.
+We hope this section of the hands-on lab has provided you with a better understanding of foundation models and how to interact with them.
 
 ### References
 1. [Segment Anything](https://segment-anything.com/)
