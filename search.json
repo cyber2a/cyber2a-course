@@ -966,7 +966,7 @@
     "href": "sections/guest-lecture-yili-arts-dataset.html",
     "title": "11  Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier",
     "section": "",
-    "text": "11.1 Overview\nIn this session, we will introduce and explore the Arctic Retrogressive Thaw Slump (ARTS) dataset. We aim to illuminate the background and motivation behind the ARTS dataset, detail its design elements including functions, metadata, and usage, and underscore its defining features such as scalability, scientific integrity, and the potential for community contribution.",
+    "text": "Overview\nIn this session, we will introduce and explore the Arctic Retrogressive Thaw Slump (ARTS) dataset. We aim to illuminate the background and motivation behind the ARTS dataset, detail its design elements including functions, metadata, and usage, and underscore its defining features such as scalability, scientific integrity, and the potential for community contribution.",
     "crumbs": [
       "<b>Day 3: Advanced AI Workflows and Models</b>",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier</span>"
@@ -976,8 +976,30 @@
     "objectID": "sections/guest-lecture-yili-arts-dataset.html#outline",
     "href": "sections/guest-lecture-yili-arts-dataset.html#outline",
     "title": "11  Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier",
-    "section": "11.2 Outline",
-    "text": "11.2 Outline\n\nBackground and motivation of the Arctic\nRetrogressive Thaw Slump (ARTS) data set.\nSource data for the ARTS data set\nDesign of the data set - functions, metadata, usage\nFeatures of the data set - scalable, scientific, contributable\nData Curation Framework - standards, protocols\nThe ARTS repository - user and contributor guideline\nQuestions and discussions",
+    "section": "Outline",
+    "text": "Outline\n\nBackground and motivation of the Arctic\nRetrogressive Thaw Slump (ARTS) data set.\nSource data for the ARTS data set\nDesign of the data set - functions, metadata, usage\nFeatures of the data set - scalable, scientific, contributable\nData Curation Framework - standards, protocols\nThe ARTS repository - user and contributor guideline\nQuestions and discussions",
+    "crumbs": [
+      "<b>Day 3: Advanced AI Workflows and Models</b>",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier</span>"
+    ]
+  },
+  {
+    "objectID": "sections/guest-lecture-yili-arts-dataset.html#lecturer",
+    "href": "sections/guest-lecture-yili-arts-dataset.html#lecturer",
+    "title": "11  Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier",
+    "section": "Lecturer",
+    "text": "Lecturer\nYili Yang, Ph.D.",
+    "crumbs": [
+      "<b>Day 3: Advanced AI Workflows and Models</b>",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier</span>"
+    ]
+  },
+  {
+    "objectID": "sections/guest-lecture-yili-arts-dataset.html#slides",
+    "href": "sections/guest-lecture-yili-arts-dataset.html#slides",
+    "title": "11  Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier",
+    "section": "Slides",
+    "text": "Slides\nDownload Slides",
     "crumbs": [
       "<b>Day 3: Advanced AI Workflows and Models</b>",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier</span>"
@@ -987,8 +1009,8 @@
     "objectID": "sections/guest-lecture-yili-arts-dataset.html#reference",
     "href": "sections/guest-lecture-yili-arts-dataset.html#reference",
     "title": "11  Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier",
-    "section": "11.3 Reference",
-    "text": "11.3 Reference\n\nhttps://github.com/whrc/ARTS",
+    "section": "Reference",
+    "text": "Reference\n\nhttps://github.com/whrc/ARTS",
     "crumbs": [
       "<b>Day 3: Advanced AI Workflows and Models</b>",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Guest Lecture - Unveiling the ARTS Dataset for a Thawing Frontier</span>"
