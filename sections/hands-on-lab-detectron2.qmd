@@ -1,0 +1,3 @@
+# Hands-On Lab: Detectron2
+
+This hands-on lab will be based on our recent research work regarding different types of feature fusion approaches. The work is currently under review, and the content will be released after the review process.

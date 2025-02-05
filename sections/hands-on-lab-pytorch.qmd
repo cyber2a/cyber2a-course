@@ -35,7 +35,7 @@ To download the dataset, run the following commands:
 ::: {.callout-caution icon="false" collapse="true"}
 ## Download the dataset
 ```python
-!wget --content-dispositio https://www.dropbox.com/scl/fi/1pz52tq3puomi0185ccyq/cyber2a.zip?rlkey=3dgf4gfrj9yk1k4p2znn9grso&st=bapbt1bq&dl=0
+!wget --content-disposition https://www.dropbox.com/scl/fi/1pz52tq3puomi0185ccyq/cyber2a.zip?rlkey=3dgf4gfrj9yk1k4p2znn9grso&st=bapbt1bq&dl=0
 
 !unzip -o cyber2a.zip
 ```

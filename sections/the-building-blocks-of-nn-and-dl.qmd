@@ -6,7 +6,9 @@ This introductory session is designed to familiarize participants with the essen
 ## Introduction
 At first glance, we can think of **deep learning** as a car—**a tool to help us achieve goals and solve problems.** Just as you start driving by learning the basics (without diving into all the complex mechanics), your journey into deep learning begins with understanding its essential components. 
 
+<!--
 ![Created by ChatGPT image generator](../images/dl-pytorch/dl-car.png)
+!-->
 
 ### What does this tool (deep learning) do?
 > *Finding a function automatically that maps given inputs to desired outputs [^0].* 
@@ -64,7 +66,7 @@ To build a deep learning application, the first step is to define and prepare th
 * Are there any task-specific considerations, e.g., granularity, temporal consistency, or spatial coverage?
 * Is the data clean and usable, e.g., missing values, outliers, or noise?
 
-Here are some key steps and pratical tips when preparing input data:
+Here are some key steps and practical tips when preparing input data:
 
 ::: {.callout-caution icon="false" collapse="true"}
 ## Collection 
@@ -211,7 +213,7 @@ The specific function is determined by choosing a model architecture and trainin
 Deep learning models are composed of layers. A layer is like a sub-function that processes the input data and passes it to the next layer. Different types of layers serve specific purposes. Here are some examples: 
 
 ::: {.callout-note}
-To get started, don't get overwhelmed by the details of each layer type. Just get a sense of their functions and focus on applying entire models in practical senarios. You can always revisit and explore individual layers more thoroughly later.
+To get started, don't get overwhelmed by the details of each layer type. Just get a sense of their functions and focus on applying entire models in practical scenarios. You can always revisit and explore individual layers more thoroughly later.
 :::
 
 ::: {.callout-caution icon="false" collapse="true"}
