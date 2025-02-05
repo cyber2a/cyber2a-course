@@ -704,7 +704,7 @@ optimizer.step()
 :::
 
 ## Training a model in PyTorch
-Training a deep learning model in PyTorch involves combining the building blocks we've discussed so far: data handling, model building, loss computation, and optimization. The basic triaining loop consists of the following steps:
+Training a deep learning model in PyTorch involves combining the building blocks we've discussed so far: data handling, model building, loss computation, and optimization. The basic training loop consists of the following steps:
 
 1. **Data loading:** Load the training data using a `DataLoader` and iterate over the batches.
 2. **Forward pass:** Pass the input data through the model to compute the predicted output.
