@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-72c93205fb41c15e2e398b4f9a505ee2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2ce9fc9ac8b614e7ffef13962cc12eaf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -296,8 +296,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal">Goal</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions">Assumptions</a></li>
+  <li><a href="#step-1-hello-garden" id="toc-step-1-hello-garden" class="nav-link" data-scroll-target="#step-1-hello-garden">Step 1: Hello, Garden!</a></li>
+  <li><a href="#step-2-learn-how-to-iterate-on-modal-apps" id="toc-step-2-learn-how-to-iterate-on-modal-apps" class="nav-link" data-scroll-target="#step-2-learn-how-to-iterate-on-modal-apps">Step 2: Learn how to iterate on Modal apps</a></li>
+  <li><a href="#step-3-stage-and-execute-a-model" id="toc-step-3-stage-and-execute-a-model" class="nav-link" data-scroll-target="#step-3-stage-and-execute-a-model">Step 3: Stage and execute a model</a></li>
+  <li><a href="#step-4-run-a-real-model" id="toc-step-4-run-a-real-model" class="nav-link" data-scroll-target="#step-4-run-a-real-model">Step 4: Run a “Real Model”</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -321,8 +334,76 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="goal" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="goal">Goal</h2>
+<p>This lab section will give students experience publishing MLModels as citeable objects that can be easily found and reused by other researchers. Students will learn how to package a model up as an executable function and publish it to garden.</p>
+</section>
+<section id="prerequisites" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>We will be using the Modal service to create and host executable python functions. In order to use this you will need on your laptop:</p>
+<ol type="1">
+<li>Python 3.9 or higher</li>
+<li>A free Globus account (https://www.globus.org/)</li>
+<li>A free modal account (https://www.modal.com/)</li>
+</ol>
+<p>You will need to let the instructor know the email address associated with your globus account to be added to the garden publishers group.</p>
+<p>Once you are added to the garden publishers group, you should be able to see the <a href="https://thegardens.ai/#/garden/create?type=modal">Garden Model Upload Form</a></p>
+</section>
+<section id="assumptions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assumptions">Assumptions</h2>
+<p>During this lab we will use some pre-trained models to demonstrate the process of packaging and publishing a model. You are also welcome to use your own models if you have them.</p>
+<p>In order for your model to be published to garden, it must be:</p>
+<ul>
+<li>Open and already trained
+<ul>
+<li>The code is open source and in a package or a public repository</li>
+<li>Your model weights are stored somewhere public (or you can put them somewhere public)</li>
+</ul></li>
+<li>Your model isn’t massive
+<ul>
+<li>Your model can fit in one GPU’s memory</li>
+<li>Your model weights are on the order of 10 GB or less</li>
+</ul></li>
+</ul>
+</section>
+<section id="step-1-hello-garden" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="step-1-hello-garden">Step 1: Hello, Garden!</h2>
+<p>All of the examples in this lab are available in the workshop repository. Clone the repository to your local machine:</p>
+<pre><code>git clone https://github.com/Garden-AI/uploadathon.git</code></pre>
+<p>In this step we will upload an existing trivial model to garden and execute it from a Google Colab notebook.</p>
+<p>Use the <a href="https://github.com/Garden-AI/uploadathon/blob/main/hello_world.py">hello_garden.py</a> from the example repo and upload it from the garden form.</p>
+<p>Keep it a “test garden” and don’t worry too hard about the metadata</p>
+<p>Once you’ve created it, go make sure you can invoke it remotely. Try out this <a href="https://colab.research.google.com/drive/1jiPsc0jYIoOCcMnXIJv5LiXUt419xal4?usp=sharing">google colab notebook</a> to see it in action.</p>
+</section>
+<section id="step-2-learn-how-to-iterate-on-modal-apps" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="step-2-learn-how-to-iterate-on-modal-apps">Step 2: Learn how to iterate on Modal apps</h2>
+<p>In this step we will learn more about creating and debugging a modal app.</p>
+<p>Install the modal package:</p>
+<pre><code>pip install modal</code></pre>
+<p>Download <a href="https://github.com/Garden-AI/uploadathon/blob/main/needs_a_tweak.py">needs_a_tweak.py</a> and try running it with</p>
+<pre><code>modal run needs_a_tweak.py</code></pre>
+<p>Edit and re-run til it works the way you want it to.</p>
+</section>
+<section id="step-3-stage-and-execute-a-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="step-3-stage-and-execute-a-model">Step 3: Stage and execute a model</h2>
+<p>Now we will create a modal function that has your model’s weights baked into the container so that our functions don’t need to download the model every time they run.</p>
+<p>Your model weights will need to live somewhere publicly accessible. Garden can’t pull them from your machine.</p>
+<ul>
+<li>See <a href="https://github.com/Garden-AI/uploadathon/blob/main/git_model_staging.py">git_model_staging.py</a> for an example of how to use weights hosted in GitHub or Hugging Face.</li>
+<li>See <a href="https://github.com/Garden-AI/uploadathon/blob/main/figshare_model_staging.py">figshare_model_staging.py</a> for an example of how to pull weights from a FigShare download link.</li>
+</ul>
+</section>
+<section id="step-4-run-a-real-model" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="step-4-run-a-real-model">Step 4: Run a “Real Model”</h2>
+<p>Take a look at the <a href="https://github.com/Garden-AI/uploadathon/blob/main/examples/ESIP/RTS/rts.py">Retrograde Thaw Slump model</a>. You can execute the model from the <a href="https://colab.research.google.com/drive/1slJ0h_nK1UEFKrDUE0YDz53EqWyt7kg4">google colab notebook</a> to see it in action.</p>
+</section>
+<section id="next-steps" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>Now that you have successfully published a model to garden, you can share the link with your colleagues and collaborators. You can also use the model in your own research projects by invoking it from a Google Colab notebook or other python environment.</p>
+<p>The Garden project provides $5/month in free compute credits to all users. This can go a surprisingly long way, however if you are planning to do high throughput infrence, then you may need to BYOM (Bring Your Own Modal). You can take the python function you uploaded to garden and directly uplaod to Modal and run it from your own account.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

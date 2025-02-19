@@ -1318,7 +1318,7 @@
     "href": "sections/ai-workflows-and-mlops.html#sharing-models",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
     "section": "15.7 Sharing Models",
-    "text": "15.7 Sharing Models\nNow that we have trained and validated a model we will want to first of all, share it with other members of our research group.\n\n15.7.1 MLFlow Model Repository\nExpert users within our research group will have access to the MLFlow tracking server and model repository. You can test the model as an artifact from an existing run. Once you are satisfied with its performance, you can publish it to the MLFlow model repository with the Register Model button on the tracking server.\nPublished models are given sequential version numbers so colleauges can rely on a stable model for their research. Models in the repository can also follow a lifecycle with MLFlow model aliases. Members of the research group who are not activly involved in model development may just want to use the current best model. The researcher who is training the model can decide which version others should use. MLFlow allows you to pull down the model symbolically.\nmlflow.pyfunc.load_model(\"models:/rts@prod\")\n\n\n15.7.2 Models as Citable Objects\nPublishing your MLProject and training code to a Git repo and making the data publicly readable through a data repository is a way for others to reproduce your models. However, to make your work truly reusable it is better to publish the weights of your trained model in a way that is findable, citable, and usable.\nAt a minimum, you should publish your model on Hugging Face. You can include a README and an notebook demonstrating how to use the model. HuggingFace allows you to mint a DOI that you can cite in your publications.\nHere’s an example with the RTS model:\n\nhttps://huggingface.co/bengal1/RTS/tree/main\n\nA new facility called Garden takes this a step further. Your model is hosted as an endpoint which is a hosted function-as-a-service which allows anyone to perform inference with your model without needing to install anything.\nOur example model is hosted at 10.26311/5fb6-f950\nYou can run a remote inference:\nfrom garden_ai import GardenClient\ngarden_client = GardenClient()\n\nrts_garden = garden_client.get_garden('10.26311/5fb6-f950')\nimage_url=\"https://github.com/cyber2a/Cyber2A-RTS-ToyModel/blob/main/data/images/valtest_yg_055.jpg?raw=true\"\npred = rts_garden.identify_rts(image_url)",
+    "text": "15.7 Sharing Models\nNow that we have trained and validated a model we will want to first of all, share it with other members of our research group.\n\n15.7.1 MLFlow Model Repository\nExpert users within our research group will have access to the MLFlow tracking server and model repository. You can test the model as an artifact from an existing run. Once you are satisfied with its performance, you can publish it to the MLFlow model repository with the Register Model button on the tracking server.\nPublished models are given sequential version numbers so colleauges can rely on a stable model for their research. Models in the repository can also follow a lifecycle with MLFlow model aliases. Members of the research group who are not activly involved in model development may just want to use the current best model. The researcher who is training the model can decide which version others should use. MLFlow allows you to pull down the model symbolically.\nmlflow.pyfunc.load_model(\"models:/rts@prod\")\n\n\n15.7.2 Models as Citable Objects\nPublishing your MLProject and training code to a Git repo and making the data publicly readable through a data repository is a way for others to reproduce your models. However, to make your work truly reusable it is better to publish the weights of your trained model in a way that is findable, citable, and usable.\nAt a minimum, you should publish your model on Hugging Face. You can include a README and an notebook demonstrating how to use the model. HuggingFace allows you to mint a DOI that you can cite in your publications.\nHere’s an example with the RTS model:\n\nhttps://huggingface.co/bengal1/RTS/tree/main\n\nA new facility called Garden takes this a step further. Your model is hosted as an endpoint which is a hosted function-as-a-service which allows anyone to perform inference with your model without needing to install anything.\nOur example model is hosted at 10.26311/x49j-2v19\nYou can run a remote inference:\nfrom garden_ai import GardenClient\ngarden_client = GardenClient()\n\nrts_garden = garden_client.get_garden('10.26311/5fb6-f950')\nimage_url=\"https://github.com/cyber2a/Cyber2A-RTS-ToyModel/blob/main/data/images/valtest_yg_055.jpg?raw=true\"\npred = rts_garden.identify_rts(image_url)",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1333,6 +1333,94 @@
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-ai-workflows.html",
+    "href": "sections/hands-on-lab-ai-workflows.html",
+    "title": "15  Hands-On Lab: AI Workflows",
+    "section": "",
+    "text": "Goal\nThis lab section will give students experience publishing MLModels as citeable objects that can be easily found and reused by other researchers. Students will learn how to package a model up as an executable function and publish it to garden.",
+    "crumbs": [
+      "<b>Day 4: Workflows and Foundation Models</b>",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-ai-workflows.html#prerequisites",
+    "href": "sections/hands-on-lab-ai-workflows.html#prerequisites",
+    "title": "15  Hands-On Lab: AI Workflows",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nWe will be using the Modal service to create and host executable python functions. In order to use this you will need on your laptop:\n\nPython 3.9 or higher\nA free Globus account (https://www.globus.org/)\nA free modal account (https://www.modal.com/)\n\nYou will need to let the instructor know the email address associated with your globus account to be added to the garden publishers group.\nOnce you are added to the garden publishers group, you should be able to see the Garden Model Upload Form",
+    "crumbs": [
+      "<b>Day 4: Workflows and Foundation Models</b>",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-ai-workflows.html#assumptions",
+    "href": "sections/hands-on-lab-ai-workflows.html#assumptions",
+    "title": "15  Hands-On Lab: AI Workflows",
+    "section": "Assumptions",
+    "text": "Assumptions\nDuring this lab we will use some pre-trained models to demonstrate the process of packaging and publishing a model. You are also welcome to use your own models if you have them.\nIn order for your model to be published to garden, it must be:\n\nOpen and already trained\n\nThe code is open source and in a package or a public repository\nYour model weights are stored somewhere public (or you can put them somewhere public)\n\nYour model isn’t massive\n\nYour model can fit in one GPU’s memory\nYour model weights are on the order of 10 GB or less",
+    "crumbs": [
+      "<b>Day 4: Workflows and Foundation Models</b>",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-ai-workflows.html#step-1-hello-garden",
+    "href": "sections/hands-on-lab-ai-workflows.html#step-1-hello-garden",
+    "title": "15  Hands-On Lab: AI Workflows",
+    "section": "Step 1: Hello, Garden!",
+    "text": "Step 1: Hello, Garden!\nAll of the examples in this lab are available in the workshop repository. Clone the repository to your local machine:\ngit clone https://github.com/Garden-AI/uploadathon.git\nIn this step we will upload an existing trivial model to garden and execute it from a Google Colab notebook.\nUse the hello_garden.py from the example repo and upload it from the garden form.\nKeep it a “test garden” and don’t worry too hard about the metadata\nOnce you’ve created it, go make sure you can invoke it remotely. Try out this google colab notebook to see it in action.",
+    "crumbs": [
+      "<b>Day 4: Workflows and Foundation Models</b>",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-ai-workflows.html#step-2-learn-how-to-iterate-on-modal-apps",
+    "href": "sections/hands-on-lab-ai-workflows.html#step-2-learn-how-to-iterate-on-modal-apps",
+    "title": "15  Hands-On Lab: AI Workflows",
+    "section": "Step 2: Learn how to iterate on Modal apps",
+    "text": "Step 2: Learn how to iterate on Modal apps\nIn this step we will learn more about creating and debugging a modal app.\nInstall the modal package:\npip install modal\nDownload needs_a_tweak.py and try running it with\nmodal run needs_a_tweak.py\nEdit and re-run til it works the way you want it to.",
+    "crumbs": [
+      "<b>Day 4: Workflows and Foundation Models</b>",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-ai-workflows.html#step-3-stage-and-execute-a-model",
+    "href": "sections/hands-on-lab-ai-workflows.html#step-3-stage-and-execute-a-model",
+    "title": "15  Hands-On Lab: AI Workflows",
+    "section": "Step 3: Stage and execute a model",
+    "text": "Step 3: Stage and execute a model\nNow we will create a modal function that has your model’s weights baked into the container so that our functions don’t need to download the model every time they run.\nYour model weights will need to live somewhere publicly accessible. Garden can’t pull them from your machine.\n\nSee git_model_staging.py for an example of how to use weights hosted in GitHub or Hugging Face.\nSee figshare_model_staging.py for an example of how to pull weights from a FigShare download link.",
+    "crumbs": [
+      "<b>Day 4: Workflows and Foundation Models</b>",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-ai-workflows.html#step-4-run-a-real-model",
+    "href": "sections/hands-on-lab-ai-workflows.html#step-4-run-a-real-model",
+    "title": "15  Hands-On Lab: AI Workflows",
+    "section": "Step 4: Run a “Real Model”",
+    "text": "Step 4: Run a “Real Model”\nTake a look at the Retrograde Thaw Slump model. You can execute the model from the google colab notebook to see it in action.",
+    "crumbs": [
+      "<b>Day 4: Workflows and Foundation Models</b>",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "sections/hands-on-lab-ai-workflows.html#next-steps",
+    "href": "sections/hands-on-lab-ai-workflows.html#next-steps",
+    "title": "15  Hands-On Lab: AI Workflows",
+    "section": "Next Steps",
+    "text": "Next Steps\nNow that you have successfully published a model to garden, you can share the link with your colleagues and collaborators. You can also use the model in your own research projects by invoking it from a Google Colab notebook or other python environment.\nThe Garden project provides $5/month in free compute credits to all users. This can go a surprisingly long way, however if you are planning to do high throughput infrence, then you may need to BYOM (Bring Your Own Modal). You can take the python function you uploaded to garden and directly uplaod to Modal and run it from your own account.",
+    "crumbs": [
+      "<b>Day 4: Workflows and Foundation Models</b>",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Hands-On Lab: AI Workflows</span>"
     ]
   },
   {
