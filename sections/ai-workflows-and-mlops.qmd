@@ -250,7 +250,7 @@ A new facility called [Garden](https://thegardens.ai) takes this a step further.
 is hosted as an _endpoint_ which is a hosted function-as-a-service which allows anyone
 to perform inference with your model without needing to install anything.
 
-Our example model is hosted at [10.26311/5fb6-f950](https://thegardens.ai/#/garden/10.26311%2F5fb6-f950)
+Our example model is hosted at [10.26311/x49j-2v19](https://thegardens.ai/#/modal/47)
 
 You can run a remote inference:
 

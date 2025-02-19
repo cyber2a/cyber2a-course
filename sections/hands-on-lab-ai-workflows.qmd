@@ -1,3 +1,102 @@
 # Hands-On Lab: AI Workflows
 
+---
+title: "Hands-On Lab: AI Workflows"
+toc: true
+number-sections: true
+from: markdown+emoji
+---
 
+## Goal {.unnumbered}
+This lab section will give students experience publishing MLModels as citeable objects
+that can be easily found and reused by other researchers. Students will learn how to
+package a model up as an executable function and publish it to garden.
+
+## Prerequisites {.unnumbered}
+We will be using the Modal service to create and host executable python functions. In
+order to use this you will need on your laptop:
+
+1. Python 3.9 or higher
+2. A free Globus account (https://www.globus.org/)
+3. A free modal account (https://www.modal.com/)
+
+You will need to let the instructor know the email address associated with
+your globus account to be added to the garden publishers group.
+
+Once you are added to the garden publishers group, you should be able to see
+the [Garden Model Upload Form](https://thegardens.ai/#/garden/create?type=modal)
+
+## Assumptions {.unnumbered}
+During this lab we will use some pre-trained models to demonstrate the process of
+packaging and publishing a model. You are also welcome to use your own models if you
+have them.
+
+In order for your model to be published to garden, it must be:
+
+- Open and already trained
+    - The code is open source and in a package or a public repository
+    - Your model weights are stored somewhere public (or you can put them somewhere public)
+- Your model isn’t massive
+    - Your model can fit in one GPU’s memory
+    - Your model weights are on the order of 10 GB or less
+
+## Step 1: Hello, Garden! {.unnumbered}
+
+All of the examples in this lab are available in the workshop repository. Clone the
+repository to your local machine:
+```
+git clone https://github.com/Garden-AI/uploadathon.git
+```
+
+In this step we will upload an existing trivial model to garden and execute it
+from a Google Colab notebook.
+
+Use the [hello_garden.py](https://github.com/Garden-AI/uploadathon/blob/main/hello_world.py)
+from the example repo and upload it from the garden form.
+
+Keep it a “test garden” and don’t worry too hard about the metadata
+
+Once you’ve created it, go make sure you can invoke it remotely. Try out this
+[google colab notebook](https://colab.research.google.com/drive/1jiPsc0jYIoOCcMnXIJv5LiXUt419xal4?usp=sharing)
+to see it in action.
+
+## Step 2: Learn how to iterate on Modal apps {.unnumbered}
+In this step we will learn more about creating and debugging a modal app.
+
+Install the modal package:
+```
+pip install modal
+```
+
+Download [needs_a_tweak.py](https://github.com/Garden-AI/uploadathon/blob/main/needs_a_tweak.py) and try
+running it with
+```
+modal run needs_a_tweak.py
+```
+Edit and re-run til it works the way you want it to.
+
+## Step 3: Stage and execute a model {.unnumbered}
+Now we will create a modal function that has your model's weights baked
+into the container so that our functions don’t need to download the model
+every time they run.
+
+Your model weights will need to live somewhere publicly accessible.
+Garden can’t pull them from your machine.
+
+- See [git_model_staging.py](https://github.com/Garden-AI/uploadathon/blob/main/git_model_staging.py) for an example of how to use weights hosted in GitHub or Hugging Face.
+- See [figshare_model_staging.py](https://github.com/Garden-AI/uploadathon/blob/main/figshare_model_staging.py) for an example of how to pull weights from a FigShare download link.
+
+## Step 4: Run a "Real Model" {.unnumbered}
+Take a look at the [Retrograde Thaw Slump model](https://github.com/Garden-AI/uploadathon/blob/main/examples/ESIP/RTS/rts.py).
+You can execute the model from the [google colab notebook](https://colab.research.google.com/drive/1slJ0h_nK1UEFKrDUE0YDz53EqWyt7kg4) to see it in action.
+
+## Next Steps {.unnumbered}
+Now that you have successfully published a model to garden, you can share the link with
+your colleagues and collaborators. You can also use the model in your own research
+projects by invoking it from a Google Colab notebook or other python environment.
+
+The Garden project provides $5/month in free compute credits to all users. This
+can go a surprisingly long way, however if you are planning to do high throughput
+infrence, then you may need to BYOM (Bring Your Own Modal). You can take the python
+function you uploaded to garden and directly uplaod to Modal and run it from
+your own account.
