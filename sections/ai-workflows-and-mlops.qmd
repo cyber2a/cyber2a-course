@@ -1,14 +1,14 @@
 # AI Workflows and MLOps: From Development to Deployment
 
-## Instructors
+## Instructors {.unnumbered}
 
 Ben Galewsky, Sr. Research Software Engineer National Center for Supercomputing Applications (NCSA) University of Illinois Urbana-Champaign
 
-## Overview
+## Overview {.unnumbered}
 
 Machine learning models have become a vital tool for most branches of science. The process and tools for training these models on the lab’s desktop is often fragile, slow, and not reproducible. In this workshop, we will introduce the concept of MLOps, which is a set of practices that aims to streamline the process of developing, training, and deploying machine learning models. We will use the popular open source MLOps tool, MLflow, to demonstrate how to track experiments, package code, and deploy models. We will also introduce Garden, a tool that allows researchers to publish ML Models as citable objects.
 
-## Outline
+## Outline {.unnumbered}
 
 * Introduction to MLOps
 * Introduction to MLflow
@@ -28,7 +28,7 @@ Machine Learning Operations (MLOps) is a set of practices that combines Machine 
 
 Think of MLOps as the infrastructure and practices that transform ML projects from experimental notebooks into robust, production-ready systems that deliver real reproducible scientific value.
 
-## Why Researchers Need MLOps
+### Why Researchers Need MLOps {.unnumbered}
 
 As a researcher, you've likely experienced the following challenges:
 
@@ -41,25 +41,25 @@ As a researcher, you've likely experienced the following challenges:
 
 MLOps addresses these pain points by providing:
 
-### 1. Reproducibility
+#### **1. Reproducibility** {.unnumbered}
 
 * Version control for data, code, and models
 * Automated documentation of experiments
 * Containerization for consistent environments
 
-### 2. Automation
+#### **2. Automation** {.unnumbered}
 
 * Automated training pipelines
 * Continuous integration and deployment (CI/CD)
 * Automated testing and validation
 
-### 3. Production Monitoring
+#### **3. Production Monitoring** {.unnumbered}
 
 * Real-time performance monitoring
 * Data drift detection
 * Automated model retraining triggers
 
-### 4. Governance
+#### **4. Governance** {.unnumbered}
 
 * Model lineage tracking
 
@@ -67,19 +67,19 @@ MLOps addresses these pain points by providing:
 
 MLOps isn't just another buzzword—it's a crucial evolution in how we develop and deploy ML systems. As models become more complex and requirements for reliability increase, MLOps practices become essential for successful ML implementations.
 
-# MLflow: A Comprehensive Platform for the ML Lifecycle
+## MLflow: A Comprehensive Platform for the ML Lifecycle 
 
-## What is MLflow?
+### What is MLflow? {.unnumbered}
 
 MLflow is an open-source platform designed to manage the end-to-end machine learning lifecycle. Created by Databricks, it provides a unified set of tools that address the core challenges in developing, training, and deploying machine learning models. MLflow is language-agnostic and can work with any ML library, algorithm, or deployment tool.
 
-## The PDG MLFlow Tracking Server
+### The PDG MLFlow Tracking Server {.unnumbered}
 The Permafrost Discovery Gateway project has a shared MLFlow instance
 that you can use for your arctic research:
 
 [https://pdg.mflow.software.ncsa.illinois.edu](https://pdg.mflow.software.ncsa.illinois.edu)
 
-## Key Components of MLflow
+### Key Components of MLflow {.unnumbered}
 MLFlow consists of three main components:
 
 ::: {.callout-caution collapse="true" icon="false"
@@ -87,7 +87,7 @@ MLFlow consists of three main components:
 
 The tracking server of MLFlow allows researchers to log and compare model parameters, metrics, and artifacts across multiple runs. With MLFlow's tracking features, users can record hyperparameters, evaluation metrics, model versions, and even source code, making it easier to reproduce results and collaborate with team members. The platform provides a user-friendly interface to visualize and compare different experiments, helping practitioners identify the most promising models and configurations. Additionally, MLFlow's tracking capabilities integrate seamlessly with popular ML frameworks, enabling users to incorporate experiment logging into their existing workflows with minimal code changes. This comprehensive approach to tracking enhances model development efficiency and facilitates better decision-making throughout the machine learning process.
 
-### Key Concepts in Tracking:
+#### **Key Concepts in Tracking:** {.unnumbered}
 
 * **Parameters**: key-value inputs to your code
 * **Metrics**: numeric values (can update over time)
@@ -112,7 +112,7 @@ with mlflow.start_run():
      title="Projects"}
 MLFlow Projects provide a standardized format for packaging and organizing machine learning code to make it reproducible and reusable across different environments. A Project in MLFlow is essentially a directory containing code, dependencies, and an MLProject file that specifies the project's entry points and environment requirements. This structure enables data scientists to share their work with teammates who can reliably execute the same code, regardless of their local setup. The MLProject file can define multiple entry points, each specifying its parameters and command to run, making it flexible for different use cases within the same project. MLFlow supports various environments for project execution, including conda environments, Docker containers, and system environments, ensuring consistency across different platforms. This standardization not only improves collaboration but also simplifies the deployment process, as projects can be easily versioned and moved between development and production environments.
 
-### Key Concepts in Projects
+#### **Key Concepts in Projects** {.unnumbered}
 
 * Packaging format for reproducible ML runs
     - Any code folder or GitHub repository
@@ -143,7 +143,7 @@ entry_points:
 
 The Models component of MLFlow provides a standardized way to package and deploy machine learning models across different platforms and serving environments. MLFlow's model format includes all the code and dependencies required to run the model, making it highly portable and easy to share. The platform supports a variety of popular ML frameworks like scikit-learn, TensorFlow, and PyTorch, allowing models to be saved in a framework-agnostic format using the MLFlow Model Registry. This registry acts as a centralized repository where teams can version their models, transition them through different stages (like staging and production), and maintain a clear lineage of model iterations. MLFlow also provides built-in deployment capabilities to various serving platforms such as Kubernetes, Amazon SageMaker, and Azure ML, streamlining the process of moving models from experimentation to production. Additionally, MLFlow's model serving feature allows for quick local deployment of models as REST endpoints, enabling easy testing and integration with other applications.
 
-### Key Concepts in Models
+#### **Key Concepts in Models** {.unnumbered}
 
 * Packaging format for ML Models
     - Any directory with MLmodel file
@@ -187,18 +187,18 @@ mlflow run --backend slurm \
 
 
 ## How MLflow Solves Common MLOps Challenges
-### Training productivity
+### Training productivity {.unnumbered}
 
 * Track impact of hyperparameter and code changes on model quality
 * Run hyperparameter sweeps and find best run
 * Switch between desktop to supercomputer
 
-### Training reproducibility
+### Training reproducibility {.unnumbered}
 
 * Enforced use of reproducible runtime environments
 * Trace models back to specific runs
 
-### Model citeability
+### Model citeability {.unnumbered}
 
 * Publish models to repository
 * Versioning and lifecycle events
@@ -216,7 +216,7 @@ aspects of the code.
 Now that we have trained and validated a model we will want to first of all, share
 it with other members of our research group.
 
-### MLFlow Model Repository
+### MLFlow Model Repository {.unnumbered}
 Expert users within our research group will have access to the MLFlow tracking server
 and model repository. You can test the model as an artifact from an existing run. Once
 you are satisfied with its performance, you can publish it to the MLFlow model repository with
@@ -231,7 +231,7 @@ decide which version others should use. MLFlow allows you to pull down the model
 ```python
 mlflow.pyfunc.load_model("models:/rts@prod")
 ```
-### Models as Citable Objects
+### Models as Citable Objects {.unnumbered}
 Publishing your MLProject and training code to a Git repo and making the data publicly
 readable through a data repository is a way for others to reproduce your models.
 However, to make your work truly reusable it is better to publish the weights of your

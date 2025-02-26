@@ -1,4 +1,11 @@
 # The Fun and Frontiers of AI: Innovation, Imagination, Interaction
 
+## Overview {.unnumbered}
 
+This presentation, *"The Fun and Frontiers of AI in Arctic Science,"* explores how artificial intelligence (AI) is transforming Arctic research. It introduces key AI subfields, including computer vision and natural language processing, and highlights their applications in environmental science, such as mapping permafrost thaw, forecasting weather patterns, and analyzing vast datasets. The slides showcase real-world projects like **PolarHub** and **PolarGlobe**, which leverage AI for data discovery and climate visualization. Additionally, the presentation discusses AI-driven search and recommendation systems, deep learning for sea ice monitoring, and the challenges of using large models in scientific research. Through these examples, it illustrates how AI can enhance scientific discovery while emphasizing the need for responsible and informed AI applications in Arctic studies.
 
+## Slides {.unnumbered}
+
+[Download Slides](../images/fun_and_frontiers_of_ai.pdf)
+
+![](../images/fun_and_frontiers_of_ai.pdf){width=100% height=450px}
