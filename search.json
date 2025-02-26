@@ -823,7 +823,18 @@
     "href": "sections/permafrost-discovery-gateway.html",
     "title": "9  Permafrost Discovery Gateway",
     "section": "",
-    "text": "We have more satellite imagery data than what we know what to do with. There are many people with different knowledges and common passions for permafrost-affected landscapes. At the same time, Alaska and the Arctic at large are starving for basic geospatial information about it’s permafrost-affected landscape and infrastructure and people may have a hard time finding others to help make visions come true. The Permafrost Discovery Gateway (PDG) is an online free tool meant to empower a) researchers to produce and do science with big geospatial data (think sub-meter resolution maps across Alaska and the entire Arctic) and b) agencies and community leaders in land and infrastructure management that involves permafrost. PDG currently offers easy visual exploration via a regular web-browser of datasets that otherwise crush traditional GIS software due to the file size. In the works are, for example, new big datasets of permafrost thaw features and infrastructure, partial dataset download tool, the incorporation of statistical summaries and AI tools that help the user find interesting stories in the big data products, plug-and-play workflows to help you develop your own big dataset, and the monitoring of permafrost thaw near-real time. The PDG can become a gateway where data and people can connect, where technology enables anyone with an internet connection, no matter your technical skills and resources, to connect, explore, and together create.\nDownload Permafrost Discovery Gateway slides",
+    "text": "Overview\nWe have more satellite imagery data than what we know what to do with. There are many people with different knowledges and common passions for permafrost-affected landscapes. At the same time, Alaska and the Arctic at large are starving for basic geospatial information about it’s permafrost-affected landscape and infrastructure and people may have a hard time finding others to help make visions come true. The Permafrost Discovery Gateway (PDG) is an online free tool meant to empower a) researchers to produce and do science with big geospatial data (think sub-meter resolution maps across Alaska and the entire Arctic) and b) agencies and community leaders in land and infrastructure management that involves permafrost. PDG currently offers easy visual exploration via a regular web-browser of datasets that otherwise crush traditional GIS software due to the file size. In the works are, for example, new big datasets of permafrost thaw features and infrastructure, partial dataset download tool, the incorporation of statistical summaries and AI tools that help the user find interesting stories in the big data products, plug-and-play workflows to help you develop your own big dataset, and the monitoring of permafrost thaw near-real time. The PDG can become a gateway where data and people can connect, where technology enables anyone with an internet connection, no matter your technical skills and resources, to connect, explore, and together create.",
+    "crumbs": [
+      "<b>Day 2: AI Fundamentals and Techniques</b>",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Permafrost Discovery Gateway</span>"
+    ]
+  },
+  {
+    "objectID": "sections/permafrost-discovery-gateway.html#slides",
+    "href": "sections/permafrost-discovery-gateway.html#slides",
+    "title": "9  Permafrost Discovery Gateway",
+    "section": "Slides",
+    "text": "Slides\nDownload Slides",
     "crumbs": [
       "<b>Day 2: AI Fundamentals and Techniques</b>",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Permafrost Discovery Gateway</span>"
@@ -1186,7 +1197,7 @@
     "href": "sections/ai-workflows-and-mlops.html",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
     "section": "",
-    "text": "14.1 Instructors\nBen Galewsky, Sr. Research Software Engineer National Center for Supercomputing Applications (NCSA) University of Illinois Urbana-Champaign",
+    "text": "Instructors\nBen Galewsky, Sr. Research Software Engineer National Center for Supercomputing Applications (NCSA) University of Illinois Urbana-Champaign",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1196,8 +1207,8 @@
     "objectID": "sections/ai-workflows-and-mlops.html#overview",
     "href": "sections/ai-workflows-and-mlops.html#overview",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "14.2 Overview",
-    "text": "14.2 Overview\nMachine learning models have become a vital tool for most branches of science. The process and tools for training these models on the lab’s desktop is often fragile, slow, and not reproducible. In this workshop, we will introduce the concept of MLOps, which is a set of practices that aims to streamline the process of developing, training, and deploying machine learning models. We will use the popular open source MLOps tool, MLflow, to demonstrate how to track experiments, package code, and deploy models. We will also introduce Garden, a tool that allows researchers to publish ML Models as citable objects.",
+    "section": "Overview",
+    "text": "Overview\nMachine learning models have become a vital tool for most branches of science. The process and tools for training these models on the lab’s desktop is often fragile, slow, and not reproducible. In this workshop, we will introduce the concept of MLOps, which is a set of practices that aims to streamline the process of developing, training, and deploying machine learning models. We will use the popular open source MLOps tool, MLflow, to demonstrate how to track experiments, package code, and deploy models. We will also introduce Garden, a tool that allows researchers to publish ML Models as citable objects.",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1207,8 +1218,8 @@
     "objectID": "sections/ai-workflows-and-mlops.html#outline",
     "href": "sections/ai-workflows-and-mlops.html#outline",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "14.3 Outline",
-    "text": "14.3 Outline\n\nIntroduction to MLOps\nIntroduction to MLflow\nTracking experiments with MLflow\nPackaging code with MLflow\nDeploying models with MLflow\nPublishing models with Garden",
+    "section": "Outline",
+    "text": "Outline\n\nIntroduction to MLOps\nIntroduction to MLflow\nTracking experiments with MLflow\nPackaging code with MLflow\nDeploying models with MLflow\nPublishing models with Garden",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1218,8 +1229,8 @@
     "objectID": "sections/ai-workflows-and-mlops.html#three-challenges-for-ml-in-research",
     "href": "sections/ai-workflows-and-mlops.html#three-challenges-for-ml-in-research",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "14.4 Three Challenges for ML in Research",
-    "text": "14.4 Three Challenges for ML in Research\n\nTraining productivity\nTraining reproducibility\nModel citability",
+    "section": "14.1 Three Challenges for ML in Research",
+    "text": "14.1 Three Challenges for ML in Research\n\nTraining productivity\nTraining reproducibility\nModel citability",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1229,52 +1240,19 @@
     "objectID": "sections/ai-workflows-and-mlops.html#introcution-to-mlops",
     "href": "sections/ai-workflows-and-mlops.html#introcution-to-mlops",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "14.5 Introcution to MLOps",
-    "text": "14.5 Introcution to MLOps\nMachine Learning Operations (MLOps) is a set of practices that combines Machine Learning, DevOps, and Data Engineering to reliably and efficiently deploy and maintain ML models in production. Just as DevOps revolutionized software development by streamlining the bridge between development and operations, MLOps brings similar principles to machine learning systems.\nThink of MLOps as the infrastructure and practices that transform ML projects from experimental notebooks into robust, production-ready systems that deliver real reproducible scientific value.",
+    "section": "14.2 Introcution to MLOps",
+    "text": "14.2 Introcution to MLOps\nMachine Learning Operations (MLOps) is a set of practices that combines Machine Learning, DevOps, and Data Engineering to reliably and efficiently deploy and maintain ML models in production. Just as DevOps revolutionized software development by streamlining the bridge between development and operations, MLOps brings similar principles to machine learning systems.\nThink of MLOps as the infrastructure and practices that transform ML projects from experimental notebooks into robust, production-ready systems that deliver real reproducible scientific value.\n\nWhy Researchers Need MLOps\nAs a researcher, you’ve likely experienced the following challenges:\n\nInability to harness computing resources to robustly search hyperparameter space\nDifficulty reproducing results from six months ago\nRetraining is too painful to consider creating better models after new data becomes available\nTracking experiments becomes unwieldy as projects grow\nCollaboration among researchers in your group is difficult\nAdvisors have little visibility into students’ work\n\nMLOps addresses these pain points by providing:\n\n1. Reproducibility\n\nVersion control for data, code, and models\nAutomated documentation of experiments\nContainerization for consistent environments\n\n\n\n2. Automation\n\nAutomated training pipelines\nContinuous integration and deployment (CI/CD)\nAutomated testing and validation\n\n\n\n3. Production Monitoring\n\nReal-time performance monitoring\nData drift detection\nAutomated model retraining triggers\n\n\n\n4. Governance\n\nModel lineage tracking\n\n\nMLOps isn’t just another buzzword—it’s a crucial evolution in how we develop and deploy ML systems. As models become more complex and requirements for reliability increase, MLOps practices become essential for successful ML implementations.",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
     ]
   },
   {
-    "objectID": "sections/ai-workflows-and-mlops.html#why-researchers-need-mlops",
-    "href": "sections/ai-workflows-and-mlops.html#why-researchers-need-mlops",
+    "objectID": "sections/ai-workflows-and-mlops.html#mlflow-a-comprehensive-platform-for-the-ml-lifecycle",
+    "href": "sections/ai-workflows-and-mlops.html#mlflow-a-comprehensive-platform-for-the-ml-lifecycle",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "14.6 Why Researchers Need MLOps",
-    "text": "14.6 Why Researchers Need MLOps\nAs a researcher, you’ve likely experienced the following challenges:\n\nInability to harness computing resources to robustly search hyperparameter space\nDifficulty reproducing results from six months ago\nRetraining is too painful to consider creating better models after new data becomes available\nTracking experiments becomes unwieldy as projects grow\nCollaboration among researchers in your group is difficult\nAdvisors have little visibility into students’ work\n\nMLOps addresses these pain points by providing:\n\n14.6.1 1. Reproducibility\n\nVersion control for data, code, and models\nAutomated documentation of experiments\nContainerization for consistent environments\n\n\n\n14.6.2 2. Automation\n\nAutomated training pipelines\nContinuous integration and deployment (CI/CD)\nAutomated testing and validation\n\n\n\n14.6.3 3. Production Monitoring\n\nReal-time performance monitoring\nData drift detection\nAutomated model retraining triggers\n\n\n\n14.6.4 4. Governance\n\nModel lineage tracking\n\n\nMLOps isn’t just another buzzword—it’s a crucial evolution in how we develop and deploy ML systems. As models become more complex and requirements for reliability increase, MLOps practices become essential for successful ML implementations.",
-    "crumbs": [
-      "<b>Day 4: Workflows and Foundation Models</b>",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
-    ]
-  },
-  {
-    "objectID": "sections/ai-workflows-and-mlops.html#what-is-mlflow",
-    "href": "sections/ai-workflows-and-mlops.html#what-is-mlflow",
-    "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "15.1 What is MLflow?",
-    "text": "15.1 What is MLflow?\nMLflow is an open-source platform designed to manage the end-to-end machine learning lifecycle. Created by Databricks, it provides a unified set of tools that address the core challenges in developing, training, and deploying machine learning models. MLflow is language-agnostic and can work with any ML library, algorithm, or deployment tool.",
-    "crumbs": [
-      "<b>Day 4: Workflows and Foundation Models</b>",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
-    ]
-  },
-  {
-    "objectID": "sections/ai-workflows-and-mlops.html#the-pdg-mlflow-tracking-server",
-    "href": "sections/ai-workflows-and-mlops.html#the-pdg-mlflow-tracking-server",
-    "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "15.2 The PDG MLFlow Tracking Server",
-    "text": "15.2 The PDG MLFlow Tracking Server\nThe Permafrost Discovery Gateway project has a shared MLFlow instance that you can use for your arctic research:\nhttps://pdg.mflow.software.ncsa.illinois.edu",
-    "crumbs": [
-      "<b>Day 4: Workflows and Foundation Models</b>",
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
-    ]
-  },
-  {
-    "objectID": "sections/ai-workflows-and-mlops.html#key-components-of-mlflow",
-    "href": "sections/ai-workflows-and-mlops.html#key-components-of-mlflow",
-    "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "15.3 Key Components of MLflow",
-    "text": "15.3 Key Components of MLflow\nMLFlow consists of three main components:\n\n\n\n\n\n\nTracking\n\n\n\n\n\nThe tracking server of MLFlow allows researchers to log and compare model parameters, metrics, and artifacts across multiple runs. With MLFlow’s tracking features, users can record hyperparameters, evaluation metrics, model versions, and even source code, making it easier to reproduce results and collaborate with team members. The platform provides a user-friendly interface to visualize and compare different experiments, helping practitioners identify the most promising models and configurations. Additionally, MLFlow’s tracking capabilities integrate seamlessly with popular ML frameworks, enabling users to incorporate experiment logging into their existing workflows with minimal code changes. This comprehensive approach to tracking enhances model development efficiency and facilitates better decision-making throughout the machine learning process.\n\n15.3.1 Key Concepts in Tracking:\n\nParameters: key-value inputs to your code\nMetrics: numeric values (can update over time)\nArtifacts: arbitrary files, including data, models and plots\nSource: training code that ran\nVersion: version of the training code\nTags and Notes: any additional information\n\nimport mlflow\n\nwith mlflow.start_run():\n    mlflow.log_param(\"learning_rate\", 0.01)\n    mlflow.log_metric(\"accuracy\", 0.85)\n    mlflow.log_artifact(\"model.pkl\")\n\n\n\n\n\n\n\n\n\n\nProjects\n\n\n\n\n\nMLFlow Projects provide a standardized format for packaging and organizing machine learning code to make it reproducible and reusable across different environments. A Project in MLFlow is essentially a directory containing code, dependencies, and an MLProject file that specifies the project’s entry points and environment requirements. This structure enables data scientists to share their work with teammates who can reliably execute the same code, regardless of their local setup. The MLProject file can define multiple entry points, each specifying its parameters and command to run, making it flexible for different use cases within the same project. MLFlow supports various environments for project execution, including conda environments, Docker containers, and system environments, ensuring consistency across different platforms. This standardization not only improves collaboration but also simplifies the deployment process, as projects can be easily versioned and moved between development and production environments.\n\n15.3.2 Key Concepts in Projects\n\nPackaging format for reproducible ML runs\n\nAny code folder or GitHub repository\nOptional MLproject file with project configuration\n\nDefines dependencies for reproducibility\n\nConda (+ R, Docker, …) dependencies can be specified in MLproject\nReproducible in (almost) any environment\n\nExecution API for running projects\n\nCLI / Python / R / Java\nSupports local and remote execution\n\n\nname: myproject\n\npython_env: python_env.yaml\n\nentry_points:\n  main:\n    parameters:\n      learning_rate: {type: float, default: 0.01}\n    command: \"python train.py --lr {learning_rate}\"\n\n\n\n\n\n\n\n\n\n\nModels\n\n\n\n\n\nThe Models component of MLFlow provides a standardized way to package and deploy machine learning models across different platforms and serving environments. MLFlow’s model format includes all the code and dependencies required to run the model, making it highly portable and easy to share. The platform supports a variety of popular ML frameworks like scikit-learn, TensorFlow, and PyTorch, allowing models to be saved in a framework-agnostic format using the MLFlow Model Registry. This registry acts as a centralized repository where teams can version their models, transition them through different stages (like staging and production), and maintain a clear lineage of model iterations. MLFlow also provides built-in deployment capabilities to various serving platforms such as Kubernetes, Amazon SageMaker, and Azure ML, streamlining the process of moving models from experimentation to production. Additionally, MLFlow’s model serving feature allows for quick local deployment of models as REST endpoints, enabling easy testing and integration with other applications.\n\n15.3.3 Key Concepts in Models\n\nPackaging format for ML Models\n\nAny directory with MLmodel file\n\nDefines dependencies for reproducibility\n\nConda environment can be specified in MLmodel configuration\n\nModel creation utilities\n\nSave models from any framework in MLflow format\n\nDeployment APIs\n\nCLI / Python / R / Java\n\nModel Versioning and Lifecycle -Model repository",
+    "section": "14.3 MLflow: A Comprehensive Platform for the ML Lifecycle",
+    "text": "14.3 MLflow: A Comprehensive Platform for the ML Lifecycle\n\nWhat is MLflow?\nMLflow is an open-source platform designed to manage the end-to-end machine learning lifecycle. Created by Databricks, it provides a unified set of tools that address the core challenges in developing, training, and deploying machine learning models. MLflow is language-agnostic and can work with any ML library, algorithm, or deployment tool.\n\n\nThe PDG MLFlow Tracking Server\nThe Permafrost Discovery Gateway project has a shared MLFlow instance that you can use for your arctic research:\nhttps://pdg.mflow.software.ncsa.illinois.edu\n\n\nKey Components of MLflow\nMLFlow consists of three main components:\n\n\n\n\n\n\nTracking\n\n\n\n\n\nThe tracking server of MLFlow allows researchers to log and compare model parameters, metrics, and artifacts across multiple runs. With MLFlow’s tracking features, users can record hyperparameters, evaluation metrics, model versions, and even source code, making it easier to reproduce results and collaborate with team members. The platform provides a user-friendly interface to visualize and compare different experiments, helping practitioners identify the most promising models and configurations. Additionally, MLFlow’s tracking capabilities integrate seamlessly with popular ML frameworks, enabling users to incorporate experiment logging into their existing workflows with minimal code changes. This comprehensive approach to tracking enhances model development efficiency and facilitates better decision-making throughout the machine learning process.\n\nKey Concepts in Tracking:\n\nParameters: key-value inputs to your code\nMetrics: numeric values (can update over time)\nArtifacts: arbitrary files, including data, models and plots\nSource: training code that ran\nVersion: version of the training code\nTags and Notes: any additional information\n\nimport mlflow\n\nwith mlflow.start_run():\n    mlflow.log_param(\"learning_rate\", 0.01)\n    mlflow.log_metric(\"accuracy\", 0.85)\n    mlflow.log_artifact(\"model.pkl\")\n\n\n\n\n\n\n\n\n\n\nProjects\n\n\n\n\n\nMLFlow Projects provide a standardized format for packaging and organizing machine learning code to make it reproducible and reusable across different environments. A Project in MLFlow is essentially a directory containing code, dependencies, and an MLProject file that specifies the project’s entry points and environment requirements. This structure enables data scientists to share their work with teammates who can reliably execute the same code, regardless of their local setup. The MLProject file can define multiple entry points, each specifying its parameters and command to run, making it flexible for different use cases within the same project. MLFlow supports various environments for project execution, including conda environments, Docker containers, and system environments, ensuring consistency across different platforms. This standardization not only improves collaboration but also simplifies the deployment process, as projects can be easily versioned and moved between development and production environments.\n\nKey Concepts in Projects\n\nPackaging format for reproducible ML runs\n\nAny code folder or GitHub repository\nOptional MLproject file with project configuration\n\nDefines dependencies for reproducibility\n\nConda (+ R, Docker, …) dependencies can be specified in MLproject\nReproducible in (almost) any environment\n\nExecution API for running projects\n\nCLI / Python / R / Java\nSupports local and remote execution\n\n\nname: myproject\n\npython_env: python_env.yaml\n\nentry_points:\n  main:\n    parameters:\n      learning_rate: {type: float, default: 0.01}\n    command: \"python train.py --lr {learning_rate}\"\n\n\n\n\n\n\n\n\n\n\nModels\n\n\n\n\n\nThe Models component of MLFlow provides a standardized way to package and deploy machine learning models across different platforms and serving environments. MLFlow’s model format includes all the code and dependencies required to run the model, making it highly portable and easy to share. The platform supports a variety of popular ML frameworks like scikit-learn, TensorFlow, and PyTorch, allowing models to be saved in a framework-agnostic format using the MLFlow Model Registry. This registry acts as a centralized repository where teams can version their models, transition them through different stages (like staging and production), and maintain a clear lineage of model iterations. MLFlow also provides built-in deployment capabilities to various serving platforms such as Kubernetes, Amazon SageMaker, and Azure ML, streamlining the process of moving models from experimentation to production. Additionally, MLFlow’s model serving feature allows for quick local deployment of models as REST endpoints, enabling easy testing and integration with other applications.\n\nKey Concepts in Models\n\nPackaging format for ML Models\n\nAny directory with MLmodel file\n\nDefines dependencies for reproducibility\n\nConda environment can be specified in MLmodel configuration\n\nModel creation utilities\n\nSave models from any framework in MLflow format\n\nDeployment APIs\n\nCLI / Python / R / Java\n\nModel Versioning and Lifecycle -Model repository",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1284,8 +1262,8 @@
     "objectID": "sections/ai-workflows-and-mlops.html#scaling-up-training-with-mlflow-slurm",
     "href": "sections/ai-workflows-and-mlops.html#scaling-up-training-with-mlflow-slurm",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "15.4 Scaling Up Training With MLFlow-Slurm",
-    "text": "15.4 Scaling Up Training With MLFlow-Slurm\nWith your project defined in MLProject file, it’s easy to scale up your workflows by launching them onto a cluster.\nThere is a plugin for MLFlow developed by NCSA called mlflow-slurm\nTo use, you have to create a json file that tells the plugin how to configure slurm jobs.\n{\n  \"partition\": \"cpu\",\n  \"account\": \"bbmi-delta-cpu\",\n  \"mem\": \"16g\",\n  \"modules\": [\"anaconda3_cpu\"]\n}\nWith this in place you can launch a training run on your cluster with the command\nmlflow run --backend slurm \\\n          --backend-config slurm_config.json \\\n          examples/sklearn_elasticnet_wine",
+    "section": "14.4 Scaling Up Training With MLFlow-Slurm",
+    "text": "14.4 Scaling Up Training With MLFlow-Slurm\nWith your project defined in MLProject file, it’s easy to scale up your workflows by launching them onto a cluster.\nThere is a plugin for MLFlow developed by NCSA called mlflow-slurm\nTo use, you have to create a json file that tells the plugin how to configure slurm jobs.\n{\n  \"partition\": \"cpu\",\n  \"account\": \"bbmi-delta-cpu\",\n  \"mem\": \"16g\",\n  \"modules\": [\"anaconda3_cpu\"]\n}\nWith this in place you can launch a training run on your cluster with the command\nmlflow run --backend slurm \\\n          --backend-config slurm_config.json \\\n          examples/sklearn_elasticnet_wine",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1295,8 +1273,8 @@
     "objectID": "sections/ai-workflows-and-mlops.html#how-mlflow-solves-common-mlops-challenges",
     "href": "sections/ai-workflows-and-mlops.html#how-mlflow-solves-common-mlops-challenges",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "15.5 How MLflow Solves Common MLOps Challenges",
-    "text": "15.5 How MLflow Solves Common MLOps Challenges\n\n15.5.1 Training productivity\n\nTrack impact of hyperparameter and code changes on model quality\nRun hyperparameter sweeps and find best run\nSwitch between desktop to supercomputer\n\n\n\n15.5.2 Training reproducibility\n\nEnforced use of reproducible runtime environments\nTrace models back to specific runs\n\n\n\n15.5.3 Model citeability\n\nPublish models to repository\nVersioning and lifecycle events",
+    "section": "14.5 How MLflow Solves Common MLOps Challenges",
+    "text": "14.5 How MLflow Solves Common MLOps Challenges\n\nTraining productivity\n\nTrack impact of hyperparameter and code changes on model quality\nRun hyperparameter sweeps and find best run\nSwitch between desktop to supercomputer\n\n\n\nTraining reproducibility\n\nEnforced use of reproducible runtime environments\nTrace models back to specific runs\n\n\n\nModel citeability\n\nPublish models to repository\nVersioning and lifecycle events",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1306,8 +1284,8 @@
     "objectID": "sections/ai-workflows-and-mlops.html#hands-on-tutorial",
     "href": "sections/ai-workflows-and-mlops.html#hands-on-tutorial",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "15.6 Hands-On Tutorial",
-    "text": "15.6 Hands-On Tutorial\nWe will be using a GPU powered JuypterHub provided by NCSA. Connection instructions will be provided in the classroom.\nThe example code is in the Cyber2A-RTS-ToyModel repo. It has a notebook along with some libraries to keep the notebook focused on the MLOps aspects of the code.",
+    "section": "14.6 Hands-On Tutorial",
+    "text": "14.6 Hands-On Tutorial\nWe will be using a GPU powered JuypterHub provided by NCSA. Connection instructions will be provided in the classroom.\nThe example code is in the Cyber2A-RTS-ToyModel repo. It has a notebook along with some libraries to keep the notebook focused on the MLOps aspects of the code.",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1317,8 +1295,8 @@
     "objectID": "sections/ai-workflows-and-mlops.html#sharing-models",
     "href": "sections/ai-workflows-and-mlops.html#sharing-models",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "15.7 Sharing Models",
-    "text": "15.7 Sharing Models\nNow that we have trained and validated a model we will want to first of all, share it with other members of our research group.\n\n15.7.1 MLFlow Model Repository\nExpert users within our research group will have access to the MLFlow tracking server and model repository. You can test the model as an artifact from an existing run. Once you are satisfied with its performance, you can publish it to the MLFlow model repository with the Register Model button on the tracking server.\nPublished models are given sequential version numbers so colleauges can rely on a stable model for their research. Models in the repository can also follow a lifecycle with MLFlow model aliases. Members of the research group who are not activly involved in model development may just want to use the current best model. The researcher who is training the model can decide which version others should use. MLFlow allows you to pull down the model symbolically.\nmlflow.pyfunc.load_model(\"models:/rts@prod\")\n\n\n15.7.2 Models as Citable Objects\nPublishing your MLProject and training code to a Git repo and making the data publicly readable through a data repository is a way for others to reproduce your models. However, to make your work truly reusable it is better to publish the weights of your trained model in a way that is findable, citable, and usable.\nAt a minimum, you should publish your model on Hugging Face. You can include a README and an notebook demonstrating how to use the model. HuggingFace allows you to mint a DOI that you can cite in your publications.\nHere’s an example with the RTS model:\n\nhttps://huggingface.co/bengal1/RTS/tree/main\n\nA new facility called Garden takes this a step further. Your model is hosted as an endpoint which is a hosted function-as-a-service which allows anyone to perform inference with your model without needing to install anything.\nOur example model is hosted at 10.26311/x49j-2v19\nYou can run a remote inference:\nfrom garden_ai import GardenClient\ngarden_client = GardenClient()\n\nrts_garden = garden_client.get_garden('10.26311/5fb6-f950')\nimage_url=\"https://github.com/cyber2a/Cyber2A-RTS-ToyModel/blob/main/data/images/valtest_yg_055.jpg?raw=true\"\npred = rts_garden.identify_rts(image_url)",
+    "section": "14.7 Sharing Models",
+    "text": "14.7 Sharing Models\nNow that we have trained and validated a model we will want to first of all, share it with other members of our research group.\n\nMLFlow Model Repository\nExpert users within our research group will have access to the MLFlow tracking server and model repository. You can test the model as an artifact from an existing run. Once you are satisfied with its performance, you can publish it to the MLFlow model repository with the Register Model button on the tracking server.\nPublished models are given sequential version numbers so colleauges can rely on a stable model for their research. Models in the repository can also follow a lifecycle with MLFlow model aliases. Members of the research group who are not activly involved in model development may just want to use the current best model. The researcher who is training the model can decide which version others should use. MLFlow allows you to pull down the model symbolically.\nmlflow.pyfunc.load_model(\"models:/rts@prod\")\n\n\nModels as Citable Objects\nPublishing your MLProject and training code to a Git repo and making the data publicly readable through a data repository is a way for others to reproduce your models. However, to make your work truly reusable it is better to publish the weights of your trained model in a way that is findable, citable, and usable.\nAt a minimum, you should publish your model on Hugging Face. You can include a README and an notebook demonstrating how to use the model. HuggingFace allows you to mint a DOI that you can cite in your publications.\nHere’s an example with the RTS model:\n\nhttps://huggingface.co/bengal1/RTS/tree/main\n\nA new facility called Garden takes this a step further. Your model is hosted as an endpoint which is a hosted function-as-a-service which allows anyone to perform inference with your model without needing to install anything.\nOur example model is hosted at 10.26311/x49j-2v19\nYou can run a remote inference:\nfrom garden_ai import GardenClient\ngarden_client = GardenClient()\n\nrts_garden = garden_client.get_garden('10.26311/5fb6-f950')\nimage_url=\"https://github.com/cyber2a/Cyber2A-RTS-ToyModel/blob/main/data/images/valtest_yg_055.jpg?raw=true\"\npred = rts_garden.identify_rts(image_url)",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1328,8 +1306,8 @@
     "objectID": "sections/ai-workflows-and-mlops.html#reference",
     "href": "sections/ai-workflows-and-mlops.html#reference",
     "title": "14  AI Workflows and MLOps: From Development to Deployment",
-    "section": "15.8 Reference",
-    "text": "15.8 Reference\n\nMLflow\nGarden",
+    "section": "14.8 Reference",
+    "text": "14.8 Reference\n\nMLflow\nGarden",
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>AI Workflows and MLOps: From Development to Deployment</span>"
@@ -1674,6 +1652,28 @@
     "crumbs": [
       "<b>Day 4: Workflows and Foundation Models</b>",
       "<span class='chapter-number'>18</span>  <span class='chapter-title'>Reproducibility</span>"
+    ]
+  },
+  {
+    "objectID": "sections/the-fun-and-frontiers-of-ai.html",
+    "href": "sections/the-fun-and-frontiers-of-ai.html",
+    "title": "19  The Fun and Frontiers of AI: Innovation, Imagination, Interaction",
+    "section": "",
+    "text": "Overview\nThis presentation, “The Fun and Frontiers of AI in Arctic Science,” explores how artificial intelligence (AI) is transforming Arctic research. It introduces key AI subfields, including computer vision and natural language processing, and highlights their applications in environmental science, such as mapping permafrost thaw, forecasting weather patterns, and analyzing vast datasets. The slides showcase real-world projects like PolarHub and PolarGlobe, which leverage AI for data discovery and climate visualization. Additionally, the presentation discusses AI-driven search and recommendation systems, deep learning for sea ice monitoring, and the challenges of using large models in scientific research. Through these examples, it illustrates how AI can enhance scientific discovery while emphasizing the need for responsible and informed AI applications in Arctic studies.",
+    "crumbs": [
+      "<b>Day 5: AI Frontiers</b>",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>The Fun and Frontiers of AI: Innovation, Imagination, Interaction</span>"
+    ]
+  },
+  {
+    "objectID": "sections/the-fun-and-frontiers-of-ai.html#slides",
+    "href": "sections/the-fun-and-frontiers-of-ai.html#slides",
+    "title": "19  The Fun and Frontiers of AI: Innovation, Imagination, Interaction",
+    "section": "Slides",
+    "text": "Slides\nDownload Slides",
+    "crumbs": [
+      "<b>Day 5: AI Frontiers</b>",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>The Fun and Frontiers of AI: Innovation, Imagination, Interaction</span>"
     ]
   },
   {
