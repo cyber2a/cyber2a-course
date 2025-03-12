@@ -337,13 +337,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#what-is-instance-segmentation" id="toc-what-is-instance-segmentation" class="nav-link" data-scroll-target="#what-is-instance-segmentation"><span class="header-section-number">12.1</span> What is instance segmentation?</a></li>
-  <li><a href="#importance-and-applications" id="toc-importance-and-applications" class="nav-link" data-scroll-target="#importance-and-applications"><span class="header-section-number">12.2</span> Importance and applications</a></li>
-  <li><a href="#comparison-of-classification-networks-and-instance-segmentation-networks" id="toc-comparison-of-classification-networks-and-instance-segmentation-networks" class="nav-link" data-scroll-target="#comparison-of-classification-networks-and-instance-segmentation-networks"><span class="header-section-number">12.3</span> Comparison of classification networks and instance segmentation networks</a></li>
+  <li><a href="#importance-and-applications-of-instance-segmentation" id="toc-importance-and-applications-of-instance-segmentation" class="nav-link" data-scroll-target="#importance-and-applications-of-instance-segmentation"><span class="header-section-number">12.2</span> Importance and applications of instance segmentation</a></li>
+  <li><a href="#transitioning-from-backbone-networks-to-classification-networks" id="toc-transitioning-from-backbone-networks-to-classification-networks" class="nav-link" data-scroll-target="#transitioning-from-backbone-networks-to-classification-networks"><span class="header-section-number">12.3</span> Transitioning from backbone networks to classification networks</a></li>
   <li><a href="#a-step-by-step-guide-to-instance-segmentation" id="toc-a-step-by-step-guide-to-instance-segmentation" class="nav-link" data-scroll-target="#a-step-by-step-guide-to-instance-segmentation"><span class="header-section-number">12.4</span> A step-by-step guide to instance segmentation</a>
   <ul class="collapse">
   <li><a href="#the-first-step-r-cnn" id="toc-the-first-step-r-cnn" class="nav-link" data-scroll-target="#the-first-step-r-cnn"><span class="header-section-number">12.4.1</span> The First Step: R-CNN</a></li>
   <li><a href="#evolution-to-fast-r-cnn" id="toc-evolution-to-fast-r-cnn" class="nav-link" data-scroll-target="#evolution-to-fast-r-cnn"><span class="header-section-number">12.4.2</span> Evolution to Fast R-CNN</a></li>
   <li><a href="#introducing-faster-r-cnn" id="toc-introducing-faster-r-cnn" class="nav-link" data-scroll-target="#introducing-faster-r-cnn"><span class="header-section-number">12.4.3</span> Introducing Faster R-CNN</a></li>
+  <li><a href="#the-innovation-of-faster-r-cnn" id="toc-the-innovation-of-faster-r-cnn" class="nav-link" data-scroll-target="#the-innovation-of-faster-r-cnn"><span class="header-section-number">12.4.4</span> The Innovation of Faster R-CNN</a></li>
   </ul></li>
   <li><a href="#transition-to-instance-segmentation-mask-r-cnn" id="toc-transition-to-instance-segmentation-mask-r-cnn" class="nav-link" data-scroll-target="#transition-to-instance-segmentation-mask-r-cnn"><span class="header-section-number">12.5</span> Transition to Instance Segmentation: Mask R-CNN</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">12.6</span> Conclusion</a></li>
@@ -374,7 +375,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="overview">Overview</h2>
-<p>In this section, we delve into the evolution of Faster R-CNN, a pivotal model in object detection, and explore its transformation into Mask R-CNN for instance segmentation tasks. Participants will learn how to extend the network architecture to generate both class labels and precise object masks, enabling the identification and delineation of individual objects within an image. By building on their existing knowledge of modifying classification networks, this section provides practical insights into adapting neural networks for advanced computer vision applications like instance segmentation.</p>
+<p>In this section, we will explore the journey of the evolution of neural networks, starting with basic classification networks and progressing to more complex tasks of object detection and instance segmentation.</p>
+<p>We’ll begin with a recap of classification networks, which are designed to identify the presence of objects in images and assign class labels. From there, we’ll move to the realm of object detection, exploring the development of <strong>R-CNN <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></strong>, <strong>Fast R-CNN <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></strong>, and <strong>Faster R-CNN <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></strong>. Each of these models represents a step forward in detecting and localizing objects within images, with Faster R-CNN introducing a more efficient and integrated approach.</p>
+<p>Finally, we’ll delve into <strong>Mask R-CNN <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></strong>, which extends the capabilities of Faster R-CNN by adding a branch for predicting segmentation masks. This enhancement allows us to not only detect objects but also delineate their exact shapes, enabling precise instance segmentation.</p>
+<p>Our goal is to build on your existing understanding of classification networks, providing you with practical insights into how these networks can be adapted and expanded for more advanced computer vision applications. By the end of this section, you will be equipped with the knowledge to understand and apply these techniques to real-world challenges.</p>
 </section>
 <section id="what-is-instance-segmentation" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="what-is-instance-segmentation"><span class="header-section-number">12.1</span> What is instance segmentation?</h2>
@@ -384,27 +388,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Source: https://manipulation.csail.mit.edu/segmentation.html</figcaption>
 </figure>
 </div>
+<p>To grasp the concept of instance segmentation, let’s compare it with other related tasks:</p>
 <ul>
-<li><strong>Image recognition</strong>: Indentifies the presence of objects in an image and provides a list of class probabilities.</li>
-<li><strong>Semantic segmentation</strong>: Classifies each pixel in an image into a category, but not distinguish between different instances of the same class.</li>
-<li><strong>Object detection</strong>: Detects objects by drawing bounding boxes around them, distinguishing individual entities but not providing pixel-level details.</li>
-<li><strong>Instance segmentation</strong>: Combines object detection and semantic segmentation to identify and delineate individual objects at the pixel level.</li>
+<li><strong>Image recognition</strong>: This is the most basic task, where the model identifies the presence of objects in an image and assigns class probabilities. It’s like saying, “There are sheep and a dog here,” without specifying their locations.</li>
+<li><strong>Semantic segmentation</strong>: This advances to classifying each pixel into a category, effectively coloring the entire image based on object classes. However, it doesn’t distinguish between individual instances of the same class. For example, all sheep might be colored the same, treating them as a single entity.</li>
+<li><strong>Object detection</strong>: This task detects objects and distinguishes them by drawing bounding boxes around each, providing more detail than image recognition. It identifies individual objects but lacks fine-grained, pixel-level detail.</li>
+<li><strong>Instance segmentation</strong>: This is the most detailed task, combining the strengths of object detection and semantic segmentation. It not only distinguishes individual objects but also delineates their exact shapes at the pixel level. It allows for precise analysis and manipulation.</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Instance segmentation is more challenging and computationally intensive than other tasks, and it’s not always necessary for every application.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider which of these tasks would be most useful for your current projects or applications.</p>
+</div>
+</div>
 </section>
-<section id="importance-and-applications" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="importance-and-applications"><span class="header-section-number">12.2</span> Importance and applications</h2>
-<p>Instance segmentation is a fundamental task in computer vision with:</p>
+<section id="importance-and-applications-of-instance-segmentation" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="importance-and-applications-of-instance-segmentation"><span class="header-section-number">12.2</span> Importance and applications of instance segmentation</h2>
+<p>Instance segmentation plays a crucial role in various fields. Its importance stems from the following factors:</p>
 <ul>
-<li><strong>Wide-ranging applications</strong>: Robotics <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, medical imaging <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, and more.</li>
-<li><strong>Foundation for advanced tasks</strong>: Object tracking, pose estimation, and action recognition.</li>
+<li><strong>Fine-grained precision</strong>: Unlike object detection, which only provides bounding boxes, instance segmentation offers pixel-level accuracy. This precision is essential for tasks where understanding the exact shape and position of objects matters.</li>
+<li><strong>Object differentiation</strong>: It not only identifies the presence of objects but also distinguishes between individual instances of the same class. This capability is valuable in scenarios where multiple objects of the same type need to be analyzed separately.</li>
+<li><strong>Integration in complex systems</strong>: By providing detailed object masks, instance segmentation enables more sophisticated interactions with objects in the environment, such as robotics and augmented reality applications.</li>
 </ul>
+<p><strong>Applications:</strong></p>
+<ul>
+<li><strong>Medical imaging</strong>: In medical applications, instance segmentation can help identify and analyze specific structures within images, such as tumors or organs <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</li>
+<li><strong>Robotics</strong>: In robotics, instance segmentation enables robots to perceive and interact with their environment more effectively, distinguishing between different objects and obstacles <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</li>
+<li><strong>Environmental monitoring</strong>: Instance segmentation can be used in environmental mapping to detect and classify natural features from satellite imagery. This approach enhances the ability to monitor changes in landscapes across large areas with high accuracy <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider how the ability to identify not just the presence of objects, but also their precise contours, might enhance applications you are familiar with.</p>
+</div>
+</div>
 </section>
-<section id="comparison-of-classification-networks-and-instance-segmentation-networks" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="comparison-of-classification-networks-and-instance-segmentation-networks"><span class="header-section-number">12.3</span> Comparison of classification networks and instance segmentation networks</h2>
-<p><img src="../images/dl-pytorch/models.png" class="img-fluid"> In the previous section, we discussed how deep learning models consist of three core components: <strong>input adaptation</strong>, <strong>feature extractor</strong>, and <strong>output adaptation</strong>.</p>
-<p>Using a ResNet-50 model as an example, let’s examine the structure of a classification network:</p>
+<section id="transitioning-from-backbone-networks-to-classification-networks" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="transitioning-from-backbone-networks-to-classification-networks"><span class="header-section-number">12.3</span> Transitioning from backbone networks to classification networks</h2>
+<p><img src="../images/dl-pytorch/models.png" class="img-fluid"> In the previous section, we discussed how deep learning models consist of three core components: <strong>input adaptation</strong>, <strong>feature extractor</strong>, and <strong>output adaptation</strong>. Now, let’s explore how these components are configured starting from a backbone network, like ResNet-50, to create a classification network.</p>
+<p><strong>ResNet-50 as a backbone network</strong></p>
+<p>Using a ResNet-50 backbone network as an example, let’s first examine the structure of the model:</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -413,35 +465,31 @@ Code snippet to load a pre-trained ResNet-50 model
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.models <span class="im">as</span> models</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the pre-trained ResNet-50 model</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> models.resnet50(pretrained<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify the output layer to predict 10 classes</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>model.fc <span class="op">=</span> nn.Linear(<span class="dv">2048</span>, <span class="dv">10</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model architecture</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.models <span class="im">as</span> models</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the pre-trained ResNet-50 model</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> models.resnet50(pretrained<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model architecture</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<p>The output of the code snippet above provides the architecture of the ResNet-50 model:</p>
+<p>The output of the code snippet above provides the architecture of the ResNet-50 model, which includes a series of convolutional and batch normalization layers, typically used for feature extraction:</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Output: Classification network architecture
+Output: ResNet-50 architecture
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ResNet(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">3</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
@@ -524,7 +572,7 @@ Output: Classification network architecture
 <span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>(avgpool): AdaptiveAvgPool2d(output_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>(fc): Linear(in_features<span class="op">=</span><span class="dv">512</span>, out_features<span class="op">=</span><span class="dv">10</span>, bias<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>(fc): Linear(in_features<span class="op">=</span><span class="dv">512</span>, out_features<span class="op">=</span><span class="dv">1000</span>, bias<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -532,16 +580,16 @@ Output: Classification network architecture
 </div>
 <p>The output above is a liitle verbose, so let’s summarize the key components of the ResNet-50 model:</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Summary: Classification network architecture
+Summary: ResNet-50 architecture
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ResNet(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">3</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
@@ -553,17 +601,17 @@ Summary: Classification network architecture
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>(layer3): Sequential()</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>(layer4): Sequential()</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>(avgpool): AdaptiveAvgPool2d(output_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>(fc): Linear(in_features<span class="op">=</span><span class="dv">512</span>, out_features<span class="op">=</span><span class="dv">10</span>, bias<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>(fc): Linear(in_features<span class="op">=</span><span class="dv">512</span>, out_features<span class="op">=</span><span class="dv">1000</span>, bias<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Where <code>layerx</code> represents the convolutional blocks in the network.</p>
+<p>where <code>layerx</code> represents the convolutional blocks in the network.</p>
 </div>
 </div>
 </div>
-<p>Now, let’s check what modifications we made to the ResNet-50 model:</p>
+<p><strong>Modifying the ResNet-50 model to perform classification</strong></p>
+<p>To modify the ResNet-50 model to perform classification, we first need to define the task. For this example, we will classify images into 10 classes, e.g., 10 different types of food. So, for the data, we have</p>
 <ul>
-<li><strong>Input Adaptation</strong>: No changes needed, as ResNet-50 accepts images as input.</li>
-<li><strong>Feature Extractor</strong>: Utilizes the pre-trained ResNet-50 model to extract features from images.</li>
-<li><strong>Output Adaptation</strong>: Modified the output layer to predict 10 classes instead of the original 1000.</li>
+<li>input: an image</li>
+<li>output: a 10-dimensional vector of class probabilities</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -571,87 +619,239 @@ Summary: Classification network architecture
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question: Instance segmentation
+Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Using the ResNet-50 model as a base, how would you modify each component to perform instance segmentation?</p>
+<p>How would you modify the ResNet-50 model to perform classification?</p>
 </div>
 </div>
-<p>For instance segmentation, one possible adjustment is as follows:</p>
+<p>Let’s examine the three components of the model and see how we can modify them to perform classification.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Input Adaptation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No changes needed. The ResNet-50 model is designed to accept images as input, which is suitable for our task.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Feature Extractor
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No changes needed. The pre-trained ResNet-50 model’s layers are retained for feature extraction, leveraging its ability to learn complex patterns from images.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Output Adaptation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>From the summary of the ResNet-50 architecture, we can see that the output layer is a linear layer with 1000 output features.</p>
+<p><code>(fc): Linear(in_features=512, out_features=1000, bias=True)</code></p>
+<p>It is designed to output 1000 class probabilities, and we need to modify it to output 10 class probabilities for our task. To do this, we can replace the linear layer with a new linear layer that has 10 output features.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace the last linear layer with a new linear layer that has 10 output features</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>model.fc <span class="op">=</span> nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Done! We have modified the ResNet-50 model to perform classification. Here is the complete code:</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Complete code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.models <span class="im">as</span> models</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the pre-trained ResNet-50 model</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> models.resnet50(pretrained<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace the last linear layer with a new linear layer that has 10 output features</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>model.fc <span class="op">=</span> nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model architecture</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><strong>Input Adaptation</strong>: Remains unchanged as input is still an image.</li>
-<li><strong>Feature Extractor</strong>: Utilizes the pre-trained ResNet-50 model.</li>
-<li><strong>Output Adaptation</strong>: Must be modified to predict both class labels and object masks.</li>
+<li>Using the ResNet-50 model as a backbone network, is there other way to modify the model to perform classification?</li>
+<li>With the classification task as an example, try to think of how to modify the model to perform instance segmentation.</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="a-step-by-step-guide-to-instance-segmentation" class="level2" data-number="12.4">
 <h2 data-number="12.4" class="anchored" data-anchor-id="a-step-by-step-guide-to-instance-segmentation"><span class="header-section-number">12.4</span> A step-by-step guide to instance segmentation</h2>
-<p>To achieve instance segmentation, let’s begin from object detection and progress to instance segmentation:</p>
+<p>To achieve instance segmentation, let’s begin from object detection and progress to instance segmentation since object detection is like a simplified version of instance segmentation. Below, we list the input and output of object detection and instance segmentation.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 33%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Object Detection</td>
+<td>Image</td>
+<td>Bounding boxes and class labels for each instance</td>
+</tr>
+<tr class="even">
+<td>Instance Segmentation</td>
+<td>Image</td>
+<td>Bounding boxes, masks and class labels for each instance</td>
+</tr>
+</tbody>
+</table>
 <section id="the-first-step-r-cnn" class="level3" data-number="12.4.1">
 <h3 data-number="12.4.1" class="anchored" data-anchor-id="the-first-step-r-cnn"><span class="header-section-number">12.4.1</span> The First Step: R-CNN</h3>
-<p>Our journey starts with Region-based Convolutional Neural Networks (R-CNN). This model laid the groundwork for object detection by introducing a structured approach:</p>
-<ol type="1">
-<li><strong>Region Proposal</strong>: Uses the Selective Search algorithm to generate potential object regions.</li>
-<li><strong>Feature Extraction</strong>: Applies a pre-trained CNN to each region to extract features.</li>
-<li><strong>Classification</strong>: Employs a linear SVM to classify these regions.</li>
-<li><strong>Bounding Box Regression</strong>: Refines the coordinates using a linear regression model.</li>
-</ol>
-<p><strong>Limitations of R-CNN</strong></p>
+<p>Our journey begins with the introduction of Region-based Convolutional Neural Networks (R-CNN).</p>
+<p>Imagine you are tasked with finding specific items in a crowded room (the image). The first step you need is a strategy to pinpoint potential areas where the items might be located. This is where <strong>Selective Search <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></strong> comes into play. It acts like a diligent assistant that systematically scans the image, suggesting potential regions that might contain the items. Once you have these potential regions, the next step is to understand what each region contains. In our example, we use <strong>ResNet-50</strong> to extract features from each region. With the features in hand, we then use a linear <strong>Support Vector Machine (SVM)</strong> to classify each region into one of the 10 classes. But recognizing objects is just part of the story. To ensure precision in locating these objects, we employ a <strong>linear regression model</strong> to refine the coordinates of the bounding boxes.</p>
+<p><strong>Summary of R-CNN components:</strong></p>
 <ul>
-<li><strong>Slow Inference</strong>: Processes each region independently, leading to inefficiency.</li>
-<li><strong>Complex Training</strong>: Requires multiple models and stages.</li>
-<li><strong>Inefficient Feature Extraction</strong>: Redundant computations for overlapping regions.</li>
+<li><strong>Region proposal (selective search)</strong>: Generate potential object regions.</li>
+<li><strong>Feature extraction (ResNet-50)</strong>: Extract features from each region.</li>
+<li><strong>Classification (linear SVM)</strong>: Classify each region into one of the 10 classes.</li>
+<li><strong>Bounding box regression (linear regression)</strong>: Refine the coordinates of the bounding boxes.</li>
+</ul>
+<p><strong>Limitations of R-CNN:</strong></p>
+<ul>
+<li><strong>Slow inference</strong>: Processes each region independently, leading to inefficiency.</li>
+<li><strong>Complex training</strong>: Requires multiple models and stages.</li>
+<li><strong>Inefficient feature extraction</strong>: Redundant computations for overlapping regions.</li>
 </ul>
 </section>
 <section id="evolution-to-fast-r-cnn" class="level3" data-number="12.4.2">
 <h3 data-number="12.4.2" class="anchored" data-anchor-id="evolution-to-fast-r-cnn"><span class="header-section-number">12.4.2</span> Evolution to Fast R-CNN</h3>
-<p>To address R-CNN’s limitations, Fast R-CNN was developed, enhancing speed and efficiency:</p>
-<ol type="1">
-<li><strong>Region Proposal</strong>: Continues using Selective Search for generating proposals.</li>
-<li><strong>Feature Extraction</strong>: Extracts features from the entire image in a single pass.</li>
-<li><strong>RoI Pooling</strong>: Efficiently crops and resizes features for each region.</li>
-<li><strong>Classification and Bounding Box Regression</strong>: Utilizes fully connected layers for tasks.</li>
-</ol>
-<p><strong>Advantages of Fast R-CNN</strong></p>
+<p>Continuing our journey towards instance segmentation, we move from the foundational R-CNN to a more advanced and efficient model: Fast R-CNN. This evolution is necessary to overcome the challenges faced by R-CNN.</p>
+<p>In our quest for faster and more efficient object detection, Fast R-CNN addresses the limitations of its predecessor, R-CNN. Imagine now that instead of examining each potential object region individually, you first take a comprehensive view of the entire scene. This panoramic approach forms the basis of Fast R-CNN.</p>
 <ul>
-<li><strong>Single-Stage Inference</strong>: Processes the whole image once, enhancing speed.</li>
-<li><strong>End-to-End Training</strong>: Trains the entire network in a unified stage.</li>
-<li><strong>Efficient Feature Extraction</strong>: Avoids redundant calculations.</li>
+<li><p><strong>Feature extraction (single pass)</strong>: Fast R-CNN starts by processing the entire image in a single forward pass through the network, using a shared convolutional feature map. This method not only accelerates the process but also eliminates the need to repeatedly extract features for overlapping regions, directly addressing the inefficiency of R-CNN.</p></li>
+<li><p><strong>Region proposal (selective search)</strong>: Although it continues to use Selective Search to suggest possible object regions, the way these proposals are handled is integrated into a more streamlined workflow.</p></li>
+<li><p><strong>RoI pooling</strong>: To efficiently zoom into specific regions of interest (RoIs), Fast R-CNN introduces RoI Pooling. This component crops and resizes the shared feature map for each proposed region, much like focusing a camera lens on the areas of interest. RoI Pooling ensures that each region is presented in a consistent shape to the classifier, optimizing the use of features extracted in the initial pass.</p></li>
+<li><p><strong>Classification and bounding box regression (fully connected layers)</strong>: Fast R-CNN employs fully connected layers to perform both classification and bounding box regression simultaneously. This integration simplifies the training pipeline and ensures that both tasks benefit from the shared feature representation, in contrast to the separate models used in R-CNN.</p></li>
+</ul>
+<p><strong>Summary of Fast R-CNN Components:</strong></p>
+<ul>
+<li><strong>Feature extraction (single pass)</strong>: Processes the entire image once, reducing redundancy and speeding up inference.</li>
+<li><strong>Region proposal (selective search)</strong>: Still used, but proposals are more efficiently integrated into the workflow.</li>
+<li><strong>RoI pooling</strong>: Efficiently refines regions of interest for classification and bounding box adjustments.</li>
+<li><strong>Classification and bounding box regression (fully connected layers)</strong>: Conducts these tasks concurrently, simplifying the model architecture.</li>
+</ul>
+<p><strong>Solving R-CNN Limitations:</strong></p>
+<ul>
+<li><strong>Slow inference</strong>: Addressed by processing the entire image in a single pass, reducing computational load.</li>
+<li><strong>Complex training pipeline</strong>: Simplified by integrating classification and regression within a unified model.</li>
+<li><strong>Inefficient feature extraction</strong>: Eliminated by using shared feature maps, reducing redundant processing.</li>
+</ul>
+<p><strong>Limitations of Fast R-CNN:</strong></p>
+<ul>
+<li><strong>Dependence on slow region proposal methods</strong>: The reliance on Selective Search for region proposals limits the speed of the overall system.</li>
+<li><strong>Separate proposal and detection stages</strong>: Although integrated more efficiently than R-CNN, the use of Selective Search still represents a bottleneck.</li>
+<li><strong>Potential for further speed improvements</strong>: While faster than R-CNN, Fast R-CNN does not fully utilize potential speed optimizations through end-to-end training of the proposal mechanism.</li>
 </ul>
 </section>
 <section id="introducing-faster-r-cnn" class="level3" data-number="12.4.3">
 <h3 data-number="12.4.3" class="anchored" data-anchor-id="introducing-faster-r-cnn"><span class="header-section-number">12.4.3</span> Introducing Faster R-CNN</h3>
-<p>Faster R-CNN further revolutionizes object detection by integrating a Region Proposal Network (RPN):</p>
-<ol type="1">
-<li><strong>Feature Extraction</strong>: Continues with a pre-trained CNN for the entire image.</li>
-<li><strong>Region Proposal Network (RPN)</strong>: Uses anchor boxes for generating proposals.</li>
-<li><strong>RoI Pooling</strong>: Maintains efficient cropping and resizing.</li>
-<li><strong>Classification and Bounding Box Regression</strong>: Achieves higher accuracy with shared layers.</li>
-</ol>
-<p><strong>Advantages of Faster R-CNN</strong></p>
+<p>As we progress in our journey towards instance segmentation, we arrive at Faster R-CNN, which further refines the processes established by Fast R-CNN. This model addresses the bottlenecks that persisted in previous approaches, particularly regarding region proposal efficiency.</p>
+</section>
+<section id="the-innovation-of-faster-r-cnn" class="level3" data-number="12.4.4">
+<h3 data-number="12.4.4" class="anchored" data-anchor-id="the-innovation-of-faster-r-cnn"><span class="header-section-number">12.4.4</span> The Innovation of Faster R-CNN</h3>
+<p>Faster R-CNN represents a significant leap forward in object detection by introducing a component that eliminates the dependence on slow external region proposal methods. This innovation stems from the integration of a Region Proposal Network (RPN), which transforms the object detection process into a unified, end-to-end trainable system.</p>
 <ul>
-<li><strong>Unified Architecture</strong>: Merges feature extraction and region proposal steps.</li>
-<li><strong>Improved Speed</strong>: Faster due to shared computation.</li>
-<li><strong>Enhanced Accuracy</strong>: Produces better region proposals and detection results.</li>
+<li><p><strong>Feature extraction (single pass)</strong>: Like Fast R-CNN, Faster R-CNN begins by processing the entire image in a single pass through a convolutional network to produce a shared feature map. This ensures efficient feature extraction and serves as the foundation for both region proposal and object detection tasks.</p></li>
+<li><p><strong>Region proposal network (RPN)</strong>: The key innovation of Faster R-CNN is the RPN, which is integrated directly into the convolutional feature map. The RPN efficiently generates region proposals by sliding a small network over the shared feature map. This network outputs a set of objectness scores and refined bounding box coordinates for anchors at each spatial location, effectively replacing the slow Selective Search process used in Fast R-CNN.</p></li>
+<li><p><strong>RoI pooling</strong>: After generating region proposals, Faster R-CNN employs RoI Pooling to extract fixed-size feature maps from the shared feature map for each proposal. This ensures that each region of interest is consistently prepared for the subsequent classification and bounding box refinement stages.</p></li>
+<li><p><strong>Classification and bounding box regression (fully connected layers)</strong>: The proposals are then fed into fully connected layers for simultaneous classification and bounding box regression, refining both the class labels and bounding box coordinates.</p></li>
+</ul>
+<p><strong>Summary of Faster R-CNN Components:</strong></p>
+<ul>
+<li><strong>Feature extraction (single pass)</strong>: Processes the entire image once, providing a shared feature map for all subsequent tasks.</li>
+<li><strong>Region proposal network (RPN)</strong>: Generates high-quality region proposals directly from the feature map, replacing slower methods.</li>
+<li><strong>RoI pooling</strong>: Standardizes proposal feature maps for further processing.</li>
+<li><strong>Classification and bounding box regression (fully connected layers)</strong>: Conducts these tasks effectively and efficiently, using the refined proposals.</li>
+</ul>
+<p><strong>Addressing Fast R-CNN Limitations:</strong></p>
+<ul>
+<li><strong>Dependence on slow region proposal methods</strong>: Solved by integrating the RPN, which provides fast and efficient region proposals.</li>
+<li><strong>Separate proposal and detection stages</strong>: Unified into a single, end-to-end trainable model.</li>
+<li><strong>Potential for further speed improvements</strong>: Realized through the RPN, which allows for significant speed gains and paves the way for real-time object detection capabilities.</li>
 </ul>
 </section>
 </section>
 <section id="transition-to-instance-segmentation-mask-r-cnn" class="level2" data-number="12.5">
 <h2 data-number="12.5" class="anchored" data-anchor-id="transition-to-instance-segmentation-mask-r-cnn"><span class="header-section-number">12.5</span> Transition to Instance Segmentation: Mask R-CNN</h2>
-<p>Building on Faster R-CNN, Mask R-CNN introduces instance segmentation by adding a mask prediction branch:</p>
-<ol type="1">
-<li><strong>Feature Extraction</strong>: Utilizes a pre-trained CNN for comprehensive feature maps.</li>
-<li><strong>Region Proposal Network (RPN)</strong>: Continues generating proposals with anchors.</li>
-<li><strong>RoI Pooling</strong>: Efficiently processes each region.</li>
-<li><strong>Classification and Bounding Box Regression</strong>: Refines object localization and classification.</li>
-<li><strong>Mask Prediction</strong>: Adds a convolutional branch to predict precise object masks.</li>
-</ol>
-<p><strong>Advantages of Mask R-CNN</strong></p>
+<p>Having refined the processes of object detection with Faster R-CNN, we now transition to the realm of instance segmentation with Mask R-CNN. This model not only detects objects but also delineates each instance with precise pixel-level masks, taking the capabilities of Faster R-CNN a step further.</p>
+<p>Mask R-CNN builds upon the robust framework of Faster R-CNN, adding a crucial component for instance segmentation. It retains the speed and efficiency of Faster R-CNN while introducing new functionality without compromising performance.</p>
 <ul>
-<li><strong>Instance Segmentation</strong>: Delivers pixel-level delineation of individual objects.</li>
-<li><strong>Unified Architecture</strong>: Seamlessly combines detection and segmentation tasks.</li>
-<li><strong>Enhanced Accuracy</strong>: Provides more precise object masks.</li>
+<li><p><strong>Feature extraction (single pass)</strong>: Mask R-CNN, like its predecessor, begins by processing the entire image in a single pass through a convolutional network to produce a shared feature map. This feature map serves as the foundation for both region proposal and instance segmentation tasks.</p></li>
+<li><p><strong>Region proposal network (RPN)</strong>: The RPN continues to play a pivotal role in generating high-quality region proposals directly from the shared feature map. This component ensures that only the most promising regions are considered for further processing.</p></li>
+<li><p><strong>RoI Align</strong>: To address the spatial misalignment introduced by RoI Pooling in Faster R-CNN, Mask R-CNN introduces RoI Align. This new component improves the precision of feature extraction by avoiding quantization errors, ensuring that the extracted feature maps for each region of interest are perfectly aligned with the input image.</p></li>
+<li><p><strong>Classification, bounding box regression, and mask prediction (parallel heads)</strong>: Mask R-CNN extends the two-head structure of Faster R-CNN by adding a third branch specifically for mask prediction. This additional branch predicts a binary mask for each region of interest, allowing the model to not only classify objects and refine bounding boxes but also generate accurate pixel-level masks.</p></li>
+</ul>
+<p><strong>Summary of Mask R-CNN Components:</strong></p>
+<ul>
+<li><strong>Feature extraction (single pass)</strong>: Processes the entire image once, ensuring efficient use of computational resources.</li>
+<li><strong>Region proposal network (RPN)</strong>: Continues to provide fast and efficient region proposals.</li>
+<li><strong>RoI Align</strong>: Refines feature extraction for precise spatial alignment.</li>
+<li><strong>Classification, bounding box regression, and mask prediction (parallel heads)</strong>: Conducts these tasks simultaneously, enabling comprehensive instance segmentation.</li>
+</ul>
+<p><strong>Enhancements from Faster R-CNN:</strong></p>
+<ul>
+<li><strong>Pixel-level precision</strong>: Achieved through RoI Align, improving spatial alignment and mask accuracy.</li>
+<li><strong>Instance segmentation capability</strong>: Added through the mask prediction branch, enabling the model to generate detailed masks for each object instance.</li>
 </ul>
 </section>
 <section id="conclusion" class="level2" data-number="12.6">
@@ -663,8 +863,15 @@ Question: Instance segmentation
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p><a href="https://www.youtube.com/watch?v=tNLtXb04i3w">https://www.youtube.com/watch?v=tNLtXb04i3w</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><a href="https://www.linkedin.com/pulse/medical-image-diagnosis-roles-object-detection-segmentation-egvcc">https://www.linkedin.com/pulse/medical-image-diagnosis-roles-object-detection-segmentation-egvcc</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><a href="https://openaccess.thecvf.com/content_cvpr_2014/papers/Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf">R. Girshick, J. Donahue, T. Darrell, J. Malik, “Rich feature hierarchies for accurate object detection and semantic segmentation,” CVPR 2014.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://openaccess.thecvf.com/content_iccv_2015/papers/Girshick_Fast_R-CNN_ICCV_2015_paper.pdf">R. Girshick, “Fast R-CNN,” ICCV 2015.</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://proceedings.neurips.cc/paper_files/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">S. Ren, K. He, R. Girshick, J. Sun, “Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks,” NIPS 2015.</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://openaccess.thecvf.com/content_ICCV_2017/papers/He_Mask_R-CNN_ICCV_2017_paper.pdf">K. He, G. Gkioxari, P. Dollár, R. Girshick, “Mask R-CNN,” ICCV 2017.</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://www.linkedin.com/pulse/medical-image-diagnosis-roles-object-detection-segmentation-egvcc">https://www.linkedin.com/pulse/medical-image-diagnosis-roles-object-detection-segmentation-egvcc</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><a href="https://www.youtube.com/watch?v=tNLtXb04i3w">https://www.youtube.com/watch?v=tNLtXb04i3w</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p><a href="https://www.mdpi.com/2072-4292/10/9/1487">Zhang, W., Witharana, C., Liljedahl, A. K., &amp; Kanevskiy, M. (2018). Deep convolutional neural networks for automated characterization of arctic ice-wedge polygons in very high spatial resolution aerial imagery. Remote Sensing, 10(9), 1487.</a><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p><a href="https://dl.acm.org/doi/abs/10.1145/3557918.3565869">Li, W., Hsu, C. Y., Wang, S., Witharana, C., &amp; Liljedahl, A. (2022, November). Real-time GeoAI for high-resolution mapping and segmentation of arctic permafrost features: the case of ice-wedge polygons. In Proceedings of the 5th ACM SIGSPATIAL international workshop on AI for geographic knowledge discovery (pp.&nbsp;62-65).</a><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><a href="https://link.springer.com/article/10.1007/s11263-013-0620-5">J. Uijlings, K. van de Sande, T. Gevers, and A. Smeulders, “Selective search for object recognition,” International Journal of Computer Vision, vol.&nbsp;104, no. 2, pp.&nbsp;154-171, 2013.</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
