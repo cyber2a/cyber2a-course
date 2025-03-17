@@ -144,6 +144,7 @@ reproducibility including:
 
 ![Avoid using an absolute path to read in your data as shown
 here](../images/absolutepath.png)
+https://keytodatascience.com/python-read-csv-txt-file/
 
 -   Clean your data *within* your code
 -   Avoid copy/pasting in a spreadsheet
@@ -152,6 +153,7 @@ here](../images/absolutepath.png)
 A general guide to publishing reproducible work:
 ![The Reproducibility Spectrum by Altuna Akalin in Towards Data
 Science](../images/ReproSpectrum.png)
+https://medium.com/data-science/scientific-data-analysis-pipelines-and-reproducibility-75ff9df5b4c5
 
 ## Model Repositories
 
