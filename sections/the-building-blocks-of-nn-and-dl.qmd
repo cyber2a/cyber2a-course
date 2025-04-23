@@ -2,24 +2,34 @@
 
 ## Overview {.unnumbered}
 
-Welcome to your first step into the world of deep learning! This session is all about getting you comfortable with the basics of deep learning in a fun and approachable way. Think of it as your launchpad into the fascinating universe of artificial intelligence.
+Welcome to your first step into deep learning! This lession will help you understand deep learning in a simple and friendly way. Think of it as your first journey into an exciting new world of artificial intelligence.
 
 In this session, we'll explore:
 
-* **Data** and **models**: Understand why data is the lifeblood of AI and how models act as the brains that make sense of it all.
-* **Loss functions** and **optimization algorithms**: Dive into the essentials of training models, where we'll shed light on how computers learn through loss functions and optimization algorithms.
+* **Data** and **models**: Learn why data is super important and how models work like smart brains to make sense of information.
+* **Loss functions** and **optimization algorithms**: Discover how computers learn by understanding the mistakes. We'll explore how loss functions and optimization algorithms help computers get better and smarter.
 
-By the end of this session, you'll have a solid grasp of these building blocks, which will serve as your compass as you delve deeper into AI and apply what you've learned in exciting and practical ways.
+By the end of this lesson, you'll understand these key ideas. These building blocks will help you see how artificial intelligence works and how you can use these cool skills in real-life situations.
 
 ## Introduction
 
 Think of **deep learning** as a tool to help us achieve goals and solve problems, similar to how you drive a car to get to your destination. Just as you start driving by learning only the basics (without diving into all the complex mechanics), your journey into deep learning begins with understanding its essential components.
 
+```{=html}
+<div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+    <div class="tenor-gif-embed" data-postid="1471332848232877888" data-share-method="host" data-aspect-ratio="1" data-width="50%">
+        <a href="https://tenor.com/view/balance-wheelie-viralhog-cadillac-lightning-mcqueen-drag-racing-gif-1471332848232877888">Balance Wheelie Viralhog GIF</a>
+        from <a href="https://tenor.com/search/balance+wheelie-gifs">Balance Wheelie GIFs</a>
+    </div>
+</div>
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+```
+
 ### What does this tool (deep learning) do?
 
 > *Finding a function automatically that maps given inputs to desired outputs* [^dl-overview].
 
-In everyday terms, deep learning helps computers learn patterns from data to make predictions or decisions without being explicitly programmed with rules. It's like teaching a child to recognize dogs by showing many examples rather than listing all the characteristics that define a dog.
+In everyday terms, deep learning helps computers learn patterns from data to make predictions or decisions without being explicitly programmed with rules. It's like teaching a child to recognize dogs by showing many dog pictures rather than listing all the details that define a dog.
 
 [^dl-overview]: [*https://speech.ee.ntu.edu.tw/\~hylee/ml/ml2023-course-data/ML%20basic%20(v8).pdf*](https://speech.ee.ntu.edu.tw/~hylee/ml/ml2023-course-data/ML%20basic%20(v8).pdf)
 
@@ -27,7 +37,7 @@ For example:
 
 | Inputs                  | Outputs             | Functions                                                 |
 |-------------------------|---------------------|-----------------------------------------------------------|
-| A sentence or prompt    | A text completion   | LLM (e.g., ChatGPT [^chatgpt]) |
+| A sentence or prompt    | Text completion   | LLM (e.g., ChatGPT [^chatgpt]) |
 | A caption/description   | An image            | DALL-E [^dall-e]              |
 | Historical weather data | Weather forecasting | GraphCast [^graphcast]           |
 
@@ -41,55 +51,55 @@ For example:
 
 ::: callout-tip
 ## Quick thought
-Think of a real-world problem you’re passionate about solving with deep learning. What would be the inputs and outputs of such a system? 
+Think about a real problem you want to solve with deep learning. What information would you put into the system? What would you want to get out of it?
 :::
 
 ### Key questions and building blocks of deep learning
 
-To find the right function by using deep learning, we can break the process into four key questions and building blocks:
+To find the right function using deep learning, we can break down the process into four key questions and building blocks:
 
 1.  **What are the inputs and outputs?** This relates to the **data** we use.
-2.  **What are the possible functions we can use?** This corresponds to the **models** that define the mapping.
-3.  **How do we evaluate the function?** This is where **loss functions** come in.
-4.  **How do we find the best function?** This is achieved through **optimization algorithms**.
+2.  **What functions can we possibly use?** This relates to the **models** that define how inputs connect to outputs.
+3.  **How do we evaluate the function?** This is where **loss functions** help us.
+4.  **How do we find the best possible function?** This is done through **optimization algorithms**.
 
-Together, these questions and building blocks form the foundation of deep learning. Additionally, two more components — **training and inference** — connect these building blocks and operationalize the models.
+These questions and building blocks create the core of deep learning. Two more important parts — **training** and **inference** — help connect these building blocks and make the models work in real situations.
 
 ![Deep learning building blocks](../images/dl-pytorch/dl-blocks.png)
 
 ::: callout-note
-Remember, the building blocks of deep learning are interconnected. They influence each other, and there are always trade-offs to consider.
+Remember, the building blocks of deep learning are closely connected. They affect each other, and there are always trade-offs to consider.
 :::
 
-**Let’s begin our exploration into the building blocks of deep learning.**
+**Let's begin our exploration into the building blocks of deep learning.**
 
 ## Data
 
-*Data is the start point of deep learning, forming the **inputs** and **outputs** that define the function we aim to learn.*
+*Data is the start point of deep learning, forming the **inputs** and **outputs** that define the function we want to learn.*
 
 ::: callout-note
-Please refer to the [AI-ready Data](./ai-ready-data-in-arctic-research.qmd) section for discussions on data for Arctic research.
+Please see the [AI-ready Data](./ai-ready-data-in-arctic-research.qmd) section for discussions on data for Arctic research.
 :::
 
 ### Inputs
 
-To build a deep learning application, the first step is to define and prepare the data that feeds into the function we aim to learn. Data is the foundation upon which models discover patterns and make predictions, acting as the fuel that powers our AI systems. Before diving into the details, consider the unique characteristics and requirements of your problem. Reflect on the following questions:
+Building a deep learning application starts with defining and preparing the data. Data is the foundation that helps models discover patterns and make predictions. Before you begin, think about these key questions:
 
-* What is the nature of the data? (e.g., images, text, audio)?
-* How much data is available, and is it representative of the real-world scenarios?
-* Are there any task-specific considerations, e.g., granularity, temporal consistency, or spatial coverage?
-* Is the data clean and usable, e.g., missing values, outliers, or noise?
+* What type of data are you working with? (images, text, audio, etc.)
+* How much data do you have? Is it representative of real-world situations?
+* Are there any special requirements for your task? (granularity, temporal consistency, spatial coverage, etc.)
+* Is the data clean and usable? (missing values, unusual data points, background noise)
 
-**Here are some key steps and practical tips when preparing input data:**
+**Here are some key steps for preparing input data:**
 
-::: {.callout-caution icon="false" collapse="true"}
-## Collection
+::: {.callout-caution icon="false"}
+## Data collection
 
-*Identify and gather data from reliable sources.*
+*Find and gather data from reliable sources.*
 
-* Use publicly available datasets or domain-specific repositories as they can save time and effort [^arcticdata] [^noaa].
-* Ensure data diversity to cover the range of scenarios the application may encounter [^diversity].
-* Verify data quality by addressing issues like inconsistencies, duplicates, or noise [^quality].
+* Use public datasets or domain-specific repositories to save time and effort [^arcticdata] [^noaa].
+* Include diverse data to cover different scenarios [^diversity].
+* Check data quality by looking for problems like inconsistencies, duplicates, or noise [^quality].
 
 [^arcticdata]: <https://arcticdata.io/>
 
@@ -101,13 +111,13 @@ To build a deep learning application, the first step is to define and prepare th
 
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
-## Preprocessing
+::: {.callout-caution icon="false"}
+## Data preparation
 
-*Clean and prepare data for model training.*
+*Clean and prepare data for training the model.*
 
-* Clean the data by handling missing values, outliers, and noise, e.g., by imputation or removal [^missing-values] [^missing-values-2] [^outliers] [^outliers-2].
-* Standardize or normalize data to bring different features into a similar scale. This helps improve model convergence speed of gradient-based optimization algorithms [^normalization].
+* Handle missing or unusual data points by filling in values or removing them[^missing-values] [^missing-values-2] [^outliers] [^outliers-2].
+* Standardize or normalize data to bring different features to a similar scale. This helps model learn faster [^normalization].
 
 [^missing-values]: <https://www.geeksforgeeks.org/ml-handling-missing-values/>
 
@@ -121,16 +131,16 @@ To build a deep learning application, the first step is to define and prepare th
 
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
-## Data splitting
+::: {.callout-caution icon="false"}
+## Splitting data
 
-*Divide data into training, validation, and testing sets to evaluate the model's performance.*
+*Divide data into training, validation, and testing sets.*
 
-* Ensure each set is representative of the real-world data distribution, avoiding data leakage [^data-leakage].
-* Consider the nature of the task (e.g., time-series, spatial data) when splitting the data [^data-splitting-nature], e.g.:
-    - **Imbalanced data**: Use stratified sampling to maintain class distribution in training and testing sets [^stratified-sampling] [^stratified-sampling-2].
-    - **Temporal data**: Time-based splits for temporal data.
-    - **Spatial data**: Location-based splits for geospatial data [^spatial-data] [^spatial-data-2].
+* Ensure each set represents real-world data distribution, avoiding data leakage [^data-leakage].
+* Consider the types of data you're working with [^data-splitting-nature]:
+    - **Imbalanced data**: Use stratified sampling to keep the right mix of different classes [^stratified-sampling] [^stratified-sampling-2].
+    - **Temporal data**: Split based on time. 
+    - **Spatial data**: Split based on geographic areas [^spatial-data] [^spatial-data-2].
 
 [^data-leakage]: <https://www.alooba.com/skills/concepts/deep-learning/data-splitting/>
 
@@ -146,14 +156,14 @@ To build a deep learning application, the first step is to define and prepare th
 
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
+::: {.callout-caution icon="false"}
 ## Data augmentation
 
-*Apply transformations to the training data to artificially increase the size and diversity of the dataset, thereby improving the model's generalization.*
+*Apply transformations to the training data to increase the size and variety of your data.*
 
--   Apply augmentations consistent with the data type (e.g., rotation, flipping for images but not for text) [^data-augmentation-1] [^data-augmentation-2].
--   Use augmentation techniques sparingly to avoid introducing unrealistic patterns [^data-augmentation-3].
--   Explore domain-specific augmentation techniques for specialized tasks (e.g., medical imaging, satellite imagery) [^data-augmentation-4].
+* Use changes that make sense for your data type (e.g., rotate images, but don't do this with text) [^data-augmentation-1] [^data-augmentation-2].
+* Be careful not to create unrealistic data [^data-augmentation-3].
+* Look for special techniques for specific areas like medical imaging or satellite pictures [^data-augmentation-4].
 
 [^data-augmentation-1]: <https://anushsom.medium.com/image-augmentation-for-creating-datasets-using-pytorch-for-dummies-by-a-dummy-a7c2b08c5bcb>
 
@@ -167,9 +177,9 @@ To build a deep learning application, the first step is to define and prepare th
 
 ::: callout-tip
 ## Quick thought
-How well do you understand your data? E.g., how is the data collected, and what is the quality of the data? 
+How well do you understand your data? Think about how it's collected and its quality. 
 
-Even for famous datasets, e.g., ImageNet, they may still have some issues [^imagenet-issues].
+Even famous datasets like ImageNet can have issues [^imagenet-issues].
 
 [^imagenet-issues]: [Beyer, L., Hénaff, O. J., Kolesnikov, A., Zhai, X., & Oord, A. V. D. (2020). Are we done with imagenet?. arXiv preprint arXiv:2006.07159.](https://arxiv.org/pdf/2006.07159)
 
@@ -177,80 +187,82 @@ Even for famous datasets, e.g., ImageNet, they may still have some issues [^imag
 
 ### Outputs
 
-Defining the outputs is as important as preparing the inputs. The outputs represent the structure of the model's predictions and they should match the goals and requirements of your application. Consider the following aspects when thinking about outputs:
+Defining outputs is just as important as preparing inputs. Outputs show how the model makes predictions and must match your project's goals. Consider:
 
-* What type of output does your problem require? (e.g., classification labels, continuous values, or structured outputs)?
-* How should the outputs be formatted? (e.g., a fixed-size vector of class probabilities, a continuous value, or a structured output like bounding boxes and class labels for object detection)?
-* Are there any constraints or requirements for the outputs? (e.g., a specific range)?
+* What type of output do you need? (labels, numbers, detailed results)
+* How should the outputs look? (probability list, single number, detailed information)
+* Are there any special requirements for the outputs, e.g., a specific range?
 
-**Here are some key steps and practical tips when preparing output data:**
+**Here are some key steps for preparing output data:**
 
-::: {.callout-caution icon="false" collapse="true"}
+::: {.callout-caution icon="false"}
 ## Identify output type
 
-*Determine the nature of the output based on your problem statement, e.g., classifying an image, predicting a numerical value, or generating a sequence.*
+*Choose the right type of output based on your specific problem.*
 
-* Use classification outputs for problems like image categorization or sentiment analysis.
-* Opt for regression outputs when predicting continuous values, e.g., predicting sea ice concentration or temperature.
-* Explore structured outputs for tasks that require more complex outputs, e.g., object detection with bounding boxes and class labels [^structured-outputs].
+* Use classification for tasks like sorting images or checking sentiment.
+* Use regression to predict exact numbers, like sea ice concentration.
+* Use structured outputs for complex tasks, like finding objects in an image [^structured-outputs].
 
 [^structured-outputs]: <https://docs.aws.amazon.com/sagemaker/latest/dg/object-detection-in-formats.html>
 
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
+::: {.callout-caution icon="false"}
 ## Format outputs
 
-*Choose an appropriate output format to ensure compatibility with the model architecture and loss functions.*
+*Choose a format that works with your model and loss functions.*
 
-* Use one-hot encoding for categorical classification tasks.
+* Use one-hot encoding for category-based tasks.
 * Normalize continuous outputs to match the scale of the model's inputs.
 * Consider using embeddings for structured outputs to capture relationships between categories. 
 
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
-## Data annotation
+::: {.callout-caution icon="false"}
+## Data labeling
 
-*Label the data based on the problem statement to provide ground truth for model training.*
+*Add labels to your data to provide a reference for training.*
 
-Please refer to the [Data annotation](./data-annotation.qmd) section for more details.
+See the [Data annotation](./data-annotation.qmd) section for more details.
 
 :::
 
 ::: callout-note
-Balancing the output granularity with the model's complexity, available data, computational resources, and the problem statement, e.g., predicting fine-grained sea ice concetrations (0-100%) versus classifying them into categories such as low (\<15%) and high (\>85%) concentrations.
+
+Balance the detail of your outputs with the model's complexity, available data, and computational resources. For example, predict sea ice concentration precisely (0-100%) or use broader categories like low (\<15%) and high (\>85%).
+
 :::
 
 ::: callout-tip
 ## Quick thought
-For a classification problem, what's the difference between one-hot encoding and label encoding?
+In a classification problem, what's the difference between one-hot encoding and label encoding?
 :::
 
 ### Quantity and quality
 
-::: {.callout-caution icon="false" collapse="true"}
+::: {.callout-caution icon="false"}
 ## Quantity: *Does more data always mean better results?*
 
 ![Hoﬀmann et al., (2022)](../images/dl-pytorch/dl-data-quantity.png)
 
-While large datasets often improve performance, they are not a guarantee of success. Referencing research like Hoffmann et al. (2022)[^Hoffmann2022] reminds us that *training compute-optimal models* is about balancing data size, model complexity, and computational power.
+Large datasets often improve performance, but they don't guarantee success. Research shows that creating compute-optimal models means balancing data size, model complexity, and computational power [^Hoffmann2022].
 
 > For various model sizes, we choose the number of training tokens such that the final FLOPs is a constant. The cosine cycle length is set to match the target FLOP count. We find a clear valley in loss, meaning that for a given FLOP budget there is an optimal model to train
 :::
 
 [^Hoffmann2022]: [Hoffmann, J., Borgeaud, S., Mensch, A., Buchatskaya, E., Cai, T., Rutherford, E., ... & Sifre, L. (2022). Training compute-optimal large language models. arXiv preprint arXiv:2203.15556.](https://arxiv.org/abs/2203.15556)
 
-::: {.callout-caution icon="false" collapse="true"}
-## Quality: *What does it mean to have high-quality data?*
+::: {.callout-caution icon="false"}
+## Quality: *What makes data high-quality?*
 
-Quality is as important, if not more so, than quantity. Common issues include:
+Quality is often more important than quantity. Common issues include:
 
-* Label errors or inconsistencies.
-* Noise and irrelevant information.
-* Improperly filtered datasets.
+* Incorrect or inconsistent labels
+* Noise and irrelevant information
+* Poorly filtered datasets
 
-Research highlights the impact of prioritizing data quality:
+Research highlights the importance of data quality:
 
 * Rae et al. (2021) [^Rae2021].
 
@@ -267,203 +279,299 @@ Research highlights the impact of prioritizing data quality:
 
 ## Models
 
-*Models lie at the core of deep learning. They serve as the **function sets** that map inputs to outputs.*
+*Models are the foundation of deep learning. They work as **function sets** that transform inputs into outputs.*
 
 ::: callout-note
-The specific function is determined after selecting a model architecture and obtaining a unique set of parameters by training the model on a dataset.
+The exact function is created by first choosing a model architecture and then getting a specific set of parameters by training the model on data.
 :::
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### Layers
 
-Deep learning models are composed of layers. A layer is like a sub-function that processes the input data and passes it to the next layer. Different types of layers serve specific purposes. Here are some examples:
+Deep learning models are built from layers. A layer works like a step that processes data and sends it to the next layer. Different layer types have different jobs. Here are some examples:
 
 ::: callout-note
-To get started, don't get overwhelmed by the details of each layer type. Just get a sense of their functions and focus on applying entire models in practical scenarios. You can always revisit and explore individual layers more thoroughly later.
+To get started, don't get overwhelmed by all the different layer types. Just get a sense of their basic purposes and focus on using complete models for practical tasks. You can always learn more about individual layers later.
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
+::: {.callout-caution icon="false"}
 ## Fully-connected (dense) layer
 
 *A fully-connected layer connects every input to every output through learnable weights, allowing the network to combine features and make predictions.*
 
-![Fully-connected layer](../images/dl-pytorch/fc-layer.png){.lightbox width="30%"}
 
-$$
-y_i = \sum_{j=1}^{n} w_{ij}x_j + b_i
-$$ where $x_j$ is the input, $y_i$ is the output, $w_{ij}$ is the weight connecting input $x_j$ to output $y_i$, and $b_i$ is the bias term.
+**How it works:**
 
--   **Fully-connected layers** are commonly used in deep learning models when the goal is to process and transform high-level features into outputs. They are helpful for tasks like:
-    -   Adjusting the size of the data (dimensionality).\
-    -   Combining learned features to make decisions, e.g., class probabilities or numerical values.
--   **Advantages** of fully-connected layers:
-    -   They effectively learn global patterns and relationships between features.
-    -   They are easy to implement and integrate into the network architecture.
--   **Challenges** of fully-connected layers:
-    -   High computational cost and memory usage due to the dense connections.\
-    -   Lack of spatial awareness, making them less suitable for tasks involving structured or spatial data (e.g., images or sequences).
--   Try an **interactive demo** of fully-connected layers at the [TensorFlow Playground](https://playground.tensorflow.org/).\
+1. Each input connects to every output. 
+2. Each connection has a weight (a number that can be adjusted). 
+3. For each output:
+    * The layer multiplies each input by its connection weight.
+    * It adds all these multiplied values together.
+
+Think of it like a voting system: each input "votes" for different outputs with different strengths (weights). 
+
+* **Uses**:
+    * Adjust the size of your data (dimensionality).
+    * Combine features to make decisions, e.g., identifying classes or predicting values [^fully-connected-layer]. 
+* **Advantages**:
+    * They learn patterns across all features.
+    * They are simple to add to your network.
+* **Challenges**:
+    * They need lots of computing power and memory due to the dense connections.
+    * They don't understand spatial relationships well (unlike layers designed for images or sequences). 
+
+[^fully-connected-layer]: <https://adamharley.com/nn_vis/mlp/3d.html>
+
+::: {.callout-tip icon="false" collapse="true"}
+# Interactive visualization of a fully-connected layer
+
+```{=html}
+<div id="fully-connected-layer"></div>
+<script type="module" src="/_resources/js/vis-fully-connected-layer.js"></script>
+```
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
+:::
+
+::: {.callout-caution icon="false"}
 ## Convolutional layer
 
-*A convolutional layer processes input data by applying filters that detect patterns like edges, textures, and shapes, helping the model understand spatial features in images.*
+*A convolutional layer applies filters to input data to detect patterns like edges, textures, and shapes, making it ideal for processing images and other spatial data [^convolutional-layer].*
 
--   **Convolutional layers** are essential for image analysis and other tasks that require understanding spatial relationships. They are characterized by:
-    -   **Local Connectivity:** Focusing on small regions of the input.
-    -   **Parameter Sharing:** Reusing weights across different parts of the input, enhancing computational efficiency and generalization by reducing parameters.
--   **Advantages** of convolutional layers:
-    -   They capture spatial patterns and relationships in the data.
-    -   They reduce the number of parameters by sharing weights, making them computationally efficient.
--   **Challenges** of convolutional layers:
-    -   They require tuning of hyperparameters like filter size and stride.
-    -   They may struggle with capturing global patterns in the data, often addressed by pooling layers or large receptive fields.
+[^convolutional-layer]: <https://cs231n.github.io/convolutional-networks/>
+
+**How it works:**
+
+1. Small filters (also called **kernels**) slide across the input data.
+2. Each filter looks at a small area at a time.
+3. For each position:
+    * The layer multiplies each input value by the corresponding filter value.
+    * It adds all these multiplied values together.
+4. **Stride** controls how many positions the kernel moves each step.
+5. **Padding** adds zeros around the input to control output dimensions.
+6. **Output size** = (Input size + 2 × Padding - Kernel size) / Stride + 1
+
+
+Think of it like a spotlight that moves across an image, highlighting specific patterns whenever they appear.
+
+* **Uses**:
+    * Extract features from spatial data (like images).
+    * Detect patterns regardless of where they appear in the input.
+    * Reduce the data size while keeping important information.
+* **Advantages**:
+    * They need fewer parameters than fully-connected layers.
+    * They preserve spatial relationships in the data.
+    * They can find the same pattern anywhere in the input.
+* **Challenges**:
+    * They may miss global patterns that span the entire input.
+    * Setting the right filter size and number requires careful design.
+
+::: {.callout-tip icon="false" collapse="true"}
+# Interactive visualization of a convolutional layer
+
+```{=html}
+<div id="convolutional-layer"></div>
+<script type="module" src="/_resources/js/vis-convolutional-layer.js"></script>
+```
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
+:::
+
+::: {.callout-caution icon="false"}
 ## Pooling layer
 
-*A pooling layer reduces the size of feature maps by summarizing regions (e.g., taking the maximum or average value), helping to retain important information while reducing computational complexity.*
+*A pooling layer reduces the size of data by keeping only the most important information, making processing faster and helping the network focus on key features.*
 
--   **Pooling layers** are commonly used in convolutional neural networks to:
-    -   Reduce spatial dimensions, which helps prevent overfitting.
-    -   Capture invariant features by summarizing local information, allowing the model to recognize patterns regardless of their exact location.
--   **Types of pooling**:
-    -   **Max Pooling**: Selects the maximum value from a region.
-    -   **Average Pooling**: Computes the average value in a region.
-    -   **Global Pooling**: Aggregates information across the entire feature map, often used to reduce each feature map to a single value.
--   **Advantages** of pooling layers:
-    -   They reduce the spatial dimensions of the data, making the model more robust by focusing on key features.
-    -   They help the model focus on important features while discarding irrelevant details.
--   **Challenges** of pooling layers:
-    -   They may lead to information loss by summarizing data.
-    -   They can reduce the spatial resolution of the data, potentially affecting performance in tasks requiring fine-grained details.
+**How it works:**
+
+1. The layer divides input data into small regions.
+2. For each region, it keeps only one value (e.g., the maximum or average value).
+3. The creates a smaller output with fewer details.
+
+Think of it like summarizing a detailed picture by keeping only the brightest point in each region. 
+
+* **Uses**:
+    * Reduce data size to save memory and computation.
+    * Make the network less sensitive to small input changes.
+    * Focus on the most important features.
+* **Advantages**:
+    * They significantly reduce data size.
+    * They make the network more resistant to small input changes.
+    * They help extract key features regardless of exact position.
+* **Challenges**:
+    * They permanently lose some information.
+    * They might discard details that are important for the task.
+
+**Types of pooling layers**:
+
+* **Max pooling**: Keeps the maximum value in a region.
+* **Average pooling**: Calculates the average value in a region.
+* **Global pooling**: Averages information across the entire feature map, often used to reduce each feature map to a single value [^global-pooling].
+
+[^global-pooling]: [Lin, M., Chen, Q., & Yan, S. (2013). Network in network. arXiv preprint arXiv:1312.4400.](https://arxiv.org/abs/1312.4400)
+
+::: {.callout-tip icon="false" collapse="true"}
+# Interactive visualization of a pooling layer
+
+```{=html}
+<div id="pooling-layer"></div>
+<script type="module" src="/_resources/js/vis-pooling-layer.js"></script>
+```
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
+:::
+
+::: {.callout-caution icon="false"}
 ## Activation layer
 
-*An activation layer applies a mathematical function to introduce non-linearity into the model, allowing the model to learn more complex patterns.*
+*An activation layer adds non-linearity to the network, allowing it to learn complex patterns that go beyond simple calculations.*
 
--   **Activation layers** are crucial for deep learning models to:
-    -   Introduce non-linearity, enabling the model to learn complex relationships in the data.
--   **Common activation functions**:
-    -   **ReLU (Rectified Linear Unit)**: $f(x) = \max(0, x)$ - commonly used due to its simplicity and efficiency.
-    -   **Sigmoid**: $f(x) = \frac{1}{1 + e^{-x}}$ - useful for binary classification but can suffer from vanishing gradients.
-    -   **Tanh**: $f(x) = \frac{e^{2x} - 1}{e^{2x} + 1}$ - similar to sigmoid but outputs values between -1 and 1, often preferred over sigmoid for hidden layers.
--   **Advantages** of activation layers:
-    -   They enable the model to learn complex patterns by introducing non-linearity.
--   **Challenges** of activation layers:
-    -   They may introduce issues like vanishing or exploding gradients, affecting model training.
-    -   Choosing the right activation function is crucial for model performance and stability.
+**How it works:**
+
+1. The layer takes each input value individually.
+2. It applies a mathematical function (like ReLU, sigmoid, or tanh).
+3. This transforms values in a non-linear way.
+
+Think of it like adding decision points in the network: "If the value is below 0, ignore it. If above, keep it" (for ReLU).
+
+* **Uses**:
+    * Enable to network to learn complex, non-linear relationships.
+    * Control the range of output values.
+* **Advantages**:
+    * They allow networks to learn complicated patterns.
+    * They control how information flows through the network.
+    * Different activations work well for different problems [^activation-layer].
+* **Challenges**:
+    * Some activations can cause training problems (like vanishing gradients) [^activation-layer-2].
+    * Choosing the right activation requires understanding the problem.
+
+[^activation-layer]: <https://www.v7labs.com/blog/neural-networks-activation-functions>
+[^activation-layer-2]: <https://www.geeksforgeeks.org/tanh-vs-sigmoid-vs-relu/>
+
+**Some examples**:
+
+* **ReLU**: $f(x) = \max(0, x)$.
+* **Sigmoid**: $f(x) = \frac{1}{1 + e^{-x}}$.
+* **Tanh**: $f(x) = \frac{e^{2x} - 1}{e^{2x} + 1}$.
+
+::: {.callout-tip icon="false" collapse="true"}
+# Interactive visualization of an activation layer
+
+```{=html}
+<div id="activation-layer"></div>
+<script type="module" src="/_resources/js/vis-activation-layer.js"></script>
+```
+:::
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
-## Batch normalization layer
-
-*A batch normalization layer normalizes the inputs by adjusting the mean and variance, helping to speed up training and improve stability.*
-
--   **Batch normalization layers** are used to:
-    -   Stabilize training by normalizing inputs within layers.
-    -   Accelerate convergence by reducing internal covariate shift, making the model more robust to hyperparameter choices.
--   **Advantages** of batch normalization layers:
-    -   They stabilize training by reducing internal covariate shift.
-    -   They enable faster convergence and better generalization by normalizing inputs within layers.
--   **Challenges** of batch normalization layers:
-    -   They introduce additional hyperparameters like momentum and epsilon.
-    -   They may affect model performance in tasks where the data distribution changes significantly during training, such as non-stationary environments or when batch sizes are very small.
-:::
-
-::: {.callout-caution icon="false" collapse="true"}
-## Dropout layer
-
-*A dropout layer randomly disables a fraction of neurons during training, helping to prevent overfitting by making the model less reliant on specific pathways.*
-
--   **Dropout layers** are used to:
-    -   Prevent overfitting by reducing the model's reliance on specific pathways through random neuron deactivation.
-    -   Improve model generalization by introducing noise during training, which forces the model to learn more robust and diversified representations.
--   **Advantages** of dropout layers:
-    -   They prevent overfitting by introducing noise and reducing reliance on specific pathways, enabling the model to develop a more generalized understanding of the data.
-    -   They improve model generalization by encouraging the model to learn more robust features that are not dependent on particular neuron activations.
--   **Challenges** of dropout layers:
-    -   They may slow down training due to the random deactivation of neurons, which can increase the number of epochs needed to reach convergence.
-    -   They require careful tuning of the dropout rate to balance regularization and model performance, as too high a dropout rate can lead to underfitting.
-:::
-
-::: {.callout-caution icon="false" collapse="true"}
-## Residual connection layer
-
-*A residual connection layer adds the input of a layer directly to its output, helping to prevent vanishing gradients and enabling deeper networks.*
-
--   **Residual connections** are used to:
-    -   Enable the training of deeper networks by mitigating vanishing gradients.
-    -   Improve model convergence by providing a direct path for gradient flow, making it easier for the model to learn complex patterns.
-:::
-
-::: {.callout-caution icon="false" collapse="true"}
+::: {.callout-caution icon="false"}
 ## Recurrent layer
 
-*A recurrent layer processes sequences of data by maintaining a hidden state that captures information from previous steps, allowing the network to learn patterns in temporal or sequential data.*
+*A recurrent layer processes sequences by maintaining a memory of previous inputs, making it suitable for text, speech, and time-series data.*
 
--   **Recurrent layers** are essential for tasks involving sequential data like time series, text, or audio. They are characterized by:
-    -   **Temporal Connectivity:** Capturing dependencies between elements in a sequence.
-    -   **Hidden State:** Maintaining a memory of past inputs to inform future predictions.
--   **Advantages** of recurrent layers:
-    -   They capture temporal dependencies in sequential data, making them suitable for tasks like time series forecasting, language modeling, and speech recognition.
-    -   They enable the model to learn long-term dependencies by maintaining a hidden state that captures information from previous steps.
--   **Challenges** of recurrent layers:
-    -   They may struggle with capturing long-term dependencies due to vanishing or exploding gradients.
-    -   They can be computationally expensive and slow to train, especially for long sequences.
+**How it works:**
+
+1. It maintains an internal state (memory) between processing steps.
+2. For each item in a sequence:
+    * It combines the current input with its internal state.
+    * It updates its state based on this combination.
+3. This allows information to persist across the sequence.
+
+Think of it like reading a book while keeping track of the story so far, using previous context to understand each new sentence.
+
+* **Uses**:
+    * Process sequential data like text or time series.
+    * Remember information from earlier in a sequence.
+    * Generate sequential outputs based on context.
+* **Advantages**:
+    * They can capture dependencies across sequence elements.
+    * They can process sequences of variable length.
+    * Variants like LSTM [^LSTM] [^LSTM-2] and GRU [^GRU] can remember information for long periods.
+* **Challenges**:
+    * They can be slow to train due to sequential processing.
+    * They may suffer from vanishing or exploding gradients [^LSTM-3].
+
+[^LSTM]: [Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. Neural computation, 9(8), 1735-1780.](https://ieeexplore.ieee.org/abstract/document/6795963)
+
+[^LSTM-2]: [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
+[^LSTM-3]: <https://www.superdatascience.com/blogs/recurrent-neural-networks-rnn-the-vanishing-gradient-problem>
+
+[^GRU]: [Cho, K., Van Merriënboer, B., Gulcehre, C., Bahdanau, D., Bougares, F., Schwenk, H., & Bengio, Y. (2014). Learning phrase representations using RNN encoder-decoder for statistical machine translation. arXiv preprint arXiv:1406.1078.](https://arxiv.org/abs/1406.1078)
+
+::: {.callout-tip icon="false" collapse="true"}
+# Visualization of a LSTM cell
+
+```{=html}
+<div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+    <video src="https://packaged-media.redd.it/afzlbpt2ncg81/pb/m2-res_480p.mp4?m=DASHPlaylist.mpd&v=1&e=1744837200&s=962a50128d5f94aa8b6812f3f6c2d1119d2fa3e2" controls></video>
+</div>
+<div style="text-align: center; font-size: 0.8em; color: #666; margin-top: 0.5em;">
+    Source: <a href="https://www.reddit.com/r/TheInsaneApp/comments/smiln0/long_short_term_memory_cell_visualized/" target="_blank">Reddit r/TheInsaneApp</a>
+</div>
+```
+
+The key components of an LSTM cell are:
+
+* **Three gates** (shown as X symbols in circles) from left to right: 
+    * **Forget gate**: This decides what information to throw away or keep from memory. 
+    * **Input gate**: This decides what new information to add to memory.
+    * **Output gate**: This decides what information to share with the next cell.
+* **Inputs**: 
+    * Current input $x_t$
+    * Previous hidden state $h_{t-1}$
+    * Previous cell state $C_{t-1}$
+* **Outputs**:
+    * Current hidden state $h_t$
+    * Current cell state $C_t$
+* The **blue box** represents the **sigmoid function**, which outputs a value between 0 and 1. It controls how much information passes through each gate, like a filter that can be partially open or closed. 
+* The **purple box** represents the **tanh function**, which outputs a value between -1 and 1. It scales the input values. 
+
+The LSTM cell works as follows:
+
+1. $h_{t-1}$ and $x_t$ are combined together and passed through sigmoid functions as gate control signals.
+2. The forget gate determines how much of the previous cell state $C_{t-1}$ (the previous memory) is passed to the next cell. Think of this like deciding which old memories to keep or discard.
+3. The input gate determines how much of the current input $x_t$ is added to the cell state. This is like deciding which new information is worth remembering.
+4. The output gate determines how much of the current cell state $C_t$ is passed to the next hidden state $h_t$. This is like deciding which parts of your memory to actively think about right now.
+
+:::
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
+::: {.callout-caution icon="false" collapse="false"}
 ## Attention layer
 
-*An attention layer computes relationships between elements in the data, enabling the model to focus on specific parts of the input.*
+*An attention layer helps a network focus on relevant parts of the input data, similar to how humans concentrate on important details rather than everything at once.*
 
--   **Attention layers** are crucial for tasks that require capturing complex relationships between elements in the data. They are characterized by:
-    -   **Contextual Information:** Capturing relationships between elements in the data.
-    -   **Selective Focus:** Allowing the model to focus on relevant parts of the input.
--   **Advantages** of attention layers:
-    -   They enable the model to focus on specific parts of the input, improving performance in tasks like machine translation, image captioning, and question answering.
-    -   They capture complex relationships between elements in the data, making them suitable for tasks that require understanding context and dependencies.
--   **Challenges** of attention layers:
-    -   They introduce additional complexity to the model architecture, requiring careful tuning of hyperparameters.
-    -   They may increase computational costs and memory usage, especially for large-scale models.
+**How it works:**
+
+1. It calculates how important each input element is for the current task.
+2. It assigns attention weights to each element based on this importance.
+3. It creates a weighted combination of the inputs according to these weights.
+
+Think of it like reading with a highlighter: marking and focusing on key phrases rather than every word equally.
+
+* **Uses**:
+    * Find relationships between different parts of the input.
+    * Focus on relevant information for a specific task.
+    * Handle long-range dependencies in sequences.
+* **Advantages**:
+    * They significantly improve performance on complex tasks.
+    * They create interpretable weightings that show what the network focuses on.
+    * They enable processing of very long sequences effectively.
+* **Challenges**:
+    * They can be computationally expensive, especially for long sequences.
+    * Self-attention specifically scales quadratically with sequence length.
+    * Designing the right attention mechanism requires careful consideration.
+
+::: {.callout-tip icon="false" collapse="true"}
+# Visualization of image attention mechanism (conceptual flow)
+
+Attention mechanism is originally proposed for natural language processing tasks. The following visualization shows how it works for images. You may check how it works for text here: [How LLMs work](https://www.youtube.com/watch?v=wjZofJX0v4M) and [Attention in transformers](https://www.youtube.com/watch?v=eMlx5fFNoYc).
+
+```{=html}
+<div id="attention-layer"></div>
+<script type="module" src="/_resources/js/vis-attention-layer.js"></script>
+```
+:::
 :::
 
 ### Models
@@ -548,44 +656,6 @@ Deep learning models are architectures composed of layers. Each model architectu
     -   Generative modeling for data augmentation and synthesis.
 :::
 
-::: {.callout-caution icon="false" collapse="true"}
-## Generative Adversarial Networks (GANs)
-
-*Used for generative modeling and image synthesis.*
-
--   **Generative Adversarial Networks (GANs)** are composed of two networks, a generator and a discriminator, that compete in a game setting. GANs are used for:
-    -   **Generative Modeling:** Creating new data samples similar to the training data.
-    -   **Image Synthesis:** Generating realistic images from random noise.
-    -   **Style Transfer:** Combining the content of one image with the style of another.
--   **Components** of GANs:
-    -   **Generator:** Learns to generate realistic data samples.
-    -   **Discriminator:** Learns to distinguish between real and generated samples.
-    -   **Adversarial Loss:** Guides the training process by pitting the generator against the discriminator.
--   **Applications** of GANs:
-    -   Image generation and super-resolution.
-    -   Deepfake detection and generation.
-    -   Artistic style transfer and image-to-image translation.
-:::
-
-::: {.callout-caution icon="false" collapse="true"}
-## Diffusion Models
-
-*Used for generative modeling and image synthesis.*
-
--   **Diffusion Models** are generative models that learn to model the data distribution by iteratively diffusing noise. They are characterized by:
-    -   **Diffusion Process:** Modeling the data distribution by iteratively diffusing noise.
-    -   **Invertible Networks:** Learning to reverse the diffusion process to generate samples.
-    -   **Score-Based Training:** Training the model by estimating the score function of the data distribution.
--   **Applications** of Diffusion Models:
-    -   Image generation and super-resolution.
-    -   Video prediction and synthesis.
-    -   Anomaly detection and data completion.
--   **Variants** of Diffusion Models include:
-    -   **Denoising Diffusion Probabilistic Models (DDPM):** Learn to denoise images by modeling the diffusion process.
-    -   **Diffusion Probabilistic Models (DPM):** Model the data distribution by diffusing noise through a series of steps.
-    -   **Score-Based Generative Models:** Train the model by estimating the score function of the data distribution.
-:::
-
 ### Pre-trained models and transfer learning
 
 ::: callout-note
@@ -661,7 +731,7 @@ The **feature extractor** is the heart of the model, transforming data into info
 ::: {.callout-caution icon="false" collapse="true"}
 ## Considerations for model customization
 
--   **Task Similarity**: The extent of adaptation needed depends on how closely the pre-trained model’s original task aligns with your target task. More divergent tasks may require extensive customization and additional data for fine-tuning. Therefore, selecting a pre-trained model that closely resembles your task can simplify the adaptation process.
+-   **Task Similarity**: The extent of adaptation needed depends on how closely the pre-trained model's original task aligns with your target task. More divergent tasks may require extensive customization and additional data for fine-tuning. Therefore, selecting a pre-trained model that closely resembles your task can simplify the adaptation process.
 :::
 
 ## Loss functions
