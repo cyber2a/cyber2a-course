@@ -127,6 +127,8 @@ csl: ieee.csl
 format:
   html:
     theme: cosmo
+    include-after-body:
+      - file: _statcounter.html
 
 
 
