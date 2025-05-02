@@ -40,11 +40,22 @@ With the start of availability of big data for training, evidence showed that pe
 
 Here's a few examples of foundation models and their parameter count:
 
-* CLIP [@DBLP:journals/corr/abs-2103-00020] - 63 million parameters
-* BERT [@DBLP:journals/corr/abs-1810-04805] - 345 million parameters
-* GPT-3 [@DBLP:journals/corr/abs-1810-04805] - 175 billion parameters
+1. Contrastive Language-Image Pre-training (CLIP) [@DBLP:journals/corr/abs-2103-00020] - 63 million parameters
+    * [CLIP](https://openai.com/index/clip/) from OpenAI is the first model to combine the image (computer vision) and language (NLP) domains.
+    * [Contrastive Language-Image Pre-training](https://en.wikipedia.org/wiki/Contrastive_Language-Image_Pre-training) (CLIP) is a technique for training a pair of neural network models, one for image understanding and one for text understanding, using a contrastive objective.
+    * The goal for [contrastive learning](https://paperswithcode.com/task/contrastive-learning) is to learn a representation of data such that similar instances are close together in the representation space, while dissimilar instances are far apart.
+    * In summary, CLIP is a pretrained model for telling you [how well a given image and a given text fit together](https://medium.com/one-minute-machine-learning/clip-paper-explained-easily-in-3-levels-of-detail-61959814ad13).
+    * CLIP is the pre-cursor to [DALL-E](https://openai.com/index/dall-e-3/). 
+    * Applications of CLIP range from image captioning, image classification, semantic image search, content moderation etc.
+2. BERT [@DBLP:journals/corr/abs-1810-04805] - 345 million parameters
+    * [Bidirectional Encoder Representations from Transformers](https://en.wikipedia.org/wiki/BERT_(language_model)) (BERT) is a language model introduced in October 2018 by researchers at Google.
+    * It is the first language model to learn bi-directional representations of text to significantly improve contextual understanding of unlabeled text across many different tasks. ![Source : [Nvidia blog](https://www.nvidia.com/en-us/glossary/bert/)]
+    * It’s the basis for an entire family of BERT-like models such as RoBERTa, ALBERT, and DistilBERT.
+    * [Google](https://research.google/blog/open-sourcing-bert-state-of-the-art-pre-training-for-natural-language-processing/) has described BERT as the “first deeply bidirectional, unsupervised language representation, pre-trained using only a plain text corpus”
+    * Applications of BERT are langauge translation, sentiment analysis, question answering etc.
+3. GPT-3 [@DBLP:journals/corr/abs-1810-04805] - 175 billion parameters
     * Wikipedia consists of only 3% of its training data
-* GPT-4 [@openai2024gpt4technicalreport] - 1.8 trillion parameters
+4. GPT-4 [@openai2024gpt4technicalreport] - 1.8 trillion parameters
 
 ![Growth in compute power. (Source: GPT-3 paper [@DBLP:journals/corr/abs-1810-04805])](../images/foundation-models/compute-power-training.png){#fig-gpt-3-compute-power}
 
