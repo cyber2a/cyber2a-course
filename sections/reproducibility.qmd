@@ -6,6 +6,8 @@ editor:
 
 # Reproducibility
 
+Download [Reproducibility slides](../images/Cyber2A Reproducibility Slides.pdf)
+
 ## Goal
 
 This session aims to highlight the importance of reproducibility in
