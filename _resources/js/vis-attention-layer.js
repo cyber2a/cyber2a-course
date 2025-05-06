@@ -8,9 +8,9 @@ const ChevronDown = () => React.createElement('svg', { width: 16, height: 16, vi
 
 // Wait for complete DOM loading
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('attention-layer'); // Use a new ID to avoid conflicts
+  const container = document.getElementById('vis-attention-layer'); // Use a new ID to avoid conflicts
   if (!container) {
-      console.warn("Container element with ID 'attention-layer-conceptual' not found.");
+      console.warn("Container element with ID 'vis-attention-layer' not found.");
       // Optionally try the old ID for backward compatibility?
       // container = document.getElementById('attention-layer');
       // if (!container) return;
