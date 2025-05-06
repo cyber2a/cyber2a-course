@@ -4,7 +4,7 @@
 
   // Wait for complete DOM loading
   document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('fully-connected-layer');
+    const container = document.getElementById('vis-fc-layer');
     if (!container) return;
     
     // Neural Network Visualization Component

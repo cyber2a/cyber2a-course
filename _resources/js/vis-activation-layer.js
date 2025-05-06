@@ -4,7 +4,7 @@ import ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.1";
 
 // Wait for complete DOM loading
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('activation-layer');
+  const container = document.getElementById('vis-activation-layer');
   if (!container) return;
 
   // Activation Layer Visualization Component
