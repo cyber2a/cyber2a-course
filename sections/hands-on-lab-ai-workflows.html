@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1bc3b17e7a2c2828f435aa750fb76336.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09ce80c0277fc360936e517f68e5459d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -370,18 +370,19 @@ ul.task-list li input[type="checkbox"] {
 <section id="step-1-hello-garden" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="step-1-hello-garden">Step 1: Hello, Garden!</h2>
 <p>All of the examples in this lab are available in the workshop repository. Clone the repository to your local machine:</p>
-<pre><code>git clone https://github.com/Garden-AI/uploadathon.git</code></pre>
+<pre><code>git clone https://github.com/cyber2a/ml-workflows.git</code></pre>
 <p>In this step we will upload an existing trivial model to garden and execute it from a Google Colab notebook.</p>
-<p>Use the <a href="https://github.com/Garden-AI/uploadathon/blob/main/hello_world.py">hello_garden.py</a> from the example repo and upload it from the garden form.</p>
+<p>Use the <a href="https://github.com/cyber2a/ml-workflows/blob/main/hello_world.py">hello_garden.py</a> from the example repo and upload it from the garden form.</p>
 <p>Keep it a “test garden” and don’t worry too hard about the metadata</p>
 <p>Once you’ve created it, go make sure you can invoke it remotely. Try out this <a href="https://colab.research.google.com/drive/1jiPsc0jYIoOCcMnXIJv5LiXUt419xal4?usp=sharing">google colab notebook</a> to see it in action.</p>
 </section>
 <section id="step-2-learn-how-to-iterate-on-modal-apps" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="step-2-learn-how-to-iterate-on-modal-apps">Step 2: Learn how to iterate on Modal apps</h2>
+<p>Garden uses the <a href="https://modal.com/docs/guide">modal service</a> to host models and make it easy to perform inference from a noteook. This is a commercial service, but the free tier is entirely sufficient for most purposes and won’t require a credit card.</p>
 <p>In this step we will learn more about creating and debugging a modal app.</p>
 <p>Install the modal package:</p>
 <pre><code>pip install modal</code></pre>
-<p>Download <a href="https://github.com/Garden-AI/uploadathon/blob/main/needs_a_tweak.py">needs_a_tweak.py</a> and try running it with</p>
+<p>Download <a href="https://github.com/cyber2a/ml-workflows/blob/main/needs_a_tweak.py">needs_a_tweak.py</a> and try running it with</p>
 <pre><code>modal run needs_a_tweak.py</code></pre>
 <p>Edit and re-run til it works the way you want it to.</p>
 </section>
@@ -390,13 +391,13 @@ ul.task-list li input[type="checkbox"] {
 <p>Now we will create a modal function that has your model’s weights baked into the container so that our functions don’t need to download the model every time they run.</p>
 <p>Your model weights will need to live somewhere publicly accessible. Garden can’t pull them from your machine.</p>
 <ul>
-<li>See <a href="https://github.com/Garden-AI/uploadathon/blob/main/git_model_staging.py">git_model_staging.py</a> for an example of how to use weights hosted in GitHub or Hugging Face.</li>
-<li>See <a href="https://github.com/Garden-AI/uploadathon/blob/main/figshare_model_staging.py">figshare_model_staging.py</a> for an example of how to pull weights from a FigShare download link.</li>
+<li>See <a href="https://github.com/cyber2a/ml-workflows/blob/main/git_model_staging.py">git_model_staging.py</a> for an example of how to use weights hosted in GitHub or Hugging Face.</li>
+<li>See <a href="https://github.com/cyber2a/ml-workflows/blob/main/figshare_model_staging.py">figshare_model_staging.py</a> for an example of how to pull weights from a FigShare download link.</li>
 </ul>
 </section>
 <section id="step-4-run-a-real-model" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="step-4-run-a-real-model">Step 4: Run a “Real Model”</h2>
-<p>Take a look at the <a href="https://github.com/Garden-AI/uploadathon/blob/main/examples/ESIP/RTS/rts.py">Retrograde Thaw Slump model</a>. You can execute the model from the <a href="https://colab.research.google.com/drive/1slJ0h_nK1UEFKrDUE0YDz53EqWyt7kg4">google colab notebook</a> to see it in action.</p>
+<p>Take a look at the <a href="https://github.com/cyber2a/ml-workflows/blob/main/examples/ESIP/RTS/rts.py">Retrogressive Thaw Slump model</a>. You can execute the model from the <a href="https://colab.research.google.com/drive/1slJ0h_nK1UEFKrDUE0YDz53EqWyt7kg4">google colab notebook</a> to see it in action.</p>
 </section>
 <section id="next-steps" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="next-steps">Next Steps</h2>

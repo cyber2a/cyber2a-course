@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1bc3b17e7a2c2828f435aa750fb76336.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09ce80c0277fc360936e517f68e5459d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -348,7 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#mlflow-a-comprehensive-platform-for-the-ml-lifecycle" id="toc-mlflow-a-comprehensive-platform-for-the-ml-lifecycle" class="nav-link" data-scroll-target="#mlflow-a-comprehensive-platform-for-the-ml-lifecycle"><span class="header-section-number">14.3</span> MLflow: A Comprehensive Platform for the ML Lifecycle</a>
   <ul class="collapse">
   <li><a href="#what-is-mlflow" id="toc-what-is-mlflow" class="nav-link" data-scroll-target="#what-is-mlflow">What is MLflow?</a></li>
-  <li><a href="#the-pdg-mlflow-tracking-server" id="toc-the-pdg-mlflow-tracking-server" class="nav-link" data-scroll-target="#the-pdg-mlflow-tracking-server">The PDG MLFlow Tracking Server</a></li>
+  <li><a href="#the-mlflow-tracking-server" id="toc-the-mlflow-tracking-server" class="nav-link" data-scroll-target="#the-mlflow-tracking-server">The MLFlow Tracking Server</a></li>
   <li><a href="#key-components-of-mlflow" id="toc-key-components-of-mlflow" class="nav-link" data-scroll-target="#key-components-of-mlflow">Key Components of MLflow</a></li>
   </ul></li>
   <li><a href="#scaling-up-training-with-mlflow-slurm" id="toc-scaling-up-training-with-mlflow-slurm" class="nav-link" data-scroll-target="#scaling-up-training-with-mlflow-slurm"><span class="header-section-number">14.4</span> Scaling Up Training With MLFlow-Slurm</a></li>
@@ -473,10 +473,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="unnumbered anchored" data-anchor-id="what-is-mlflow">What is MLflow?</h3>
 <p>MLflow is an open-source platform designed to manage the end-to-end machine learning lifecycle. Created by Databricks, it provides a unified set of tools that address the core challenges in developing, training, and deploying machine learning models. MLflow is language-agnostic and can work with any ML library, algorithm, or deployment tool.</p>
 </section>
-<section id="the-pdg-mlflow-tracking-server" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="the-pdg-mlflow-tracking-server">The PDG MLFlow Tracking Server</h3>
-<p>The Permafrost Discovery Gateway project has a shared MLFlow instance that you can use for your arctic research:</p>
-<p><a href="https://pdg.mflow.software.ncsa.illinois.edu">https://pdg.mflow.software.ncsa.illinois.edu</a></p>
+<section id="the-mlflow-tracking-server" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-mlflow-tracking-server">The MLFlow Tracking Server</h3>
+<p>There are two components to MLFlow, the Python, R, and Java libraries that allow you to instrument your training code and a tracking server that records training runs and hosts the model repository. For serious production use, you will need a hosted tracking server. Fortunately, for tutorials and personal use, you can run a local tracking server.</p>
 </section>
 <section id="key-components-of-mlflow" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="key-components-of-mlflow">Key Components of MLflow</h3>
@@ -642,6 +641,13 @@ Models
 </section>
 <section id="hands-on-tutorial" class="level2" data-number="14.6">
 <h2 data-number="14.6" class="anchored" data-anchor-id="hands-on-tutorial"><span class="header-section-number">14.6</span> Hands-On Tutorial</h2>
+<p>For this tutorial you will need a local JupyterLab running from a conda environment as outlined in Section 0.</p>
+<p>You will also need a local MLFlow tracking server.</p>
+<p>To install and run an MLFlow tracking server locally, you first need to install MLFlow via pip with:</p>
+<pre><code>pip install mlflow</code></pre>
+<p>Once installed, you can start a basic tracking server by running the command</p>
+<pre><code>mlflow server --backend-store-uri sqlite:///mlflow.db</code></pre>
+<p>This sets up a server using SQLite for storage, creates a local directory for artifacts, binds to all network interfaces, and runs on port 5000. You can then access the MLFlow UI by navigating to http://localhost:5000 in your web browser, where you can view, compare, and manage your machine learning experiments.</p>
 <p>We will be using a GPU powered JuypterHub provided by NCSA. Connection instructions will be provided in the classroom.</p>
 <p>The example code is in the <a href="https://github.com/cyber2a/Cyber2A-RTS-ToyModel">Cyber2A-RTS-ToyModel repo</a>. It has a notebook along with some libraries to keep the notebook focused on the MLOps aspects of the code.</p>
 </section>
@@ -652,7 +658,7 @@ Models
 <h3 class="unnumbered anchored" data-anchor-id="mlflow-model-repository">MLFlow Model Repository</h3>
 <p>Expert users within our research group will have access to the MLFlow tracking server and model repository. You can test the model as an artifact from an existing run. Once you are satisfied with its performance, you can publish it to the MLFlow model repository with the <em>Register Model</em> button on the tracking server.</p>
 <p>Published models are given sequential version numbers so colleauges can rely on a stable model for their research. Models in the repository can also follow a lifecycle with MLFlow model <em>aliases</em>. Members of the research group who are not activly involved in model development may just want to use the current <em>best</em> model. The researcher who is training the model can decide which version others should use. MLFlow allows you to pull down the model symbolically.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mlflow.pyfunc.load_model(<span class="st">"models:/rts@prod"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mlflow.pyfunc.load_model(<span class="st">"models:/rts@prod"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="models-as-citable-objects" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="models-as-citable-objects">Models as Citable Objects</h3>
@@ -665,12 +671,12 @@ Models
 <p>A new facility called <a href="https://thegardens.ai">Garden</a> takes this a step further. Your model is hosted as an <em>endpoint</em> which is a hosted function-as-a-service which allows anyone to perform inference with your model without needing to install anything.</p>
 <p>Our example model is hosted at <a href="https://thegardens.ai/#/modal/47">10.26311/x49j-2v19</a></p>
 <p>You can run a remote inference:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> garden_ai <span class="im">import</span> GardenClient</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>garden_client <span class="op">=</span> GardenClient()</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>rts_garden <span class="op">=</span> garden_client.get_garden(<span class="st">'10.26311/5fb6-f950'</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>image_url<span class="op">=</span><span class="st">"https://github.com/cyber2a/Cyber2A-RTS-ToyModel/blob/main/data/images/valtest_yg_055.jpg?raw=true"</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> rts_garden.identify_rts(image_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> garden_ai <span class="im">import</span> GardenClient</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>garden_client <span class="op">=</span> GardenClient()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>rts_garden <span class="op">=</span> garden_client.get_garden(<span class="st">'10.26311/5fb6-f950'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>image_url<span class="op">=</span><span class="st">"https://github.com/cyber2a/Cyber2A-RTS-ToyModel/blob/main/data/images/valtest_yg_055.jpg?raw=true"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> rts_garden.identify_rts(image_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="reference" class="level2" data-number="14.8">
