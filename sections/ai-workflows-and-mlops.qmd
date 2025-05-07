@@ -67,17 +67,17 @@ MLOps addresses these pain points by providing:
 
 MLOps isn't just another buzzword—it's a crucial evolution in how we develop and deploy ML systems. As models become more complex and requirements for reliability increase, MLOps practices become essential for successful ML implementations.
 
-## MLflow: A Comprehensive Platform for the ML Lifecycle 
+## MLflow: A Comprehensive Platform for the ML Lifecycle
 
 ### What is MLflow? {.unnumbered}
 
 MLflow is an open-source platform designed to manage the end-to-end machine learning lifecycle. Created by Databricks, it provides a unified set of tools that address the core challenges in developing, training, and deploying machine learning models. MLflow is language-agnostic and can work with any ML library, algorithm, or deployment tool.
 
-### The PDG MLFlow Tracking Server {.unnumbered}
-The Permafrost Discovery Gateway project has a shared MLFlow instance
-that you can use for your arctic research:
-
-[https://pdg.mflow.software.ncsa.illinois.edu](https://pdg.mflow.software.ncsa.illinois.edu)
+### The MLFlow Tracking Server {.unnumbered}
+There are two components to MLFlow, the Python, R, and Java libraries that allow you to
+instrument your training code and a tracking server that records training runs and hosts the
+model repository. For serious production use, you will need a hosted tracking server.
+Fortunately, for tutorials and personal use, you can run a local tracking server.
 
 ### Key Components of MLflow {.unnumbered}
 MLFlow consists of three main components:
@@ -205,6 +205,20 @@ mlflow run --backend slurm \
 
 
 ## Hands-On Tutorial
+For this tutorial you will need a local JupyterLab running from a conda environment as outlined in Section 0.
+
+You will also  need a local MLFlow tracking server.
+
+To install and run an MLFlow tracking server locally, you first need to install MLFlow via pip with:
+```
+pip install mlflow
+```
+Once installed, you can start a basic tracking server by running the command
+```
+mlflow server --backend-store-uri sqlite:///mlflow.db
+```
+This sets up a server using SQLite for storage, creates a local directory for artifacts, binds to all network interfaces, and runs on port 5000. You can then access the MLFlow UI by navigating to http://localhost:5000 in your web browser, where you can view, compare, and manage your machine learning experiments.
+
 We will be using a GPU powered JuypterHub provided by NCSA. Connection
 instructions will be provided in the classroom.
 
