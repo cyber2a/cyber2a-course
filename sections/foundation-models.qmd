@@ -54,8 +54,13 @@ Here's a few examples of foundation models and their parameter count:
     * [Google](https://research.google/blog/open-sourcing-bert-state-of-the-art-pre-training-for-natural-language-processing/) has described BERT as the “first deeply bidirectional, unsupervised language representation, pre-trained using only a plain text corpus”
     * Applications of BERT are langauge translation, sentiment analysis, question answering etc.
 3. GPT-3 [@DBLP:journals/corr/abs-1810-04805] - 175 billion parameters
-    * Wikipedia consists of only 3% of its training data
+    * Generative Pre-trained Transformer 3 (GPT-3) is a large language model released by OpenAI in 2020.
+    * The model is trained on internet data to generates textual output. We can optionally pass it some text as input, [which influences its output](https://jalammar.github.io/how-gpt3-works-visualizations-animations/#:~:text=We%20can%20optionally%20pass%20it%20some%20text%20as%20input%2C%20which%20influences%20its%20output).
+    * Training data used for GPT-3 is pretty vast - Wikipedia consists of only 3% of its training data.
 4. GPT-4 [@openai2024gpt4technicalreport] - 1.8 trillion parameters
+    * This is the successor of GPT-3 from OpenAI.
+    * The model is more creative, has more reasoning abilities and surpasses [GPT-3 in all benchmarks](https://openai.com/index/gpt-4-research/). 
+    * This model powered ChatGPT.
 
 ![Growth in compute power. (Source: GPT-3 paper [@DBLP:journals/corr/abs-1810-04805])](../images/foundation-models/compute-power-training.png){#fig-gpt-3-compute-power}
 
@@ -80,6 +85,8 @@ Here's some examples of language models:
 * GPT-3
 * GPT-4
 * Llama 3.2 [@dubey2024llama3herdmodels]
+    * Llama (Large Language Model Meta AI) is a family of open-source large language models (LLMs) released by Meta AI
+    * Llama models weights are open and downloadable from their [website](https://www.llama.com/llama-downloads/) or use [HuggingFace framework](https://huggingface.co/docs/transformers/en/model_doc/llama) to use in text-generation applications.
 
 #### Vision models
 
@@ -87,10 +94,15 @@ Vision models are trained for computer vision tasks. The primary training object
 
 Here's some examples of vision models:
 
-* [GPT-4-turbo](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4)
+* [GPT-4.1](https://platform.openai.com/docs/models/gpt-4.1)
+    * This model can take in text and image as inputs and textual output.
 * SAM [@kirillov2023segment]
+    * [Segment Anything Model](https://segment-anything.com/) (SAM) from Meta AI is a promptable segmentation model that is generalizable to multiple applications and unfamiliar objects and images.
 * CLIP [@dubey2024llama3herdmodels]
 * Swin-transformer [@liu2021swintransformerhierarchicalvision]
+    * This is a type of [Vision Transformer](https://paperswithcode.com/method/vision-transformer).
+    * Due to its architecture, the model can serve as a general-purpose backbone for both image classification and dense recognition tasks.
+
 
 #### Multimodal models
 
@@ -99,10 +111,17 @@ Multimodal models are designed to process and understand multiple types of data 
 Here's some examples of multimodal foundation models:
 
 * [GPT-4o](https://openai.com/index/hello-gpt-4o/)
-* DALL-E [@DBLP:journals/corr/abs-2102-12092]
+    * GPT‑4o ("o" for "omni") accepts as input any combination of text, audio, image, and video and generates any combination of text, audio, and image outputs. 
 * CLIP [@dubey2024llama3herdmodels]
+* DALL-E [@DBLP:journals/corr/abs-2102-12092]
+    * This model from OpenAI generates images from natural language descriptions known as prompts.
+    * The [link between textual semantics and their visual representations](https://www.assemblyai.com/blog/how-dall-e-2-actually-works#:~:text=The%20link%20between%20textual%20semantics%20and%20their%20visual%20representations%20in%20DALL%2DE%202%20is%20learned%20by%20another%20OpenAI%20model%20called%20CLIP%20(Contrastive%20Language%2DImage%20Pre%2Dtraining)) in DALL-E is learned by CLIP (Contrastive Language-Image Pre-training).
 * [Sora](https://openai.com/index/sora/) [@liu2024sorareviewbackgroundtechnology]
+    * This model from OpenAI can generate realistic videos from text prompts.
 * [Gemini](https://gemini.google.com/?utm_source=google&utm_medium=cpc&utm_campaign=2024enUS_gemfeb&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfDvtujFotV-ds_t1TWtUmwbeNFLVcdbE8zSQEN08FPlAC8im4lhpNcaAlwaEALw_wcB&gclsrc=aw.ds) [@geminiteam2024geminifamilyhighlycapable]
+    * Gemini is a family of multimodal large language models developed by Google
+
+
 
 
 ### Types of foundation models (Architecture)
