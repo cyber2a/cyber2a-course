@@ -121,7 +121,9 @@ Here's some examples of multimodal foundation models:
 * [Gemini](https://gemini.google.com/?utm_source=google&utm_medium=cpc&utm_campaign=2024enUS_gemfeb&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfDvtujFotV-ds_t1TWtUmwbeNFLVcdbE8zSQEN08FPlAC8im4lhpNcaAlwaEALw_wcB&gclsrc=aw.ds) [@geminiteam2024geminifamilyhighlycapable]
     * Gemini is a family of multimodal large language models developed by Google
 
-
+::: {.callout-note}
+The models described above represent those available at the time of writing this section. Given the rapid advancements in this field, these models may become outdated over time.
+:::
 
 
 ### Types of foundation models (Architecture)
