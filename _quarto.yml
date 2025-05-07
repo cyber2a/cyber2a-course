@@ -94,7 +94,7 @@ book:
         - sections/guest-lecture-yili-arts-dataset.qmd
         - sections/exploring-advanced-neural-networks.qmd
         - sections/intro-to-dl-libraries-for-image-analysis.qmd
-        - sections/hands-on-lab-mmsegmentation.qmd
+        # - sections/hands-on-lab-detectron2.qmd
 
     - part: "<b>Day 4: Workflows and Foundation Models</b>"
       chapters:
@@ -127,6 +127,8 @@ csl: ieee.csl
 format:
   html:
     theme: cosmo
+    include-after-body:
+      - file: _statcounter.html
 
 
 

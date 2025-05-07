@@ -1,19 +1,484 @@
 # Introduction to Deep Learning Libraries for Image Analysis
 
-## Overview
+## Goal {.unnumbered}
 
-This session introduces participants to MMSegmentation, a specialized deep learning library designed for semantic segmentation tasks. Participants will explore the unique capabilities of MMSegmentation in handling sophisticated image analysis projects. The session will cover how to navigate the library, implement advanced features, and apply them to real-world datasets, particularly in the context of Arctic research. While the focus will be on MMSegmentation, Detectron2 will also be mentioned as another powerful tool for image analysis. By the end of this session, participants will have a theoretical understanding of MMSegmentation and be prepared for a more extensive hands-on lab session.
+This session introduces participants to **Detectron2**, a cutting-edge open-source library developed by Meta AI Research (FAIR) for state-of-the-art object detection and segmentation tasks. Built on the PyTorch deep learning framework, Detectron2 offers a flexible and modular design that makes it easier for researchers and developers to implement and experiment with advanced computer vision models. 
 
-## Outline
+In this session, participants will be introduced to the fundamentals of Detectron2 and its application in analyzing visual data specific to Arctic research. We will cover the installation process, basic usage, and explore how to train custom models to detect and segment objects relevant to Arctic studies. By the end of this tutorial, participants will have hands-on experience with Detectron2 and understand how to apply it to their own research projects.
 
-* Introduction to MMSegmentation: features and capabilities
-* Navigating MMSegmentation: tools and techniques
-* Implementing semantic segmentation with MMSegmentation
-* Practical applications in Arctic research
-* Brief overview of Detectron2 for comparison
-* Conclusion and Q&A
+## Why use a deep learning framework?
 
-## Reference
+Deep learning frameworks like Detectron2 or MMSegmentation provide advantages over core libraries like PyTorch directly. Here are some of the key benefits:
 
-* [https://github.com/open-mmlab/mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
-* [https://github.com/facebookresearch/detectron2](https://github.com/facebookresearch/detectron2) (for further exploration)
+* **Ease of use and rapid prototyping**: These frameworks offer pre-built, state-of-the-art model architectures and components that simplify the process of developing complex models. This allows researchers to quickly prototype and experiment with different models without having to worry about the underlying implementation details.
+
+* **Modular and extensible design**: These frameworks are designed to be highly modular, enabling researchers to easily customize and extend various components such as model architectures, training pipelines, evaluation metrics, and more. This flexibility allows for tailored solutions that can be adapted to specific research questions or datasets.
+
+* **Optimized performance**: These frameworks often include optimized implementations of popular algorithms and techniques, which can lead to faster and more efficient model training and inference. Also, these frameworks are designed to be scalable, allowing researchers to train models on large datasets and scale up to high-performance hardware, e.g., multi-GPU systems.
+
+* **Community and support**: Detectron2 has a large community and extensive documentation, making it easier to find resources and support.
+
+* **Focus on research**: By abstracting many of the low-level details, these frameworks allow researchers to focus on the core research questions and innovations, enabling faster iteration on new ideas and research directions.
+
+## Configuration system
+
+Detectron2's configuration system provides a flexible and modular way to manage training and evaluation settings. It supports both **YAML-based** configuration files and **Python-based** lazy configurations, allowing users to define model architectures, datasets, training hyperparameters, and more.
+
+### Why use the configuration system? {.unnumbered}
+
+* **Reproducibility**: Configs make it easy to share and reproduce experiments.
+
+* **Modularity**: Different components (e.g., dataset, model, solver) are easily interchangeable.
+
+* **Ease of Use**: Instead of defining hyperparameters in scripts, you can manage them in a structured format.
+
+### LazyConfig vs. Default Config {.unnumbered}
+
+Detectron2 offers two types of configuration systems:
+
+* **Default Config (YAML-based)**: The traditional configuration system that loads from .yaml files.
+
+* **LazyConfig (Python-based)**: A more flexible system that supports Python expressions and function calls.
+
+### Benefits of LazyConfig {.unnumbered}
+
+* Allows defining configurations programmatically in Python.
+
+* Supports dynamic configurations with function calls.
+
+* Reduces redundancy and improves maintainability.
+
+### Using LazyConfig {.unnumbered}
+
+1. Loading a base configuration
+
+LazyConfig organizes configurations as Python modules. You can start by loading a base configuration:
+
+```python
+from detectron2.config import LazyConfig
+cfg = LazyConfig.load("detectron2/projects/ViTDet/configs/mae_finetune.py")
+```
+
+2. Modifying configurations
+
+Since LazyConfig is Python-based, modifications can be made directly:
+
+```python
+cfg.train.init_checkpoint = "path/to/checkpoint.pth"
+cfg.dataloader.train.dataset.names = "coco_2017_train"
+cfg.train.max_iter = 50000
+```
+
+3. Registering a new configuration
+
+You can create your own configuration by defining a Python script:
+
+```python
+from detectron2.config import LazyCall
+from detectron2.modeling import build_model
+
+config = dict(
+    model=LazyCall(build_model)(
+        backbone=dict(type="ResNet", depth=50),
+        num_classes=80,
+    ),
+    solver=dict(
+        base_lr=0.002,
+        max_iter=10000,
+    ),
+)
+```
+
+Save this file as my_config.py and load it using:
+
+```python
+cfg = LazyConfig.load("my_config.py")
+```
+
+4. Running training with LazyConfig
+
+To train a model using a LazyConfig setup, use:
+
+```python
+python train_net.py --config-file my_config.py
+```
+
+### Best practices {.unnumbered}
+
+* **Organize configs in a structured manner**: Keep different configurations (model, dataset, solver) separate for better maintainability.
+
+* **Use function calls**: Leverage Python functions to make dynamic changes to configurations.
+
+* **Experiment tracking**: Store modified configs alongside experiment logs to ensure reproducibility.
+
+## Data system
+
+### Dataset registration {.unnumbered}
+
+Detectron2 does not assume a fixed dataset format; instead, it requires datasets to be registered before use. Dataset registration involves providing metadata and a function that loads dataset samples.
+
+**Registering a custom dataset**
+
+Detectron2 uses the `DatasetCatalog` and `MetadataCatalog` to manage datasets. To utilize a custom dataset, you need to register it so that Detectron2 knows how to access and interpret your data.
+
+* **Implement a Function to Load Your Dataset**: Create a function that returns your dataset in the format of a list of dictionaries. Each dictionary should contain information about an image and its annotations.
+
+```python
+def my_dataset_function():
+    # Load your dataset and return it as a list of dictionaries
+    return dataset_dicts
+```
+
+* **Register the dataset**: Use `DatasetCatalog.register()` to associate your dataset with the function you've implemented.
+
+```python
+from detectron2.data import DatasetCatalog
+
+DatasetCatalog.register("my_dataset", my_dataset_function)
+```
+
+This registration allows Detectron2 to access your dataset using the name `my_dataset`.
+
+**Built-in datasets**
+
+Detectron2 includes several built-in datasets such as COCO and LVIS. To use them, install the required dataset and enable it in the config.
+
+```python
+from detectron2.data.datasets import register_coco_instances
+register_coco_instances("my_coco", {}, "path/to/annotations.json", "path/to/images")
+```
+
+### Data loading {.unnumbered}
+
+Detectron2 uses `DatasetMapper` for loading datasets efficiently. The dataset loader transforms raw dataset samples into a format suitable for training.
+
+**Custom DatasetMapper**
+
+A custom dataset mapper allows applying preprocessing steps before training.
+
+```python
+from detectron2.data import DatasetMapper
+from detectron2.data import detection_utils as utils
+import torch
+
+class MyDatasetMapper(DatasetMapper):
+    def __call__(self, dataset_dict):
+        dataset_dict = dataset_dict.copy()
+        image = utils.read_image(dataset_dict["file_name"], format="BGR")
+        dataset_dict["image"] = torch.as_tensor(image.transpose(2, 0, 1))
+        return dataset_dict
+```
+
+### Configuring DataLoader {.unnumbered}
+Detectron2 provides a flexible data loader that can be modified based on batch size, augmentations, and transformations.
+
+* **Build a data loader**: Use `build_detection_train_loader()` for training and `build_detection_test_loader()` for evaluation.
+
+```python
+from detectron2.data import build_detection_train_loader
+
+data_loader = build_detection_train_loader(cfg)
+for batch in data_loader:
+    print(batch)  # Process batch
+```
+
+These functions handle batching, shuffling, and other data loading operations. 
+
+### Data Augmentation {.unnumbered}
+
+Data augmentation is a technique to improve model generalization by applying random transformations to the input data during training. Detectron2 integrates `detectron2.data.transforms` for efficient data augmentation.
+
+* **Define augmentations**: Create a list of augmentation operations.
+
+```python
+from detectron2.data import transforms as T
+
+augmentations = [
+    T.RandomBrightness(0.9, 1.1),
+    T.RandomFlip(prob=0.5),
+    T.RandomCrop("absolute", (640, 640))
+]
+```
+
+* **Apply augmentations**: Integrate these augmentations into your data loading pipeline.
+
+```python
+from detectron2.data import DatasetMapper
+
+mapper = DatasetMapper(cfg, is_train=True, augmentations=augmentations)
+data_loader = build_detection_train_loader(cfg, mapper=mapper)
+```
+
+## Model system
+
+### Building Models from Configuration {.unnumbered}
+
+Detectron2 employs configuration files to define model architectures and parameters. To construct a model from a configuration, you can use the `build_model` function:
+
+```python
+from detectron2.modeling import build_model
+model = build_model(cfg)  # cfg is a configuration object
+```
+
+This function initializes the model structure with random parameters. To load pre-trained weights or previously saved parameters, utilize the `DetectionCheckpointer`:
+
+```python
+from detectron2.checkpoint import DetectionCheckpointer
+checkpointer = DetectionCheckpointer(model)
+checkpointer.load(file_path_or_url)  # Load weights from a file or URL
+```
+
+### Model Input and Output Formats {.unnumbered}
+
+Detectron2 models accept inputs as a list of dictionaries, each corresponding to an image. The required keys in these dictionaries depend on the model type and its mode (training or evaluation). Typically, for inference, the dictionary includes:
+
+- "image"`: A tensor representing the image in (C, H, W) format.
+- "height"` and `"width"` (optional): Desired output dimensions.
+
+During training, additional keys like `"instances"` (which contains ground truth annotations) are necessary. The model outputs are also structured as dictionaries, with formats varying based on the specific task (e.g., bounding box detection, segmentation).
+
+### Customizing and Extending Models {.unnumbered}
+
+Detectron2's modular design allows for extensive customization. You can modify existing components or add new ones to tailor the models to your requirements. A common approach is to register new components, such as a custom backbone:
+
+```python
+from detectron2.modeling import BACKBONE_REGISTRY, Backbone, ShapeSpec
+import torch.nn as nn
+
+@BACKBONE_REGISTRY.register()
+class CustomBackbone(Backbone):
+    def __init__(self, cfg, input_shape):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=16, padding=3)
+
+    def forward(self, image):
+        return {"conv1": self.conv1(image)}
+
+    def output_shape(self):
+        return {"conv1": ShapeSpec(channels=64, stride=16)}
+```
+
+After defining and registering your custom component, you can specify it in your configuration:
+
+```python
+cfg.MODEL.BACKBONE.NAME = "CustomBackbone"
+model = build_model(cfg)
+```
+
+This method allows you to integrate new architectures or functionalities seamlessly. For more detailed instructions on writing and registering new model components, see the official tutorial on writing models.
+
+### Constructing Models with Explicit Arguments {.unnumbered}
+
+While configuration files offer a convenient way to build models, there are scenarios where you might need more control. In such cases, you can construct model components with explicit arguments in your code. For example, to use a custom ROI head:
+
+```python
+from detectron2.modeling.roi_heads import StandardROIHeads
+
+class CustomROIHeads(StandardROIHeads):
+    def __init__(self, cfg, input_shape):
+        super().__init__(cfg, input_shape)
+        # Customize as needed
+```
+
+Then, integrate it into your model:
+
+```python
+from detectron2.modeling import build_model
+
+cfg = ...  # your configuration
+model = build_model(cfg, roi_heads=CustomROIHeads(cfg, input_shape))
+```
+
+## Training system
+
+### How Training Works in Detectron2 {.unnumbered}
+
+At its core, training a model in Detectron2 involves:  
+
+1. **Loading a dataset**: Preparing images and annotations.  
+2. **Configuring the model**: Defining architecture, hyperparameters, and other settings.  
+3. **Training with a Trainer**: Using built-in tools or writing a custom loop.  
+4. **Evaluating performance**: Running inference and analyzing metrics.  
+
+Detectron2 provides two main ways to handle training:  
+
+- **Using a pre-built Trainer (Recommended for most users)**  
+- **Writing a custom training loop (For advanced customization)**  
+
+### Using the Default Trainer (Easy & Standard Approach) {.unnumbered}
+
+If you want to train a model with minimal setup, Detectron2 offers `DefaultTrainer`, which automates most of the process.  
+
+**Steps to Train a Model with DefaultTrainer**  
+
+**Step 1: Prepare Your Configuration**  
+
+Modify a base config file and set paths, batch sizes, and hyperparameters.
+
+```python
+from detectron2.config import get_cfg
+
+cfg = get_cfg()
+cfg.merge_from_file("path/to/config.py")
+cfg.DATASETS.TRAIN = ("my_dataset_train",)
+cfg.DATASETS.TEST = ("my_dataset_val",)
+cfg.OUTPUT_DIR = "./output"
+cfg.SOLVER.MAX_ITER = 5000  # Number of training iterations
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3  # Adjust for your dataset
+```
+
+**Step 2: Train Using DefaultTrainer**  
+
+```python
+from detectron2.engine import DefaultTrainer
+
+trainer = DefaultTrainer(cfg)
+trainer.resume_or_load(resume=False)
+trainer.train()
+```
+This will handle data loading, logging, checkpointing, and evaluation automatically.  
+
+**Step 3: Evaluate the Model**  
+
+To test your model on a validation dataset:
+
+```python
+from detectron2.evaluation import COCOEvaluator, inference_on_dataset
+from detectron2.data import build_detection_test_loader
+
+evaluator = COCOEvaluator("my_dataset_val", cfg, False, output_dir="./output/")
+val_loader = build_detection_test_loader(cfg, "my_dataset_val")
+print(inference_on_dataset(trainer.model, val_loader, evaluator))
+```
+
+### Customizing Training (For Advanced Users) {.unnumbered}
+
+If `DefaultTrainer` doesn't fit your needs, you can modify it or write a fully custom training loop.
+
+**Option 1: Overriding DefaultTrainer Methods**  
+
+For example, if you need a custom evaluation function:
+
+```python
+class MyTrainer(DefaultTrainer):
+    @classmethod
+    def build_evaluator(cls, cfg, dataset_name, output_folder=None):
+        return COCOEvaluator(dataset_name, cfg, False, output_folder)
+
+trainer = MyTrainer(cfg)
+trainer.train()
+```
+
+**Option 2: Using Hooks for Extra Functionality**  
+
+Hooks allow you to add logic at specific points during training. For example, printing a message every 100 iterations:
+
+```python
+from detectron2.engine import HookBase
+
+class PrintIterationHook(HookBase):
+    def after_step(self):
+        if self.trainer.iter % 100 == 0:
+            print(f"Iteration {self.trainer.iter}")
+
+trainer = DefaultTrainer(cfg)
+trainer.register_hooks([PrintIterationHook()])
+trainer.train()
+```
+
+**Option 3: Writing a Fully Custom Training Loop**  
+
+For full control, you can write your own loop instead of using `DefaultTrainer`:
+
+```python
+from detectron2.engine import SimpleTrainer
+from detectron2.solver import build_optimizer
+
+model = build_model(cfg)
+optimizer = build_optimizer(cfg, model)
+data_loader = build_detection_train_loader(cfg)
+
+trainer = SimpleTrainer(model, data_loader, optimizer)
+trainer.train()
+```
+This is useful when experimenting with novel training strategies.
+
+### Logging and Monitoring Training Progress {.unnumbered}
+
+Detectron2 provides event storage to track training metrics like loss and accuracy. You can log custom metrics inside your model:
+
+```python
+from detectron2.utils.events import get_event_storage
+
+storage = get_event_storage()
+storage.put_scalar("my_custom_metric", value)
+```
+
+For visualization, you can use TensorBoard:
+
+```python
+tensorboard --logdir ./output
+```
+This helps you track training progress interactively.
+
+## Evaluation system
+
+In Detectron2, evaluation is managed through the `DatasetEvaluator` interface. This interface processes pairs of inputs and outputs, aggregating results to compute performance metrics. Detectron2 offers several built-in evaluators tailored to standard datasets like COCO and LVIS. For instance, the `COCOEvaluator` computes metrics such as Average Precision (AP) for object detection, instance segmentation, and keypoint detection. Similarly, the `SemSegEvaluator` is designed for semantic segmentation tasks.
+
+### Utilizing Built-in Evaluators {.unnumbered}
+
+To evaluate a model using Detectron2's built-in evaluators, you can employ the `inference_on_dataset` function. This function runs the model on all inputs from a specified data loader and processes the outputs using the chosen evaluators.
+
+```python
+from detectron2.evaluation import COCOEvaluator, inference_on_dataset
+from detectron2.data import build_detection_test_loader
+
+# Initialize the evaluator
+evaluator = COCOEvaluator("your_dataset_name", cfg, False, output_dir="./output/")
+
+# Create a data loader for the test dataset
+val_loader = build_detection_test_loader(cfg, "your_dataset_name")
+
+# Perform inference and evaluation
+eval_results = inference_on_dataset(model, val_loader, evaluator)
+```
+
+In this script, replace `"your_dataset_name"` with the name of your dataset as registered in Detectron2. The `COCOEvaluator` is initialized with the dataset name and configuration (`cfg`). The `build_detection_test_loader` function creates a data loader for the test dataset. Finally, `inference_on_dataset` runs the model on the test data and evaluates the results using the evaluator.
+
+### Creating Custom Evaluators {.unnumbered}
+
+While Detectron2's built-in evaluators cover many standard scenarios, you might encounter situations where custom evaluation logic is necessary. In such cases, you can implement your own evaluator by extending the `DatasetEvaluator` class. This involves defining methods to reset the evaluator, process each batch of inputs and outputs, and compute the final evaluation metrics. For example, to create an evaluator that counts the total number of detected instances across the validation set:
+
+```python
+from detectron2.evaluation import DatasetEvaluator
+
+class InstanceCounter(DatasetEvaluator):
+    def reset(self):
+        self.count = 0
+
+    def process(self, inputs, outputs):
+        for output in outputs:
+            self.count += len(output["instances"])
+
+    def evaluate(self):
+        return {"total_instances": self.count}
+```
+
+In this custom evaluator, the `reset` method initializes the count, the `process` method updates the count based on the number of instances in each output, and the `evaluate` method returns the total count. You can integrate this custom evaluator into your evaluation pipeline alongside built-in evaluators:
+
+```python
+from detectron2.evaluation import DatasetEvaluators
+
+# Combine multiple evaluators
+evaluator = DatasetEvaluators([COCOEvaluator("your_dataset_name", cfg, False), InstanceCounter()])
+
+# Perform inference and evaluation
+eval_results = inference_on_dataset(model, val_loader, evaluator)
+```
+
+By combining evaluators, you can perform comprehensive evaluations in a single pass over the dataset, which is efficient and convenient.
+
+**Evaluating on Custom Datasets**
+
+When working with custom datasets, it's essential to ensure they adhere to Detectron2's standard dataset format. This compatibility allows you to leverage existing evaluators like `COCOEvaluator` for your custom data. If your dataset follows the COCO format, you can use the `COCOEvaluator` directly. Otherwise, you might need to implement a custom evaluator tailored to your dataset's structure and evaluation criteria.
+
