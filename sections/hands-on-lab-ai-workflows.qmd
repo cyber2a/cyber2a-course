@@ -45,13 +45,13 @@ In order for your model to be published to garden, it must be:
 All of the examples in this lab are available in the workshop repository. Clone the
 repository to your local machine:
 ```
-git clone https://github.com/Garden-AI/uploadathon.git
+git clone https://github.com/cyber2a/ml-workflows.git
 ```
 
 In this step we will upload an existing trivial model to garden and execute it
 from a Google Colab notebook.
 
-Use the [hello_garden.py](https://github.com/Garden-AI/uploadathon/blob/main/hello_world.py)
+Use the [hello_garden.py](https://github.com/cyber2a/ml-workflows/blob/main/hello_world.py)
 from the example repo and upload it from the garden form.
 
 Keep it a “test garden” and don’t worry too hard about the metadata
@@ -61,6 +61,10 @@ Once you’ve created it, go make sure you can invoke it remotely. Try out this
 to see it in action.
 
 ## Step 2: Learn how to iterate on Modal apps {.unnumbered}
+Garden uses the [modal service](https://modal.com/docs/guide) to host models
+and make it easy to perform inference from a noteook. This is a commercial service, but
+the free tier is entirely sufficient for most purposes and won't require a credit card.
+
 In this step we will learn more about creating and debugging a modal app.
 
 Install the modal package:
@@ -68,7 +72,7 @@ Install the modal package:
 pip install modal
 ```
 
-Download [needs_a_tweak.py](https://github.com/Garden-AI/uploadathon/blob/main/needs_a_tweak.py) and try
+Download [needs_a_tweak.py](https://github.com/cyber2a/ml-workflows/blob/main/needs_a_tweak.py) and try
 running it with
 ```
 modal run needs_a_tweak.py
@@ -83,11 +87,11 @@ every time they run.
 Your model weights will need to live somewhere publicly accessible.
 Garden can’t pull them from your machine.
 
-- See [git_model_staging.py](https://github.com/Garden-AI/uploadathon/blob/main/git_model_staging.py) for an example of how to use weights hosted in GitHub or Hugging Face.
-- See [figshare_model_staging.py](https://github.com/Garden-AI/uploadathon/blob/main/figshare_model_staging.py) for an example of how to pull weights from a FigShare download link.
+- See [git_model_staging.py](https://github.com/cyber2a/ml-workflows/blob/main/git_model_staging.py) for an example of how to use weights hosted in GitHub or Hugging Face.
+- See [figshare_model_staging.py](https://github.com/cyber2a/ml-workflows/blob/main/figshare_model_staging.py) for an example of how to pull weights from a FigShare download link.
 
 ## Step 4: Run a "Real Model" {.unnumbered}
-Take a look at the [Retrograde Thaw Slump model](https://github.com/Garden-AI/uploadathon/blob/main/examples/ESIP/RTS/rts.py).
+Take a look at the [Retrogressive Thaw Slump model](https://github.com/cyber2a/ml-workflows/blob/main/examples/ESIP/RTS/rts.py).
 You can execute the model from the [google colab notebook](https://colab.research.google.com/drive/1slJ0h_nK1UEFKrDUE0YDz53EqWyt7kg4) to see it in action.
 
 ## Next Steps {.unnumbered}
