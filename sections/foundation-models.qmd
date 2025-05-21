@@ -129,8 +129,9 @@ The models described above represent those available at the time of writing this
 ### Types of foundation models (Architecture)
 
 #### Transformer models
-Introduced in 2017 by the paper "Attention is all you need" [@DBLP:journals/corr/VaswaniSPUJGKP17], the transformer architecture revolutionized NLP by enabling models to efficiently capture complex relationships in data without the limitations of recurrence. This architecture is known for its ability to handle sequential data efficiently. Its parallel processing capabilities and scalability have made it a foundational model for many state-of-the-art systems in various domains, including image processing and speech recognition.
-Checkout "The Illustrated Transformer" (blog post)[https://jalammar.github.io/illustrated-transformer/] for a detailed overview of the transformer architecture.
+Introduced in 2017 by the paper "Attention is all you need" [@DBLP:journals/corr/VaswaniSPUJGKP17], the transformer architecture revolutionized NLP by enabling models to efficiently capture complex relationships in data without the limitations of recurrence. This architecture is known for its ability to handle sequential data efficiently. Its parallel processing capabilities and scalability have made it a foundational model for many state-of-the-art systems in various domains, including image processing and speech recognition. 
+Examples of models using transformers as the underlying architecture are GPT-3 and CLIP.
+Checkout "The Illustrated Transformer" ([blog post](https://jalammar.github.io/illustrated-transformer/)) for a detailed overview of the transformer architecture.
 
 ![Transformer architecture](../images/foundation-models/transformer-architecture.png){#fig-transformer-architecture}
 
@@ -183,12 +184,14 @@ In the example below, the self-attention mechanism enables us to learn the corre
 
 There are more than 50 major transformer models [@amatriain2024transformermodelsintroductioncatalog]. The transformer architecture is versatile and can be configured in different ways. The transformer architecture can support both auto-regressive and non-auto-regressive configurations depending on how the self-attention mechanism is applied and how the model is trained.
 
-* Auto-Regressive Models: In an auto-regressive setup, like the original GPT (Generative Pre-trained Transformer), the model generates text one token at a time. During training, it predicts the next token in a sequence based on the previously generated tokens, conditioning on all prior context. This means that at each step, the model only attends to the tokens that come before the current position, ensuring that future tokens do not influence the prediction.
+* Auto-Regressive(AR) Models: An autoregressive language model is a type of AI model that generates text by predicting one word at a time based on the words that came before it. This dependency on prior elements makes Autoregressive (AR) models inherently sequential, meaning each step must be completed before the next begins. In an auto-regressive setup, like the original GPT (Generative Pre-trained Transformer), the model generates text one token at a time. During training, it predicts the next token in a sequence based on the previously generated tokens, conditioning on all prior context. This means that at each step, the model only attends to the tokens that come before the current position, ensuring that future tokens do not influence the prediction.
 
-* Non-Auto-Regressive Models: Other models, like BERT (Bidirectional Encoder Representations from Transformers) [@DBLP:journals/corr/abs-1810-04805], are designed to be non-auto-regressive. BERT processes the entire input sequence simultaneously and is trained using masked language modeling, where some tokens in the input are masked, and the model learns to predict them based on the surrounding context.
+* Non-Auto-Regressive(NAR) Models: Other models, like BERT (Bidirectional Encoder Representations from Transformers) [@DBLP:journals/corr/abs-1810-04805], are designed to be non-auto-regressive. A non-autoregressive (NAR) language model generates an entire output sequence in parallel, unlike autoregressive models which generate it one token at a time. For example, BERT processes the entire input sequence simultaneously and is trained using masked language modeling, where some tokens in the input are masked, and the model learns to predict them based on the surrounding context.
 
+The figure below demonstrates the architectural difference between an auto-regressive model and a non-auto-regressive model.
 
-GPT-3 and CLIP models utilize transformers as the underlying architecture.
+![(a) Autoregressive; (b) Non-Autoregressive](../images/foundation-models/ar-nar.png){#fig-ar-nar} [@li-etal-2022-elmer]
+
 
 #### Generative-Adversarial models
 
@@ -239,7 +242,8 @@ Diffusion models, introduced in 2020 [@DBLP:journals/corr/abs-2006-11239], are i
 4. Sampling:
 * To generate new samples, the process starts with pure noise and applies the learned reverse diffusion process iteratively. Over multiple time steps, the model denoises the input until it resembles a sample from the training distribution.
 
-![Training a diffusion model. Image source: Lilweng's [blog](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)](../images/foundation-models/diffusion-training.png){#fig-diffusion-training}
+Figure below visualizes how diffusion models smoothly perturb data by adding noise, then reverse this process to generate new data from the noise. Each denoising step in the reverse process typically requires estimating the source function (see illustrative figure on the right), which is a gradient pointing to the directions of the data with higher likelihood and less noise.
+![Training a diffusion model. Image source: Superannotate [blog](https://www.superannotate.com/blog/diffusion-models)](../images/foundation-models/diffusion-training-2.png){#fig-diffusion-training}
 
 Diffusion models can generate high-resolution and diverse images, often outperforming GANs in certain tasks. They are generally more stable to train compared to GANs, as they do not rely on adversarial training dynamics.
 
@@ -248,7 +252,23 @@ Stable-diffusion [@DBLP:journals/corr/abs-2112-10752], DALL-E [@DBLP:journals/co
 
 ### Foundation Models - Applications
 
-Having explored the foundational principles and capabilities of foundation models, we can now delve into specific applications that leverage their power. Two prominent techniques that build upon the capabilities of these models are Segment Anything Model (SAM) and Retrieval-Augmented Generation (RAG).
+Having explored the foundational principles and capabilities of foundation models, we can now delve into specific applications that leverage their power. Lets look at some examples and research topics where these models can be useful for arctic research.
+
+1. Transformer Models
+
+Transformer models are increasingly being used in Arctic research for various applications, including data analysis and climate modeling.
+For example, TemproNet [@CHEN2024116651] is a transformer-based deep learning model for seawater temperature prediction
+
+2. Generative-Adversarial models (GANs)
+
+GANs are being explored in Arctic research to address several challenges related to data scarcity, especially in areas like sea ice and climate modeling. They can generate synthetic data to augment limited real-world datasets, improve model robustness, and even predict future conditions.
+For example, PolarGAN [@KIM2023106920] is capable of creating realistic artificial images of Arctic sea ice concentration (SIC) for data augmentation.
+
+3. Diffusion Models
+
+These models are good at generating synthetic data and can be used to generate [sea ice data](https://ecommons.udayton.edu/stander_posters/4138/).
+
+In the next section we delve into two prominent techniques that build upon the capabilities of these models - Segment Anything Model (SAM) and Retrieval-Augmented Generation (RAG).
 
 
 ## Segment Anything Model

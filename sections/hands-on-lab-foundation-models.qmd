@@ -4,7 +4,7 @@
 The hands-on lab on foundation models will focus on building and applying foundation models for some example use cases. The main goal of this session is to get more familiarized with foundation models and in interacting with them.
 
 ## Source Code
-Visit [https://github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop) and follow the instructions in the README file to set up and run the Jupyter Notebooks used in this hands-on lab.
+Visit [github.com/cyber2a/cyber2a-workshop](hhttps://github.com/cyber2a/cyber2a-workshop/tree/main/foundation_models) and follow the instructions in the README file to set up and run the Jupyter Notebooks used in this hands-on lab.
 
 ## Image Segmentation using Segment Anything Model 2 (SAM 2)
 
@@ -22,7 +22,7 @@ Users can attach an input image to the model using its `set_image` method, which
 Then, the users can use the `predict` method to share prompts (user inputs) that help with the segmentation mask prediction.
 
 ::: {.callout-note}
-The Jupyter Notebook for this hands-on session is available within the [https://github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop) repository [here](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb).
+The Jupyter Notebook for this hands-on session is available within the [github.com/cyber2a/cyber2a-workshop/](https://github.com/cyber2a/cyber2a-workshop/tree/main) repository [here](https://github.com/cyber2a/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb).
 You can clone or download this repository directly from GitHub.
 
 This notebook reuses some code segments (e.g., helper methods, imports, loading the model, etc.) from the [image predictor example](https://github.com/facebookresearch/sam2/blob/main/notebooks/image_predictor_example.ipynb) initially published in the SAM 2 source code repository.
@@ -400,24 +400,17 @@ Output:
 
 The model has predicted the glacial discharge region based on the bounding box input, but the results are not perfect. Additional prompts, along with the bounding box, can improve this.
 
-We have provided three optional activities for you to try out in the [segmentation notebook](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb), including one that does automatic segment generation without prompts. Feel free to experiment with different prompts and see how the model responds.
+We have provided three optional activities for you to try out in the [segmentation notebook](https://github.com/cyber2a/cyber2a-workshop/blob/main/foundation_models/hands_on/segmentation.ipynb), including one that does automatic segment generation without prompts. Feel free to experiment with different prompts and see how the model responds.
 
 ## Retrieval Augmented Generation (RAG) Hands-On
 
-We will use [Langchain framework](https://www.langchain.com/) for this section of the hands-on session.
-Langchain is a framework that provides tools and libraries for building and deploying AI models. It is built on top of PyTorch and HuggingFace transformers.
-
-Suggested code references:
-- Langchain RAG from scratch [github](https://github.com/langchain-ai/rag-from-scratch/tree/main)
-- Langchain [RAG tutorial](https://python.langchain.com/docs/tutorials/rag/)
-
-Session hands-on code in [github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/rag.ipynb)
-
-Session technical details in course book : [cyber2a.github.io/cyber2a-course/sections/foundation-models.html](https://cyber2a.github.io/cyber2a-course/sections/foundation-models.html)
-
-In this section, we will build a chatbot using the RAG system, i.e., a chatbot that has access to your specific knowledge base and answers questions related to that knowledge base.
+Lets do a quick recap on RAG
 
 ### RAG Recap 
+
+Retrieval-augmented generation is a technique for enhancing the accuracy and reliability of generative AI models with information from specific and relevant data sources.
+
+
 
 | Without RAG    | With RAG  |
 | -------- | ------- |
@@ -427,6 +420,21 @@ In this section, we will build a chatbot using the RAG system, i.e., a chatbot t
 | Out-of-date information | Update the knowledge base with new information  |
 
 ![RAG approach](../images/foundation-models/ragpromptframework.png)
+
+We will use [Langchain framework](https://www.langchain.com/) for this section of the hands-on session.
+Langchain is a framework that provides tools and libraries for building and deploying AI models. It is built on top of PyTorch and HuggingFace transformers.
+
+Suggested code references:
+- Langchain RAG from scratch [github](https://github.com/langchain-ai/rag-from-scratch/tree/main)
+- Langchain [RAG tutorial](https://python.langchain.com/docs/tutorials/rag/)
+
+Session hands-on code in [github.com/cyber2a/cyber2a-workshop](https://github.com/cyber2a/cyber2a-workshop/blob/main/foundation_models/hands_on/rag.ipynb)
+
+Session technical details in course book : [cyber2a.github.io/cyber2a-course/sections/foundation-models.html](https://cyber2a.github.io/cyber2a-course/sections/foundation-models.html)
+
+In this section, we will build a chatbot using the RAG system, i.e., a chatbot that has access to your specific knowledge base and answers questions related to that knowledge base.
+
+
 
 ### RAG 
 We can think of the RAG system as combining two techniques:
@@ -456,10 +464,10 @@ There are no GPU requirements for this hands-on. However, we recommend some memo
 We recommend testing out the code for this hands-on session in a Jupyter notebook. For instructions on launching a Jupyter notebook, see [here](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/).
 
 3. Code
-The code is available at [github.com/ncsa/cyber2a-workshop](https://github.com/ncsa/cyber2a-workshop/blob/main/foundation_models/hands_on/rag.ipynb). Feel free to clone or download this repo directly from GitHub.
+The code is available at [github.com/cyber2a/cyber2a-workshop/](https://github.com/cyber2a/cyber2a-workshop/blob/main/foundation_models/hands_on/rag.ipynb). Feel free to clone or download this repo directly from GitHub.
 Steps to clone the repo and access the rag.ipynb file:
     1. Open a terminal
-    2. Run command: `git clone https://github.com/ncsa/cyber2a-workshop`
+    2. Run command: `git clone https://github.com/cyber2a/cyber2a-workshop/`
     3. Navigate to the `foundation_models/hands_on` directory in the cloned repo.
 
 4. Data requirements
