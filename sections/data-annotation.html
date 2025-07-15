@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -39,10 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-09ce80c0277fc360936e517f68e5459d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-5fd9db47a040b21ac2cac9a0b3b722ba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -387,7 +387,7 @@ Highlights
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Reiterate ideas related to <strong><em>supervised learning</em></strong>, and the core idea of <strong><em>learning from examples</em></strong></li>
+<li>Reiterate ideas related to <strong><em>supervised learning</em></strong> and the core idea of <strong><em>learning from examples</em></strong></li>
 <li>Discuss key role of labeling/annotation in general for generating examples to learn from</li>
 <li>Take a quick tour of label/annotation examples across various ML applications (structured data, text, audio, image, video, etc)</li>
 <li>Talk about some general challenges of procuring/producing labeled data for Machine Learning</li>
@@ -403,11 +403,11 @@ Highlights
 <figcaption>Source: <a href="https://oecd.ai/en/compute">OECD.ai</a></figcaption>
 </figure>
 </div>
-<p>Each of these is critical, but you really can’t overstate the importance of massively upscaling <em>training and validation data</em>. Indeed, to a large extent, the most important recent advances in algorithms and compute have been those that allow us to efficiently use huge amounts of data. <strong>The more data available, the better the model can learn.</strong></p>
+<p>Each of these is critical, but you really can’t overstate the importance of massively upscaling <em>training and validation data</em>. Indeed, to a large extent, the most important recent advances in algorithms and computing have been those that allow us to efficiently use huge amounts of data. <strong>The more data available, the better the model can learn.</strong></p>
 <p>Remember that in Machine Learning:</p>
 <ol type="1">
-<li>You are building a model to produce some <strong><em>desired output</em></strong> for a <strong><em>given input</em></strong>. Imagine handing a model an aerial photo that contains a water body, or a camera trap video that contains a bear, or an audio recording that captures a the song of a particular bird species. In each case, you want the model to correctly detect, recognize, and report the relevant feature.</li>
-<li>To achieve this, you do <em>not</em> build this model by instructing the computer <em>how</em> to detect the water body or the bear or the bird species. Instead, you assemble many (often many, many!) good <em>examples</em> of the phenomena of interest, and feed them to an algorithm that allows the model to adaptively learn from these examples. Now, in practice there may be rule-based guardrails, but we can talk about that separately later in the course.</li>
+<li>You are building a model to produce some <strong><em>desired output</em></strong> for a <strong><em>given input</em></strong>. Imagine you have an aerial photo that contains a water body, or a camera trap video that contains a bear, or an audio recording that captures the song of a particular bird species. In each case, you want the model to correctly detect, recognize, and report the relevant feature.</li>
+<li>To achieve this, you do <em>not</em> build this model by instructing the computer <em>how</em> to detect the water body, bear, or bird species. Instead, you assemble many (often many, many!) good <em>examples</em> of the phenomena of interest, and feed them to an algorithm that allows the model to adaptively learn from these examples. In practice, there may be rule-based guardrails, but we can talk about that separately later in the course.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -415,8 +415,8 @@ Highlights
 <figcaption>.</figcaption>
 </figure>
 </div>
-<p>Much of this course is about understanding what kinds of model structures and learning algorithms allow this seemingly magical learning to happen inside the computer, and what the end-to-end process looks like. But for now, we are going to focus on the input data. And as we embark, it is essential is that this core concept makes sense to you:</p>
-<p><em>For any project involving development of an AI model, you will quite likely be starting with a generic algorithm that has limited or even zero specific knowledge of your particular application area. Unlike with “classical” modeling, the way you will adapt it to apply to your project is not by hand-tweaking parameters or choosing functional forms describing your phenomenon of interest, but rather by exposing this generalized algorithm to many relevant examples to learn from.</em></p>
+<p>Much of this course is about understanding what kinds of model structures and learning algorithms allow this seemingly magical learning to happen inside the computer, and what the end-to-end process looks like. But for now, we are going to focus on the input data. And as we embark, it is essential that this core concept makes sense to you:</p>
+<p><em>For any project involving the development of an AI model, you will quite likely be starting with a generic algorithm that has limited or even zero specific knowledge of your particular application area. Unlike with “classical” modeling, the way you will adapt it to apply to your project is not by hand-tweaking parameters or choosing functional forms describing your phenomenon of interest, but rather by exposing this generalized algorithm to many relevant examples (positive and negative) to learn from.</em></p>
 <p>Bottom line, much like vehicles without fuel, even the best training algorithms in the world will just sit and gather dust if they don’t have sufficient data to learn from!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -424,7 +424,7 @@ Highlights
 <figcaption>Source: <a href="https://walkingdead.fandom.com/wiki/Gas_Station_%28Season_1%29?file=S1GasStation.PNG">Walking Dead Fandom</a></figcaption>
 </figure>
 </div>
-<p>Ultimately, although you will need to have an understanding of algorithmic and models, and learn how to operationalize them on compute platforms, your success in applying AI (especially if you are training and/or fine-tuning models, not simply applying pre-trained models) will depend on your ability to implement a robust and effective <em>data pipeline</em>, from data collection methods to data annotation to data curation.</p>
+<p>Ultimately, although you will need to have an understanding of algorithms and models, and learn how to operationalize them on compute platforms, your success in applying AI (especially if you are training and/or fine-tuning models, rather than simply applying pre-trained models) will depend on your ability to implement a robust and effective <em>data pipeline</em>, from data collection methods to data annotation to data curation.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <div class="quarto-figure quarto-figure-center">
@@ -454,7 +454,7 @@ Highlights
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>The term “<em>annotation</em>” is synonymous with “<em>labeling</em>”</p>
+<p>The term “<em>annotation</em>” is synonymous with “<em>labeling</em>.”</p>
 </div>
 </div>
 </div>
@@ -570,17 +570,17 @@ Video Annotation
 <li><strong>Precision</strong></li>
 <li><strong>Generalizability</strong></li>
 </ul>
-<p>Obviously there is a bit of tension here! The point of training the model is do something for you. But in order for the AI to be able to do this, you have to first teach it how, which means doing the very thing that you want it to do.</p>
-<p>Think of it like hiring a large team of interns. Yes, it takes extra time up front to get them trained up. But once you do that, you’re able to scale up operations far beyond what you could do on your own.</p>
+<p>Obviously, there is a bit of tension here! The point of training the model is do something for you. But in order for the AI to be able to do this, you have to first teach it how, which means doing the very thing that you want it to do.</p>
+<p>Think of it like hiring a large team of interns. Yes, it takes extra startup time to get them trained. But once you do that, you’re able to scale up operations far beyond what you could do on your own.</p>
 <p>This raises a few questions that we’ll touch on as we proceed through the course:</p>
 <ul>
 <li><em>Is there a model out there that already knows at least something about what I’m trying to do, so I’m not training it from scratch?</em> Maybe yes! This is a benefit that foundation models (and more generally, transfer learning) offer. To build on the human intern analogy, if you can hire undergrad researchers studying in a field relevant to the task, you’re likely to move much faster than if you hired a 1st grader!</li>
-<li><em>How much annotated data do I need?</em> Unfortunately, there is no simple answer. It depends on complexity of task, the clarity of the information, etc. So as we’ll discuss, best practice is to proceed iteratively.</li>
+<li><em>How much annotated data do I need?</em> Unfortunately, there is no simple answer. It depends on the complexity of the task, the clarity of the information, etc. So, as we’ll discuss, best practice is to proceed iteratively.</li>
 </ul>
 </section>
 <section id="annotation-challenges" class="level3 page-columns page-full" data-number="4.1.4">
 <h3 data-number="4.1.4" class="anchored" data-anchor-id="annotation-challenges"><span class="header-section-number">4.1.4</span> Annotation challenges</h3>
-<p>By now it should be clear that your goal in the data annotation phase is to <em>quickly</em> and <em>correctly</em> annotate a <em>large enough corpus of inputs</em> that collectively provide an <em>adequate representation</em> of information you want the model to learn.</p>
+<p>By now, it should be clear that your goal in the data annotation phase is to <em>quickly</em> and <em>correctly</em> annotate a <em>large enough corpus of inputs</em> that collectively provide an <em>adequate representation</em> of the information you want the model to learn.</p>
 <p>Here are some of the key challenges to this activity:</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="Scalability">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -595,7 +595,7 @@ Scalability
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Simply put, annotating large datasets can be time-consuming!</p>
-<p>This is especially the case for more complex annotation tasks. Identifying a penguin standing on a rock is one thing, but comprehensively identifying and label all land cover types present in a satellite image is much more time-consuming. Multiply this task by hundreds or thousands, and you’ve quite a scaling challenge!</p>
+<p>This is especially the case for more complex annotation tasks. Identifying a penguin standing on a rock is one thing, but comprehensively identifying and labeling all land cover types present in a satellite image is much more time-consuming. Multiply this task by hundreds or thousands, and you’ve quite a scaling challenge!</p>
 
 </div>
 </div>
@@ -650,14 +650,14 @@ Quality control
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Annotation is not always straightforward and easy, but as we’ve discussed, effective model training depends on producing sufficiently high quality annotations of sufficiently high quality training data.</p>
+<p>Annotation is not always straightforward, but as we’ve discussed, effective model training depends on producing sufficiently high-quality annotations of sufficiently high-quality training data.</p>
 <p>Some factors to consider:</p>
 <ul>
-<li><strong>Source data quality</strong>. Is the information signal clear in the data? And does the input dataset include a sufficiently diverse set of examples that are representive of what the model will encountered when deployed?</li>
+<li><strong>Source data quality</strong>. Is the information signal clear in the data? And does the input dataset include a sufficiently diverse set of examples that are representative of what the model will encounter when deployed?</li>
 <li><strong>Annotation consistency</strong>. Do the annotations capture information in the same way across images? This becomes an even bigger factor when multiple annotators are involved. Clear annotation guidelines and tracking various consistency metrics can help here.</li>
 <li><strong>Annotation quality</strong>. Are the annotations <em>accurate</em>, <em>precise</em>, and <em>complete</em>? Have annotators introduced bias?</li>
 </ul>
-<p>In the end, you will likely need to strike balance between speed and quality. Determining the right goalposts for “<em>good enough</em>” will require experimentation and iterative model training/testing.</p>
+<p>In the end, you will likely need to strike a balance between speed and quality. Determining the right goalposts for “<em>good enough</em>” will require experimentation and iterative model training and testing.</p>
 
 </div>
 </div>
@@ -681,7 +681,7 @@ Subjectivity
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>In some applications, there is no clear correct answer! In that case, especially without clear guidelines and training, different annotators can interpret data differently. This can leading to inconsistent labels, which in turn will negatively impact model training and lead to degraded model performance.</p>
+<p>In some applications, there is no clear correct answer! In that case, especially without clear guidelines and training, different annotators can interpret data differently. This can lead to inconsistent labels, which in turn will negatively impact model training and lead to degraded model performance.</p>
 
 </div>
 </div>
@@ -706,7 +706,7 @@ Data and annotation management
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>On a practical front, effectively managing a large-scale annotation activity also requires managing and organizing all associated annotation artifacts, including both <strong>the input data</strong> and <strong>the generated annotations</strong>.</p>
-<p>If you are performing annotation across a team of people, you also need to likely need to keep track of multiple annotations per data object (performed across multiple annotators), metadata associated with those annotations (e.g., how long each annotator took to complete the task), and various metrics for monitoring annotation and annotator performance over time.</p>
+<p>If you are performing annotation across a team of people, you also likely need to keep track of multiple annotations per data object (performed across multiple annotators), metadata associated with those annotations (e.g., how long each annotator took to complete the task), and various metrics for monitoring annotation and annotator performance over time.</p>
 
 </div>
 </div>
@@ -755,7 +755,7 @@ Bias &amp; Ethics
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Managing bias and ethics is not an annotation-specific problem, and we’ll discuss this later in the cousre. However, bear in mind that annotation can be a major factor, because it is a step in the modeling process when some specific human knowledge (i.e., what the annotators know) is attached to the input data, and will very directly exposed to the model during training. This creates an opportunity for injecting bias, exposing sensitive or private information, among other things.</p>
+<p>Managing bias and ethics is not an annotation-specific problem, and we’ll discuss this later in the course. However, bear in mind that annotation can be a major factor, because it is a step in the modeling process when some specific human knowledge (i.e., what the annotators know) is attached to the input data, and will be very directly exposed to the model during training. This creates an opportunity for injecting bias, exposing sensitive or private information, among other things.</p>
 
 </div>
 </div>
@@ -785,9 +785,9 @@ Callout: Annotating satellite imagery
 <li>Atmospheric distortion: Haze, fog, clouds</li>
 <li>Variability over time:
 <ul>
-<li>What time of day? Angle of the sun affects visible characteristics</li>
-<li>What time of year? Many features change seasonally (e.g.&nbsp;deciduous forest, grasslands in seasonally arid environments, snow cover, etc)</li>
-<li>Features change! Forests are cut, etc. Be mindful of the difference between labeling an image and labeling a patch of the earth’s surface.</li>
+<li>What time of day? The angle of the sun affects visible characteristics</li>
+<li>What time of year? Many features change seasonally (e.g., deciduous forest, grasslands in seasonally arid environments, snow cover, etc.)</li>
+<li>Features change! Forests are cut, etc. Be mindful of the difference between labeling an image and labeling a patch of the Earth’s surface.</li>
 </ul></li>
 <li>It’s often desirable to maintain the correspondence between pixels and their geospatial location, for cross-reference with maps and/or other imagery</li>
 </ul>
@@ -848,7 +848,7 @@ Have a quality control process
 <p>To ensure sufficient quality, plan on doing regular checks, running cross-validations, and having feedback loops.</p>
 <p>First, periodically conduct manual annotation reviews to ensure compliance with instructions. This might include having a recognized expert on the team randomly selecting a subset of annotated images to assess.</p>
 <p>Second, identify and calculate quality metrics on an ongoing basis, targeting each of the following:</p>
-<p><strong>Consensus</strong>. To measure the degree to which different annotators on the team are providing similar annotations, have multiple annotors annotate some of the same images, and calculate a <em>consensus</em> measure like <strong>Inter-annotator agreement (IAA)</strong>. Several flavors of this metric exist, such as Cohen’s kappa (to compare 2 labelers) and Fleiss’ kappa (to compare &gt;2 labelers).</p>
+<p><strong>Consensus</strong>. To measure the degree to which different annotators on the team are providing similar annotations, have multiple annotators annotate some of the same images, and calculate a <em>consensus</em> measure like <strong>Inter-annotator agreement (IAA)</strong>. Several flavors of this metric exist, such as Cohen’s kappa (to compare 2 labelers) and Fleiss’ kappa (to compare &gt;2 labelers).</p>
 <p><strong>Accuracy</strong>. In cases where there’s a known “correct” answer, either for all images or some subset thereof, calculate annotation performance metrics. Here are a couple of examples: - For bounding boxes, calculate a metric like <strong>Intersection over union (IoU)</strong>: Take the area of overlap between the ground truth box and the annotated box, and divide by total area of the (unioned) boxes. - For detected objects overall, calculate standard metrics like <strong>precision</strong> (proportion of labeled objects that are correctly labeled) and <strong>recall</strong> (proportion of all objects that were correctly labeled)</p>
 <p><strong>Completeness</strong>. Keep track of annotation completeness overall. For example, when doing bounding box annotation for an object detection task, ensure that all drawn boxes are associated with a valid label.</p>
 </div>
@@ -893,7 +893,7 @@ Highlights
 <li>Discuss the primary types of image annotations</li>
 <li>Discuss the common image-related AI/ML tasks requiring annotation</li>
 <li>Discuss different methods for annotating images</li>
-<li>Describe a high level annotation workflow</li>
+<li>Describe a high-level annotation workflow</li>
 </ul>
 </div>
 </div>
@@ -901,7 +901,7 @@ Highlights
 <p>In this context:</p>
 <ul>
 <li>An annotation <em>type</em> describes the specific format or structure of the annotation used to convey information about the data critical for supporting the task.</li>
-<li>An annotation <em>task</em> is the specific objective that the annotations are meant to support, i.e.&nbsp;the job you want your AI application to do. In the computer vision context, this typically means identifying or understanding something about an image, and conveying that information in some specific form.</li>
+<li>An annotation <em>task</em> is the specific objective that the annotations are meant to support, i.e., the job you want your AI application to do. In the computer vision context, this typically means identifying or understanding something about an image and conveying that information in some specific form.</li>
 <li>An annotation <em>method</em> refers to the process or approach used to create the annotations.</li>
 </ul>
 <section id="image-annotation-types" class="level3" data-number="4.2.1">
@@ -940,7 +940,7 @@ Bounding boxes
 <div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Bounding boxes</strong> are rectangles drawn around objects to localize them within an image. <a href="../images/data-annotation/building-bbox.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="../images/data-annotation/building-bbox.jpg" class="img-fluid" style="width:80.0%"></a></p>
-<p>Typically they are <em>axis-aligned</em>, meaning two sides are parallel with the image top/bottom, and two sides are parallel with the image sides, but sometimes rotation is supported.</p>
+<p>Typically, they are <em>axis-aligned</em>, meaning two sides are parallel with the image top/bottom, and two sides are parallel with the image sides, but sometimes rotation is supported.</p>
 </div>
 </div>
 </div>
@@ -956,7 +956,7 @@ Polygons
 </div>
 <div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Generalizing the bounding box concept, <strong>polygons</strong> are a series of 3 or more connected line segments (each with definable end coordinates) that form a closed shape (i.e.&nbsp;the end of the last segment is the beginning of the first segment), used to more precisely localize objects or areas by outlining their shape. <a href="../images/data-annotation/building-polygon.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="../images/data-annotation/building-polygon.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p>Generalizing the bounding box concept, <strong>polygons</strong> are a series of 3 or more connected line segments (each with definable end coordinates) that form a closed shape (i.e., the end of the last segment is the beginning of the first segment), used to more precisely localize objects or areas by outlining their shape. <a href="../images/data-annotation/building-polygon.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="../images/data-annotation/building-polygon.jpg" class="img-fluid" style="width:80.0%"></a></p>
 </div>
 </div>
 </div>
@@ -972,8 +972,8 @@ Segmentations
 </div>
 <div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Segmentations</strong> involve assigning a class label to individual pixels (or collectively, to regions of individual pixels) in an image. Segmentation may be done either fully for all pixels, or partially only for pixels associated with phenomena of interest.</p>
-<p>In practice, segmentations are produced either by drawing a polygon to circumscribe relevant pixels, or using a brush tool to select them in entire swaths at a time</p>
+<p><strong>Segmentations</strong> involve assigning a class label to individual pixels (or collectively, to regions of individual pixels) in an image. Segmentation may be done either fully for all pixels or partially only for pixels associated with phenomena of interest.</p>
+<p>In practice, segmentations are produced either by drawing a polygon to circumscribe relevant pixels or using a brush tool to select them in entire swaths at a time</p>
 <p><a href="../images/data-annotation/building-segmentation.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="../images/data-annotation/building-segmentation.jpg" class="img-fluid" style="width:80.0%"></a></p>
 </div>
 </div>
@@ -990,7 +990,7 @@ Keypoints
 </div>
 <div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Keypoints</strong> are simply points, used for denoting specific landmarks or features (e.g., skeletal points in human pose estimation). <a href="../images/data-annotation/buildings-points.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="../images/data-annotation/buildings-points.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p><strong>Keypoints</strong> are simply points used for denoting specific landmarks or features (e.g., skeletal points in human pose estimation). <a href="../images/data-annotation/buildings-points.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="../images/data-annotation/buildings-points.jpg" class="img-fluid" style="width:80.0%"></a></p>
 </div>
 </div>
 </div>
@@ -1022,7 +1022,7 @@ Polylines
 </div>
 <div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>3D cuboids</strong> are bounding boxes extended to three dimensions. These are often used in LiDAR data which is represented as a 3-dimensional point cloud, but can also be used to indicate depth of field in a 2D image when the modeling task involves understanding position in three dimensions. <a href="../images/data-annotation/bear-3dcuboid.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="../images/data-annotation/bear-3dcuboid.jpg" class="img-fluid" style="width:80.0%"></a></p>
+<p><strong>3D cuboids</strong> are bounding boxes extended to three dimensions. These are often used in LiDAR data, which contain a 3-dimensional point cloud, but can also be used to indicate depth of field in a 2D image when the modeling task involves understanding position in three dimensions. <a href="../images/data-annotation/bear-3dcuboid.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="../images/data-annotation/bear-3dcuboid.jpg" class="img-fluid" style="width:80.0%"></a></p>
 </div>
 </div>
 </div>
@@ -1096,14 +1096,14 @@ Image Segmentation
 </div>
 <div id="callout-30" class="callout-30-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Segmentation</strong> is the task of associating individual pixels with labels for purpose of enabling detailed image analysis (e.g., land-use segmentation). In some sense, you can think of it as object detection reported at the pixel level.</p>
+<p><strong>Segmentation</strong> is the task of associating individual pixels with labels for the purpose of enabling detailed image analysis (e.g., land-use segmentation). In some sense, you can think of it as object detection reported at the pixel level.</p>
 <p>There are three distinct kinds of segmentation, illustrated below for the following image:</p>
 <p><a href="../images/data-annotation/4bears-image.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="../images/data-annotation/4bears-image.jpg" class="img-fluid" style="width:60.0%"></a></p>
 <p><strong>Semantic Segmentation</strong> assigns a class label to each pixel in the image, without differentiating individual instances of that class. It is best for amorphous and uncountable “stuff”. In the image below, notice the segmentation and separation of the foreground grass from the background trees from the water in the middle. Also notice that the bears are all lumped together in one segment.</p>
 <p><a href="../images/data-annotation/4bears-sem-seg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="../images/data-annotation/4bears-sem-seg.jpg" class="img-fluid" style="width:60.0%"></a></p>
-<p><strong>Instance Segmentation</strong> separately detects and segments each object instance. It’s therefore similar to semantic segmentation, but <em>identifies the existence, location, shape, and count of objects</em>. It is best for distinct and countable “things”. Notice the separately identified four bears in the image below:</p>
+<p><strong>Instance Segmentation</strong> separately detects and segments each object instance. It’s therefore similar to semantic segmentation, but <em>identifies the existence, location, shape, and count of objects</em>. It is best for distinct and countable “things”. Notice the four separately identified bears in the image below:</p>
 <p><a href="../images/data-annotation/4bears-instance-seg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="../images/data-annotation/4bears-instance-seg.jpg" class="img-fluid" style="width:60.0%"></a></p>
-<p><strong>Panoptic Segmentation</strong>) combines semantic segmentation + instance segmentation by labeling all pixels, including differentiation of discrete and separately objects within categories. Notice the complete segmentation in the image below, including both the various background types as well as the four distinct bears.</p>
+<p><strong>Panoptic Segmentation</strong>) combines semantic segmentation + instance segmentation by labeling all pixels, including differentiation of discrete and separate objects within categories. Notice the complete segmentation in the image below, including both the various background types as well as the four distinct bears.</p>
 <p><a href="../images/data-annotation/4bears-pan-seg.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="../images/data-annotation/4bears-pan-seg.jpg" class="img-fluid" style="width:60.0%"></a></p>
 <p>For more on <a href="https://ai.meta.com/research/publications/panoptic-segmentation/">Panoptic Segmentation</a>, check out the <a href="https://arxiv.org/abs/1801.00868">research publication</a>.</p>
 </div>
@@ -1185,8 +1185,8 @@ Automated Annotation with Human Validation
 <p>At first glance, it might seem illogical that this scenario could exist! If you already have a model that can do the annotation, then don’t you already have a model to do the actual task you want to do?</p>
 <p>In practice, however, there are some cases where this might be applicable:</p>
 <ul>
-<li>One scenario involves <em>model distillation</em>. Imagine there exists a big, expensive, and/or proprietary (i.e., hidden behind an API) model that does the task you want, and perhaps a lot more. You can use this model to annotate a dataset that you use to train a more compact or economical model that you own and control. In the end, you have effectively distilled the source model’s capability into your own model, through the annotated training data set.</li>
-<li>A second scenario is when you <em>do</em> indeed already have a trained model to perform annotations, whether your own or someone else’s, and are now <em>using</em> it to automatically annotate vasts amounts of data that will serve as inputs to some other machine learning or analysis pipeline. Indeed, in research settings, this is usually the end objective! When you reach this point in the process, you will effectively be doing automated annotation with human validation to ensure that the results are reasonable in aggregate.</li>
+<li>One scenario involves <em>model distillation</em>. Imagine there exists a big, expensive, and/or proprietary (i.e., hidden behind an API) model that does the task you want, and perhaps a lot more. You can use this model to annotate a dataset that you use to train a more compact or economical model that you own and control. In the end, you have effectively distilled the source model’s capability into your own model through the annotated training dataset.</li>
+<li>A second scenario is when you <em>do</em> indeed already have a trained model to perform annotations, whether your own or someone else’s, and are now <em>using</em> it to automatically annotate vast amounts of data that will serve as inputs to some other machine learning or analysis pipeline. Indeed, in research settings, this is usually the end objective! When you reach this point in the process, you will effectively be doing automated annotation with human validation to ensure that the results are reasonable in aggregate.</li>
 </ul>
 </div>
 </div>
@@ -1224,7 +1224,7 @@ Fully Automated Annotation
 <div id="callout-36" class="callout-36-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First step: Get a sufficiently large and diverse set of data to annotate and subsequently train on.</p>
-<p>You may already have a set of images from your own research, e.g.&nbsp;from a set of camera traps or aerial flights. Or perhaps you already have a clear use case around detecting features in a particular satellite dataset, and have already procured the imagery. If so, great.</p>
+<p>You may already have a set of images from your own research, e.g., from a set of camera traps or aerial flights. Or perhaps you already have a clear use case around detecting features in a particular satellite dataset, and have already procured the imagery. If so, great.</p>
 <p>If you don’t have your own imagery – and maybe even if you do – you may want to consider augmenting it with additional images if you don’t have enough diversity or content in your own imagery. Depending on your use cases, you may want to poke around public mage datasets like ImageNet.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1248,7 +1248,7 @@ Fully Automated Annotation
 <div id="callout-37" class="callout-37-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Time to choose your annotation tool/platform!</p>
-<p>There are many options, and lots of factors to consider. See the next section for plenty more detail.</p>
+<p>There are many options, and lots of factors to consider. See the next section for plenty more details.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../images/data-annotation/toolbox-wide.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="."><img src="../images/data-annotation/toolbox-wide.jpg" class="img-fluid figure-img" style="width:80.0%" alt="."></a></p>
@@ -1279,8 +1279,8 @@ Fully Automated Annotation
 </div>
 <p>Here are some categories of common preprocessing tasks:</p>
 <p><strong>Reformatting.</strong> If relevant, you may need to convert your source images into a better file format for your task. Beyond this, it may be useful to rotate, crop, rescale, and/or reproject your images to get them into a consistent structural format.</p>
-<p><strong>Basic data cleaning.</strong> - For example, with satellite or aerial imagery, you may find it useful to apply pre-processing stesp such as filtering to removing noise, correcting for atmospheric conditions, correcting other distortion, adjusting brightness/contrast/color.</p>
-<p><strong>Feature enhancement.</strong> Other context-specific transformations may be useful for “bringing out” information for the model (and human annotators) to use, leading to faster and/or better model outcomes. For an example, <a href="https://www.youtube.com/watch?v=8jwin-l_96A">list to this story</a> about how careful transformations of Sentinel 2 imagery provided a huge boost in the detection of field boundaries as part of the <a href="https://github.com/Spiruel/UKFields">UKFields project</a>.</p>
+<p><strong>Basic data cleaning.</strong> - For example, with satellite or aerial imagery, you may find it useful to apply pre-processing steps such as filtering to remove noise, correcting for atmospheric conditions, correcting other distortion, adjusting brightness/contrast/color.</p>
+<p><strong>Feature enhancement.</strong> Other context-specific transformations may be useful for “bringing out” information for the model (and human annotators) to use, leading to faster and/or better model outcomes. For an example, <a href="https://www.youtube.com/watch?v=8jwin-l_96A">listen to this story</a> about how careful transformations of Sentinel 2 imagery provided a huge boost in the detection of field boundaries as part of the <a href="https://github.com/Spiruel/UKFields">UKFields project</a>.</p>
 </div>
 </div>
 </div>
@@ -1375,12 +1375,12 @@ Fully Automated Annotation
 <div class="callout-body-container callout-body">
 <p>Finalize and output the annotated data for model training.</p>
 <p><a href="../images/data-annotation/coco-json.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="../images/data-annotation/coco-json.jpg" class="img-fluid" style="width:80.0%"></a></p>
-<p>Typically you will need to get the data into some particular format before proceeding with model training. If your annotation tool can export in this format, you’re all set. If not, you’ll need to export in some other format and then use a conversion tool that you either find or create yourself.</p>
+<p>Typically, you will need to get the data into some particular format before proceeding with model training. If your annotation tool can export in this format, you’re all set. If not, you’ll need to export in some other format and then use a conversion tool that you either find or create yourself.</p>
 </div>
 </div>
 </div>
-<p>From here, presumably you’ll move on to model training!</p>
-<p><strong>Remember this key best practice</strong>: Iterate! You will almost certain not proceed through the annotation workflow in one straight shot. Plan to do some annotations, train, test, fix annotations, figure out whether/how to do more and/or better annotations, refine your annotation approaches, etc.</p>
+<p>From here, presumably, you’ll move on to model training!</p>
+<p><strong>Remember this key best practice</strong>: Iterate! You will almost certainly not proceed through the annotation workflow in one straight shot. Plan to do some annotations, train, test, fix annotations, figure out whether/how to do more and/or better annotations, refine your annotation approaches, etc.</p>
 </section>
 </section>
 <section id="annotation-tools-platforms" class="level2" data-number="4.3">
@@ -1418,7 +1418,7 @@ What annotation types are supported?
 </div>
 <div id="callout-44" class="callout-44-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Does the tooling allow you do create the kinds of annotations necessary for your task? This probably the first and most fundamental question you should be asking!</p>
+<p>Does the tooling allow you to create the kinds of annotations necessary for your task? This is probably the first and most fundamental question you should be asking!</p>
 </div>
 </div>
 </div>
@@ -1435,7 +1435,7 @@ What import image formats are supported?
 <div id="callout-45" class="callout-45-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Can the tool read images in the right format?</p>
-<p>Fortunately, most tools can automatically take a wide range standard image formats including JPG, PNG, BMP, and TIF, and more.</p>
+<p>Fortunately, most tools can automatically take a wide range of standard image formats including JPG, PNG, BMP, and TIF, and more.</p>
 <p>However, if you are working with spatial imagery, including GeoTIFFs, most tools will <em>not</em> natively read in your data. You will need to convert between formats, or choose a tool that is explicitly designed to handle that kind of data.</p>
 </div>
 </div>
@@ -1531,7 +1531,7 @@ Is the tool easy to use?
 <li>Does the annotation interface have responsive, reliable, and easy-to-use UI elements for creating, modifying, and deleting image annotations?</li>
 <li>Are there effective keyboard shortcuts to help speed up manual annotations?</li>
 <li>Does the tool offer effective model-assisted or other “smart” annotation capabilities?</li>
-<li>Are there well-designed features for managing your images, annotations, and ovearll workflow?</li>
+<li>Are there well-designed features for managing your images, annotations, and overall workflow?</li>
 <li>Is there any useful API support to enable programmatic upload, download, or other automation?</li>
 </ul>
 </div>
@@ -1549,7 +1549,7 @@ How much am I willing to pay for tooling?
 </div>
 <div id="callout-50" class="callout-50-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>In short, some software options are free, wherease others are commercial offerings with varying costs and prices tiers. As you compare features, consider what you’re willing (and able) to pay for.</p>
+<p>In short, some software options are free, whereas others are commercial offerings with varying costs and pricing tiers. As you compare features, consider what you’re willing (and able) to pay for.</p>
 </div>
 </div>
 </div>
@@ -1565,7 +1565,7 @@ How is the software licensed?
 </div>
 <div id="callout-51" class="callout-51-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Some annotation software apps and libraries are open source, whereas others are proprietary. You may want to lean toward the open source options if you want to be able to review the source code and understand how it works, and/or (perhaps more importantly) have the option of modifying it to better meet your needs. Of course, general speaking, the open source options will typically also be free, whereas proprietary software is more likely to come with costs.</p>
+<p>Some annotation software apps and libraries are open source, whereas others are proprietary. You may want to lean toward the open source options if you want to be able to review the source code and understand how it works, and/or (perhaps more importantly) have the option of modifying it to better meet your needs. Of course, generally speaking, the open source options will typically also be free, whereas proprietary software is more likely to come with costs.</p>
 </div>
 </div>
 </div>
@@ -1614,7 +1614,7 @@ What collaboration features are there?
 <ul>
 <li>First-class geospatial data and imagery support</li>
 <li>Native capabilities for drawing and editing features like points, lines, and polygons</li>
-<li>But all of menus and heavyweight UI around robust spatial feature management can impede fast &amp; efficient annotation</li>
+<li>But all of the menus and heavyweight UI around robust spatial feature management can impede fast &amp; efficient annotation</li>
 <li>Limited or no support for the broader annotation workflow and lifecycle</li>
 </ul></li>
 <li><strong>Image annotation software and platforms</strong> (LabelBox, RoboFlow)
@@ -1640,16 +1640,15 @@ What collaboration features are there?
 <li><a href="https://www.robots.ox.ac.uk/~vgg/software/via/"><strong>VGG Image Annotator (VIA)</strong></a>
 <ul>
 <li>High level: A flexible (but manual) tool for image, video, and audio annotation.</li>
-<li>Serverless web application, runs locally and self-contained in a browser, with no network connection required</li>
+<li>A serverless web application, runs locally and self-contained in a browser, with no network connection required</li>
 <li>Released in 2016, still maintained, based out of Oxford</li>
 <li>See <a href="https://www.robots.ox.ac.uk/~vgg/software/via/via_demo.html">demo</a></li>
 </ul></li>
-<li><a href="https://github.com/labelmeai/labelme">LabelMe</a>
+<li><a href="https://labelme.io/">Labelme</a>
 <ul>
-<li>Originally built as an online annotation tool, now distributed</li>
-<li>Now distributed as a <a href="https://github.com/CSAILVision/LabelMeAnnotationTool">deployable web application</a> that you can ran on a local web server</li>
-<li>Not to be confused with this independent Python/QT port of <a href="https://github.com/labelmeai/labelme">labelme</a></li>
-<li>Wait and what about this <a href="https://github.com/wkentaro/labelme">labelme</a> GitHub repo??</li>
+<li>Locally installed application written in Python/QT and used for polygonal annotation of images</li>
+<li>See <a href="https://github.com/wkentaro/labelme">GitHub repo</a></li>
+<li>Draws inspiration from an older Javscript-based <a href="https://github.com/CSAILVision/LabelMeAnnotationTool">LabelMe</a> web application for image annotation</li>
 </ul></li>
 <li><a href="https://github.com/ESA-PhiLab/iris"><strong>IRIS</strong></a> (Intelligently Reinforced Image Segmentation)
 <ul>
@@ -1746,12 +1745,22 @@ What collaboration features are there?
 <li><a href="https://manthano.ai">Manthano</a></li>
 </ul>
 </section>
-<section id="other-platforms" class="level4" data-number="4.3.2.7">
-<h4 data-number="4.3.2.7" class="anchored" data-anchor-id="other-platforms"><span class="header-section-number">4.3.2.7</span> Other platforms</h4>
+<section id="other-platforms-and-related-resources" class="level4" data-number="4.3.2.7">
+<h4 data-number="4.3.2.7" class="anchored" data-anchor-id="other-platforms-and-related-resources"><span class="header-section-number">4.3.2.7</span> Other platforms and related resources</h4>
 <ul>
-<li><a href="https://www.zooniverse.org/projects">Zooniverse</a>? Crowd-sourcing annotation platform
+<li><a href="https://www.zooniverse.org/projects">Zooniverse</a>
 <ul>
-<li>E.g. <a href="https://www.zooniverse.org/projects/douglas-clark/the-arctic-bears-project">The Arctic Bears Project</a></li>
+<li>Crowd-sourcing annotation platform</li>
+<li>Sample projects:
+<ul>
+<li><a href="https://www.zooniverse.org/projects/douglas-clark/the-arctic-bears-project">Arctic Bears</a></li>
+<li><a href="https://www.zooniverse.org/projects/penguintom79/penguin-watch">Penguin Watch</a></li>
+</ul></li>
+</ul></li>
+<li><a href="https://developmentseed.org/ds-annotate">DS-Annotate</a>
+<ul>
+<li>Provides SAM-assisted and “magic wand” interactivity to accelerate the creation of complex polygons for aerial imagery segmentation</li>
+<li>See <a href="https://github.com/developmentseed/ds-annotate">GitHub repo</a></li>
 </ul></li>
 <li><a href="https://deepforest.readthedocs.io/en/v1.3.3/landing.html">DeepForest</a>
 <ul>
