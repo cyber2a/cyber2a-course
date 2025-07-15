@@ -768,9 +768,16 @@ In between, you'll find a few dedicated software packages for environmental and/
 - [Alegion](https://alegion.com/about-us/)
 - [Manthano](https://manthano.ai)
 
-#### Other platforms
-- [Zooniverse](https://www.zooniverse.org/projects)? Crowd-sourcing annotation platform
-  - E.g. [The Arctic Bears Project](https://www.zooniverse.org/projects/douglas-clark/the-arctic-bears-project)
+#### Other platforms and related resources
+- [Zooniverse](https://www.zooniverse.org/projects)
+  - Crowd-sourcing annotation platform
+  - Sample projects:
+    - [Arctic Bears](https://www.zooniverse.org/projects/douglas-clark/the-arctic-bears-project)
+    - [Penguin Watch](https://www.zooniverse.org/projects/penguintom79/penguin-watch)
+
+- [DS-Annotate](https://developmentseed.org/ds-annotate)
+  - Provides SAM-assisted and "magic wand" interactivity to accelerate the creation of complex polygons for aerial imagery segmentation
+  - See [GitHub repo](https://github.com/developmentseed/ds-annotate)
 
 - [DeepForest](https://deepforest.readthedocs.io/en/v1.3.3/landing.html)
   - From the Weecology lab
