@@ -93,6 +93,9 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -327,14 +330,14 @@ div.csl-indent {
    
   <ul>
   <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals</a></li>
-  <li><a href="#the-foundations-of-ai" id="toc-the-foundations-of-ai" class="nav-link" data-scroll-target="#the-foundations-of-ai"><span class="header-section-number">2.1</span> The Foundations of AI</a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning"><span class="header-section-number">2.2</span> Machine Learning</a></li>
-  <li><a href="#neural-networks" id="toc-neural-networks" class="nav-link" data-scroll-target="#neural-networks"><span class="header-section-number">2.3</span> Neural Networks</a></li>
-  <li><a href="#exercise-nn-playground" id="toc-exercise-nn-playground" class="nav-link" data-scroll-target="#exercise-nn-playground"><span class="header-section-number">2.4</span> Exercise: NN Playground</a></li>
+  <li><a href="#the-foundations-of-intelligence" id="toc-the-foundations-of-intelligence" class="nav-link" data-scroll-target="#the-foundations-of-intelligence"><span class="header-section-number">2.1</span> The Foundations of Intelligence</a></li>
+  <li><a href="#types-of-artificial-intelligence" id="toc-types-of-artificial-intelligence" class="nav-link" data-scroll-target="#types-of-artificial-intelligence"><span class="header-section-number">2.2</span> Types of Artificial Intelligence</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning"><span class="header-section-number">2.3</span> Machine Learning</a></li>
+  <li><a href="#neural-networks" id="toc-neural-networks" class="nav-link" data-scroll-target="#neural-networks"><span class="header-section-number">2.4</span> Neural Networks</a></li>
   <li><a href="#backpropagation" id="toc-backpropagation" class="nav-link" data-scroll-target="#backpropagation"><span class="header-section-number">2.5</span> Backpropagation</a></li>
   <li><a href="#deep-learning" id="toc-deep-learning" class="nav-link" data-scroll-target="#deep-learning"><span class="header-section-number">2.6</span> Deep Learning</a></li>
-  <li><a href="#ai-beyond-machine-learning" id="toc-ai-beyond-machine-learning" class="nav-link" data-scroll-target="#ai-beyond-machine-learning"><span class="header-section-number">2.7</span> AI Beyond Machine Learning</a></li>
-  <li><a href="#the-future-of-ai-in-science" id="toc-the-future-of-ai-in-science" class="nav-link" data-scroll-target="#the-future-of-ai-in-science"><span class="header-section-number">2.8</span> The Future of AI in Science</a></li>
+  <li><a href="#the-future-of-ai-in-arctic-science" id="toc-the-future-of-ai-in-arctic-science" class="nav-link" data-scroll-target="#the-future-of-ai-in-arctic-science"><span class="header-section-number">2.7</span> The Future of AI in Arctic Science</a></li>
+  <li><a href="#exercise-nn-playground" id="toc-exercise-nn-playground" class="nav-link" data-scroll-target="#exercise-nn-playground"><span class="header-section-number">2.8</span> Exercise: NN Playground</a></li>
   <li><a href="#do-you-have-any-questions" id="toc-do-you-have-any-questions" class="nav-link" data-scroll-target="#do-you-have-any-questions">Do You Have Any Questions?</a></li>
   </ul>
 </nav>
@@ -369,18 +372,18 @@ figcaption {
     font-size: 0.1em;
 }
 .column-margin {
-  figcaption {
+ figcaption {
     font-size: 0.5em;
-  }
+ }
 }
 </style>
 <section id="goals" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="goals">Goals</h2>
-<p>This session aims to introduce AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions.</p>
+<p>In this chapter, we introduce artificial intelligence to a non-specialist audience. We cover key terminology and the basic principles of intelligence, artificial intelligence, and machine learning. By the end of the chapter, participants will have a solid foundation for the subsequent chapters.</p>
 </section>
-<section id="the-foundations-of-ai" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="the-foundations-of-ai"><span class="header-section-number">2.1</span> The Foundations of AI</h2>
-<p>Before reading the definition, take a moment: What do you think AI is? How would you define it?</p>
+<section id="the-foundations-of-intelligence" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-foundations-of-intelligence"><span class="header-section-number">2.1</span> The Foundations of Intelligence</h2>
+<p>Before reading the definition, take a moment to consider: In your own words, what is AI?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -391,19 +394,121 @@ What is AI?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Artificial Intelligence (AI)</strong> refers to the development of computer systems capable of performing tasks that typically require cognitive functions associated with <em>human intelligence</em>, such as recognizing patterns, learning from data, and making predictions.</p>
+<p><strong>Artificial Intelligence (AI)</strong> is the field concerned with building computer systems that perform tasks typically requiring cognitive functions associated with human intelligence, such as pattern recognition, learning from data, and making predictions.</p>
 </div>
 </div>
-<p>But… there is a minor issue with this definition. What exactly is <em>human intelligence</em>?</p>
-<p>Recognizing patterns, learning, and making predictions are all functions of intelligence, but what lies at the core of a “conscious human”? Why is self-awareness important in cognition, and what evolutionary function does subjective, conscious experience serve?</p>
-<p>In the philosophy of mind, this phenomenon is referred to as <em>qualia</em>, and there is still no definitive scientific answer to why qualia exist—at least, not yet (see <a href="https://en.wikipedia.org/wiki/Models_of_consciousness#Neuroscience">theories of consciousness</a> for more information).</p>
-<p>But today, let’s focus on a simpler question. <strong>How do humans think?</strong></p>
-<p>Historically, before the 1950s–1960s, scientists believed humans think through a series of if/else statements (e.g., “If I drink more coffee, I’ll be jittery,” or “If a seagull spots my pizza, it’ll try to snatch a bite”). Geoffrey Hinton, a cognitive psychologist and computer scientist, was one of the advocates for an opposing idea: that humans think more experientially or <strong>probabilistically</strong>. For instance, based on the cloud cover today and similar past experiences, there’s a high probability of rain, so I’ll grab an umbrella. This idea laid the foundation for probabilistic algorithms and, ultimately, the field of <strong>Machine Learning</strong>.</p>
-<p><img src="../images/ai-for-all/geoffrey_hinton.png" class="img-fluid"></p>
+<p>For a time, one of the goals of AI was to pass the Turing test. The first program often considered to pass a variation of the Turing test was Eugene Goostman, which simulated a 13-year-old boy from Odessa, Ukraine. It passed the Turing test in 2014. Modern chatbots, such as ChatGPT-4, arguably can easily pass the Turing test. However, as early as the 1980s, philosophers like John Searle argued that passing the Turing test does not prove that a machine is intelligent. This concern is increasingly relevant today. Searle often illustrated his argument with the <strong>Chinese Room thought experiment</strong>.</p>
+<ol type="1">
+<li>Imagine a person who knows no Chinese locked in a room.</li>
+<li>Outside, native Chinese speakers pass written questions into the room.</li>
+<li>Inside, the person uses a large rulebook to match the input characters with appropriate responses.</li>
+<li>The person inside then passes the answers back out.</li>
+</ol>
+<p>To outsiders, the room appears to “understand” Chinese, yet the person inside has no comprehension of the language’s meaning. Searle argued that a computer running a program is analogous to the person following the rulebook: it manipulates syntax without understanding semantics. Thus, behavioral imitation alone is not evidence of true intelligence.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/ai-for-all/chinese_room.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 2.1.1: Source <span class="citation" data-cites="jackson2025ai"><a href="../references.html#ref-jackson2025ai" role="doc-biblioref">[1]</a></span> The Chinese Room Argument.</figcaption>
+</figure>
+</div>
+<p>Whether one finds Searle convincing, the example highlights a gap between performance and actual intelligence.</p>
+<p><strong>Artificial General Intelligence</strong></p>
+<p>Most modern AIs are narrow, or “weak” AIs. The opposite concept, originally envisioned as “strong AI,” is now referred to as Artificial General Intelligence (AGI). AGI is often described as human-like intelligence.</p>
+<p>But that raises a big question! What exactly is <strong>human intelligence</strong>?</p>
+<p>Generally speaking, human intelligence encompasses the capacity to learn from experience, identify patterns, handle abstract concepts, and apply knowledge to shape the environment. Yet, these are only functional descriptions. The core, or what many consider a distinguishing feature is the presence of self-awareness. The reason for its existence remains controversial: why does self-awareness matter for cognition, and what evolutionary advantage does subjective experience provide?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/ai-for-all/qualia.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Figure 2.1.2: The Hard Problem of Consciousness.</figcaption>
+</figure>
+</div>
+<p>In the philosophy of mind, this phenomenon is referred to as <em>qualia</em>, and there is still no definitive scientific answer to why qualia exist. Some argue that consciousness or self-awareness is an emergent property, and it appears when the system becomes complex enough; others propose that it is fundamental. These questions are all part of the Hard Problem of Consciousness. Interested readers can explore scientific <a href="https://en.wikipedia.org/wiki/Models_of_consciousness#Neuroscience">theories of consciousness</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is an Intelligent Agent?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Intelligent Agent</strong> is an entity that can perceive and interact with its environment autonomously.</p>
+</div>
+</div>
+<p>Humans can be seen as one type of intelligent agent, maintaining internal bodily processes and responding to environmental changes. Several attempts have been made to define general intelligence in terms of cognitive abilities. One such theory is the Cattell-Horn-Carroll (CHC) theory, which divides general intelligence into four core abilities: motor control, sensory perception, focused attention, and knowledge. Cattell-Horn-Carroll</p>
+<div class="cell" data-fig-width="6.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+    Title(["   **Cattell–Horn–Carroll &lt;br/&gt; Theory**  "])
+
+    Title --&gt; GI("**General**&lt;br&gt;**Intelligence**")
+    GI("**General&lt;br&gt;Intelligence**"):::main
+
+    GI --&gt; MC("**Motor Control**")
+    GI --&gt; SP("**Sensory Perception**")
+    GI --&gt; FA["**Focused Attention**"]
+    GI --&gt; K("**Knowledge**")
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Studying intelligence and consciousness presents a fascinating yet complex set of problems. For now, let’s narrow our focus and ask a simpler question:</p>
+<p><strong>How do humans think?</strong></p>
+<p><em>Behaviorism</em></p>
+<p>Before the 1950s, psychology was dominated by behaviorism, which held that internal mental processes were either unknowable or scientifically irrelevant. Instead, behaviorists focused on mapping observable stimuli to observable responses.</p>
+<p><em>Cognitive Revolution</em></p>
+<p>During the cognitive revolution of the 1950s–1970s, researchers inspired by digital computers began proposing explicit rule-based models of thinking, often using if/then representations—a so-called symbolic approach (e.g., “If I drink more coffee, I’ll be jittery”).</p>
+<p><em>Probabilistic Reasoning</em></p>
+<p>Starting in the late 1970s, a new perspective emerged: psychologists noticed that humans often think experientially. For example, based on today’s cloud cover and similar past experiences, one might infer a high probability of rain and decide to carry an umbrella. Geoffrey Hinton, who won the Nobel Prize in 2024, was a pioneer in this field. He demonstrated that such experiential reasoning can be modeled using probabilistic computations, laying the foundation for modern machine learning algorithms.</p>
+<p><img src="../images/ai-for-all/hinton.png" class="img-fluid"></p>
 </section>
-<section id="machine-learning" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">2.2</span> Machine Learning</h2>
-<p>To quickly recap, AI is a broad term encompassing efforts to replicate aspects of human cognition. <strong>Machine Learning</strong> is a subset of AI that focuses on algorithms enabling computers to learn from data and build probabilistic models.</p>
+<section id="types-of-artificial-intelligence" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="types-of-artificial-intelligence"><span class="header-section-number">2.2</span> Types of Artificial Intelligence</h2>
+<p>Before discussing machine learning in depth, it is important to highlight that there are several distinct approaches to developing AI. In this course, we will focus primarily on neural networks, as they currently dominate the field. Neural networks aim to emulate the brain’s structure at the cellular level, forming the basis of an approach known as deep learning. However, not all AI techniques rely on machine learning principles. Just as human reasoning includes multiple modes, such as probabilistic, inference, and symbolic logic, the development of AGI will require combining a variety of paradigms.</p>
+<table class="table-striped table-hover table-primary caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>AI Technique</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Symbolic (Logic-Based)</td>
+<td>Uses logical rules and symbolic representations to encode and manipulate knowledge. Focuses on deductive reasoning.</td>
+</tr>
+<tr class="even">
+<td>Genetic (Evolutionary)</td>
+<td>Optimization algorithms inspired by natural selection.</td>
+</tr>
+<tr class="odd">
+<td>Fuzzy Logic</td>
+<td>A form of logic that works with “degrees of truth”, making it useful for uncertain or ambiguous scenarios.</td>
+</tr>
+<tr class="even">
+<td>Knowledge Representation and Reasoning (KR&amp;R)</td>
+<td>Structures information using ontologies, semantic networks, and formal logic to support reasoning tasks.</td>
+</tr>
+<tr class="odd">
+<td>Bayesian Networks</td>
+<td>Probabilistic graphical models that capture dependencies between variables, enabling inference under uncertainty.</td>
+</tr>
+</tbody>
+</table>
+<p><br> Real-world systems are typically hybrids. Modern AI applications, such as self-driving cars and voice assistants, integrate deep learning for perception, symbolic planning, and probabilistic filtering to meet requirements for safety, robustness, and interpretability.</p>
+</section>
+<section id="machine-learning" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">2.3</span> Machine Learning</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -414,140 +519,148 @@ What is ML?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Machine Learning (ML)</strong> is a subset of AI that specifically focuses on algorithms that allow computers to learn from data and create probabilistic models.</p>
+<p><strong>Machine Learning (ML)</strong> is a subfield of AI focused on algorithms that enable computers to learn patterns from data and build probabilistic models.</p>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/machine_learning.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Source: Original comic by sandserif"><img src="../images/ai-for-all/machine_learning.png" class="img-fluid figure-img" style="width:50.0%" alt="Source: Original comic by sandserif"></a></p>
-<figcaption>Source: Original comic by <a href="https://www.instagram.com/sandserifcomics/">sandserif</a></figcaption>
+<p><a href="../images/ai-for-all/deep_learning3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure 2.3.1: Organogram of AI algorithms."><img src="../images/ai-for-all/deep_learning3.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.3.1: Organogram of AI algorithms."></a></p>
+<figcaption>Figure 2.3.1: Organogram of AI algorithms.</figcaption>
 </figure>
 </div>
-<p>Machine Learning includes various types and techniques, but in this workshop we’ll primarily focus on <strong>Neural Networks (NNs).</strong></p>
+<p><strong>Supervised Learning</strong> involves learning from labeled data, where models directly learn from input-output pairs. These models are generally simpler in terms of training and achieve high performance. With a labelled dataset, you already know the correct output for every input, so you can optimise model parameters to fit the answer. We will explore them in-depth through the course.</p>
+<p><strong>Semi-Supervised Learning</strong> combines a small amount of labeled data with a large amount of unlabeled data, often using auto-labeling techniques. Examples include Self-training models, where a model iteratively labels data to improve, and Graph Neural Networks (GNNs), which are useful for understanding relationships between data points.</p>
+<p><strong>Unsupervised Learning</strong> relies on unlabeled data, focusing on identifying patterns or structures. Popular models include Autoencoders, Generative Adversarial Networks (GANs), and Restricted Boltzmann Machines (RBMs).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/ai-for-all/ML_types.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 2.3.2: Types of Machine Learning."><img src="../images/ai-for-all/ML_types.png" class="img-fluid figure-img" style="width:70.0%" alt="Figure 2.3.2: Types of Machine Learning."></a></p>
+<figcaption>Figure 2.3.2: Types of Machine Learning.</figcaption>
+</figure>
+</div>
 </section>
-<section id="neural-networks" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="neural-networks"><span class="header-section-number">2.3</span> Neural Networks</h2>
-<p>NNs are loosely inspired by the structure of the human brain and consist of interconnected nodes, or neurons, that process information. The principle “neurons that fire together, wire together” <span class="citation" data-cites="hebb1949"><a href="../references.html#ref-hebb1949" role="doc-biblioref">[1]</a></span> captures the idea that the strength of their connections, known as weights, adjusts based on experience.</p>
+<section id="neural-networks" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="neural-networks"><span class="header-section-number">2.4</span> Neural Networks</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is ANN?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Artificial Neural Network (ANN)</strong> is a computational model that transforms and interprets input data through layers. Analogous to biological neural networks composed of interconnected neurons, an ANN consists of nodes (basic processing units) arranged in connected layers.</p>
+</div>
+</div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/neural_network1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 2.1: Source [@norvig2004ai] The parts of neuron: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses."><img src="../images/ai-for-all/neural_network1.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.1: Source [2] The parts of neuron: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses."></a></p>
-<figcaption>Figure 2.1: Source <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span> <strong>The parts of neuron</strong>: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses.</figcaption>
+<p><a href="../images/ai-for-all/neural_network1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 2.4.1: Source [@norvig2004ai] The parts of a neuron: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses."><img src="../images/ai-for-all/neural_network1.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.4.1: Source [2] The parts of a neuron: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses."></a></p>
+<figcaption>Figure 2.4.1: Source <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span> <strong>The parts of a neuron</strong>: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses.</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/neural_networks2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 2.2: Structure of a neural network: Ramón y Cajal’s drawing of the cells of the chick cerebellum, from Estructura de los centros nerviosos de las aves, Madrid, 1905"><img src="../images/ai-for-all/neural_networks2.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.2: Structure of a neural network: Ramón y Cajal’s drawing of the cells of the chick cerebellum, from Estructura de los centros nerviosos de las aves, Madrid, 1905"></a></p>
-<figcaption>Figure 2.2: <strong>Structure of a neural network</strong>: Ramón y Cajal’s drawing of the cells of the chick cerebellum, from Estructura de los centros nerviosos de las aves, Madrid, 1905</figcaption>
+<p><a href="../images/ai-for-all/neural_networks2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure 2.4.2: Structure of a neural network: Ramón y Cajal’s drawing of the cells of the chick cerebellum, from Estructura de los centros nerviosos de las aves, Madrid, 1905"><img src="../images/ai-for-all/neural_networks2.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.4.2: Structure of a neural network: Ramón y Cajal’s drawing of the cells of the chick cerebellum, from Estructura de los centros nerviosos de las aves, Madrid, 1905"></a></p>
+<figcaption>Figure 2.4.2: <strong>Structure of a neural network</strong>: Ramón y Cajal’s drawing of the cells of the chick cerebellum, from Estructura de los centros nerviosos de las aves, Madrid, 1905</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-What is NN?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Neural Network (NN)</strong> is a foundational technique within the field of machine learning. NNs are designed to simulate the way the human brain processes information by using a series of connected layers, or neurons, that transform and interpret input data.</p>
-</div>
-</div>
-<p>The Perceptron <span class="citation" data-cites="rosenblatt1958perceptron"><a href="../references.html#ref-rosenblatt1958perceptron" role="doc-biblioref">[3]</a></span>, one of the earliest neural network models, was invented in 1957 by psychologist Frank Rosenblatt, who unfortunately did not live long enough to witness the far-reaching impact of his work. Rosenblatt’s Perceptron was a physical machine with retina-like sensors as inputs, wires acting as the hidden layers, and a binary output system. This invention marked the early stages of artificial intelligence, laying the groundwork for the powerful neural networks we use today.</p>
-<p><a href="../images/ai-for-all/frank_rosenblatt.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images/ai-for-all/frank_rosenblatt.png" class="img-fluid" style="width:100.0%"></a></p>
-</section>
-<section id="exercise-nn-playground" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="exercise-nn-playground"><span class="header-section-number">2.4</span> Exercise: NN Playground</h2>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
+<p><strong>Neural Networks Elements</strong></p>
+<p>The principle “neurons that fire together, wire together” <span class="citation" data-cites="hebb1949"><a href="../references.html#ref-hebb1949" role="doc-biblioref">[3]</a></span> captures the idea that the strength of neuronal connections adjusts based on experience. Artificial neural networks mimic this by assigning each connection a weight that training continually adjusts. Larger weights reinforce patterns the network finds useful.</p>
+<p><a href="../images/ai-for-all/ann_bnn.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="../images/ai-for-all/ann_bnn.png" class="img-fluid" style="width:100.0%"></a></p>
+<p>Each node multiplies its inputs by their weights, adds the results, and feeds that sum into an activation function. The activation function decides if, and how strongly, the signal moves on to the next layer. When it does, we say the neuron is “activated.”</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Web-based app, no setup or account required: <a href="https://https://playground.tensorflow.org/">playground.tensorflow.org</a></p>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../images/ai-for-all/nn_playground.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="."><img src="../images/ai-for-all/nn_playground.gif" class="img-fluid figure-img" style="width:80.0%" alt="."></a></p>
-<figcaption>.</figcaption>
-</figure>
-</div>
-<p><strong>Level 1: Browse around</strong></p>
-<ul class="task-list">
-<li><p><label><input type="checkbox">Switch between different choices of datasets (on the left). See if anything changes.</label></p></li>
-<li><p><label><input type="checkbox">Adjust the ratio of training to test data. Does the quality of the output vary?</label></p></li>
-<li><p><label><input type="checkbox">Experiment with noise and batch size parameters. How does the output change?</label></p></li>
-</ul>
-<p>Orange indicates <span style="color:orange">negative</span> values, while blue represents <span style="color:blue">positive</span> values. Typically, an 80/20 split for training and testing data is used. Smaller datasets may need a 90% training portion for more examples, while larger datasets can reduce training data to increase test samples. Background colors illustrate the network’s predictions, with more intense colors representing higher confidence in its prediction. Adding noise during training helps the model generalize by recognizing true patterns, enhancing robustness and stability with real-world noisy data.</p>
-<p><strong>Level 2: Things to try</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Add or remove hidden layers. Notice how it affects the neural network’s performance?</label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hidden Layers
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Hidden Layers are the layers that are neither input nor output. You can think of the values computed at each layer of the network as a different representation for the input X. Each layer transforms the representation produced by the preceding layer to produce a new representation.</p>
-</div>
-</div>
-<ul class="task-list">
-<li><label><input type="checkbox">Change the number of neurons in the hidden layers. Can you see any impact on model predictions?</label></li>
-</ul>
-<p>Start with one hidden layer and one or two neurons, observing predictions (orange vs.&nbsp;blue background) against actual data points (orange vs.&nbsp;blue dots). With minimal layers and neurons, predictions are often inaccurate. Increasing hidden layers and neurons improves alignment with the actual data, illustrating how added complexity helps the model learn and approximate complex patterns more accurately.</p>
-<p><strong>Level 3: More things to try!</strong></p>
-<ul class="task-list">
-<li><p><label><input type="checkbox">Experiment with different features to see their impact on predictions.</label></p></li>
-<li><p><label><input type="checkbox">Manually adjust the weight. You can see that the thickness of the line changed, which represents the strength of the connection.</label></p></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Weights
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Weights are parameters within the neural network that transform input data as it passes through layers. They determine the strength of connections between neurons, with each weight adjusting how much influence one neuron has on another. During training, the network adjusts these weights to reduce errors in predictions.</p>
+<p>Weights are parameters that transform input data as it passes through the network. They set the strength of connections between nodes, with each weight controlling how much influence one node exerts on another. During training, the network adjusts these weights to reduce prediction errors.</p>
 </div>
 </div>
-<ul class="task-list">
-<li><p><label><input type="checkbox">Change <em>the learning rate</em> to observe its effect on training speed and accuracy.</label></p></li>
-<li><p><label><input type="checkbox">Try various activation functions to see how they influence model performance.</label></p></li>
-<li><p><label><input type="checkbox">Experiment with different problem types (e.g., classification vs.&nbsp;regression) and analyze the outcomes.</label></p></li>
-</ul>
-<p>As you press the play button, you can see the number of epochs increase. In an Artificial Neural Network, an <em>epoch</em> represents one complete pass through the training dataset.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Learning rate
+Activation Function
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The learning rate is a key setting or hyperparameter that controls how much a model adjusts its weights during training. A higher rate speeds up learning but risks overshooting the optimal solution, while a lower rate makes learning more precise but slower. It’s one of the most crucial settings when building a neural network.</p>
+<p>The activation function computes the output of each neuron. It does the non-linear transformation to the input, making it capable to learn and performing more complex tasks.</p>
 </div>
 </div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Input Layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Information from the outside world enters the artificial neural network from the input layer. Input nodes provide a connection between the input data and the hidden layers.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Output Layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The output layer produces the network’s final prediction. Every ANN has at minimum an input layer and an output layer. Adding hidden layers in between usually makes the model much more powerful, because they introduce non-linear transformations.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hidden Layer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Hidden layers are all the layers between the input and the output. Each one takes the previous layer’s output vector (its “representation”) and converts it into a new vector. More hidden layers mean a deeper neural network. If there is only one or a few we call the network shallow.</p>
+</div>
+</div>
+</div>
+<p>The Perceptron <span class="citation" data-cites="rosenblatt1958perceptron"><a href="../references.html#ref-rosenblatt1958perceptron" role="doc-biblioref">[4]</a></span>, one of the earliest and simplest neural network models, was invented in 1957 by psychologist Frank Rosenblatt. Rosenblatt’s Perceptron was a physical machine with retina-like sensors as inputs, wires acting as the hidden layers, and a binary output system.</p>
+<p><a href="../images/ai-for-all/rosenblatt.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images/ai-for-all/rosenblatt.png" class="img-fluid" style="width:100.0%"></a></p>
 </section>
 <section id="backpropagation" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="backpropagation"><span class="header-section-number">2.5</span> Backpropagation</h2>
-<p>Initially, neural networks were quite shallow feed-forward networks. Adding more hidden layers made training them difficult. However, in the 1980s—often referred to as the rebirth of AI—the invention of the <strong>backpropagation</strong> algorithm revolutionized the field. It allowed for efficient error correction and gradient calculation across layers, making it possible to train much deeper networks than before.</p>
+<p>Initially, neural networks were quite shallow feed-forward networks. Adding more hidden layers made training them difficult. However, in the 1980s—often referred to as the rebirth of AI—the invention of the <strong>backpropagation</strong> algorithm revolutionized the field.</p>
+<p>It allowed for efficient error correction across layers, making it possible to train much deeper networks than before.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -565,15 +678,15 @@ What is backpropagation?
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/backpropagation1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 2.3: Backpropagation"><img src="../images/ai-for-all/backpropagation1.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.3: Backpropagation"></a></p>
-<figcaption>Figure 2.3: Backpropagation</figcaption>
+<p><a href="../images/ai-for-all/backpropagation1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 2.5.1: Backpropagation flow. A two-layer network showing the forward pass (blue arrows) that produces the output and the back-propagation pass (green/red arrows) that carries the error signal back through the layers to update each weight"><img src="../images/ai-for-all/backpropagation1.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.5.1: Backpropagation flow. A two-layer network showing the forward pass (blue arrows) that produces the output and the back-propagation pass (green/red arrows) that carries the error signal back through the layers to update each weight"></a></p>
+<figcaption>Figure 2.5.1: Backpropagation flow. A two-layer network showing the forward pass (blue arrows) that produces the output and the back-propagation pass (green/red arrows) that carries the error signal back through the layers to update each weight</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/backpropagation.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 2.4: Source (3Blue1Brown)"><img src="../images/ai-for-all/backpropagation.gif" class="img-fluid figure-img" style="width:80.0%" alt="Figure 2.4: Source (3Blue1Brown)"></a></p>
-<figcaption>Figure 2.4: Source (3Blue1Brown)</figcaption>
+<p><a href="../images/ai-for-all/backpropagation.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 2.5.2: A gif visualization of a 784-input, three-hidden-layer perceptron as it processes a single example: bright lines represent strong positive weights, darker/red lines strong negative weights, giving an intuitive sense of how information flows through the network’s layers. Source (3Blue1Brown)"><img src="../images/ai-for-all/backpropagation.gif" class="img-fluid figure-img" style="width:80.0%" alt="Figure 2.5.2: A gif visualization of a 784-input, three-hidden-layer perceptron as it processes a single example: bright lines represent strong positive weights, darker/red lines strong negative weights, giving an intuitive sense of how information flows through the network’s layers. Source (3Blue1Brown)"></a></p>
+<figcaption>Figure 2.5.2: A gif visualization of a 784-input, three-hidden-layer perceptron as it processes a single example: bright lines represent strong positive weights, darker/red lines strong negative weights, giving an intuitive sense of how information flows through the network’s layers. Source (3Blue1Brown)</figcaption>
 </figure>
 </div>
 </div>
@@ -592,31 +705,18 @@ Deep Learning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Deep Learning (DL)</strong> is a subset of ML, that uses multilayered neural networks, called deep neural networks.</p>
+<p><strong>Deep Learning (DL)</strong> is a subset of ML that uses multilayered neural networks, called deep neural networks.</p>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/deep_learning2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 2.5: Source: Artificial Intelligence - A modern approach. [@norvig2004ai]"><img src="../images/ai-for-all/deep_learning2.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.5: Source: Artificial Intelligence - A modern approach. [2]"></a></p>
-<figcaption>Figure 2.5: Source: Artificial Intelligence - A modern approach. <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></figcaption>
+<p><a href="../images/ai-for-all/deep_learning2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure 2.6.1: (a) A shallow model, such as linear regression, has short computation paths between input and output. (b) A decision list network has some long paths for some possible input values, but most paths are short. (c) A deep learning network has longer computation paths, allowing each variable to interact with all the others. Source: Artificial Intelligence - A Modern Approach. [@norvig2004ai]"><img src="../images/ai-for-all/deep_learning2.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.6.1: (a) A shallow model, such as linear regression, has short computation paths between input and output. (b) A decision list network has some long paths for some possible input values, but most paths are short. (c) A deep learning network has longer computation paths, allowing each variable to interact with all the others. Source: Artificial Intelligence - A Modern Approach. [2]"></a></p>
+<figcaption>Figure 2.6.1: (a) A shallow model, such as linear regression, has short computation paths between input and output. (b) A decision list network has some long paths for some possible input values, but most paths are short. (c) A deep learning network has longer computation paths, allowing each variable to interact with all the others. Source: Artificial Intelligence - A Modern Approach. <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></figcaption>
 </figure>
 </div>
-<div class="caption-text">
-<p>Figure 2.7: (a) A shallow model, such as linear regression, has short computation paths between inputs and output. (b) A decision list network has some long paths for some possible input values, but most paths are short. (c) A deep learning network has longer computation paths, allowing each variable to interact with all the others.</p>
-</div>
-<p>Deep learning (DL) techniques are typically classified into three categories: supervised, semi-supervised, and unsupervised. Additionally, reinforcement learning (RL) is often considered a partially supervised technique, sometimes overlapping with unsupervised methods.</p>
-<p><strong>Supervised Learning</strong> involves learning from labeled data, where models directly learn from input-output pairs. Common examples include Recurrent Neural Networks (RNNs), Convolutional Neural Networks (CNNs), and Transformers. These models are generally simpler in terms of training and achieve high performance.</p>
-<p><strong>Semi-Supervised Learning</strong> combines a small amount of labeled data with a large amount of unlabeled data, often using auto-labeling techniques. Examples include Self-training models, where a model iteratively labels data to improve, and Graph Neural Networks (GNNs), which are useful for understanding relationships between data points.</p>
-<p><strong>Unsupervised Learning</strong> relies on unlabeled data, focusing on identifying patterns or structures. Popular models include Autoencoders, Generative Adversarial Networks (GANs), and Restricted Boltzmann Machines (RBMs).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../images/ai-for-all/deep_learning3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure 2.6: Organogram of AI algorithms."><img src="../images/ai-for-all/deep_learning3.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.6: Organogram of AI algorithms."></a></p>
-<figcaption>Figure 2.6: Organogram of AI algorithms.</figcaption>
-</figure>
-</div>
-<p>Despite advances in backpropagation, deep learning, computing power, and optimization, neural networks still face the problem known as <em>catastrophic forgetting</em> — losing old knowledge when trained on new tasks. Current AI models are often “frozen” and specialized, needing complete retraining for updates, unlike even simple animals that can continuously learn without forgetting <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref">[4]</a></span>. This limitation is one of the reason that led to the development of specialized deep learning models, each with unique architectures tailored to specific tasks. Let’s explore how each of these models can be applied in scientific research!</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Convolutional Neural Networks">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<p>Despite advances in backpropagation, deep learning, computing power, and optimization, neural networks still face the problem known as <em>catastrophic forgetting</em> — losing old knowledge when trained on new tasks. Current AI models are often “frozen” and specialized, needing complete retraining for updates, unlike even simple animals that can continuously learn without forgetting <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref">[5]</a></span>. This limitation is one of the reasons that led to the development of specialized deep learning models, each with unique architectures tailored to specific tasks. Let’s explore how each of these models can be applied in scientific research!</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Convolutional Neural Networks">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -625,25 +725,25 @@ Convolutional Neural Networks
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Convolutional Neural Networks (CNN)</strong> are artificial neural networks designed to process structured data like images. Originally inspired by the mammalian visual cortex, CNNs attempt to mimic how our brains process visual information in layers. First, brains interpret basic shapes like lines and edges and then move to more complex structures, like recognizing a dog ear or the whole animal. This feature, known as “invariance” allows us to recognize objects even if they’re rotated or appear in a different part of our vision.</p>
+<p><strong>Convolutional Neural Networks (CNN)</strong> are artificial neural networks designed to process structured data like images. Originally inspired by the mammalian visual cortex, CNNs attempt to mimic how our brains process visual information in layers. First, brains interpret basic shapes like lines and edges and then move to more complex structures, like recognizing a dog ear or the whole animal. CNNs are typically trained using a supervised learning approach.</p>
 <p>CNNs simulate this by using small, repeated filters, or <em>kernels</em>, that scan parts of an image to find basic shapes, edges, and textures, regardless of their location. This scanning process, called <em>convolution</em>, enables early CNN layers to detect simple patterns (like lines) and deeper layers to identify more complex shapes or objects.</p>
-<p><strong>Application</strong>: CNNs are highly effective for image-related tasks, making them ideal for analyzing satellite or drone imagery in ecology, identifying structures in biomedical imaging, and classifying galaxies in astrophysics.</p>
+<p><strong>Application</strong>: CNNs are highly effective for image-related tasks, making them ideal for analyzing satellite or drone imagery in ecology and arctic science, identifying structures in biomedical imaging, and classifying galaxies in astrophysics. In permafrost mapping, CNNs help with segmenting thaw features and permafrost extent from satellite imagery, producing pixel‑wise probability maps.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/cnn.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure 2.7: Source (Bennett, 2023) [@bennett2023history] Convolutional Neural Networks"><img src="../images/ai-for-all/cnn.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.7: Source (Bennett, 2023) [4] Convolutional Neural Networks"></a></p>
-<figcaption>Figure 2.7: Source (Bennett, 2023) <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref">[4]</a></span> Convolutional Neural Networks</figcaption>
+<p><a href="../images/ai-for-all/cnn.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure 2.6.2: Source (Bennett, 2023) [@bennett2023history] Convolutional Neural Networks"><img src="../images/ai-for-all/cnn.png" class="img-fluid figure-img" style="width:100.0%" alt="Figure 2.6.2: Source (Bennett, 2023) [5] Convolutional Neural Networks"></a></p>
+<figcaption>Figure 2.6.2: Source (Bennett, 2023) <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref">[5]</a></span> Convolutional Neural Networks</figcaption>
 </figure>
 </div>
 <p><strong>Limitations of CNNs</strong></p>
-<p>Ironically, though CNNs were inspired by the mammalian visual system, they struggle with tasks that even simpler animals like fish handle easily. CNNs have trouble with rotated or differently angled objects. Current work around it is to have variations of object images in training data with all kinds of different angles <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref">[4]</a></span>.</p>
+<p>Ironically, though CNNs were inspired by the mammalian visual system, they struggle with tasks that even simpler animals like fish handle easily. CNNs have trouble with rotated or differently angled objects. The current workaround is to have variations of object images in training data with all kinds of different angles <span class="citation" data-cites="bennett2023history"><a href="../references.html#ref-bennett2023history" role="doc-biblioref">[5]</a></span>.</p>
 <p>While CNNs follow a layered structure, recent research reveals that the brain’s visual processing is more flexible and not as hierarchical as once believed. Our visual system can “skip” layers or process information in parallel, allowing simultaneous handling of different types of visual input across various brain regions.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Recurrent Neural Networks">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Recurrent Neural Networks">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -652,21 +752,21 @@ Recurrent Neural Networks
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Recurrent Neural Networks (RNN)</strong> are artificial neural networks designed to process sequential data. By incorporating cycles in their computation graph, RNNs can “remember” previous inputs, making them especially useful for tasks where context is important.</p>
 <p><strong>Application</strong>: These models are commonly used for time series data, such as weather forecasting, monitoring ecological changes over time, and analyzing temporal patterns in genomic data.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/rnn.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure 2.8: Recurrent Neural Network. Source: dataaspirant.com"><img src="../images/ai-for-all/rnn.png" class="img-fluid figure-img" style="width:70.0%" alt="Figure 2.8: Recurrent Neural Network. Source: dataaspirant.com"></a></p>
-<figcaption>Figure 2.8: Recurrent Neural Network. Source: dataaspirant.com</figcaption>
+<p><a href="../images/ai-for-all/rnn.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure 2.6.3: Recurrent Neural Network. Source: dataaspirant.com"><img src="../images/ai-for-all/rnn.png" class="img-fluid figure-img" style="width:70.0%" alt="Figure 2.6.3: Recurrent Neural Network. Source: dataaspirant.com"></a></p>
+<figcaption>Figure 2.6.3: Recurrent Neural Network. Source: dataaspirant.com</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Reinforcement Learning">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Reinforcement Learning">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -675,137 +775,239 @@ Reinforcement Learning
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Reinforcement Learning (RL)</strong> is a learning technique in which an agent interacts with the environment and periodically receives rewards (reinforcements) or penalties to achieve a goal.</p>
-<p>With supervised learning, an agent learns by passively observing example input/output pairs provided by a “teacher.” Reinforcement Learning is one of the attempts to solve the <em>catastrophic forgetting</em> problem and introduce <em>AI agents</em> that can actively learn from their own experience in a given environment.<span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></p>
+<p>With supervised learning, an agent learns by passively observing example input/output pairs provided by a “teacher.” Reinforcement Learning introduces <em>AI agents</em> that can actively learn from their own experience in a given environment.<span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></p>
+<p>The schematic shown in the figure illustrates the basic RL loop. The agent interacts with the environment by taking actions, which affect the environment’s state. The environment responds by updating the state and producing a reward signal. An interpreter component observes the outcome and translates it into a state and reward signal for the agent. This feedback loop allows the agent to learn and adapt its behavior over time.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/rl.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 2.8: Reinforcement Learning"><img src="../images/ai-for-all/rl.png" class="float-right img-fluid figure-img" style="width:50.0%" alt="Figure 2.8: Reinforcement Learning"></a></p>
-<figcaption>Figure 2.8: Reinforcement Learning</figcaption>
+<p><a href="../images/ai-for-all/rl.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure 2.6.4: Reinforcement Learning"><img src="../images/ai-for-all/rl.png" class="float-right img-fluid figure-img" style="width:50.0%" alt="Figure 2.6.4: Reinforcement Learning"></a></p>
+<figcaption>Figure 2.6.4: Reinforcement Learning</figcaption>
 </figure>
 </div>
-<p><strong>Applications</strong>: RL is applied in robotics and can also assist with experiment simulation in science, environmental monitoring, autonomous driving, and creating AI opponents in gaming.</p>
-<p>One example of RL is the Actor-Critic model, which divides the learning process into two roles: the Actor, who explores the environment and makes decisions, and the Critic, who evaluates these actions. The Critic provides feedback on the quality of each action, helping the Actor balance exploration (trying new actions) with exploitation (choosing actions with known rewards). Recent research has explored various algorithms to model curiosity in artificial agents <span class="citation" data-cites="curiosityalgorithm2022"><a href="../references.html#ref-curiosityalgorithm2022" role="doc-biblioref">[5]</a></span> <span class="citation" data-cites="wang2024curiosity"><a href="../references.html#ref-wang2024curiosity" role="doc-biblioref">[6]</a></span>.</p>
+<p><strong>Applications</strong>: RL is applied in robotics and can also assist with experiment simulation in science, environmental monitoring, autonomous driving, and creating AI opponents in gaming. Imagine an autonomous rover (or drone) tasked with surveying melt patterns on sea-ice floes.</p>
+<p>One type of RL is the Actor-Critic model, which divides the learning process into two roles: the Actor, who explores the environment and makes decisions, and the Critic, who evaluates these actions. The Critic provides feedback on the quality of each action, helping the Actor balance exploration (trying new actions) with exploitation (choosing actions with known rewards). Recent research has explored various algorithms to model curiosity in artificial agents <span class="citation" data-cites="curiosityalgorithm2022"><a href="../references.html#ref-curiosityalgorithm2022" role="doc-biblioref">[6]</a></span> <span class="citation" data-cites="wang2024curiosity"><a href="../references.html#ref-wang2024curiosity" role="doc-biblioref">[7]</a></span>.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="LLMs: Transformers">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Large Language Models">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-LLMs: Transformers
+Large Language Models
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Large Language Models (LLM)</strong> are a type of neural network that has revolutionized natural language processing (NLP). Trained on massive datasets, these models can generate human-like text, translate languages, create various forms of content, and answer questions informatively (e.g., GPT-3, Gemini, Llama).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/llm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. [@norvig2004ai]"><img src="../images/ai-for-all/llm.png" class="img-fluid figure-img" style="width:70.0%" alt="Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. [2]"></a></p>
-<figcaption>Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></figcaption>
+<p><a href="../images/ai-for-all/llm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 2.6.5: Large Language Models. Source: Artificial Intelligence - A Modern Approach. [@norvig2004ai]"><img src="../images/ai-for-all/llm.png" class="img-fluid figure-img" style="width:70.0%" alt="Figure 2.6.5: Large Language Models. Source: Artificial Intelligence - A Modern Approach. [2]"></a></p>
+<figcaption>Figure 2.6.5: Large Language Models. Source: Artificial Intelligence - A Modern Approach. <span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></figcaption>
 </figure>
 </div>
-<p><strong>Transformers</strong>, introduced in 2017, revolutionized NLP by introducing a mechanism called self-attention. Unlike previous models like Recurrent Neural Networks (RNNs) that processed language sequentially, Transformers use self-attention to assess relationships between all words in a sentence simultaneously. This allows them to dynamically focus on different parts of the input text and weigh the importance of each word in relation to others. This allows them to understand context and meaning with much better accuracy.</p>
+<p><strong>Transformer</strong> is a neural-network architecture introduced in 2017 that relies on a mechanism called self-attention. It supports most modern large language models (LLMs). Unlike previous models like Recurrent Neural Networks (RNNs) that processed language sequentially, Transformers use self-attention to assess relationships between all words in a sentence simultaneously. This allows them to dynamically focus on different parts of the input text and weigh the importance of each word in relation to others. This allows them to understand context and meaning with much better accuracy.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../images/ai-for-all/llm2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 2.10: Evolution of Natural Languge Processing. Source[@norvig2004ai]"><img src="../images/ai-for-all/llm2.png" class="img-fluid figure-img" style="width:80.0%" alt="Figure 2.10: Evolution of Natural Languge Processing. Source[2]"></a></p>
-<figcaption>Figure 2.10: Evolution of Natural Languge Processing. Source<span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></figcaption>
+<p><a href="../images/ai-for-all/llm2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 2.6.6: Evolution of Natural Languge Processing. Source[@norvig2004ai]"><img src="../images/ai-for-all/llm2.png" class="img-fluid figure-img" style="width:80.0%" alt="Figure 2.6.6: Evolution of Natural Languge Processing. Source[2]"></a></p>
+<figcaption>Figure 2.6.6: Evolution of Natural Languge Processing. Source<span class="citation" data-cites="norvig2004ai"><a href="../references.html#ref-norvig2004ai" role="doc-biblioref">[2]</a></span></figcaption>
 </figure>
 </div>
-<p>The success of LLMs has driven AI’s recent surge in popularity and research. Between 2010 and 2022, the volume of AI-related publications nearly tripled, climbing from about 88,000 in 2010 to over 240,000 by 2022. Likewise, AI patent filings have skyrocketed, increasing from roughly 3,500 in 2010 to over 190,000 in 2022. In the first half of 2024 alone, AI and machine learning companies in the United States attracted $38.6 billion in investment out of a total of $93.4 billion. <span class="citation" data-cites="pitchbook2024aiml"><a href="../references.html#ref-pitchbook2024aiml" role="doc-biblioref">[7]</a></span></p>
+<p>The success of LLMs has driven AI’s recent surge in popularity and research. Between 2010 and 2022, the volume of AI-related publications nearly tripled, climbing from about 88,000 in 2010 to over 240,000 by 2022. Likewise, AI patent filings have skyrocketed, increasing from roughly 3,500 in 2010 to over 190,000 in 2022. In the first half of 2024 alone, AI and machine learning companies in the United States attracted $38.6 billion in investment out of a total of $93.4 billion. <span class="citation" data-cites="pitchbook2024aiml"><a href="../references.html#ref-pitchbook2024aiml" role="doc-biblioref">[8]</a></span></p>
 </div>
 </div>
 </div>
 </section>
-<section id="ai-beyond-machine-learning" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="ai-beyond-machine-learning"><span class="header-section-number">2.7</span> AI Beyond Machine Learning</h2>
-<p>Within the field of AI, there are many techniques that don’t rely on ML principles.</p>
-<table class="table-striped table-hover table-primary caption-top table">
-<colgroup>
-<col style="width: 38%">
-<col style="width: 61%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Technique</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>If/Else or Rule-Based Systems</td>
-<td>Collections of predefined rules or conditions (if statements) to make decisions.</td>
-</tr>
-<tr class="even">
-<td>Symbolic AI (Logic-Based AI)</td>
-<td>Logical rules and symbols to represent knowledge, focusing on reasoning through deductive logic.</td>
-</tr>
-<tr class="odd">
-<td>Genetic Algorithms (Evolutionary Algorithms)</td>
-<td>Optimization algorithms inspired by natural selection.</td>
-</tr>
-<tr class="even">
-<td>Fuzzy Logic</td>
-<td>A form of logic that works with “degrees of truth”, making it useful for uncertain or ambiguous scenarios.</td>
-</tr>
-<tr class="odd">
-<td>Knowledge Representation and Reasoning (KR&amp;R)</td>
-<td>Techniques for structuring and processing information, often using ontologies and semantic networks.</td>
-</tr>
-<tr class="even">
-<td>Bayesian Networks</td>
-<td>Probabilistic graphical models that represent relationships between variables.</td>
-</tr>
-</tbody>
-</table>
-<p>Recent research increasingly combines various AI paradigms, such as symbolic AI and Knowledge Representation and Reasoning (KR&amp;R), with Machine Learning (ML) to achieve a higher level of effectiveness tailored to specific tasks.</p>
-</section>
-<section id="the-future-of-ai-in-science" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="the-future-of-ai-in-science"><span class="header-section-number">2.8</span> The Future of AI in Science</h2>
+<section id="the-future-of-ai-in-arctic-science" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="the-future-of-ai-in-arctic-science"><span class="header-section-number">2.7</span> The Future of AI in Arctic Science</h2>
 <p>AI is transforming the scientific method by supporting each step of scientific discovery. Let’s consider how various AI techniques can be applied at each stage of the scientific process:</p>
 <ul>
 <li><strong>Observation</strong>: Using computer vision for data collection.</li>
 <li><strong>Hypothesis</strong>: Clustering data with unsupervised learning.</li>
 <li><strong>Experiment</strong>: Simulating environments through reinforcement learning.</li>
-<li><strong>Data Analysis</strong>: Simplifying data with PCA and classifying insights using neural networks or SVMs.</li>
+<li><strong>Data Analysis</strong>: Simplifying and classifying data using neural networks.</li>
 <li><strong>Conclusion</strong>: Combining LLMs with KR&amp;R to generate complex findings and insights.</li>
 </ul>
 <p><img src="../images/ai-for-all/ai_and_science.png" class="img-fluid"></p>
-<p>In conclusion, regardless of model type, high-quality data is essential for accurate AI predictions and insights. In the next sessions, we’ll explore practical tips for working with well-prepared, high-quality data.</p>
+<ul>
+<li>AI already accelerates Arctic science: computer-vision models detect thaw features and permafrost extent; clustering algorithms flag anomalies; neural networks compress and classify multimodal data; and LLMs combined with knowledge graphs help researchers draw conclusions. These tools help turn petabytes of imagery and sensor data into testable hypotheses and valuable insights.</li>
+</ul>
+<p>It’s important to note that, regardless of model type, high-quality data is essential for accurate AI predictions and insights. In the next sessions, we’ll explore practical tips for working with well-prepared, high-quality data.</p>
+</section>
+<section id="exercise-nn-playground" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="exercise-nn-playground"><span class="header-section-number">2.8</span> Exercise: NN Playground</h2>
+<p>Let’s build intuition by experimenting with a neural network simulator for approximately 10 minutes.</p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Web-based app, no setup or account required: <a href="https://playground.tensorflow.org/#activation=tanh&amp;batchSize=10&amp;dataset=circle&amp;regDataset=reg-plane&amp;learningRate=0.03&amp;regularizationRate=0&amp;noise=0&amp;networkShape=4,2&amp;seed=0.06707&amp;showTestData=false&amp;discretize=false&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false">playground.tensorflow.org</a></p>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/ai-for-all/nn_playground.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="."><img src="../images/ai-for-all/nn_playground.gif" class="img-fluid figure-img" style="width:80.0%" alt="."></a></p>
+<figcaption>.</figcaption>
+</figure>
+</div>
+<p>TensorFlow Playground is an example of a feed-forward network, where data flows only from the input layer to the output layer without feedback loops. Training a neural network involves automatically adjusting its internal parameters so that the network maps inputs to desired outputs with minimal error. As you press the play button, you can see the number of epochs increase. In an Artificial Neural Network, an <em>epoch</em> represents one complete pass through the training dataset.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Adjust the <strong>ratio of training to test data</strong> split. Does the quality of the output vary?</label></li>
+</ul>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Orange indicates <span style="color:orange">negative</span> values, while blue represents <span style="color:blue">positive</span> values. Typically, an 80/20 split for training and testing data is used. Smaller datasets may need a 90% training portion for more examples, while larger datasets can reduce training data to increase test samples. Background colors illustrate the network’s predictions, with more intense colors representing higher confidence in its prediction.</p>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Experiment with noise and <strong>batch size</strong> parameters. How does the output change?</label></li>
+</ul>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Background colors illustrate the network’s predictions, with more intense colors representing higher confidence in its prediction. Adding noise to the training data simulates variability or imperfections often found in real-world datasets. This noise may include measurement errors or irrelevant features. By training with noisy data, the model becomes less sensitive to outliers and irrelevant fluctuations, improving generalization to new inputs.</p>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Add or remove <strong>hidden layers</strong>. Notice how it affects the neural network’s performance?</label></li>
+</ul>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A deeper network can model more complex patterns, but it also increases the number of parameters and the training time. It raises the risk of overfitting, where training metrics improve while validation metrics stall or deteriorate. In general, you should choose the shallowest model that reaches your target performance without overfitting.</p>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Change the number of <strong>neurons</strong> in the hidden layers. Can you see any impact on model predictions?</label></li>
+</ul>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Start with one hidden layer and one or two neurons, observing predictions (orange vs.&nbsp;blue background) against actual data points (orange vs.&nbsp;blue dots). With very few neurons, the model cannot capture complex nonlinear relationships, resulting in overly simplistic predictions. Increasing the number of neurons and layers allows the network to represent more complex decision boundaries, improving the match between predictions and actual data.</p>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Manually adjust the <strong>weight</strong>. Did you notice the thickness of the line changed?</label></li>
+</ul>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Line thickness shows the strength of the connection between nodes. The thinner the line, the less effect they have on each other, and vice versa. If the line turns red, that means the weight is negative; it pushes the next neuron down instead of up. Sort of suppresses the next neuron’s firing.</p>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox">Change the <strong>learning rate</strong> to observe its effect on training speed and accuracy.</label></li>
+</ul>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The learning rate is a key setting or hyperparameter that controls how much a model adjusts its weights during training. A higher rate speeds up learning but risks overshooting the optimal solution. The optimal solution would be the best set of weights that makes the model’s error as small as possible, and the predictions that are accurate. At the same time, a lower rate makes learning more precise but slower. It’s one of the most crucial settings when building a neural network. Because every weight update in a neural-network optimizer is scaled by the learning rate, so that a single number effectively sets how “faster” models learns</p>
+</div>
+</div>
+</div>
+<ul class="task-list">
+<li><p><label><input type="checkbox">Try various <strong>activation functions</strong> to see how they influence model performance.</label></p></li>
+<li><p><label><input type="checkbox">Experiment with different problem types (e.g., classification vs.&nbsp;regression) and analyze the outcomes.</label></p></li>
+</ul>
 </section>
 <section id="do-you-have-any-questions" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="do-you-have-any-questions">Do You Have Any Questions?</h2>
-<p>Feel free to reach out!</p>
-<p><strong>Email:</strong> <a href="alyonak@nceas.ucsb.edu">alyonak@nceas.ucsb.edu</a></p>
-<p><strong>Website:</strong> <a href="http://alonakosobokova.com">alonakosobokova.com</a></p>
-<p><strong>YouTube:</strong> <a href="https://youtube.com/@dorkmattergirl">Dork Matter Girl</a></p>
+<p>Email: <a href="alyonak@nceas.ucsb.edu">alyonak@nceas.ucsb.edu</a><br>
+Website: <a href="http://alyonakosobokova.com">alyonakosobokova.com</a><br>
+YouTube: <a href="https://youtube.com/@dorkmattergirl">Dork Matter Girl</a></p>
 
 
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-hebb1949" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">D. O. Hebb, <em>The organization of behavior: A neuropsychological theory</em>. New York: Wiley, 1949. Available: <a href="https://en.wikipedia.org/wiki/The_Organization_of_Behavior">https://en.wikipedia.org/wiki/The_Organization_of_Behavior</a></div>
+<div id="ref-jackson2025ai" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">T. Jackson, <em>Artificial intelligence</em>. New Burlington, 2025, p. 176.</div>
 </div>
 <div id="ref-norvig2004ai" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[2] </div><div class="csl-right-inline">P. Norvig and S. J. Russell, <em>Artificial intelligence: A modern approach</em>, 3rd ed. Pearson, 2004. Available: <a href="https://books.google.com/books/about/Artificial_Intelligence.html?id=8jZBksh-bUMC">https://books.google.com/books/about/Artificial_Intelligence.html?id=8jZBksh-bUMC</a></div>
 </div>
+<div id="ref-hebb1949" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">D. O. Hebb, <em>The organization of behavior: A neuropsychological theory</em>. New York: Wiley, 1949. Available: <a href="https://en.wikipedia.org/wiki/The_Organization_of_Behavior">https://en.wikipedia.org/wiki/The_Organization_of_Behavior</a></div>
+</div>
 <div id="ref-rosenblatt1958perceptron" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">F. Rosenblatt, <span>“The perceptron: A probabilistic model for information storage and organization in the brain,”</span> <em>Psychological Review</em>, vol. 65, no. 6, pp. 386–408, 1958, doi: <a href="https://doi.org/10.1037/H0042519">10.1037/H0042519</a>.</div>
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">F. Rosenblatt, <span>“The perceptron: A probabilistic model for information storage and organization in the brain,”</span> <em>Psychological Review</em>, vol. 65, no. 6, pp. 386–408, 1958, doi: <a href="https://doi.org/10.1037/H0042519">10.1037/H0042519</a>.</div>
 </div>
 <div id="ref-bennett2023history" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">M. Bennett, <em>A brief history of intelligence: Evolution, AI, and the five breakthroughs that made our brains</em>, Hardcover. Harper, 2023.</div>
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">M. Bennett, <em>A brief history of intelligence: Evolution, AI, and the five breakthroughs that made our brains</em>, Hardcover. Harper, 2023.</div>
 </div>
 <div id="ref-curiosityalgorithm2022" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">D. Kawahara, S. Ozeki, and I. Mizuuchi, <span>“A curiosity algorithm for robots based on the free energy principle,”</span> pp. 53–59, 2022, doi: <a href="https://doi.org/10.1109/SII52469.2022.9708819">10.1109/SII52469.2022.9708819</a>.</div>
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">D. Kawahara, S. Ozeki, and I. Mizuuchi, <span>“A curiosity algorithm for robots based on the free energy principle,”</span> pp. 53–59, 2022, doi: <a href="https://doi.org/10.1109/SII52469.2022.9708819">10.1109/SII52469.2022.9708819</a>.</div>
 </div>
 <div id="ref-wang2024curiosity" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[6] </div><div class="csl-right-inline">T. Wang, F. Wang, Z. Xie, and F. Qin, <span>“Curiosity model policy optimization for robotic manipulator tracking control with input saturation in uncertain environment,”</span> <em>Frontiers in Neurorobotics</em>, vol. 18, 2024, doi: <a href="https://doi.org/10.3389/fnbot.2024.1376215">10.3389/fnbot.2024.1376215</a>.</div>
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">T. Wang, F. Wang, Z. Xie, and F. Qin, <span>“Curiosity model policy optimization for robotic manipulator tracking control with input saturation in uncertain environment,”</span> <em>Frontiers in Neurorobotics</em>, vol. 18, 2024, doi: <a href="https://doi.org/10.3389/fnbot.2024.1376215">10.3389/fnbot.2024.1376215</a>.</div>
 </div>
 <div id="ref-pitchbook2024aiml" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">Inc. PitchBook Data, <span>“Artificial intelligence &amp; machine learning report, Q2 2024,”</span> PitchBook, 2024. Available: <a href="https://pitchbook.com/news/reports/q2-2024-artificial-intelligence-machine-learning-report">https://pitchbook.com/news/reports/q2-2024-artificial-intelligence-machine-learning-report</a></div>
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">Inc. PitchBook Data, <span>“Artificial intelligence &amp; machine learning report, Q2 2024,”</span> PitchBook, 2024. Available: <a href="https://pitchbook.com/news/reports/q2-2024-artificial-intelligence-machine-learning-report">https://pitchbook.com/news/reports/q2-2024-artificial-intelligence-machine-learning-report</a></div>
 </div>
 </div>
 </section>
