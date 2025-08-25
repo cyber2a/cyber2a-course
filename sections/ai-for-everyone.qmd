@@ -16,162 +16,209 @@ figcaption {
     font-size: 0.1em;
 }
 .column-margin {
-  figcaption {
+ figcaption {
     font-size: 0.5em;
-  }
+ }
 }
 </style>
 
 
 ## Goals {.unnumbered}
 
-This session aims to introduce AI to a non-specialist audience, ensuring that participants from any background can understand these essential concepts. The focus will be on explaining key terminology and the basic principles of machine learning and deep learning. By the end of this session, participants will have a solid foundational knowledge of key AI concepts, enabling them to better appreciate and engage with more advanced topics in the following sessions.
+In this chapter, we introduce artificial intelligence to a non-specialist audience. We cover key terminology and the basic principles of intelligence, artificial intelligence, and machine learning. By the end of the chapter, participants will have a solid foundation for the subsequent chapters.
 
+## The Foundations of Intelligence
 
-## The Foundations of AI
-
-Before reading the definition, take a moment: What do you think AI is? How would you define it?
-
+Before reading the definition, take a moment to consider: In your own words, what is AI?
 
 ::: {.callout-tip}
 ## What is AI?
 
-**Artificial Intelligence (AI)** refers to the development of computer systems capable of performing tasks that typically require cognitive functions associated with *human intelligence*, such as recognizing patterns, learning from data, and making predictions.
+**Artificial Intelligence (AI)** is the field concerned with building computer systems that perform tasks typically requiring cognitive functions associated with human intelligence, such as pattern recognition, learning from data, and making predictions.
 :::
 
-
-But... there is a minor issue with this definition. What exactly is *human intelligence*?
-
-Recognizing patterns, learning, and making predictions are all functions of intelligence, but what lies at the core of a "conscious human"? Why is self-awareness important in cognition, and what evolutionary function does subjective, conscious experience serve?
+For a time, one of the goals of AI was to pass the Turing test. The first program often considered to pass a variation of the Turing test was Eugene Goostman, which simulated a 13-year-old boy from Odessa, Ukraine. It passed the Turing test in 2014. Modern chatbots, such as ChatGPT-4, arguably can easily pass the Turing test.[@jackson2025ai] However, as early as the 1980s, philosophers like John Searle argued that passing the Turing test does not prove that a machine is intelligent. This concern is increasingly relevant today. Searle often illustrated his argument with the **Chinese Room thought experiment**.
 
 
-In the philosophy of mind, this phenomenon is referred to as *qualia*, and there is still no definitive scientific answer to why qualia exist—at least, not yet (see [theories of consciousness](https://en.wikipedia.org/wiki/Models_of_consciousness#Neuroscience) for more information).
+1. Imagine a person who knows no Chinese locked in a room.
+2. Outside, native Chinese speakers pass written questions into the room.
+3. Inside, the person uses a large rulebook to match the input characters with appropriate responses.
+4. The person inside then passes the answers back out.
 
-But today, let's focus on a simpler question. **How do humans think?**
 
-Historically, before the 1950s–1960s, scientists believed humans think through a series of if/else statements (e.g., "If I drink more coffee, I’ll be jittery," or "If a seagull spots my pizza, it’ll try to snatch a bite").
-Geoffrey Hinton, a cognitive psychologist and computer scientist, was one of the advocates for an opposing idea: that humans think more experientially or **probabilistically**. For instance, based on the cloud cover today and similar past experiences, there’s a high probability of rain, so I’ll grab an umbrella. This idea laid the foundation for probabilistic algorithms and, ultimately, the field of **Machine Learning**.
+To outsiders, the room appears to “understand” Chinese, yet the person inside has no comprehension of the language’s meaning. Searle argued that a computer running a program is analogous to the person following the rulebook: it manipulates syntax without understanding semantics. Thus, behavioral imitation alone is not evidence of true intelligence.
 
-![](../images/ai-for-all/geoffrey_hinton.png)
+![Figure 2.1.1: Source [@jackson2025ai] The Chinese Room Argument.](../images/ai-for-all/chinese_room.jpeg)
 
-## Machine Learning 
+Whether one finds Searle convincing, the example highlights a gap between performance and actual intelligence.
 
-To quickly recap, AI is a broad term encompassing efforts to replicate aspects of human cognition. **Machine Learning** is a subset of AI that focuses on algorithms enabling computers to learn from data and build probabilistic models.
+**Artificial General Intelligence**
+
+Most modern AIs are narrow, or “weak” AIs. The opposite concept, originally envisioned as “strong AI,” is now referred to as Artificial General Intelligence (AGI). AGI is often described as human-like intelligence.
+
+But that raises a big question! What exactly is **human intelligence**?
+
+Generally speaking, human intelligence is the capacity to learn from experience, identify patterns, handle abstract concepts, and apply knowledge to shape the environment. Yet, these are only functional descriptions. The core, or what many consider a distinguishing feature, is the presence of self-awareness and a subjective feel of an experience. But the evolutional reason for thier existence remains controversial: why does self-awareness matter for cognition, and what evolutionary advantage does subjective experience provide?
+
+
+![Figure 2.1.2: The Hard Problem of Consciousness.](../images/ai-for-all/qualia.jpeg)
+
+In the philosophy of mind, this phenomenon is referred to as *qualia*, and there is still no conclusive scientific answer to why qualia exist. Some argue that consciousness or self-awareness is an emergent property, and it appears when the system becomes complex enough; others propose that it is fundamental. These questions are all part of the Hard Problem of Consciousness. Interested readers can explore scientific [theories of consciousness](https://en.wikipedia.org/wiki/Models_of_consciousness#Neuroscience).
+
+::: {.callout-tip}
+## What is an Intelligent Agent?
+**Intelligent Agent** is an entity that can perceive and interact with its environment autonomously.
+:::
+
+Humans can be seen as one type of intelligent agent, maintaining internal bodily processes and responding to environmental changes. Several attempts have been made to define general intelligence in terms of cognitive abilities. One such theory is the Cattell-Horn-Carroll (CHC) theory, which divides general intelligence into four core abilities: motor control, sensory perception, focused attention, and knowledge.
+Cattell-Horn-Carroll 
+```{mermaid}
+%%| fig-width: 6.5
+flowchart TB
+    Title(["   **Cattell–Horn–Carroll <br/> Theory**  "])
+
+    Title --> GI("**General**<br>**Intelligence**")
+    GI("**General<br>Intelligence**"):::main
+
+    GI --> MC("**Motor Control**")
+    GI --> SP("**Sensory Perception**")
+    GI --> FA["**Focused Attention**"]
+    GI --> K("**Knowledge**")
+```
+
+Studying intelligence and consciousness presents a fascinating yet complex set of problems. For now, let’s narrow our focus and ask a simpler question:
+
+**How do humans think?**
+
+*Behaviorism*
+
+Before the 1950s, psychology was dominated by behaviorism, which held that internal mental processes were either unknowable or scientifically irrelevant. Instead, behaviorists focused on mapping observable stimuli to observable responses.
+
+*Cognitive Revolution*
+
+During the cognitive revolution of the 1950s–1970s, researchers inspired by digital computers began proposing explicit rule-based models of thinking, often using if/then representations—a so-called symbolic approach (e.g., "If I drink tons of coffee, I’ll be jittery").
+
+*Probabilistic Reasoning*
+
+Starting in the late 1970s, a new perspective emerged: psychologists noticed that humans often think experientially. For example, based on today’s cloud cover and similar past experiences, one might infer a high probability of rain and decide to carry an umbrella. Geoffrey Hinton, who won the Nobel Prize in 2024, was a pioneer in this field. He demonstrated that such experiential reasoning can be modeled using probabilistic computations, laying the foundation for modern machine learning algorithms.
+
+![](../images/ai-for-all/hinton.png)
+
+
+## Types of Artificial Intelligence
+
+Before we jump into machine learning in depth, it is important to highlight that there are several distinct approaches to developing AI. In this course, we will focus primarily on ML, especially neural networks, as they currently dominate the field. However, not all AI techniques rely on machine learning principles. Just as human reasoning includes multiple modes, such as probabilistic, inference, and symbolic logic, the development of AGI will require combining a variety of paradigms.
+
+
+| AI Technique | Description |
+|----------------|--------------------------|
+| Symbolic (Logic-Based) | Uses logical rules and symbolic representations to encode and manipulate knowledge. Focuses on deductive reasoning. |
+| Genetic (Evolutionary) |  Optimization algorithms inspired by natural selection.|
+| Fuzzy Logic | A form of logic that works with "degrees of truth", making it useful for uncertain or ambiguous scenarios. | 
+| Knowledge Representation and Reasoning (KR&R) | Structures information using ontologies, semantic networks, and formal logic to support reasoning tasks. |
+| Bayesian Networks | Probabilistic graphical models that capture dependencies between variables, enabling inference under uncertainty. |
+
+: {.striped .hover .primary}
+
+<br />
+Real-world systems, such as self-driving cars and voice assistants, are typically hybrids. They combine deep learning for perception, symbolic reasoning for structured knowledge, and probabilistic filtering for uncertainty management. This integration helps meet critical requirements for safety, robustness, and interpretability.
+
+## Machine Learning
 
 ::: {.callout-tip}
 ## What is ML?
 
-**Machine Learning (ML)**  is a subset of AI that specifically focuses on algorithms that allow computers to learn from data and create probabilistic models.
-
+**Machine Learning (ML)** is a subfield of AI focused on algorithms that enable computers to learn patterns from data and build probabilistic models. 
 :::
 
-![Source: Original comic by [sandserif](https://www.instagram.com/sandserifcomics/)](../images/ai-for-all/machine_learning.png){.lightbox width=50%}
+![Figure 2.3.1: Organogram of AI algorithms.](../images/ai-for-all/deep_learning3.png){.lightbox width=100%}
+
+**Supervised Learning** involves learning from labeled data, where models directly learn from input-output pairs. These models are generally simpler in terms of training and achieve high performance. With a labelled dataset, you already know the correct output for every input, so you can optimise model parameters to fit the answer. We will explore them in-depth through the course. 
+
+**Semi-Supervised Learning** combines a small amount of labeled data with a large amount of unlabeled data, often using auto-labeling techniques. Examples include self-training models, where a model iteratively labels data to improve, and Graph Neural Networks (GNNs), which are useful for understanding relationships between data points.
+
+**Unsupervised Learning** relies on unlabeled data, focusing on identifying patterns or structures. Popular models include Autoencoders, Generative Adversarial Networks (GANs), and Restricted Boltzmann Machines (RBMs).
 
 
+![Figure 2.3.2: Types of Machine Learning.](../images/ai-for-all/ML_types.png){.lightbox width=70%}
 
-Machine Learning includes various types and techniques, but in this workshop we’ll primarily focus on **Neural Networks (NNs).**
 
 ## Neural Networks
 
- NNs are loosely inspired by the structure of the human brain and consist of interconnected nodes, or neurons, that process information. The principle "neurons that fire together, wire together" [@hebb1949] captures the idea that the strength of their connections, known as weights, adjusts based on experience.
+::: {.callout-tip}
+## What is ANN?
 
+**Artificial Neural Network (ANN)** is a computational model that transforms and interprets input data through layers. Analogous to biological neural networks composed of interconnected neurons, an ANN consists of nodes (basic processing units) arranged in connected layers.
+:::
 
 ::: {.columns}
 
 ::: {.column width="50%"}
-![Figure 2.1: Source [@norvig2004ai] **The parts of neuron**: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses.](../images/ai-for-all/neural_network1.png){.lightbox width=100%}
+![Figure 2.4.1: Source [@norvig2004ai] **The parts of a neuron**: a cell body with a nucleus, branching dendrites, and a long axon connecting with thousands of other neurons at synapses.](../images/ai-for-all/neural_network1.png){.lightbox width=100%}
 :::
 
 ::: {.column width="50%"}
-![Figure 2.2: **Structure of a neural network**: Ramón y Cajal's drawing of the cells of the chick cerebellum, from Estructura de los centros nerviosos de las aves, Madrid, 1905](../images/ai-for-all/neural_networks2.png){.lightbox width=100%}
+![Figure 2.4.2: **Structure of a neural network**: Ramón y Cajal's drawing of the cells of the chick cerebellum, from Estructura de los centros nerviosos de las aves, Madrid, 1905](../images/ai-for-all/neural_networks2.png){.lightbox width=100%}
 :::
-
-:::
-
-::: {.callout-tip}
-## What is NN?
-
-**Neural Network (NN)**  is a foundational technique within the field of machine learning. NNs are designed to simulate the way the human brain processes information by using a series of connected layers, or neurons, that transform and interpret input data.
+ 
 
 :::
 
+**Neural Networks Elements**
 
-The Perceptron [@rosenblatt1958perceptron], one of the earliest neural network models, was invented in 1957 by psychologist Frank Rosenblatt, who unfortunately did not live long enough to witness the far-reaching impact of his work. Rosenblatt’s Perceptron was a physical machine with retina-like sensors as inputs, wires acting as the hidden layers, and a binary output system. This invention marked the early stages of artificial intelligence, laying the groundwork for the powerful neural networks we use today.
+ The principle "neurons that fire together, wire together" [@hebb1949] captures the idea that the strength of neuronal connections adjusts based on experience. Artificial neural networks mimic this by assigning each connection a weight that training continually adjusts. Larger weights reinforce patterns the network finds useful.
 
+![](../images/ai-for-all/ann_bnn.png){.lightbox width=100%}
 
-![](../images/ai-for-all/frank_rosenblatt.png){.lightbox width=100%}
+Each node multiplies its inputs by their weights, adds the results, and feeds that sum into an activation function. The activation function decides if, and how strongly, the signal moves on to the next layer. When it does, we say the neuron is “activated.”
 
-
-## Exercise: NN Playground
-::: {.callout-note appearance="simple" icon="false"}
-Web-based app, no setup or account required: [playground.tensorflow.org](https://https://playground.tensorflow.org/)
-:::
-
-![.](/images/ai-for-all/nn_playground.gif){.lightbox width=80%}
-
-**Level 1: Browse around**
-
-- [ ] Switch between different choices of datasets (on the left). See if anything changes.  
-
-- [ ] Adjust the ratio of training to test data. Does the quality of the output vary?
-
-- [ ] Experiment with noise and batch size parameters. How does the output change?
-
-
-Orange indicates <span style="color:orange">negative</span> values, while blue represents <span style="color:blue">positive</span> values. Typically, an 80/20 split for training and testing data is used. Smaller datasets may need a 90% training portion for more examples, while larger datasets can reduce training data to increase test samples. Background colors illustrate the network’s predictions, with more intense colors representing higher confidence in its prediction. Adding noise during training helps the model generalize by recognizing true patterns, enhancing robustness and stability with real-world noisy data.
-
-
-
-
-**Level 2: Things to try**
-
-- [ ] Add or remove hidden layers. Notice how it affects the neural network's performance?
-
-
-::: {.callout-tip}
-## Hidden Layers
-
-Hidden Layers are the layers that are neither input nor output. You can think of the values computed at each layer of the network as a different representation for the input X. Each layer transforms the representation produced by the preceding layer to produce a new representation.
-:::
-
-- [ ] Change the number of neurons in the hidden layers. Can you see any impact on model predictions?
-
-Start with one hidden layer and one or two neurons, observing predictions (orange vs. blue background) against actual data points (orange vs. blue dots). With minimal layers and neurons, predictions are often inaccurate. Increasing hidden layers and neurons improves alignment with the actual data, illustrating how added complexity helps the model learn and approximate complex patterns more accurately.
-
-
-**Level 3: More things to try!**
-
-
-- [ ] Experiment with different features to see their impact on predictions.
-
-- [ ] Manually adjust the weight. You can see that the thickness of the line changed, which represents the strength of the connection.
-
-::: {.callout-tip}
+::: {.callout-note collapse="true" icon="false"}
 ## Weights
 
-Weights are parameters within the neural network that transform input data as it passes through layers. They determine the strength of connections between neurons, with each weight adjusting how much influence one neuron has on another. During training, the network adjusts these weights to reduce errors in predictions.
-:::
-
-- [ ] Change *the learning rate* to observe its effect on training speed and accuracy.
-
-- [ ] Try various activation functions to see how they influence model performance.
-
-- [ ] Experiment with different problem types (e.g., classification vs. regression) and analyze the outcomes.
-
-As you press the play button, you can see the number of epochs increase. In an Artificial Neural Network, an *epoch* represents one complete pass through the training dataset.
-
-
-::: {.callout-tip}
-## Learning rate
-
-The learning rate is a key setting or hyperparameter that controls how much a model adjusts its weights during training. A higher rate speeds up learning but risks overshooting the optimal solution, while a lower rate makes learning more precise but slower. It's one of the most crucial settings when building a neural network.
+Weights are parameters that transform input data as it passes through the network. They set the strength of connections between nodes, with each weight controlling how much influence one node exerts on another. During training, the network adjusts these weights to reduce prediction errors.
 :::
 
 
+::: {.callout-note collapse="true" icon="false"}
+## Activation Function
+The activation function computes the output of each neuron. It does the non-linear transformation to the input, making it capable to learn and performing more complex tasks. 
+:::
+
+
+
+
+::: {.callout-note collapse="true" icon="false"}
+## Input Layer
+
+Information from the outside world enters the artificial neural network from the input layer. Input nodes provide a connection between the input data and the hidden layers.
+
+:::
+
+
+::: {.callout-note collapse="true" icon="false"}
+## Output Layer
+
+The output layer produces the network’s final prediction. Every ANN has at minimum an input layer and an output layer. Adding hidden layers in between usually makes the model much more powerful, because they introduce non-linear transformations.
+
+
+:::
+::: {.callout-note collapse="true" icon="false"}
+## Hidden Layer
+
+Hidden layers are all the layers between the input and the output. Each one takes the previous layer’s output vector (its “representation”) and converts it into a new vector. More hidden layers mean a deeper neural network. If there is only one or a few we call the network shallow.
+:::
+
+The Perceptron [@rosenblatt1958perceptron], one of the earliest and simplest neural network models, was invented in 1957 by psychologist Frank Rosenblatt. Rosenblatt’s Perceptron was a physical machine with retina-like sensors as inputs, wires acting as the hidden layers, and a binary output system.
+
+
+![](../images/ai-for-all/rosenblatt.png){.lightbox width=100%}
 
 ## Backpropagation
 
-Initially, neural networks were quite shallow feed-forward networks. Adding more hidden layers made training them difficult. However, in the 1980s—often referred to as the rebirth of AI—the invention of the **backpropagation** algorithm revolutionized the field. It allowed for efficient error correction and gradient calculation across layers, making it possible to train much deeper networks than before.
+Initially, neural networks were quite shallow feed-forward networks. Adding more hidden layers made training them difficult. However, in the 1980s—often referred to as the rebirth of AI—the invention of the **backpropagation** algorithm revolutionized the field. 
+
+
+It allowed for efficient error correction across layers, making it possible to train much deeper networks than before.
 
 
 ::: {.callout-tip}
@@ -184,13 +231,13 @@ Initially, neural networks were quite shallow feed-forward networks. Adding more
 ::: {.columns}
 
 ::: {.column width="50%"}
-![Figure 2.3: Backpropagation](../images/ai-for-all/backpropagation1.png){.lightbox width=100%}
+![Figure 2.5.1: Backpropagation flow. A two-layer network showing the forward pass (blue arrows) that produces the output and the back-propagation pass (green/red arrows) that carries the error signal back through the layers to update each weight](../images/ai-for-all/backpropagation1.png){.lightbox width=100%}
 
 :::
 
 ::: {.column width="50%"}
 
-![Figure 2.4: Source (3Blue1Brown)](/images/ai-for-all/backpropagation.gif){.lightbox width=80%}
+![Figure 2.5.2: A gif visualization of a 784-input, three-hidden-layer perceptron as it processes a single example: bright lines represent strong positive weights, darker/red lines strong negative weights, giving an intuitive sense of how information flows through the network’s layers.  Source (3Blue1Brown)](/images/ai-for-all/backpropagation.gif){.lightbox width=80%}
 :::
 
 :::
@@ -201,127 +248,159 @@ Thus, the backpropagation algorithm enabled the training of neural networks with
 
 ::: {.callout-tip}
 ## Deep Learning
-**Deep Learning (DL)** is a subset of ML, that uses multilayered neural networks, called deep neural networks.
+**Deep Learning (DL)** is a subset of ML that uses multilayered neural networks, called deep neural networks.
 :::
 
-![Figure 2.5: Source: Artificial Intelligence - A modern approach. [@norvig2004ai] ](../images/ai-for-all/deep_learning2.png){.lightbox width=100%}
 
-<div class="caption-text">
-Figure 2.7: (a) A shallow model, such as linear regression, has short computation paths between inputs and output. (b) A decision list network has some long paths for some possible input values, but most paths are short. (c) A deep learning network has longer computation paths, allowing each variable to interact with all the others.
-</div>
+![Figure 2.6.1: (a) A shallow model, such as linear regression, has short computation paths between input and output. (b) A decision list network has some long paths for some possible input values, but most paths are short. (c) A deep learning network has longer computation paths, allowing each variable to interact with all the others. Source: Artificial Intelligence - A Modern Approach. [@norvig2004ai] ](../images/ai-for-all/deep_learning2.png){.lightbox width=100%}
 
 
-Deep learning (DL) techniques are typically classified into three categories: supervised, semi-supervised, and unsupervised. Additionally, reinforcement learning (RL) is often considered a partially supervised technique, sometimes overlapping with unsupervised methods.
-
-**Supervised Learning** involves learning from labeled data, where models directly learn from input-output pairs. Common examples include Recurrent Neural Networks (RNNs), Convolutional Neural Networks (CNNs), and Transformers. These models are generally simpler in terms of training and achieve high performance.
-
-**Semi-Supervised Learning** combines a small amount of labeled data with a large amount of unlabeled data, often using auto-labeling techniques. Examples include Self-training models, where a model iteratively labels data to improve, and Graph Neural Networks (GNNs), which are useful for understanding relationships between data points.
-
-**Unsupervised Learning** relies on unlabeled data, focusing on identifying patterns or structures. Popular models include Autoencoders, Generative Adversarial Networks (GANs), and Restricted Boltzmann Machines (RBMs).
-
-![Figure 2.6: Organogram of AI algorithms.](../images/ai-for-all/deep_learning3.png){.lightbox width=100%}
+Despite advances in backpropagation, deep learning, computing power, and optimization, neural networks still face the problem known as *catastrophic forgetting* — losing old knowledge when trained on new tasks. Current AI models are often "frozen" and specialized, needing complete retraining for updates, unlike even simple animals that can continuously learn without forgetting [@bennett2023history]. This limitation is one of the reasons that led to the development of specialized deep learning models, each with unique architectures tailored to specific tasks. Let's explore how each of these models can be applied in scientific research!
 
 
-Despite advances in backpropagation, deep learning, computing power, and optimization, neural networks still face the problem known as *catastrophic forgetting* — losing old knowledge when trained on new tasks. Current AI models are often "frozen" and specialized, needing complete retraining for updates, unlike even simple animals that can continuously learn without forgetting [@bennett2023history]. This limitation is one of the reason that led to the development of specialized deep learning models, each with unique architectures tailored to specific tasks. Let's explore how each of these models can be applied in scientific research!
-
-
-::: {.callout-tip collapse="true" icon="false"
-     title="Convolutional Neural Networks"}
- **Convolutional Neural Networks (CNN)** are artificial neural networks designed to process structured data like images. Originally inspired by the mammalian visual cortex, CNNs attempt to mimic how our brains process visual information in layers. First, brains interpret basic shapes like lines and edges and then move to more complex structures, like recognizing a dog ear or the whole animal. This feature, known as "invariance" allows us to recognize objects even if they’re rotated or appear in a different part of our vision. 
+::: {.callout-note collapse="true" icon="false"
+ title="Convolutional Neural Networks"}
+ **Convolutional Neural Networks (CNN)** are artificial neural networks designed to process structured data like images. Originally inspired by the mammalian visual cortex, CNNs attempt to mimic how our brains process visual information in layers. First, brains interpret basic shapes like lines and edges and then move to more complex structures, like recognizing a dog ear or the whole animal. CNNs are typically trained using a supervised learning approach.
  
 CNNs simulate this by using small, repeated filters, or *kernels*, that scan parts of an image to find basic shapes, edges, and textures, regardless of their location. This scanning process, called *convolution*, enables early CNN layers to detect simple patterns (like lines) and deeper layers to identify more complex shapes or objects.
 
-**Application**: CNNs are highly effective for image-related tasks, making them ideal for analyzing satellite or drone imagery in ecology, identifying structures in biomedical imaging, and classifying galaxies in astrophysics.
+**Application**: CNNs are highly effective for image-related tasks, making them ideal for analyzing satellite or drone imagery in ecology and arctic science, identifying structures in biomedical imaging, and classifying galaxies in astrophysics. In permafrost mapping, CNNs help with segmenting thaw features and permafrost extent from satellite imagery, producing pixel‑wise probability maps.
 
  
-![Figure 2.7: Source (Bennett, 2023) [@bennett2023history] Convolutional Neural Networks](../images/ai-for-all/cnn.png){.lightbox width=100%}
+![Figure 2.6.2: Source (Bennett, 2023) [@bennett2023history] Convolutional Neural Networks](../images/ai-for-all/cnn.png){.lightbox width=100%}
  
 **Limitations of CNNs**
 
-Ironically, though CNNs were inspired by the mammalian visual system, they struggle with tasks that even simpler animals like fish handle easily. CNNs have trouble with rotated or differently angled objects. Current work around it is to have variations of object images in training data with all kinds of different angles [@bennett2023history].
+Ironically, though CNNs were inspired by the mammalian visual system, they struggle with tasks that even simpler animals like fish handle easily. CNNs have trouble with rotated or differently angled objects. The current workaround is to have variations of object images in training data with all kinds of different angles [@bennett2023history].
 
 While CNNs follow a layered structure, recent research reveals that the brain’s visual processing is more flexible and not as hierarchical as once believed. Our visual system can “skip” layers or process information in parallel, allowing simultaneous handling of different types of visual input across various brain regions.
 
 :::
 
-::: {.callout-tip collapse="true" icon="false"
-     title="Recurrent Neural Networks"}
- **Recurrent Neural Networks (RNN)**  are artificial neural networks designed to process sequential data. By incorporating cycles in their computation graph, RNNs can "remember" previous inputs, making them especially useful for tasks where context is important.
+::: {.callout-note collapse="true" icon="false"
+ title="Recurrent Neural Networks"}
+ **Recurrent Neural Networks (RNN)** are artificial neural networks designed to process sequential data. By incorporating cycles in their computation graph, RNNs can "remember" previous inputs, making them especially useful for tasks where context is important.
 
 **Application**: These models are commonly used for time series data, such as weather forecasting, monitoring ecological changes over time, and analyzing temporal patterns in genomic data.
 
-![Figure 2.8: Recurrent Neural Network. Source: dataaspirant.com](../images/ai-for-all/rnn.png){.lightbox width=70%}
+![Figure 2.6.3: Recurrent Neural Network. Source: dataaspirant.com](../images/ai-for-all/rnn.png){.lightbox width=70%}
 :::
 
-::: {.callout-tip collapse="true" icon="false"
-     title="Reinforcement Learning"}
+::: {.callout-note collapse="true" icon="false"
+ title="Reinforcement Learning"}
 **Reinforcement Learning (RL)** is a learning technique in which an agent interacts with the environment and periodically receives rewards (reinforcements) or penalties to achieve a goal.
 
-With supervised learning, an agent learns by passively observing example input/output pairs provided by a “teacher.” Reinforcement Learning is one of the attempts to solve the *catastrophic forgetting* problem and introduce *AI agents* that can actively learn from their own experience in a given environment.[@norvig2004ai] 
+With supervised learning, an agent learns by passively observing example input/output pairs provided by a “teacher.” Reinforcement Learning introduces *AI agents* that can actively learn from their own experience in a given environment.[@norvig2004ai] 
 
-![Figure 2.8: Reinforcement Learning](../images/ai-for-all/rl.png){.lightbox .float-right width=50%}
+The schematic shown in the figure illustrates the basic RL loop. The agent interacts with the environment by taking actions, which affect the environment’s state. The environment responds by updating the state and producing a reward signal. An interpreter component observes the outcome and translates it into a state and reward signal for the agent. This feedback loop allows the agent to learn and adapt its behavior over time.
 
-**Applications**: RL is applied in robotics and can also assist with experiment simulation in science, environmental monitoring, autonomous driving, and creating AI opponents in gaming.
+![Figure 2.6.4: Reinforcement Learning](../images/ai-for-all/rl.png){.lightbox .float-right width=50%}
 
-One example of RL is the Actor-Critic model, which divides the learning process into two roles: the Actor, who explores the environment and makes decisions, and the Critic, who evaluates these actions. The Critic provides feedback on the quality of each action, helping the Actor balance exploration (trying new actions) with exploitation (choosing actions with known rewards). Recent research has explored various algorithms to model curiosity in artificial agents [@curiosityalgorithm2022] [@wang2024curiosity].
+**Applications**: RL is applied in robotics and can also assist with experiment simulation in science, environmental monitoring, autonomous driving, and creating AI opponents in gaming. Imagine an autonomous rover (or drone) tasked with surveying melt patterns on sea-ice floes.
+
+One type of RL is the Actor-Critic model, which divides the learning process into two roles: the Actor, who explores the environment and makes decisions, and the Critic, who evaluates these actions. The Critic provides feedback on the quality of each action, helping the Actor balance exploration (trying new actions) with exploitation (choosing actions with known rewards). Recent research has explored various algorithms to model curiosity in artificial agents [@curiosityalgorithm2022] [@wang2024curiosity].
 :::
 
-::: {.callout-tip collapse="true" icon="false"
-     title="LLMs: Transformers"}
+::: {.callout-note collapse="true" icon="false"
+ title="Large Language Models"}
  **Large Language Models (LLM)** are a type of neural network that has revolutionized natural language processing (NLP). Trained on massive datasets, these models can generate human-like text, translate languages, create various forms of content, and answer questions informatively (e.g., GPT-3, Gemini, Llama).
 
- ![Figure 2.9: Large Language Models. Source: Artificial Intelligence - A modern approach. [@norvig2004ai]](../images/ai-for-all/llm.png){.lightbox width=70%}
+ ![Figure 2.6.5: Large Language Models. Source: Artificial Intelligence - A Modern Approach. [@norvig2004ai]](../images/ai-for-all/llm.png){.lightbox width=70%}
 
- **Transformers**, introduced in 2017, revolutionized NLP by introducing a mechanism called self-attention. Unlike previous models like Recurrent Neural Networks (RNNs) that processed language sequentially, Transformers use self-attention to assess relationships between all words in a sentence simultaneously. This allows them to dynamically focus on different parts of the input text and weigh the importance of each word in relation to others. This allows them to understand context and meaning with much better accuracy.
+ **Transformer** is a neural-network architecture introduced in 2017 that relies on a mechanism called self-attention. It supports most modern large language models (LLMs). Unlike previous models like Recurrent Neural Networks (RNNs) that processed language sequentially, Transformers use self-attention to assess relationships between all words in a sentence simultaneously. This allows them to dynamically focus on different parts of the input text and weigh the importance of each word in relation to others. This allows them to understand context and meaning with much better accuracy.
 
- ![Figure 2.10: Evolution of Natural Languge Processing. Source[@norvig2004ai] ](../images/ai-for-all/llm2.png){.lightbox width=80%}
+ ![Figure 2.6.6: Evolution of Natural Languge Processing. Source[@norvig2004ai] ](../images/ai-for-all/llm2.png){.lightbox width=80%}
 
 
  The success of LLMs has driven AI’s recent surge in popularity and research. Between 2010 and 2022, the volume of AI-related publications nearly tripled, climbing from about 88,000 in 2010 to over 240,000 by 2022. Likewise, AI patent filings have skyrocketed, increasing from roughly 3,500 in 2010 to over 190,000 in 2022. In the first half of 2024 alone, AI and machine learning companies in the United States attracted $38.6 billion in investment out of a total of $93.4 billion. [@pitchbook2024aiml]
 
 :::
 
-
-
-## AI Beyond Machine Learning
-
-Within the field of AI, there are many techniques that don’t rely on ML principles.
-
-| Technique | Description |
-|----------------|--------------------------|
-| If/Else or Rule-Based Systems |  Collections of predefined rules or conditions (if statements) to make decisions. |
-| Symbolic AI (Logic-Based AI) | Logical rules and symbols to represent knowledge, focusing on reasoning through deductive logic. |
-| Genetic Algorithms (Evolutionary Algorithms) |  Optimization algorithms inspired by natural selection.|
-| Fuzzy Logic | A form of logic that works with "degrees of truth", making it useful for uncertain or ambiguous scenarios. | 
-| Knowledge Representation and Reasoning (KR&R) | Techniques for structuring and processing information, often using ontologies and semantic networks. |
-| Bayesian Networks |  Probabilistic graphical models that represent relationships between variables. |
-
-: {.striped .hover .primary}
-
-Recent research increasingly combines various AI paradigms, such as symbolic AI and Knowledge Representation and Reasoning (KR&R), with Machine Learning (ML) to achieve a higher level of effectiveness tailored to specific tasks.
-
-## The Future of AI in Science 
+## The Future of AI in Arctic Science 
 
 AI is transforming the scientific method by supporting each step of scientific discovery. Let's consider how various AI techniques can be applied at each stage of the scientific process:
 
  - **Observation**: Using computer vision for data collection.
  - **Hypothesis**: Clustering data with unsupervised learning.
  - **Experiment**: Simulating environments through reinforcement learning.
- - **Data Analysis**: Simplifying data with PCA and classifying insights using neural networks or SVMs.
+ - **Data Analysis**: Simplifying and classifying data using neural networks.
  - **Conclusion**: Combining LLMs with KR&R to generate complex findings and insights.
 
 ![](../images/ai-for-all/ai_and_science.png)
 
++ AI already accelerates Arctic science: computer-vision models detect thaw features and permafrost extent; clustering algorithms flag anomalies; neural networks compress and classify multimodal data; and LLMs combined with knowledge graphs help researchers draw conclusions. These tools help turn petabytes of imagery and sensor data into testable hypotheses and valuable insights.
+
+It's important to note that, regardless of model type, high-quality data is essential for accurate AI predictions and insights. In the next sessions, we’ll explore practical tips for working with well-prepared, high-quality data.
+
+## Exercise: NN Playground
+
+Let's build intuition by experimenting with a neural network simulator for approximately 10 minutes.
+
+::: {.callout-note appearance="simple" icon="false"}
+Web-based app, no setup or account required: [playground.tensorflow.org](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.06707&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+:::
+
+![.](/images/ai-for-all/nn_playground.gif){.lightbox width=80%}
+
+TensorFlow Playground is an example of a feed-forward network, where data flows only from the input layer to the output layer without feedback loops. Training a neural network involves automatically adjusting its internal parameters so that the network maps inputs to desired outputs with minimal error. As you press the play button, you can see the number of epochs increase. In an Artificial Neural Network, an *epoch* represents one complete pass through the training dataset.
 
 
-In conclusion, regardless of model type, high-quality data is essential for accurate AI predictions and insights. In the next sessions, we’ll explore practical tips for working with well-prepared, high-quality data.
+- [ ] Adjust the **ratio of training to test data** split. Does the quality of the output vary?
+
+::: {.callout-caution collapse="true" icon="false"}
+## Answer
+Orange indicates <span style="color:orange">negative</span> values, while blue represents <span style="color:blue">positive</span> values. Typically, an 80/20 split for training and testing data is used. Smaller datasets may need a 90% training portion for more examples, while larger datasets can reduce training data to increase test samples. Background colors illustrate the network’s predictions, with more intense colors representing higher confidence in its prediction. 
+
+:::
+
+- [ ] Experiment with noise and **batch size** parameters. How does the output change?
+
+::: {.callout-caution collapse="false" icon="false"}
+## Answer
+Background colors illustrate the network’s predictions, with more intense colors representing higher confidence in its prediction. Adding noise to the training data simulates variability or imperfections often found in real-world datasets. This noise may include measurement errors or irrelevant features. By training with noisy data, the model becomes less sensitive to outliers and irrelevant fluctuations, improving generalization to new inputs.
+
+:::
+
+
+- [ ] Add or remove **hidden layers**. Notice how it affects the neural network's performance?
+
+::: {.callout-caution collapse="true" icon="false"}
+## Answer
+A deeper network can model more complex patterns, but it also increases the number of parameters and the training time. It raises the risk of overfitting, where training metrics improve while validation metrics stall or deteriorate. In general, you should choose the shallowest model that reaches your target performance without overfitting.
+
+:::
+
+
+- [ ] Change the number of **neurons** in the hidden layers. Can you see any impact on model predictions?
+
+::: {.callout-caution collapse="true" icon="false"}
+## Answer
+Start with one hidden layer and one or two neurons, observing predictions (orange vs. blue background) against actual data points (orange vs. blue dots). With very few neurons, the model cannot capture complex nonlinear relationships, resulting in overly simplistic predictions. Increasing the number of neurons and layers allows the network to represent more complex decision boundaries, improving the match between predictions and actual data.
+
+:::
+
+- [ ] Manually adjust the **weight**. Did you notice the thickness of the line changed? 
+
+::: {.callout-caution collapse="true" icon="false"}
+## Answer
+Line thickness shows the strength of the connection between nodes. The thinner the line, the less effect they have on each other, and vice versa. If the line turns red, that means the weight is negative; it pushes the next neuron down instead of up. Sort of suppresses the next neuron’s firing.
+:::
+
+- [ ] Change the **learning rate** to observe its effect on training speed and accuracy.
+
+::: {.callout-caution collapse="true" icon="false"}
+## Answer
+
+The learning rate is a key setting or hyperparameter that controls how much a model adjusts its weights during training. A higher rate speeds up learning but risks overshooting the optimal solution. The optimal solution would be the best set of weights that makes the model’s error as small as possible, and the predictions that are accurate. At the same time, a lower rate makes learning more precise but slower. It's one of the most crucial settings when building a neural network. Because every weight update in a neural-network optimizer is scaled by the learning rate, so that a single number effectively sets how "faster" models learns
+:::
+
+- [ ] Try various **activation functions** to see how they influence model performance.
+
+
+- [ ] Experiment with different problem types (e.g., classification vs. regression) and analyze the outcomes.
 
 ## Do You Have Any Questions? {.unnumbered}
 
-Feel free to reach out!  
-
-**Email:** [alyonak@nceas.ucsb.edu](alyonak@nceas.ucsb.edu)   
-
-**Website:** [alonakosobokova.com](http://alonakosobokova.com)  
-
-**YouTube:** [Dork Matter Girl](https://youtube.com/@dorkmattergirl)
+Email:   [alyonak@nceas.ucsb.edu](alyonak@nceas.ucsb.edu)   
+Website: [alyonakosobokova.com](http://alyonakosobokova.com)  
+YouTube: [Dork Matter Girl](https://youtube.com/@dorkmattergirl)

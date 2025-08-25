@@ -15,11 +15,11 @@ Use of annotation methods and tools, direct dataset interaction
 
 ## Choose your own adventure(s) {.unnumbered}
 
-In this section, we'll provide some links, basic information, and suggested starter activities for variety of annotation tools available today. Have a look and get your hands dirty!
+In this section, we'll provide some links, basic information, and suggested starter activities for a variety of annotation tools available today. Have a look and get your hands dirty!
 
-_**Note**_: You'll need some images to annotate in each case. Feel free to use any relevant images you might already have, or just do a web search and find something interesting. Of course, when experimeting with the web-based annotation platforms, be sure not to use upload anything personal, private, or otherwise sensitive.
+_**Note**_: You'll need some images to annotate in each case. Feel free to use any relevant images you might already have, or just do a web search and find something interesting. Of course, when experimenting with the web-based annotation platforms, be sure not to upload anything personal, private, or otherwise sensitive.
 
-Ideally you'll cover:
+Ideally, you'll cover:
 
 - [ ] Simple bounding box annotation
 - [ ] Polygon, line, and point annotation
@@ -36,7 +36,7 @@ Web-based app, no setup or account required
 ![.](/images/data-annotation/tool-makesense.jpg){.lightbox width=80%}
 
 - MakeSense.ai is a simple, single-user, browser-based image annotation app
-- Supports annotation via bounding boxes, poylgons, points, and lines
+- Supports annotation via bounding boxes, polygons, points, and lines
 - Upload one or more images, apply/edit annotations, then export annotations
 - Offers model-based semi-automated annotation with an accept/reject interface
 - If you prefer, you can also grab the [source code](https://github.com/SkalskiP/make-sense) and run it locally using npm or Docker
@@ -47,7 +47,7 @@ _**Things to try**_
 - [ ] Play around with manually creating various annotations of various classes. What is the experience?
 - [ ] Use Actions to edit label names, colors, etc
 - [ ] Use Actions to export annotations. What formats are offered?
-- [ ] Try exporting polygon annotations in both VGG and COCO format. How do they compare?
+- [ ] Try exporting polygon annotations in both VGG and COCO formats. How do they compare?
 - [ ] Use Actions to run the COCO SSD model locally to suggest boxes. How well does it work?
 - [ ] When you're done: Evaluate this tool with respect to the software considerations in @sec-software
 
@@ -60,7 +60,7 @@ Web-based app, requires (free) account signup
 
 - Roboflow offers a cloud-hosted, web-based platform for computer vision, including tooling for data annotation along with model training and deployment
 - They offer a limited free tier, which does not offer any privacy (project and images are automatically public)
-- Nice interface for doing annotations, managing artifacts, managing team
+- Nice interface for doing annotations, managing artifacts, and managing the team
 
 _**Things to try**_
 
@@ -78,19 +78,19 @@ Web-based app, requires (free) account signup
 
 - CVAT can be used as a [desktop application](https://github.com/cvat-ai/cvat) that you [install & run](https://docs.cvat.ai/docs/administration/basics/installation/) on your own local computer or server.
 - However, for today, consider creating your own (free) account for annotating using their [hosted platform](https://app.cvat.ai/auth/login)
-- The V7 [cvat guide](https://www.v7labs.com/blog/cvat-guide) might be helpful
+- The V7 [CVAT guide](https://www.v7labs.com/blog/cvat-guide) might be helpful.
 
 _**Things to try**_
 
 - [ ] Create a free account
 - [ ] Log in and create a test Project. At this stage, you'll need to define at least one relevant label under the Constructor tab (you can edit these later)
 - [ ] Create a Task (i.e., a collection of images to annotate) under your Project, and upload one or more images.
-- [ ] Start an annotation Job within the task. What do think of the interface? Is the documentation helpful?
+- [ ] Start an annotation Job within the task. What do you think of the interface? Is the documentation helpful?
 - [ ] Using the menu bar on the left, try creating box, polygon, line, and point annotations. _Note_: Click the **Shape** button to start each annotation. How is the experience?
-- [ ] Also try creating a 3D cuboid annotation. Figure out how to resize and orient the cube. What do you think?
+- [ ] Also, try creating a 3D cuboid annotation. Figure out how to resize and orient the cube. What do you think?
 - [ ] Lastly, try doing brush-based segmentations.
-- [ ] After doing some annotations, go to Jobs, use the 3-dots selector on your job to open the action menu, and export annotations in a couple different formats. How do they compare?
-- [ ] As a another Jobs action, you can do click on **View analytics** and run a performance report.
+- [ ] After doing some annotations, go to Jobs, use the 3-dots selector on your job to open the action menu, and export annotations in a couple of different formats. How do they compare?
+- [ ] As another Jobs action, you can click on **View analytics** and run a performance report.
 
 ## Adventure: [Zooniverse](https://www.zooniverse.org)
 ::: {.callout-note appearance="simple" icon="false"}
@@ -98,21 +98,21 @@ Web-based app, no setup or account required
 :::
 ![.](/images/data-annotation/tool-zooniverse.jpg){.lightbox width=60%}
 
-Zooniverse is a cool community crowdsourcing platform on the web, for data annotation and digitization.
+Zooniverse is a web-based community crowdsourcing platform for data annotation and digitization.
 
 _**Things to try**_
 
 - [ ] Check out the [Penguin Watch](https://www.zooniverse.org/projects/penguintom79/penguin-watch) project.
   - [ ] Visit the **About**, **Talk**, and **Collect** pages. Imagine how you might set up your own project to encourage and support a crowdsourced annotation community
   - [ ] Visit the **Classify** page, go through the Tutorial, and then see how the Task works.
-- [ ] Also check out the [Arctic Bears](https://www.zooniverse.org/projects/douglas-clark/the-arctic-bears-project) image classification and interpretation project
+- [ ] Check out the [Arctic Bears](https://www.zooniverse.org/projects/douglas-clark/the-arctic-bears-project) image classification and interpretation project
 - [ ] Feel free to search the site for other projects
 
 ## Adventure: [IRIS](https://github.com/ESA-PhiLab/iris) (Intelligently Reinforced Image Segmentation)
 ::: {.callout-note appearance="simple" icon="false"}
 Requires local installation (Python + JavaScript application).
 
-See [Installation instructions](https://github.com/ESA-PhiLab/iris?tab=readme-ov-file#installation) with for setting IRIS up locally with Python/pip.
+See [Installation instructions](https://github.com/ESA-PhiLab/iris?tab=readme-ov-file#installation) for setting up IRIS locally with Python/pip.
 :::
 ![.](/images/data-annotation/tool-iris.jpg){.lightbox width=60%}
 
@@ -120,7 +120,7 @@ IRIS is a tool for doing semi-automated image segmentation of satellite imagery 
 
 Unlike much of the ML we'll encounter this week, the backend model in this case is a gradient boosted decision tree. The reason this works sufficiently well is that IRIS is geared toward segmenting multispectral imagery into a small number of classes, training from scratch on each image; the model is able to learn the correlation structure between features and labels by leveraging multiple features per pixel after the human-in-the-loop manually segments and labels pixels.
 
-For more information, check out the [YouTube video](https://www.youtube.com/watch?v=ERJA2-fTW6k) with the main creator Alistar Francis.
+For more information, check out the [YouTube video](https://www.youtube.com/watch?v=ERJA2-fTW6k) with the main creator, Alistair Francis.
 
 _**Things to try**_
 
@@ -136,13 +136,13 @@ Requires local installation (Python library), or can be run in a hosted notebook
 See [Installation notes](https://samgeo.gishub.org/installation/).
 :::
 
-This is an open source tool that you can either install locally or run in JupyterLab (or Google colab).
+This is an open-source tool that you can either install locally or run in JupyterLab (or Google Colab).
 
-First check out the online [Segment Anything Model (SAM) demo](https://segment-anything.com/demo). SAM was developed by Meta AI. It is trained as a generalized segmentation model that is able to segment (but not label) arbitrary objects in an image. It is designed as a _promptable_ tool, which means a user can provide initial point(s) or box(es) that roughly localize an object within an image, and SAM will try to fully segment that object. Alternatively, it can automatically segment an entier image, effectively by self-promtping with a complete grid of points, and then intelligently merging the corresponding segments.
+First, check out the online [Segment Anything Model (SAM) demo](https://segment-anything.com/demo). SAM was developed by Meta AI. It is trained as a generalized segmentation model that is able to segment (but not label) arbitrary objects in an image. It is designed as a _promptable_ tool, which means a user can provide initial point(s) or box(es) that roughly localize an object within an image, and SAM will try to fully segment that object. Alternatively, it can automatically segment an entire image, effectively by self-promtping with a complete grid of points, and then intelligently merging the corresponding segments.
 
 Today, SAM is used by numerous image annotation tools to provide interactive, AI-assisted segmentation capabilities.
 
-One such tool is the [segment-geospatial](https://samgeo.gishub.org/) Python package, which provides some base functionality for applying SAM to geospatial data, either programatically or interactively.
+One such tool is the [segment-geospatial](https://samgeo.gishub.org/) Python package, which provides some base functionality for applying SAM to geospatial data, either programmatically or interactively.
 
 <!-- `sudo apt install libgdal-dev gdal-bin` -->
 <!-- My copy of the [Google Colab notebook](https://drive.google.com/drive/folders/1Q2_nxS8Wwk2m_ouubQ1XRyrtvBhJ5kuw) (related to [this workshop](https://samgeo.gishub.org/workshops/cn_workshop/)) -->
@@ -157,16 +157,16 @@ _**Things to try**_
 
 ## Adventure: [Label Studio](https://labelstud.io/guide/labeling)
 ::: {.callout-note appearance="simple" icon="false"}
-Python app must be installed and run locally (unless you pay for an Enterprise cloud account)
+Label Studio offers a Python application that you can install and run locally, or you can pay to use their cloud-based [Enterprise offering](https://humansignal.com/platform/).
 
-See [Quick start document](https://labelstud.io/guide/quick_start]) with instructions for installing with `pip` and running locally in a web browser.
+See the [Quick Start document](https://labelstud.io/guide/quick_start]) with instructions for installing with `pip` and running locally in a web browser.
 :::
 
 - Multi-type data labeling and annotation tool with standardized output format
 - Works on various data types (text, image, audio)
-- Has both [open source option](https://github.com/HumanSignal/label-studio) and [paid cloud service](https://humansignal.com/goenterprise/)
-- See online [playground](https://labelstud.io/playground/)
+- Has both an [open-source option](https://github.com/HumanSignal/label-studio) and a [paid cloud service](https://humansignal.com/goenterprise/)
+- See the online [playground](https://labelstud.io/playground/)
 
 ## Other things to try
 - [VGG Image Annotator (VIA)](https://www.robots.ox.ac.uk/~vgg/software/via/)
-  - Try local installation?
+  - Try a local installation?
