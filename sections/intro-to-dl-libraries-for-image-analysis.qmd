@@ -1,77 +1,251 @@
 # Introduction to Deep Learning Libraries for Image Analysis
 
-## Goal {.unnumbered}
+## Overview {.unnumbered}
 
-This session introduces participants to **Detectron2**, a cutting-edge open-source library developed by Meta AI Research (FAIR) for state-of-the-art object detection and segmentation tasks. Built on the PyTorch deep learning framework, Detectron2 offers a flexible and modular design that makes it easier for researchers and developers to implement and experiment with advanced computer vision models. 
+In the previous chapters, we built our own neural networks step by step, from the basic building blocks to full-fledged models using PyTorch. You’ve seen how much power PyTorch gives us: we can design layers, build custom architectures, and train deep networks for image analysis almost from scratch.
 
-In this session, participants will be introduced to the fundamentals of Detectron2 and its application in analyzing visual data specific to Arctic research. We will cover the installation process, basic usage, and explore how to train custom models to detect and segment objects relevant to Arctic studies. By the end of this tutorial, participants will have hands-on experience with Detectron2 and understand how to apply it to their own research projects.
+But in real-world research, especially when projects need to move fast or integrate complex models (like object detection, instance segmentation, or multi-class land cover mapping), building everything from scratch quickly becomes overwhelming. This is where **deep learning libraries** step in.
 
-## Why use a deep learning framework?
+![](../images/dl-pytorch/libraries.png)
 
-Deep learning frameworks like Detectron2 or MMSegmentation provide advantages over core libraries like PyTorch directly. Here are some of the key benefits:
+Think of PyTorch as a **box of electronic components**, resistors, capacitors, wires, chips. You can build anything if you’re patient and skilled. Deep learning libraries, on the other hand, are like **modular circuit boards**, ready-made systems you can plug together, modify, and extend. They free you from re-implementing the same boilerplate code so you can focus on research questions, data, and innovation.
 
-* **Ease of use and rapid prototyping**: These frameworks offer pre-built, state-of-the-art model architectures and components that simplify the process of developing complex models. This allows researchers to quickly prototype and experiment with different models without having to worry about the underlying implementation details.
+In this chapter, we’ll explore these "power tools" of deep learning, libraries that sit on top of PyTorch and make tasks like **object detection**, **semantic segmentation**, or **instance segmentation** much easier. We’ll look closely at **Detectron2** (developed by Meta AI Research) and **MMSegmentation** (developed by OpenMMLab), both widely used in scientific and industrial image analysis.
 
-* **Modular and extensible design**: These frameworks are designed to be highly modular, enabling researchers to easily customize and extend various components such as model architectures, training pipelines, evaluation metrics, and more. This flexibility allows for tailored solutions that can be adapted to specific research questions or datasets.
+By the end of this chapter, you’ll understand:
 
-* **Optimized performance**: These frameworks often include optimized implementations of popular algorithms and techniques, which can lead to faster and more efficient model training and inference. Also, these frameworks are designed to be scalable, allowing researchers to train models on large datasets and scale up to high-performance hardware, e.g., multi-GPU systems.
+* Why these libraries exist and how they simplify your workflow
+* How configurations, datasets, and training systems work behind the scenes
+* How to quickly train and evaluate your own custom models using Detectron2 and MMSegmentation
 
-* **Community and support**: Detectron2 has a large community and extensive documentation, making it easier to find resources and support.
+This session is less about "coding from zero" and more about **standing on the shoulders of giants** -- leveraging the collective work of open-source communities to make your own research more efficient, reproducible, and powerful.
 
-* **Focus on research**: By abstracting many of the low-level details, these frameworks allow researchers to focus on the core research questions and innovations, enabling faster iteration on new ideas and research directions.
 
-## Configuration system
+## From Wrenches to Power Tools: Why Libraries?
 
-Detectron2's configuration system provides a flexible and modular way to manage training and evaluation settings. It supports both **YAML-based** configuration files and **Python-based** lazy configurations, allowing users to define model architectures, datasets, training hyperparameters, and more.
+When we first learned deep learning, we did everything the "manual" way: defining layers, activation functions, loss functions, and optimizers from scratch. That process was essential: it helped us understand what really happens inside a neural network.
 
-### Why use the configuration system? {.unnumbered}
+But now imagine you’re starting a new research project, say, mapping melt ponds in Arctic imagery or detecting wildfires from satellite data. You know convolutional networks can help, but do you really want to write every part of the training pipeline again: the dataset loader, data augmentations, evaluation metrics, checkpoints, logging…?
 
-* **Reproducibility**: Configs make it easy to share and reproduce experiments.
+That’s like fixing a car with just a wrench set, technically possible, but slow and exhausting. Deep learning libraries such as **Detectron2** and **MMSegmentation** are like **power tools**: they handle the repetitive engineering so you can focus on design and experimentation.
 
-* **Modularity**: Different components (e.g., dataset, model, solver) are easily interchangeable.
+Here’s what they bring to the table:
 
-* **Ease of Use**: Instead of defining hyperparameters in scripts, you can manage them in a structured format.
+* **Reusable blueprints**: Predefined architectures like Mask R-CNN, U-Net, or SegFormer are ready to use. You can still customize them, but you don’t need to rebuild them from scratch.
+* **Experiment organization**: Config files (often YAML or Python-based) store hyperparameters, datasets, and model details in one place, making it easy to reproduce experiments.
+* **Scalable training**: Multi-GPU training, mixed precision, and checkpointing are built-in.
+* **Community wisdom**: These libraries encode years of experience from researchers who’ve already solved the same headaches you’re likely to face.
 
-### LazyConfig vs. Default Config {.unnumbered}
+Using such frameworks doesn’t mean losing flexibility. In fact, most allow deep customization: you can plug in your own backbone, add a new loss function, or modify the evaluation logic. Think of them as scaffolding, a structure that supports your ideas while keeping everything stable and organized.
 
-Detectron2 offers two types of configuration systems:
+In short:
 
-* **Default Config (YAML-based)**: The traditional configuration system that loads from .yaml files.
+> **PyTorch teaches you how to build; Detectron2 and MMSegmentation teach you how to scale.**
 
-* **LazyConfig (Python-based)**: A more flexible system that supports Python expressions and function calls.
+::: {.callout-note}
+## Note: Power Tools Still Need Skilled Hands
 
-### Benefits of LazyConfig {.unnumbered}
+Deep learning libraries can save you time, but they won't think for you. They won't fix poor data quality, unbalanced labels, or the wrong model choice. The best researchers use these tools **because they understand what's inside them**. That's why the earlier PyTorch foundations are so important: they give you the mechanical intuition to use high-level tools wisely.
+:::
 
-* Allows defining configurations programmatically in Python.
 
-* Supports dynamic configurations with function calls.
+## Where Do Libraries Fit in the Deep Learning Workflow?
 
-* Reduces redundancy and improves maintainability.
+By now, you’ve seen that deep learning libraries are not replacements for PyTorch, they are **extensions** of it.
+Think of them as layers of abstraction built on top of your foundation, automating the tedious parts while leaving room for creativity.
 
-### Using LazyConfig {.unnumbered}
+Let's recall the typical workflow you've been practicing:
 
-1. Loading a base configuration
+1. **Define your data**: collecting, labeling, and preprocessing images
+2. **Build your model**: choosing an architecture and writing its layers
+3. **Train and evaluate**: running experiments, tuning hyperparameters, analyzing results
+4. **Deploy or reuse**: applying the trained model to new images or datasets
 
-LazyConfig organizes configurations as Python modules. You can start by loading a base configuration:
+![](../images/dl-pytorch/workflow.png)
 
-```python
-from detectron2.config import LazyConfig
-cfg = LazyConfig.load("detectron2/projects/ViTDet/configs/mae_finetune.py")
+Deep learning libraries step in mainly during **steps 2 and 3**, though some also help with data handling. They provide:
+
+* Ready-made model definitions (so you don’t need to code every convolution and skip connection),
+* Pre-configured training pipelines (so you don’t manually manage learning rates or checkpoints),
+* Built-in evaluators and loggers (so you get standardized metrics out of the box).
+
+You can still open the hood, but the engine runs much more smoothly.
+
+::: {.callout-note}
+If PyTorch is like driving a manual car, full control over every gear and pedal, libraries like Detectron2 and MMSegmentation are your **self-driving research assistants**.
+
+You set the destination (the research goal), adjust the route when needed, and let the framework handle the technical road rules of training, batching, and evaluation.
+:::
+
+
+## The Landscape at a Glance
+
+Once you start exploring deep learning tools, it can feel like walking into a bustling workshop, every bench has its own specialized equipment.
+
+Some tools are small and flexible (good for tinkering), while others are industrial-grade systems built for large-scale experiments.
+
+Let's take a quick tour of this landscape and see how the pieces fit together.
+
+At the very bottom sits **PyTorch**, the foundation of almost everything in this ecosystem. It provides the essential machinery: tensors, automatic differentiation, neural network layers, and optimizers.
+
+Alongside it, **torchvision** and **timm** (short for *PyTorch Image Models*) offer a growing library of pre-implemented models and utilities. If PyTorch is the language, these are your ready-made sentences: common CNNs, ViTs, and ResNets you can borrow and adapt.
+
+### **High-Level Libraries: The Task Experts** {.unnumbered}
+
+Building on top of PyTorch are specialized frameworks that focus on *particular types of image understanding tasks*. Each one comes with optimized models, data pipelines, and evaluation tools designed for a specific research goal.
+
+| Library | Focus | Example Use Case |
+| --- | ------ | ------ |
+| **Detectron2** (Meta AI) | Object detection & instance segmentation | Detecting wildlife or human-made structures in Arctic imagery |
+| **MMSegmentation** (OpenMMLab) | Semantic segmentation | Land cover mapping, permafrost zone classification |
+| **Ultralytics YOLO** | Real-time detection | Drone-based monitoring or field data collection |
+| **MONAI** | Medical image analysis | Cross-domain transfer for geospatial raster segmentation |
+
+: {.striped}
+
+Each of these libraries is **built on PyTorch**, but adds powerful components:
+
+* **Config systems** to control every detail of the model and experiment
+* **Data loaders** that follow standard dataset formats (e.g., COCO, Cityscapes)
+* **Evaluation modules** that calculate common metrics automatically
+* **Model zoos** that store pretrained weights and reference baselines
+
+### **Glue Layers and Trainer Engines** {.unnumbered}
+
+Underneath these libraries are **training engines** like *mmengine*, *PyTorch Lightning*, or *Lightning Fabric*, which handle distributed training, checkpointing, and logging. They ensure reproducibility and scalability across GPUs or clusters.
+
+In research practice, you may not need to use these directly, but knowing they exist helps you understand what's running behind the scenes when you launch a training job.
+
+
+![The deep learning ecosystem is layered. Each level builds on PyTorch to offer more automation, specialization, and reproducibility.](../images/dl-pytorch/ecosystem.png){width=70%}
+
+::: {.callout-note}
+You don't have to learn all of these at once. A good way to start is to pick **one library** that aligns with your research question. For example:
+
+* **Detectron2** if you’re identifying or counting objects in images (ice floes, wildlife, vehicles).
+* **MMSegmentation** if you’re labeling every pixel (land cover, permafrost, water vs. ice).
+
+Later, once you're comfortable, you'll see that most frameworks share similar ideas, configuration files, model registries, and trainer loops, just with slightly different flavors.
+:::
+
+
+## Model Zoos & Transfer Learning Superpowers
+
+One of the most exciting parts of using modern deep learning libraries is that you don't need to start from zero. Instead of training a model entirely from scratch, you can **borrow the knowledge of models already trained on massive datasets**, a concept known as **transfer learning**.
+
+### What Is Transfer Learning? {.unnumbered}
+
+In essence, transfer learning means starting with a model that already "knows" general visual features, edges, textures, shapes, learned from millions of images (for example, ImageNet or COCO). You then fine-tune it on your own, smaller dataset (for example, Arctic satellite scenes).
+
+### What Is a Model Zoo? {.unnumbered}
+
+A **Model Zoo** is a curated collection of pretrained models that you can load instantly. Each model comes with:
+
+* Pretrained weights
+* A ready-to-use configuration file
+* Example scripts for training and inference
+* Documented accuracy and benchmark results
+
+Most major libraries have their own Model Zoo:
+
+* **Detectron2:** Models like Faster R-CNN, Mask R-CNN, RetinaNet, and ViTDet trained on COCO and LVIS.
+* **MMSegmentation:** Dozens of segmentation networks, U-Net, DeepLabV3+, SegFormer, HRNet, pretrained on ADE20K, Cityscapes, and more.
+* **Ultralytics YOLO:** Multiple versions (YOLOv5, YOLOv8) optimized for size and speed.
+* **MONAI:** 2D and 3D models pretrained on medical datasets, sometimes transferable to geoscientific data.
+
+### How Transfer Learning Works in Practice {.unnumbered}
+
+Here's the basic recipe you'll see repeated across libraries:
+
+1. **Load a pretrained model**: Start with a checkpoint trained on a large benchmark.
+   ```python
+   cfg.MODEL.WEIGHTS = "detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"
+   ```
+2. **Adapt the model to your dataset**: Adjust the number of output classes and dataset paths.
+
+   ```python
+   cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3  # for your 3 Arctic land cover types
+   ```
+
+3. **Fine-tune on your own data**: Instead of random initialization, the model begins with knowledge from the pretrained checkpoint, faster convergence, better accuracy, and less data required.
+
+4. **Save and reuse**: Once trained, you can store your model as your own "mini zoo" for future experiments.
+
+### Why This Matters for Researchers {.unnumbered}
+
+Transfer learning is especially powerful for **scientific and environmental data**, where labeled examples are scarce. A model trained on everyday photos (like COCO) might not have seen icebergs or tundra vegetation, but its early layers already know how to detect **edges, shapes, and patterns**. Those skills transfer remarkably well to geospatial imagery with only minimal retraining.
+
+> **In practice:** Fine-tuning a COCO-pretrained Mask R-CNN can outperform a model trained from scratch on your small Arctic dataset, often in a fraction of the time.
+
+::: {.callout-note}
+Don't think of pretrained models as shortcuts; think of them as **foundations**. They let you start at the *second floor of knowledge* instead of the basement. Just remember: a good researcher still tests, validates, and adapts, never copies blindly.
+:::
+
+
+## Configuration Styles Without Tears
+
+By now, you know that every deep learning project involves a lot of details, learning rates, datasets, model names, checkpoint paths, augmentation settings, and more. If you hard-code all of that into Python scripts, your experiment directory will soon look like a spaghetti bowl of slightly different files.
+
+That's where **configuration systems** come in.
+
+### What's a Configuration System? {.unnumbered}
+
+A **configuration file** is simply a structured way to describe how your experiment should run. Instead of changing numbers inside code, you define them in a single, human-readable file and let the training engine read it.
+
+It's like giving your experiment a *recipe card*:
+
+> "Use a ResNet-50" backbone, train for 10,000 iterations, on this dataset, with that learning rate."
+
+This not only keeps things tidy, it also makes your research **reproducible**.
+A month from now (or a reviewer six months later), you'll be able to re-run your model exactly as before.
+
+![](../images/dl-pytorch/config-system.png)
+
+### Configuration in Detectron2 {.unnumbered}
+
+Detectron2 offers **two flavors** of configuration systems, both widely used in research:
+
+| Type               | Format       | Strength                  |
+| ------------------ | ------------ | ------------------------- |
+| **Default Config** | YAML-based   | Simple and traditional    |
+| **LazyConfig**     | Python-based | Flexible and programmatic |
+
+#### **1. Default Config (YAML)** {.unnumbered}
+
+This older system uses YAML files that look like this:
+
+```yaml
+MODEL:
+  WEIGHTS: "detectron2://COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"
+  ROI_HEADS:
+    NUM_CLASSES: 3
+SOLVER:
+  BASE_LR: 0.002
+  MAX_ITER: 10000
+DATASETS:
+  TRAIN: ("my_dataset_train",)
+  TEST: ("my_dataset_val",)
 ```
 
-2. Modifying configurations
-
-Since LazyConfig is Python-based, modifications can be made directly:
+You can modify these settings in Python:
 
 ```python
-cfg.train.init_checkpoint = "path/to/checkpoint.pth"
-cfg.dataloader.train.dataset.names = "coco_2017_train"
-cfg.train.max_iter = 50000
+from detectron2.config import get_cfg
+cfg = get_cfg()
+cfg.merge_from_file("path/to/config.yaml")
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3
 ```
 
-3. Registering a new configuration
+Then train:
 
-You can create your own configuration by defining a Python script:
+```python
+python train_net.py --config-file path/to/config.yaml
+```
+
+#### **2. LazyConfig (Python)** {.unnumbered}
+
+Newer versions of Detectron2 introduce **LazyConfig**, which uses Python itself as the configuration language.
+You can define dynamic logic (loops, function calls) directly inside your config.
 
 ```python
 from detectron2.config import LazyCall
@@ -80,254 +254,198 @@ from detectron2.modeling import build_model
 config = dict(
     model=LazyCall(build_model)(
         backbone=dict(type="ResNet", depth=50),
-        num_classes=80,
+        num_classes=3,
     ),
-    solver=dict(
-        base_lr=0.002,
-        max_iter=10000,
-    ),
+    solver=dict(base_lr=0.002, max_iter=10000),
 )
 ```
 
-Save this file as my_config.py and load it using:
+Then load and run:
 
 ```python
+from detectron2.config import LazyConfig
 cfg = LazyConfig.load("my_config.py")
 ```
 
-4. Running training with LazyConfig
+**Why it's useful:** LazyConfig makes it easy to reuse pieces of configs, automate parameter sweeps, and integrate logic while keeping experiments reproducible.
 
-To train a model using a LazyConfig setup, use:
+### Configuration in MMSegmentation {.unnumbered}
 
-```python
-python train_net.py --config-file my_config.py
-```
-
-### Best practices {.unnumbered}
-
-* **Organize configs in a structured manner**: Keep different configurations (model, dataset, solver) separate for better maintainability.
-
-* **Use function calls**: Leverage Python functions to make dynamic changes to configurations.
-
-* **Experiment tracking**: Store modified configs alongside experiment logs to ensure reproducibility.
-
-## Data system
-
-### Dataset registration {.unnumbered}
-
-Detectron2 does not assume a fixed dataset format; instead, it requires datasets to be registered before use. Dataset registration involves providing metadata and a function that loads dataset samples.
-
-**Registering a custom dataset**
-
-Detectron2 uses the `DatasetCatalog` and `MetadataCatalog` to manage datasets. To utilize a custom dataset, you need to register it so that Detectron2 knows how to access and interpret your data.
-
-* **Implement a Function to Load Your Dataset**: Create a function that returns your dataset in the format of a list of dictionaries. Each dictionary should contain information about an image and its annotations.
+MMSegmentation follows a similar philosophy but uses a **hierarchical Python-based config system** (shared across all OpenMMLab libraries). Each config file *inherits* from a base file — so you can easily stack settings:
 
 ```python
-def my_dataset_function():
-    # Load your dataset and return it as a list of dictionaries
-    return dataset_dicts
-```
-
-* **Register the dataset**: Use `DatasetCatalog.register()` to associate your dataset with the function you've implemented.
-
-```python
-from detectron2.data import DatasetCatalog
-
-DatasetCatalog.register("my_dataset", my_dataset_function)
-```
-
-This registration allows Detectron2 to access your dataset using the name `my_dataset`.
-
-**Built-in datasets**
-
-Detectron2 includes several built-in datasets such as COCO and LVIS. To use them, install the required dataset and enable it in the config.
-
-```python
-from detectron2.data.datasets import register_coco_instances
-register_coco_instances("my_coco", {}, "path/to/annotations.json", "path/to/images")
-```
-
-### Data loading {.unnumbered}
-
-Detectron2 uses `DatasetMapper` for loading datasets efficiently. The dataset loader transforms raw dataset samples into a format suitable for training.
-
-**Custom DatasetMapper**
-
-A custom dataset mapper allows applying preprocessing steps before training.
-
-```python
-from detectron2.data import DatasetMapper
-from detectron2.data import detection_utils as utils
-import torch
-
-class MyDatasetMapper(DatasetMapper):
-    def __call__(self, dataset_dict):
-        dataset_dict = dataset_dict.copy()
-        image = utils.read_image(dataset_dict["file_name"], format="BGR")
-        dataset_dict["image"] = torch.as_tensor(image.transpose(2, 0, 1))
-        return dataset_dict
-```
-
-### Configuring DataLoader {.unnumbered}
-Detectron2 provides a flexible data loader that can be modified based on batch size, augmentations, and transformations.
-
-* **Build a data loader**: Use `build_detection_train_loader()` for training and `build_detection_test_loader()` for evaluation.
-
-```python
-from detectron2.data import build_detection_train_loader
-
-data_loader = build_detection_train_loader(cfg)
-for batch in data_loader:
-    print(batch)  # Process batch
-```
-
-These functions handle batching, shuffling, and other data loading operations. 
-
-### Data Augmentation {.unnumbered}
-
-Data augmentation is a technique to improve model generalization by applying random transformations to the input data during training. Detectron2 integrates `detectron2.data.transforms` for efficient data augmentation.
-
-* **Define augmentations**: Create a list of augmentation operations.
-
-```python
-from detectron2.data import transforms as T
-
-augmentations = [
-    T.RandomBrightness(0.9, 1.1),
-    T.RandomFlip(prob=0.5),
-    T.RandomCrop("absolute", (640, 640))
+_base_ = [
+    '../_base_/models/segformer_mit-b0.py',
+    '../_base_/datasets/ade20k.py',
+    '../_base_/default_runtime.py',
+    '../_base_/schedules/schedule_20k.py'
 ]
 ```
 
-* **Apply augmentations**: Integrate these augmentations into your data loading pipeline.
+Then you can override parameters for your custom experiment:
 
 ```python
-from detectron2.data import DatasetMapper
-
-mapper = DatasetMapper(cfg, is_train=True, augmentations=augmentations)
-data_loader = build_detection_train_loader(cfg, mapper=mapper)
+model = dict(
+    decode_head=dict(num_classes=5),
+    pretrained='pretrained/segformer_mit-b0.pth'
+)
 ```
 
-## Model system
+**Why it’s useful:** This modular structure helps you swap datasets, models, or training schedules without rewriting code, ideal for researchers comparing multiple configurations.
 
-### Building Models from Configuration {.unnumbered}
+::: {.callout-note}
+## Note: Keep Configs as Research Records
 
-Detectron2 employs configuration files to define model architectures and parameters. To construct a model from a configuration, you can use the `build_model` function:
+Treat your configuration files like lab notebooks:
+
+* Always **save a copy** of the exact config used for each experiment.
+* **Name it clearly** (e.g., `segformer_lr2e-3_bs16_20k.py`).
+* **Store it with your results**. It's your evidence of what was tested.
+
+When a collaborator asks, "Which hyperparameters did you use?", your answer should be one command away.
+:::
+
+## Data, Datasets, and Formats You'll Actually Meet
+
+Every deep learning model lives or dies by its data. In earlier chapters, we loaded images manually and passed them through DataLoaders. That gave us flexibility, but it also meant writing lots of boilerplate code, for example, file paths, annotations, transforms, batching.
+
+High-level libraries like **Detectron2** and **MMSegmentation** take care of much of that work. They expect data to follow *common formats* and provide tools to register and transform datasets automatically.
+
+### Why Registration Matters {.unnumbered}
+
+Before a library can use your dataset, it needs to know three things:
+
+1. **Where** your images are stored
+2. **How** annotations are structured (bounding boxes, polygons, masks, etc.)
+3. **What** each label means
+
+Registration tells the framework:
+
+> "Here's my dataset's name, here's how to load it, and here's what each class represents."
+
+After registration, the library can treat your dataset just like COCO or Cityscapes, even if it's custom Arctic imagery or wildfire maps.
+
+### Detectron2: Dataset Catalogs and Metadata {.unnumbered}
+
+Detectron2 uses two registries:
+
+* **`DatasetCatalog`**: keeps track of how to load your data.
+* **`MetadataCatalog`**: stores extra info like class names and color palettes.
+
+Here's a simple example:
 
 ```python
-from detectron2.modeling import build_model
-model = build_model(cfg)  # cfg is a configuration object
+from detectron2.data import DatasetCatalog, MetadataCatalog
+
+def get_arctic_dataset():
+    # Returns a list of dictionaries, one per image
+    return dataset_dicts
+
+DatasetCatalog.register("arctic_train", get_arctic_dataset)
+MetadataCatalog.get("arctic_train").set(thing_classes=["ice", "water", "rock"])
 ```
 
-This function initializes the model structure with random parameters. To load pre-trained weights or previously saved parameters, utilize the `DetectionCheckpointer`:
+After this, you can simply say `cfg.DATASETS.TRAIN = ("arctic_train",)`, Detectron2 knows where to look and how to interpret it.
+
+*Built-in bonus:* If your data already follows the COCO format (images + JSON annotations), you can skip the function and register directly:
 
 ```python
-from detectron2.checkpoint import DetectionCheckpointer
-checkpointer = DetectionCheckpointer(model)
-checkpointer.load(file_path_or_url)  # Load weights from a file or URL
+from detectron2.data.datasets import register_coco_instances
+register_coco_instances("arctic_coco", {}, "annotations.json", "images/")
 ```
+### MMSegmentation: Dataset Wrappers and Pipelines {.unnumbered}
 
-### Model Input and Output Formats {.unnumbered}
+MMSegmentation uses a **dataset registry** too, but it focuses on *semantic segmentation* (labeling each pixel). Datasets are defined in configuration files as **pipelines**, sequences of steps that load, resize, normalize, and augment images.
 
-Detectron2 models accept inputs as a list of dictionaries, each corresponding to an image. The required keys in these dictionaries depend on the model type and its mode (training or evaluation). Typically, for inference, the dictionary includes:
-
-- "image"`: A tensor representing the image in (C, H, W) format.
-- "height"` and `"width"` (optional): Desired output dimensions.
-
-During training, additional keys like `"instances"` (which contains ground truth annotations) are necessary. The model outputs are also structured as dictionaries, with formats varying based on the specific task (e.g., bounding box detection, segmentation).
-
-### Customizing and Extending Models {.unnumbered}
-
-Detectron2's modular design allows for extensive customization. You can modify existing components or add new ones to tailor the models to your requirements. A common approach is to register new components, such as a custom backbone:
+Example (from `config.py`):
 
 ```python
-from detectron2.modeling import BACKBONE_REGISTRY, Backbone, ShapeSpec
-import torch.nn as nn
+dataset_type = 'CustomDataset'
+data_root = 'data/arctic/'
 
-@BACKBONE_REGISTRY.register()
-class CustomBackbone(Backbone):
-    def __init__(self, cfg, input_shape):
-        super().__init__()
-        self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=16, padding=3)
+train_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='LoadAnnotations'),
+    dict(type='Resize', scale=(512, 512)),
+    dict(type='RandomFlip', prob=0.5),
+    dict(type='PackSegInputs')
+]
 
-    def forward(self, image):
-        return {"conv1": self.conv1(image)}
-
-    def output_shape(self):
-        return {"conv1": ShapeSpec(channels=64, stride=16)}
+data = dict(
+    train=dict(
+        type=dataset_type,
+        data_root=data_root,
+        img_dir='images/train',
+        ann_dir='masks/train',
+        pipeline=train_pipeline
+    )
+)
 ```
 
-After defining and registering your custom component, you can specify it in your configuration:
+This configuration tells MMSegmentation exactly **how to read** and **how to transform** the data without writing a single loader in Python.
+
+### Common Dataset Formats {.unnumbered}
+
+| Format | Used In | Structure | Typical Task |
+| ------ | ------- | --------- | ------------ |
+| **COCO** | Detectron2, YOLO | Images + JSON annotations | Object detection, instance segmentation |
+| **Cityscapes** | MMSegmentation | Folder per split + label masks | Semantic segmentation |
+| **Pascal VOC** | MMSegmentation | XML annotations + masks | Detection & segmentation |
+| **Custom (GeoTIFF, PNG)** | Research data | Often adapted to COCO or Cityscapes format | Any |
+
+Most libraries assume your dataset follows one of these.
+If not, you can write a small converter, once, and use it across all your experiments.
+
+::: {.callout-note}
+## Note: Think "Format First"
+
+Before you annotate a single image, decide **which format** your library expects.
+Converting later is possible but painful.
+
+Starting in COCO or Cityscapes format saves enormous time and makes your data immediately usable in most frameworks.
+:::
+
+
+## Training, Evaluating, and Logging (The Happy Path)
+
+If building a neural network from scratch is like cooking in a lab kitchen, measuring every gram and washing every beaker, then using a deep learning library is like stepping into a professional kitchen: everything's prepped, labeled, and ready for you to create.
+
+Libraries like **Detectron2** and **MMSegmentation** come with **trainers** and **evaluators** that handle most of the behind-the-scenes work. All you need to do is point them to the right dataset, choose a model, and press "run."
+
+### Training Without the Tears {.unnumbered}
+
+In raw PyTorch, you need to manage the training loop yourself:
 
 ```python
-cfg.MODEL.BACKBONE.NAME = "CustomBackbone"
-model = build_model(cfg)
+for epoch in range(num_epochs):
+    for batch in dataloader:
+        optimizer.zero_grad()
+        loss = model(batch)
+        loss.backward()
+        optimizer.step()
 ```
 
-This method allows you to integrate new architectures or functionalities seamlessly. For more detailed instructions on writing and registering new model components, see the official tutorial on writing models.
+In Detectron2 or MMSegmentation, this loop is built in.
 
-### Constructing Models with Explicit Arguments {.unnumbered}
+### Detectron2: The DefaultTrainer {.unnumbered}
 
-While configuration files offer a convenient way to build models, there are scenarios where you might need more control. In such cases, you can construct model components with explicit arguments in your code. For example, to use a custom ROI head:
+Detectron2 provides a **DefaultTrainer**, an all-in-one tool that sets up the model, optimizer, data loader, evaluator, and logging for you.
 
-```python
-from detectron2.modeling.roi_heads import StandardROIHeads
-
-class CustomROIHeads(StandardROIHeads):
-    def __init__(self, cfg, input_shape):
-        super().__init__(cfg, input_shape)
-        # Customize as needed
-```
-
-Then, integrate it into your model:
-
-```python
-from detectron2.modeling import build_model
-
-cfg = ...  # your configuration
-model = build_model(cfg, roi_heads=CustomROIHeads(cfg, input_shape))
-```
-
-## Training system
-
-### How Training Works in Detectron2 {.unnumbered}
-
-At its core, training a model in Detectron2 involves:  
-
-1. **Loading a dataset**: Preparing images and annotations.  
-2. **Configuring the model**: Defining architecture, hyperparameters, and other settings.  
-3. **Training with a Trainer**: Using built-in tools or writing a custom loop.  
-4. **Evaluating performance**: Running inference and analyzing metrics.  
-
-Detectron2 provides two main ways to handle training:  
-
-- **Using a pre-built Trainer (Recommended for most users)**  
-- **Writing a custom training loop (For advanced customization)**  
-
-### Using the Default Trainer (Easy & Standard Approach) {.unnumbered}
-
-If you want to train a model with minimal setup, Detectron2 offers `DefaultTrainer`, which automates most of the process.  
-
-**Steps to Train a Model with DefaultTrainer**  
-
-**Step 1: Prepare Your Configuration**  
-
-Modify a base config file and set paths, batch sizes, and hyperparameters.
+**Step 1: Prepare the config**
 
 ```python
 from detectron2.config import get_cfg
 
 cfg = get_cfg()
-cfg.merge_from_file("path/to/config.py")
-cfg.DATASETS.TRAIN = ("my_dataset_train",)
-cfg.DATASETS.TEST = ("my_dataset_val",)
+cfg.merge_from_file("configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
+cfg.DATASETS.TRAIN = ("arctic_train",)
+cfg.DATASETS.TEST = ("arctic_val",)
+cfg.SOLVER.MAX_ITER = 5000
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3
 cfg.OUTPUT_DIR = "./output"
-cfg.SOLVER.MAX_ITER = 5000  # Number of training iterations
-cfg.MODEL.ROI_HEADS.NUM_CLASSES = 3  # Adjust for your dataset
 ```
 
-**Step 2: Train Using DefaultTrainer**  
+**Step 2: Start training**
 
 ```python
 from detectron2.engine import DefaultTrainer
@@ -336,149 +454,441 @@ trainer = DefaultTrainer(cfg)
 trainer.resume_or_load(resume=False)
 trainer.train()
 ```
-This will handle data loading, logging, checkpointing, and evaluation automatically.  
 
-**Step 3: Evaluate the Model**  
+And that's it! Detectron2 handles everything from checkpointing to TensorBoard logging.
 
-To test your model on a validation dataset:
+When training finishes, you’ll find your model weights, metrics, and logs neatly stored in `./output`.
+
+### MMSegmentation: The Runner System {.unnumbered}
+
+MMSegmentation uses a **runner** system (from `mmengine`) that works similarly.
+
+Just define your config, then run:
+
+```bash
+python tools/train.py configs/segformer/segformer_mit-b0_512x512_20k_arctic.py
+```
+
+The runner:
+
+* Builds your dataset
+* Initializes the model
+* Handles mixed precision and multi-GPU training
+* Logs everything to a timestamped folder
+
+It even tracks best checkpoints automatically, saving the model with the highest validation mIoU.
+
+### Evaluation: Knowing How You’re Doing {.unnumbered}
+
+Both libraries have built-in evaluators that know how to measure standard metrics.
+
+| Library | Common Metrics | Typical Tasks |
+| ------- | -------------- | ------------- |
+| **Detectron2** | mAP, AP50, AP75 | Object detection, instance segmentation |
+| **MMSegmentation** | mIoU, F1-score, pixel accuracy | Semantic segmentation |
+
+To evaluate a model in Detectron2:
 
 ```python
 from detectron2.evaluation import COCOEvaluator, inference_on_dataset
 from detectron2.data import build_detection_test_loader
 
-evaluator = COCOEvaluator("my_dataset_val", cfg, False, output_dir="./output/")
-val_loader = build_detection_test_loader(cfg, "my_dataset_val")
-print(inference_on_dataset(trainer.model, val_loader, evaluator))
+evaluator = COCOEvaluator("arctic_val", cfg, False)
+val_loader = build_detection_test_loader(cfg, "arctic_val")
+inference_on_dataset(trainer.model, val_loader, evaluator)
 ```
 
-### Customizing Training (For Advanced Users) {.unnumbered}
+In MMSegmentation, evaluation happens automatically after each epoch, metrics appear in your terminal and in the log files.
 
-If `DefaultTrainer` doesn't fit your needs, you can modify it or write a fully custom training loop.
+### Logging: See Your Model Learn {.unnumbered}
 
-**Option 1: Overriding DefaultTrainer Methods**  
+Detectron2 and MMSegmentation both record training progress using event loggers.
+You can visualize them in **TensorBoard** or **WandB**.
 
-For example, if you need a custom evaluation function:
+```bash
+tensorboard --logdir ./output
+```
+
+You’ll see curves for loss, learning rate, and validation accuracy — a powerful way to detect overfitting or convergence.
+
+::: {.callout-note}
+## Note: Automate but Verify
+
+These trainers handle most details for you, but **don't stop watching**. Keep an eye on:
+
+* Loss not decreasing (maybe learning rate too high)
+* Validation metrics not improving (maybe overfitting)
+* GPU memory usage (batch size too large)
+
+Even in an automated system, the best results come from **curious supervision**.
+:::
+
+
+## Extending When You Outgrow the Defaults
+
+At some point, every researcher reaches a moment of curiosity:
+
+> "What if I change this part of the model?"
+
+That's when you know you're ready to go beyond using the defaults, to start *extending* the framework. The good news is, libraries like **Detectron2** and **MMSegmentation** are designed for that. They're modular, meaning every major component (model, dataset, loss, trainer) can be swapped or redefined without rewriting everything else.
+
+### How Modularity Works {.unnumbered}
+
+Think of these frameworks as Lego sets:
+
+* The **backbone** extracts features (e.g., ResNet, Swin Transformer).
+* The **head** interprets those features for detection or segmentation.
+* The **loss function** guides learning.
+* The **trainer** controls how the model updates.
+
+Each part connects through a clear interface. You can remove one block and insert your own as long as it fits the same shape.
+
+### Custom Components in Detectron2 {.unnumbered}
+
+Detectron2 uses **registries**, basically dictionaries that store all available modules.
+
+To create your own backbone:
 
 ```python
-class MyTrainer(DefaultTrainer):
-    @classmethod
-    def build_evaluator(cls, cfg, dataset_name, output_folder=None):
-        return COCOEvaluator(dataset_name, cfg, False, output_folder)
+from detectron2.modeling import BACKBONE_REGISTRY, Backbone, ShapeSpec
+import torch.nn as nn
 
-trainer = MyTrainer(cfg)
-trainer.train()
+@BACKBONE_REGISTRY.register()
+class ArcticBackbone(Backbone):
+    def __init__(self, cfg, input_shape):
+        super().__init__()
+        self.conv = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3)
+
+    def forward(self, x):
+        return {"stage1": self.conv(x)}
+
+    def output_shape(self):
+        return {"stage1": ShapeSpec(channels=64, stride=2)}
 ```
 
-**Option 2: Using Hooks for Extra Functionality**  
-
-Hooks allow you to add logic at specific points during training. For example, printing a message every 100 iterations:
+Then, in your config:
 
 ```python
-from detectron2.engine import HookBase
-
-class PrintIterationHook(HookBase):
-    def after_step(self):
-        if self.trainer.iter % 100 == 0:
-            print(f"Iteration {self.trainer.iter}")
-
-trainer = DefaultTrainer(cfg)
-trainer.register_hooks([PrintIterationHook()])
-trainer.train()
+cfg.MODEL.BACKBONE.NAME = "ArcticBackbone"
 ```
 
-**Option 3: Writing a Fully Custom Training Loop**  
+That's it! Detectron2 will use your custom module in the next training run.
 
-For full control, you can write your own loop instead of using `DefaultTrainer`:
+
+> **Tip:** You can register *anything* — custom ROI heads, new data mappers, or loss functions. It’s how most research papers built on Detectron2 extend its functionality.
+
+### Custom Components in MMSegmentation {.unnumbered}
+
+MMSegmentation achieves the same flexibility through **Python modules + registry decorators**, powered by `mmengine`.
+
+To define your own segmentation head:
+
+```python
+from mmseg.registry import MODELS
+from mmseg.models.decode_heads import BaseDecodeHead
+import torch.nn as nn
+
+@MODELS.register_module()
+class ArcticHead(BaseDecodeHead):
+    def __init__(self, in_channels, channels, num_classes, **kwargs):
+        super().__init__(in_channels, channels, num_classes, **kwargs)
+        self.conv = nn.Conv2d(in_channels, num_classes, kernel_size=1)
+
+    def forward(self, inputs):
+        x = self._transform_inputs(inputs)
+        return self.conv(x)
+```
+
+Then you can reference it directly in your config:
+
+```python
+model = dict(decode_head=dict(type='ArcticHead', num_classes=4))
+```
+
+Behind the scenes, MMSegmentation automatically recognizes and builds it. There is no need to touch the core codebase.
+
+### Custom Training Loops {.unnumbered}
+
+If you ever need total control (for example, new scheduling logic or domain adaptation), both frameworks let you write your own training loop.
+
+**Detectron2 example:**
 
 ```python
 from detectron2.engine import SimpleTrainer
-from detectron2.solver import build_optimizer
-
-model = build_model(cfg)
-optimizer = build_optimizer(cfg, model)
-data_loader = build_detection_train_loader(cfg)
-
 trainer = SimpleTrainer(model, data_loader, optimizer)
 trainer.train()
 ```
-This is useful when experimenting with novel training strategies.
 
-### Logging and Monitoring Training Progress {.unnumbered}
+**MMSeg example:**
+You can subclass `IterBasedRunner` or `EpochBasedRunner` from `mmengine` to modify training behavior.
 
-Detectron2 provides event storage to track training metrics like loss and accuracy. You can log custom metrics inside your model:
+::: {.callout-note}
+## Note: Customize Gradually
 
-```python
-from detectron2.utils.events import get_event_storage
+Customization doesn't mean reinventing everything at once. Try the **"one-change rule"**: make one small modification (e.g., a new backbone or loss) while keeping the rest default.
 
-storage = get_event_storage()
-storage.put_scalar("my_custom_metric", value)
+This keeps your experiments stable and interpretable, crucial for scientific work.
+:::
+
+
+## Reproducibility & Project Structure That Won't Haunt You Later
+
+Once you've trained your first few models, it's tempting to celebrate and move on. But a few weeks later, someone (maybe even future you) will ask:
+
+> "Which config file produced this model again?"
+
+If you can't answer that question confidently, it's time to talk about **reproducibility**, the unsung hero of good research.
+
+### Why Reproducibility Matters {.unnumbered}
+
+Deep learning experiments are notoriously easy to lose track of. A change of one parameter, random seed, or data split can subtly alter your results. To make your work credible, shareable, and expandable, you want others, and your future self, to be able to **recreate your exact run**.
+
+### Organize Your Project Like a Scientist {.unnumbered}
+
+A clean folder structure makes all the difference. Here's a simple yet scalable template used in many research labs:
+
+```
+project_name/
+ ├── configs/          # All config files (YAML or Python)
+ ├── data/             # Datasets or symbolic links
+ ├── notebooks/        # Exploration, visualization
+ ├── scripts/          # Custom scripts (e.g., data converters)
+ ├── output/           # Model checkpoints, logs, results
+ │    ├── run_2025_10_20_ice_mask/
+ │    └── run_2025_10_21_swin_large/
+ ├── README.md         # Notes and experiment summaries
+ └── environment.yml   # Conda environment or pip requirements
 ```
 
-For visualization, you can use TensorBoard:
+**Rule of thumb:** everything you need to reproduce an experiment should live under one directory or be referenced clearly in version control (e.g., GitHub).
+
+### Save the Essentials Every Time {.unnumbered}
+
+1. **Configuration file**: the recipe of your experiment.
+2. **Random seed**: ensures identical initialization.
+3. **Model checkpoint**: weights after training.
+4. **Logs**: losses, accuracies, and metrics.
+5. **Environment info**: PyTorch version, CUDA version, GPU type.
+
+Most frameworks can log these automatically, just don't delete them when cleaning up!
+
+### Example: Making Experiments Self-Contained {.unnumbered}
+
+In Detectron2, you can do:
 
 ```python
-tensorboard --logdir ./output
+from detectron2.utils.env import collect_env_info
+with open("output/env.txt", "w") as f:
+    f.write(collect_env_info())
 ```
-This helps you track training progress interactively.
 
-## Evaluation system
-
-In Detectron2, evaluation is managed through the `DatasetEvaluator` interface. This interface processes pairs of inputs and outputs, aggregating results to compute performance metrics. Detectron2 offers several built-in evaluators tailored to standard datasets like COCO and LVIS. For instance, the `COCOEvaluator` computes metrics such as Average Precision (AP) for object detection, instance segmentation, and keypoint detection. Similarly, the `SemSegEvaluator` is designed for semantic segmentation tasks.
-
-### Utilizing Built-in Evaluators {.unnumbered}
-
-To evaluate a model using Detectron2's built-in evaluators, you can employ the `inference_on_dataset` function. This function runs the model on all inputs from a specified data loader and processes the outputs using the chosen evaluators.
+In MMSegmentation, this happens by default in `work_dirs/`.
+You can even set:
 
 ```python
-from detectron2.evaluation import COCOEvaluator, inference_on_dataset
-from detectron2.data import build_detection_test_loader
-
-# Initialize the evaluator
-evaluator = COCOEvaluator("your_dataset_name", cfg, False, output_dir="./output/")
-
-# Create a data loader for the test dataset
-val_loader = build_detection_test_loader(cfg, "your_dataset_name")
-
-# Perform inference and evaluation
-eval_results = inference_on_dataset(model, val_loader, evaluator)
+log_level = 'INFO'
+default_hooks = dict(logger=dict(interval=50))
 ```
 
-In this script, replace `"your_dataset_name"` with the name of your dataset as registered in Detectron2. The `COCOEvaluator` is initialized with the dataset name and configuration (`cfg`). The `build_detection_test_loader` function creates a data loader for the test dataset. Finally, `inference_on_dataset` runs the model on the test data and evaluates the results using the evaluator.
+to ensure everything important is recorded.
 
-### Creating Custom Evaluators {.unnumbered}
+### Version Control Isn’t Just for Code {.unnumbered}
 
-While Detectron2's built-in evaluators cover many standard scenarios, you might encounter situations where custom evaluation logic is necessary. In such cases, you can implement your own evaluator by extending the `DatasetEvaluator` class. This involves defining methods to reset the evaluator, process each batch of inputs and outputs, and compute the final evaluation metrics. For example, to create an evaluator that counts the total number of detected instances across the validation set:
+Treat your configs like research notebooks, commit them to Git:
+
+```bash
+git add configs/segformer_arctic.py
+git commit -m "Experiment: SegFormer lr=2e-3 batch=16 20k iters"
+```
+
+Now, every experiment has a timestamp and description. If a result looks surprising, you can trace exactly which settings produced it.
+
+> **Tip:** You can even tag commits with the model name and metric (e.g., `v1.3_mIoU78.4`).
+
+### Track Results Like a Scientist {.unnumbered}
+
+Many researchers use lightweight experiment trackers like:
+
+* **TensorBoard** (visual learning curves)
+* **Weights & Biases (W&B)** (interactive dashboards)
+* **MLflow** or **Comet** (experiment management)
+
+They integrate easily with Detectron2 and MMSegmentation. You just add a few lines of code or CLI flags.
+
+The goal isn't flashy charts; it's traceability.
+
+::: {.callout-note}
+## Note: The "One-Command Rule"
+
+Aim for this ideal:
+
+> Any trained model in your project can be reproduced by running one command.
+
+Example:
+
+```bash
+python train.py --config configs/segformer_arctic.py --seed 42
+```
+
+If that single command can rebuild your result, your workflow is healthy.
+:::
+
+
+## Common Pitfalls (and Friendly Fixes)
+
+No matter how polished the library or how carefully you follow tutorials, sooner or later, something will go wrong. That's not failure, that's **deep learning reality**.
+
+Every researcher, from beginner to expert, runs into broken imports, dimension mismatches, and mysterious “CUDA out of memory” errors.
+
+The key is not avoiding problems, it's **learning how to debug calmly and systematically.**
+
+### "CUDA out of memory" — The Classic
+
+**Symptom:**
+Training crashes with messages like:
+
+```
+RuntimeError: CUDA out of memory.
+```
+
+**Fix:**
+
+* Lower your `batch_size`.
+* Reduce image size or crop patches.
+* Disable unnecessary augmentations.
+* If using multiple GPUs, set `cfg.SOLVER.IMS_PER_BATCH` or `samples_per_gpu` accordingly.
+* Clear the cache: `torch.cuda.empty_cache()`
+
+> **Tip:** When experimenting, always start small. Fast iteration beats huge runs.
+
+### Shape Mismatch Errors 
+
+**Symptom:**
+
+```
+RuntimeError: The size of tensor a (256) must match the size of tensor b (128)
+```
+
+**Fix:**
+
+* Check that your **input channels** match the model’s expected channels (e.g., 3 vs 14-band imagery).
+* In MMSeg, update `in_channels` in the config.
+* In Detectron2, confirm your custom backbone’s output shape matches the head input.
+
+> **Tip:** Print shapes often, it's the simplest sanity check in deep learning.
+
+### Wrong Class Counts
+
+**Symptom:**
+Model trains, but outputs random colors or wrong labels.
+
+**Fix:**
+
+* Make sure `NUM_CLASSES` (Detectron2) or `num_classes` (MMSeg) equals the number of classes **excluding background**, if required.
+* Verify label encoding: 0 might be background or the first class.
+
+> **Tip:** Plot one sample mask with its predicted output early, visual sanity beats numeric confusion.
+
+### Dataset Not Found or Misregistered
+
+**Symptom:**
+
+```
+KeyError: 'Dataset not registered: my_dataset_train'
+```
+
+**Fix:**
+
+* Ensure dataset registration runs **before** training starts.
+* Double-check that paths are absolute or correctly relative.
+* In Detectron2, print the list of registered datasets to verify registration.
 
 ```python
-from detectron2.evaluation import DatasetEvaluator
-
-class InstanceCounter(DatasetEvaluator):
-    def reset(self):
-        self.count = 0
-
-    def process(self, inputs, outputs):
-        for output in outputs:
-            self.count += len(output["instances"])
-
-    def evaluate(self):
-        return {"total_instances": self.count}
+from detectron2.data import DatasetCatalog
+print(DatasetCatalog.list())
 ```
 
-In this custom evaluator, the `reset` method initializes the count, the `process` method updates the count based on the number of instances in each output, and the `evaluate` method returns the total count. You can integrate this custom evaluator into your evaluation pipeline alongside built-in evaluators:
+> **Tip:** Registration is your library's handshake, if it doesn't know your dataset, it can't talk to it.
 
-```python
-from detectron2.evaluation import DatasetEvaluators
+### Non-Reproducible Results
 
-# Combine multiple evaluators
-evaluator = DatasetEvaluators([COCOEvaluator("your_dataset_name", cfg, False), InstanceCounter()])
+**Symptom:**
+Running the same code twice gives slightly different results.
 
-# Perform inference and evaluation
-eval_results = inference_on_dataset(model, val_loader, evaluator)
-```
+**Fix:**
 
-By combining evaluators, you can perform comprehensive evaluations in a single pass over the dataset, which is efficient and convenient.
+* Set seeds everywhere:
 
-**Evaluating on Custom Datasets**
+  ```python
+  import torch, random, numpy as np
+  torch.manual_seed(42); random.seed(42); np.random.seed(42)
+  ```
+* In configs:
+  `cfg.SEED = 42` or `random_seed = 42`.
+* Keep software versions fixed in `environment.yml`.
 
-When working with custom datasets, it's essential to ensure they adhere to Detectron2's standard dataset format. This compatibility allows you to leverage existing evaluators like `COCOEvaluator` for your custom data. If your dataset follows the COCO format, you can use the `COCOEvaluator` directly. Otherwise, you might need to implement a custom evaluator tailored to your dataset's structure and evaluation criteria.
+> **Tip:** Randomness is great for nature, not for reproducibility.
+
+### Overfitting — The Silent Enemy
+
+**Symptom:**
+Training accuracy skyrockets, validation accuracy flatlines.
+
+**Fix:**
+
+* Add augmentations.
+* Collect more data or use transfer learning.
+* Apply early stopping or smaller models.
+* Monitor validation loss, not just training loss.
+
+> **Tip:** Overfitting isn't failure, it's your model saying, "I memorized too well."
+
+### Getting Lost in Configs
+
+**Symptom:**
+Too many files, too many versions, can't remember what changed.
+
+**Fix:**
+
+* Use **clear names** (`segformer_lr2e-3_bs16.py`).
+* Add comments for each modification.
+* Keep a short experiment log (even a CSV or Markdown table).
+
+> **Tip:** Future you will thank present you for organized notes.
+
+### Final Thought: Debugging is Part of Discovery {.unnumbered}
+
+Every red error message is an opportunity to understand your tools more deeply.
+The more you debug, the more intuitive deep learning becomes. Even top researchers spend as much time fixing and refining as they do innovating, it's all part of the craft.
+
+![Every error solved adds one more piece of intuition to your researcher's toolkit](../images/dl-pytorch/debugging.png)
+
+
+::: {.callout-note}
+## Takeaway
+
+Deep learning libraries make complex research possible but not effortless. With patience, good habits, and clear structure, every challenge becomes a learning moment.
+
+Soon you'll not only be *using* these frameworks, you'll be *extending* them to build your own.
+:::
+
+## Where to Go Next {.unnumbered}
+
+Congratulations! You've just completed one of the biggest transitions in your deep learning journey: from building everything by hand to mastering **the modern research toolkit**.
+
+You now know how to:
+
+* Understand what deep learning libraries are and why they exist,
+* Choose the right framework for your task,
+* Configure, train, and evaluate models using prebuilt systems,
+* Customize them safely when you want to innovate, and
+* Keep your research organized, reproducible, and trustworthy.
+
+That's a huge step. With these tools, you can now shift your focus from "how do I make this run?" to "what scientific questions can I explore with it?"
+
+### Parting Thought {.unnumbered}
+
+Frameworks like Detectron2 and MMSegmentation are more than just code. They're a shared language that connects thousands of researchers worldwide. By learning to use them thoughtfully, you've joined that conversation.
+
+Keep your curiosity alive, your experiments tidy, and your GPU cool. The best discoveries often begin with a well-documented `config.py`.
 
