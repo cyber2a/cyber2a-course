@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../images/index/arcticlogo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5fd9db47a040b21ac2cac9a0b3b722ba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3584025bd2775ba93d20b6dabf7256d8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,7 +121,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -160,7 +161,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Cyber2A: AI for Arctic Research</a> 
         <div class="sidebar-tools-main">
@@ -485,12 +488,12 @@ Note
 </div>
 </div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Let’s start coding!
+<span class="screen-reader-only">Important</span>Let’s start coding!
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -518,7 +521,7 @@ Let’s start coding!
 <p>Consider implementing a basic convolutional layer:</p>
 <ul>
 <li><p><strong>Using NumPy (Conceptual Example):</strong> Requires manual implementation of sliding windows, dot products, and bias addition. You don’t need to follow every detail, but notice the amount of manual work required compared to the PyTorch equivalent.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conceptual NumPy implementation - verbose and complex</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conceptual NumPy implementation - verbose and complex</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Input data (Batch, Channels, Height, Width)</span></span>
@@ -544,9 +547,9 @@ Let’s start coding!
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                convolution_sum <span class="op">=</span> np.<span class="bu">sum</span>(region <span class="op">*</span> W[c_out]) <span class="op">+</span> b[c_out]</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>                out[n, c_out, h, w] <span class="op">=</span> convolution_sum </span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: This is simplified; correct gradient calculation would add much more complexity!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: This is simplified; correct gradient calculation would add much more complexity!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Using PyTorch:</strong> Leverages optimized, pre-built layers</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Input data (Batch, Channels, Height, Width)</span></span>
@@ -559,7 +562,7 @@ Let’s start coding!
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>out <span class="op">=</span> conv_layer(X) </span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print output shape (PyTorch calculates it automatically)</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(out.shape) <span class="co"># Output: torch.Size([10, 20, 28, 28]) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(out.shape) <span class="co"># Output: torch.Size([10, 20, 28, 28]) </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
 <p>This example highlights how PyTorch drastically simplifies deep learning development by providing high-level building blocks. How does PyTorch achieve this? <strong>Through several key features</strong>:</p>
 <ul>
@@ -581,7 +584,7 @@ Let’s start coding!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -602,7 +605,7 @@ Quick Thought
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -676,7 +679,7 @@ Note
 </div>
 <ol type="1">
 <li><p><strong>Directly from data (Python lists or NumPy arrays)</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># From a Python list</span></span>
@@ -690,9 +693,9 @@ Note
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>numpy_array <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>])</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>t2 <span class="op">=</span> torch.from_numpy(numpy_array) </span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(t2)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># tensor([5, 6, 7], dtype=torch.int64) # dtype often inferred</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># tensor([5, 6, 7], dtype=torch.int64) # dtype often inferred</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Creating tensors with specific values</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tensor of zeros</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tensor of zeros</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>shape <span class="op">=</span> (<span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>zeros_tensor <span class="op">=</span> torch.zeros(shape)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(zeros_tensor)</span>
@@ -715,9 +718,9 @@ Note
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>randn_tensor <span class="op">=</span> torch.randn(shape) </span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(randn_tensor)</span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># tensor([[-0.5432,  1.2345, -0.9876], # Example random values</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">#         [ 0.6543, -1.5432,  0.1234]])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">#         [ 0.6543, -1.5432,  0.1234]])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Creating tensors similar to other tensors:</strong> You can create new tensors that have the same shape and <code>dtype</code> (data type) as an existing tensor</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x_data <span class="op">=</span> torch.tensor([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]], dtype<span class="op">=</span>torch.float32)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x_data <span class="op">=</span> torch.tensor([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]], dtype<span class="op">=</span>torch.float32)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create zeros with the same shape and type as x_data</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>x_zeros <span class="op">=</span> torch.zeros_like(x_data) </span>
@@ -729,7 +732,7 @@ Note
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>x_rand <span class="op">=</span> torch.rand_like(x_data) </span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x_rand)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># tensor([[0.1111, 0.2222], # Example random values</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#         [0.3333, 0.4444]])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#         [0.3333, 0.4444]])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 </section>
 <section id="tensor-attributes" class="level3" data-number="7.2.2">
@@ -740,7 +743,7 @@ Note
 <li><strong><code>dtype</code></strong>: The data type of the elements within the tensor (e.g., <code>torch.float32</code>, <code>torch.int64</code>, <code>torch.bool</code>) <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>. <code>float32</code> is the most common for neural network parameters.</li>
 <li><strong><code>device</code></strong>: The device where the tensor’s data is stored (e.g., <code>cpu</code> or <code>cuda:0</code> for the first GPU).</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tensor <span class="op">=</span> torch.randn(<span class="dv">3</span>, <span class="dv">4</span>) <span class="co"># Shape (3, 4)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tensor <span class="op">=</span> torch.randn(<span class="dv">3</span>, <span class="dv">4</span>) <span class="co"># Shape (3, 4)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Shape of tensor: </span><span class="sc">{</span>tensor<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>) </span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: Shape of tensor: torch.Size([3, 4])</span></span>
@@ -757,14 +760,14 @@ Note
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">GPU Tensor Device: </span><span class="sc">{</span>gpu_tensor<span class="sc">.</span>device<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"GPU Tensor Dtype: </span><span class="sc">{</span>gpu_tensor<span class="sc">.</span>dtype<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">CUDA not available, GPU tensor not created."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">CUDA not available, GPU tensor not created."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="common-tensor-operations" class="level3" data-number="7.2.3">
 <h3 data-number="7.2.3" class="anchored" data-anchor-id="common-tensor-operations"><span class="header-section-number">7.2.3</span> Common Tensor Operations</h3>
 <p>PyTorch supports hundreds of operations on tensors. Here are some basics:</p>
 <ul>
 <li><p><strong>Element-wise Operations:</strong> Standard math operations apply element by element.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> torch.tensor([[<span class="fl">1.</span>, <span class="fl">2.</span>], [<span class="fl">3.</span>, <span class="fl">4.</span>]])</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> torch.tensor([[<span class="fl">1.</span>, <span class="fl">2.</span>], [<span class="fl">3.</span>, <span class="fl">4.</span>]])</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>t2 <span class="op">=</span> torch.ones(<span class="dv">2</span>, <span class="dv">2</span>) <span class="op">*</span> <span class="dv">5</span> <span class="co"># Creates a tensor [[5., 5.], [5., 5.]]</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Addition</span></span>
@@ -781,7 +784,7 @@ Note
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>t1.add_(t2) <span class="co"># t1 is now modified</span></span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"t1 after in-place add:</span><span class="ch">\n</span><span class="st">"</span>, t1)</span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># tensor([[ 6.,  7.],</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#         [ 8.,  9.]])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">#         [ 8.,  9.]])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -798,16 +801,16 @@ Note
 </div>
 <ul>
 <li><p><strong>Indexing and Slicing:</strong> Works just like NumPy indexing.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tensor <span class="op">=</span> torch.tensor([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tensor <span class="op">=</span> torch.tensor([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"First row:"</span>, tensor[<span class="dv">0</span>]) <span class="co"># tensor([1, 2, 3])</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Second column:"</span>, tensor[:, <span class="dv">1</span>]) <span class="co"># tensor([2, 5, 8])</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Element at row 1, col 2:"</span>, tensor[<span class="dv">1</span>, <span class="dv">2</span>]) <span class="co"># tensor(6)</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Sub-matrix (rows 0-1, cols 1-2):</span><span class="ch">\n</span><span class="st">"</span>, tensor[<span class="dv">0</span>:<span class="dv">2</span>, <span class="dv">1</span>:<span class="dv">3</span>]) </span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># tensor([[2, 3],</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#         [5, 6]])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#         [5, 6]])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Reshaping Tensors:</strong> Changing the shape without changing the data.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tensor <span class="op">=</span> torch.arange(<span class="dv">6</span>) <span class="co"># tensor([0, 1, 2, 3, 4, 5])</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tensor <span class="op">=</span> torch.arange(<span class="dv">6</span>) <span class="co"># tensor([0, 1, 2, 3, 4, 5])</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape to 2 rows, 3 columns</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>reshaped <span class="op">=</span> tensor.reshape(<span class="dv">2</span>, <span class="dv">3</span>) </span>
@@ -829,12 +832,12 @@ Note
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove dimensions of size 1 (squeeze)</span></span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>squeezed <span class="op">=</span> unsqueezed.squeeze(dim<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Squeezed shape:"</span>, squeezed.shape) <span class="co"># torch.Size([6])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Squeezed shape:"</span>, squeezed.shape) <span class="co"># torch.Size([6])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Matrix Multiplication</strong>: Use the <code>@</code> operator or <code>torch.matmul()</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mat1 <span class="op">=</span> torch.randn(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mat1 <span class="op">=</span> torch.randn(<span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mat2 <span class="op">=</span> torch.randn(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>product <span class="op">=</span> mat1 <span class="op">@</span> mat2 <span class="co"># or torch.matmul(mat1, mat2)</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Matrix product shape:"</span>, product.shape) <span class="co"># torch.Size([2, 4])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Matrix product shape:"</span>, product.shape) <span class="co"># torch.Size([2, 4])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
 </section>
 <section id="the-numpy-bridge" class="level3" data-number="7.2.4">
@@ -860,7 +863,7 @@ Important
 </ul>
 </div>
 </div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tensor to NumPy</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tensor to NumPy</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>tensor_cpu <span class="op">=</span> torch.ones(<span class="dv">5</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>numpy_arr <span class="op">=</span> tensor_cpu.numpy() </span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"NumPy array:"</span>, numpy_arr) <span class="co"># [1. 1. 1. 1. 1.]</span></span>
@@ -874,14 +877,14 @@ Important
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tensor:"</span>, tensor_from_numpy) <span class="co"># tensor([0., 0., 0.], ...)</span></span>
 <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>np.add(numpy_arr, <span class="dv">5</span>, out<span class="op">=</span>numpy_arr) <span class="co"># Modify the NumPy array</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tensor after NumPy array modified:"</span>, tensor_from_numpy) <span class="co"># tensor([5., 5., 5.], ...) &lt;- It changed!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tensor after NumPy array modified:"</span>, tensor_from_numpy) <span class="co"># tensor([5., 5., 5.], ...) &lt;- It changed!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -895,7 +898,7 @@ Quick Thought
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -951,7 +954,7 @@ Note
 <section id="a-simple-example" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="a-simple-example"><strong>A Simple Example</strong></h4>
 <p>Let’s see it in action:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tensor 'x' that requires gradients</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.ones(<span class="dv">2</span>, <span class="dv">2</span>, requires_grad<span class="op">=</span><span class="va">True</span>) </span>
@@ -976,7 +979,7 @@ Note
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co">#         [4.5000, 4.5000]]) </span></span>
 <span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Math check: out = (1/4) * sum(3 * (x+2)^2)</span></span>
 <span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co"># d(out)/dx_ij = (1/4) * 3 * 2 * (x_ij+2) = 1.5 * (x_ij+2)</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Since x_ij = 1, d(out)/dx_ij = 1.5 * (1+2) = 4.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Since x_ij = 1, d(out)/dx_ij = 1.5 * (1+2) = 4.5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In this example:</p>
 <ul>
 <li>We created <code>x</code> with <code>requires_grad=True</code>.</li>
@@ -995,7 +998,7 @@ Note
 <li><p><code>with torch.no_grad():</code>: A context manager that disables gradient tracking for any operation within its block. This is the standard way to run inference code.</p></li>
 <li><p><code>.detach()</code>: Creates a new tensor that shares the same data as the original but is detached from the computation history. It won’t require gradients, even if the original did. Useful if you need to use a tensor’s value without affecting gradient calculations later.</p></li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.randn(<span class="dv">3</span>, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.randn(<span class="dv">3</span>, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Requires grad:"</span>, x.requires_grad) <span class="co"># True</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using no_grad context</span></span>
@@ -1007,7 +1010,7 @@ Note
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x <span class="op">*</span> <span class="dv">3</span></span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>z_detached <span class="op">=</span> z.detach()</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"z requires grad:"</span>, z.requires_grad) <span class="co"># True</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"z_detached requires grad:"</span>, z_detached.requires_grad) <span class="co"># False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"z_detached requires grad:"</span>, z_detached.requires_grad) <span class="co"># False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Backward on Scalars Only:</strong> You can only call <code>.backward()</code> implicitly on a tensor containing a single scalar value (like a loss). If you have a non-scalar tensor and need gradients, you typically provide a gradient argument to <code>.backward()</code> specifying how to weight the gradients for each element (this is more advanced).</p></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1016,7 +1019,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1049,7 +1052,7 @@ Note
 <ol type="1">
 <li><p><strong>Checking for GPU Availability and Setting the Device</strong></p>
 <p>First, you should check if a GPU is available and define a <code>device</code> object that your code can use. This makes your code portable – it will run on the GPU if available, otherwise defaulting to the CPU.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if CUDA (GPU support) is available</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> torch.cuda.is_available():</span>
@@ -1059,11 +1062,11 @@ Note
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set device to CPU</span></span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    device <span class="op">=</span> torch.device(<span class="st">"cpu"</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"CUDA not available. Using device: </span><span class="sc">{</span>device<span class="sc">}</span><span class="ss">"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"CUDA not available. Using device: </span><span class="sc">{</span>device<span class="sc">}</span><span class="ss">"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><em>Note:</em> If you have multiple GPUs, you can specify a different device like <code>cuda:1</code> or <code>cuda:0</code> to use a specific GPU.</p></li>
 <li><p><strong>Moving Tensors to the Device</strong></p>
 <p>You can move a tensor to the selected device using the <code>.to()</code> method:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming 'device' is defined as above</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming 'device' is defined as above</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tensor on the CPU (default)</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>cpu_tensor <span class="op">=</span> torch.randn(<span class="dv">3</span>, <span class="dv">3</span>)</span>
@@ -1071,11 +1074,11 @@ Note
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Move the tensor to the determined device (GPU or CPU)</span></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>device_tensor <span class="op">=</span> cpu_tensor.to(device)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Moved tensor device: </span><span class="sc">{</span>device_tensor<span class="sc">.</span>device<span class="sc">}</span><span class="ss">"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Moved tensor device: </span><span class="sc">{</span>device_tensor<span class="sc">.</span>device<span class="sc">}</span><span class="ss">"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><em>Note:</em> The <code>.to()</code> method returns a new tensor on the target device (if it’s not already there). It doesn’t modify the original tensor in-place unless you reassign it (<code>cpu_tensor = cpu_tensor.to(device)</code>).</p></li>
 <li><p><strong>Moving Models to the Device</strong></p>
 <p>Similarly, you need to move your neural network model (which is an instance of <code>nn.Module</code>) to the device (We’ll learn more about <code>nn.Module</code> later). This moves all the model’s parameters (which are themselves tensors) to the target device.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a simple model</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SimpleModel(nn.Module):</span>
@@ -1092,7 +1095,7 @@ Note
 <span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Move the entire model to the determined device</span></span>
 <span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>model.to(device)</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Model parameter device (after move): </span><span class="sc">{</span><span class="bu">next</span>(model.parameters())<span class="sc">.</span>device<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Model parameter device (after move): </span><span class="sc">{</span><span class="bu">next</span>(model.parameters())<span class="sc">.</span>device<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 </section>
 <section id="crucial-requirement-same-device" class="level4 unnumbered">
@@ -1104,7 +1107,7 @@ Note
 <li>Move the <code>model</code> to the <code>device</code>.</li>
 <li>Inside the training loop, move each batch of input <code>data</code> and <code>labels</code> to the <code>device</code> before feeding them into the model.</li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Inside a typical training loop --- </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Inside a typical training loop --- </span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming model and device are already defined and model is on device</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a batch of data and labels from your DataLoader</span></span>
@@ -1116,7 +1119,7 @@ Note
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Now perform the forward pass (model and inputs are on the same device)</span></span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># outputs = model(inputs) </span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ... rest of the loop (loss calculation, etc.) ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ... rest of the loop (loss calculation, etc.) ...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1136,7 +1139,7 @@ Important
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1209,7 +1212,7 @@ Note
 <section id="chaining-transforms-with-compose" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="chaining-transforms-with-compose"><strong>Chaining Transforms with <code>Compose</code></strong></h4>
 <p>Typically, you want to apply multiple transforms in sequence. <code>transforms.Compose</code> allows you to chain them together neatly:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.transforms <span class="im">as</span> transforms</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.transforms <span class="im">as</span> transforms</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example transform pipeline for training</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>train_transform <span class="op">=</span> transforms.Compose([</span>
@@ -1227,12 +1230,12 @@ Note
 <span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    transforms.ToTensor(),              <span class="co"># Convert to tensor</span></span>
 <span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    transforms.Normalize(mean<span class="op">=</span>[<span class="fl">0.485</span>, <span class="fl">0.456</span>, <span class="fl">0.406</span>],</span>
 <span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>                         std<span class="op">=</span>[<span class="fl">0.229</span>, <span class="fl">0.224</span>, <span class="fl">0.225</span>])</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="conceptual-example-of-a-custom-dataset-and-transforms" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="conceptual-example-of-a-custom-dataset-and-transforms"><strong>Conceptual Example of a Custom Dataset and Transforms</strong></h4>
 <p>The transform pipeline is usually passed to the <code>Dataset</code> during initialization and applied within <code>__getitem__</code>.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> Dataset</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> Dataset</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume necessary imports like os, pandas, PIL.Image, torch etc.</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomImageDataset(Dataset):</span>
@@ -1275,14 +1278,14 @@ Note
 <span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a><span class="co"># train_dataset = CustomImageDataset(annotations_file='labels.csv', img_dir='images/', transform=train_transform)</span></span>
 <span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a><span class="co"># val_dataset = CustomImageDataset(annotations_file='labels.csv', img_dir='images/', transform=val_transform)</span></span>
 <span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a><span class="co"># inputs, labels = train_dataset[0] # Get the first sample</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a><span class="co"># inputs, labels = train_dataset[0] # Get the first sample</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1316,7 +1319,7 @@ Note
 </div>
 <section id="creating-and-using-a-dataloader" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="creating-and-using-a-dataloader"><strong>Creating and Using a DataLoader</strong></h4>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume 'train_dataset' and 'val_dataset' are instances of a Dataset class</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (potentially using train_transform and val_transform respectively)</span></span>
@@ -1364,7 +1367,7 @@ Note
 <span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># with torch.no_grad():</span></span>
 <span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>    <span class="co">#    for inputs, labels in val_loader:</span></span>
 <span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>            <span class="co"># inputs, labels = inputs.to(device), labels.to(device)</span></span>
-<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>            <span class="co"># ... evaluation logic ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>            <span class="co"># ... evaluation logic ...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="summary-dataset-transforms-and-dataloader" class="level3" data-number="7.5.4">
@@ -1403,7 +1406,7 @@ Note
 </ol>
 <section id="conceptual-structure" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="conceptual-structure"><strong>Conceptual Structure</strong></h4>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn.functional <span class="im">as</span> F <span class="co"># Often used for functional APIs like activation functions</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1435,7 +1438,7 @@ Note
 <span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate the model</span></span>
 <span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a><span class="co"># model = MyCustomModel() </span></span>
 <span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="co"># print(model) # Prints the layers</span></span>
-<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a><span class="co"># model.to(device) # Move model to GPU/CPU</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a><span class="co"># model.to(device) # Move model to GPU/CPU</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1453,7 +1456,7 @@ Note
 <section id="nesting-modules" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="nesting-modules"><strong>Nesting Modules</strong></h4>
 <p>You can easily include instances of other <code>nn.Module</code> classes within your model definition, promoting modularity.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define another model that uses CustomModel internally</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define another model that uses CustomModel internally</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyCustomModel2(nn.Module):</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
@@ -1471,7 +1474,7 @@ Note
 <span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the nested model</span></span>
 <span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>output2 <span class="op">=</span> model2(input_data)</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Output shape from MyCustomModel2: </span><span class="sc">{</span>output2<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: torch.Size([32, 1])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Output shape from MyCustomModel2: </span><span class="sc">{</span>output2<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: torch.Size([32, 1])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="common-layers-in-torch.nn-torch-nn-layers" class="level3" data-number="7.6.3">
@@ -1556,7 +1559,7 @@ Note
 <li>A container that stacks layers sequentially. Data passed to it flows through each layer in the order they were added (no skipping, branching, or complex connections).</li>
 <li>Convenient for simple, linear architectures.</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a model using Sequential</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a model using Sequential</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sequential_model <span class="op">=</span> nn.Sequential(</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    nn.Linear(<span class="dv">10</span>, <span class="dv">20</span>),</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    nn.ReLU(),</span>
@@ -1564,7 +1567,7 @@ Note
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Sequential Model:</span><span class="ch">\n</span><span class="st">"</span>, sequential_model)</span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>output_seq <span class="op">=</span> sequential_model(input_data)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Output shape from Sequential: </span><span class="sc">{</span>output_seq<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: torch.Size([32, 5])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Output shape from Sequential: </span><span class="sc">{</span>output_seq<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: torch.Size([32, 5])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="nn.modulelist" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="nn.modulelist"><strong>2. <code>nn.ModuleList</code></strong></h4>
@@ -1572,7 +1575,7 @@ Note
 <li><p>Holds modules in a Python list-like structure. Useful when you need to iterate over layers or access them by index, perhaps applying them within a loop or complex control flow in your <code>forward</code> method.</p></li>
 <li><p>Unlike a standard Python list, modules inside <code>ModuleList</code> are correctly registered (parameters are tracked by PyTorch).</p></li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a model using ModuleList (layers applied manually in forward)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a model using ModuleList (layers applied manually in forward)</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ModuleListModel(nn.Module):</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
@@ -1590,7 +1593,7 @@ Note
 <span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>module_list_model <span class="op">=</span> ModuleListModel()</span>
 <span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">ModuleList Model:</span><span class="ch">\n</span><span class="st">"</span>, module_list_model)</span>
 <span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>output_ml <span class="op">=</span> module_list_model(input_data)</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Output shape from ModuleListModel: </span><span class="sc">{</span>output_ml<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: torch.Size([32, 5])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Output shape from ModuleListModel: </span><span class="sc">{</span>output_ml<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: torch.Size([32, 5])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="nn.moduledict" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="nn.moduledict"><strong>3. <code>nn.ModuleDict</code></strong></h4>
@@ -1598,7 +1601,7 @@ Note
 <li>Holds modules in a Python dictionary-like structure. Allows you to access layers by name (key).</li>
 <li>Useful for organizing named components or selecting specific layers dynamically in the <code>forward</code> method. Modules are correctly registered.</li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a model using ModuleDict</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a model using ModuleDict</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ModuleDictModel(nn.Module):</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
@@ -1617,14 +1620,14 @@ Note
 <span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>module_dict_model <span class="op">=</span> ModuleDictModel()</span>
 <span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">ModuleDict Model:</span><span class="ch">\n</span><span class="st">"</span>, module_dict_model)</span>
 <span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>output_md <span class="op">=</span> module_dict_model(input_data)</span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Output shape from ModuleDictModel: </span><span class="sc">{</span>output_md<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: torch.Size([32, 5])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Output shape from ModuleDictModel: </span><span class="sc">{</span>output_md<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Output: torch.Size([32, 5])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1643,7 +1646,7 @@ Quick Thought
 <li><code>.named_children()</code>: Returns an iterator over immediate children modules, yielding both the name and the module.</li>
 <li><code>.state_dict()</code>: Returns a dictionary containing all model parameters (learnable and non-learnable). We’ll learn more about this later.</li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of accessing parameters</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of accessing parameters</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, param <span class="kw">in</span> model.named_parameters():</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> param.requires_grad:</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Layer: </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> | Size: </span><span class="sc">{</span>param<span class="sc">.</span>size()<span class="sc">}</span><span class="ss"> | Requires Grad: </span><span class="sc">{</span>param<span class="sc">.</span>requires_grad<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -1658,7 +1661,7 @@ Quick Thought
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Child: </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> | Module: </span><span class="sc">{</span>child<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of accessing state_dict</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">State Dict:</span><span class="ch">\n</span><span class="st">"</span>, model.state_dict().keys()) <span class="co"># Returns a dictionary of all parameters</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">State Dict:</span><span class="ch">\n</span><span class="st">"</span>, model.state_dict().keys()) <span class="co"># Returns a dictionary of all parameters</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>By understanding <code>nn.Module</code>, common layers, and containers, you now have the tools to translate the conceptual model architectures discussed earlier into concrete PyTorch code, ready to be trained.</p>
 </section>
 </section>
@@ -1676,7 +1679,7 @@ Quick Thought
 <h3 data-number="7.7.1" class="anchored" data-anchor-id="loading-pre-trained-models-with-torchvision.models"><span class="header-section-number">7.7.1</span> Loading Pre-trained Models with <code>torchvision.models</code></h3>
 <p>The <code>torchvision.models</code> submodule contains definitions for many popular model architectures (ResNet, VGG, AlexNet, MobileNet, Vision Transformer, etc.) and provides easy access to weights pre-trained on ImageNet.</p>
 <p>There are two main ways to load a pre-trained model:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.models <span class="im">as</span> models</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.models <span class="im">as</span> models</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Option 1: Using the newer 'weights' API (Recommended) ---</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This provides access to different pre-trained weight sets and associated metadata</span></span>
@@ -1695,16 +1698,16 @@ Quick Thought
 <span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co"># It's generally recommended to use the 'weights' API for clarity and future options.</span></span>
 <span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model_v1 </span>
 <span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the model to evaluation mode if just doing inference/inspection</span></span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">eval</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">eval</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="inspect-the-model" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="inspect-the-model"><strong>Inspect the Model</strong></h4>
 <p>Once loaded, you can print the model to see its architecture, paying close attention to the final layer(s), often called the “classifier” or “fully-connected head”.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the ResNet18 architecture</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the ResNet18 architecture</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model) </span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Output will show layers like conv1, bn1, layer1, layer2, ..., avgpool, fc</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice the final layer: </span></span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (fc): Linear(in_features=512, out_features=1000, bias=True) </span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This layer outputs 1000 scores, corresponding to the 1000 ImageNet classes.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This layer outputs 1000 scores, corresponding to the 1000 ImageNet classes.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="adapting-the-model-for-your-task" class="level3" data-number="7.7.2">
@@ -1713,7 +1716,7 @@ Quick Thought
 <section id="feature-extraction" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="feature-extraction"><strong>1. Feature Extraction</strong></h4>
 <p>Treat the pre-trained model (except the final layer) as a fixed feature extractor. We <em>freeze</em> its weights and only train the weights of the <em>new</em> final layer(s) we add. This is suitable when your dataset is small or very similar to the original dataset (e.g., ImageNet).</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Feature Extraction Example ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Feature Extraction Example ---</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Freeze all parameters in the pre-trained model</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> param <span class="kw">in</span> model.parameters():</span>
@@ -1730,7 +1733,7 @@ Quick Thought
 <span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Now, only the parameters of 'model.fc' will be updated during training</span></span>
 <span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Optimizer should be created AFTER replacing the head:</span></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="co"># optimizer = torch.optim.Adam(model.fc.parameters(), lr=0.001)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="co"># optimizer = torch.optim.Adam(model.fc.parameters(), lr=0.001)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1766,7 +1769,7 @@ Note
 <section id="fine-tuning" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="fine-tuning"><strong>2. Fine-tuning</strong></h4>
 <p>Start with the pre-trained weights, but allow some or all of them (usually the later layers) to be updated during training on your new dataset, typically using a <strong>low learning rate</strong>. This adapts the learned features more closely to your specific task. It generally requires more data than feature extraction.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Fine-tuning Preparation Example ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Fine-tuning Preparation Example ---</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. (Optional) Start by freezing all layers as in feature extraction</span></span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># for param in model.parameters():</span></span>
@@ -1792,7 +1795,7 @@ Note
 <span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co">#     {'params': model.fc.parameters(), 'lr': 1e-3} # Higher LR for the new head</span></span>
 <span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="co"># ], lr=1e-5) # Default LR if not specified in groups</span></span>
 <span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Fine-tuning requires careful setup of the optimizer and learning rates.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Fine-tuning requires careful setup of the optimizer and learning rates.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1817,8 +1820,8 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>After potential freezing/unfreezing steps, you can check which parameters require gradients by:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, param <span class="kw">in</span> model.named_parameters():</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: requires_grad=</span><span class="sc">{</span>param<span class="sc">.</span>requires_grad<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, param <span class="kw">in</span> model.named_parameters():</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">: requires_grad=</span><span class="sc">{</span>param<span class="sc">.</span>requires_grad<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -1826,7 +1829,7 @@ Note
 <h4 class="unnumbered anchored" data-anchor-id="input-preprocessing"><strong>Input Preprocessing</strong></h4>
 <p>Pre-trained models were trained with specific input preprocessing steps (image size, normalization mean/standard deviation). <strong>Normally, you’d need to apply these same transformations to your own data when using these models.</strong></p>
 <p>Luckily, the newer <code>weights</code> API often provides the necessary transforms:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the appropriate weights object</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the appropriate weights object</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> models.ResNet18_Weights.DEFAULT </span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the preprocessing transforms recommended for these weights</span></span>
@@ -1836,7 +1839,7 @@ Note
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply these transforms to your input images in your Dataset's __getitem__</span></span>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage within Dataset:</span></span>
 <span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># image = Image.open(...)</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co"># input_tensor = preprocess(image) # Apply the transforms</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co"># input_tensor = preprocess(image) # Apply the transforms</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Using these standard transforms ensures your input data matches what the model expects.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1844,7 +1847,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1860,13 +1863,13 @@ Quick Thought
 <h2 data-number="7.8" class="anchored" data-anchor-id="loss-functions-in-pytorch-torch.nn"><span class="header-section-number">7.8</span> Loss Functions in PyTorch (<code>torch.nn</code>)</h2>
 <p>Recall from the “Building Blocks” lecture that the <strong>Loss Function</strong> is crucial for training. It measures how far the model’s predictions are from the actual target values (the ground truth). This calculated “loss” (a scalar value) tells us how poorly the model is performing on a given sample or batch, and its gradient provides the signal needed by the optimizer to update the model’s parameters.</p>
 <p>PyTorch provides a variety of standard loss functions within the <code>torch.nn</code> module. You typically instantiate a loss function object and then call it like a function, passing the model’s predictions and the true targets.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># General pattern:</span></span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># criterion = nn.SomeLossFunction()</span></span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ... obtain model predictions and targets ...</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co"># loss = criterion(predictions, targets)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co"># loss = criterion(predictions, targets)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>By default, the loss function will compute the <em>mean</em> loss across the samples in a batch (controlled by the <code>reduction='mean'</code> argument). This results in a single scalar loss value ready for <code>.backward()</code>.</p>
 <p>The specific loss function you choose depends heavily on the type of task (regression or classification) and the format of your model’s output.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1892,18 +1895,18 @@ Note
 <li><strong>Prediction</strong>: Tensor of any shape containing predicted values.</li>
 <li><strong>Target</strong>: Tensor of the same shape containing true values.</li>
 </ul>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>criterion_mse <span class="op">=</span> nn.MSELoss()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>criterion_mse <span class="op">=</span> nn.MSELoss()</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>predicted_values <span class="op">=</span> torch.randn(<span class="dv">10</span>, <span class="dv">1</span>, requires_grad<span class="op">=</span><span class="va">True</span>) <span class="co"># e.g., 10 predictions</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>true_values <span class="op">=</span> torch.randn(<span class="dv">10</span>, <span class="dv">1</span>)</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>loss_mse <span class="op">=</span> criterion_mse(predicted_values, true_values)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MSE Loss: </span><span class="sc">{</span>loss_mse<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"MSE Loss: </span><span class="sc">{</span>loss_mse<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><code>nn.L1Loss()</code>: Computes the Mean Absolute Error (MAE). Less sensitive to outliers than MSE.
 <ul>
 <li><strong>Prediction/Target</strong>: Same shape requirements as <code>MSELoss</code>.</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>criterion_l1 <span class="op">=</span> nn.L1Loss()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>criterion_l1 <span class="op">=</span> nn.L1Loss()</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>loss_l1 <span class="op">=</span> criterion_l1(predicted_values, true_values)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"L1 (MAE) Loss: </span><span class="sc">{</span>loss_l1<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"L1 (MAE) Loss: </span><span class="sc">{</span>loss_l1<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><code>nn.SmoothL1Loss()</code>: A combination of L1 and MSE (Huber Loss), often used in object detection bounding box regression. Less sensitive to outliers than MSE but smoother near zero than L1.</li>
 </ul>
 </section>
@@ -1915,20 +1918,20 @@ Note
 <li><strong>Prediction</strong>: Expects <strong>raw, unnormalized scores (logits)</strong> directly from the model’s final linear layer. Shape: <code>(N, C)</code> where <code>N</code> is batch size and <code>C</code> is the number of classes.</li>
 <li><strong>Target</strong>: Expects <code>class indices</code> (long integers) ranging from 0 to C-1. Shape: <code>(N)</code>. <strong>Do not use one-hot encoded targets with this loss</strong>.</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>criterion_ce <span class="op">=</span> nn.CrossEntropyLoss()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>criterion_ce <span class="op">=</span> nn.CrossEntropyLoss()</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: 4 samples, 3 classes</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>logits <span class="op">=</span> torch.randn(<span class="dv">4</span>, <span class="dv">3</span>, requires_grad<span class="op">=</span><span class="va">True</span>) <span class="co"># Raw output from model</span></span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># True class indices (e.g., sample 0 is class 1, sample 1 is class 0, ...)</span></span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>true_indices <span class="op">=</span> torch.tensor([<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>], dtype<span class="op">=</span>torch.<span class="bu">long</span>)</span>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>loss_ce <span class="op">=</span> criterion_ce(logits, true_indices)</span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">CrossEntropy Loss: </span><span class="sc">{</span>loss_ce<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">CrossEntropy Loss: </span><span class="sc">{</span>loss_ce<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><code>nn.BCEWithLogitsLoss()</code>: <strong>The standard choice for binary classification (two classes) or multi-label classification</strong> (where each sample can belong to multiple classes). It combines a <code>Sigmoid</code> layer with the Binary Cross Entropy loss (<code>nn.BCELoss</code>) for better numerical stability.</p>
 <ul>
 <li><strong>Prediction</strong>: Expects <strong>raw logits</strong> from the model. Shape typically <code>(N)</code> or <code>(N, 1)</code> for binary, or <code>(N, C)</code> for multi-label.</li>
 <li><strong>Target</strong>: Expects <strong>float values</strong> representing probabilities or target labels (usually 0.0 or 1.0). Must have the <em>same shape</em> as the input predictions.</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>criterion_bce <span class="op">=</span> nn.BCEWithLogitsLoss()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>criterion_bce <span class="op">=</span> nn.BCEWithLogitsLoss()</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Binary classification, 4 samples</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>binary_logits <span class="op">=</span> torch.randn(<span class="dv">4</span>, requires_grad<span class="op">=</span><span class="va">True</span>) <span class="co"># Raw output for positive class</span></span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># True labels (0.0 or 1.0)</span></span>
@@ -1942,7 +1945,7 @@ Note
 <span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Targets: sample 0 belongs to class 0 &amp; 2; sample 1 belongs to class 1</span></span>
 <span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>multilabel_targets <span class="op">=</span> torch.tensor([[<span class="fl">1.0</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>], [<span class="fl">0.0</span>, <span class="fl">1.0</span>, <span class="fl">0.0</span>]], dtype<span class="op">=</span>torch.float32) <span class="co"># Explicit dtype</span></span>
 <span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>loss_multilabel <span class="op">=</span> criterion_bce(multilabel_logits, multilabel_targets)</span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Multi-label BCEWithLogits Loss: </span><span class="sc">{</span>loss_multilabel<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Multi-label BCEWithLogits Loss: </span><span class="sc">{</span>loss_multilabel<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><code>nn.BCELoss()</code>: Computes Binary Cross Entropy. Requires the input predictions to <em>already be probabilities</em> (i.e., passed through a <code>Sigmoid</code> layer). Less numerically stable than <code>BCEWithLogitsLoss</code>, which is generally preferred.</p></li>
 <li><p><code>nn.NLLLoss()</code>: Negative Log Likelihood loss. Typically used <em>after</em> applying <code>nn.LogSoftmax</code> to the model’s output. <code>nn.CrossEntropyLoss</code> combines these two steps and is usually more convenient for multi-class classification.</p></li>
 </ul>
@@ -1964,7 +1967,7 @@ Note
 <section id="using-the-loss-function-in-training" class="level3" data-number="7.8.2">
 <h3 data-number="7.8.2" class="anchored" data-anchor-id="using-the-loss-function-in-training"><span class="header-section-number">7.8.2</span> Using the Loss Function in Training</h3>
 <p>The loss function is used within the training loop after obtaining the model’s predictions:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Inside a typical training loop ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Inside a typical training loop ---</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># model = ... (Your nn.Module model)</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># criterion = nn.CrossEntropyLoss() # Choose appropriate loss</span></span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># optimizer = ... (Your optimizer)</span></span>
@@ -1984,14 +1987,14 @@ Note
 <span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Update weights</span></span>
 <span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a><span class="co"># optimizer.step()</span></span>
-<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2014,14 +2017,14 @@ Quick Thought
 <h3 data-number="7.9.1" class="anchored" data-anchor-id="instantiating-an-optimizer"><span class="header-section-number">7.9.1</span> Instantiating an Optimizer</h3>
 <p>To use an optimizer, you first need to create an instance of it, telling it which parameters it should manage and what learning rate to use.</p>
 <p>The general pattern is:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume 'model' is your nn.Module instance</span></span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># optimizer = optim.OptimizerName(params_to_optimize, learning_rate, ...)</span></span>
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Example using Adam:</span></span>
 <span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>learning_rate <span class="op">=</span> <span class="fl">0.001</span> </span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam(model.parameters(), lr<span class="op">=</span>learning_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam(model.parameters(), lr<span class="op">=</span>learning_rate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="key-arguments" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="key-arguments"><strong>Key Arguments</strong></h4>
 <ul>
@@ -2082,7 +2085,7 @@ Note
 <section id="the-training-loop-revisited" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="the-training-loop-revisited"><strong>The Training Loop Revisited</strong></h4>
 <p>Let’s look at the training loop fragment again, highlighting the optimizer’s role:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Inside a typical training loop ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Inside a typical training loop ---</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># model = ... </span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co"># criterion = ...</span></span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># optimizer = optim.Adam(model.parameters(), lr=0.001) # Instantiate the optimizer</span></span>
@@ -2103,14 +2106,14 @@ Note
 <span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a><span class="co"># &gt;&gt;&gt; Step 2: Update model parameters using computed gradients</span></span>
 <span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a><span class="co"># optimizer.step() </span></span>
-<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2125,7 +2128,7 @@ Quick Thought
 <p>As discussed in the previous lecture, adjusting the learning rate during training can often improve performance and convergence. PyTorch provides tools for this in the <code>torch.optim.lr_scheduler</code> module. You typically create a scheduler after creating your optimizer and call <code>scheduler.step()</code> at the appropriate point in your training loop (often after each epoch, sometimes after each batch depending on the scheduler). Common schedulers include <code>StepLR</code>, <code>MultiStepLR</code>, <code>ReduceLROnPlateau</code>, and <code>CosineAnnealingLR</code>. Exploring schedulers is often a next step after getting a basic training loop working.</p>
 <section id="example" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="example"><strong>Example</strong></h4>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the optimizer</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the optimizer</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam(model.parameters(), lr<span class="op">=</span><span class="fl">0.001</span>)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the scheduler</span></span>
@@ -2137,7 +2140,7 @@ Quick Thought
 <span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ... existing training loop code ...</span></span>
 <span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ... forward pass, loss calculation, backward pass ...</span></span>
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ... update weights ...</span></span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ... call scheduler.step() ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ... call scheduler.step() ...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2183,7 +2186,7 @@ Note
 <section id="the-training-loop-steps-inside-the-inner-loop" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="the-training-loop-steps-inside-the-inner-loop"><strong>The Training Loop Steps (Inside the Inner Loop)</strong></h4>
 <p>For each batch within an epoch, we perform the following crucial steps:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume DataLoader, Model, Criterion, Optimizer, device are defined</span></span>
@@ -2279,7 +2282,7 @@ Note
 <span id="cb42-94"><a href="#cb42-94" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  Validation Accuracy: </span><span class="sc">{</span>avg_epoch_val_accuracy<span class="sc">:.2f}</span><span class="ss">%"</span>)</span>
 <span id="cb42-95"><a href="#cb42-95" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">30</span>)</span>
 <span id="cb42-96"><a href="#cb42-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-97"><a href="#cb42-97" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Finished Training"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-97"><a href="#cb42-97" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Finished Training"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="key-differences-training-vs.-validation-mode" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="key-differences-training-vs.-validation-mode"><strong>Key Differences: Training vs.&nbsp;Validation Mode</strong></h4>
@@ -2295,7 +2298,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2341,7 +2344,7 @@ Quick Thought
 <section id="the-evaluation-loop-structure" class="level3" data-number="7.11.1">
 <h3 data-number="7.11.1" class="anchored" data-anchor-id="the-evaluation-loop-structure"><span class="header-section-number">7.11.1</span> The Evaluation Loop Structure</h3>
 <p>The loop structure for evaluation (on a validation or test set) is very similar to the validation phase shown in the training loop section.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume model, criterion, device, and a DataLoader (e.g., val_loader or test_loader) are defined</span></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># model.to(device) # Ensure model is on the correct device</span></span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -2394,7 +2397,7 @@ Quick Thought
 <span id="cb43-51"><a href="#cb43-51" aria-hidden="true" tabindex="-1"></a><span class="co"># recall = ...</span></span>
 <span id="cb43-52"><a href="#cb43-52" aria-hidden="true" tabindex="-1"></a><span class="co"># mae = ...</span></span>
 <span id="cb43-53"><a href="#cb43-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-54"><a href="#cb43-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Finished Evaluation"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-54"><a href="#cb43-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Finished Evaluation"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="calculating-evaluation-metrics" class="level3" data-number="7.11.2">
 <h3 data-number="7.11.2" class="anchored" data-anchor-id="calculating-evaluation-metrics"><span class="header-section-number">7.11.2</span> Calculating Evaluation Metrics</h3>
@@ -2403,11 +2406,11 @@ Quick Thought
 <h4 class="unnumbered anchored" data-anchor-id="common-classification-metrics"><strong>Common Classification Metrics</strong></h4>
 <ul>
 <li><p><strong>Accuracy</strong>: The most straightforward metric – the proportion of correctly classified samples.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Inside Evaluation (after loop, assuming classification) ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Inside Evaluation (after loop, assuming classification) ---</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># total_samples = len(all_targets)</span></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># correct_predictions = (all_predictions == all_targets).sum().item()</span></span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># accuracy = 100.0 * correct_predictions / total_samples</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print(f"Accuracy: {accuracy:.2f}%")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print(f"Accuracy: {accuracy:.2f}%")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>Precision</strong>, <strong>Recall</strong>, <strong>F1-Score</strong>: Crucial for understanding model performance, especially with imbalanced datasets.</p>
 <ul>
 <li>Precision: Of the samples predicted as positive, how many actually were positive? <span class="math inline">\(\frac{TP}{TP + FP}\)</span></li>
@@ -2431,7 +2434,7 @@ Quick Thought
 <p>Calculating many metrics (especially precision, recall, F1, AUC) correctly can be tricky. It’s highly recommended to use established libraries:</p>
 <ul>
 <li><p><strong>torchmetrics</strong> <a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>: A PyTorch-native library designed for efficient metric calculation, handling distributed training scenarios as well.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example using torchmetrics (install first: pip install torchmetrics)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example using torchmetrics (install first: pip install torchmetrics)</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># See docs: https://torchmetrics.readthedocs.io/en/stable/</span></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchmetrics</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -2451,9 +2454,9 @@ Quick Thought
 <span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the final metric over all batches</span></span>
 <span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="co"># final_accuracy = metric.compute()</span></span>
 <span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a><span class="co"># print(f"Accuracy (torchmetrics): {final_accuracy:.4f}")</span></span>
-<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a><span class="co"># metric.reset() # Reset metric state if you plan to reuse it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a><span class="co"># metric.reset() # Reset metric state if you plan to reuse it</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p><strong>scikit-learn.metrics</strong> <a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a>: A widely used library. Requires converting PyTorch tensors to NumPy arrays (<code>.cpu().numpy()</code>) first.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example using scikit-learn (install first: pip install scikit-learn)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example using scikit-learn (install first: pip install scikit-learn)</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># See docs: https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics</span></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, precision_recall_fscore_support</span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -2484,7 +2487,7 @@ Quick Thought
 <span id="cb46-29"><a href="#cb46-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy (sklearn): </span><span class="sc">{</span>accuracy<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
 <span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Precision (weighted): </span><span class="sc">{</span>precision<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
 <span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Recall (weighted): </span><span class="sc">{</span>recall<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F1 Score (weighted): </span><span class="sc">{</span>f1<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F1 Score (weighted): </span><span class="sc">{</span>f1<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -2492,7 +2495,7 @@ Quick Thought
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2529,7 +2532,7 @@ Quick Thought
 <section id="saving-the-state_dict" class="level3" data-number="7.12.1">
 <h3 data-number="7.12.1" class="anchored" data-anchor-id="saving-the-state_dict"><span class="header-section-number">7.12.1</span> Saving the <code>state_dict</code></h3>
 <p>This saves only the model’s learned parameters.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume 'model' is your trained nn.Module instance</span></span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume 'PATH' is the desired file path, e.g., 'my_model_weights.pth' or '.pt'</span></span>
@@ -2538,7 +2541,7 @@ Quick Thought
 <span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>PATH <span class="op">=</span> <span class="st">"my_trained_model.pth"</span></span>
 <span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>torch.save(model.state_dict(), PATH) </span>
 <span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Model state_dict saved to </span><span class="sc">{</span>PATH<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Model state_dict saved to </span><span class="sc">{</span>PATH<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2556,7 +2559,7 @@ Note
 <section id="loading-the-state_dict" class="level3" data-number="7.12.2">
 <h3 data-number="7.12.2" class="anchored" data-anchor-id="loading-the-state_dict"><span class="header-section-number">7.12.2</span> Loading the <code>state_dict</code></h3>
 <p>To load the parameters, you <strong>must first create an instance of the same model architecture</strong> you used during training. Then, you load the saved <code>state_dict</code> into it.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume 'YourModelClass' is the class definition for your model</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume 'YourModelClass' is the class definition for your model</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure the class definition is available!</span></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Instantiate the model structure</span></span>
@@ -2580,7 +2583,7 @@ Note
 <span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Now you can use model_loaded for inference:</span></span>
 <span id="cb48-24"><a href="#cb48-24" aria-hidden="true" tabindex="-1"></a><span class="co"># with torch.no_grad():</span></span>
-<span id="cb48-25"><a href="#cb48-25" aria-hidden="true" tabindex="-1"></a><span class="co">#    predictions = model_loaded(some_input_data.to(device))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb48-25"><a href="#cb48-25" aria-hidden="true" tabindex="-1"></a><span class="co">#    predictions = model_loaded(some_input_data.to(device))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2605,7 +2608,7 @@ Important
 <li>The last recorded loss.</li>
 <li>Any other necessary information (e.g., <code>lr_scheduler.state_dict()</code>).</li>
 </ul>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Example: Saving a Checkpoint ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Example: Saving a Checkpoint ---</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume epoch, loss, optimizer are defined</span></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>checkpoint <span class="op">=</span> {</span>
@@ -2636,13 +2639,13 @@ Important
 <span id="cb49-29"><a href="#cb49-29" aria-hidden="true" tabindex="-1"></a><span class="co"># model.train() # Set model to train mode to resume training</span></span>
 <span id="cb49-30"><a href="#cb49-30" aria-hidden="true" tabindex="-1"></a><span class="co"># # Or model.eval() if loading just for evaluation</span></span>
 <span id="cb49-31"><a href="#cb49-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-32"><a href="#cb49-32" aria-hidden="true" tabindex="-1"></a><span class="co"># print(f"Checkpoint loaded. Resuming from epoch {start_epoch}")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-32"><a href="#cb49-32" aria-hidden="true" tabindex="-1"></a><span class="co"># print(f"Checkpoint loaded. Resuming from epoch {start_epoch}")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="handling-devices-cpugpu" class="level3" data-number="7.12.4">
 <h3 data-number="7.12.4" class="anchored" data-anchor-id="handling-devices-cpugpu"><span class="header-section-number">7.12.4</span> Handling Devices (CPU/GPU)</h3>
 <p>By default, <code>torch.save</code> saves tensors on the device they currently reside on. To make your saved models more portable (e.g., load a GPU-trained model on a CPU-only machine), it’s good practice to save the <code>state_dict</code> after moving the model to the CPU.</p>
 <p>When loading, use the <code>map_location</code> argument in <code>torch.load</code> to specify where you want the tensors to be loaded.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Saving for Portability (Recommended) ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Saving for Portability (Recommended) ---</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Move model to CPU before getting state_dict</span></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>torch.save(model.to(<span class="st">'cpu'</span>).state_dict(), PATH)</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -2656,7 +2659,7 @@ Important
 <span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a><span class="co"># state_dict_mapped = torch.load(PATH, map_location=device)</span></span>
 <span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a><span class="co"># model = YourModelClass(...) # Instantiate model</span></span>
 <span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a><span class="co"># model.load_state_dict(state_dict_mapped) # Load state dict</span></span>
-<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="co"># model.to(device) # Ensure model is on the correct device</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="co"># model.to(device) # Ensure model is on the correct device</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2856,13 +2859,14 @@ Note
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

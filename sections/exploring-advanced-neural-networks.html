@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../images/index/arcticlogo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5fd9db47a040b21ac2cac9a0b3b722ba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3584025bd2775ba93d20b6dabf7256d8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -106,6 +107,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -131,7 +161,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Cyber2A: AI for Arctic Research</a> 
         <div class="sidebar-tools-main">
@@ -339,17 +371,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#what-is-instance-segmentation" id="toc-what-is-instance-segmentation" class="nav-link" data-scroll-target="#what-is-instance-segmentation"><span class="header-section-number">12.1</span> What is instance segmentation?</a></li>
-  <li><a href="#importance-and-applications-of-instance-segmentation" id="toc-importance-and-applications-of-instance-segmentation" class="nav-link" data-scroll-target="#importance-and-applications-of-instance-segmentation"><span class="header-section-number">12.2</span> Importance and applications of instance segmentation</a></li>
-  <li><a href="#transitioning-from-backbone-networks-to-classification-networks" id="toc-transitioning-from-backbone-networks-to-classification-networks" class="nav-link" data-scroll-target="#transitioning-from-backbone-networks-to-classification-networks"><span class="header-section-number">12.3</span> Transitioning from backbone networks to classification networks</a></li>
-  <li><a href="#a-step-by-step-guide-to-instance-segmentation" id="toc-a-step-by-step-guide-to-instance-segmentation" class="nav-link" data-scroll-target="#a-step-by-step-guide-to-instance-segmentation"><span class="header-section-number">12.4</span> A step-by-step guide to instance segmentation</a>
+  <li><a href="#why-does-it-matter" id="toc-why-does-it-matter" class="nav-link" data-scroll-target="#why-does-it-matter"><span class="header-section-number">12.2</span> Why Does It Matter?</a>
   <ul class="collapse">
-  <li><a href="#the-first-step-r-cnn" id="toc-the-first-step-r-cnn" class="nav-link" data-scroll-target="#the-first-step-r-cnn"><span class="header-section-number">12.4.1</span> The First Step: R-CNN</a></li>
-  <li><a href="#evolution-to-fast-r-cnn" id="toc-evolution-to-fast-r-cnn" class="nav-link" data-scroll-target="#evolution-to-fast-r-cnn"><span class="header-section-number">12.4.2</span> Evolution to Fast R-CNN</a></li>
-  <li><a href="#introducing-faster-r-cnn" id="toc-introducing-faster-r-cnn" class="nav-link" data-scroll-target="#introducing-faster-r-cnn"><span class="header-section-number">12.4.3</span> Introducing Faster R-CNN</a></li>
-  <li><a href="#the-innovation-of-faster-r-cnn" id="toc-the-innovation-of-faster-r-cnn" class="nav-link" data-scroll-target="#the-innovation-of-faster-r-cnn"><span class="header-section-number">12.4.4</span> The Innovation of Faster R-CNN</a></li>
+  <li><a href="#fine-grained-precision" id="toc-fine-grained-precision" class="nav-link" data-scroll-target="#fine-grained-precision">1. Fine-grained precision</a></li>
+  <li><a href="#distinguishing-look-alikes" id="toc-distinguishing-look-alikes" class="nav-link" data-scroll-target="#distinguishing-look-alikes">2. Distinguishing look-alikes</a></li>
+  <li><a href="#enabling-interaction" id="toc-enabling-interaction" class="nav-link" data-scroll-target="#enabling-interaction">3. Enabling interaction</a></li>
+  <li><a href="#applications-in-the-wild" id="toc-applications-in-the-wild" class="nav-link" data-scroll-target="#applications-in-the-wild">Applications in the Wild</a></li>
   </ul></li>
-  <li><a href="#transition-to-instance-segmentation-mask-r-cnn" id="toc-transition-to-instance-segmentation-mask-r-cnn" class="nav-link" data-scroll-target="#transition-to-instance-segmentation-mask-r-cnn"><span class="header-section-number">12.5</span> Transition to Instance Segmentation: Mask R-CNN</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">12.6</span> Conclusion</a></li>
+  <li><a href="#from-building-blocks-to-advanced-networks" id="toc-from-building-blocks-to-advanced-networks" class="nav-link" data-scroll-target="#from-building-blocks-to-advanced-networks"><span class="header-section-number">12.3</span> From Building Blocks to Advanced Networks</a></li>
+  <li><a href="#starting-point-classification-networks" id="toc-starting-point-classification-networks" class="nav-link" data-scroll-target="#starting-point-classification-networks"><span class="header-section-number">12.4</span> Starting Point: Classification Networks</a>
+  <ul class="collapse">
+  <li><a href="#revisiting-our-three-building-blocks" id="toc-revisiting-our-three-building-blocks" class="nav-link" data-scroll-target="#revisiting-our-three-building-blocks">Revisiting our three building blocks</a></li>
+  <li><a href="#a-quick-look-under-the-hood" id="toc-a-quick-look-under-the-hood" class="nav-link" data-scroll-target="#a-quick-look-under-the-hood">A quick look under the hood</a></li>
+  <li><a href="#customizing-for-your-own-task" id="toc-customizing-for-your-own-task" class="nav-link" data-scroll-target="#customizing-for-your-own-task">Customizing for your own task</a></li>
+  </ul></li>
+  <li><a href="#the-evolution-of-detection-models" id="toc-the-evolution-of-detection-models" class="nav-link" data-scroll-target="#the-evolution-of-detection-models"><span class="header-section-number">12.5</span> The Evolution of Detection Models</a>
+  <ul class="collapse">
+  <li><a href="#r-cnn-the-first-step" id="toc-r-cnn-the-first-step" class="nav-link" data-scroll-target="#r-cnn-the-first-step"><span class="header-section-number">12.5.1</span> R-CNN: The First Step</a></li>
+  <li><a href="#fast-r-cnn-sharing-features" id="toc-fast-r-cnn-sharing-features" class="nav-link" data-scroll-target="#fast-r-cnn-sharing-features"><span class="header-section-number">12.5.2</span> Fast R-CNN: Sharing Features</a></li>
+  <li><a href="#faster-r-cnn-end-to-end-detection" id="toc-faster-r-cnn-end-to-end-detection" class="nav-link" data-scroll-target="#faster-r-cnn-end-to-end-detection"><span class="header-section-number">12.5.3</span> Faster R-CNN: End-to-End Detection</a></li>
+  </ul></li>
+  <li><a href="#mask-r-cnn-from-detection-to-segmentation" id="toc-mask-r-cnn-from-detection-to-segmentation" class="nav-link" data-scroll-target="#mask-r-cnn-from-detection-to-segmentation"><span class="header-section-number">12.6</span> Mask R-CNN: From Detection to Segmentation</a>
+  <ul class="collapse">
+  <li><a href="#the-key-idea-add-a-mask-branch" id="toc-the-key-idea-add-a-mask-branch" class="nav-link" data-scroll-target="#the-key-idea-add-a-mask-branch">The key idea: Add a mask branch</a></li>
+  <li><a href="#step-by-step-walkthrough-2" id="toc-step-by-step-walkthrough-2" class="nav-link" data-scroll-target="#step-by-step-walkthrough-2">Step-by-step walkthrough</a></li>
+  </ul></li>
+  <li><a href="#putting-it-all-together" id="toc-putting-it-all-together" class="nav-link" data-scroll-target="#putting-it-all-together"><span class="header-section-number">12.7</span> Putting It All Together</a>
+  <ul class="collapse">
+  <li><a href="#from-classification-to-instance-segmentation" id="toc-from-classification-to-instance-segmentation" class="nav-link" data-scroll-target="#from-classification-to-instance-segmentation"><strong>From classification to instance segmentation</strong></a></li>
+  <li><a href="#visual-timeline" id="toc-visual-timeline" class="nav-link" data-scroll-target="#visual-timeline"><strong>Visual timeline</strong></a></li>
+  <li><a href="#a-recurring-pattern" id="toc-a-recurring-pattern" class="nav-link" data-scroll-target="#a-recurring-pattern"><strong>A recurring pattern</strong></a></li>
+  <li><a href="#a-unifying-view" id="toc-a-unifying-view" class="nav-link" data-scroll-target="#a-unifying-view"><strong>A unifying view</strong></a></li>
+  </ul></li>
+  <li><a href="#reflection-and-discussion" id="toc-reflection-and-discussion" class="nav-link" data-scroll-target="#reflection-and-discussion"><span class="header-section-number">12.8</span> Reflection and Discussion</a>
+  <ul class="collapse">
+  <li><a href="#looking-back" id="toc-looking-back" class="nav-link" data-scroll-target="#looking-back"><strong>Looking back</strong></a></li>
+  <li><a href="#reflection-prompts" id="toc-reflection-prompts" class="nav-link" data-scroll-target="#reflection-prompts"><strong>Reflection Prompts</strong></a></li>
+  <li><a href="#key-takeaway" id="toc-key-takeaway" class="nav-link" data-scroll-target="#key-takeaway"><strong>Key takeaway</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -377,10 +436,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="overview" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="overview">Overview</h2>
-<p>In this section, we will explore the journey of the evolution of neural networks, starting with basic classification networks and progressing to more complex tasks of object detection and instance segmentation.</p>
-<p>We’ll begin with a recap of classification networks, which are designed to identify the presence of objects in images and assign class labels. From there, we’ll move to the realm of object detection, exploring the development of <strong>R-CNN <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></strong>, <strong>Fast R-CNN <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></strong>, and <strong>Faster R-CNN <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></strong>. Each of these models represents a step forward in detecting and localizing objects within images, with Faster R-CNN introducing a more efficient and integrated approach.</p>
-<p>Finally, we’ll delve into <strong>Mask R-CNN <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></strong>, which extends the capabilities of Faster R-CNN by adding a branch for predicting segmentation masks. This enhancement allows us to not only detect objects but also delineate their exact shapes, enabling precise instance segmentation.</p>
-<p>Our goal is to build on your existing understanding of classification networks, providing you with practical insights into how these networks can be adapted and expanded for more advanced computer vision applications. By the end of this section, you will be equipped with the knowledge to understand and apply these techniques to real-world challenges.</p>
+<p>In the previous chapters, we learned how neural networks can recognize patterns in data, classify images, and even make pixel-wise predictions. But so far, our models could only tell <strong>what</strong> is in an image, but not <strong>where</strong> it is or <strong>what exact shape</strong> it has.</p>
+<p>This chapter takes the next step. We’ll explore how neural networks evolved from simple classifiers into advanced models that can detect and outline every object in a scene, a task known as <strong>instance segmentation</strong>.</p>
+<p>Think of it as moving from <strong>naming</strong> objects to <strong>understanding</strong> them in context. <br>For example, if a photo shows three dogs playing in the park, a classification network can tell you <em>“there are dogs”</em>. <br>An object-detection model goes further: <em>“there are three dogs, each at these locations”</em>. <br>An instance-segmentation model goes even further: <em>“here are the three dogs and here are the exact pixels that belong to each one”</em>.</p>
+<p>In this section, you will:</p>
+<ul>
+<li>Understand the difference between <strong>classification</strong>, <strong>object detection</strong>, <strong>semantic segmentation</strong>, and <strong>instance segmentation</strong>.</li>
+<li>Learn how all these tasks share the same building blocks, <strong>input</strong>, <strong>feature extractor</strong>, and <strong>output</strong>, but differ in how those blocks are connected.</li>
+<li>Follow the historical path of neural networks from <strong>R-CNN<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> → Fast R-CNN<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> → Faster R-CNN<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> → Mask R-CNN<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></strong>, seeing how each new design solved a real problem from the previous one.</li>
+</ul>
+<p>By the end, you’ll see that advanced models aren’t mysterious or built from scratch. They’re the result of <strong>asking new questions</strong> and <strong>tweaking familiar parts</strong> of the same network structure you already know.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every time researchers faced a limitation, for example, “it’s too slow,” “it misses small objects,” “it can’t tell shapes apart”, they modified one of the three core components: <strong>input</strong>, <strong>feature extractor</strong>, or <strong>output</strong>.</p>
+<p>As you read, try guessing <em>which</em> component each innovation changes!</p>
+</div>
+</div>
 </section>
 <section id="what-is-instance-segmentation" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="what-is-instance-segmentation"><span class="header-section-number">12.1</span> What is instance segmentation?</h2>
@@ -390,477 +469,1346 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Source: https://manipulation.csail.mit.edu/segmentation.html</figcaption>
 </figure>
 </div>
-<p>To grasp the concept of instance segmentation, let’s compare it with other related tasks:</p>
-<ul>
-<li><strong>Image recognition</strong>: This is the most basic task, where the model identifies the presence of objects in an image and assigns class probabilities. It’s like saying, “There are sheep and a dog here,” without specifying their locations.</li>
-<li><strong>Semantic segmentation</strong>: This advances to classifying each pixel into a category, effectively coloring the entire image based on object classes. However, it doesn’t distinguish between individual instances of the same class. For example, all sheep might be colored the same, treating them as a single entity.</li>
-<li><strong>Object detection</strong>: This task detects objects and distinguishes them by drawing bounding boxes around each, providing more detail than image recognition. It identifies individual objects but lacks fine-grained, pixel-level detail.</li>
-<li><strong>Instance segmentation</strong>: This is the most detailed task, combining the strengths of object detection and semantic segmentation. It not only distinguishes individual objects but also delineates their exact shapes at the pixel level. It allows for precise analysis and manipulation.</li>
-</ul>
+<p>Before diving into architectures, let’s first understand the concepts.</p>
+<p>Computer vision has several “levels of understanding”, and each answers a slightly different question about an image.</p>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>What it asks</th>
+<th>What the model outputs</th>
+<th>Example thought</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Image Classification</strong></td>
+<td><em>What kinds of objects are in this image?</em></td>
+<td>One label per image</td>
+<td>“This picture contains sheep.”</td>
+</tr>
+<tr class="even">
+<td><strong>Object Detection</strong></td>
+<td><em>Where are those objects?</em></td>
+<td>Bounding boxes + labels</td>
+<td>“There are three sheep there and a dog here.”</td>
+</tr>
+<tr class="odd">
+<td><strong>Semantic Segmentation</strong></td>
+<td><em>Which class does each pixel belong to?</em></td>
+<td>Pixel-wise class map</td>
+<td>“Color every sheep pixel blue, every dog pixel red.”</td>
+</tr>
+<tr class="even">
+<td><strong>Instance Segmentation</strong></td>
+<td><em>Which exact pixels belong to each individual object?</em></td>
+<td>A mask + label for each instance</td>
+<td>“Here are three separate sheep and a dog, each with its own outline.”</td>
+</tr>
+</tbody>
+</table>
+<p>Instance segmentation therefore <strong>combines the strengths of object detection and semantic segmentation</strong>. It both <strong>detects</strong> objects (like detection) and <strong>delineates</strong> them (like segmentation). The result is a collection of <em>colored masks</em>, each describing one distinct instance of an object.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Key Idea
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Instance segmentation is more challenging and computationally intensive than other tasks, and it’s not always necessary for every application.</p>
+<p>Instance segmentation tells the model: <em>Don’t just find all the cats, tell me which pixels belong to Cat #1, Cat #2, and Cat #3.</em></p>
 </div>
 </div>
+<p>Behind the scenes, this requires the model to learn fine-grained spatial details while still recognizing object categories. It’s a bit like tracing a outline after recognizing the object’s identity.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Quick Thought
+<span class="screen-reader-only">Tip</span>Quick Thought
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider which of these tasks would be most useful for your current projects or applications.</p>
+<p>Think of an example in your field:</p>
+<p>Would you care the distinction between the different instances of the same object, or just the presence of the object? Would you rather have a box around a region, or the exact outline of that region’s shape?</p>
+<p>That choice usually determines which task you need to solve.</p>
 </div>
 </div>
 </section>
-<section id="importance-and-applications-of-instance-segmentation" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="importance-and-applications-of-instance-segmentation"><span class="header-section-number">12.2</span> Importance and applications of instance segmentation</h2>
-<p>Instance segmentation plays a crucial role in various fields. Its importance stems from the following factors:</p>
-<ul>
-<li><strong>Fine-grained precision</strong>: Unlike object detection, which only provides bounding boxes, instance segmentation offers pixel-level accuracy. This precision is essential for tasks where understanding the exact shape and position of objects matters.</li>
-<li><strong>Object differentiation</strong>: It not only identifies the presence of objects but also distinguishes between individual instances of the same class. This capability is valuable in scenarios where multiple objects of the same type need to be analyzed separately.</li>
-<li><strong>Integration in complex systems</strong>: By providing detailed object masks, instance segmentation enables more sophisticated interactions with objects in the environment, such as robotics and augmented reality applications.</li>
-</ul>
-<p><strong>Applications:</strong></p>
-<ul>
-<li><strong>Medical imaging</strong>: In medical applications, instance segmentation can help identify and analyze specific structures within images, such as tumors or organs <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</li>
-<li><strong>Robotics</strong>: In robotics, instance segmentation enables robots to perceive and interact with their environment more effectively, distinguishing between different objects and obstacles <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</li>
-<li><strong>Environmental monitoring</strong>: Instance segmentation can be used in environmental mapping to detect and classify natural features from satellite imagery. This approach enhances the ability to monitor changes in landscapes across large areas with high accuracy <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>.</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quick Thought
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Consider how the ability to identify not just the presence of objects, but also their precise contours, might enhance applications you are familiar with.</p>
-</div>
-</div>
+<section id="why-does-it-matter" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="why-does-it-matter"><span class="header-section-number">12.2</span> Why Does It Matter?</h2>
+<p>Now that we know what instance segmentation is, let’s ask a simple question: <strong>why go through all that extra effort?</strong></p>
+<p>After all, drawing precise masks for every object sounds expensive and complex. But for many real-world problems, those extra pixels make a big difference.</p>
+<section id="fine-grained-precision" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fine-grained-precision">1. Fine-grained precision</h3>
+<p>Bounding boxes only tell <em>where</em> an object roughly is. Instance segmentation tells <em>exactly which pixels</em> belong to it. That’s crucial whenever <strong>shape, size, or boundaries</strong> matter. For example, measuring a tumor, estimating crop coverage, or mapping glacial melt ponds.</p>
 </section>
-<section id="transitioning-from-backbone-networks-to-classification-networks" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="transitioning-from-backbone-networks-to-classification-networks"><span class="header-section-number">12.3</span> Transitioning from backbone networks to classification networks</h2>
-<p><img src="../images/dl-pytorch/models.png" class="img-fluid"> In the previous section, we discussed how deep learning models consist of three core components: <strong>input adaptation</strong>, <strong>feature extractor</strong>, and <strong>output adaptation</strong>. Now, let’s explore how these components are configured starting from a backbone network, like ResNet-50, to create a classification network.</p>
-<p><strong>ResNet-50 as a backbone network</strong></p>
-<p>Using a ResNet-50 backbone network as an example, let’s first examine the structure of the model:</p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Code snippet to load a pre-trained ResNet-50 model
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.models <span class="im">as</span> models</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the pre-trained ResNet-50 model</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> models.resnet50(pretrained<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model architecture</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<p>The output of the code snippet above provides the architecture of the ResNet-50 model, which includes a series of convolutional and batch normalization layers, typically used for feature extraction:</p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Output: ResNet-50 architecture
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ResNet(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">3</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>(maxpool): MaxPool2d(kernel_size<span class="op">=</span><span class="dv">3</span>, stride<span class="op">=</span><span class="dv">2</span>, padding<span class="op">=</span><span class="dv">1</span>, dilation<span class="op">=</span><span class="dv">1</span>, ceil_mode<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>(layer1): Sequential(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>(layer2): Sequential(</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">64</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">128</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>(downsample): Sequential(</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): Conv2d(<span class="dv">64</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">128</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">128</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>(layer3): Sequential(</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">128</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">256</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>(downsample): Sequential(</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): Conv2d(<span class="dv">128</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">256</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">256</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>(layer4): Sequential(</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">256</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">512</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>(downsample): Sequential(</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): Conv2d(<span class="dv">256</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">512</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">512</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>(avgpool): AdaptiveAvgPool2d(output_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>(fc): Linear(in_features<span class="op">=</span><span class="dv">512</span>, out_features<span class="op">=</span><span class="dv">1000</span>, bias<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<p>The output above is a liitle verbose, so let’s summarize the key components of the ResNet-50 model:</p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Summary: ResNet-50 architecture
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ResNet(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">3</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>(maxpool): MaxPool2d(kernel_size<span class="op">=</span><span class="dv">3</span>, stride<span class="op">=</span><span class="dv">2</span>, padding<span class="op">=</span><span class="dv">1</span>, dilation<span class="op">=</span><span class="dv">1</span>, ceil_mode<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>(layer1): Sequential()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>(layer2): Sequential()</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>(layer3): Sequential()</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>(layer4): Sequential()</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>(avgpool): AdaptiveAvgPool2d(output_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>(fc): Linear(in_features<span class="op">=</span><span class="dv">512</span>, out_features<span class="op">=</span><span class="dv">1000</span>, bias<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>where <code>layerx</code> represents the convolutional blocks in the network.</p>
-</div>
-</div>
-</div>
-<p><strong>Modifying the ResNet-50 model to perform classification</strong></p>
-<p>To modify the ResNet-50 model to perform classification, we first need to define the task. For this example, we will classify images into 10 classes, e.g., 10 different types of food. So, for the data, we have</p>
-<ul>
-<li>input: an image</li>
-<li>output: a 10-dimensional vector of class probabilities</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quick Thought
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>How would you modify the ResNet-50 model to perform classification?</p>
-</div>
-</div>
-<p>Let’s examine the three components of the model and see how we can modify them to perform classification.</p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Input Adaptation
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>No changes needed. The ResNet-50 model is designed to accept images as input, which is suitable for our task.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Feature Extractor
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>No changes needed. The pre-trained ResNet-50 model’s layers are retained for feature extraction, leveraging its ability to learn complex patterns from images.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Output Adaptation
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>From the summary of the ResNet-50 architecture, we can see that the output layer is a linear layer with 1000 output features.</p>
-<p><code>(fc): Linear(in_features=512, out_features=1000, bias=True)</code></p>
-<p>It is designed to output 1000 class probabilities, and we need to modify it to output 10 class probabilities for our task. To do this, we can replace the linear layer with a new linear layer that has 10 output features.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace the last linear layer with a new linear layer that has 10 output features</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>model.fc <span class="op">=</span> nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<p>Done! We have modified the ResNet-50 model to perform classification. Here is the complete code:</p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Complete code
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.models <span class="im">as</span> models</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the pre-trained ResNet-50 model</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> models.resnet50(pretrained<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace the last linear layer with a new linear layer that has 10 output features</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>model.fc <span class="op">=</span> nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model architecture</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Quick Thought
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Using the ResNet-50 model as a backbone network, is there other way to modify the model to perform classification?</li>
-<li>With the classification task as an example, try to think of how to modify the model to perform instance segmentation.</li>
-</ul>
-</div>
-</div>
+<section id="distinguishing-look-alikes" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="distinguishing-look-alikes">2. Distinguishing look-alikes</h3>
+<p>Semantic segmentation colors all sheep the same color, as if they’re one big flock. Instance segmentation separates each sheep into its own mask. This distinction lets us <strong>count, track, and compare</strong> individuals, which is essential for crowd analysis, wildlife monitoring, or object-by-object statistics.</p>
 </section>
-<section id="a-step-by-step-guide-to-instance-segmentation" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="a-step-by-step-guide-to-instance-segmentation"><span class="header-section-number">12.4</span> A step-by-step guide to instance segmentation</h2>
-<p>To achieve instance segmentation, let’s begin from object detection and progress to instance segmentation since object detection is like a simplified version of instance segmentation. Below, we list the input and output of object detection and instance segmentation.</p>
-<table class="caption-top table">
+<section id="enabling-interaction" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="enabling-interaction">3. Enabling interaction</h3>
+<p>In robotics, augmented reality, or autonomous driving, systems must know <em>where one object ends and another begins</em>. With pixel-accurate masks, robots can grasp, avoid, or label objects more safely and reliably. Likewise, AR apps can anchor digital objects precisely on real-world surfaces.</p>
+</section>
+<section id="applications-in-the-wild" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="applications-in-the-wild">Applications in the Wild</h3>
+<table class="table-striped caption-top table">
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>How instance segmentation helps</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🧬 Medical imaging</td>
+<td>Identifies and measures individual organs, lesions, or cells with pixel-level accuracy <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</td>
+</tr>
+<tr class="even">
+<td>🤖 Robotics &amp; automation</td>
+<td>Allows robots to perceive and interact with separate objects in cluttered scenes <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</td>
+</tr>
+<tr class="odd">
+<td>🌍 Environmental monitoring</td>
+<td>Maps terrain features such as permafrost polygons or vegetation patches for change detection <a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In your own research or projects, where would <strong>pixel-level detail</strong> unlock new insight?</p>
+<p>Try to picture the same task using only bounding boxes. What information would you lose?</p>
+</div>
+</div>
+<p>Next, we’ll peek under the hood: how do models actually achieve these capabilities?</p>
+<p>To answer that, we’ll revisit our three familiar friends: <strong>input</strong>, <strong>feature extractor</strong>, and <strong>output</strong>, and see how every “advanced” network is just a creative remix of those parts.</p>
+</section>
+</section>
+<section id="from-building-blocks-to-advanced-networks" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="from-building-blocks-to-advanced-networks"><span class="header-section-number">12.3</span> From Building Blocks to Advanced Networks</h2>
+<p>So far, we’ve seen <em>what</em> instance segmentation is and <em>why</em> it matters. Now, let’s look at <strong>how</strong> we can make a neural network actually do it.</p>
+<p>The good news?</p>
+<p>Every deep learning model, no matter how complex its name sounds, is built from the same three ingredients you’ve already met:</p>
+<ol type="1">
+<li><strong>Input adaptation:</strong> how data is prepared and passed into the network</li>
+<li><strong>Feature extractor:</strong> the main body of the model that learns patterns</li>
+<li><strong>Output adaptation:</strong> how the extracted information is translated into predictions</li>
+</ol>
+<p><img src="../images/dl-pytorch/models.png" class="img-fluid"></p>
+<p>Think of it like a pipeline:</p>
+<blockquote class="blockquote">
+<p><strong>Input → Feature extractor → Output</strong></p>
+</blockquote>
+<p>Each part has its own job. When we move from <em>classification</em> to <em>detection</em> to <em>segmentation</em>, we don’t reinvent the pipeline; we just <strong>add new capabilities</strong> or <strong>modify one of the blocks</strong> to serve a different purpose.</p>
+<table class="table-striped caption-top table">
 <colgroup>
-<col style="width: 28%">
+<col style="width: 16%">
+<col style="width: 16%">
 <col style="width: 33%">
-<col style="width: 38%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Task</th>
 <th>Input</th>
+<th>Feature Extractor</th>
 <th>Output</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Object Detection</td>
+<td>Classification</td>
 <td>Image</td>
-<td>Bounding boxes and class labels for each instance</td>
+<td>CNN backbone (e.g., ResNet-50)</td>
+<td>Class probabilities</td>
 </tr>
 <tr class="even">
+<td>Object Detection</td>
+<td>Image</td>
+<td>Same backbone</td>
+<td>Bounding boxes + class labels</td>
+</tr>
+<tr class="odd">
 <td>Instance Segmentation</td>
 <td>Image</td>
-<td>Bounding boxes, masks and class labels for each instance</td>
+<td>Same backbone</td>
+<td>Masks + class labels</td>
 </tr>
 </tbody>
 </table>
-<section id="the-first-step-r-cnn" class="level3" data-number="12.4.1">
-<h3 data-number="12.4.1" class="anchored" data-anchor-id="the-first-step-r-cnn"><span class="header-section-number">12.4.1</span> The First Step: R-CNN</h3>
-<p>Our journey begins with the introduction of Region-based Convolutional Neural Networks (R-CNN).</p>
-<p>Imagine you are tasked with finding specific items in a crowded room (the image). The first step you need is a strategy to pinpoint potential areas where the items might be located. This is where <strong>Selective Search <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></strong> comes into play. It acts like a diligent assistant that systematically scans the image, suggesting potential regions that might contain the items. Once you have these potential regions, the next step is to understand what each region contains. In our example, we use <strong>ResNet-50</strong> to extract features from each region. With the features in hand, we then use a linear <strong>Support Vector Machine (SVM)</strong> to classify each region into one of the 10 classes. But recognizing objects is just part of the story. To ensure precision in locating these objects, we employ a <strong>linear regression model</strong> to refine the coordinates of the bounding boxes.</p>
-<p><strong>Summary of R-CNN components:</strong></p>
+<p>Notice how the <strong>feature extractor</strong> often stays the same, for example, ResNet-50, which you’ve already seen. What changes is mainly <strong>how we interpret</strong> those extracted features at the output.</p>
+<p>This insight is powerful:</p>
+<p>when researchers realized classification networks could already “see” complex features, they began reusing them for localization tasks: first for boxes, then for masks.</p>
+<p>Each breakthrough (R-CNN, Fast R-CNN, Faster R-CNN, Mask R-CNN) simply tweaked one or more of these three blocks.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Advanced networks aren’t mysterious new inventions; they’re <strong>incremental upgrades</strong> built on the same foundation: input, features, output.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Imagine you want your network to predict <em>depth maps</em> or <em>object edges.</em> Which component, input, feature extractor, or output, would you modify first?</p>
+</div>
+</div>
+<p>Next, we’ll start from the most familiar example: a <strong>classification network</strong>, and see how small architectural changes gradually lead us toward <strong>instance segmentation</strong>.</p>
+</section>
+<section id="starting-point-classification-networks" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="starting-point-classification-networks"><span class="header-section-number">12.4</span> Starting Point: Classification Networks</h2>
+<p>Before we leap into detection and segmentation, let’s anchor ourselves in something familiar: <strong>image classification.</strong></p>
+<p>At its core, a classification network answers a simple question:</p>
+<blockquote class="blockquote">
+<p>“What category does this image belong to?”</p>
+</blockquote>
+<p>For example, given a picture of fruit, the network might output:</p>
+<pre class="text"><code>apple: 0.85, banana: 0.10, orange: 0.05</code></pre>
+<section id="revisiting-our-three-building-blocks" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="revisiting-our-three-building-blocks">Revisiting our three building blocks</h3>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 50%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Role in classification</th>
+<th>Example (ResNet-50)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Input</td>
+<td>Accept an image (e.g., 3 RGB channels) and resize/normalize it for the model.</td>
+<td>224 × 224 × 3 tensor</td>
+</tr>
+<tr class="even">
+<td>Feature Extractor</td>
+<td>Learn rich visual patterns: edges → textures → shapes that describe the content.</td>
+<td>Convolutional backbone of ResNet-50</td>
+</tr>
+<tr class="odd">
+<td>Output Adaptation</td>
+<td>Convert those features into class probabilities.</td>
+<td>Final fully-connected layer + softmax</td>
+</tr>
+</tbody>
+</table>
+<p>So, when we say <em>“ResNet-50 backbone”</em>, we’re really talking about the <strong>feature extractor</strong> block.</p>
+</section>
+<section id="a-quick-look-under-the-hood" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="a-quick-look-under-the-hood">A quick look under the hood</h3>
+<p>Let’s load a pre-trained ResNet-50 from PyTorch and peek at its structure:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.models <span class="im">as</span> models</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the pre-trained ResNet-50 model</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> models.resnet50(pretrained<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Click to view the whole architecture of ResNet-50
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ResNet(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">3</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>(maxpool): MaxPool2d(kernel_size<span class="op">=</span><span class="dv">3</span>, stride<span class="op">=</span><span class="dv">2</span>, padding<span class="op">=</span><span class="dv">1</span>, dilation<span class="op">=</span><span class="dv">1</span>, ceil_mode<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>(layer1): Sequential(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">64</span>, <span class="dv">64</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">64</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>(layer2): Sequential(</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">64</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">128</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>(downsample): Sequential(</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): Conv2d(<span class="dv">64</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">128</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">128</span>, <span class="dv">128</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">128</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>(layer3): Sequential(</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">128</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">256</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>(downsample): Sequential(</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): Conv2d(<span class="dv">128</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">256</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">256</span>, <span class="dv">256</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">256</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>(layer4): Sequential(</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): BasicBlock(</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">256</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">512</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>(downsample): Sequential(</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>(<span class="dv">0</span>): Conv2d(<span class="dv">256</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), stride<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">2</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>): BasicBlock(</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>(conv1): Conv2d(<span class="dv">512</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>(bn1): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>(relu): ReLU(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>(conv2): Conv2d(<span class="dv">512</span>, <span class="dv">512</span>, kernel_size<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>), stride<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), padding<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>(bn2): BatchNorm2d(<span class="dv">512</span>, eps<span class="op">=</span><span class="fl">1e-05</span>, momentum<span class="op">=</span><span class="fl">0.1</span>, affine<span class="op">=</span><span class="va">True</span>, track_running_stats<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>(avgpool): AdaptiveAvgPool2d(output_size<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>(fc): Linear(in_features<span class="op">=</span><span class="dv">512</span>, out_features<span class="op">=</span><span class="dv">1000</span>, bias<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>You’ll see a long list of convolutional layers grouped into four stages (<code>layer1</code> to <code>layer4</code>), followed by:</p>
+<pre class="text"><code>(avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+(fc): Linear(in_features=2048, out_features=1000, bias=True)</code></pre>
+<p>That last line, the fully connected (<code>fc</code>) layer, is the <strong>output adaptation</strong>. It converts the learned features into 1,000 ImageNet class scores.</p>
+</section>
+<section id="customizing-for-your-own-task" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="customizing-for-your-own-task">Customizing for your own task</h3>
+<p>Suppose we want to classify images into 10 classes (say, 10 types of flowers). We keep the same input and feature extractor, but swap the output head:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace the last layer with one suited for 10 classes</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>model.fc <span class="op">=</span> nn.Linear(<span class="dv">2048</span>, <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>That’s it! You’ve adapted a world-class backbone for your own dataset.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Classification models like ResNet-50 form the <strong>starting point</strong> for many advanced vision systems. Later, object-detection and segmentation models will reuse this exact feature extractor and simply modify what happens <strong>after</strong> it.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If classification outputs a single label per image, what kind of modification might you need if you wanted to <strong>locate multiple objects</strong> instead?</p>
+<p><em>Hint: the output block will need more than one prediction!</em></p>
+</div>
+</div>
+<p>Next, we’ll follow that hint: evolving our classification network into models that can <em>find</em> and <em>label</em> multiple objects at once.</p>
+<p>That journey begins with the first landmark in detection history: <strong>R-CNN</strong>.</p>
+</section>
+</section>
+<section id="the-evolution-of-detection-models" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="the-evolution-of-detection-models"><span class="header-section-number">12.5</span> The Evolution of Detection Models</h2>
+<p>Once we know how to classify an image, a natural next question appears:</p>
+<blockquote class="blockquote">
+<p>“Can the model also tell me where each object is?”</p>
+</blockquote>
+<p>This question led to one of the most important breakthroughs in computer vision: the evolution from simple classification to <strong>object detection</strong>, and eventually, <strong>instance segmentation</strong>.</p>
+<p>Let’s trace this evolution through four key milestones:</p>
+<p><strong>R-CNN → Fast R-CNN → Faster R-CNN → Mask R-CNN.</strong></p>
+<p>Each model solves one major bottleneck of its predecessor.</p>
+<section id="r-cnn-the-first-step" class="level3" data-number="12.5.1">
+<h3 data-number="12.5.1" class="anchored" data-anchor-id="r-cnn-the-first-step"><span class="header-section-number">12.5.1</span> R-CNN: The First Step</h3>
+<p>Imagine you’re a detective asked to locate every cat in a giant city photograph. You could inspect every pixel one by one, but that would take forever. Instead, you might first mark <em>possible locations</em> (windows, rooftops, gardens) and then zoom into each to decide whether a cat is really there.</p>
+<p>That’s exactly the idea behind <strong>R-CNN (Region-based Convolutional Neural Network)</strong>, proposed by Ross Girshick et al.&nbsp;in 2014 <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>.</p>
+<p>It was the first deep-learning model to detect <em>and</em> localize objects successfully.</p>
+<section id="step-1-propose-candidate-regions" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-1-propose-candidate-regions"><strong>Step 1: Propose candidate regions</strong></h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/home/step3-660x304.PNG" class="img-fluid figure-img"></p>
+<figcaption>Illustration of Selective Search generating region proposals over an image. Source:<a href="https://www.geeksforgeeks.org/machine-learning/selective-search-for-object-detection-r-cnn/">geeksforgeeks</a></figcaption>
+</figure>
+</div>
+<p>Before any neural network runs, R-CNN uses a separate algorithm called <strong>Selective Search<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></strong> to guess where objects might be. Think of it as a diligent assistant drawing ~2000 rectangles around promising areas of the image based on color, texture, and edges.</p>
+<p>Each rectangle, called a <em>region proposal</em>, is a possible object.</p>
+</section>
+<section id="step-2-extract-features-for-each-region" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-2-extract-features-for-each-region"><strong>Step 2: Extract features for each region</strong></h4>
+<p>For every proposed region, we crop that portion of the image, resize it to a standard size, and feed it through a CNN (for example, AlexNet or ResNet).</p>
+<p>The CNN acts as the <strong>feature extractor</strong>, producing a numerical fingerprint that describes the visual content.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudocode for R-CNN feature extraction</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> region <span class="kw">in</span> selective_search(image):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    crop <span class="op">=</span> resize(image[region], (<span class="dv">224</span>, <span class="dv">224</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    features <span class="op">=</span> cnn(crop)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Because there are ~2000 regions, this step runs the CNN thousands of times per image. This is a key limitation we’ll revisit soon.</p>
+</section>
+<section id="step-3-classify-and-refine-boxes" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-3-classify-and-refine-boxes"><strong>Step 3: Classify and refine boxes</strong></h4>
+<p>Once we have the feature vector for each region:</p>
 <ul>
-<li><strong>Region proposal (selective search)</strong>: Generate potential object regions.</li>
-<li><strong>Feature extraction (ResNet-50)</strong>: Extract features from each region.</li>
-<li><strong>Classification (linear SVM)</strong>: Classify each region into one of the 10 classes.</li>
-<li><strong>Bounding box regression (linear regression)</strong>: Refine the coordinates of the bounding boxes.</li>
+<li>A <strong>Support Vector Machine (SVM)</strong> predicts which class the region belongs to (cat, dog, car, …).</li>
+<li>A <strong>linear regression model</strong> fine-tunes the coordinates of the bounding box to fit the object more tightly.</li>
 </ul>
-<p><strong>Limitations of R-CNN:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cls_score <span class="op">=</span> svm(features)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>bbox <span class="op">=</span> regressor(features)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>So R-CNN’s output consists of <strong>bounding boxes and class labels</strong>.</p>
+</section>
+<section id="step-4-combine-the-results" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-4-combine-the-results"><strong>Step 4: Combine the results</strong></h4>
+<p>Finally, overlapping boxes are merged using <em>Non-Maximum Suppression (NMS)</em> <a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> so only the best one remains for each object.</p>
+<p>The full pipeline looks like this:</p>
+<p><img src="../images/dl-pytorch/r-cnn-pipeline.png" class="img-fluid"></p>
+</section>
+<section id="how-r-cnn-fits-into-our-three-block-framework" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="how-r-cnn-fits-into-our-three-block-framework"><strong>How R-CNN fits into our three-block framework</strong></h4>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>What R-CNN does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Input adaptation</strong></td>
+<td>Image + region proposals from Selective Search</td>
+</tr>
+<tr class="even">
+<td><strong>Feature extractor</strong></td>
+<td>CNN applied separately to each region</td>
+</tr>
+<tr class="odd">
+<td><strong>Output adaptation</strong></td>
+<td>SVM + regressor for class + bounding box</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-made-r-cnn-revolutionary" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="what-made-r-cnn-revolutionary"><strong>What made R-CNN revolutionary</strong></h4>
 <ul>
-<li><strong>Slow inference</strong>: Processes each region independently, leading to inefficiency.</li>
-<li><strong>Complex training</strong>: Requires multiple models and stages.</li>
-<li><strong>Inefficient feature extraction</strong>: Redundant computations for overlapping regions.</li>
+<li>First to prove that <strong>deep CNN features</strong> outperform hand-crafted features (like HOG or SIFT) for object recognition.</li>
+<li>Showed that <strong>localizing</strong> multiple objects could be framed as multiple independent classification problems.</li>
+<li>Inspired the whole family of “Region-based CNNs” that followed.</li>
 </ul>
 </section>
-<section id="evolution-to-fast-r-cnn" class="level3" data-number="12.4.2">
-<h3 data-number="12.4.2" class="anchored" data-anchor-id="evolution-to-fast-r-cnn"><span class="header-section-number">12.4.2</span> Evolution to Fast R-CNN</h3>
-<p>Continuing our journey towards instance segmentation, we move from the foundational R-CNN to a more advanced and efficient model: Fast R-CNN. This evolution is necessary to overcome the challenges faced by R-CNN.</p>
-<p>In our quest for faster and more efficient object detection, Fast R-CNN addresses the limitations of its predecessor, R-CNN. Imagine now that instead of examining each potential object region individually, you first take a comprehensive view of the entire scene. This panoramic approach forms the basis of Fast R-CNN.</p>
+<section id="but-it-was-painfully-slow" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="but-it-was-painfully-slow"><strong>But… it was painfully slow</strong></h4>
 <ul>
-<li><p><strong>Feature extraction (single pass)</strong>: Fast R-CNN starts by processing the entire image in a single forward pass through the network, using a shared convolutional feature map. This method not only accelerates the process but also eliminates the need to repeatedly extract features for overlapping regions, directly addressing the inefficiency of R-CNN.</p></li>
-<li><p><strong>Region proposal (selective search)</strong>: Although it continues to use Selective Search to suggest possible object regions, the way these proposals are handled is integrated into a more streamlined workflow.</p></li>
-<li><p><strong>RoI pooling</strong>: To efficiently zoom into specific regions of interest (RoIs), Fast R-CNN introduces RoI Pooling. This component crops and resizes the shared feature map for each proposed region, much like focusing a camera lens on the areas of interest. RoI Pooling ensures that each region is presented in a consistent shape to the classifier, optimizing the use of features extracted in the initial pass.</p></li>
-<li><p><strong>Classification and bounding box regression (fully connected layers)</strong>: Fast R-CNN employs fully connected layers to perform both classification and bounding box regression simultaneously. This integration simplifies the training pipeline and ensures that both tasks benefit from the shared feature representation, in contrast to the separate models used in R-CNN.</p></li>
+<li>~2000 regions × 1 CNN forward pass ≈ minutes per image.</li>
+<li>Multi-stage training: CNN, then SVM, then regressor, then fine-tuning.</li>
+<li>Heavy disk usage: each cropped region saved separately to disk before training.</li>
 </ul>
-<p><strong>Summary of Fast R-CNN Components:</strong></p>
-<ul>
-<li><strong>Feature extraction (single pass)</strong>: Processes the entire image once, reducing redundancy and speeding up inference.</li>
-<li><strong>Region proposal (selective search)</strong>: Still used, but proposals are more efficiently integrated into the workflow.</li>
-<li><strong>RoI pooling</strong>: Efficiently refines regions of interest for classification and bounding box adjustments.</li>
-<li><strong>Classification and bounding box regression (fully connected layers)</strong>: Conducts these tasks concurrently, simplifying the model architecture.</li>
-</ul>
-<p><strong>Solving R-CNN Limitations:</strong></p>
-<ul>
-<li><strong>Slow inference</strong>: Addressed by processing the entire image in a single pass, reducing computational load.</li>
-<li><strong>Complex training pipeline</strong>: Simplified by integrating classification and regression within a unified model.</li>
-<li><strong>Inefficient feature extraction</strong>: Eliminated by using shared feature maps, reducing redundant processing.</li>
-</ul>
-<p><strong>Limitations of Fast R-CNN:</strong></p>
-<ul>
-<li><strong>Dependence on slow region proposal methods</strong>: The reliance on Selective Search for region proposals limits the speed of the overall system.</li>
-<li><strong>Separate proposal and detection stages</strong>: Although integrated more efficiently than R-CNN, the use of Selective Search still represents a bottleneck.</li>
-<li><strong>Potential for further speed improvements</strong>: While faster than R-CNN, Fast R-CNN does not fully utilize potential speed optimizations through end-to-end training of the proposal mechanism.</li>
-</ul>
-</section>
-<section id="introducing-faster-r-cnn" class="level3" data-number="12.4.3">
-<h3 data-number="12.4.3" class="anchored" data-anchor-id="introducing-faster-r-cnn"><span class="header-section-number">12.4.3</span> Introducing Faster R-CNN</h3>
-<p>As we progress in our journey towards instance segmentation, we arrive at Faster R-CNN, which further refines the processes established by Fast R-CNN. This model addresses the bottlenecks that persisted in previous approaches, particularly regarding region proposal efficiency.</p>
-</section>
-<section id="the-innovation-of-faster-r-cnn" class="level3" data-number="12.4.4">
-<h3 data-number="12.4.4" class="anchored" data-anchor-id="the-innovation-of-faster-r-cnn"><span class="header-section-number">12.4.4</span> The Innovation of Faster R-CNN</h3>
-<p>Faster R-CNN represents a significant leap forward in object detection by introducing a component that eliminates the dependence on slow external region proposal methods. This innovation stems from the integration of a Region Proposal Network (RPN), which transforms the object detection process into a unified, end-to-end trainable system.</p>
-<ul>
-<li><p><strong>Feature extraction (single pass)</strong>: Like Fast R-CNN, Faster R-CNN begins by processing the entire image in a single pass through a convolutional network to produce a shared feature map. This ensures efficient feature extraction and serves as the foundation for both region proposal and object detection tasks.</p></li>
-<li><p><strong>Region proposal network (RPN)</strong>: The key innovation of Faster R-CNN is the RPN, which is integrated directly into the convolutional feature map. The RPN efficiently generates region proposals by sliding a small network over the shared feature map. This network outputs a set of objectness scores and refined bounding box coordinates for anchors at each spatial location, effectively replacing the slow Selective Search process used in Fast R-CNN.</p></li>
-<li><p><strong>RoI pooling</strong>: After generating region proposals, Faster R-CNN employs RoI Pooling to extract fixed-size feature maps from the shared feature map for each proposal. This ensures that each region of interest is consistently prepared for the subsequent classification and bounding box refinement stages.</p></li>
-<li><p><strong>Classification and bounding box regression (fully connected layers)</strong>: The proposals are then fed into fully connected layers for simultaneous classification and bounding box regression, refining both the class labels and bounding box coordinates.</p></li>
-</ul>
-<p><strong>Summary of Faster R-CNN Components:</strong></p>
-<ul>
-<li><strong>Feature extraction (single pass)</strong>: Processes the entire image once, providing a shared feature map for all subsequent tasks.</li>
-<li><strong>Region proposal network (RPN)</strong>: Generates high-quality region proposals directly from the feature map, replacing slower methods.</li>
-<li><strong>RoI pooling</strong>: Standardizes proposal feature maps for further processing.</li>
-<li><strong>Classification and bounding box regression (fully connected layers)</strong>: Conducts these tasks effectively and efficiently, using the refined proposals.</li>
-</ul>
-<p><strong>Addressing Fast R-CNN Limitations:</strong></p>
-<ul>
-<li><strong>Dependence on slow region proposal methods</strong>: Solved by integrating the RPN, which provides fast and efficient region proposals.</li>
-<li><strong>Separate proposal and detection stages</strong>: Unified into a single, end-to-end trainable model.</li>
-<li><strong>Potential for further speed improvements</strong>: Realized through the RPN, which allows for significant speed gains and paves the way for real-time object detection capabilities.</li>
-</ul>
+<p>The model worked, but not for real-time applications. Researchers loved its accuracy but craved speed.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If every proposed region needs its own CNN pass, what could you change in the <strong>feature extractor</strong> to make this process faster?</p>
+</div>
+</div>
+<p>Up next, we’ll see how <strong>Fast R-CNN</strong> answered exactly that question: by realizing we can share computation across all regions instead of repeating it thousands of times.</p>
 </section>
 </section>
-<section id="transition-to-instance-segmentation-mask-r-cnn" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="transition-to-instance-segmentation-mask-r-cnn"><span class="header-section-number">12.5</span> Transition to Instance Segmentation: Mask R-CNN</h2>
-<p>Having refined the processes of object detection with Faster R-CNN, we now transition to the realm of instance segmentation with Mask R-CNN. This model not only detects objects but also delineates each instance with precise pixel-level masks, taking the capabilities of Faster R-CNN a step further.</p>
-<p>Mask R-CNN builds upon the robust framework of Faster R-CNN, adding a crucial component for instance segmentation. It retains the speed and efficiency of Faster R-CNN while introducing new functionality without compromising performance.</p>
-<ul>
-<li><p><strong>Feature extraction (single pass)</strong>: Mask R-CNN, like its predecessor, begins by processing the entire image in a single pass through a convolutional network to produce a shared feature map. This feature map serves as the foundation for both region proposal and instance segmentation tasks.</p></li>
-<li><p><strong>Region proposal network (RPN)</strong>: The RPN continues to play a pivotal role in generating high-quality region proposals directly from the shared feature map. This component ensures that only the most promising regions are considered for further processing.</p></li>
-<li><p><strong>RoI Align</strong>: To address the spatial misalignment introduced by RoI Pooling in Faster R-CNN, Mask R-CNN introduces RoI Align. This new component improves the precision of feature extraction by avoiding quantization errors, ensuring that the extracted feature maps for each region of interest are perfectly aligned with the input image.</p></li>
-<li><p><strong>Classification, bounding box regression, and mask prediction (parallel heads)</strong>: Mask R-CNN extends the two-head structure of Faster R-CNN by adding a third branch specifically for mask prediction. This additional branch predicts a binary mask for each region of interest, allowing the model to not only classify objects and refine bounding boxes but also generate accurate pixel-level masks.</p></li>
-</ul>
-<p><strong>Summary of Mask R-CNN Components:</strong></p>
-<ul>
-<li><strong>Feature extraction (single pass)</strong>: Processes the entire image once, ensuring efficient use of computational resources.</li>
-<li><strong>Region proposal network (RPN)</strong>: Continues to provide fast and efficient region proposals.</li>
-<li><strong>RoI Align</strong>: Refines feature extraction for precise spatial alignment.</li>
-<li><strong>Classification, bounding box regression, and mask prediction (parallel heads)</strong>: Conducts these tasks simultaneously, enabling comprehensive instance segmentation.</li>
-</ul>
-<p><strong>Enhancements from Faster R-CNN:</strong></p>
-<ul>
-<li><strong>Pixel-level precision</strong>: Achieved through RoI Align, improving spatial alignment and mask accuracy.</li>
-<li><strong>Instance segmentation capability</strong>: Added through the mask prediction branch, enabling the model to generate detailed masks for each object instance.</li>
-</ul>
+<section id="fast-r-cnn-sharing-features" class="level3" data-number="12.5.2">
+<h3 data-number="12.5.2" class="anchored" data-anchor-id="fast-r-cnn-sharing-features"><span class="header-section-number">12.5.2</span> Fast R-CNN: Sharing Features</h3>
+<p>R-CNN worked, but it was <strong>painfully slow</strong>. Imagine our detective from earlier: instead of scanning one high-resolution map, they visit every single building in the city one by one. It works, but it’s exhausting.</p>
+<p>Ross Girshick, the same researcher who created R-CNN, asked a simple but brilliant question in 2015:</p>
+<blockquote class="blockquote">
+<p>“What if we <strong>extract features just once</strong> for the whole image, and reuse them for all regions?”</p>
+</blockquote>
+<p>That idea became <strong>Fast R-CNN</strong> – a version that was not only faster but also simpler and more elegant.</p>
+<section id="the-key-idea-share-the-feature-map" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="the-key-idea-share-the-feature-map"><strong>The key idea: share the feature map</strong></h4>
+<p>Instead of running a CNN 2000 times, Fast R-CNN runs it <strong>once</strong> on the entire image to create a <strong>shared feature map</strong>. Each proposed region (from Selective Search) is then projected onto this feature map rather than cropped directly from the raw image.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dl-pytorch/fast-rcnn-diagram.png" class="img-fluid figure-img"></p>
+<figcaption>Fast R-CNN idea: shared feature map + RoI pooling.</figcaption>
+</figure>
+</div>
+<p>So, instead of thousands of redundant CNN computations, we reuse the same deep features everywhere.</p>
 </section>
-<section id="conclusion" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">12.6</span> Conclusion</h2>
-<p>We’ve explored the evolution from R-CNN to Mask R-CNN, showing how each step builds on the last to improve performance. This process demonstrates how you can apply similar improvements to tackle a wide range of advanced tasks, not just instance segmentation. By understanding these developments, you’re equipped to enhance existing models and create innovative solutions for various challenges in computer vision.</p>
+<section id="step-by-step-walkthrough" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-by-step-walkthrough"><strong>Step-by-step walkthrough</strong></h4>
+<ol type="1">
+<li><p><strong>Input</strong>: Feed the <em>entire image</em> into the CNN backbone (e.g., VGG16 or ResNet).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>feature_map <span class="op">=</span> cnn(image)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Region proposals</strong>: Use <em>Selective Search</em> to get ~2000 candidate regions (same as R-CNN). These are now rectangles in <strong>image coordinates</strong>.</p></li>
+<li><p><strong>Map regions onto the feature map</strong>: Each region is projected from image coordinates to the corresponding area on the feature map.</p></li>
+<li><p><strong>RoI Pooling</strong>: This is Fast R-CNN’s most clever trick. Because proposed regions vary in size, we can’t feed them directly into a fully connected layer. <strong>RoI Pooling</strong> crops the portion of the feature map corresponding to each region and <em>pools</em> it into a fixed spatial size (for example, 7×7).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> roi <span class="kw">in</span> proposals:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    roi_feat <span class="op">=</span> roi_pool(feature_map, roi, output_size<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Classification and bounding box regression</strong>: Each RoI feature (7×7×C) is flattened and sent through two fully connected layers, producing:</p>
+<ul>
+<li>Class scores</li>
+<li>Bounding box refinements</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cls_score, bbox <span class="op">=</span> head(roi_feat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
+</section>
+<section id="unified-training-and-loss" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="unified-training-and-loss"><strong>Unified training and loss</strong></h4>
+<p>Unlike R-CNN, which trained separate models (CNN → SVM → regressor), Fast R-CNN trains everything together using a <strong>multi-task loss</strong>:</p>
+<p><span class="math display">\[
+L = L_\text{cls} + \lambda L_\text{bbox}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(L_\text{cls}\)</span>: classification loss (softmax cross-entropy)</li>
+<li><span class="math inline">\(L_\text{bbox}\)</span>: bounding box regression loss (smooth L1)</li>
+</ul>
+<p>This end-to-end training makes the model both faster to train and more accurate.</p>
+</section>
+<section id="what-improved-from-r-cnn" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="what-improved-from-r-cnn"><strong>What improved from R-CNN</strong></h4>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>R-CNN</th>
+<th>Fast R-CNN</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Feature extraction</td>
+<td>Separate CNN per region</td>
+<td>One CNN per image (shared)</td>
+<td>🚀 10–20× faster</td>
+</tr>
+<tr class="even">
+<td>Training</td>
+<td>Multi-stage (CNN, SVM, regressor)</td>
+<td>Unified, single-stage</td>
+<td>Simpler</td>
+</tr>
+<tr class="odd">
+<td>Storage</td>
+<td>Pre-compute region features</td>
+<td>On-the-fly computation</td>
+<td>No extra disk space</td>
+</tr>
+<tr class="even">
+<td>Accuracy</td>
+<td>High</td>
+<td>Higher (better end-to-end learning)</td>
+<td>✔️</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="but-one-bottleneck-remains" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="but-one-bottleneck-remains"><strong>But one bottleneck remains…</strong></h4>
+<p>Even though feature extraction became efficient, <strong>region proposals</strong> were still generated by the external <em>Selective Search</em> algorithm. Selective Search was CPU-based and slow. It took nearly two seconds per image.</p>
+<p>So, while inference was much faster, it wasn’t yet <em>real-time</em>.</p>
+</section>
+<section id="how-fast-r-cnn-fits-into-our-three-block-framework" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="how-fast-r-cnn-fits-into-our-three-block-framework"><strong>How Fast R-CNN fits into our three-block framework</strong></h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>What changed from R-CNN</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Input adaptation</strong></td>
+<td>Still uses region proposals (Selective Search), but processes one shared image feature map.</td>
+</tr>
+<tr class="even">
+<td><strong>Feature extractor</strong></td>
+<td>Shared CNN backbone computes features once.</td>
+</tr>
+<tr class="odd">
+<td><strong>Output adaptation</strong></td>
+<td>Unified head with RoI Pooling + fully connected layers for classification and box regression.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fast R-CNN taught us that most of the heavy computation in object detection could be <strong>shared</strong>.</p>
+<p>It’s like realizing you don’t need to bake a separate cake for each guest. You just slice one big cake into pieces.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <em>Selective Search</em> is now the slowest part, what if we teach the network itself to generate region proposals automatically?</p>
+</div>
+</div>
+<p>That question led directly to the next major leap: <strong>Faster R-CNN</strong>: a model that learns to propose its own regions, eliminating Selective Search altogether.</p>
+</section>
+</section>
+<section id="faster-r-cnn-end-to-end-detection" class="level3" data-number="12.5.3">
+<h3 data-number="12.5.3" class="anchored" data-anchor-id="faster-r-cnn-end-to-end-detection"><span class="header-section-number">12.5.3</span> Faster R-CNN: End-to-End Detection</h3>
+<p>Our detective has gotten smarter.</p>
+<p>In R-CNN, they searched every building; in Fast R-CNN, they looked at one satellite map and zoomed in on areas of interest.</p>
+<p>But they’re still relying on a <strong>human assistant</strong> (Selective Search) to tell them where to look next and that assistant is slow.</p>
+<p>So, in 2015, a new idea arrived:</p>
+<blockquote class="blockquote">
+<p>“What if the <strong>network itself</strong> could learn where objects are likely to appear?”</p>
+</blockquote>
+<p>This question gave birth to <strong>Faster R-CNN</strong> by Shaoqing Ren et al.&nbsp;(2015) <a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>, the first truly <strong>end-to-end</strong> object-detection framework. Its secret weapon: the <strong>Region Proposal Network (RPN)</strong>.</p>
+<section id="the-key-innovation-region-proposal-network-rpn" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="the-key-innovation-region-proposal-network-rpn"><strong>The key innovation: Region Proposal Network (RPN)</strong></h4>
+<p>The RPN is a tiny neural network that slides over the shared feature map (produced by the CNN backbone) and proposes potential object regions automatically. In other words, the network learns to generate its own “Select me!” boxes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dl-pytorch/faster-rcnn-diagram.png" class="img-fluid figure-img"></p>
+<figcaption>Faster R-CNN pipeline: shared feature map feeding both the RPN and the detection head.</figcaption>
+</figure>
+</div>
+</section>
+<section id="step-by-step-walkthrough-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="step-by-step-walkthrough-1"><strong>Step-by-step walkthrough</strong></h4>
+<ol type="1">
+<li><p><strong>Feature extraction</strong>: As before, we start with a CNN backbone (e.g., ResNet-50 or VGG-16) that processes the entire image once:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>feature_map <span class="op">=</span> cnn(image)      <span class="co"># shared backbone</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This feature map is now shared by <strong>two heads</strong>: the RPN (proposal generator) and the detection head (classifier + box regressor).</p></li>
+<li><p><strong>Generate anchors</strong>: At each location on the feature map, the model places a small set of <strong>anchor boxes</strong> – templates of different sizes and aspect ratios. You can think of them as little “nets” cast over the image, waiting to be adjusted.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>anchors <span class="op">=</span> generate_anchors(feature_map, scales<span class="op">=</span>[<span class="dv">128</span>,<span class="dv">256</span>,<span class="dv">512</span>], ratios<span class="op">=</span>[<span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each anchor will be tested: “Does this anchor contain an object?”</p></li>
+<li><p><strong>Predict objectness and box offsets</strong>: The RPN slides a 3×3 convolutional window over the feature map. For each anchor, it outputs:</p>
+<ul>
+<li>an <strong>objectness score</strong> (probability that an object exists here), and</li>
+<li>a <strong>bounding-box offset</strong> to refine the anchor’s shape and position.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> anchor <span class="kw">in</span> anchors:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    obj_score, bbox_offset <span class="op">=</span> rpn_head(feature_map, anchor)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>After this step, the RPN has thousands of proposals with confidence scores.</p></li>
+<li><p><strong>Select top proposals</strong>: A post-processing step called <strong>Non-Maximum Suppression (NMS)</strong> removes redundant boxes. Typically, the top ~2000 highest-scoring proposals (300 in practice) are kept.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>proposals <span class="op">=</span> nms(anchors, obj_score, top_k<span class="op">=</span><span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>These proposals replace the old Selective Search regions.</p></li>
+<li><p><strong>RoI Pooling → Detection Head</strong>: Each proposed region is cropped (via RoI Pooling or RoI Align) from the shared feature map and fed into the detection head — the same classification + box regression module introduced in Fast R-CNN:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> roi <span class="kw">in</span> proposals:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    roi_feat <span class="op">=</span> roi_pool(feature_map, roi)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    cls_score, bbox <span class="op">=</span> head(roi_feat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
+</section>
+<section id="training-as-one-network" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="training-as-one-network"><strong>Training as one network</strong></h4>
+<p>Both the RPN and the detection head share the same convolutional features and are trained <strong>jointly</strong>. The total loss combines RPN loss + detection loss:</p>
+<p><span class="math display">\[
+L = L_\text{RPN-cls} + L_\text{RPN-bbox} + L_\text{Det-cls} + L_\text{Det-bbox}
+\]</span></p>
+<p>This means the entire system, from pixels to final boxes, learns together.</p>
+</section>
+<section id="why-it-matters" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="why-it-matters"><strong>Why it matters</strong></h4>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Fast R-CNN</th>
+<th>Faster R-CNN</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Region proposals</td>
+<td>Hand-crafted Selective Search (CPU)</td>
+<td>Learned Region Proposal Network (GPU)</td>
+<td>🚀 100× faster</td>
+</tr>
+<tr class="even">
+<td>End-to-end training</td>
+<td>Partial (Selective Search external)</td>
+<td>Fully integrated</td>
+<td>Unified</td>
+</tr>
+<tr class="odd">
+<td>Speed</td>
+<td>~2 FPS on GPU</td>
+<td>~10 FPS on GPU</td>
+<td>Real-time possibility</td>
+</tr>
+<tr class="even">
+<td>Accuracy</td>
+<td>High</td>
+<td>Higher (learned proposals fit better)</td>
+<td>✔️</td>
+</tr>
+</tbody>
+</table>
+<p>The RPN made object detection practical for real-world systems and set the foundation for everything that came after, including instance segmentation.</p>
+</section>
+<section id="how-faster-r-cnn-fits-into-our-three-block-framework" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="how-faster-r-cnn-fits-into-our-three-block-framework"><strong>How Faster R-CNN fits into our three-block framework</strong></h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>What changed from Fast R-CNN</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Input adaptation</strong></td>
+<td>Added Region Proposal Network to generate anchors and proposals internally.</td>
+</tr>
+<tr class="even">
+<td><strong>Feature extractor</strong></td>
+<td>Shared backbone features used by both RPN and detection head.</td>
+</tr>
+<tr class="odd">
+<td><strong>Output adaptation</strong></td>
+<td>Two branches (classification + regression) refine proposals end-to-end.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a-mental-picture" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="a-mental-picture"><strong>A mental picture</strong></h4>
+<p>It’s as if our detective now works with a drone that automatically highlights potential objects from above. The detective still classifies them (cat, dog, car…), but no longer wastes time choosing <em>where</em> to look.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Faster R-CNN solved the last major bottleneck by teaching the network to propose its own regions. The result is a fully trainable system that detects objects with both speed and precision.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the model can now predict object locations and labels efficiently, what extra branch would you add to also predict each object’s <strong>exact shape</strong>?</p>
+</div>
+</div>
+<p>Up next is exactly that extension: <strong>Mask R-CNN</strong>, which builds on Faster R-CNN to perform full <strong>instance segmentation</strong>, adding a mask prediction head for pixel-level detail.</p>
+</section>
+</section>
+</section>
+<section id="mask-r-cnn-from-detection-to-segmentation" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="mask-r-cnn-from-detection-to-segmentation"><span class="header-section-number">12.6</span> Mask R-CNN: From Detection to Segmentation</h2>
+<p>At this point, our detective is lightning-fast. Thanks to Faster R-CNN, they can spot every object in a scene almost in real time. But there’s still one question left unanswered:</p>
+<blockquote class="blockquote">
+<p>“Can you <strong>draw the precise outline</strong> of each object, not just a box around it?”</p>
+</blockquote>
+<p>This challenge led to <strong>Mask R-CNN</strong> by Kaiming He et al.&nbsp;(2017) <a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>, a direct successor to Faster R-CNN that added the ability to perform <strong>instance segmentation</strong>, predicting a <strong>mask</strong> for every detected object.</p>
+<p>Mask R-CNN didn’t reinvent the wheel; it simply bolted one more well-designed component onto the same framework.</p>
+<section id="the-key-idea-add-a-mask-branch" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-key-idea-add-a-mask-branch">The key idea: Add a mask branch</h3>
+<p>Faster R-CNN already produced <strong>bounding boxes</strong> and <strong>class labels</strong>. Mask R-CNN adds a <strong>third parallel branch</strong> that predicts a binary mask, a small image showing which pixels belong to the detected object.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dl-pytorch/mask-rcnn-diagram.png" class="img-fluid figure-img"></p>
+<figcaption>Mask R-CNN: shared backbone → RPN → RoI Align → three heads (cls / bbox / mask).</figcaption>
+</figure>
+</div>
+<p>So for each proposed region, the model now outputs:</p>
+<ol type="1">
+<li><strong>Class label</strong></li>
+<li><strong>Bounding box</strong></li>
+<li><strong>Segmentation mask</strong></li>
+</ol>
+<p>All three are trained together in one network.</p>
+</section>
+<section id="step-by-step-walkthrough-2" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-by-step-walkthrough-2">Step-by-step walkthrough</h3>
+<section id="shared-feature-extraction" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="shared-feature-extraction"><strong>1. Shared feature extraction</strong></h4>
+<p>As before, the entire image is passed through a backbone (ResNet-50, ResNet-101, etc.) to produce a feature map shared by all heads.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>feature_map <span class="op">=</span> backbone(image)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The RPN (Region Proposal Network) then proposes candidate boxes from this feature map — identical to Faster R-CNN.</p>
+</section>
+<section id="roi-align-precise-region-cropping" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="roi-align-precise-region-cropping"><strong>2. RoI Align: precise region cropping</strong></h4>
+<p>Fast / Faster R-CNN used <strong>RoI Pooling</strong> to crop regions of interest, but pooling involved rounding coordinates to integers, which introduced slight misalignments. Those pixel-level shifts are small for detection, but catastrophic for mask accuracy.</p>
+<p><strong>RoI Align</strong> fixes this by using <strong>bilinear interpolation</strong> instead of quantization, preserving exact spatial locations.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>roi_feat <span class="op">=</span> roi_align(feature_map, roi, output_size<span class="op">=</span>(<span class="dv">14</span>,<span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each RoI now corresponds perfectly to its true image region.</p>
+</section>
+<section id="three-parallel-heads" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="three-parallel-heads"><strong>3. Three parallel heads</strong></h4>
+<p>Once features are extracted, they’re sent into three separate branches:</p>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Head</th>
+<th>Output</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Classification head</strong></td>
+<td>Class scores</td>
+<td>Identify what the object is</td>
+</tr>
+<tr class="even">
+<td><strong>Bounding box head</strong></td>
+<td>Box offsets</td>
+<td>Refine position + size</td>
+</tr>
+<tr class="odd">
+<td><strong>Mask head</strong></td>
+<td>Pixel mask (28×28)</td>
+<td>Predict which pixels belong to the object</td>
+</tr>
+</tbody>
+</table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>cls_score, bbox <span class="op">=</span> det_head(roi_feat)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mask_logits <span class="op">=</span> mask_head(roi_feat)        <span class="co"># small conv decoder</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> sigmoid(mask_logits)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each mask head is a lightweight CNN (often 4 conv layers) that outputs one binary mask per class.</p>
+</section>
+<section id="training-the-mask-branch" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="training-the-mask-branch"><strong>4. Training the mask branch</strong></h4>
+<p>Only the RoIs corresponding to foreground objects are used for mask training. The loss is a pixel-wise <strong>binary cross-entropy</strong> between predicted and true masks:</p>
+<p><span class="math display">\[
+L_\text{mask} = \frac{1}{N} \sum_{i} \text{BCE}(M_i^\text{pred}, M_i^\text{gt})
+\]</span></p>
+<p>The total loss combines all three branches:</p>
+<p><span class="math display">\[
+L = L_\text{cls} + L_\text{bbox} + L_\text{mask}
+\]</span></p>
+<p>Everything is trained together, end-to-end.</p>
+</section>
+<section id="how-mask-r-cnn-fits-into-our-three-block-framework" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="how-mask-r-cnn-fits-into-our-three-block-framework"><strong>How Mask R-CNN fits into our three-block framework</strong></h4>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>What changed from Faster R-CNN</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Input adaptation</strong></td>
+<td>Same as Faster R-CNN (image → feature map → RPN proposals)</td>
+</tr>
+<tr class="even">
+<td><strong>Feature extractor</strong></td>
+<td>Shared backbone + RoI Align for precise spatial features</td>
+</tr>
+<tr class="odd">
+<td><strong>Output adaptation</strong></td>
+<td>Added a mask branch (28×28 pixel-wise prediction per instance)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="code-peek-using-mask-r-cnn-in-pytorch" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="code-peek-using-mask-r-cnn-in-pytorch"><strong>Code peek: using Mask R-CNN in PyTorch</strong></h4>
+<p>PyTorch makes this architecture accessible with just a few lines:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.models.detection <span class="im">as</span> detection</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a pretrained Mask R-CNN (ResNet-50 backbone)</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> detection.maskrcnn_resnet50_fpn(pretrained<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">eval</span>()</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward pass</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> model([image])     <span class="co"># image: Tensor [C,H,W]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each prediction contains:</p>
+<ul>
+<li><code>boxes</code> – bounding boxes</li>
+<li><code>labels</code> – class IDs</li>
+<li><code>scores</code> – confidence values</li>
+<li><code>masks</code> – [ N × 1 × H × W ] tensor of pixel-level masks</li>
+</ul>
+<p>You can threshold and overlay these masks to visualize segmentation results.</p>
+</section>
+<section id="why-it-matters-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="why-it-matters-1"><strong>Why it matters</strong></h4>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Faster R-CNN</th>
+<th>Mask R-CNN</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Output</td>
+<td>Boxes + labels</td>
+<td>Boxes + labels + masks</td>
+<td>🟢 Pixel-level precision</td>
+</tr>
+<tr class="even">
+<td>Alignment</td>
+<td>RoI Pooling (rounding)</td>
+<td>RoI Align (interpolation)</td>
+<td>🟢 No quantization error</td>
+</tr>
+<tr class="odd">
+<td>Capability</td>
+<td>Object detection</td>
+<td>Instance segmentation</td>
+<td>🟢 New dimension of understanding</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a-mental-picture-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="a-mental-picture-1"><strong>A mental picture</strong></h4>
+<p>Our detective can now not only say</p>
+<blockquote class="blockquote">
+<p>“There’s a cat at these coordinates,” but also trace its exact fur outline, whiskers and all. No more rough boxes — just precise boundaries.</p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mask R-CNN is Faster R-CNN with one extra branch and a more careful alignment step.</p>
+<p>A tiny change in architecture enabled a huge leap in capability, from detecting objects to understanding their shapes.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Which of the three components, input, feature extractor, or output, did Mask R-CNN change most significantly?</p>
+<p>How might you extend the same idea to tasks like keypoint detection or depth estimation?</p>
+</div>
+</div>
+<p>Mask R-CNN set a template for modern segmentation and instance-aware vision models.</p>
+<p>Next, we’ll step back and see how all these models, from R-CNN to Mask R-CNN, fit together in one unified story.</p>
+</section>
+</section>
+</section>
+<section id="putting-it-all-together" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="putting-it-all-together"><span class="header-section-number">12.7</span> Putting It All Together</h2>
+<p>We’ve traveled quite a distance from recognizing <em>what</em> is in an image to outlining <em>where</em> and <em>what shape</em> each object takes. Let’s step back and see how every step in this journey fits together.</p>
+<section id="from-classification-to-instance-segmentation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="from-classification-to-instance-segmentation"><strong>From classification to instance segmentation</strong></h3>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Generation</th>
+<th>Year</th>
+<th>Key Idea</th>
+<th>Input Adaptation</th>
+<th>Feature Extractor</th>
+<th>Output Adaptation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Classification Network</td>
+<td>2012 (AlexNet)</td>
+<td>Recognize categories in whole images.</td>
+<td>Full image</td>
+<td>CNN backbone (e.g., ResNet)</td>
+<td>Class probabilities</td>
+</tr>
+<tr class="even">
+<td>R-CNN</td>
+<td>2014</td>
+<td>Detect objects using region proposals + independent CNNs.</td>
+<td>Selective Search regions</td>
+<td>Separate CNN per region</td>
+<td>SVM + regressor</td>
+</tr>
+<tr class="odd">
+<td>Fast R-CNN</td>
+<td>2015</td>
+<td>Share convolutional features + RoI Pooling.</td>
+<td>Selective Search</td>
+<td>One shared CNN per image</td>
+<td>Unified head for classification + bbox</td>
+</tr>
+<tr class="even">
+<td>Faster R-CNN</td>
+<td>2015</td>
+<td>Learn region proposals via Region Proposal Network (RPN).</td>
+<td>RPN (anchors + proposals)</td>
+<td>Shared backbone (CNN + FPN)</td>
+<td>End-to-end classification + bbox</td>
+</tr>
+<tr class="odd">
+<td>Mask R-CNN</td>
+<td>2017</td>
+<td>Add mask prediction head for pixel-level segmentation.</td>
+<td>Same as Faster R-CNN</td>
+<td>Shared backbone + RoI Align</td>
+<td>Three parallel heads (cls, bbox, mask)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="visual-timeline" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="visual-timeline"><strong>Visual timeline</strong></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dl-pytorch/detection-timeline.png" class="img-fluid figure-img"></p>
+<figcaption>Visual timeline of the evolution of detection models.</figcaption>
+</figure>
+</div>
+<p>Each new architecture didn’t replace the old; it <strong>refined one of the three building blocks</strong> to solve a real bottleneck:</p>
+<table class="table-striped caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component Modified</th>
+<th>Examples</th>
+<th>Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Input adaptation</td>
+<td>R-CNN (Selective Search), Faster R-CNN (RPN)</td>
+<td>Generate or refine region proposals</td>
+</tr>
+<tr class="even">
+<td>Feature extractor</td>
+<td>Fast R-CNN (shared CNN)</td>
+<td>Reuse computation efficiently</td>
+</tr>
+<tr class="odd">
+<td>Output adaptation</td>
+<td>Mask R-CNN (mask head)</td>
+<td>Predict more detailed outputs</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a-recurring-pattern" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="a-recurring-pattern"><strong>A recurring pattern</strong></h3>
+<blockquote class="blockquote">
+<p><strong>Every innovation begins by asking:</strong> <em>“What can’t the current model do well?”</em> and then tweaking one of the three parts to fix it.</p>
+</blockquote>
+<p>This pattern defines much of deep learning progress:</p>
+<ul>
+<li>Better <strong>inputs</strong> → more context (multi-scale images, temporal frames, extra bands).</li>
+<li>Stronger <strong>feature extractors</strong> → deeper, more efficient backbones (ResNet, Swin, ViT).</li>
+<li>Richer <strong>outputs</strong> → new tasks (masks, depth, keypoints, motion).</li>
+</ul>
+<p>Once you start thinking in this modular way, “advanced models” stop feeling like magic, they become <strong>creative recombinations</strong> of familiar ideas.</p>
+</section>
+<section id="a-unifying-view" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="a-unifying-view"><strong>A unifying view</strong></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/dl-pytorch/rcnn-family-summary.png" class="img-fluid figure-img"></p>
+<figcaption>Unified view of R-CNN family — single backbone feeding multiple heads.</figcaption>
+</figure>
+</div>
+<p>All four models share the same skeleton:</p>
+<ul>
+<li>A <strong>backbone</strong> that learns features.</li>
+<li>A <strong>proposal mechanism</strong> (external or learned).</li>
+<li>One or more <strong>heads</strong> that interpret those features for different tasks.</li>
+</ul>
+<p>The Mask R-CNN simply made that skeleton multi-talented — detecting, classifying, and segmenting all at once.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Key Idea
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>From R-CNN to Mask R-CNN, progress wasn’t about adding complexity for its own sake. It was about <strong>removing redundancy</strong>, <strong>integrating stages</strong>, and <strong>expanding output richness</strong> all while keeping the same underlying logic.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you were to design “the next R-CNN,” what might you change? Would you feed richer inputs (e.g., multispectral data)? Use a new feature extractor (e.g., transformer backbone)? Or predict new outputs (e.g., elevation maps, uncertainty masks)?</p>
+</div>
+</div>
+</section>
+</section>
+<section id="reflection-and-discussion" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="reflection-and-discussion"><span class="header-section-number">12.8</span> Reflection and Discussion</h2>
+<p>Let’s pause and reflect on what we’ve learned.</p>
+<p>From R-CNN to Mask R-CNN, each step wasn’t random, it was a <strong>logical response</strong> to a real problem. This mindset is what separates <em>using</em> deep learning from <em>understanding</em> it.</p>
+<section id="looking-back" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="looking-back"><strong>Looking back</strong></h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Challenge it solved</th>
+<th>Core idea introduced</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R-CNN</td>
+<td>How can a CNN detect multiple objects?</td>
+<td>Apply CNN to region proposals (Selective Search)</td>
+</tr>
+<tr class="even">
+<td>Fast R-CNN</td>
+<td>Why is R-CNN so slow?</td>
+<td>Share one feature map for all regions</td>
+</tr>
+<tr class="odd">
+<td>Faster R-CNN</td>
+<td>Can we remove the slow proposal step?</td>
+<td>Learn proposals via Region Proposal Network (RPN)</td>
+</tr>
+<tr class="even">
+<td>Mask R-CNN</td>
+<td>Can we see object shapes, not just boxes?</td>
+<td>Add a mask head + precise RoI Align</td>
+</tr>
+</tbody>
+</table>
+<p>Notice how each question leads to an architectural insight and how every model keeps the same foundation:</p>
+<p><strong>input adaptation → feature extractor → output adaptation</strong>.</p>
+</section>
+<section id="reflection-prompts" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="reflection-prompts"><strong>Reflection Prompts</strong></h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick Thought
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Imagine you are designing your own vision model.</p>
+<ul>
+<li>Which component (input, feature, output) would you modify first?</li>
+<li>What kind of task would that change enable (for example, predicting object <em>depth</em> or <em>motion</em>)?</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sketch your own “R-CNN++”:</p>
+<ul>
+<li>Keep the same three blocks.</li>
+<li>Add one new branch or data source.</li>
+<li>Write a one-sentence explanation of <em>why</em> it improves the model. You don’t need code, just reasoning.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Discussion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why do you think so many breakthroughs (R-CNN → Mask R-CNN → modern detectors) reused the same ideas instead of starting from scratch?</p>
+<p>What does this tell us about <strong>how innovation happens in deep learning</strong>?</p>
+</div>
+</div>
+</section>
+<section id="key-takeaway" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="key-takeaway"><strong>Key takeaway</strong></h3>
+<p>Deep learning progress often follows a simple pattern:</p>
+<blockquote class="blockquote">
+<p><strong>Question → Limitation → Innovation</strong></p>
+</blockquote>
+<p>Each new model asks:</p>
+<blockquote class="blockquote">
+<p>“What can’t the current system do well?” and then modifies <strong>one</strong> of the core building blocks to fix it.</p>
+</blockquote>
+<p>When you look at architectures through this lens, they stop feeling like black boxes, and start looking like <strong>creative engineering solutions</strong> to everyday problems.</p>
 
 
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -873,7 +1821,11 @@ Quick Thought
 <li id="fn6"><p><a href="https://www.youtube.com/watch?v=tNLtXb04i3w">https://www.youtube.com/watch?v=tNLtXb04i3w</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p><a href="https://www.mdpi.com/2072-4292/10/9/1487">Zhang, W., Witharana, C., Liljedahl, A. K., &amp; Kanevskiy, M. (2018). Deep convolutional neural networks for automated characterization of arctic ice-wedge polygons in very high spatial resolution aerial imagery. Remote Sensing, 10(9), 1487.</a><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn8"><p><a href="https://dl.acm.org/doi/abs/10.1145/3557918.3565869">Li, W., Hsu, C. Y., Wang, S., Witharana, C., &amp; Liljedahl, A. (2022, November). Real-time GeoAI for high-resolution mapping and segmentation of arctic permafrost features: the case of ice-wedge polygons. In Proceedings of the 5th ACM SIGSPATIAL international workshop on AI for geographic knowledge discovery (pp.&nbsp;62-65).</a><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn9"><p><a href="https://link.springer.com/article/10.1007/s11263-013-0620-5">J. Uijlings, K. van de Sande, T. Gevers, and A. Smeulders, “Selective search for object recognition,” International Journal of Computer Vision, vol.&nbsp;104, no. 2, pp.&nbsp;154-171, 2013.</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><a href="https://openaccess.thecvf.com/content_cvpr_2014/papers/Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf">R. Girshick, J. Donahue, T. Darrell, J. Malik, “Rich feature hierarchies for accurate object detection and semantic segmentation,” CVPR 2014.</a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p><a href="https://link.springer.com/article/10.1007/s11263-013-0620-5">J. Uijlings, K. van de Sande, T. Gevers, and A. Smeulders, “Selective search for object recognition,” International Journal of Computer Vision, vol.&nbsp;104, no. 2, pp.&nbsp;154-171, 2013.</a><a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p><a href="https://learnopencv.com/non-maximum-suppression-theory-and-implementation-in-pytorch/">Non-Maximum Suppression Theory and Implementation in PyTorch</a><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p><a href="https://proceedings.neurips.cc/paper_files/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">S. Ren, K. He, R. Girshick, J. Sun, “Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks,” NIPS 2015.</a><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p><a href="https://openaccess.thecvf.com/content_ICCV_2017/papers/He_Mask_R-CNN_ICCV_2017_paper.pdf">K. He, G. Gkioxari, P. Dollár, R. Girshick, “Mask R-CNN,” ICCV 2017.</a><a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -929,13 +1881,14 @@ Quick Thought
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

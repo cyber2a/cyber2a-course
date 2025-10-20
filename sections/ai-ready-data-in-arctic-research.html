@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -90,14 +90,15 @@ div.csl-indent {
 <link href="../images/index/arcticlogo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-5fd9db47a040b21ac2cac9a0b3b722ba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3584025bd2775ba93d20b6dabf7256d8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -154,7 +155,9 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Cyber2A: AI for Arctic Research</a> 
         <div class="sidebar-tools-main">
@@ -406,7 +409,7 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What is AI-Ready Data?
+<span class="screen-reader-only">Tip</span>What is AI-Ready Data?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -422,14 +425,14 @@ What is AI-Ready Data?
 </div>
 <p>Working with <code>xarray</code> and <code>zarr</code>, one can access many multi-petabyte earth systems datasets like CMIP6 (Coupled Model Intercomparison Project Phase 6) and ERA5 (Earth Re). For an overview of Zarr, see the Arctic Data Center Scalable Computing course <a href="https://learning.nceas.ucsb.edu/2024-03-arctic/sections/zarr.html">chapter on Zarr</a>.</p>
 <p>Take, for example, the ERA5 reanalysis dataset <span class="citation" data-cites="noauthor_era5_nodate"><a href="../references.html#ref-noauthor_era5_nodate" role="doc-biblioref">[2]</a></span>, which is normally downloadable in bulk from the Copernicus Data Service. <a href="https://github.com/google-research/arco-era5">ARCO-ERA5</a> is an Analysis Ready, Cloud Optimized variant of ERA5 which has been reprocessed into a consistent 0.25° global grid, and chunked and saved in Zarr format with extensive metadata such that spatial and temporal subsets are easily extracted. Hosted on the Google Cloud Storage service in a public bucket (<code>gcp-public-data-arco-era5</code>), anyone can easily access slices of this massive multi-petabyte dataset from anywhere on the Internet, and can be doing analysis in seconds. Let’s take a quick peek at this massive dataset:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xarray</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xarray</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> xarray.open_zarr(</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'gs://gcp-public-data-arco-era5/ar/full_37-1h-0p25deg-chunk-1.zarr-v3'</span>,</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    chunks<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    storage_options<span class="op">=</span><span class="bu">dict</span>(token<span class="op">=</span><span class="st">'anon'</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ds</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><a href="../images/ai-ready/era5-zarr-arco.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/ai-ready/era5-zarr-arco.png" class="img-fluid" style="width:100.0%"></a></p>
 <p>With one line of code, we accessed 273 climate variables (e.g., <code>2m_temperature</code>, <code>evaporation</code>, <code>forecast_albedo</code>) spanning 8 decades at hourly time scales. And while this dataset is massive, we can explore it from the comfort of our laptop (not all at once, for which we would need a bigger machine!).</p>
 <p>So, there’s nothing really special about AI-Ready data, in that a lot of the core requirements for Analysis Ready Data are exactly what are needed for AI modeling as well. Labeling is probably the main difference. Neverthless, many groups have gotten motivated by the promise of AI, and particularly machine learning, across disciplines. For example, the federal government has been ramping up readiness for AI across many agencies. In 2019, the White House Office of Science Technology and Policy (OSTP) started an AI-Readiness matrix, which was followed shortly by the National AI Initiative Act in 2020 <span class="citation" data-cites="long_ai-ready_2023"><a href="../references.html#ref-long_ai-ready_2023" role="doc-biblioref">[3]</a></span>.</p>
@@ -451,7 +454,7 @@ What is AI-Ready Data?
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Data Quality
+<span class="screen-reader-only">Tip</span>Data Quality
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -472,7 +475,7 @@ Data Quality
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Data Access
+<span class="screen-reader-only">Tip</span>Data Access
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -492,7 +495,7 @@ Data Access
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Data Documentation
+<span class="screen-reader-only">Tip</span>Data Documentation
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -572,7 +575,7 @@ Data Documentation
 </blockquote>
 <p>Croissant has also explicitly defined <a href="https://docs.mlcommons.org/croissant/docs/croissant-spec.html#ml-specific-features">metadata to meet the needs of machine-learning tools and algorithms</a>. For example, Crosissant supports the definition of categorical values, data splits for training, testing, and prediction, labels/annotations, specification of bounding boxes and segmentation masks.</p>
 <p><strong>Label Data.</strong> As an example, Crioissant has specific metadata fields designed to capture which fields with the data contain critical label data, which are used by supervised learning workflows. The Croissant metadata class <code>cr:Label</code> can be used in a <code>RecordSet</code> to indicate that a specific field contians labels that apply to the that record.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"cr:RecordSet"</span><span class="fu">,</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"@id"</span><span class="fu">:</span> <span class="st">"images"</span><span class="fu">,</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"field"</span><span class="fu">:</span> <span class="ot">[</span></span>
@@ -586,7 +589,7 @@ Data Documentation
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"dataType"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"sc:Text"</span><span class="ot">,</span> <span class="st">"cr:Label"</span><span class="ot">]</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The intention is that multiple tools, all supporting the Crosissant metadata model, will be able to exchange ML-related data seamlessly. A number of ML tools support Croissant out-of-the-box, but only a tiny fraction of the datasets available today use this nascent vocabulary. In addition, it lacks the sophistication of Analysis Ready, Cloud Optimized (ARCO) data standards like Zarr that permit seamless access to massive data with minimal overhead. But it has a lot of promise for streamlining AI-Ready data, and can be used on top of exiting standards like Zarr.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -679,7 +682,7 @@ Data Documentation
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise: Assess Dataset Readiness
+<span class="screen-reader-only">Note</span>Exercise: Assess Dataset Readiness
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -797,13 +800,14 @@ Exercise: Assess Dataset Readiness
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
