@@ -4,7 +4,7 @@
 
 Foundation models (FM) are deep learning models trained on massive raw unlabelled datasets usually through self-supervised learning. FMs enable today’s data scientists to use them as the base and fine-tune using domain specific data to obtain models that can handle a wide range of tasks (language, vision, reasoning etc.). In this chapter, we provide an introduction to FMs, its history, evolution, and go through its key features and categories, and a few examples. We also briefly discuss how foundation models work. This chapter will be a precursor to the hands-on session that follows on the same topic.
 
-![Fig : Image source- 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](../images/foundation-models/foundation_models.png)
+![Image source- 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](../images/foundation-models/foundation_models.png){#fig-fm-adaptation}
 
 
 In this session, we take a closer look at what constitutes a foundation model, a few examples, and some basic principles around how it works.
@@ -19,13 +19,13 @@ In this session, we take a closer look at what constitutes a foundation model, a
 
 ## Introduction
 
-### Traditional ML vs Deep Learning vs Foundation Models
+### Traditional Machine Learning vs Deep Learning vs Foundation Models
 
-**Traditional machine learning** involves algorithms that learn patterns from structured data. Techniques like decision trees, support vector machines, and linear regression fall under this category. These methods often require feature engineering, where domain knowledge is used to select and transform input features to improve model performance. Traditional machine learning excels in scenarios with limited data and interpretable results.
+**Traditional Machine Learning (ML)** are algorithms that learn patterns from structured data. Techniques like decision trees, support vector machines, and linear regression fall under this category. These methods often require feature engineering, where domain knowledge is used to select and transform input features to improve model performance. Traditional machine learning excels in scenarios with limited data and interpretable results.
 
-**Deep learning** is a subset of machine learning that employs neural networks with multiple layers (hence "deep"). These models automatically learn features from raw data, making them particularly powerful for complex tasks like image and speech recognition. Deep learning excels with large datasets and can capture intricate patterns but often requires significant computational resources and can be harder to interpret compared to traditional methods.
+**Deep Learning** (DL) is a subset of machine learning that employs artificial neural networks with multiple layers (hence "deep"). These models automatically learn features from raw data, making them particularly powerful for complex tasks like image and speech recognition. Deep learning excels with large datasets and can capture intricate patterns but often requires significant computational resources and can be harder to interpret compared to traditional methods.
 
-**Foundation models**, such as GPT and BERT, represent a new paradigm in AI. These large-scale models are pre-trained on vast amounts of data and can be fine-tuned for specific tasks with minimal additional training. Earlier neural networks were narrowly tuned for specific tasks. With a little fine-tuning, foundation models can handle jobs from translating text to analyzing medical images. Foundation models generally learn from unlabeled datasets, saving the time and expense of manually describing each item in massive collections. Foundation models leverage transfer learning, allowing them to generalize across different tasks more effectively than traditional machine learning and deep learning models.
+**Foundation Models** - advanced forms of DL models, such as Generative Pretrained Transformers and BERT, represent a new paradigm in the broad domain of Artificial Intelligence (AI). These large-scale models are pre-trained on extremely vast amounts of data and can be fine-tuned for specific tasks with minimal additional training. Earlier neural networks were trained for specific tasks. With a little fine-tuning, foundation models can handle jobs from translating text to analyzing medical images. Foundation models generally learn from unlabeled data through self-supervised learning, saving the time, effort, and expense of manual data labelling. Foundation models leverage transfer learning, allowing them to generalize across different tasks more effectively than traditional machine learning and deep learning models.
 
 
 ## Foundation Models
@@ -33,20 +33,36 @@ In this session, we take a closer look at what constitutes a foundation model, a
 Foundation models, introduced in 2021 by Standford Researchers [@Bommasani2021FoundationModels], are characterized by their enormous neural networks trained on vast datasets through self-supervised learning. These models serves as a "foundation" on which many task-specific models can be built by adaptation. Their capabilities improves with more data, requiring substantial computational power for training. These models can be adapted to various downstream tasks and are designed for reuse, leveraging transfer learning to enhance performance across different applications.
 
 ::: {.column-margin}
-![Fig : 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](../images/foundation-models/foundation_models_paper.png)
+![First page screenshot of the 2021 paper on foundation models by Stanford researchers [@Bommasani2021FoundationModels]](../images/foundation-models/foundation_models_paper.png){#fig-fm-2021-paper}
 :::
 
 With the start of availability of big data for training, evidence showed that performance improves with size. The field came to the conclusion that scale matters, and with the right model architecture, intelligence comes with large-scale data.
 
 Here's a few examples of foundation models and their parameter count:
 
-* CLIP [@DBLP:journals/corr/abs-2103-00020] - 63 million parameters
-* BERT [@DBLP:journals/corr/abs-1810-04805] - 345 million parameters
-* GPT-3 [@DBLP:journals/corr/abs-1810-04805] - 175 billion parameters
-    * Wikipedia consists of only 3% of its training data
-* GPT-4 [@openai2024gpt4technicalreport] - 1.8 trillion parameters
+1. Contrastive Language-Image Pre-training (CLIP) [@DBLP:journals/corr/abs-2103-00020] - 63 million parameters
+    * [CLIP](https://openai.com/index/clip/) from OpenAI is the first model to combine the image (computer vision) and language (NLP) domains.
+    * [Contrastive Language-Image Pre-training](https://en.wikipedia.org/wiki/Contrastive_Language-Image_Pre-training) (CLIP) is a technique for training a pair of neural network models, one for image understanding and one for text understanding, using a contrastive objective.
+    * The goal for [contrastive learning](https://paperswithcode.com/task/contrastive-learning) is to learn a representation of data such that similar instances are close together in the representation space, while dissimilar instances are far apart.
+    * In summary, CLIP is a pretrained model for telling you [how well a given image and a given text fit together](https://medium.com/one-minute-machine-learning/clip-paper-explained-easily-in-3-levels-of-detail-61959814ad13).
+    * CLIP is the pre-cursor to [DALL-E](https://openai.com/index/dall-e-3/). 
+    * Applications of CLIP range from image captioning, image classification, semantic image search, content moderation etc.
+2. BERT [@DBLP:journals/corr/abs-1810-04805] - 345 million parameters
+    * [Bidirectional Encoder Representations from Transformers](https://en.wikipedia.org/wiki/BERT_(language_model)) (BERT) is a language model introduced in October 2018 by researchers at Google.
+    * It is the first language model to learn bi-directional representations of text to significantly improve contextual understanding of unlabeled text across many different tasks. ![Source : [Nvidia blog](https://www.nvidia.com/en-us/glossary/bert/)]
+    * It’s the basis for an entire family of BERT-like models such as RoBERTa, ALBERT, and DistilBERT.
+    * [Google](https://research.google/blog/open-sourcing-bert-state-of-the-art-pre-training-for-natural-language-processing/) has described BERT as the “first deeply bidirectional, unsupervised language representation, pre-trained using only a plain text corpus”
+    * Applications of BERT are langauge translation, sentiment analysis, question answering etc.
+3. GPT-3 [@DBLP:journals/corr/abs-1810-04805] - 175 billion parameters
+    * Generative Pre-trained Transformer 3 (GPT-3) is a large language model released by OpenAI in 2020.
+    * The model is trained on internet data to generates textual output. We can optionally pass it some text as input, [which influences its output](https://jalammar.github.io/how-gpt3-works-visualizations-animations/#:~:text=We%20can%20optionally%20pass%20it%20some%20text%20as%20input%2C%20which%20influences%20its%20output).
+    * Training data used for GPT-3 is pretty vast - Wikipedia consists of only 3% of its training data.
+4. GPT-4 [@openai2024gpt4technicalreport] - 1.8 trillion parameters
+    * This is the successor of GPT-3 from OpenAI.
+    * The model is more creative, has more reasoning abilities and surpasses [GPT-3 in all benchmarks](https://openai.com/index/gpt-4-research/). 
+    * This model powered ChatGPT.
 
-![Fig : Growth in compute power. (Source: GPT-3 paper [@DBLP:journals/corr/abs-1810-04805])](../images/foundation-models/compute-power-training.png)
+![Growth in compute power. (Source: GPT-3 paper [@DBLP:journals/corr/abs-1810-04805])](../images/foundation-models/compute-power-training.png){#fig-gpt-3-compute-power}
 
 ## Types of foundation models
 
@@ -69,6 +85,8 @@ Here's some examples of language models:
 * GPT-3
 * GPT-4
 * Llama 3.2 [@dubey2024llama3herdmodels]
+    * Llama (Large Language Model Meta AI) is a family of open-source large language models (LLMs) released by Meta AI
+    * Llama models weights are open and downloadable from their [website](https://www.llama.com/llama-downloads/) or use [HuggingFace framework](https://huggingface.co/docs/transformers/en/model_doc/llama) to use in text-generation applications.
 
 #### Vision models
 
@@ -76,10 +94,15 @@ Vision models are trained for computer vision tasks. The primary training object
 
 Here's some examples of vision models:
 
-* [GPT-4-turbo](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4)
+* [GPT-4.1](https://platform.openai.com/docs/models/gpt-4.1)
+    * This model can take in text and image as inputs and textual output.
 * SAM [@kirillov2023segment]
+    * [Segment Anything Model](https://segment-anything.com/) (SAM) from Meta AI is a promptable segmentation model that is generalizable to multiple applications and unfamiliar objects and images.
 * CLIP [@dubey2024llama3herdmodels]
 * Swin-transformer [@liu2021swintransformerhierarchicalvision]
+    * This is a type of [Vision Transformer](https://paperswithcode.com/method/vision-transformer).
+    * Due to its architecture, the model can serve as a general-purpose backbone for both image classification and dense recognition tasks.
+
 
 #### Multimodal models
 
@@ -88,25 +111,35 @@ Multimodal models are designed to process and understand multiple types of data 
 Here's some examples of multimodal foundation models:
 
 * [GPT-4o](https://openai.com/index/hello-gpt-4o/)
-* DALL-E [@DBLP:journals/corr/abs-2102-12092]
+    * GPT‑4o ("o" for "omni") accepts as input any combination of text, audio, image, and video and generates any combination of text, audio, and image outputs. 
 * CLIP [@dubey2024llama3herdmodels]
+* DALL-E [@DBLP:journals/corr/abs-2102-12092]
+    * This model from OpenAI generates images from natural language descriptions known as prompts.
+    * The [link between textual semantics and their visual representations](https://www.assemblyai.com/blog/how-dall-e-2-actually-works#:~:text=The%20link%20between%20textual%20semantics%20and%20their%20visual%20representations%20in%20DALL%2DE%202%20is%20learned%20by%20another%20OpenAI%20model%20called%20CLIP%20(Contrastive%20Language%2DImage%20Pre%2Dtraining)) in DALL-E is learned by CLIP (Contrastive Language-Image Pre-training).
 * [Sora](https://openai.com/index/sora/) [@liu2024sorareviewbackgroundtechnology]
+    * This model from OpenAI can generate realistic videos from text prompts.
 * [Gemini](https://gemini.google.com/?utm_source=google&utm_medium=cpc&utm_campaign=2024enUS_gemfeb&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfDvtujFotV-ds_t1TWtUmwbeNFLVcdbE8zSQEN08FPlAC8im4lhpNcaAlwaEALw_wcB&gclsrc=aw.ds) [@geminiteam2024geminifamilyhighlycapable]
+    * Gemini is a family of multimodal large language models developed by Google
+
+::: {.callout-note}
+The models described above represent those available at the time of writing this section. Given the rapid advancements in this field, these models may become outdated over time.
+:::
 
 
 ### Types of foundation models (Architecture)
 
 #### Transformer models
-Introduced in 2017 by the paper "Attention is all you need" [@DBLP:journals/corr/VaswaniSPUJGKP17], the transformer architecture revolutionized NLP by enabling models to efficiently capture complex relationships in data without the limitations of recurrence. This architecture is known for its ability to handle sequential data efficiently. Its parallel processing capabilities and scalability have made it a foundational model for many state-of-the-art systems in various domains, including image processing and speech recognition.
-Checkout "The Illustrated Transformer" (blog post)[https://jalammar.github.io/illustrated-transformer/] for a detailed overview of the transformer architecture.
+Introduced in 2017 by the paper "Attention is all you need" [@DBLP:journals/corr/VaswaniSPUJGKP17], the transformer architecture revolutionized NLP by enabling models to efficiently capture complex relationships in data without the limitations of recurrence. This architecture is known for its ability to handle sequential data efficiently. Its parallel processing capabilities and scalability have made it a foundational model for many state-of-the-art systems in various domains, including image processing and speech recognition. 
+Examples of models using transformers as the underlying architecture are GPT-3 and CLIP.
+Checkout "The Illustrated Transformer" ([blog post](https://jalammar.github.io/illustrated-transformer/)) for a detailed overview of the transformer architecture.
 
-![Fig : Transformer architecture](../images/foundation-models/transformer-architecture.png)
+![Transformer architecture](../images/foundation-models/transformer-architecture.png){#fig-transformer-architecture}
 
 
 ##### Attention Mechanism
 Attention is, to some extent, motivated by how we pay visual attention to different regions of an image or correlate words in one sentence [@weng2018attention]. We can explain the relationship between words in one sentence or close context. When we see “eating”, we expect to encounter a food word very soon. The color term describes the food, but probably not so much with “eating” directly.
 
-![Fig : One word attends to other words in the same sentence differently](../images/foundation-models/human-attention.png)
+![One word attends to other words in the same sentence differently](../images/foundation-models/human-attention.png){#fig-transformer-attention}
 
 Check out Lilian Weng's blog post [@weng2018attention] and MIT class on [deep learning](https://www.youtube.com/watch?v=ySEx_Bqxvvo) for detailed overview of attention mechanism.
 
@@ -119,7 +152,7 @@ Check out Lilian Weng's blog post [@weng2018attention] and MIT class on [deep le
 
 In the example below, the self-attention mechanism enables us to learn the correlation between the current words and the previous part of the sentence.
 
-![Fig : The current word is in red and the size of the blue shade indicates the activation level [@DBLP:journals/corr/ChengDL16]](../images/foundation-models/self-attention.png)
+![The current word is in red and the size of the blue shade indicates the activation level [@DBLP:journals/corr/ChengDL16]](../images/foundation-models/self-attention.png){#fig-transformer-self-attention}
 
 2. Positional Encoding:
 
@@ -151,18 +184,20 @@ In the example below, the self-attention mechanism enables us to learn the corre
 
 There are more than 50 major transformer models [@amatriain2024transformermodelsintroductioncatalog]. The transformer architecture is versatile and can be configured in different ways. The transformer architecture can support both auto-regressive and non-auto-regressive configurations depending on how the self-attention mechanism is applied and how the model is trained.
 
-* Auto-Regressive Models: In an auto-regressive setup, like the original GPT (Generative Pre-trained Transformer), the model generates text one token at a time. During training, it predicts the next token in a sequence based on the previously generated tokens, conditioning on all prior context. This means that at each step, the model only attends to the tokens that come before the current position, ensuring that future tokens do not influence the prediction.
+* Auto-Regressive(AR) Models: An autoregressive language model is a type of AI model that generates text by predicting one word at a time based on the words that came before it. This dependency on prior elements makes Autoregressive (AR) models inherently sequential, meaning each step must be completed before the next begins. In an auto-regressive setup, like the original GPT (Generative Pre-trained Transformer), the model generates text one token at a time. During training, it predicts the next token in a sequence based on the previously generated tokens, conditioning on all prior context. This means that at each step, the model only attends to the tokens that come before the current position, ensuring that future tokens do not influence the prediction.
 
-* Non-Auto-Regressive Models: Other models, like BERT (Bidirectional Encoder Representations from Transformers) [@DBLP:journals/corr/abs-1810-04805], are designed to be non-auto-regressive. BERT processes the entire input sequence simultaneously and is trained using masked language modeling, where some tokens in the input are masked, and the model learns to predict them based on the surrounding context.
+* Non-Auto-Regressive(NAR) Models: Other models, like BERT (Bidirectional Encoder Representations from Transformers) [@DBLP:journals/corr/abs-1810-04805], are designed to be non-auto-regressive. A non-autoregressive (NAR) language model generates an entire output sequence in parallel, unlike autoregressive models which generate it one token at a time. For example, BERT processes the entire input sequence simultaneously and is trained using masked language modeling, where some tokens in the input are masked, and the model learns to predict them based on the surrounding context.
 
+The figure below demonstrates the architectural difference between an auto-regressive model and a non-auto-regressive model.
 
-GPT-3 and CLIP models utilize transformers as the underlying architecture.
+![(a) Autoregressive; (b) Non-Autoregressive](../images/foundation-models/ar-nar.png){#fig-ar-nar} [@li-etal-2022-elmer]
+
 
 #### Generative-Adversarial models
 
 Introduced in 2014, Generative Adversarial Networks (GANs) [@goodfellow2014generativeadversarialnetworks] involves two neural networks (generator-discriminator network pair) contest with each other in the form of a zero-sum game, where one agent's gain is another agent's loss. Given a training set, this technique learns to generate new data with the same statistics as the training set. For example, a GAN trained on photographs can generate new photographs that look at least superficially authentic to human observers, having many realistic characteristics.
 
-![Fig : GAN basic architecture](../images/foundation-models/gan.png)
+![GAN basic architecture](../images/foundation-models/gan.png){#fig-gan-architecture}
 
 In a GAN,
 
@@ -171,19 +206,19 @@ In a GAN,
 
 When training begins, the generator produces obviously fake data, and the discriminator quickly learns to tell that it's fake:
 
-![Fig : GAN training - early phase. Image source: Google developers [blog](https://developers.google.com/machine-learning/gan/gan_structure)](../images/foundation-models/gan1.png)
+![GAN training - early phase. Image source: Google developers [blog](https://developers.google.com/machine-learning/gan/gan_structure)](../images/foundation-models/gan1.png){#fig-gan-training}
 
 As training progresses, the generator gets closer to producing output that can fool the discriminator:
 
-![Fig : GAN training - mid phase](../images/foundation-models/gan2.png)
+![GAN training - mid phase](../images/foundation-models/gan2.png){#fig-gan-training-mid-phase}
 
 Finally, if generator training goes well, the discriminator gets worse at telling the difference between real and fake. It starts to classify fake data as real, and its accuracy decreases. The training procedure for generator is to maximise the probability of discriminator making a mistake.
 
-![Fig : GAN training complete](../images/foundation-models/gan3.png)
+![GAN training complete](../images/foundation-models/gan3.png){#fig-gan-training-complete}
 
 Here's a picture of the whole system:
 
-![Fig : GAN architecture](../images/foundation-models/GAN-architecture.png)
+![GAN architecture](../images/foundation-models/GAN-architecture.png){#fig-gan-architecture-2}
 
 A disadvantage of GAN is potentially unstable training and less diversity in generation due to their adversarial training nature. StyleGAN [@DBLP:journals/corr/abs-1812-04948] and BigGAN [@DBLP:journals/corr/abs-1809-11096] are example of models that utilize GAN as the underlying architecture.
 
@@ -207,7 +242,8 @@ Diffusion models, introduced in 2020 [@DBLP:journals/corr/abs-2006-11239], are i
 4. Sampling:
 * To generate new samples, the process starts with pure noise and applies the learned reverse diffusion process iteratively. Over multiple time steps, the model denoises the input until it resembles a sample from the training distribution.
 
-![Fig : Training a diffusion model. Image source : Lilweng's [blog](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/)](../images/foundation-models/diffusion-training.png)
+Figure below visualizes how diffusion models smoothly perturb data by adding noise, then reverse this process to generate new data from the noise. Each denoising step in the reverse process typically requires estimating the source function (see illustrative figure on the right), which is a gradient pointing to the directions of the data with higher likelihood and less noise.
+![Training a diffusion model. Image source: Superannotate [blog](https://www.superannotate.com/blog/diffusion-models)](../images/foundation-models/diffusion-training-2.png){#fig-diffusion-training}
 
 Diffusion models can generate high-resolution and diverse images, often outperforming GANs in certain tasks. They are generally more stable to train compared to GANs, as they do not rely on adversarial training dynamics.
 
@@ -216,7 +252,23 @@ Stable-diffusion [@DBLP:journals/corr/abs-2112-10752], DALL-E [@DBLP:journals/co
 
 ### Foundation Models - Applications
 
-Having explored the foundational principles and capabilities of foundation models, we can now delve into specific applications that leverage their power. Two prominent techniques that build upon the capabilities of these models are Segment Anything Model (SAM) and Retrieval-Augmented Generation (RAG).
+Having explored the foundational principles and capabilities of foundation models, we can now delve into specific applications that leverage their power. Lets look at some examples and research topics where these models can be useful for arctic research.
+
+1. Transformer Models
+
+Transformer models are increasingly being used in Arctic research for various applications, including data analysis and climate modeling.
+For example, TemproNet [@CHEN2024116651] is a transformer-based deep learning model for seawater temperature prediction
+
+2. Generative-Adversarial models (GANs)
+
+GANs are being explored in Arctic research to address several challenges related to data scarcity, especially in areas like sea ice and climate modeling. They can generate synthetic data to augment limited real-world datasets, improve model robustness, and even predict future conditions.
+For example, PolarGAN [@KIM2023106920] is capable of creating realistic artificial images of Arctic sea ice concentration (SIC) for data augmentation.
+
+3. Diffusion Models
+
+These models are good at generating synthetic data and can be used to generate [sea ice data](https://ecommons.udayton.edu/stander_posters/4138/).
+
+In the next section we delve into two prominent techniques that build upon the capabilities of these models - Segment Anything Model (SAM) and Retrieval-Augmented Generation (RAG).
 
 
 ## Segment Anything Model
@@ -245,7 +297,7 @@ containing 1B segmentation masks from about 11M privacy preserving images and SA
 Large pre-trained Language Models (LLMs) have revolutionized natural language processing, but they come with inherent limitations that necessitate the development of techniques like Retrieval-Augmented Generation (RAG). This chapter explores the motivations behind RAG by examining the constraints of traditional LLMs.
 
 ::: {.column-margin}
-![Fig : A typical user interaction with LLM](../images/foundation-models/userllm.png)
+![A typical user interaction with LLM](../images/foundation-models/userllm.png){#fig-user-llm}
 :::
 
 ### Limitations of Large Language Models
@@ -263,7 +315,7 @@ LLM has not seen "your" data - the unique, often proprietary information that or
 When specific domain knowledge is required, the traditional approach has been to fine-tune the LLM. However, this process can be resource-intensive and may not always yield optimal results, especially for niche or rapidly evolving fields. For example, an LLM fine-tuned on chemistry domain might not be suitable for a researcher in a physics lab. Hence a particle-physics scientist will have to fine-tune a model on the lab-specific data, which might not be useful for a quantum physics lab.
 
 ::: {.column-margin}
-![Fig : Fine-tuning LLMs. Image source : [datacamp blong](https://www.datacamp.com/tutorial/boost-llm-accuracy-retrieval-augmented-generation-rag-reranking)](../images/foundation-models/llmfinetuning.png)
+![Fine-tuning LLMs. Image source: [datacamp blong](https://www.datacamp.com/tutorial/boost-llm-accuracy-retrieval-augmented-generation-rag-reranking)](../images/foundation-models/llmfinetuning.png){#fig-llm-finetuning}
 :::
 
 4. Lack of Source Attribution
@@ -275,11 +327,11 @@ LLMs generate responses based on patterns learned during training, but they don'
 One of the most significant issues with LLMs is their tendency to produce "hallucinations" - plausible-sounding but factually incorrect or nonsensical information. This phenomenon can undermine the reliability of the model's outputs. See Lilweng's blog post [@weng2024hallucination] on hallucinations for detailed information.
 
 ::: {.column-margin}
-![](../images/foundation-models/llmhallucination1.png)
+![](../images/foundation-models/llmhallucination1.png){#fig-llm-hallucination}
 :::
 
 ::: {.column-margin}
-![Fig : LLM Hallucination examples](../images/foundation-models/llmhallucination2.png)
+![LLM Hallucination examples](../images/foundation-models/llmhallucination2.png){#fig-llm-hallucination2}
 :::
 
 6. Outdated Information
@@ -308,7 +360,7 @@ Let's now compare the traditional LLM and RAG approaches
 
 #### Traditional LLM approach
 
-![Fig : Traditional LLM approach](../images/foundation-models/promptframework.png)
+![Traditional LLM approach](../images/foundation-models/promptframework.png){#fig-llm-prompt-framework}
 
 1. User Input: The process begins with the user submitting a question.
 2. Prompt Engineering: The user's question is combined with a pre-defined prompt.
@@ -317,7 +369,7 @@ Let's now compare the traditional LLM and RAG approaches
 
 #### RAG approach
 
-![Fig : RAG approach](../images/foundation-models/ragpromptframework.png)
+![RAG approach](../images/foundation-models/ragpromptframework.png){#fig-rag-prompt-framework}
 
 1. User Input: As before, the user submits a question.
 2. Knowledge Base Query: The question is used to query a knowledge base.
@@ -338,5 +390,117 @@ Let's now compare the traditional LLM and RAG approaches
 
 RAG has multiple use-cases. One of the most common usecase is a chatbot that can answer specific questions. For example, lets say we have a chatbot that has the knowledge base of documentation on supercomputers. This chatbot could help users write scripts/jobs(SLURM scripts) to be submitted to supercomputers, can help guide users to specific section in the documentation if they are stuck, and might even help in debugging errors once their script runs on a supercomputer. If a new SLURM package is introduced, the supercomputer maintainers just need to update the SLURM documentation, which gets pulled into the knowledge base. Hence the chatbot will always have access to the latest information.
 
-More detailed information about RAG and its implementation will be discussed in detail in the hands-on part.
+We will focus on the "retrieval" part of RAG for this section.
+
+#### Knowledge database
+
+In the age of burgeoning data complexity and high-dimensional information, traditional databases often fall short when it comes to efficiently handling and extracting meaning from intricate datasets. Enter vector databases, a technological innovation that has emerged as a solution to the challenges posed by the ever-expanding landscape of data. (Source: beginner's [blog post](https://medium.com/data-and-beyond/vector-databases-a-beginners-guide-b050cbbe9ca0) on vector DB)
+
+##### Vector database
+
+Vector databases have gained significant importance in various fields due to their unique ability to efficiently store, index, and search high-dimensional data points, often referred to as vectors. These databases are designed to handle data where each entry is represented as a vector in a multi-dimensional space. The vectors can represent a wide range of information, such as numerical features, embeddings from text or images, and even complex data like molecular structures.
+
+At the heart of vector databases lies the concept of vector embeddings. These are mathematical representations of data points in a high-dimensional space. In the context of natural language processing:
+
+1. Word Embeddings: Individual words are represented as real-valued vectors in a multi-dimensional space.
+2. Semantic Capture: These embeddings capture the semantic meaning and relationships of the text.
+3. Similarity Principle: Words with similar meanings tend to have similar vector representations.
+
+::: {.column-margin}
+![Vectors](../images/foundation-models/vectorDB-vectors.png){#fig-vectors}
+:::
+
+###### How vector databases work
+Let’s start with a simple example of dealing with an LLM such as ChatGPT. The model has large volumes of data with a lot of content, and they provide us with the ChatGPT application.
+
+![VectorDB within RAG. Source: KDnuggets [blog post](https://www.kdnuggets.com/2023/06/vector-databases-important-llms.html)](../images/foundation-models/vectorDB.png){#fig-vectordb}
+
+So let’s go through the steps.
+
+1. As the user, you will input your query into the application.
+2. Your query is then inserted into the embedding model which creates vector embeddings based on the content we want to index. 
+3. The vector embedding then moves into the vector database, regarding the content that the embedding was made from. 
+4. The vector database produces an output and sends it back to the user as a query result. 
+
+When the user continues to make queries, it will go through the same embedding model to create embeddings to query that database for similar vector embeddings. The similarities between the vector embeddings are based on the original content, in which the embedding was created. 
+
+Now lets see how it works in the vector database.
+
+![VectorDB pipeline. Source: pinecone [blog post](https://www.pinecone.io/learn/vector-database/)](../images/foundation-models/vectordb-working.png){#fig-vectordb-working}
+
+The three main stages that a vector database query goes through are:
+
+1. Indexing
+
+As explained in the example above, once the vector embedding moves into the vector database, it then uses a variety of algorithms to map the vector embedding to data structures for faster searching. 
+
+2. Querying
+
+Once it has gone through its search, the vector database compares the queried vector to indexed vectors, applying the similarity metric to find the nearest neighbor. 
+
+3. Post Processing 
+
+Depending on the vector database you use, the vector database will post-process the final nearest neighbor to produce a final output to the query. As well as possibly re-ranking the nearest neighbors for future reference. 
+
+
+### RAG - Retrieval-Augmented *Generation*
+
+We will focus on the "generation" part of RAG for this section. Here most of the heavy-lifting is done by the LLMs. Let's see how best to communicate/prompt these LLM models for RAG.
+
+#### Prompting
+Prompting is a crucial technique in effectively communicating with Large Language Models (LLMs) to achieve desired outcomes without modifying the underlying model. As LLMs become more sophisticated, the art of crafting effective prompts has emerged as a key skill in natural language processing and AI applications. Checkout LilianWeng blog post [@weng2023prompt], medium [blog post](https://medium.com/thedeephub/llm-prompt-engineering-for-beginners-what-it-is-and-how-to-get-started-0c1b483d5d4f#:~:text=In%20essence%2C%20a%20prompt%20is,you%20want%20it%20to%20do) on prompt engineering.
+
+Prompting is often an iterative process. It typically requires multiple trial-and-error attempts to achieve the desired effect. Each iteration can provide insights into how the model interprets and responds to different input structures.
+
+##### Key Elements of Effective Prompting
+
+1. Defining a Persona
+
+Assigning the LLM a specific role or behavior can significantly influence its responses. By giving it a defined persona, the model will attempt to respond in a manner that aligns with that role. This can improve the quality and relevance of its answers.
+
+Example:
+“You are a helpful research assistant”
+
+This prompt frames the model's responses to be in line with the behavior expected of a research assistant, such as providing accurate information and being resourceful.
+
+2. Setting Guardrails
+
+Guardrails provide boundaries or conditions within which the model should operate. This is particularly useful to avoid misleading or incorrect information. You can ask the model to refrain from answering if it's unsure of the response.
+
+Example:
+“If you don’t know the final answer, just say ‘I don’t know’.”
+
+This instructs the LLM to admit uncertainty instead of generating a potentially incorrect answer, thereby increasing reliability.
+
+3. Providing Clear Instructions
+
+Giving the LLM specific actions to perform before generating responses ensures that it processes the necessary information correctly. This is important when dealing with tasks like reviewing files or using external data.
+
+Example:
+“Read the data file before answering any questions.”
+
+This directs the LLM to review relevant materials, improving the quality of the subsequent answers.
+
+4. Specifying Response Formats
+
+You can enhance the usefulness of responses by specifying the desired output format. By doing this, you ensure the model delivers information in a form that aligns with your needs.
+
+Example:
+“Respond using markdowns.”
+
+This ensures the LLM outputs text in Markdown format, which can be helpful for structured documents or technical writing.
+
+### RAG System
+
+Let's bring it all together
+
+![RAG system. Image source: [blog.demir](https://blog.demir.io/hands-on-with-rag-step-by-step-guide-to-integrating-retrieval-augmented-generation-in-llms-ac3cb075ab6f) ](../images/foundation-models/RAGsystem.png){#fig-rag-system}
+
+1. User Submits Query: The user inputs a query into the system. This is the initial step where the user’s request is captured.
+2. RAG System Query Relevant Documents: The RAG system processes the user’s query and searches for relevant documents.
+3. Document Database Returns Documents: The document database receives the request for relevant documents and returns the documents it finds to the RAG system.
+4. Combine The Query & The Documents: The RAG system takes the documents provided by the document database and combines them with the original query.
+5. LLM Returns Answer: The combined query and documents are sent to a Large Language Model (LLM), which generates an answer based on the information provided.
+6. RAG System Return Answer to User: Finally, the answer generated by the LLM is sent back through the RAG system.
+
 
