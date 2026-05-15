@@ -37,28 +37,15 @@ Before reading the definition, take a moment to consider: In your own words, wha
 **Artificial Intelligence (AI)** is the field concerned with building computer systems that perform tasks typically requiring cognitive functions associated with human intelligence, such as pattern recognition, learning from data, and making predictions.
 :::
 
-For a time, one of the goals of AI was to pass the Turing test. The first program often considered to pass a variation of the Turing test was Eugene Goostman, which simulated a 13-year-old boy from Odessa, Ukraine. It passed the Turing test in 2014. Modern chatbots, such as ChatGPT-4, arguably can easily pass the Turing test.[@jackson2025ai] However, as early as the 1980s, philosophers like John Searle argued that passing the Turing test does not prove that a machine is intelligent. This concern is increasingly relevant today. Searle often illustrated his argument with the **Chinese Room thought experiment**.
-
-
-1. Imagine a person who knows no Chinese locked in a room.
-2. Outside, native Chinese speakers pass written questions into the room.
-3. Inside, the person uses a large rulebook to match the input characters with appropriate responses.
-4. The person inside then passes the answers back out.
-
-
-To outsiders, the room appears to “understand” Chinese, yet the person inside has no comprehension of the language’s meaning. Searle argued that a computer running a program is analogous to the person following the rulebook: it manipulates syntax without understanding semantics. Thus, behavioral imitation alone is not evidence of true intelligence.
-
-![Figure 2.1.1: Source [@jackson2025ai] The Chinese Room Argument.](../images/ai-for-all/chinese_room.jpeg)
-
-Whether one finds Searle convincing, the example highlights a gap between performance and actual intelligence.
+For a time, one of the goals of AI was to pass the Turing test. The first program often considered to pass a variation of the Turing test was Eugene Goostman, which simulated a 13-year-old boy from Odesa, Ukraine. It passed the Turing test in 2014. Modern chatbots, such as GPT-4, arguably can easily pass the Turing test.[@jackson2025ai] However, as early as the 1980s, philosophers like John Searle argued that passing the Turing test does not prove that a machine is intelligent and that behavioral imitation alone is not evidence of true intelligence. Whether one finds Searle convincing, this dispute highlights a gap between performance and actual intelligence.
 
 **Artificial General Intelligence**
 
 Most modern AIs are narrow, or “weak” AIs. The opposite concept, originally envisioned as “strong AI,” is now referred to as Artificial General Intelligence (AGI). AGI is often described as human-like intelligence.
 
-But that raises a big question! What exactly is **human intelligence**?
+But what exactly is **human intelligence**?
 
-Generally speaking, human intelligence is the capacity to learn from experience, identify patterns, handle abstract concepts, and apply knowledge to shape the environment. Yet, these are only functional descriptions. The core, or what many consider a distinguishing feature, is the presence of self-awareness and a subjective feel of an experience. But the evolutional reason for thier existence remains controversial: why does self-awareness matter for cognition, and what evolutionary advantage does subjective experience provide?
+Generally speaking, human intelligence is the capacity to learn from experience, identify patterns, handle abstract concepts, and apply knowledge to shape the environment. Yet, these are only functional descriptions. The core, or what many consider a distinguishing feature, is the presence of self-awareness and a subjective feel of an experience. But the evolutionary reason for their existence remains controversial: why does self-awareness matter for cognition, and what evolutionary advantage does subjective experience provide?
 
 
 ![Figure 2.1.2: The Hard Problem of Consciousness.](../images/ai-for-all/qualia.jpeg)
