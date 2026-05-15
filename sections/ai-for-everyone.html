@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>2&nbsp; AI for Everyone: An Introductory Overview – Cyber2A: AI for Arctic Research</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -55,15 +58,14 @@ div.csl-indent {
 <link href="../images/index/arcticlogo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3584025bd2775ba93d20b6dabf7256d8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-87b7f55de2e0c9887283481eb31a794c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -124,9 +126,7 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Cyber2A: AI for Arctic Research</a> 
         <div class="sidebar-tools-main">
@@ -400,25 +400,11 @@ figcaption {
 <p><strong>Artificial Intelligence (AI)</strong> is the field concerned with building computer systems that perform tasks typically requiring cognitive functions associated with human intelligence, such as pattern recognition, learning from data, and making predictions.</p>
 </div>
 </div>
-<p>For a time, one of the goals of AI was to pass the Turing test. The first program often considered to pass a variation of the Turing test was Eugene Goostman, which simulated a 13-year-old boy from Odessa, Ukraine. It passed the Turing test in 2014. Modern chatbots, such as ChatGPT-4, arguably can easily pass the Turing test.<span class="citation" data-cites="jackson2025ai"><a href="../references.html#ref-jackson2025ai" role="doc-biblioref">[1]</a></span> However, as early as the 1980s, philosophers like John Searle argued that passing the Turing test does not prove that a machine is intelligent. This concern is increasingly relevant today. Searle often illustrated his argument with the <strong>Chinese Room thought experiment</strong>.</p>
-<ol type="1">
-<li>Imagine a person who knows no Chinese locked in a room.</li>
-<li>Outside, native Chinese speakers pass written questions into the room.</li>
-<li>Inside, the person uses a large rulebook to match the input characters with appropriate responses.</li>
-<li>The person inside then passes the answers back out.</li>
-</ol>
-<p>To outsiders, the room appears to “understand” Chinese, yet the person inside has no comprehension of the language’s meaning. Searle argued that a computer running a program is analogous to the person following the rulebook: it manipulates syntax without understanding semantics. Thus, behavioral imitation alone is not evidence of true intelligence.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/ai-for-all/chinese_room.jpeg" class="img-fluid figure-img"></p>
-<figcaption>Figure 2.1.1: Source <span class="citation" data-cites="jackson2025ai"><a href="../references.html#ref-jackson2025ai" role="doc-biblioref">[1]</a></span> The Chinese Room Argument.</figcaption>
-</figure>
-</div>
-<p>Whether one finds Searle convincing, the example highlights a gap between performance and actual intelligence.</p>
+<p>For a time, one of the goals of AI was to pass the Turing test. The first program often considered to pass a variation of the Turing test was Eugene Goostman, which simulated a 13-year-old boy from Odesa, Ukraine. It passed the Turing test in 2014. Modern chatbots, such as GPT-4, arguably can easily pass the Turing test.<span class="citation" data-cites="jackson2025ai"><a href="../references.html#ref-jackson2025ai" role="doc-biblioref">[1]</a></span> However, as early as the 1980s, philosophers like John Searle argued that passing the Turing test does not prove that a machine is intelligent and that behavioral imitation alone is not evidence of true intelligence. Whether one finds Searle convincing, this dispute highlights a gap between performance and actual intelligence.</p>
 <p><strong>Artificial General Intelligence</strong></p>
 <p>Most modern AIs are narrow, or “weak” AIs. The opposite concept, originally envisioned as “strong AI,” is now referred to as Artificial General Intelligence (AGI). AGI is often described as human-like intelligence.</p>
-<p>But that raises a big question! What exactly is <strong>human intelligence</strong>?</p>
-<p>Generally speaking, human intelligence is the capacity to learn from experience, identify patterns, handle abstract concepts, and apply knowledge to shape the environment. Yet, these are only functional descriptions. The core, or what many consider a distinguishing feature, is the presence of self-awareness and a subjective feel of an experience. But the evolutional reason for thier existence remains controversial: why does self-awareness matter for cognition, and what evolutionary advantage does subjective experience provide?</p>
+<p>But what exactly is <strong>human intelligence</strong>?</p>
+<p>Generally speaking, human intelligence is the capacity to learn from experience, identify patterns, handle abstract concepts, and apply knowledge to shape the environment. Yet, these are only functional descriptions. The core, or what many consider a distinguishing feature, is the presence of self-awareness and a subjective feel of an experience. But the evolutionary reason for their existence remains controversial: why does self-awareness matter for cognition, and what evolutionary advantage does subjective experience provide?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/ai-for-all/qualia.jpeg" class="img-fluid figure-img"></p>
